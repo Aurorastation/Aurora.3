@@ -2,6 +2,7 @@
 	name = T_BOARD("portable generator")
 	build_path = /obj/structure/machinery/power/portgen/basic
 	board_type = BOARD_MACHINE
+	anchor_on_construction = FALSE
 	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_PHORON = 3, TECH_ENGINEERING = 3)
 	req_components = list(
 		"/obj/item/stock_parts/matter_bin" = 1,
@@ -23,4 +24,5 @@
 /obj/item/circuitboard/portgen/fusion
 	name = T_BOARD("minature fusion reactor")
 	build_path = /obj/structure/machinery/power/portgen/basic/fusion
+	anchor_on_construction = TRUE
 	origin_tech = list(TECH_DATA = 5, TECH_POWER = 7, TECH_ENGINEERING = 7)

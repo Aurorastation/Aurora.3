@@ -135,7 +135,7 @@
 	M.dna.ready_dna(M)
 
 	//Move the mob inside and initialize the mind
-	M.key = user.ckey //!! After that USER is invalid, so we have to use M
+	user.client.transfer_key_to_mob(M) //!! After that USER is invalid, so we have to use M
 
 	M.mind_initialize()
 

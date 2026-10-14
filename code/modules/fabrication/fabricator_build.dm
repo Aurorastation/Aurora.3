@@ -15,6 +15,7 @@
 	if(currently_printing.multiplier > 1 && istype(I, /obj/item/stack))
 		var/obj/item/stack/S = I
 		S.amount = currently_printing.multiplier
+	I.update_icon()
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
 	get_next_build()

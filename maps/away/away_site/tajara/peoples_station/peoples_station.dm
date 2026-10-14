@@ -49,7 +49,9 @@
 		"People's Station Transport Shuttle" = list("nav_hangar_peoples_station_transport")
 	)
 	comms_support = TRUE
-	comms_name = "people's station"
+
+/obj/effect/overmap/visitable/ship/stationary/peoples_station/create_comms_groups()
+	return list("default" = new /datum/comms_group("people's station"))
 
 /obj/effect/overmap/visitable/ship/stationary/peoples_station/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "pss")

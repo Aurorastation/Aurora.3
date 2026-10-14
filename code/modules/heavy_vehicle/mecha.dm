@@ -41,6 +41,12 @@
 
 	// Mob currently piloting the mech.
 	var/list/pilots
+	/// Whether the pilot commanding the current movement is trying to trample mobs.
+	var/trample_on_move = FALSE
+	/// A collision knocked a target prone, allowing the current Move to retry once.
+	var/trample_retry = FALSE
+	/// Largest mob this mech can trample. Bulwarks (size 28) and larger mobs are excluded.
+	var/max_trample_size = 27
 	var/list/pilot_overlays
 
 	// Remote control stuff
@@ -151,6 +157,10 @@
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
 	return TRUE
+
+/mob/living/heavy_vehicle/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Use both run and harm intent to trample people."
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case

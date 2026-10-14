@@ -13,7 +13,6 @@
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = AREA_USAGE_ENVIRON
-	var/last_process = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 	/// Looping sound datum for our fire alarm siren.
@@ -182,15 +181,11 @@
 	if(!timing)
 		return PROCESS_KILL
 
+	src.time = max(0, src.time - (seconds_per_tick SECONDS))
 	if(src.time <= 0)
 		alarm()
-		src.time = 0
 		timing = FALSE
-		. = PROCESS_KILL
-	else
-		src.time = src.time - (((world.timeofday - last_process) / 10) * seconds_per_tick)
-
-	last_process = world.timeofday
+		return PROCESS_KILL
 
 /obj/structure/machinery/firealarm/power_change()
 	..()
@@ -239,13 +234,16 @@
 			if(!isnum(input_time))
 				return
 
-			time = clamp(input_time SECONDS, 1, 600)
+			time = clamp(input_time, 0, 600) SECONDS
 
 		if("start_timer")
+			if(time <= 0)
+				return
 			src.timing = 1
 			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		if("stop_timer")
 			src.timing = 0
+			STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 	return TRUE
 

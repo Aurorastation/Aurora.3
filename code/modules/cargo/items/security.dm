@@ -28,6 +28,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/pepperspray
+	category = "security"
+	name = "pepper spray"
+	supplier = "nanotrasen"
+	description = "A compact pepper spray canister used to blind and incapacitate a target."
+	price = 80
+	items = list(
+		/obj/item/reagent_containers/spray/pepper
+	)
+	access = /datum/access/security::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/uvlight
 	category = "security"
 	name = "UV light"
@@ -162,6 +176,34 @@
 	price = 520
 	items = list(
 		/obj/item/storage/box/tactical/flashbangs
+	)
+	access = /datum/access/security::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/stingergrenades_box
+	category = "security"
+	name = "box of stinger grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 7 antipersonnel stinger grenades. WARNING: These devices can cause serious injury. Use with caution."
+	price = 550
+	items = list(
+		/obj/item/storage/box/tactical/stingers
+	)
+	access = /datum/access/security::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/smokegrenades_box
+	category = "security"
+	name = "box of smoke grenades"
+	supplier = "zavodskoi"
+	description = "A box containing 7 smoke grenades, used to provide cover, confusion, and distraction."
+	price = 350
+	items = list(
+		/obj/item/storage/box/tactical/smokebombs
 	)
 	access = /datum/access/security::id
 	container_type = "crate"
@@ -487,6 +529,20 @@
 		/obj/item/firing_pin
 	)
 	access = /datum/access/security::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/firingpinextractor
+	category = "security"
+	name = "firing pin extractor"
+	supplier = "nanotrasen"
+	description = "A device capable of safely removing an installed firing pin from a firearm."
+	price = 500
+	items = list(
+		/obj/item/pin_extractor
+	)
+	access = /datum/access/armory::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

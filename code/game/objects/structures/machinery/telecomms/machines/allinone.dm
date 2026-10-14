@@ -19,7 +19,7 @@
 /obj/structure/machinery/telecomms/allinone/Initialize()
 	. = ..()
 	if(!freq_listening.len)
-		freq_listening = ANTAG_FREQS
+		freq_listening = ANTAG_FREQS.Copy()
 	LAZYINITLIST(recent_broadcasts)
 	SSmachinery.all_receivers += src
 
@@ -61,12 +61,13 @@
 		return
 
 	if(away_aio)
-		if(linked.comms_name)
-			name = "[lowertext(linked.comms_name)] [initial(name)]"
-		freq_listening = list(
-			HAIL_FREQ,
-			assign_away_freq(linked.name)
-		)
+		name = "[lowertext(linked.name)] [initial(name)]"
+		freq_listening = list(HAIL_FREQ)
+
+		for(var/group_id in linked.comms_groups)
+			var/datum/comms_group/group = linked.comms_groups[group_id]
+			var/freq_name = group.freq_name ? group.freq_name : linked.name
+			freq_listening |= assign_away_freq(freq_name)
 
 /obj/structure/machinery/telecomms/allinone/ship/coalition_navy
 	name = "coalition navy telecommunications mainframe"

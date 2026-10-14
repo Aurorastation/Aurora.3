@@ -12,6 +12,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/emergencyoxygentank
+	category = "atmos"
+	name = "emergency oxygen tank"
+	supplier = "hephaestus"
+	description = "A compact oxygen tank intended for short-term emergency use."
+	price = 20
+	items = list(
+		/obj/item/tank/emergency_oxygen
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/phorontank
 	category = "atmos"
 	name = "phoron tank"

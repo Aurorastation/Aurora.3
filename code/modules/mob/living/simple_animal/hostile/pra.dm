@@ -1,5 +1,6 @@
 /mob/living/simple_animal/hostile/republicon
 	name = "republican defensive robot"
+	accent = ACCENT_ELEKTRO_SIIK
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
 	desc_extended = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
 	blades,	ballistic rifles or rockets. Those machines are usually deployed in rare cases of boarding operations. They possess a rudimentary artificial intelligence and targeting system, \

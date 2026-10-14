@@ -122,6 +122,8 @@
 	var/growth_level = 0
 	var/obj/structure/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = FALSE
+	/// Incremented to invalidate delayed vent travel when the larva is contained.
+	var/vent_travel_generation = 0
 	/// Possible creatures the larva can mature into.
 	var/list/possible_offspring = list(
 		/mob/living/simple_animal/hostile/giant_spider,
@@ -163,6 +165,12 @@
 	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
 
+/obj/effect/spider/spiderling/proc/stop_automated_movement()
+	GLOB.move_manager.stop_looping(src)
+	entry_vent = null
+	travelling_in_vent = FALSE
+	vent_travel_generation++
+
 /obj/effect/spider/spiderling/process()
 	if(travelling_in_vent)
 		if(istype(src.loc, /turf))
@@ -178,14 +186,15 @@
 					entry_vent = null
 					return
 				var/obj/structure/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
+				var/current_vent_travel_generation = vent_travel_generation
 
 				spawn(rand(20,60))
-					if(!QDELETED(src))
+					if(!QDELETED(src) && current_vent_travel_generation == vent_travel_generation)
 						var/travel_time = round(get_dist(loc, exit_vent.loc) / 2)
 						travelling_in_vent = TRUE
 						loc = exit_vent
 						spawn(travel_time)
-							if(!QDELETED(src))
+							if(!QDELETED(src) && current_vent_travel_generation == vent_travel_generation)
 								if(!exit_vent || exit_vent.welded)
 									loc = entry_vent
 									entry_vent = null

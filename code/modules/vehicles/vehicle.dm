@@ -1,5 +1,11 @@
 //Dummy object for holding items in vehicles.
 //Prevents items from being interacted with.
+#define VEHICLE_REPAIR_NONE 0
+#define VEHICLE_REPAIR_NEEDS_STEEL 1
+#define VEHICLE_REPAIR_NEEDS_HAMMER 2
+#define VEHICLE_REPAIR_NEEDS_WELDER 3
+#define VEHICLE_REPAIR_STEEL_COST 2
+
 /datum/vehicle_dummy_load
 	var/name = "dummy load"
 	var/actual_load
@@ -14,6 +20,7 @@
 	light_range = 3
 	buckle_movable = 1
 	buckle_lying = 0
+	should_use_health = TRUE
 
 	var/buckling_sound = 'sound/effects/metal_close.ogg'
 
@@ -39,6 +46,10 @@
 	var/flying = FALSE
 	var/organic = FALSE
 	var/corpse = null
+	/// If TRUE, riders cannot mount while prone and are ejected if they become prone.
+	var/eject_prone_riders = TRUE
+	/// Tracks the steps needed to make a broken mechanical vehicle operational again.
+	var/repair_stage = VEHICLE_REPAIR_NONE
 
 	light_system = DIRECTIONAL_LIGHT
 
@@ -55,6 +66,24 @@
 
 /obj/vehicle/proc/setup_vehicle()
 	LAZYADD(can_buckle, /mob/living)
+
+/obj/vehicle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!organic)
+		. += "Repair ordinary damage with a lit welder while the maintenance panel is open."
+		. += "A broken vehicle must first be fitted with [VEHICLE_REPAIR_STEEL_COST] steel sheets, then hammered into shape, and finally welded back together."
+
+/obj/vehicle/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!(stat & BROKEN))
+		return
+	switch(repair_stage)
+		if(VEHICLE_REPAIR_NEEDS_STEEL)
+			. += SPAN_DANGER("\The [src] is broken down. Its damaged frame needs new steel plating.")
+		if(VEHICLE_REPAIR_NEEDS_HAMMER)
+			. += SPAN_DANGER("\The [src] is broken down. Its new plating needs to be hammered into shape.")
+		if(VEHICLE_REPAIR_NEEDS_WELDER)
+			. += SPAN_DANGER("\The [src] is broken down. Its new plating needs to be welded in place.")
 
 /obj/vehicle/Move()
 	if(world.time > l_move_time + move_delay)
@@ -88,6 +117,8 @@
 	return
 
 /obj/vehicle/attackby(obj/item/attacking_item, mob/user)
+	if(handle_broken_repair(attacking_item, user))
+		return
 	if(istype(attacking_item, /obj/item/hand_labeler))
 		return
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !organic)
@@ -242,7 +273,77 @@
 	qdel(src)
 
 /obj/vehicle/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	explode()
+	if(organic)
+		explode()
+		return
+	if(stat & BROKEN)
+		return
+	stat |= BROKEN
+	repair_stage = VEHICLE_REPAIR_NEEDS_STEEL
+	turn_off()
+	visible_message(SPAN_DANGER("\The [src] breaks down!"))
+	if(ismob(load))
+		unload(load)
+	spark(src, 3, GLOB.alldirs)
+
+/// Handles the staged repair process for a broken mechanical vehicle.
+/obj/vehicle/proc/handle_broken_repair(obj/item/attacking_item, mob/user)
+	if(!(stat & BROKEN) || organic)
+		return FALSE
+
+	var/obj/item/stack/material/repair_material
+	if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/candidate_material = attacking_item
+		if(candidate_material.material?.type == MATERIAL_STEEL)
+			repair_material = candidate_material
+
+	var/is_hammer = attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT
+	var/is_welder = attacking_item.tool_behaviour == TOOL_WELDER
+	if(!repair_material && !is_hammer && !is_welder)
+		return FALSE
+
+	switch(repair_stage)
+		if(VEHICLE_REPAIR_NEEDS_STEEL)
+			if(!repair_material)
+				to_chat(user, SPAN_WARNING("You need to fit steel sheets over \the [src]'s damaged frame first."))
+				return TRUE
+			if(repair_material.get_amount() < VEHICLE_REPAIR_STEEL_COST)
+				to_chat(user, SPAN_WARNING("You need [VEHICLE_REPAIR_STEEL_COST] steel sheets to repair \the [src]."))
+				return TRUE
+			user.visible_message(SPAN_NOTICE("[user] begins fitting new plating to \the [src]."), SPAN_NOTICE("You begin fitting new plating to \the [src]."))
+			if(do_after(user, 2 SECONDS, src) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_STEEL && repair_material.use(VEHICLE_REPAIR_STEEL_COST))
+				repair_stage = VEHICLE_REPAIR_NEEDS_HAMMER
+				user.visible_message(SPAN_NOTICE("[user] fits new plating to \the [src]."), SPAN_NOTICE("You fit new plating to \the [src]. It needs to be hammered into shape."))
+			return TRUE
+
+		if(VEHICLE_REPAIR_NEEDS_HAMMER)
+			if(!is_hammer)
+				to_chat(user, SPAN_WARNING("\The [src]'s new plating needs to be hammered into shape."))
+				return TRUE
+			user.visible_message(SPAN_NOTICE("[user] begins hammering \the [src]'s new plating into shape."), SPAN_NOTICE("You begin hammering \the [src]'s new plating into shape."))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_HAMMER)
+				repair_stage = VEHICLE_REPAIR_NEEDS_WELDER
+				user.visible_message(SPAN_NOTICE("[user] finishes shaping \the [src]'s new plating."), SPAN_NOTICE("You finish shaping \the [src]'s new plating. It needs to be welded in place."))
+			return TRUE
+
+		if(VEHICLE_REPAIR_NEEDS_WELDER)
+			if(!is_welder)
+				to_chat(user, SPAN_WARNING("\The [src]'s new plating needs to be welded in place."))
+				return TRUE
+			var/obj/item/weldingtool/welder = attacking_item
+			if(!welder.welding)
+				to_chat(user, SPAN_WARNING("You need to light \the [welder] first."))
+				return TRUE
+			user.visible_message(SPAN_NOTICE("[user] begins welding \the [src]'s new plating into place."), SPAN_NOTICE("You begin welding \the [src]'s new plating into place."))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_WELDER)
+				set_health(maxhealth * 0.25)
+				stat &= ~BROKEN
+				repair_stage = VEHICLE_REPAIR_NONE
+				update_icon()
+				user.visible_message(SPAN_NOTICE("[user] restores \the [src] to working order."), SPAN_NOTICE("You restore \the [src] to working order. It could still use further repairs."))
+			return TRUE
+
+	return FALSE
 
 /obj/vehicle/proc/powercheck()
 	if(!cell && !powered)
@@ -305,6 +406,10 @@
 		return FALSE
 	if(load || thing_to_load.anchored)
 		return FALSE
+	if(eject_prone_riders && isliving(thing_to_load))
+		var/mob/living/rider = thing_to_load
+		if(rider.lying)
+			return FALSE
 
 	// if a crate/closet, close before loading
 	var/obj/structure/closet/closet = thing_to_load
@@ -330,8 +435,18 @@
 
 	if(ismob(thing_to_load))
 		buckle(thing_to_load, thing_to_load)
+		if(eject_prone_riders)
+			RegisterSignal(thing_to_load, COMSIG_MOB_LYING_DOWN, PROC_REF(eject_lying_rider))
 
 	return TRUE
+
+/// Ejects a rider when something causes them to fall prone.
+/obj/vehicle/proc/eject_lying_rider(mob/living/rider)
+	SIGNAL_HANDLER
+	if(rider != load)
+		return
+	rider.visible_message(SPAN_WARNING("\The [rider] falls off \the [src]!"), SPAN_WARNING("You fall off \the [src]!"))
+	unload(rider)
 
 /obj/vehicle/buckle(atom/movable/buckling_atom, mob/user)
 	. = ..()
@@ -382,6 +497,8 @@
 	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
 
+	if(eject_prone_riders && ismob(load))
+		UnregisterSignal(load, COMSIG_MOB_LYING_DOWN)
 	load.forceMove(dest)
 	load.set_dir(get_dir(loc, dest))
 	load.anchored = 0		//we can only load non-anchored items, so it makes sense to set this to false
@@ -439,3 +556,9 @@
 			return FALSE
 
 	return TRUE
+
+#undef VEHICLE_REPAIR_NONE
+#undef VEHICLE_REPAIR_NEEDS_STEEL
+#undef VEHICLE_REPAIR_NEEDS_HAMMER
+#undef VEHICLE_REPAIR_NEEDS_WELDER
+#undef VEHICLE_REPAIR_STEEL_COST

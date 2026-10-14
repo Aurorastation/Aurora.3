@@ -34,14 +34,16 @@
 	alignment = "Coalition of Colonies"
 	requires_contact = FALSE
 	instant_contact = TRUE
-
 	comms_support = TRUE
-	comms_name = "Zeng-Hu Corporate Security" //these comms should only be used by ZH Security ghostroles
-	freq_name = "ZH Volturno-13-Kappa Patrol"
 
 	initial_generic_waypoints = list()
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_port_volturno_spaceport_intrepid"),
 		"Quark" = list("nav_port_volturno_spaceport_quark"),
 		"Spark" = list("nav_port_volturno_spaceport_spark")
+	)
+
+/obj/effect/overmap/visitable/sector/port_volturno/create_comms_groups() //these comms should only be used by ZH Security ghostroles
+	return list(
+		"default" = new /datum/comms_group("Zeng-Hu Corporate Security", "ZH Volturno-13-Kappa Patrol")
 	)

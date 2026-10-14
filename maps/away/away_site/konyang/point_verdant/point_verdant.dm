@@ -36,10 +36,7 @@
 	alignment = "Coalition of Colonies"
 	requires_contact = FALSE
 	instant_contact = TRUE
-
 	comms_support = TRUE
-	comms_name = "National Police" //these comms should only be used by Konyang Police ghostroles
-	freq_name = "Corporate District Patrol"
 
 	initial_generic_waypoints = list(
 		"nav_point_verdant_waterdock_01",
@@ -61,4 +58,9 @@
 		"Intrepid" = list("nav_point_verdant_spaceport_intrepid"),
 		"Spark" = list("nav_point_verdant_spaceport_spark"),
 		"Canary" = list("nav_point_verdant_spaceport_canary", "nav_point_verdant_corporate_canary"),
+	)
+
+/obj/effect/overmap/visitable/sector/point_verdant/create_comms_groups() //these comms should only be used by Konyang Police ghostroles
+	return list(
+		"default" = new /datum/comms_group("National Police", "Corporate District Patrol")
 	)

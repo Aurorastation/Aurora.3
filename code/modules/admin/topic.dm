@@ -444,7 +444,7 @@
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
 		to_world(SPAN_NOTICE("<b>The mode is now: [GLOB.master_mode]</b>"))
 		Game() // updates the main game menu
-		SSpersistent_configuration.last_gamemode = GLOB.master_mode
+		SSregistry.setValue("last_gamemode", GLOB.master_mode)
 		.(href, list("c_mode"=1))
 
 	else if(href_list["f_secret2"])
@@ -1482,6 +1482,21 @@
 			else
 				if(!M.add_language(lang2toggle))
 					to_chat(usr, "Failed to add language '[lang2toggle]' from \the [M]!")
+
+			show_player_panel(M)
+
+	else if(href_list["setskill"])
+		if(check_rights(R_SPAWN))
+			var/mob/M = locate(href_list["setskill"])
+			var/singleton/skill/skill = GET_SINGLETON(text2path(href_list["skill"]))
+			var/skill_level = text2num(href_list["skill_level"])
+			if(!istype(M) || !istype(skill) || !(skill_level in skill.skill_level_descriptions))
+				return
+
+			var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
+			if(skill_component)
+				qdel(skill_component)
+			skill.on_spawn(M, skill_level)
 
 			show_player_panel(M)
 

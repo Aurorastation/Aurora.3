@@ -139,9 +139,12 @@
 
 	var/datum/gas_mixture/ambient = T.return_air()
 	// Too much heat is bad for the cooling unit.
-	if(owner.bodytemperature > species.heat_level_1)
-		if(prob(owner.bodytemperature * 0.1))
-			take_internal_damage(owner.bodytemperature * 0.01)
+	var/excess_temperature = owner.bodytemperature - species.heat_level_1
+	if(excess_temperature > 0)
+		var/damage_probability = min(excess_temperature * 0.5, 100)
+		if(SPT_PROB(damage_probability, seconds_per_tick))
+			var/heat_damage = max(excess_temperature * 0.01, 1)
+			take_internal_damage(heat_damage * seconds_per_tick)
 
 	var/temperature_change = passive_temp_change * seconds_per_tick
 	if(owner.wear_suit)

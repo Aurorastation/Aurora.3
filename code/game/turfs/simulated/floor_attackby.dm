@@ -149,7 +149,7 @@
 	return 1
 
 /turf/simulated/floor/can_lay_cable()
-	return !flooring
+	return !flooring || has_tent_floor()
 
 /turf/simulated/can_have_cabling()
 	return TRUE

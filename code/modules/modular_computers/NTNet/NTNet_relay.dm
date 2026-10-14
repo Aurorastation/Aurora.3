@@ -250,11 +250,12 @@
 
 /obj/structure/machinery/ntnet_relay/field
 	name = "NTNet Field Relay"
-	desc = "A deployable NTNet relay that extends local network coverage while it has short-range backhaul to an operational core relay."
+	desc = "A deployable NTNet relay that extends local network coverage. It must receive area power or stand over a cable knot connected to a powernet, be enabled, and be within one overmap tile of an operational core relay in a base sector."
 	active_power_usage = 5000
 	enabled = FALSE
 	core_service = FALSE
 	backhaul_range = 1
+	var/obj/structure/machinery/power/terminal/field_relay/power_terminal
 	component_types = list(
 		/obj/item/circuitboard/ntnet_relay/field,
 		/obj/item/stack/cable_coil = 15,
@@ -262,3 +263,47 @@
 		/obj/item/stock_parts/subspace/filter,
 		/obj/item/stock_parts/subspace/crystal
 	)
+
+/obj/structure/machinery/ntnet_relay/field/Initialize()
+	. = ..()
+	power_terminal = new(loc)
+	power_terminal.relay = src
+	power_terminal.connect_to_network()
+
+/obj/structure/machinery/ntnet_relay/field/LateInitialize()
+	. = ..()
+	power_terminal?.connect_to_network()
+
+/obj/structure/machinery/ntnet_relay/field/Destroy()
+	QDEL_NULL(power_terminal)
+	return ..()
+
+/obj/structure/machinery/ntnet_relay/field/process()
+	var/old_stat = stat
+	var/area/relay_area = get_area(src)
+	if(relay_area?.powered(power_channel))
+		stat &= ~NOPOWER
+	else
+		var/power_demand = enabled && !dos_failure && !(stat & (BROKEN|EMPED)) ? active_power_usage : idle_power_usage
+		var/power_received = power_terminal ? POWER_DRAW(power_terminal, power_demand) : 0
+		if(power_terminal)
+			DRAW_POWER(power_terminal, power_received)
+		if(power_received >= power_demand)
+			stat &= ~NOPOWER
+		else
+			stat |= NOPOWER
+	if(stat != old_stat)
+		queue_icon_update()
+
+	return ..()
+
+/obj/structure/machinery/power/terminal/field_relay
+	name = "field relay power terminal"
+	icon_state = "term_alt"
+	var/obj/structure/machinery/ntnet_relay/field/relay
+
+/obj/structure/machinery/power/terminal/field_relay/Destroy()
+	if(relay)
+		relay.power_terminal = null
+		relay = null
+	return ..()

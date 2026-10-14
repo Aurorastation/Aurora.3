@@ -11,14 +11,14 @@
 
 #define HOLOMAP_AREACOLOR_COMMAND     "#386d80"
 #define HOLOMAP_AREACOLOR_SECURITY    "#ae1212"
-#define HOLOMAP_AREACOLOR_MEDICAL     "#6f9e00"
+#define HOLOMAP_AREACOLOR_MEDICAL     "#5bc1c1"
 #define HOLOMAP_AREACOLOR_SCIENCE     "#A154A6"
 #define HOLOMAP_AREACOLOR_ENGINEERING "#F1C231"
 #define HOLOMAP_AREACOLOR_OPERATIONS  "#E06F00"
 #define HOLOMAP_AREACOLOR_HALLWAYS    "#ffffff"
 #define HOLOMAP_AREACOLOR_DOCK        "#0000FF"
 #define HOLOMAP_AREACOLOR_HANGAR      "#777777"
-#define HOLOMAP_AREACOLOR_CIVILIAN    "#5bc1c1"
+#define HOLOMAP_AREACOLOR_CIVILIAN    "#6f9e00"
 // If someone can come up with a non-conflicting color for the lifts, please update this.
 #define HOLOMAP_AREACOLOR_LIFTS       null
 

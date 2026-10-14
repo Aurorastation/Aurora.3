@@ -710,6 +710,10 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/bssb_jacket.dmi'
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/bssb/bodyguard
+	name = "\improper BSSB close protection officer jacket"
+	desc = "A jacket used by Biesel Security Services Bureau close protection officers."
+
 /obj/item/clothing/suit/storage/toggle/bssb/armor
 	name = "\improper BSSB agent armored jacket"
 	desc = "A jacket used by Biesel Security Services Bureau agents while on the field. This one has armored lining."

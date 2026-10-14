@@ -534,11 +534,15 @@
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range
 	if(message_range == 0)
-		var/mob/user = loc
-		if(istype(user))
+		var/mob/user = get_message_recipient()
+		if(user)
 			to_chat(user, message)
 		return
 	audible_message(message, hearing_distance = message_range)
+
+/obj/item/modular_computer/proc/get_message_recipient()
+	if(ismob(loc))
+		return loc
 
 // TODO: Make pretty much everything use these helpers.
 /obj/item/modular_computer/proc/output_notice(var/message, var/message_range)
@@ -556,12 +560,13 @@
 	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
 	output_message(FONT_SMALL(SPAN_BOLD(message)), message_range)
 
-/obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)
+/obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null, var/quiet = FALSE)
 	var/obj/item/card/id/id = GetID()
-	if(PRG)
+	if(PRG && !quiet)
 		output_notice("[PRG.filedesc] requires a registered NTNRC account. Registering automatically...")
 	if(!istype(id))
-		output_error("No ID card found!")
+		if(!quiet)
+			output_error("No ID card found!")
 		return FALSE
 
 	registered_id = id
@@ -570,11 +575,12 @@
 		for(var/datum/computer_file/program/P in hard_drive.stored_files)
 			P.event_registered()
 
-	output_notice("Registration successful!")
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
+	if(!quiet)
+		output_notice("Registration successful!")
+		playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return registered_id
 
-/obj/item/modular_computer/proc/unregister_account()
+/obj/item/modular_computer/proc/unregister_account(var/quiet = FALSE)
 	if(!registered_id)
 		return FALSE
 
@@ -584,8 +590,9 @@
 
 	registered_id = null
 
-	output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
+	if(!quiet)
+		output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
+		playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
 	return TRUE
 
 /obj/item/modular_computer/proc/set_autorun(var/fname)

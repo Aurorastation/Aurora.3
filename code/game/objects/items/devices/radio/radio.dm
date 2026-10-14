@@ -116,6 +116,7 @@ var/global/list/default_interrogation_channels = list(
 			. += SPAN_NOTICE("\The [src] can not be modified or attached!")
 
 	if(radio_desc)
+		. += "The following channels are available:"
 		. += radio_desc
 
 /obj/item/radio/mechanics_hints(mob/user, distance, is_adjacent)
@@ -725,24 +726,42 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/map_preset
 	channels = list()
 
-/obj/item/radio/map_preset/Initialize()
+/obj/item/radio/map_preset/Initialize(mapload, comms_group_id)
 	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
-	if(istype(V) && V.comms_support)
-		var/freq_name = V.name
-		if(V.freq_name)
-			freq_name = V.freq_name
-		frequency = assign_away_freq(freq_name)
-		default_frequency = frequency
-		channels += list(
-			freq_name = TRUE,
-			CHANNEL_HAILING = TRUE
-		)
-		if(V.comms_name)
-			name = "[V.comms_name] shortwave radio"
+	if(!istype(V) || !V.comms_support)
+		return ..()
+
+	// We choose which comm group we belong here
+	var/list/sector_comms_groups = V.comms_groups
+	var/datum/comms_group/comms_group
+
+	if(comms_group_id)
+		comms_group = sector_comms_groups[comms_group_id]
+
+	else if(length(sector_comms_groups) == 1)
+		// since the group has one member we get the datum from it
+		comms_group = sector_comms_groups[sector_comms_groups[1]]
+
+	if(!comms_group)
+		stack_trace("[src] at ([loc.x], [loc.y], [loc.z]) couldn't select a comms group. Received comms_group_id: [comms_group_id]")
+		return ..()
+
+	// Assign frequency here
+	var/freq_name = comms_group.freq_name ? comms_group.freq_name : V.name // if frequency name isn't provided, we default to sector name
+	frequency = assign_away_freq(freq_name)
+	default_frequency = frequency
+	channels += list(
+		freq_name = TRUE,
+		CHANNEL_HAILING = TRUE
+	)
+
+	// Assign name here
+	if(comms_group.comms_name)
+		name = "[comms_group.comms_name] [name]"
 
 	return ..()
 

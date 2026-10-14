@@ -302,8 +302,7 @@
 	light_color = LIGHT_COLOR_BLUE
 
 	var/last_gen = 0
-	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
-	//400 = 1 unit per 40 seconds
+	var/fuelgen_delay = 75 // One unit every 7.5 seconds; five minutes from empty to full.
 	change_icons = FALSE
 
 	var/obj/item/eyeshield/eyeshield

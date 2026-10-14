@@ -130,7 +130,7 @@
 
 /datum/gear/augment/analyzer
 	display_name = "retractable cyborg analyzer"
-	description = "An augment that allows the user to deploy a retractable cyborg analyzer."
+	description = "An augment that deploys a hand-mounted cyborg analyzer with an integrated interface for robotic and prosthetic diagnostics."
 	path = /obj/item/organ/internal/augment/tool/cyborg_analyzer
 	allowed_roles = list("Machinist", "Operations Personnel")
 	cost = 3

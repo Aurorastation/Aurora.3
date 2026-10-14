@@ -373,6 +373,7 @@ There are several things that need to be remembered:
 		part.cut_additional_images(src)
 		var/list/add_images = part.get_additional_images(src)
 		if(add_images)
+			part.additional_images = add_images.Copy()
 			AddOverlays(add_images, ATOM_ICON_CACHE_PROTECTED)
 	UpdateOverlays()
 

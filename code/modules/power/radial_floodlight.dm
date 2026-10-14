@@ -10,6 +10,9 @@
 	light_range = 8
 	light_power = 3
 	active_power_usage = 800 WATTS
+	component_types = list(
+		/obj/item/circuitboard/radial_floodlight
+	)
 
 	var/on = FALSE
 

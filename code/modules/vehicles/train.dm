@@ -13,6 +13,8 @@
 
 	var/active_engines = 0
 	var/train_length = 0
+	/// Largest mob this train can run over. Bulwarks (size 28) and larger mobs are excluded.
+	var/max_runover_size = 27
 
 	var/obj/vehicle/train/lead
 	var/obj/vehicle/train/tow
@@ -25,10 +27,6 @@
 		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
 	if(tow)
 		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
-
-/obj/vehicle/train/cargo/engine/antagonist_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	. += "When emagged, it can be used to run people over with."
 
 //-------------------------------------------
 // Standard procs
@@ -75,23 +73,48 @@
 	if(!istype(Obstacle, /atom/movable))
 		return
 	var/atom/movable/A = Obstacle
+	if(isliving(A))
+		var/mob/living/target_mob = A
+		if(target_mob.mob_size > max_runover_size)
+			collide_with_oversized_mob(target_mob)
+			return
 
 	if(!A.anchored)
 		var/turf/T = get_step(A, dir)
 		if(isturf(T))
 			A.Move(T)	//bump things away when hit
 
-	if(emagged)
+	var/mob/living/driver = get_driver()
+	if(driver?.m_intent == M_RUN)
 		if(isliving(A))
 			var/mob/living/M = A
 			visible_message(SPAN_WARNING("[src] knocks over [M]!"))
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
-			M.apply_damage(22 / move_delay, DAMAGE_BRUTE, def_zone,)	// and do damage according to how fast the train is going
-			if(isliving(load))
-				var/mob/living/D = load
-				to_chat(D, SPAN_WARNING("You hit [M]!"))
-				msg_admin_attack("[D.name] ([D.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(M))
+			// Keep fractional movement delays; instantaneous movement uses one tick for damage scaling.
+			var/collision_delay = move_delay > 0 ? move_delay : world.tick_lag
+			M.apply_damage(22 / collision_delay, DAMAGE_BRUTE, def_zone,)	// and do damage according to how fast the train is going
+			to_chat(driver, SPAN_WARNING("You hit [M]!"))
+			msg_admin_attack("[driver.name] ([driver.ckey]) hit [M.name] ([M.ckey]) with [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(driver),ckey_target=key_name(M))
+
+/obj/vehicle/train/proc/get_driver()
+	var/obj/vehicle/train/train_head = src
+	while(train_head.lead)
+		train_head = train_head.lead
+	if(isliving(train_head.load))
+		return train_head.load
+
+/obj/vehicle/train/proc/collide_with_oversized_mob(mob/living/target_mob)
+	var/mob/living/driver = get_driver()
+	if(driver?.m_intent != M_RUN)
+		return
+	visible_message(SPAN_WARNING("\The [src] collides with \the [target_mob], jolting its driver!"))
+	to_chat(driver, SPAN_WARNING("You collide with \the [target_mob]! They are too big to run over."))
+	driver.apply_damage(10, DAMAGE_PAIN)
+	driver.Stun(1)
+	driver.setMoveCooldown(1 SECONDS)
+	target_mob.apply_damage(10, DAMAGE_PAIN)
+	msg_admin_attack("[driver.name] ([driver.ckey]) collided with [target_mob.name] ([target_mob.ckey]) in [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)", ckey = key_name(driver), ckey_target = key_name(target_mob))
 
 
 //-------------------------------------------

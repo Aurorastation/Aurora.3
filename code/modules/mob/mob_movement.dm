@@ -361,8 +361,6 @@
 			. = mob.SelfMove(new_loc, direct)
 
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-			if (G.state == GRAB_NECK)
-				mob.set_dir(REVERSE_DIR(direct))
 			G.affecting.set_glide_size(new_glide_size)
 			for (var/obj/item/grab/T in list(G.affecting.l_hand, G.affecting.r_hand))
 				T.adjust_position()

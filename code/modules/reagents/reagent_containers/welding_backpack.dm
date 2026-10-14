@@ -15,6 +15,9 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
+/obj/item/reagent_containers/weldpack/empty
+	reagents_to_add = null
+
 /obj/item/reagent_containers/weldpack/Initialize(mapload)
 	var/turf/T = get_turf(src)
 	if(mapload && T && is_station_level(T.z))
@@ -76,7 +79,7 @@
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion.")
 			to_chat(user, SPAN_DANGER("That was stupid of you."))
-			explosion(get_turf(src),-1,0,2)
+			explosion(get_turf(src), -1, 0, 2, spreading = TRUE)
 			qdel(src)
 		else
 			if(T.welding)

@@ -152,7 +152,7 @@
 	SSradiation.z_radiate(locate(1, 1, z), DETONATION_RADS, TRUE)
 	SSradiation.radiate(src, LOCAL_DETONATION_RADS)
 	spawn(pull_time)
-		explosion(get_turf(src), explosion_power, explosion_power * 2, explosion_power * 3, explosion_power * 4, 1)
+		explosion(get_turf(src), explosion_power, explosion_power * 2, explosion_power * 3, explosion_power * 4, 1, spreading = TRUE)
 		qdel(src)
 		return
 

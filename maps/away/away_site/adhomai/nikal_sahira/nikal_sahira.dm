@@ -48,3 +48,13 @@
 	requires_contact = FALSE
 	instant_contact = TRUE
 	landing_site = TRUE
+	comms_support = TRUE
+
+/obj/effect/overmap/visitable/sector/nikal_sahira/create_comms_groups()
+	return list(
+		"the_lock_attendants" = new /datum/comms_group("casual", "The Lock Attendants"),
+		"rhan_cresh_patrol" = new /datum/comms_group("Rhan-Cresh Patrol", "Rhan-Cresh Patrolmen"),
+		"azaula_enforcer" = new /datum/comms_group("Azaula Entertainment", "Azaula Entertainment Enforcers"),
+		"gang_violet_knuckles" = new /datum/comms_group("shoddy", "Violet Knuckles"),
+		"gang_shamtyrs" = new /datum/comms_group("shoddy", "Sham'tyrs")
+	)

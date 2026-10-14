@@ -63,7 +63,7 @@
 
 	corpse_to_raise.revive()
 
-	corpse_to_raise.key = ghost.key	//the corpse will keep its old mind! but a new player takes ownership of it (they are essentially possessed)
+	ghost.client.transfer_key_to_mob(corpse_to_raise)	//the corpse will keep its old mind! but a new player takes ownership of it (they are essentially possessed)
 									//This means, should that player leave the body, the original may re-enter
 	user.say("Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
 	corpse_to_raise.visible_message(SPAN_WARNING("[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again."), \

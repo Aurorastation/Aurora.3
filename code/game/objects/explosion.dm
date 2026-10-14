@@ -1,6 +1,6 @@
 // explosion logic is in code/controllers/Processes/explosives.dm now
 
-/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = GLOB.config.use_spreading_explosions)
+/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = GLOB.config.use_spreading_explosions, mob/source_mob, source_name = "an explosion")
 	UNLINT(src = null)	//so we don't abort once src is deleted
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
@@ -11,7 +11,16 @@
 	data.adminlog = adminlog
 	data.z_transfer = z_transfer
 	data.spreading = spreading
-	data.rec_pow = max(0,devastation_range) * 2 + max(0,heavy_impact_range) + max(0,light_impact_range)
+	data.max_damage_range = max(devastation_range, heavy_impact_range, light_impact_range)
+	if(devastation_range > 0)
+		data.rec_pow = 300
+	else if(heavy_impact_range > 0)
+		data.rec_pow = 199
+	else if(light_impact_range > 0)
+		data.rec_pow = 99
+	data.power_falloff = data.rec_pow / max(1, light_impact_range + 2)
+	data.source_mob = source_mob
+	data.source_name = source_name
 
 	// queue work
 	SSexplosives.queue(data)

@@ -237,7 +237,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	var/character_slots = 10				// The number of available character slots
 	var/loadout_slots = 3					// The number of loadout slots per character
-	var/loadout_cost = 15					// The maximum cost of the loadout per slot
+	var/loadout_cost = 20					// The maximum cost of the loadout per slot
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.

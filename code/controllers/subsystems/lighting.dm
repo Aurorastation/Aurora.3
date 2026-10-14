@@ -101,7 +101,7 @@ SUBSYSTEM_DEF(lighting)
 	if(!init_tick_checks)
 		MC_SPLIT_TICK
 
-	while(updators_num > length(mask_queue))
+	while(updators_num < length(mask_queue))
 		updators_num += 1
 
 		var/atom/movable/lighting_mask/mask_to_update = mask_queue[updators_num]

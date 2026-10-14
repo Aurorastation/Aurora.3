@@ -79,6 +79,7 @@
 	var/next_move = null
 	var/transforming = null				//Carbon
 	var/other = 0.0
+	/// Boolean, TRUE when l_hand is full
 	var/hand = null
 	var/eye_blind = null				//Carbon
 	var/eye_blurry = null				//Carbon
@@ -88,11 +89,14 @@
 	var/slurring = null
 	var/brokejaw = null
 	var/real_name = null
+	/// Not actually shown or set normally, the flavor text you actually see in-game is var/list/flavor_texts in human_defines.dm
 	var/flavor_text = ""
 	var/list/additional_vision_handlers = list()
 	var/blinded = null
+	/// Used by cult ghost mode
 	var/ajourn = 0
 	var/druggy = 0						//Carbon
+	/// Gives chance to walk in a random direction
 	var/confused = 0					//Carbon
 	var/antitoxs = null
 	var/phoron = null
@@ -141,10 +145,14 @@
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/overdrinkduration = 0	// How long this guy is overdrinking //Carbon
 
+	/// Exact effect is handled by mob's /Life() proc
 	var/paralysis = 0
+	/// Prevents mob from picking up items or generally interacting w/ clicks
 	var/stunned = 0
+	/// Makes and keeps mob lying down
 	var/weakened = 0
 	var/losebreath = 0 //Carbon
+	/// Current, active intent
 	var/a_intent = I_HELP//Living
 	var/m_intent = M_WALK //Living
 	var/lastKnownIP = null
@@ -152,6 +160,7 @@
 	var/obj/item/r_hand = null//Living
 	var/obj/item/back = null//Human/Monkey
 	var/obj/item/tank/internal = null//Human/Monkey
+	/// Active storage HUD
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 

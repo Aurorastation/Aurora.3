@@ -87,6 +87,20 @@
 	groupable = FALSE
 	spawn_amount = 1
 
+/singleton/cargo_item/firewood
+	category = "miscellaneous"
+	name = "firewood"
+	supplier = "orion"
+	description = "25 logs for campfires and other wood-burning needs."
+	price = 50
+	items = list(
+		/obj/item/stack/material/wood/log/full
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/sleeping_bag
 	category = "miscellaneous"
 	name = "sleeping bag"
