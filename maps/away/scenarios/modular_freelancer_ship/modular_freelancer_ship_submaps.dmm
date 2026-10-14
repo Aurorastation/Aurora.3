@@ -15806,6 +15806,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/starboard)
+"iNo" = (
+/mob/abstract/ghost/storyteller,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/aft/cic)
 "iOv" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -90595,7 +90599,7 @@ aqJ
 aWb
 aLk
 jLl
-fKC
+iNo
 aqJ
 sgy
 fHO
@@ -91664,7 +91668,7 @@ sdj
 aqJ
 hHx
 fKC
-fKC
+iNo
 jfh
 fKC
 tZi
