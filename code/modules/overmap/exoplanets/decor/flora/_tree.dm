@@ -3,6 +3,7 @@
 	desc = "A tree."
 	density = TRUE
 	layer = 9
+	plane = TREE_CANOPY_PLANE
 	pixel_x = -16
 	protects_against_weather = TRUE
 	sample_data = list("Cellular structure indicitive of large plantlife.")

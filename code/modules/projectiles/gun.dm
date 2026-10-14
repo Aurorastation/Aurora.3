@@ -911,7 +911,13 @@ ABSTRACT_TYPE(/obj/item/gun)
 			accuracy = accuracy_wielded
 	else
 		if(!isnull(fire_delay_wielded))
-			fire_delay = initial(fire_delay)
+			var/unwielded_fire_delay = initial(fire_delay)
+			if(length(firemodes))
+				var/datum/firemode/current_mode = firemodes[sel_mode]
+				var/mode_fire_delay = current_mode.settings["fire_delay"]
+				if(!isnull(mode_fire_delay))
+					unwielded_fire_delay = mode_fire_delay
+			fire_delay = unwielded_fire_delay
 		if(!isnull(recoil_wielded))
 			recoil = initial(recoil)
 		if(!isnull(accuracy_wielded))
