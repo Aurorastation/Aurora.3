@@ -34826,9 +34826,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/horizon/gunnery/hallway)
 "evT" = (
@@ -104043,6 +104040,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/checkpoint)
+"npS" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/structure/machinery/light{
+	pixel_y = -2;
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/operations/office)
 "npU" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/reinforced/steel,
@@ -110564,7 +110571,9 @@
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/north,
+/obj/structure/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/gunnery/hallway)
 "ogX" = (
@@ -275807,7 +275816,7 @@ rEP
 iFl
 uVm
 uVm
-aFJ
+npS
 cgn
 asf
 vpQ
