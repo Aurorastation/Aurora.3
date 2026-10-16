@@ -385,12 +385,28 @@
       }
     }
 
-    .loadout-categories {
+    .loadout-tag-groups {
+      margin: var(--space-m) 0;
+    }
+
+    .loadout-tag-group {
+      margin-bottom: var(--space-xs);
+    }
+
+    .loadout-tag--empty {
+      opacity: 0.45;
+    }
+
+    .loadout-tag--irrelevant {
+      opacity: 0.6;
+      filter: grayscale(1) brightness(0.55);
+    }
+
+    .loadout-tag-group__tags {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: var(--space-xs);
-      margin: var(--space-m) 0;
+      margin: var(--space-xs) 0 var(--space-s);
     }
 
     .loadout-items {

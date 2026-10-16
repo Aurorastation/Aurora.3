@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -177,9 +177,27 @@ type LoadoutItem = {
   tweaks: PreferenceAction[];
 };
 
+type LoadoutTag = {
+  count: number;
+  /** No gear would be shown if this tag was selected */
+  empty: boolean;
+  has_selected: boolean;
+  /** Makes no sense for the character, eg. a tag of another faction */
+  irrelevant: boolean;
+  name: string;
+  selected: boolean;
+};
+
+type LoadoutTagGroup = {
+  name: string;
+  tags: LoadoutTag[];
+};
+
 type LoadoutPreferenceItem = BasePreferenceItem & {
   kind: 'loadout';
-  categories: { has_selected: boolean; name: string; selected: boolean }[];
+  tag_groups: LoadoutTagGroup[];
+  filtering: boolean;
+  show_hidden_tags: boolean;
   cost: number;
   cost_limit: number;
   gear_reset: boolean | number;
@@ -241,6 +259,45 @@ type CharacterSetupData = {
   };
   categories: Category[];
   items: PreferenceItem[];
+};
+
+const LoadoutTagGroupRow = (props: {
+  group: LoadoutTagGroup;
+  onToggle: (tag: string) => void;
+}) => {
+  const { group, onToggle } = props;
+  const hasSelected = group.tags.some((tag) => tag.selected);
+  const [open, setOpen] = useState(group.tags.length <= 12);
+  const expanded = open || hasSelected;
+
+  return (
+    <Box className="loadout-tag-group">
+      <Button
+        className="loadout-tag-group__title"
+        color="transparent"
+        icon={expanded ? 'chevron-down' : 'chevron-right'}
+        onClick={() => setOpen(!open)}
+      >
+        {group.name}
+      </Button>
+      {expanded && (
+        <Box className="loadout-tag-group__tags">
+          {group.tags.map((tag) => (
+            <Button
+              className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}`}
+              color={tag.has_selected ? 'average' : undefined}
+              compact
+              key={tag.name}
+              onClick={() => onToggle(tag.name)}
+              selected={tag.selected}
+            >
+              {tag.name} ({tag.count})
+            </Button>
+          ))}
+        </Box>
+      )}
+    </Box>
+  );
 };
 
 const categoryIcons: Record<string, string> = {
@@ -1270,19 +1327,40 @@ export const CharacterSetup = () => {
           </Button>
         </Stack.Item>
       </Stack>
-      <Box className="loadout-categories">
-        {item.categories.map((category) => (
-          <Button
-            color={category.has_selected ? 'average' : undefined}
-            key={category.name}
-            onClick={() =>
-              sendPreferenceAction(item, 'select_category', category.name)
+      <Box className="loadout-tag-groups">
+        {item.tag_groups.map((group) => (
+          <LoadoutTagGroupRow
+            group={group}
+            key={group.name}
+            onToggle={(tag) =>
+              sendPreferenceTopic(item, {
+                toggle_tag: tag,
+                tag_group: group.name,
+              })
             }
-            selected={category.selected}
-          >
-            {category.name}
-          </Button>
+          />
         ))}
+        <Stack justify="center">
+          <Stack.Item>
+            <Button
+              icon="list-check"
+              onClick={() => sendPreferenceAction(item, 'clear_tags')}
+              selected={!item.filtering}
+              tooltip="Deselect all tags and show only the items you have selected"
+            >
+              Show only the selected items
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={item.show_hidden_tags ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_hidden_tags')}
+              tooltip="Tags that make no sense for your character, eg. of other factions"
+            >
+              {item.show_hidden_tags ? 'Fewer tags...' : 'More tags...'}
+            </Button>
+          </Stack.Item>
+        </Stack>
       </Box>
       <Input
         fluid
@@ -1291,7 +1369,7 @@ export const CharacterSetup = () => {
           sendPreferenceAction(item, 'search_input_refresh', value)
         }
         onMouseDown={(event) => event.stopPropagation()}
-        placeholder="Search this category"
+        placeholder="Search the filtered items"
         value={item.search}
       />
       <Box className="loadout-items">

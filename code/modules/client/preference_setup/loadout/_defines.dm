@@ -5,3 +5,11 @@
 #define GEAR_HAS_NAME_SELECTION BITFLAG(4)
 #define GEAR_HAS_DESC_SELECTION BITFLAG(5)
 #define GEAR_HAS_COLOR_ROTATION_SELECTION BITFLAG(6)
+
+// Loadout tag groups. Each group is a header in the loadout UI containing its tags.
+#define LOADOUT_TAG_GROUP_CATEGORY "Category"
+#define LOADOUT_TAG_GROUP_SLOT "Item Slot"
+#define LOADOUT_TAG_GROUP_FACTION "Faction"
+#define LOADOUT_TAG_GROUP_ROLE "Allowed Role"
+#define LOADOUT_TAG_GROUP_DEPARTMENT "Department"
+#define LOADOUT_TAG_GROUP_SPECIES "Species Restriction"
