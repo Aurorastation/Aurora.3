@@ -390,7 +390,16 @@
     }
 
     .loadout-tag-group {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-m);
       margin-bottom: var(--space-xs);
+    }
+
+    .loadout-tag-group__title {
+      flex: 0 0 11rem;
+      padding-top: 0.2rem;
+      font-weight: bold;
     }
 
     .loadout-tag--empty {
@@ -404,9 +413,9 @@
 
     .loadout-tag-group__tags {
       display: flex;
+      flex: 1;
       flex-wrap: wrap;
       gap: var(--space-xs);
-      margin: var(--space-xs) 0 var(--space-s);
     }
 
     .loadout-items {

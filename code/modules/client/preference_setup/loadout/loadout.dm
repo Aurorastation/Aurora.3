@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 GLOBAL_LIST_INIT(loadout_tag_groups, list())
 GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 /// Helper tags that mean "no restriction", these are never irrelevant for a character
-GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT_TAG_NO_ORIGIN, LOADOUT_TAG_NO_ROLE, LOADOUT_TAG_NO_DEPARTMENT, LOADOUT_TAG_NO_SPECIES))
+GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT_TAG_NO_ORIGIN, LOADOUT_TAG_NO_CULTURE, LOADOUT_TAG_NO_ROLE, LOADOUT_TAG_NO_DEPARTMENT, LOADOUT_TAG_NO_SPECIES))
 
 /hook/startup/proc/populate_gear_list()
 	// Setup custom loadout.
@@ -82,6 +82,8 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction || LOADOUT_TAG_NO_FACTION)
 	if(!length(gear.origin_restriction))
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_NO_ORIGIN)
+	if(!length(gear.culture_restriction))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CULTURE, LOADOUT_TAG_NO_CULTURE)
 	if(!length(gear.allowed_roles))
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_NO_ROLE)
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_NO_DEPARTMENT)
@@ -92,8 +94,12 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	for(var/species in gear.whitelisted)
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SPECIES, species)
 
-/// Adds the origins of `gear.origin_restriction`. Needs the origin singletons to exist, which happens after gear is created.
+/// Adds the origins and cultures of the gear restrictions. Needs the origin singletons to exist, which happens after gear is created.
 /proc/fill_origin_tags_on_item(var/datum/gear/gear)
+	for(var/culture_path in gear.culture_restriction)
+		var/singleton/origin_item/culture = GET_SINGLETON(culture_path)
+		if(culture)
+			add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CULTURE, culture.name)
 	for(var/origin_path in gear.origin_restriction)
 		var/singleton/origin_item/origin = GET_SINGLETON(origin_path)
 		if(origin)
@@ -116,7 +122,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		return
 
 	var/list/groups = list()
-	for(var/group in list(LOADOUT_TAG_GROUP_CATEGORY, LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES))
+	for(var/group in list(LOADOUT_TAG_GROUP_CATEGORY, LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_CULTURE))
 		groups[group] = list()
 
 	for(var/gear_name in GLOB.gear_datums)
@@ -134,6 +140,15 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 			groups -= group
 			continue
 		sortTim(groups[group], GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+		// The "No ... Restriction" helper tags go first
+		var/list/ordered_tags = list()
+		for(var/helper_tag in GLOB.loadout_unrestricted_tags)
+			if(helper_tag in groups[group])
+				ordered_tags[helper_tag] = groups[group][helper_tag]
+		for(var/tag in groups[group])
+			if(!(tag in ordered_tags))
+				ordered_tags[tag] = groups[group][tag]
+		groups[group] = ordered_tags
 
 	GLOB.loadout_tag_groups = groups
 	GLOB.loadout_tags_ready = TRUE
@@ -147,6 +162,8 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	var/show_hidden_tags = FALSE
 	/// Whether to show gear that the current character cannot take (other factions, roles, etc.)
 	var/show_all_items = FALSE
+	/// Whether to show the additional info in the gear cards, like restrictions and tags
+	var/show_item_info = FALSE
 	var/gear_reset = FALSE
 	var/search_input_value = ""
 
@@ -303,6 +320,8 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	var/datum/job/job = pref.return_chosen_high_job()
 	var/singleton/origin_item/character_origin = ispath(text2path(pref.origin)) ? GET_SINGLETON(text2path(pref.origin)) : null
 	var/character_origin_name = character_origin?.name
+	var/singleton/origin_item/character_culture = ispath(text2path(pref.culture)) ? GET_SINGLETON(text2path(pref.culture)) : null
+	var/character_culture_name = character_culture?.name
 	var/filtering = FALSE
 	for(var/group in selected_tags)
 		if(length(selected_tags[group]))
@@ -336,10 +355,10 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		var/list/group_tags = list()
 		for(var/tag in GLOB.loadout_tag_groups[group])
 			var/is_selected = (tag in selected_tags[group])
-			var/irrelevant = is_tag_irrelevant_for_character(group, tag, job, character_origin_name)
+			var/irrelevant = is_tag_irrelevant_for_character(group, tag, job, character_origin_name, character_culture_name)
 			if(irrelevant && !show_hidden_tags && !is_selected)
 				continue
-			var/count = tag_counts[group] ? tag_counts[group][tag] : 0
+			var/count = (tag_counts[group] ? tag_counts[group][tag] : 0) || 0
 			group_tags += list(list(
 				"name" = tag,
 				"count" = count,
@@ -401,8 +420,8 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 			"description" = G.description,
 			"available" = available,
 			"selected" = ticked,
-			"restrictions" = restrictions,
-			"tags" = item_tags,
+			"restrictions" = show_item_info ? restrictions : list(),
+			"tags" = show_item_info ? item_tags : list(),
 			"tweaks" = tweaks
 		)
 		items += list(item_data)
@@ -419,6 +438,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		"filtering" = filtering,
 		"show_hidden_tags" = show_hidden_tags,
 		"show_all_items" = show_all_items,
+		"show_item_info" = show_item_info,
 		"items" = items
 	)
 
@@ -433,12 +453,14 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		&& G.check_religion(pref.religion) \
 		&& G.check_citizenship(pref.citizenship)
 
-/datum/category_item/player_setup_item/loadout/proc/is_tag_irrelevant_for_character(var/group, var/tag, var/datum/job/job, var/character_origin_name)
+/datum/category_item/player_setup_item/loadout/proc/is_tag_irrelevant_for_character(var/group, var/tag, var/datum/job/job, var/character_origin_name, var/character_culture_name)
 	if(tag in GLOB.loadout_unrestricted_tags)
 		return FALSE
 	switch(group)
 		if(LOADOUT_TAG_GROUP_ORIGIN)
 			return character_origin_name && tag != character_origin_name
+		if(LOADOUT_TAG_GROUP_CULTURE)
+			return character_culture_name && tag != character_culture_name
 		if(LOADOUT_TAG_GROUP_FACTION)
 			return pref.faction && pref.faction != "None" && pref.faction != "Stellar Corporate Conglomerate" && tag != pref.faction
 		if(LOADOUT_TAG_GROUP_ROLE)
@@ -534,6 +556,10 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 
 	else if(href_list["clear_tags"])
 		selected_tags = list()
+		return TOPIC_REFRESH
+
+	else if(href_list["toggle_item_info"])
+		show_item_info = !show_item_info
 		return TOPIC_REFRESH
 
 	else if(href_list["toggle_all_items"])

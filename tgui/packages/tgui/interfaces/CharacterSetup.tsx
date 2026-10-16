@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -199,6 +199,7 @@ type LoadoutPreferenceItem = BasePreferenceItem & {
   tag_groups: LoadoutTagGroup[];
   filtering: boolean;
   show_all_items: boolean;
+  show_item_info: boolean;
   show_hidden_tags: boolean;
   cost: number;
   cost_limit: number;
@@ -268,36 +269,24 @@ const LoadoutTagGroupRow = (props: {
   onToggle: (tag: string) => void;
 }) => {
   const { group, onToggle } = props;
-  const hasSelected = group.tags.some((tag) => tag.selected);
-  const [open, setOpen] = useState(group.tags.length <= 12);
-  const expanded = open || hasSelected;
 
   return (
     <Box className="loadout-tag-group">
-      <Button
-        className="loadout-tag-group__title"
-        color="transparent"
-        icon={expanded ? 'chevron-down' : 'chevron-right'}
-        onClick={() => setOpen(!open)}
-      >
-        {group.name}
-      </Button>
-      {expanded && (
-        <Box className="loadout-tag-group__tags">
-          {group.tags.map((tag) => (
-            <Button
-              className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}`}
-              color={tag.has_selected ? 'average' : undefined}
-              compact
-              key={tag.name}
-              onClick={() => onToggle(tag.name)}
-              selected={tag.selected}
-            >
-              {tag.name} ({tag.count})
-            </Button>
-          ))}
-        </Box>
-      )}
+      <Box className="loadout-tag-group__title">{group.name}</Box>
+      <Box className="loadout-tag-group__tags">
+        {group.tags.map((tag) => (
+          <Button
+            className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}`}
+            color={tag.has_selected ? 'average' : undefined}
+            compact
+            key={tag.name}
+            onClick={() => onToggle(tag.name)}
+            selected={tag.selected}
+          >
+            {tag.name} ({tag.count})
+          </Button>
+        ))}
+      </Box>
     </Box>
   );
 };
@@ -1351,6 +1340,15 @@ export const CharacterSetup = () => {
               tooltip="Deselect all tags and show only the items you have selected"
             >
               Show only the selected items
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={item.show_item_info ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_item_info')}
+              tooltip="Restrictions and tags of the items"
+            >
+              {item.show_item_info ? 'Less info...' : 'More info...'}
             </Button>
           </Stack.Item>
           <Stack.Item>
