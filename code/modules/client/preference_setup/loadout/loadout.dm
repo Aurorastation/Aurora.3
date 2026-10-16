@@ -77,7 +77,8 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 
 /// Fills `gear.tags` with the tags that can be derived from the gear's own vars. Department tags need jobs to exist, see [/proc/fill_department_tags_on_item].
 /proc/fill_automatic_tags_on_item(var/datum/gear/gear)
-	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CATEGORY, gear.sort_category)
+	for(var/misc_tag in gear.misc_tags)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_MISC, misc_tag)
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SLOT, get_loadout_slot_tag(gear))
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction || LOADOUT_TAG_NO_FACTION)
 	if(!length(gear.origin_restriction))
@@ -122,7 +123,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		return
 
 	var/list/groups = list()
-	for(var/group in list(LOADOUT_TAG_GROUP_CATEGORY, LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_CULTURE))
+	for(var/group in list(LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_MISC, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_CULTURE))
 		groups[group] = list()
 
 	for(var/gear_name in GLOB.gear_datums)
@@ -363,7 +364,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 				"name" = tag,
 				"count" = count,
 				"selected" = is_selected,
-				"has_selected" = (tag in chosen_gear_tags[group]),
+				"has_selected" = !(tag in GLOB.loadout_unrestricted_tags) && (tag in chosen_gear_tags[group]),
 				"empty" = !count && !is_selected,
 				"irrelevant" = irrelevant
 			))
@@ -684,8 +685,12 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	 */
 	var/list/singleton/origin_item/origin/origin_restriction
 
-	///A string of the category this item will be listed in, also added as a tag of the `LOADOUT_TAG_GROUP_CATEGORY` group
-	var/sort_category = "General"
+	/**
+	 * A `/list` of tag strings that are manually added to the `LOADOUT_TAG_GROUP_MISC` group, for things that have no automatic tag
+	 *
+	 * Eg. `list("Toys")`
+	 */
+	var/list/misc_tags = list()
 
 	/**
 	 * Assoc `/list` of tag group (`LOADOUT_TAG_GROUP_*`) -> `/list` of tag strings, used to filter the loadout UI

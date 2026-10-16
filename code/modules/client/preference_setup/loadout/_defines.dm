@@ -7,7 +7,7 @@
 #define GEAR_HAS_COLOR_ROTATION_SELECTION BITFLAG(6)
 
 // Loadout tag groups. Each group is a header in the loadout UI containing its tags.
-#define LOADOUT_TAG_GROUP_CATEGORY "Category"
+#define LOADOUT_TAG_GROUP_MISC "Misc"
 #define LOADOUT_TAG_GROUP_SLOT "Item Slot"
 #define LOADOUT_TAG_GROUP_FACTION "Faction"
 #define LOADOUT_TAG_GROUP_ORIGIN "Origin Restriction"
