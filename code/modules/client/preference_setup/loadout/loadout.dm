@@ -3,6 +3,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 /// Assoc list of tag group -> assoc list of tag -> amount of gear with that tag. Built by [/proc/build_loadout_tag_index].
 GLOBAL_LIST_INIT(loadout_tag_groups, list())
 GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
+/// Helper tags that mean "no restriction", these are never irrelevant for a character
+GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT_TAG_NO_ORIGIN, LOADOUT_TAG_NO_ROLE, LOADOUT_TAG_NO_DEPARTMENT, LOADOUT_TAG_NO_SPECIES))
 
 /hook/startup/proc/populate_gear_list()
 	// Setup custom loadout.
@@ -77,11 +79,25 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 /proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CATEGORY, gear.sort_category)
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SLOT, get_loadout_slot_tag(gear))
-	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction)
+	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction || LOADOUT_TAG_NO_FACTION)
+	if(!length(gear.origin_restriction))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_NO_ORIGIN)
+	if(!length(gear.allowed_roles))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_NO_ROLE)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_NO_DEPARTMENT)
 	for(var/role in gear.allowed_roles)
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ROLE, role)
+	if(!length(gear.whitelisted))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_NO_SPECIES)
 	for(var/species in gear.whitelisted)
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SPECIES, species)
+
+/// Adds the origins of `gear.origin_restriction`. Needs the origin singletons to exist, which happens after gear is created.
+/proc/fill_origin_tags_on_item(var/datum/gear/gear)
+	for(var/origin_path in gear.origin_restriction)
+		var/singleton/origin_item/origin = GET_SINGLETON(origin_path)
+		if(origin)
+			add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ORIGIN, origin.name)
 
 /// Adds the departments of `gear.allowed_roles`. Needs SSjobs to be initialized, which happens after gear is created.
 /proc/fill_department_tags_on_item(var/datum/gear/gear)
@@ -100,12 +116,13 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 		return
 
 	var/list/groups = list()
-	for(var/group in list(LOADOUT_TAG_GROUP_CATEGORY, LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES))
+	for(var/group in list(LOADOUT_TAG_GROUP_CATEGORY, LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES))
 		groups[group] = list()
 
 	for(var/gear_name in GLOB.gear_datums)
 		var/datum/gear/G = GLOB.gear_datums[gear_name]
 		fill_department_tags_on_item(G)
+		fill_origin_tags_on_item(G)
 		for(var/group in G.tags)
 			if(!groups[group])
 				groups[group] = list()
@@ -124,10 +141,12 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
 	sort_order = 1
-	/// Assoc list of tag group -> list of selected tags. Gear is shown if, in every group with selected tags, it has at least one of them. If nothing is selected, the gear selected by the player is shown.
+	/// Assoc list of tag group -> list with the one selected tag of that group, if any. Gear is shown if it has the selected tag of every group. If nothing is selected, the gear selected by the player is shown.
 	var/list/selected_tags = list()
 	/// Whether to show the tags that make no sense for the current character (other factions, roles, etc.)
 	var/show_hidden_tags = FALSE
+	/// Whether to show gear that the current character cannot take (other factions, roles, etc.)
+	var/show_all_items = FALSE
 	var/gear_reset = FALSE
 	var/search_input_value = ""
 
@@ -282,6 +301,8 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 			chosen_gear_tags[group] |= chosen.tags[group]
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	var/datum/job/job = pref.return_chosen_high_job()
+	var/singleton/origin_item/character_origin = ispath(text2path(pref.origin)) ? GET_SINGLETON(text2path(pref.origin)) : null
+	var/character_origin_name = character_origin?.name
 	var/filtering = FALSE
 	for(var/group in selected_tags)
 		if(length(selected_tags[group]))
@@ -295,6 +316,8 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/counted = GLOB.gear_datums[gear_name]
+		if(!show_all_items && !can_character_take_gear(counted, job))
+			continue
 		var/list/failed_groups = counted.get_failed_tag_groups(selected_tags)
 		if(length(failed_groups) > 1)
 			continue
@@ -313,7 +336,7 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 		var/list/group_tags = list()
 		for(var/tag in GLOB.loadout_tag_groups[group])
 			var/is_selected = (tag in selected_tags[group])
-			var/irrelevant = is_tag_irrelevant_for_character(group, tag, job)
+			var/irrelevant = is_tag_irrelevant_for_character(group, tag, job, character_origin_name)
 			if(irrelevant && !show_hidden_tags && !is_selected)
 				continue
 			var/count = tag_counts[group] ? tag_counts[group][tag] : 0
@@ -330,12 +353,10 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 	var/list/items = list()
 	for(var/gear_name in visible_gear)
 		var/datum/gear/G = GLOB.gear_datums[gear_name]
-		var/available = (G.check_faction(pref.faction) \
-			&& (job && G.check_role(job.title)) \
-			&& G.check_culture(text2path(pref.culture)) \
-			&& G.check_origin(text2path(pref.origin)) \
-			&& G.check_religion(pref.religion)) \
-			&& G.check_citizenship(pref.citizenship)
+		var/available = job && can_character_take_gear(G, job)
+		var/list/item_tags = list()
+		for(var/group in G.tags)
+			item_tags |= G.tags[group]
 		var/ticked = (G.display_name in pref.gear)
 		var/found_searched_text = FALSE
 		if(findtext(G.display_name, search_input_value))
@@ -381,6 +402,7 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 			"available" = available,
 			"selected" = ticked,
 			"restrictions" = restrictions,
+			"tags" = item_tags,
 			"tweaks" = tweaks
 		)
 		items += list(item_data)
@@ -396,12 +418,27 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 		"tag_groups" = tag_groups,
 		"filtering" = filtering,
 		"show_hidden_tags" = show_hidden_tags,
+		"show_all_items" = show_all_items,
 		"items" = items
 	)
 
 /// Whether the tag can't ever be useful for the current character, eg. a tag of another faction
-/datum/category_item/player_setup_item/loadout/proc/is_tag_irrelevant_for_character(var/group, var/tag, var/datum/job/job)
+/// Whether the character can actually take the gear, ignoring the job restrictions if there is no job chosen yet
+/datum/category_item/player_setup_item/loadout/proc/can_character_take_gear(var/datum/gear/G, var/datum/job/job)
+	return G.check_faction(pref.faction) \
+		&& (!job || G.check_role(job.title)) \
+		&& (!length(G.whitelisted) || (pref.species in G.whitelisted)) \
+		&& G.check_culture(text2path(pref.culture)) \
+		&& G.check_origin(text2path(pref.origin)) \
+		&& G.check_religion(pref.religion) \
+		&& G.check_citizenship(pref.citizenship)
+
+/datum/category_item/player_setup_item/loadout/proc/is_tag_irrelevant_for_character(var/group, var/tag, var/datum/job/job, var/character_origin_name)
+	if(tag in GLOB.loadout_unrestricted_tags)
+		return FALSE
 	switch(group)
+		if(LOADOUT_TAG_GROUP_ORIGIN)
+			return character_origin_name && tag != character_origin_name
 		if(LOADOUT_TAG_GROUP_FACTION)
 			return pref.faction && pref.faction != "None" && pref.faction != "Stellar Corporate Conglomerate" && tag != pref.faction
 		if(LOADOUT_TAG_GROUP_ROLE)
@@ -488,13 +525,19 @@ GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
 		var/tag = href_list["toggle_tag"]
 		if(!(tag in GLOB.loadout_tag_groups[group]))
 			return TOPIC_NOACTION
-		if(!selected_tags[group])
-			selected_tags[group] = list()
-		selected_tags[group] ^= tag
+		// Tags of the same group are mutually exclusive, selecting one replaces the other, selecting it again deselects it
+		if(tag in selected_tags[group])
+			selected_tags -= group
+		else
+			selected_tags[group] = list(tag)
 		return TOPIC_REFRESH
 
 	else if(href_list["clear_tags"])
 		selected_tags = list()
+		return TOPIC_REFRESH
+
+	else if(href_list["toggle_all_items"])
+		show_all_items = !show_all_items
 		return TOPIC_REFRESH
 
 	else if(href_list["toggle_hidden_tags"])

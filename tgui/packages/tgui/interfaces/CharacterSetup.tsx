@@ -174,6 +174,7 @@ type LoadoutItem = {
   name: string;
   restrictions: string[];
   selected: boolean;
+  tags: string[];
   tweaks: PreferenceAction[];
 };
 
@@ -197,6 +198,7 @@ type LoadoutPreferenceItem = BasePreferenceItem & {
   kind: 'loadout';
   tag_groups: LoadoutTagGroup[];
   filtering: boolean;
+  show_all_items: boolean;
   show_hidden_tags: boolean;
   cost: number;
   cost_limit: number;
@@ -1353,6 +1355,15 @@ export const CharacterSetup = () => {
           </Stack.Item>
           <Stack.Item>
             <Button
+              icon={item.show_all_items ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_all_items')}
+              tooltip="Items that your character cannot take, eg. of other factions or roles"
+            >
+              {item.show_all_items ? 'Fewer items...' : 'More items...'}
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
               icon={item.show_hidden_tags ? 'eye-slash' : 'eye'}
               onClick={() => sendPreferenceAction(item, 'toggle_hidden_tags')}
               tooltip="Tags that make no sense for your character, eg. of other factions"
@@ -1401,6 +1412,11 @@ export const CharacterSetup = () => {
             {!!gear.restrictions.length && (
               <Box fontSize={0.85} mt={0.5}>
                 {gear.restrictions.join(' · ')}
+              </Box>
+            )}
+            {!!gear.tags.length && (
+              <Box color="label" fontSize={0.85} mt={0.5}>
+                Tags: {gear.tags.join(' · ')}
               </Box>
             )}
             {!!gear.tweaks.length && (
