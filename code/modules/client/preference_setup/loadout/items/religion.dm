@@ -76,13 +76,10 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	var/list/trinarycape = list()
 	trinarycape["trinary perfection cape"] = /obj/item/clothing/accessory/poncho/trinary
 	trinarycape["trinary perfection cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/blue
-	trinarycape["trinary perfection cape, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/mictlan
 	trinarycape["trinary perfection shoulder cape"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape
 	trinarycape["trinary perfection shoulder cape, blue"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
-	trinarycape["trinary perfection shoulder cape, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape/mictlan
 	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	trinarycape["trinary perfection pellegrina, blue"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
-	trinarycape["trinary perfection pellegrina, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/mictlan
 	gear_tweaks += new /datum/gear_tweak/path(trinarycape)
 
 /datum/gear/religion/trinary/cape_mictlan
