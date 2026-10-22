@@ -31,3 +31,9 @@
 	possible_citizenships = list(CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_NONE, RELIGION_TRINARY, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_TAOISM)
 
+/singleton/origin_item/origin/ipc_mictlan
+	name = "Mictlan"
+	desc = "Mainly consisting of IPCS brought to or activated by Idris Incorporated, Mictlan never utilized positronic robotics to the scale that planets like Konyang did. Even so, some have managed to carve out a path to freedom under the Trinarist community known as El Menaje, established after the destructive Peacekeeper Mandate."
+	possible_accents = list(ACCENT_MICTLAN, ACCENT_TTS)
+	possible_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_NONE)
+	possible_religions = RELIGIONS_SOLARIAN
