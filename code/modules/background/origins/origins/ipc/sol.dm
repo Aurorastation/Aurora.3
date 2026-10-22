@@ -4,7 +4,8 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/ipc_sol_system,
 		/singleton/origin_item/origin/ipc_eridani,
-		/singleton/origin_item/origin/ipc_konyang
+		/singleton/origin_item/origin/ipc_konyang,
+		/singleton/origin_item/origin/ipc_mictlan
 	)
 
 /singleton/origin_item/origin/ipc_sol_system
