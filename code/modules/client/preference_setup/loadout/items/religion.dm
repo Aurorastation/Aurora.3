@@ -68,8 +68,8 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/cape
 	display_name = "trinary cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
-	path = /obj/item/clothing/under/dressshirt/axiom_tunic
-	slot = slot_wear_suit
+	path = /obj/item/clothing/accessory/poncho/trinary
+	slot = slot_tie
 
 /datum/gear/religion/trinary/cape/New()
 	..()
