@@ -490,7 +490,7 @@
 			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
 		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
-		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
+		switch(tgui_alert(usr, "Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", list("No", "Yes")))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
 				to_chat(user, SPAN_ALERT("You start heating the fueltank..."))

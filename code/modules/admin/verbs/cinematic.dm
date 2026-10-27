@@ -6,11 +6,11 @@
 	if(!check_rights(R_FUN))
 		return
 
-	if(alert("Are you sure you want to run [cinematic]?","Confirmation","Yes","No")=="No") return
+	if(tgui_alert(usr, "Are you sure you want to run [cinematic]?", "Confirmation", list("Yes", "No"))=="No") return
 	if(!ROUND_IS_STARTED)	return
 	switch(cinematic)
 		if("explosion")
-			if(alert("The game will be over. Are you really sure?", "Confirmation" ,"Continue", "Cancel") == "Cancel")
+			if(tgui_alert(usr, "The game will be over. Are you really sure?", "Confirmation", list("Continue", "Cancel")) == "Cancel")
 				return
 			var/parameter = input(src,"station_missed = ?","Enter Parameter",0) as num
 			var/override

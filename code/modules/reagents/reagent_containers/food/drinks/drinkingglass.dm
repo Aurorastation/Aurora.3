@@ -58,7 +58,7 @@
 			return
 		else
 			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
-			if(alert(H,"[user] wants to do a toast with you. Will you accept it?",,"Yes","No") == "No")
+			if(tgui_alert(H, "[user] wants to do a toast with you. Will you accept it?", , list("Yes", "No")) == "No")
 				H.visible_message("<b>[H]</b> pushes [user]'s hand away.")
 				return
 			if(!user.Adjacent(H))
