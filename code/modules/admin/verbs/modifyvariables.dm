@@ -153,7 +153,7 @@ var/list/VVdynamic_lock = list(
 
 	if(!var_value) return
 
-	switch(alert("Would you like to associate a var with the list entry?",,"Yes","No"))
+	switch(tgui_alert(usr, "Would you like to associate a var with the list entry?", , list("Yes", "No")))
 		if("Yes")
 			L += var_value
 			L[var_value] = mod_list_add_ass() //haha
@@ -174,7 +174,7 @@ var/list/VVdynamic_lock = list(
 			return
 
 	if(L.len > 1000)
-		var/confirm = alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", "Continue", "Abort")
+		var/confirm = tgui_alert(src, "The list you're trying to edit is very long, continuing may crash the server.", "Warning", list("Continue", "Abort"))
 		if(confirm != "Continue")
 			return
 

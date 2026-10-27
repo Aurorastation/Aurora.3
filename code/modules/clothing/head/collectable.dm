@@ -60,7 +60,7 @@
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
 	desc = "A Collectable red Beret. It smells faintly of garlic."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret_red"
 	item_state = "beret_red"
 	contained_sprite = TRUE
@@ -106,11 +106,6 @@
 	name = "collectable hard hat"
 	desc = "WARNING! Offers no real protection, or luminosity, but it is damn fancy!"
 	icon_state = "hardhat_yellow"
-
-/obj/item/clothing/head/collectable/HoS
-	name = "collectable HoS hat"
-	desc = "Now you can beat prisoners, set silly sentences and arrest for no reason too!"
-	icon_state = "hoscap"
 
 /obj/item/clothing/head/collectable/thunderdome
 	name = "collectable Thunderdome helmet"

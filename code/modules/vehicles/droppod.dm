@@ -211,7 +211,7 @@
 		if(A)
 			var/mob/user = usr
 			if(!(user in src))
-				if(alert(user, "WARNING: You are not in the droppod! Are you sure you wish to launch?", "Launch Confirmation", "Yes", "No") == "No")
+				if(tgui_alert(user, "WARNING: You are not in the droppod! Are you sure you wish to launch?", "Launch Confirmation", list("Yes", "No")) == "No")
 					return
 			status = LAUNCHING
 

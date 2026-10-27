@@ -23,6 +23,7 @@
 
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
+	icon = 'icons/obj/item/clothing/gloves/black_leather_gloves.dmi'
 	icon_state = "black_leather"
 	item_state = "black_leather"
 	species_restricted = null
@@ -42,9 +43,10 @@
 /obj/item/clothing/ring/ninja
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
 	name = "black slipgloves"
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
 	icon_state = "black"
 	item_state = "black"
+	contained_sprite = TRUE
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	undergloves = 1
@@ -56,8 +58,10 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
+	icon = 'icons/obj/item/clothing/gloves/latex.dmi'
 	icon_state = "latex"
 	item_state = "latex"
+	contained_sprite = TRUE
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
@@ -84,8 +88,10 @@
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
+	icon = 'icons/obj/item/clothing/gloves/nitrile.dmi'
 	icon_state = "nitrile"
 	item_state = "nitrile"
+	contained_sprite = TRUE
 	balloon = /obj/item/toy/balloon/latex/nitrile
 	anomaly_protection = 0.1
 
@@ -93,8 +99,10 @@
 	name = "zeng-hu vinyl gloves"
 	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
 	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon = 'icons/obj/item/clothing/gloves/zeng_gloves.dmi'
 	icon_state = "zeng_gloves"
 	item_state = "zeng_gloves"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -135,8 +143,10 @@
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "leather gloves"
+	icon = 'icons/obj/item/clothing/gloves/leather_gloves.dmi'
 	icon_state = "leather"
 	item_state = "leather"
+	contained_sprite = TRUE
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
@@ -157,8 +167,10 @@
 /obj/item/clothing/gloves/janitor
 	name = "rubber cleaning gloves"
 	desc = "A pair of thick, long, yellow rubber gloves, designed to protect the wearer from the splash of industrial strength cleaners. Not certified for electrical work."
+	icon = 'icons/obj/item/clothing/gloves/janitor_gloves.dmi'
 	icon_state = "janitor"
 	item_state = "janitor"
+	contained_sprite = TRUE
 	permeability_coefficient = 0.01 //Prevents chemical seepage as well as latex, but without any of the sterility or protection
 	siemens_coefficient = 0.50
 	drop_sound = 'sound/items/drop/rubber.ogg'
@@ -185,6 +197,7 @@
 /obj/item/clothing/gloves/force // this pair should be put in r&d if you choose to do so.  and also the hos office locker.  do it okay
 	name = "force gloves"
 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
+	icon = 'icons/obj/item/clothing/gloves/force_gloves.dmi'
 	icon_state = "force_glove" //todo: different sprites for different levels of power
 	item_state = "force_glove"
 	siemens_coefficient = 0.6
@@ -203,8 +216,10 @@
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt
 	name = "basic force gloves" //do it skull do it give it to all sec the forums agree go
 	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
+	icon = 'icons/obj/item/clothing/gloves/power_gloves.dmi'
 	icon_state = "power_glove" //todo: different sprites for different levels of power
 	item_state = "power_glove"
+	contained_sprite = TRUE
 	amplification = 1 //just do it
 
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
@@ -214,8 +229,10 @@
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
+	icon = 'icons/obj/item/clothing/gloves/knuckledusters.dmi'
 	icon_state = "knuckledusters"
 	item_state = "knuckledusters"
+	contained_sprite = TRUE
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
@@ -230,8 +247,10 @@
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
 	desc = "A metal gauntlet with a piston-powered ram ontop for that extra punch in your punch."
+	icon = 'icons/obj/item/clothing/gloves/powerfist.dmi'
 	icon_state = "powerfist"
 	item_state = "powerfist"
+	contained_sprite = TRUE
 	attack_verb = list("whacked", "fisted", "power-punched")
 	siemens_coefficient = 1
 	fingerprint_chance = 50
@@ -265,8 +284,10 @@
 /obj/item/clothing/gloves/claws
 	name = "clawed gauntlets"
 	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
+	icon = 'icons/obj/item/clothing/gloves/warping_claws.dmi'
 	icon_state = "warping_claws"
 	item_state = "warping_claws"
+	contained_sprite = TRUE
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -299,8 +320,10 @@
 /obj/item/clothing/gloves/ballistic
 	name = "ballistic gauntlet"
 	desc = "A metal gauntlet armed with a wrist-mounted shotgun."
+	icon = 'icons/obj/item/clothing/gloves/ballisticfist.dmi'
 	icon_state = "ballisticfist"
 	item_state = "ballisticfist"
+	contained_sprite = TRUE
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = 1
@@ -375,8 +398,10 @@
 	desc = "A weaponized gauntlet capable of firing lightning bolts."
 	desc_extended = "A tesla-based weapon created by the People's Republic of Adhomai as part of their Tesla Brigade program. Because of its long recharge time, the gauntlet is commonly \
 	used as an ancillary weapon."
+	icon = 'icons/obj/item/clothing/gloves/tesla_gloves.dmi'
 	icon_state = "tesla_glove_on"
 	item_state = "tesla_glove_on"
+	contained_sprite = TRUE
 	siemens_coefficient = 1
 	fingerprint_chance = 50
 	clipped = TRUE
@@ -439,8 +464,9 @@
 /obj/item/clothing/gloves/black/forensic
 	name = "forensic gloves"
 	desc = "Specially made gloves for investigative personnel. The luminescent threads woven into the material stand out under scrutiny."
+	icon = 'icons/obj/item/clothing/gloves/forensic_gloves.dmi'
 	icon_state = "forensic"
-	item_state = "forensicgloves"
+	item_state = "forensic"
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/single

@@ -75,7 +75,7 @@
 				break
 
 	if(target)
-		if(alert(user, "Really try to reset cyborg [target.name]?", "Reset Cyborg", "Yes", "No") != "Yes")
+		if(tgui_alert(user, "Really try to reset cyborg [target.name]?", "Reset Cyborg", list("Yes", "No")) != "Yes")
 			return
 		if(!ability_pay(user, price))
 			return
@@ -194,7 +194,7 @@
 				break
 
 	if(target)
-		if(alert(user, "Really try to overclock cyborg [target.name]?", "Overclock Cyborg", "Yes", "No") != "Yes")
+		if(tgui_alert(user, "Really try to overclock cyborg [target.name]?", "Overclock Cyborg", list("Yes", "No")) != "Yes")
 			return
 		if(!ability_pay(user, price))
 			return
@@ -225,7 +225,7 @@
 	if(!ability_prechecks(user,price))
 		return
 
-	if (alert(user, "Start synthetic takeover? This can not be stopped and will not be covert.", "Synthetic Takeover?:", "Yes", "No") != "Yes")
+	if (tgui_alert(user, "Start synthetic takeover? This can not be stopped and will not be covert.", "Synthetic Takeover?:", list("Yes", "No")) != "Yes")
 		return
 	if (!ability_prechecks(user, price) || !ability_pay(user, price) || user.synthetic_takeover)
 		if(user.synthetic_takeover)

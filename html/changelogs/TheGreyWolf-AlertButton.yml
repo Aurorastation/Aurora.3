@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Changed a bunch of alert choice pop-ups to use the TGUI variant instead, except for the github link."

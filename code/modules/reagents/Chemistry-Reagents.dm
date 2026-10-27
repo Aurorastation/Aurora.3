@@ -118,8 +118,9 @@
 		removed = breathe_met
 
 	removed = M.get_metabolism(removed)
+	removed = min(removed, REAGENT_VOLUME(holder, type)) //Don't remove more reagent than actually exists.
 
-	// ctual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
+	// Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 	if(is_overdosing(M, location, holder))
 		overdose(M, alien, removed, LAZYACCESS(M.chem_doses, type)/get_overdose(M, location, holder), holder)
 

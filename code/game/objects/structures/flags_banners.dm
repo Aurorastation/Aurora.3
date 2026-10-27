@@ -260,7 +260,7 @@
 		if(I_HURT)
 			if(unmovable || ripped)
 				return
-			if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
+			if(tgui_alert(usr, "Do you want to rip \the [src] from its place?", "You think...", list("Yes", "No")) == "Yes")
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
