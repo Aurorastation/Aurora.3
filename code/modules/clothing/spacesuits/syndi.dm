@@ -1,7 +1,7 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
 	name = "red space helmet"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."
@@ -20,7 +20,7 @@
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A crimson spacesuit sporting clean lines and durable plating. Robust, reliable, and slightly suspicious."

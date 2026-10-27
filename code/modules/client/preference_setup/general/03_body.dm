@@ -749,7 +749,7 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 				usable_markings -= M
 
 		if (!usable_markings.len)
-			alert(user, "This species does not have any body markings available.")
+			tgui_alert(user, "This species does not have any body markings available.")
 			return TOPIC_NOACTION
 
 		var/new_marking = tgui_input_list(user, "Choose a body marking:", "Character Preference", usable_markings)

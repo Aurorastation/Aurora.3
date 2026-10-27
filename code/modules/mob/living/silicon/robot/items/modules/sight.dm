@@ -17,7 +17,7 @@
 	name = "\proper thermal vision"
 	sight_mode = BORGTHERM
 	icon_state = "thermal"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
 
 /obj/item/borg/sight/thermal/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -27,7 +27,7 @@
 	name = "\proper meson vision"
 	sight_mode = BORGMESON
 	icon_state = "meson"
-	icon = 'icons/obj/clothing/glasses.dmi'
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
 
 /obj/item/borg/sight/material
 	name = "\proper material scanner vision"

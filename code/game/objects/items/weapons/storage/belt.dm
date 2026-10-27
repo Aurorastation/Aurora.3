@@ -1,9 +1,9 @@
 /obj/item/storage/belt
 	name = "belt"
 	desc = "Can hold various things."
-	icon = 'icons/obj/clothing/belts.dmi'
+	icon = 'icons/obj/item/clothing/belts/belt.dmi'
 	icon_state = "utilitybelt"
-	item_state = "utility"
+	item_state = "utilitybelt"
 	force = 2
 	storage_slots = 7
 	max_w_class = WEIGHT_CLASS_NORMAL
@@ -12,6 +12,7 @@
 	attack_verb = list("whipped", "lashed", "disciplined")
 	drop_sound = 'sound/items/drop/toolbelt.ogg'
 	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
+	contained_sprite = TRUE
 	var/flipped = FALSE
 	var/show_above_suit = FALSE
 	var/content_overlays = FALSE //If this is true, the belt will gain overlays based on what it's holding
@@ -88,7 +89,7 @@
 	name = "tool belt"
 	desc = "A sturdy belt for holding various tools and equipment."
 	icon_state = "utilitybelt"
-	item_state = "utility"
+	item_state = "utilitybelt"
 	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
 		/obj/item/crowbar,
@@ -129,7 +130,7 @@
 
 /obj/item/storage/belt/utility/ce
 	icon_state = "utilitybelt_ce"
-	item_state = "utility_ce"
+	item_state = "utilitybelt_ce"
 
 	starts_with = list(
 		/obj/item/weldingtool/largetank = 1, // industrial welding tool
@@ -176,13 +177,13 @@
 /obj/item/storage/belt/utility/alt
 	desc = "A sturdy belt for holding various tools. This one eschews pouches for tight loops to hold your tools."
 	icon_state = "utilitybelt_alt"
-	item_state = "utility_alt"
+	item_state = "utilitybelt_alt"
 
 /obj/item/storage/belt/medical
 	name = "medical belt"
 	desc = "Can hold various medical equipment."
 	icon_state = "medicalbelt"
-	item_state = "medical"
+	item_state = "medicalbelt"
 	can_hold = list(
 		/obj/item/breath_analyzer,
 		/obj/item/healthanalyzer,
@@ -315,7 +316,7 @@
 	name = "security belt"
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon_state = "securitybelt"
-	item_state = "security"
+	item_state = "securitybelt"
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
@@ -415,7 +416,7 @@
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"
 	icon_state = "championbelt"
-	item_state = "champion"
+	item_state = "championbelt"
 	storage_slots = 1
 	can_hold = list(
 		/obj/item/clothing/mask/luchador
@@ -506,8 +507,8 @@
 /obj/item/storage/belt/mining
 	name = "explorer's belt"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
-	icon_state = "explorer"
-	item_state = "explorer"
+	icon_state = "explorervestbelt"
+	item_state = "explorervestbelt"
 	storage_slots = 9
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_BULKY //Pickaxes are big.
@@ -612,7 +613,7 @@
 	name = "advanced combat belt"
 	desc = "A very robust belt that can hold various specialized gear such as swords, grenades, shurikens, and food rations."
 	icon_state = "securitybelt"
-	item_state = "security"
+	item_state = "securitybelt"
 	storage_slots = 9
 	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
