@@ -497,6 +497,7 @@
 	name = "merchant identification card"
 	desc = "An identification card issued to SCC-sanctioned merchants, indicating their right to sell and buy goods."
 	icon_state = "centcom"
+	item_state = "centcom"
 	overlay_state = "centcom"
 	access = list(/datum/access/merchant::id)
 	vertical_card = TRUE
@@ -538,6 +539,7 @@
 	name = "\improper CentCom identification card"
 	desc = "A high-tech holocard displaying the commanding credentials of a Central Command official."
 	icon_state = "centcom"
+	item_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
@@ -551,6 +553,7 @@
 	name = "\improper CentCom. Internal Affairs identification card"
 	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
+	item_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = SFX_DROP
 	pickup_sound = SFX_PICKUP
@@ -573,6 +576,7 @@
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
 	icon_state = "centcom"
+	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
 	vertical_card = TRUE
@@ -587,6 +591,7 @@
 /obj/item/card/id/asset_protection
 	name = "\improper NanoTrasen Asset Protection identification card"
 	icon_state = "centcom"
+	item_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
 	vertical_card = TRUE
@@ -630,6 +635,7 @@
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"
+	item_state = "pmc_card"
 	overlay_state = "pmc_card"
 	vertical_card = TRUE
 
@@ -669,6 +675,7 @@
 	name = "\improper Idris Incorporated identification card"
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
+	item_state = "idris_card"
 	overlay_state = "idris_card"
 	vertical_card = TRUE
 
@@ -677,12 +684,14 @@
 
 /obj/item/card/id/idris/sec
 	icon_state = "idrissec_card"
+	item_state = "idrissec_card"
 	overlay_state = "idrissec_card"
 
 /obj/item/card/id/iru
 	name = "\improper IRU identification card"
 	desc = "A high-tech holobadge, designed to project information about an asset reclamation synthetic at Idris Incorporated."
 	icon_state = "iru_card"
+	item_state = "iru_card"
 	overlay_state = "iru_card"
 
 /obj/item/card/id/iru/update_icon()
@@ -692,6 +701,7 @@
 	name = "\improper PMCG identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "pmc_card"
+	item_state = "pmc_card"
 	overlay_state = "pmc_card"
 	vertical_card = TRUE
 
@@ -702,6 +712,7 @@
 	name = "\improper Zeng-Hu Pharmaceuticals identification card"
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
+	item_state = "zhu_card"
 	overlay_state = "zhu_card"
 	vertical_card = TRUE
 
@@ -712,23 +723,27 @@
 	name = "\improper Hephaestus Industries identification card"
 	desc = "A metal-backed card, belonging to the powerful Hephaestus Industries."
 	icon_state = "heph_card"
+	item_state = "heph_card"
 	overlay_state = "heph_card"
 
 /obj/item/card/id/zavodskoi
 	name = "\improper Zavodskoi Interstellar Incorporated identification card"
 	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
 	icon_state = "necro_card"
+	item_state = "necro_card"
 	overlay_state = "necro_card"
 
 /obj/item/card/id/zavodskoi/sec
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
+	item_state = "necrosec_card"
 	overlay_state = "necrosec_card"
 
 /obj/item/card/id/einstein
 	name = "\improper Einstein Engines identification card"
 	desc = "A stylized plastic card, belonging to one of the many specialists at Einstein Engines."
 	icon_state = "einstein_card"
+	item_state = "einstein_card"
 	overlay_state = "einstein_card"
 	iff_faction = IFF_EE
 
@@ -736,6 +751,7 @@
 	name = "\improper Orion Express identification card"
 	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
 	icon_state = "orion_card"
+	item_state = "orion_card"
 	overlay_state = "orion_card"
 	vertical_card = TRUE
 
@@ -749,12 +765,14 @@
 	name = "identification card"
 	desc = "A card with a soft metallic sheen, used to identify people and determine access."
 	icon_state = "data"
+	item_state = "data"
 	overlay_state = "data"
 
 /obj/item/card/id/tcaf // For ghostroles, rather than ERTs.
 	name = "\improper Tau Ceti Armed Forces identification card"
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	icon_state = "legion"
+	item_state = "legion"
 	overlay_state = "nothing"
 	vertical_card = TRUE
 
