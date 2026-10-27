@@ -72,9 +72,75 @@
 	load_offset_y = 5
 	mob_offset_y = 8
 
+/obj/vehicle/train/cargo/trolley/sled
+	name = "cargo sled"
+	desc = "A rugged cargo sled designed to be hitched behind a snowmobile. Its broad bed can carry cargo."
+	icon = 'icons/obj/cargo_sled.dmi'
+	icon_state = "cargo_trailer"
+	passenger_allowed = TRUE
+	buckle_lying = -1
+	train_hitch_compatible = FALSE
+	var/obj/vehicle/bike/snow/snowmobile
+
+/obj/vehicle/train/cargo/trolley/sled/Destroy()
+	if(snowmobile)
+		unattach()
+	return ..()
+
+/obj/vehicle/train/cargo/trolley/sled/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag this onto a snowmobile, or a snowmobile onto this, to hitch it. Only one sled can be hitched to a snowmobile."
+	. += "It can carry a human passenger."
+
+/obj/vehicle/train/cargo/trolley/sled/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(snowmobile)
+		. += SPAN_NOTICE("It is hitched to \the [snowmobile] in the [dir2text(get_dir(src, snowmobile))].")
+
+/obj/vehicle/train/cargo/trolley/sled/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(istype(dropped, /obj/vehicle/bike/snow))
+		if(use_check_and_message(user))
+			return
+		attach_to_snowmobile(dropped, user)
+		return
+	return ..()
+
+/obj/vehicle/train/cargo/trolley/sled/proc/attach_to_snowmobile(obj/vehicle/bike/snow/new_snowmobile, mob/user)
+	if(get_dist(src, new_snowmobile) > 1)
+		to_chat(user, SPAN_WARNING("\The [src] is too far away from \the [new_snowmobile] to hitch them together."))
+		return FALSE
+	if(snowmobile || lead)
+		to_chat(user, SPAN_WARNING("\The [src] is already hitched to something."))
+		return FALSE
+	if(tow)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be hitched to a snowmobile while it is towing something."))
+		return FALSE
+	if(new_snowmobile.towed_sled)
+		to_chat(user, SPAN_WARNING("\The [new_snowmobile] is already towing a sled."))
+		return FALSE
+
+	snowmobile = new_snowmobile
+	new_snowmobile.towed_sled = src
+	anchored = TRUE
+	set_dir(get_dir(src, snowmobile))
+	to_chat(user, SPAN_NOTICE("You hitch \the [src] to \the [snowmobile]."))
+	playsound(loc, 'sound/items/wrench.ogg', 70, TRUE)
+	return TRUE
+
+/obj/vehicle/train/cargo/trolley/sled/unattach(mob/user)
+	if(!snowmobile)
+		return ..()
+
+	var/obj/vehicle/bike/snow/old_snowmobile = snowmobile
+	snowmobile = null
+	old_snowmobile.towed_sled = null
+	anchored = FALSE
+	to_chat(user, SPAN_NOTICE("You unhitch \the [src] from \the [old_snowmobile]."))
+
 /obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	if(train_hitch_compatible)
+		. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 	. += "It can carry crates, large parcels, machinery, and other heavy cargo."
 
 //-------------------------------------------
