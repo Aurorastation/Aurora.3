@@ -803,6 +803,33 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		return FALSE
 	return TRUE
 
+/obj/structure/chainlink_fence/deployable
+	name = "portable chainlink fencing"
+	desc = "A tall section of chainlink fencing held upright by lightweight support posts."
+	climbable = FALSE
+
+/obj/structure/chainlink_fence/deployable/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It can be cut down with <b>wirecutters</b>, though doing so will take some time."
+
+/obj/structure/chainlink_fence/deployable/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
+		user.visible_message(
+			SPAN_NOTICE("[user] starts cutting down [src]."),
+			SPAN_NOTICE("You start cutting down [src].")
+		)
+		if(attacking_item.use_tool(src, user, 7 SECONDS, volume = 40))
+			if(QDELETED(src))
+				return
+			user.visible_message(
+				SPAN_NOTICE("[user] cuts down and rolls up [src]."),
+				SPAN_NOTICE("You cut down and roll up [src].")
+			)
+			new /obj/item/stack/chainlink_fence(get_turf(src))
+			qdel(src)
+		return
+	return ..()
+
 /obj/structure/rope_railing
 	name = "wooden rope"
 	desc = "A simple rope tied off to protect against careless trespass."
