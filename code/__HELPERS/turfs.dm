@@ -16,6 +16,10 @@
 		return TRUE
 	return FALSE
 
+/// Returns whether this turf has a lattice-derived walking surface, including catwalks and grates.
+/turf/proc/has_lattice()
+	return locate(/obj/structure/lattice) in src
+
 
 //Edit by Nanako
 //This proc is used in only two places, ive changed it to make more sense

@@ -21,6 +21,10 @@ type ByondProps = {
   scale: BooleanLike;
 };
 
+type ByondContext = {
+  holopadMode: BooleanLike;
+};
+
 export function TguiSay() {
   const innerRef = useRef<HTMLTextAreaElement>(null);
   const channelIterator = useRef(new ChannelIterator());
@@ -32,6 +36,7 @@ export function TguiSay() {
   // I initially wanted to make these an object or a reducer, but it's not really worth it.
   // You lose the granulatity and add a lot of boilerplate.
   const [buttonContent, setButtonContent] = useState('');
+  const [holopadMode, setHolopadMode] = useState(false);
   const [lightMode, setLightMode] = useState(false);
   const [maxLength, setMaxLength] = useState(1024);
   const [size, setSize] = useState(WindowSize.Small);
@@ -42,6 +47,13 @@ export function TguiSay() {
 
   function setCurrentPrefix(prefix: keyof typeof RADIO_PREFIXES | null): void {
     currentPrefix.current = prefix;
+  }
+
+  function getPrefixLabel(prefix: keyof typeof RADIO_PREFIXES): string {
+    if (holopadMode && prefix === ':h ') {
+      return 'Holo';
+    }
+    return RADIO_PREFIXES[prefix];
   }
 
   function handleArrowKeys(direction: KEY.Up | KEY.Down): void {
@@ -79,7 +91,11 @@ export function TguiSay() {
     // User is on a chat history message
     if (!chat.isAtLatest()) {
       chat.reset();
-      setButtonContent(currentPrefix.current ?? iterator.current());
+      setButtonContent(
+        currentPrefix.current
+          ? getPrefixLabel(currentPrefix.current)
+          : iterator.current(),
+      );
 
       // Empty input, resets the channel
     } else if (
@@ -181,7 +197,7 @@ export function TguiSay() {
     const newPrefix = getPrefix(newValue) || currentPrefix.current;
     // Handles switching prefixes
     if (newPrefix && newPrefix !== currentPrefix.current) {
-      setButtonContent(RADIO_PREFIXES[newPrefix]);
+      setButtonContent(getPrefixLabel(newPrefix));
       setCurrentPrefix(newPrefix);
       newValue = newValue.slice(3);
       iterator.set('Say');
@@ -248,6 +264,14 @@ export function TguiSay() {
     scale.current = !!data.scale;
   }
 
+  function handleContext(data: ByondContext): void {
+    const isHolopadMode = !!data.holopadMode;
+    setHolopadMode(isHolopadMode);
+    if (currentPrefix.current === ':h ') {
+      setButtonContent(isHolopadMode ? 'Holo' : RADIO_PREFIXES[':h ']);
+    }
+  }
+
   function unloadChat(): void {
     setCurrentPrefix(null);
     setButtonContent(channelIterator.current.current());
@@ -257,6 +281,7 @@ export function TguiSay() {
   /** Subscribe to Byond messages */
   useEffect(() => {
     Byond.subscribeTo('props', handleProps);
+    Byond.subscribeTo('context', handleContext);
     Byond.subscribeTo('force', handleForceSay);
     Byond.subscribeTo('open', handleOpen);
     Byond.subscribeTo('save', handleSaveText);
@@ -282,9 +307,13 @@ export function TguiSay() {
     }
   }, [value]);
 
+  const prefixTheme =
+    holopadMode && currentPrefix.current === ':h '
+      ? 'Say'
+      : currentPrefix.current && RADIO_PREFIXES[currentPrefix.current];
   const theme =
     (lightMode && 'lightMode') ||
-    (currentPrefix.current && RADIO_PREFIXES[currentPrefix.current]) ||
+    prefixTheme ||
     channelIterator.current.current();
 
   return (

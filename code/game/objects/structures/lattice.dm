@@ -49,6 +49,12 @@
 		turf.is_hole = initial(turf.is_hole)
 	return ..()
 
+/obj/structure/lattice/attack_hand(mob/living/user)
+	var/turf/underlying_turf = get_turf(src)
+	if(underlying_turf)
+		return underlying_turf.attack_hand(user)
+	return ..()
+
 /obj/structure/lattice/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -64,17 +70,14 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/lattice/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/stack/tile/floor))
-		var/turf/T = get_turf(src)
-		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
-		return
+/obj/structure/lattice/attackby(obj/item/attacking_item, mob/user, params)
 	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
-		new /obj/item/stack/rods(src.loc)
-		qdel(src)
+			new /obj/item/stack/rods(src.loc)
+			qdel(src)
+		return TRUE
 	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(2))
@@ -82,7 +85,18 @@
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
-		return
+		return TRUE
+	return attack_underlying_turf(attacking_item, user, params)
+
+/// Treats an otherwise unhandled click as a click on the floor beneath the lattice.
+/obj/structure/lattice/proc/attack_underlying_turf(obj/item/attacking_item, mob/user, params)
+	var/turf/underlying_turf = get_turf(src)
+	if(!underlying_turf)
+		return FALSE
+	var/resolved = underlying_turf.attackby(attacking_item, user, params)
+	if(!resolved && !QDELETED(attacking_item) && !QDELETED(underlying_turf))
+		attacking_item.afterattack(underlying_turf, user, TRUE, params)
+	return TRUE
 
 /obj/structure/lattice/ceiling
 	layer = ABOVE_ABOVE_HUMAN_LAYER
@@ -119,28 +133,31 @@
 	can_be_unanchored = TRUE
 	layer = CATWALK_LAYER
 
-/obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-			return
+			return TRUE
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			to_chat(user, SPAN_NOTICE("You slice apart [src]."))
 			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
 			R.amount = return_amount
 			R.update_icon()
 			qdel(src)
+		return TRUE
+	return attack_underlying_turf(attacking_item, user, params)
 
-/obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
 			QUEUE_SMOOTH(src)
 			QUEUE_SMOOTH_NEIGHBORS(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/structure/lattice/catwalk/hoist_act(turf/dest)
 	for (var/A in loc)
@@ -159,8 +176,11 @@
 	var/base_icon_state = "grate"
 	var/damaged = FALSE
 
-/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.tool_behaviour == TOOL_WELDER && damaged)
+/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
+		to_chat(user, SPAN_WARNING("You cannot lay cables beneath [src]."))
+		return TRUE
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && damaged)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(
@@ -170,8 +190,9 @@
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/structure/lattice/catwalk/indoor/grate/ex_act(severity)
 	switch(severity)
