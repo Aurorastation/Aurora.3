@@ -565,7 +565,7 @@
 			var/obj/item/ID = new id(H)
 			imprint_idcard(H, ID)
 			if(personal_computer?.card_slot)
-				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID), 2 SECOND, TIMER_STOPPABLE | TIMER_DELETE_ME)
+				addtimer(CALLBACK(src, PROC_REF(register_pda), personal_computer, ID, get_id_assignment(H, TRUE)), 2 SECOND, TIMER_STOPPABLE | TIMER_DELETE_ME)
 			else
 				H.equip_or_collect(ID, slot_wear_id)
 
@@ -670,10 +670,11 @@
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number
 
-/obj/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
+/obj/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I, job_title)
 	if(!P.card_slot)
 		return
 	P.card_slot.insert_id(I)
+	P.connect_departmental_ringers(job_title)
 	if(P.card_slot.stored_card && !P.hidden)
 		P.set_autorun("ntnrc_client")
 		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
