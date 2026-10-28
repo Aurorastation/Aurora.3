@@ -1,7 +1,7 @@
 /datum/gear/drugs_meds
 	display_name = "matchbox"
 	path = /obj/item/storage/box/fancy/matches
-	sort_category = "Drugs and Medicines"
+	misc_tags = list("Drugs and Medicines")
 
 /datum/gear/drugs_meds/zippo
 	display_name = "zippo lighter selection"
