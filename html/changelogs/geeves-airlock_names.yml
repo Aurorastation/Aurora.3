@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Airlocks are now automatically named after their area. Airlocks bordering another area also list that area with directional arrows."
