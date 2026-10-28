@@ -65,11 +65,13 @@ GLOBAL_LIST_EMPTY(unauthed)
 	GLOB.directory -= c.ckey
 	if(newkey)
 		c.ckey_is_external = ckey_is_external
+		GLOB.round_connected_ckeys -= c.ckey
 		c.key = newkey // Try setting ckey
 		// ^^^^ THIS INVOKES mob/Login()!
 		// and also modifies the c.mob to the actual mob they disconnected out of.
 
 	GLOB.directory[c.ckey] = c
+	GLOB.round_connected_ckeys |= c.ckey
 	// Init the client and give it a new_player mob.
 	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
 	c.InitClient()
