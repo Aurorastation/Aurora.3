@@ -391,6 +391,13 @@ SUBSYSTEM_DEF(discord)
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
+		if (WEBHOOK_TRANSFER)
+			var/emb = list(
+				"title" = "Transfer has been called",
+				"color" = HEX_COLOR_RED,
+				"description" = "A transfer has been called and the current round will end soon."
+			)
+			OutData["embeds"] = list(emb)
 		if (WEBHOOK_ROUNDEND)
 			var/emb = list(
 				"title" = "Round has ended",
