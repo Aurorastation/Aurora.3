@@ -52,7 +52,7 @@ SUBSYSTEM_DEF(odyssey)
 /datum/controller/subsystem/odyssey/proc/get_odyssey_overmap_effect()
 	var/obj/effect/overmap/odyssey_site
 	for(var/z in scenario_zlevels)
-		odyssey_site = GLOB.map_sectors["[z]"]
+		odyssey_site = get_map_sector(z)
 		if(!istype(odyssey_site))
 			continue
 	return odyssey_site
@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(odyssey)
 
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
-	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
+	main_map = get_map_sector(pick(possible_station_levels))
 	if(!SSticker.round_canon_admin_forced)
 		SSticker.set_round_canon(scenario.scenario_canonicity_type, TRUE)
 
