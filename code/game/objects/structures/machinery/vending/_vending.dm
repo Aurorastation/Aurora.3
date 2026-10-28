@@ -233,7 +233,7 @@
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
 	/// Whether a mapped instance of this vendor should persist its normal stock between rounds.
-	var/persistent_stock = TRUE
+	var/persistent_stock = FALSE
 	/// Original map location used to associate this machine with its persistent stock. Runtime-created vendors leave this null.
 	var/tmp/persistent_stock_id
 
