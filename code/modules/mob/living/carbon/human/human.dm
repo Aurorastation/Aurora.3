@@ -97,6 +97,7 @@
 		set_default_attack(species.unarmed_attacks[1])
 
 /mob/living/carbon/human/Destroy(force)
+	QDEL_NULL(strip_menu)
 	ghost_spawner = null
 
 	//Srom (Shared Dreaming)
@@ -370,81 +371,11 @@
 	return 0
 
 /mob/living/carbon/human/show_inv(mob/user as mob)
-	if(user.incapacitated() || !user.Adjacent(src))
+	if(!can_strip(user))
 		return
-
-	var/obj/item/clothing/under/suit = null
-	if(istype(w_uniform, /obj/item/clothing/under))
-		suit = w_uniform
-
-	user.set_machine(src)
-	var/dat = "<B><HR><FONT size=5>[name]</FONT></B><BR><HR>"
-
-	if(internals)
-		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
-
-	if(suit)
-		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
-		dat += "<B>Suit Sensors: [modes[suit.sensor_mode + 1]]</B><BR>"
-
-	if(internals || suit)
-		dat += "<HR>"
-
-	for(var/entry in species.hud.gear)
-		var/list/slot_ref = species.hud.gear[entry]
-		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
-			continue
-		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
-		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='byond://?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
-
-	dat += "<BR><HR>"
-
-	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
-
-	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
-	var/has_helmet
-	if(istype(wear_mask, /obj/item/clothing/mask))
-		var/obj/item/clothing/mask/M = wear_mask
-		has_mask = 1
-		if(!M.hanging)
-			has_mask = 2
-	if(istype(head, /obj/item/clothing/head/helmet/space))
-		has_helmet = TRUE
-
-	var/has_tank
-	if(istype(back, /obj/item/tank) || istype(belt, /obj/item/tank) || istype(s_store, /obj/item/tank))
-		has_tank = TRUE
-
-	if((has_mask == 2|| has_helmet) && has_tank)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
-
-	// Other incidentals.
-	if(istype(suit) && suit.has_sensor == 1)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=sensors'>Set sensors</A>"
-	if(handcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
-	if(legcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
-
-	if(has_mask)
-		var/obj/item/clothing/mask/M = wear_mask
-		if(M.adjustable)
-			dat += "<BR><A href='byond://?src=[REF(src)];item=mask'>Adjust mask</A>"
-	if(has_tank && internal)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=tank'>Check air tank</A>"
-	if(suit && LAZYLEN(suit.accessories))
-		dat += "<BR><A href='byond://?src=[REF(src)];item=tie'>Remove accessory</A>"
-	dat += "<BR><A href='byond://?src=[REF(src)];item=splints'>Remove splints</A>"
-	dat += "<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty pockets</A>"
-	dat += species.get_strip_info("[REF(src)]")
-	dat += "<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>"
-	dat += "<BR><A href='byond://?src=[REF(user)];mach_close=mob[name]'>Close</A>"
-
-	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
-	mob_win.set_content(dat)
-	mob_win.open()
+	if(!strip_menu)
+		strip_menu = new(src)
+	strip_menu.ui_interact(user)
 
 /// Called when something steps onto a human. This handles vehicles
 /mob/living/carbon/human/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
@@ -612,12 +543,6 @@
 		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
-
-	if(href_list["item"])
-		handle_strip(href_list["item"],usr)
-
-	if(href_list["species"])
-		species.handle_strip(usr, src, href_list["species"])
 
 	if(href_list["criminal"])
 		if(hasHUD(usr,"security"))
