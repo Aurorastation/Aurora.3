@@ -51,13 +51,13 @@
 	if(QDELETED(src))
 		return
 
-	change_stance(HOSTILE_STANCE_IDLE)
+	ai_holder?.set_stance(AI_STANCE_IDLE)
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
 	. = ..()
 
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_TIRED)
+	ai_holder.clear_target()
+	ai_holder.set_stance(AI_STANCE_SPECIAL)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
 	if(severity == EMP_HEAVY)
 		apply_damage(5)
@@ -68,4 +68,3 @@
 /mob/living/simple_animal/hostile/viscerator/lube/death()
 	reagents.splash(get_turf(src), 30)
 	..()
-

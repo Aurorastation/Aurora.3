@@ -1,0 +1,4 @@
+author: Geeves
+delete-after: True
+changes:
+  - rscadd: "Ported Polaris-style AI holders to simple animals and slimes, improving their movement, targeting, combat, retaliation, social behavior, and specialized abilities."
