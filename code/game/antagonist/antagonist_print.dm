@@ -129,7 +129,7 @@
 
 	var/text = "[current_antagonists.len > 1 ? "The [lowertext(role_text_plural)] were:\n" : "The [lowertext(role_text)] was:\n"]"
 	for (var/datum/mind/ply in current_antagonists)
-		var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]: "
+		var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]"
 		text += "**[ply.name]** as \a **[role]** ("
 		if(ply.current)
 			if(ply.current.stat == DEAD)
