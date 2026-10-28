@@ -86,8 +86,6 @@ GLOBAL_LIST_EMPTY(facial_hair_styles_male_list)
 GLOBAL_LIST_EMPTY(facial_hair_styles_female_list)
 /// List of body markings. List of strings to /datum/sprite_accessory/marking.
 GLOBAL_LIST_EMPTY(body_marking_styles_list)
-/// List of valid disabilities in the loadout.
-GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 /// List of valid player genders in the loadout.
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
@@ -198,16 +196,6 @@ GLOBAL_LIST_EMPTY(all_particles)
 		GLOB.body_marking_styles_list[M.name] = M
 
 	sortTim(GLOB.body_marking_styles_list, GLOBAL_PROC_REF(cmp_text_asc))
-
-	//Disability datums
-	paths = subtypesof(/datum/character_disabilities)
-	for(var/path in paths)
-		if(is_abstract(path))
-			continue
-		var/datum/character_disabilities/T = new path()
-		GLOB.chargen_disabilities_list[T.name] = T
-
-	sortTim(GLOB.chargen_disabilities_list, GLOBAL_PROC_REF(cmp_text_asc))
 
 	//List of job. I can't believe this was calculated multiple times per tick!
 	paths = subtypesof(/datum/job)
