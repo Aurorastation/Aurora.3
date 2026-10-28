@@ -12,7 +12,6 @@
 	persistent_stock = FALSE
 	req_access = list(/datum/access/janitor::id)
 	products = list(
-		/obj/item/vending_refill/actor = 2,
 		/obj/item/vending_refill/booze = 2,
 		/obj/item/vending_refill/bomba = 2,
 		/obj/item/vending_refill/tools = 2,
@@ -29,9 +28,7 @@
 		/obj/item/vending_refill/robo = 2,
 		/obj/item/vending_refill/battlemonsters = 2,
 		/obj/item/vending_refill/encryption = 2,
-		/obj/item/vending_refill/ert = 2,
 		/obj/item/vending_refill/games = 2,
-		/obj/item/vending_refill/generic_clothing = 2,
 		/obj/item/vending_refill/idris_delights = 2,
 		/obj/item/vending_refill/lavatory = 2,
 		/obj/item/vending_refill/mre = 2,
@@ -64,6 +61,7 @@
 	vend_id = "admin"
 	charges = 50
 
+// In case the actor supply needs to be refilled
 /obj/item/vending_refill/actor
 	name = "actor supplies resupply canister"
 	vend_id = "actor"
@@ -84,6 +82,7 @@
 	vend_id = "games"
 	charges = 50
 
+// For antag vending machines mainly, should they need the refill
 /obj/item/vending_refill/generic_clothing
 	name = "generic clothing resupply canister"
 	vend_id = "generic_clothing"

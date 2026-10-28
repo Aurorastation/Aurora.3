@@ -672,20 +672,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/actorsuppliesresupplycanister
-	category = "operations"
-	name = "actor supplies resupply canister"
-	supplier = "idris"
-	description = "A vending machine restock cart."
-	price = 2500
-	items = list(
-		/obj/item/vending_refill/actor
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/toximateresupplycanister
 	category = "operations"
 	name = "Toximate resupply canister"
@@ -728,20 +714,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/emergencysecurityresupplycanister
-	category = "operations"
-	name = "emergency security resupply canister"
-	supplier = "zavodskoi"
-	description = "A vending machine restock cart."
-	price = 2000
-	items = list(
-		/obj/item/vending_refill/ert
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/gamesresupplycanister
 	category = "operations"
 	name = "games resupply canister"
@@ -750,20 +722,6 @@
 	price = 2000
 	items = list(
 		/obj/item/vending_refill/games
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/genericclothingresupplycanister
-	category = "operations"
-	name = "generic clothing resupply canister"
-	supplier = "idris"
-	description = "A vending machine restock cart."
-	price = 3000
-	items = list(
-		/obj/item/vending_refill/generic_clothing
 	)
 	access = 0
 	container_type = "crate"
