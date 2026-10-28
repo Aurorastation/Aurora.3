@@ -13,10 +13,13 @@
 	/// Unique tag for this large tank. Not visible in game and to the player. Do not leave this as null.
 	/// THIS MUST BE UNIQUE FOR THE LARGE TANK. Every marker in one large tank should have the same `master_tag`.
 	/// Different large tanks, even on different maps, cannot share the same `master_tag`.
+	/// If null, it will set the tag based on area.
 	var/master_tag = null
 
 /obj/effect/map_effect/marker/large_tank/Initialize(mapload, ...)
 	..()
+	if(!master_tag)
+		master_tag = "large tank marker with area tag: [get_area(src)]"
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/map_effect/marker/large_tank/LateInitialize()
