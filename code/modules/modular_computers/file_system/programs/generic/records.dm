@@ -224,7 +224,7 @@
 
 		if("deleterecord")
 			if(active && canEdit("name"))
-				var/confirm = alert("Are you sure you want to delete this record?", "Confirm Deletion", "No", "Yes")
+				var/confirm = tgui_alert(usr, "Are you sure you want to delete this record?", "Confirm Deletion", list("No", "Yes"))
 				if(confirm == "Yes")
 					SSrecords.remove_record(active)
 					active = null

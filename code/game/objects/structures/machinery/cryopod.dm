@@ -451,7 +451,7 @@
 			return
 	if(!willing && M.client)
 		var/original_loc = M.loc
-		if(alert(M, "Would you like to enter [on_store_location]?", , "Yes", "No") == "Yes")
+		if(tgui_alert(M, "Would you like to enter [on_store_location]?", , list("Yes", "No")) == "Yes")
 			if(!M || M.loc != original_loc)
 				return
 			willing = TRUE
@@ -557,7 +557,7 @@
 	go_out()
 
 /obj/structure/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
-	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
+	var/choice = tgui_alert(M, "Would you like to save your tag data?", "Tag Persistence", list("Yes", "No"))
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]

@@ -88,6 +88,7 @@
 /obj/item/clothing/gloves/white
 	name = "white gloves"
 	desc = "These look pretty fancy."
+	icon = 'icons/obj/item/clothing/gloves/latex.dmi'
 	icon_state = "latex"
 	item_state = "latex"
 
@@ -160,7 +161,10 @@
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
 	desc = "A pair of gloves that reach past the elbow."
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "evening_gloves"
+	item_state = "evening_gloves"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/evening/unathi
 	name = "evening gloves"
@@ -170,8 +174,10 @@
 /obj/item/clothing/gloves/black_leather
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
+	icon = 'icons/obj/item/clothing/gloves/black_leather_gloves.dmi'
 	icon_state = "black_leather"
 	item_state = "black_leather"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/black_leather/unathi
 	name = "black unathi leather gloves"
@@ -179,8 +185,10 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/black_leather/colour
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "full_leather_colour"
 	item_state = "full_leather_colour"
+	contained_sprite = TRUE
 
 /obj/item/clothing/gloves/black_leather/colour/unathi
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -189,13 +197,16 @@
 /obj/item/clothing/gloves/fingerless
 	name = "fingerless gloves"
 	desc = "A pair of gloves that don't actually cover the fingers."
+	icon = 'icons/obj/item/clothing/gloves/fingerless_gloves.dmi'
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
+	contained_sprite = TRUE
 	fingerprint_chance = 100
 	clipped = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/fingerless/colour
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "fingerlessgloves_colour"
 	item_state = "fingerlessgloves_colour"
 
@@ -206,8 +217,10 @@
 /obj/item/clothing/gloves/knitted
 	name = "knitted gloves"
 	desc = "A pair of cozy knitted gloves. They don't appear as restrictive as most other type of gloves"
+	icon = 'icons/obj/item/clothing/gloves/colorable_gloves.dmi'
 	icon_state = "full_leather_colour"
 	item_state = "full_leather_colour"
+	contained_sprite = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/gloves/kala

@@ -171,7 +171,7 @@
 					return
 				if (selected_evac_option.needs_syscontrol && !ntn_cont)
 					return
-				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", filedesc, "No", "Yes")
+				var/confirm = tgui_alert(usr, "Are you sure you want to [selected_evac_option.option_desc]?", filedesc, list("No", "Yes"))
 				if (confirm == "Yes" && !computer.use_check_and_message(usr))
 					GLOB.evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")

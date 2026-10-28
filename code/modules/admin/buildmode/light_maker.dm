@@ -14,7 +14,7 @@
 	to_chat(usr, SPAN_NOTICE("***********************************************************"))
 
 /datum/build_mode/light_maker/Configurate()
-	var/choice = alert("Change the new light range, power, or color?", "Light Maker", "Range", "Power", "Color", "Cancel")
+	var/choice = tgui_alert(usr, "Change the new light range, power, or color?", "Light Maker", list("Range", "Power", "Color", "Cancel"))
 	switch(choice)
 		if("Range")
 			var/input = input("New light range.", name, light_range) as null|num

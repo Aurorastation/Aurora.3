@@ -75,3 +75,25 @@
   - bugfix: Fixes APC light emissives.
   - rscadd: P'kus parts are now orderable in operations. They still need assembly
       by a machinist to function.
+2026-10-28:
+  DreamySkrell:
+  - rscadd: Adds generic tajaran clothing vendor for uses in events or odyssey scenarios.
+  - refactor: Moves the two badly written vending machine tests to init.
+  - rscadd: Adds `validate_icon`.
+  - bugfix: Fixes icons of flags.
+  ElorgRHG:
+  - imagedel: Properly organized most clothing sprites in the codebase, some sprites
+      may have been deleted in the process.
+  - bugfix: Fixed the circle antennas sprites not displaying.
+  - bugfix: Fixed the antenna dishes missing an obj sprite.
+  Fenodyree:
+  - bugfix: Fixes chemicals dealing damage equal to their maximum metabolic rate,
+      instead of their real dose. Reduces acid spray and pepperspray damage by at
+      least 10x.
+  TheGreyWolf:
+  - rscadd: Changed a bunch of alert choice pop-ups to use the TGUI variant instead,
+      except for the github link.
+  TheGreyWolf, Greenjoe, Wowzewow (Wezzy):
+  - rscadd: Added sleds that can be attached to snowmobiles.
+  notagonk:
+  - rscadd: Adds some skrell hover-furniture to the Cargo ordering catalogue.

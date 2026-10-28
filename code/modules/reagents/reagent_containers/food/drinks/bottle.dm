@@ -154,7 +154,7 @@
 	if(user.a_intent != I_HURT)
 		return
 	if(target_mob == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
-		var/confirm = alert("Do you want to smash the bottle on yourself?","Hit yourself?","No", "Yeah!", "Splash Reagents")
+		var/confirm = tgui_alert(usr, "Do you want to smash the bottle on yourself?", "Hit yourself?", list("No", "Yeah!", "Splash Reagents"))
 		if(confirm == "No")
 			return 1 //prevents standard_splash_mob on return
 		if(confirm == "Splash Reagents")

@@ -295,7 +295,7 @@
 			return FALSE
 
 	if(affected.limb_flags & ORGAN_CAN_AMPUTATE)
-		var/confirmation = alert("You are about to amputate [target]'s [affected.name]! Are you sure you want to do that?", "Amputation confirmation", "Yes", "No")
+		var/confirmation = tgui_alert(usr, "You are about to amputate [target]'s [affected.name]! Are you sure you want to do that?", "Amputation confirmation", list("Yes", "No"))
 		return confirmation == "Yes"
 
 /singleton/surgery_step/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

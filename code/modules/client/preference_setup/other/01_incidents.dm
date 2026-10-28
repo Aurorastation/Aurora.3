@@ -215,7 +215,7 @@
 
 	if(href_list["del_sec_incident"])
 		var/search_incident = text2num(href_list["del_sec_incident"])
-		var/confirm = alert(user,"Do you want to delete that incident ?","Delete Incident","Yes","No")
+		var/confirm = tgui_alert(user, "Do you want to delete that incident ?", "Delete Incident", list("Yes", "No"))
 
 		if(!search_incident || !CanUseTopic(user) || confirm == "No")
 			return TOPIC_NOACTION
