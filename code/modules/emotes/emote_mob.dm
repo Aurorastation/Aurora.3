@@ -86,7 +86,7 @@
 			if(!message)
 				return
 			if (!m_type)
-				if(alert(src, "Is this an audible emote?", "Emote", "Yes", "No") == "No")
+				if(tgui_alert(src, "Is this an audible emote?", "Emote", list("Yes", "No")) == "No")
 					m_type = VISIBLE_MESSAGE
 				else
 					m_type = AUDIBLE_MESSAGE
@@ -173,12 +173,12 @@
 	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
 
 // Specific mob type exceptions below.
-/mob/living/silicon/ai/emote(var/act, var/type, var/message)
+/mob/living/silicon/ai/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)
 	var/obj/structure/machinery/hologram/holopad/T = src.holo
 	if(T?.active_holograms[src]) //Is the AI using a holopad?
-		src.holopad_emote(message)
+		return holopad_emote(message, m_type, do_show_observers)
 	else //Emote normally, then.
-		..()
+		return ..()
 
 /mob/living/captive_brain/emote(var/message)
 	return

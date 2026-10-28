@@ -359,7 +359,7 @@
 				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
-			var/response = alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
+			var/response = tgui_alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", list("Accept", "Decline"))
 			if(response != "Accept")
 				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
 				return

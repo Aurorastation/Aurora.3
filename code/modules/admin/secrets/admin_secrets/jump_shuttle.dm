@@ -20,7 +20,7 @@
 	var/destination_area = input(user, "Which area is the shuttle at now? (MAKE SURE THIS IS CORRECT OR THINGS WILL BREAK)") as null|area in world
 	if (!destination_area) return
 
-	var/long_jump = alert(user, "Is there a transition area for this jump?","", "Yes", "No")
+	var/long_jump = tgui_alert(user, "Is there a transition area for this jump?", "", list("Yes", "No"))
 	if (long_jump == "Yes")
 		var/transition_area = input(user, "Which area is the transition area? (MAKE SURE THIS IS CORRECT OR THINGS WILL BREAK)") as null|area in world
 		if (!transition_area) return

@@ -177,7 +177,7 @@
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You connect the monitor."))
 				if(!brain)
-					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"
+					var/open_for_latejoin = tgui_alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", list("Yes", "Yes", "No")) == "Yes"
 					var/obj/structure/AIcore/deactivated/D = new(loc)
 					if(open_for_latejoin)
 						GLOB.empty_playable_ai_cores += D

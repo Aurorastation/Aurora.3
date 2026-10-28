@@ -19,7 +19,7 @@
 
 	if(locate(tx,ty,tz))
 		var/ligths = 0
-		if(alert("Do you want lighting to be included in capture?", "Map Capture", "No", "Yes") == "Yes")
+		if(tgui_alert(usr, "Do you want lighting to be included in capture?", "Map Capture", list("No", "Yes")) == "Yes")
 			ligths = 1
 		var/cap = generate_image(tx ,ty ,tz ,range, CAPTURE_MODE_PARTIAL, null, ligths, 1)
 		var/file_name = "map_capture_x[tx]_y[ty]_z[tz]_r[range].png"
@@ -73,9 +73,9 @@
 		return
 
 	var/ligths = 0
-	if(alert("Do you want lighting to be included in capture?", "Map Capture", "No", "Yes") == "Yes")
+	if(tgui_alert(usr, "Do you want lighting to be included in capture?", "Map Capture", list("No", "Yes")) == "Yes")
 		ligths = 1
 
-	switch(alert("Are you sure? (This will cause masive lag!!!)", "Map Capture", "No", "Yes"))
+	switch(tgui_alert(usr, "Are you sure? (This will cause masive lag!!!)", "Map Capture", list("No", "Yes")))
 		if("Yes")
 			usr.client.holder.capture_map_capture_next(tz, 1, 1, ligths)

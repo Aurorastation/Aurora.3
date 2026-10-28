@@ -67,7 +67,7 @@
 	if(service_state <= PROGRAM_STATE_KILLED) // Killed or disabled.
 		computer.enable_service(null, user, src)
 	if(computer.hidden_uplink && syndi_auth)
-		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")
+		if(tgui_alert(user, "Resume or close and secure?", filedesc, list("Resume", "Close")) == "Resume")
 			computer.hidden_uplink.trigger(user)
 			return
 		else

@@ -61,6 +61,14 @@
 	var/previous_stat
 	var/randomize_color = TRUE
 	var/default_color
+	/// Whether an alert level has temporarily overridden this fixture's normal color.
+	var/alert_lighting_active = FALSE
+	/// The fixture color to restore after an alert-level override ends.
+	var/pre_alert_color
+	/// Whether a radiation warning has temporarily overridden this fixture's color.
+	var/radiation_lighting_active = FALSE
+	/// The fixture color to restore after a radiation warning ends.
+	var/pre_radiation_color
 	/// This is also defined at the area level! If you want to mess with
 	/// light fixture colours without touching specific subtypes, you
 	/// should probably be looking at the area's variables, not at this.
@@ -650,14 +658,38 @@
 
 /obj/structure/machinery/light/set_emergency_state(var/new_security_level)
 	var/area/A = get_area(src)
-	if(new_security_level in emergency_lights)
-		if(A.emergency_lights)
+	if((new_security_level in emergency_lights) && A.emergency_lights)
+		if(!alert_lighting_active)
+			pre_alert_color = radiation_lighting_active ? pre_radiation_color : brightness_color
+			alert_lighting_active = TRUE
+		if(radiation_lighting_active)
+			pre_radiation_color = emergency_lights[new_security_level]
+		else
 			brightness_color = emergency_lights[new_security_level]
-			update(0)
-	else
-		if(brightness_color != default_color)
-			brightness_color = default_color
-			update(0)
+		update(0)
+	else if(alert_lighting_active)
+		if(radiation_lighting_active)
+			pre_radiation_color = pre_alert_color
+		else
+			brightness_color = pre_alert_color
+		alert_lighting_active = FALSE
+		pre_alert_color = null
+		update(0)
+
+/// Temporarily recolors this fixture for a radiation warning without losing its normal or alert color.
+/obj/structure/machinery/light/proc/set_radiation_state(var/active)
+	if(active)
+		if(radiation_lighting_active)
+			return
+		pre_radiation_color = brightness_color
+		radiation_lighting_active = TRUE
+		brightness_color = LIGHT_COLOR_GREEN
+		update(0)
+	else if(radiation_lighting_active)
+		brightness_color = pre_radiation_color
+		radiation_lighting_active = FALSE
+		pre_radiation_color = null
+		update(0)
 
 /obj/structure/machinery/light/clean()
 	. = ..()

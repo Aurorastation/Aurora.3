@@ -23,4 +23,4 @@
 		S.force_launch(user)
 		log_and_message_admins("forced the [shuttle_tag] shuttle", user)
 	else
-		alert(user, "The [shuttle_tag] shuttle launch cannot be forced at this time. It's busy, or hasn't been launched yet.")
+		tgui_alert(user, "The [shuttle_tag] shuttle launch cannot be forced at this time. It's busy, or hasn't been launched yet.")

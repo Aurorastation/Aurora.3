@@ -89,13 +89,13 @@ GLOBAL_LIST_INIT(panic_targets_data_loss, list(
 	if (!check_rights(R_DEBUG | R_SERVER))
 		return
 
-	if (alert("Hard-Restart [controller]? Use with caution, this may break things.", "Subsystem Restart", "No", "No", "Yes") != "Yes")
+	if (tgui_alert(usr, "Hard-Restart [controller]? Use with caution, this may break things.", "Subsystem Restart", list("No", "No", "Yes")) != "Yes")
 		to_chat(usr, "Aborted.")
 		return
 
 	// If it's marked as potentially causing data-loss (like SStimer), require another confirmation.
 	if (GLOB.panic_targets_data_loss[controller])
-		if (alert("This subsystem ([controller]) may cause data loss or strange behavior if restarted! Continue?", "AAAAAA", "No", "No", "Yes") != "Yes")
+		if (tgui_alert(usr, "This subsystem ([controller]) may cause data loss or strange behavior if restarted! Continue?", "AAAAAA", list("No", "No", "Yes")) != "Yes")
 			to_chat(usr, "Aborted.")
 			return
 
