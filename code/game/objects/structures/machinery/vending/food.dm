@@ -127,6 +127,7 @@
 	name = "\improper idris delights vendor"
 	desc = "A selection of delicious cold ice creams and popsicles, brought to you by the Idris corporation. The various colors form the ice creams on offer stand out from the monochromatic Idris color scheme."
 	persistent_stock = TRUE
+	vend_id = "idris_delights"
 	icon_state = "idrisdelight"
 	icon_screen = "idrisdelight-screen"
 	icon_vend = "idrisdelight-vend"

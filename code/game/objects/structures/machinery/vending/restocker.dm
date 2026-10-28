@@ -12,7 +12,6 @@
 	persistent_stock = FALSE
 	req_access = list(/datum/access/janitor::id)
 	products = list(
-		/obj/item/vending_refill/vendors = 2,
 		/obj/item/vending_refill/actor = 2,
 		/obj/item/vending_refill/booze = 2,
 		/obj/item/vending_refill/bomba = 2,
@@ -33,6 +32,7 @@
 		/obj/item/vending_refill/ert = 2,
 		/obj/item/vending_refill/games = 2,
 		/obj/item/vending_refill/generic_clothing = 2,
+		/obj/item/vending_refill/idris_delights = 2,
 		/obj/item/vending_refill/lavatory = 2,
 		/obj/item/vending_refill/mre = 2,
 		/obj/item/vending_refill/overloaders = 2,
@@ -88,6 +88,11 @@
 	name = "generic clothing resupply canister"
 	vend_id = "generic_clothing"
 	charges = 60
+
+/obj/item/vending_refill/idris_delights
+	name = "Idris Delights resupply canister"
+	vend_id = "idris_delights"
+	charges = 50
 
 /obj/item/vending_refill/lavatory
 	name = "lavatory supplies resupply canister"
