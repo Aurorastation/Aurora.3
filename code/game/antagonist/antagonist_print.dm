@@ -124,7 +124,7 @@
 	. = english_list(refined_log, nothing_text = "")
 
 /datum/antagonist/proc/print_player_summary_discord()
-	if (current_antagonists.len)
+	if (!current_antagonists.len)
 		return ""
 
 	var/text = "[current_antagonists.len > 1 ? "The [lowertext(role_text_plural)] were:\n" : "The [lowertext(role_text)] was:\n"]"
