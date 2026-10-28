@@ -4,5 +4,6 @@
 #define WEBHOOK_ADMIN_IMPORTANT "g_admin_a"
 #define WEBHOOK_CCIAA_EMERGENCY_MESSAGE "cciaa_emergency"
 #define WEBHOOK_ALERT_NO_ADMINS "alert_noadmins"
+#define WEBHOOK_TRANSFER "transfer"
 #define WEBHOOK_ROUNDEND "roundend"
 #define WEBHOOK_ROUNDSTART "roundstart"
