@@ -19,42 +19,8 @@
 	using.hud = src
 	adding += using
 
-	using = new /atom/movable/screen/new_player/selection/join_game(src)
-	using.name = "Join Game"
-	using.hud = src
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/settings(src)
-	using.name = "Setup Character"
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/manifest(src)
-	using.name = "Crew Manifest"
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/observe(src)
-	using.name = "Observe"
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/changelog(src)
-	using.name = "Changelog"
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/polls(src)
-	using.name = "Polls"
-	adding += using
-
-	using = new /atom/movable/screen/new_player/selection/lore_summary(src)
-	using.name = "Current Lore Summary"
-	adding += using
-
-	// using = new /atom/movable/screen/new_player/selection/server_logo(src)
-	// using.name = "Aurora"
-	// adding += using
-
 	mymob.client.screen = list()
 	mymob.client.screen += adding
-	src.adding += using
 
 ABSTRACT_TYPE(/atom/movable/screen/new_player)
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
