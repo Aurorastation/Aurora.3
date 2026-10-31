@@ -1,5 +1,20 @@
 //Look Sir, free crabs!
+/datum/ai_holder/simple_animal/passive/crab
+	wander = FALSE
+	var/next_crab_move = 0
+
+/datum/ai_holder/simple_animal/passive/crab/handle_special_tactic()
+	var/mob/living/simple_animal/crab/crab = holder
+	crab.regenerate_icons()
+
+/datum/ai_holder/simple_animal/passive/crab/handle_special_strategical()
+	if(stance != AI_STANCE_IDLE || world.time < next_crab_move || !holder.AICanMove())
+		return
+	holder.AIMove(get_step(holder, pick(EAST, WEST)))
+	next_crab_move = world.time + 5 SECONDS
+
 /mob/living/simple_animal/crab
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/crab
 	name = "crab"
 	desc = "A hard-shelled crustacean. Seems quite content to lounge around all the time."
 	icon_state = "crab"
@@ -22,14 +37,3 @@
 	var/obj/item/inventory_head
 	var/obj/item/inventory_mask
 	possession_candidate = 1
-
-/mob/living/simple_animal/crab/think()
-	..()
-	//CRAB movement
-	if(!ckey && !stat)
-		if(isturf(src.loc) && !resting && !buckled_to)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
-			turns_since_move++
-			if(turns_since_move >= turns_per_move)
-				Move(get_step(src,pick(4,8)))
-				turns_since_move = 0
-	regenerate_icons()

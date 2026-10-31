@@ -4,8 +4,117 @@
 #define MOVING_TO_TARGET 3
 #define SPINNING_COCOON 4
 
+/datum/ai_holder/simple_animal/giant_spider
+	hostile = TRUE
+	retaliate = TRUE
+	cooperative = TRUE
+	can_flee = FALSE
+
+/datum/ai_holder/simple_animal/giant_spider/handle_special_strategical()
+	if(stance != AI_STANCE_IDLE || !prob(1))
+		return
+	var/turf/skitter_target = get_turf(pick(orange(20, holder)))
+	if(skitter_target)
+		give_destination(skitter_target, 1)
+
+/datum/ai_holder/simple_animal/giant_spider/nurse
+	var/nurse_task = 0
+	var/atom/cocoon_target
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/Destroy()
+	cocoon_target = null
+	return ..()
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/handle_special_tactic()
+	if(nurse_task != MOVING_TO_TARGET)
+		return
+	if(QDELETED(cocoon_target) || !isturf(cocoon_target.loc))
+		cancel_nurse_task()
+		return
+	if(holder.Adjacent(cocoon_target))
+		start_cocooning()
+	else if(stance != AI_STANCE_MOVE)
+		give_destination(get_turf(cocoon_target), 1)
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/handle_special_strategical()
+	if(nurse_task || stance != AI_STANCE_IDLE || !prob(30))
+		return
+
+	for(var/mob/living/possible_food in view(holder, vision_range))
+		if(possible_food.stat && !istype(possible_food, /mob/living/simple_animal/hostile/giant_spider))
+			move_to_cocoon_target(possible_food)
+			return
+
+	var/mob/living/simple_animal/hostile/giant_spider/nurse/nurse = holder
+	if(!locate(/obj/effect/spider/stickyweb) in holder.loc)
+		start_timed_nurse_task(SPINNING_WEB, 4 SECONDS, "begins to secrete a sticky substance")
+		return
+
+	var/obj/effect/spider/eggcluster/existing_eggs = locate() in get_turf(holder)
+	if(!existing_eggs && nurse.fed > 0)
+		start_timed_nurse_task(LAYING_EGGS, 5 SECONDS, "begins to lay a cluster of eggs")
+		return
+
+	for(var/obj/possible_item in view(holder, vision_range))
+		if(possible_item.anchored)
+			continue
+		if(istype(possible_item, /obj/item) || istype(possible_item, /obj/structure))
+			move_to_cocoon_target(possible_item)
+			return
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/proc/move_to_cocoon_target(atom/new_target)
+	if(QDELETED(new_target) || !isturf(new_target.loc))
+		return FALSE
+	cocoon_target = new_target
+	nurse_task = MOVING_TO_TARGET
+	return give_destination(get_turf(new_target), 1)
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/proc/start_cocooning()
+	if(QDELETED(cocoon_target) || !holder.Adjacent(cocoon_target))
+		return cancel_nurse_task()
+	nurse_task = SPINNING_COCOON
+	set_busy(TRUE)
+	holder.visible_message(SPAN_NOTICE("\The [holder] begins to secrete a sticky substance around \the [cocoon_target]."))
+	addtimer(CALLBACK(src, PROC_REF(finish_nurse_task), SPINNING_COCOON), 5 SECONDS, TIMER_DELETE_ME)
+	return TRUE
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/proc/start_timed_nurse_task(task, duration, message)
+	nurse_task = task
+	set_busy(TRUE)
+	holder.visible_message(SPAN_NOTICE("\The [holder] [message]."))
+	addtimer(CALLBACK(src, PROC_REF(finish_nurse_task), task), duration, TIMER_DELETE_ME)
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/proc/finish_nurse_task(expected_task)
+	if(QDELETED(holder) || nurse_task != expected_task)
+		return
+	var/mob/living/simple_animal/hostile/giant_spider/nurse/nurse = holder
+	switch(expected_task)
+		if(SPINNING_WEB)
+			nurse.AIPlaceWeb()
+		if(LAYING_EGGS)
+			nurse.AIPlaceEggs()
+		if(SPINNING_COCOON)
+			nurse.AIWrapCocoon(cocoon_target)
+	cancel_nurse_task()
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/proc/cancel_nurse_task()
+	nurse_task = 0
+	cocoon_target = null
+	destination = null
+	forget_path()
+	set_busy(FALSE)
+	if(stance == AI_STANCE_MOVE)
+		set_stance(AI_STANCE_IDLE)
+	return FALSE
+
+/datum/ai_holder/simple_animal/giant_spider/nurse/react_to_attack(atom/attacker)
+	if(nurse_task)
+		cancel_nurse_task()
+	return ..()
+
 //basic spider mob, these generally guard nests
 /mob/living/simple_animal/hostile/giant_spider
+	ai_holder_type = /datum/ai_holder/simple_animal/giant_spider
 	name = "greimorian warrior"
 	desc = "A deep purple carapace covers this vicious Greimorian warrior."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
@@ -54,6 +163,7 @@
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
+	ai_holder_type = /datum/ai_holder/simple_animal/giant_spider/nurse
 	name = "greimorian worker"
 	desc = "A hideous Greimorian with vestigial wings and an awful stench about it. This one is brown with shimmering, bulbous red eyes."
 	icon_state = "greimorian_worker"
@@ -66,7 +176,6 @@
 	melee_damage_upper = 10
 	armor_penetration = 20
 	venom_per_bite = 4
-	var/atom/cocoon_target
 	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	var/fed = 0
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
@@ -97,6 +206,7 @@
 
 //hunters have the most poison and move the fastest, so they can find prey
 /mob/living/simple_animal/hostile/giant_spider/hunter
+	ai_holder_type = /datum/ai_holder/simple_animal/melee/evasive
 	name = "greimorian hunter"
 	desc = "A vicious, hostile red Greimorian. This one holds a mighty stinger to impale its prey."
 	icon_state = "greimorian_hunter"
@@ -129,6 +239,7 @@
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
+	ai_holder_type = /datum/ai_holder/simple_animal/ranged/kiting
 	name = "greimorian bombardier"
 	desc = "A disgusting crawling Greimorian. This one has vents that shoot out acid."
 	icon_state = "greimorian_bombardier"
@@ -158,6 +269,10 @@
 	pepperspray.reagents.add_reagent(venom_type, 10)
 	pepperspray.set_color()
 	pepperspray.set_up(target_turf, 3, 5)
+
+/mob/living/simple_animal/hostile/giant_spider/bombardier/AICheckRangedAttack(atom/target)
+	// The bombardier uses its custom acid-spray Shoot() implementation instead of a projectile type.
+	return ranged
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
 	. = ..()
@@ -219,133 +334,43 @@
 				H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [limb.name]!"), SPAN_WARNING("\The [src] bites down onto your [limb.name]!"))
 				limb.emp_act(EMP_LIGHT)
 
-/mob/living/simple_animal/hostile/giant_spider/think()
-	..()
-	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
-			//1% chance to skitter madly away
-			if(!busy && prob(1))
-				/*var/list/move_targets = list()
-				for(var/turf/T in orange(20, src))
-					move_targets.Add(T)*/
-				stop_automated_movement = 1
-				GLOB.move_manager.move_to(src, pick(orange(20, src)), 1, speed)
-				addtimer(CALLBACK(src, PROC_REF(stop_walking)), 50, TIMER_UNIQUE)
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/AIPlaceEggs()
+	if(fed > 0 && !(locate(/obj/effect/spider/eggcluster) in get_turf(src)))
+		new /obj/effect/spider/eggcluster(loc, src)
+		fed--
 
-/mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
-	stop_automated_movement = 0
-	GLOB.move_manager.stop_looping(src)
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/AIPlaceWeb()
+	if(!locate(/obj/effect/spider/stickyweb) in loc)
+		new /obj/effect/spider/stickyweb(loc)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/think()
-	..()
-	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
-			//30% chance to stop wandering and do something
-			if(!busy && prob(30))
-				//first, check for potential food nearby to cocoon
-				for(var/mob/living/C in view(src, world.view))
-					if(C.stat && !istype(C, /mob/living/simple_animal/hostile/giant_spider))
-						cocoon_target = C
-						busy = MOVING_TO_TARGET
-						GLOB.move_manager.move_to(src, C, 1, speed)
-						//give up if we can't reach them after 10 seconds
-						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
-						return
-
-				//second, spin a sticky spiderweb on this tile if there isn't already a spiderweb there
-				if(!locate(/obj/effect/spider/stickyweb) in src.loc)
-					busy = SPINNING_WEB
-					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
-					stop_automated_movement = 1
-					addtimer(CALLBACK(src, PROC_REF(finalize_web)), 40, TIMER_UNIQUE)
-				else
-					//third, lay an egg cluster there
-					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
-					if(!E && fed > 0)
-						busy = LAYING_EGGS
-						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."))
-						stop_automated_movement = 1
-						addtimer(CALLBACK(src, PROC_REF(finalize_eggs)), 50, TIMER_UNIQUE)
-					else
-						//fourthly, cocoon any nearby items so those pesky pinkskins can't use them
-						for(var/obj/O in view(src, world.view))
-							if(O.anchored)
-								continue
-
-							if(istype(O, /obj/item) || istype(O, /obj/structure))
-								cocoon_target = O
-								busy = MOVING_TO_TARGET
-								stop_automated_movement = 1
-								GLOB.move_manager.move_to(src, O, 1, speed)
-								//give up if we can't reach them after 10 seconds
-								GiveUp(O)
-
-			else if(busy == MOVING_TO_TARGET && cocoon_target)
-				if(get_dist(src, cocoon_target) <= 1)
-					busy = SPINNING_COCOON
-					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."))
-					stop_automated_movement = 1
-					GLOB.move_manager.stop_looping(src)
-					addtimer(CALLBACK(src, PROC_REF(finalize_cocoon)), 50, TIMER_UNIQUE)
-
-		else
-			busy = 0
-			stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/GiveUp(var/C)
-	if(busy == MOVING_TO_TARGET)
-		if(cocoon_target == C && get_dist(src,cocoon_target) > 1)
-			cocoon_target = null
-		busy = 0
-		stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_eggs()
-	if(busy == LAYING_EGGS)
-		if(!(locate(/obj/effect/spider/eggcluster) in get_turf(src)))
-			new /obj/effect/spider/eggcluster(loc, src)
-			fed--
-		busy = 0
-		stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_web()
-	if(busy == SPINNING_WEB && !locate(/obj/effect/spider/stickyweb) in src.loc) // Additional check, to be extra-sure they don't stack webs.
-		new /obj/effect/spider/stickyweb(src.loc)
-		busy = 0
-		stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/giant_spider/nurse/proc/finalize_cocoon()
-	if(busy == SPINNING_COCOON)
-		if(cocoon_target && istype(cocoon_target.loc, /turf) && get_dist(src,cocoon_target) <= 1)
-			var/obj/effect/spider/cocoon/C = new(cocoon_target.loc)
-			var/large_cocoon = 0
-			C.pixel_x = cocoon_target.pixel_x
-			C.pixel_y = cocoon_target.pixel_y
-			for (var/A in C.loc)
-				var/atom/movable/aa = A
-				if (ismob(aa))
-					var/mob/M = aa
-					if(istype(M, /mob/living/simple_animal/hostile/giant_spider) && M.stat != DEAD)
-						continue
-					large_cocoon = 1
-					fed++
-					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."))
-					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
-					M.forceMove(C)
-					C.pixel_x = M.pixel_x
-					C.pixel_y = M.pixel_y
-					break
-				if (istype(aa, /obj/item))
-					var/obj/item/I = aa
-					I.forceMove(C)
-				if (istype(aa, /obj/structure))
-					var/obj/structure/S = aa
-					if(!S.anchored)
-						S.forceMove(C)
-						large_cocoon = 1
-			if(large_cocoon)
-				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
-		busy = 0
-		stop_automated_movement = 0
+/mob/living/simple_animal/hostile/giant_spider/nurse/proc/AIWrapCocoon(atom/target)
+	if(!target || !isturf(target.loc) || get_dist(src, target) > 1)
+		return FALSE
+	var/obj/effect/spider/cocoon/C = new(target.loc)
+	var/large_cocoon = FALSE
+	C.pixel_x = target.pixel_x
+	C.pixel_y = target.pixel_y
+	for(var/atom/movable/contents in C.loc)
+		if(ismob(contents))
+			var/mob/mob_contents = contents
+			if(istype(mob_contents, /mob/living/simple_animal/hostile/giant_spider) && mob_contents.stat != DEAD)
+				continue
+			large_cocoon = TRUE
+			fed++
+			visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [target] and sucks a viscous substance out."))
+			playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, TRUE)
+			mob_contents.forceMove(C)
+			C.pixel_x = mob_contents.pixel_x
+			C.pixel_y = mob_contents.pixel_y
+			break
+		if(istype(contents, /obj/item))
+			contents.forceMove(C)
+		if(istype(contents, /obj/structure) && !contents.anchored)
+			contents.forceMove(C)
+			large_cocoon = TRUE
+	if(large_cocoon)
+		C.icon_state = pick("cocoon_large1", "cocoon_large2", "cocoon_large3")
+	return TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/verb/web()
 	set name = "Spin Web"
