@@ -1,5 +1,6 @@
 /datum/citizenship/consortium
 	name = CITIZENSHIP_CONSORTIUM
+	assignment_suffix = "Hieroaetheria"
 	description =  "A nation of Hieroaetheria predating Nralakk discovery, the Consortium was a loose confederation of dozens of \
 	dionae groups across the region of Mede that have since unified into one alliance. The Consortium prides itself on progressive stances, \
 	aiming to foster a multicultural society inclusive of non-Dionae."
@@ -90,6 +91,7 @@
 
 /datum/citizenship/glaorr
 	name = CITIZENSHIP_GLAORR
+	assignment_suffix = "Gla'orr"
 	description =  "An affront to the ideals of ther Consortium, the Union of Gla'orr is autocratic and xenophobic, opposed to the integration of non-Dionae \
 	into Hieroaetherian societies. Though opposed to the ideals of the Consortium and though wishing a more secular handling of issues compared to Ekane, \
 	they continue to engage in diplomatic relations with the other nations of the Commonwealth."
@@ -182,6 +184,7 @@
 
 /datum/citizenship/ekane
 	name = CITIZENSHIP_EKANE
+	assignment_suffix = "Ekane"
 	description =  "Founded after first contact with the Nralakk Federation in communities gripped by Eternal thoughts, the Eternal Republic is an autocratic \
 	theocracy staunchly against propositions of reform, inclusion of non-dionae, centralisation and deeply entwined with Eternal schools of thoughts, with \
 	faith being a central component of all facets of life within the Eternal Republic."

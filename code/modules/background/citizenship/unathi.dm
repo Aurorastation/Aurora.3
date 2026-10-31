@@ -1,5 +1,6 @@
 /datum/citizenship/izweski
 	name = CITIZENSHIP_IZWESKI
+	assignment_suffix = "Karszekani"
 	description = "The Karszekani Moghes is a feudal empire ruled by the Izweski Clan. Underneath the Karszekan, who rules from the homeworld of Moghes, there are colony worlds ruled by Overlords. \
 	Under Overlords land on planets are divided between Lords, with the rest of the feudal hierarchy being beneath them. The Clan system is deeply entrenched in Unathi society, \
 	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
