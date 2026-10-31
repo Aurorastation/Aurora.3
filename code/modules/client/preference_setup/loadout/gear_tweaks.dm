@@ -11,7 +11,7 @@
  * Queries the user for additional information about the tweak.
  * For example: A color tweak might display a color selection menu to the user
  */
-/datum/gear_tweak/proc/get_metadata(var/user, var/metadata, var/title, var/gear_path)
+/datum/gear_tweak/proc/get_metadata(var/user, var/metadata, var/title, var/gear_path, var/list/all_metadata)
 	return
 
 /**
@@ -352,8 +352,19 @@ Paper Data
 /datum/gear_tweak/paper_data/get_default()
 	return ""
 
-/datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata)
-	return strip_html(tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN))
+/datum/gear_tweak/paper_data/proc/get_preview_background_color(var/gear_path, var/list/all_metadata)
+	var/background_color
+	if(all_metadata)
+		background_color = all_metadata["[GLOB.gear_tweak_free_color_choice]"]
+	if(!background_color && ispath(gear_path, /obj/item/paper))
+		var/obj/item/paper/paper_path = gear_path
+		background_color = initial(paper_path.color)
+	return background_color || COLOR_WHITE
+
+/datum/gear_tweak/paper_data/get_metadata(var/user, var/metadata, var/title, var/gear_path, var/list/all_metadata)
+	var/list/preview_context = get_pencode_preview_context(FALSE, TRUE, TRUE, TRUE, MAX_PAPER_MESSAGE_LEN)
+	preview_context["background_color"] = get_preview_background_color(gear_path, all_metadata)
+	return sanitize(tgui_input_text(user, "Choose a pre-written message on the item.", "Pre-written Message", metadata, MAX_PAPER_MESSAGE_LEN, multiline = TRUE, encode = FALSE, preview_context = preview_context), MAX_PAPER_MESSAGE_LEN, encode = FALSE, extra = FALSE)
 
 /datum/gear_tweak/paper_data/tweak_item(var/obj/item/paper/P, var/metadata, var/mob/living/carbon/human/H)
 	if(!metadata || !istype(P))

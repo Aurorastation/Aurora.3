@@ -31,7 +31,7 @@
 
 /datum/modular_computer_app_presets/engineering/ce/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += list(/datum/computer_file/program/comm, /datum/computer_file/program/records)
 
 
 /*##########################
@@ -56,7 +56,7 @@
 
 /datum/modular_computer_app_presets/medical/cmo/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/employment, /datum/computer_file/program/scanner/science, /datum/computer_file/program/comm)
+	program_list += list(/datum/computer_file/program/scanner/science, /datum/computer_file/program/comm)
 
 
 /*##########################
@@ -81,7 +81,7 @@
 
 /datum/modular_computer_app_presets/research/rd/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += list(/datum/computer_file/program/comm, /datum/computer_file/program/records)
 
 /*##########################
 	BRIDGE CREW PRESETS
@@ -113,7 +113,7 @@
 						/datum/computer_file/program/comm/intercept,
 						/datum/computer_file/program/docks,
 						/datum/computer_file/program/away_manifest,
-						/datum/computer_file/program/records/employment,
+						/datum/computer_file/program/records,
 						)
 
 
@@ -126,7 +126,6 @@
 /datum/modular_computer_app_presets/command/hop/New()
 	. = ..()
 	program_list += list(/datum/computer_file/program/civilian/cargocontrol,
-						/datum/computer_file/program/records/security,
 						/datum/computer_file/program/digitalwarrant,
 						/datum/computer_file/program/camera_monitor,
 						/datum/computer_file/program/alarm_monitor/all,
@@ -145,8 +144,6 @@
 						/datum/computer_file/program/digitalwarrant,
 						/datum/computer_file/program/civilian/cargocontrol,
 						/datum/computer_file/program/alarm_monitor/all,
-						/datum/computer_file/program/records/medical,
-						/datum/computer_file/program/records/security,
 						)
 
 
@@ -182,7 +179,6 @@
 
 /datum/modular_computer_app_presets/security/investigations/New()
 	. = ..()
-	program_list += /datum/computer_file/program/records/medical
 	program_list -= /datum/computer_file/program/guntracker //Remove the guntracker, investigators don't have access to it
 
 
@@ -194,7 +190,7 @@
 
 /datum/modular_computer_app_presets/security/hos/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
+	program_list += /datum/computer_file/program/comm
 
 
 /*##########################
@@ -294,7 +290,7 @@
 
 /datum/modular_computer_app_presets/supply/machinist/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics, /datum/computer_file/program/signaler)
+	program_list += list(/datum/computer_file/program/records, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics, /datum/computer_file/program/signaler)
 	//Machinist is the bastard child of supply/operation, it doesn't have access to shit essentially
 	program_list -= list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/civilian/cargodelivery, /datum/computer_file/program/away_manifest)
 
@@ -310,4 +306,4 @@
 
 /datum/modular_computer_app_presets/representative/New()
 	. = ..()
-	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN + /datum/computer_file/program/records/employment
+	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN + /datum/computer_file/program/records
