@@ -24,7 +24,8 @@
 	climb_coeff = 1.1
 
 	maneuvers = list(
-		/singleton/maneuver/leap
+		/singleton/maneuver/leap,
+		/singleton/maneuver/kick
 	)
 
 	resist_mod = 1.5 // ZHAN POWERRRRRR
@@ -74,7 +75,8 @@
 	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
-		/singleton/maneuver/leap/tajara/msai
+		/singleton/maneuver/leap/tajara/msai,
+		/singleton/maneuver/kick
 	)
 
 	cold_level_1 = 220 //RaceDefault 200 Default 260
@@ -153,7 +155,8 @@
 	)
 
 	maneuvers = list(
-		/singleton/maneuver/leap/tesla_body
+		/singleton/maneuver/leap/tesla_body,
+		/singleton/maneuver/kick
 	)
 
 	damage_overlays = 'icons/mob/human_races/masks/dam_mask_tesla_body.dmi'
