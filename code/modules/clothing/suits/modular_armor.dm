@@ -865,6 +865,24 @@
 	icon_state = "flagpatch_burzsia"
 	item_state = "flagpatch_burzsia"
 
+/obj/item/clothing/accessory/flagpatch/goldendeep
+	name = "golden deep flagpatch"
+	desc = "A flagpatch bearing the gold, diamond and black colors of The Mercantile Collective of the Golden Deep"
+	icon_state = "flagpatch_goldendeep"
+	item_state = "flagpatch_goldendeep"
+
+/obj/item/clothing/accessory/flagpatch/axiom
+	name = "axiom flagpatch"
+	desc = "A flagpatch of the Ecclesiastical Authority of Axiom."
+	icon_state = "flagpatch_axiom"
+	item_state = "flagpatch_axiom"
+
+/obj/item/clothing/accessory/flagpatch/salamasian
+	name = "salamasian flagpatch"
+	desc = "A flagpatch of the Ecclesiastical Authority of Axiom."
+	icon_state = "flagpatch_salamasian"
+	item_state = "flagpatch_salamasian"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf
