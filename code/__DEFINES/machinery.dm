@@ -75,6 +75,12 @@
 #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
 #define OPERABLE(machine)    !INOPERABLE(machine)
 
+// Modules which may be mapped into a combined maintenance panel.
+#define MAINTENANCE_PANEL_APC        BITFLAG(0)
+#define MAINTENANCE_PANEL_AIR_ALARM  BITFLAG(1)
+#define MAINTENANCE_PANEL_FIRE_ALARM BITFLAG(2)
+#define MAINTENANCE_PANEL_ALL (MAINTENANCE_PANEL_APC | MAINTENANCE_PANEL_AIR_ALARM | MAINTENANCE_PANEL_FIRE_ALARM)
+
 // Used by firelocks
 #define FIREDOOR_OPEN 1
 #define FIREDOOR_CLOSED 2
