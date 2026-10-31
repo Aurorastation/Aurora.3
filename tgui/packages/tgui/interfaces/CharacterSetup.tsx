@@ -125,10 +125,9 @@ type BackgroundPreferenceItem = BasePreferenceItem & {
   kind: 'background';
   banned: boolean;
   records: {
-    clear_value: string;
-    edit_action: string;
     name: string;
     preview: string;
+    type: string;
   }[];
 };
 
@@ -990,7 +989,9 @@ export const CharacterSetup = () => {
                 <Button
                   fluid
                   color="transparent"
-                  onClick={() => sendPreferenceAction(item, record.edit_action)}
+                  onClick={() =>
+                    sendPreferenceAction(item, 'edit_record', record.type)
+                  }
                 >
                   {record.preview}
                 </Button>
@@ -1001,7 +1002,7 @@ export const CharacterSetup = () => {
                   color="bad"
                   icon="trash"
                   onClick={() =>
-                    sendPreferenceAction(item, 'clear', record.clear_value)
+                    sendPreferenceAction(item, 'clear', record.type)
                   }
                 >
                   Clear

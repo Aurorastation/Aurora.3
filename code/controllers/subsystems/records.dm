@@ -6,7 +6,6 @@ SUBSYSTEM_DEF(records)
 	var/list/records_locked
 
 	var/list/warrants
-	var/list/viruses
 	var/list/shuttle_assignments
 	var/list/shuttle_manifests
 
@@ -38,7 +37,6 @@ SUBSYSTEM_DEF(records)
 	records = list()
 	records_locked = list()
 	warrants = list()
-	viruses = list()
 	shuttle_assignments = list()
 	shuttle_manifests = list()
 	excluded_fields = list()
@@ -74,9 +72,6 @@ SUBSYSTEM_DEF(records)
 		"_parent" = /datum/record,
 		"blood_type" = "Blood type",
 		"blood_dna" = "DNA",
-		"disabilities" = "Disabilities",
-		"allergies" = "Allergies",
-		"diseases" = "Diseases",
 		"comments" = "Comments"
 	)
 	localized_fields[/datum/record/security] = list(
@@ -86,13 +81,6 @@ SUBSYSTEM_DEF(records)
 		"incidents" = "Incidents",
 		"comments" = "Comments"
 	)
-	localized_fields[/datum/record/virus] = list(
-		"_parent" = /datum/record,
-		"description" = "Description",
-		"antigen" = "",
-		"spread_type" = "",
-	)
-
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
 		var/datum/record/general/r = new(H)
@@ -110,8 +98,6 @@ SUBSYSTEM_DEF(records)
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants += record
-		if(/datum/record/virus)
-			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
 			reset_manifest()
@@ -128,8 +114,6 @@ SUBSYSTEM_DEF(records)
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants |= record
-		if(/datum/record/virus)
-			viruses |= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests |= record
 			reset_manifest()
@@ -146,8 +130,6 @@ SUBSYSTEM_DEF(records)
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants -= record
-		if(/datum/record/virus)
-			viruses *= record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests -= record
 			reset_manifest()
@@ -169,13 +151,6 @@ SUBSYSTEM_DEF(records)
 		searchedList = records_locked
 	if(record_type & RECORD_WARRANT)
 		for(var/datum/record/warrant/r in warrants)
-			if(r.excluded_fields[field])
-				continue
-			if(r.vars[field] == value)
-				return r
-		return
-	if(record_type & RECORD_VIRUS)
-		for(var/datum/record/virus/r in viruses)
 			if(r.excluded_fields[field])
 				continue
 			if(r.vars[field] == value)
