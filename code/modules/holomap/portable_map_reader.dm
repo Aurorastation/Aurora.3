@@ -6,10 +6,10 @@
 	icon_state = "gps"
 	item_state = "radio"
 	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_SMALL
 	/// The map reader only shows that z-level (and any z-levels that z-level is connected to).
 	/// It will not show other z-levels, like if the user were to transport it elsewhere on a shuttle.
 	var/list/connected_z_levels = null
-
 	/// If zero/null, show the z-level of the user, otherwise show `z_override` z-level.
 	/// Set by GUI to, for example, show bottom deck of a multi-z ship while the user is on the top deck.
 	var/z_override = 0
