@@ -481,6 +481,8 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport/elyra
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
+	passport["passport, axiom"] = /obj/item/clothing/accessory/badge/passport/axiom
+	passport["passport, salamasian"] = /obj/item/clothing/accessory/badge/passport/salamasian
 	gear_tweaks += new /datum/gear_tweak/path(passport)
 
 /datum/gear/accessory/TCAFcard

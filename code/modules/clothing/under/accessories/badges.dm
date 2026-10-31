@@ -837,6 +837,18 @@
 	icon_state = "passport_goldendeep"
 	item_state = "passport_goldendeep"
 
+/obj/item/clothing/accessory/badge/passport/axiom
+	name = "ecclesiastical authority of axiom passport"
+	desc = "A passport issued to a citizen of the Ecclesiastical Authority of Axiom"
+	icon_state = "passport_axiom"
+	item_state = "passport_axiom"
+
+/obj/item/clothing/accessory/badge/passport/salamasian
+	name = "salamasian republic passport"
+	desc = "A passport issued to a citizen of the Salamasian Republic."
+	icon_state = "passport_salamasian"
+	item_state = "passport_salamasian"
+
 /obj/item/clothing/accessory/badge/passport/consortium
 	name = "consortium of hieroaetheria passport"
 	desc = "A passport issued to a citizen of the Consortium of Hieroaetheria. A testament to inclusiveness anywhere its owner takes with it."
