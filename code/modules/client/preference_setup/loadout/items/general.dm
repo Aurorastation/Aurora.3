@@ -1,4 +1,5 @@
 /datum/gear/cane
+	misc_tags = list("General")
 	display_name = "cane and crutch selection"
 	description = "A selection of canes and crutches."
 	path = /obj/item/cane
@@ -16,6 +17,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask
+	misc_tags = list("General")
 	display_name = "flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/barflask
 
@@ -24,6 +26,7 @@
 	gear_tweaks += new /datum/gear_tweak/reagents(lunchables_all_drink_reagents())
 
 /datum/gear/vacflask_cold
+	misc_tags = list("General")
 	display_name = "cold vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
@@ -38,6 +41,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 5)
 
 /datum/gear/vacflask_hot
+	misc_tags = list("General")
 	display_name = "hot vacuum flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
 
@@ -52,6 +56,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 45)
 
 /datum/gear/lunchbox
+	misc_tags = list("General")
 	display_name = "lunchbox"
 	description = "A little lunchbox."
 	cost = 2
@@ -69,6 +74,7 @@
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks(), lunchables_utensil())
 
 /datum/gear/teaset
+	misc_tags = list("General")
 	display_name = "tea set"
 	description = "A box containing a tea set."
 	cost = 2
@@ -79,6 +85,7 @@
 	gear_tweaks += new /datum/gear_tweak/contents(teas_tea_type(), teas_teapot_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type(), teas_teacup_type())
 
 /datum/gear/coffeecup
+	misc_tags = list("General")
 	display_name = "coffee cups"
 	description = "A coffee cup in various designs."
 	cost = 1
@@ -154,6 +161,7 @@
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
 /datum/gear/teacup
+	misc_tags = list("General")
 	display_name = "tea cups"
 	description = "Tea cups in various designs."
 	cost = 1
@@ -179,6 +187,7 @@
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
 /datum/gear/teatins
+	misc_tags = list("General")
 	display_name = "tea tin selection"
 	description = "A selction of various tins of tea."
 	cost = 1
@@ -196,6 +205,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
+	misc_tags = list("General")
 	display_name = "teapots"
 	description = "A selection of teapots."
 	cost = 1
@@ -210,6 +220,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(teapots)
 
 /datum/gear/banner
+	misc_tags = list("General")
 	display_name = "banner selection"
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
@@ -313,6 +324,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
+	misc_tags = list("General")
 	display_name = "dominian great house standard selection"
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
@@ -330,6 +342,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag
+	misc_tags = list("General")
 	display_name = "flag selection"
 	cost = 1
 	path = /obj/item/flag
@@ -435,16 +448,19 @@
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
+	misc_tags = list("General")
 	display_name = "towel"
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/handkerchief
+	misc_tags = list("General")
 	display_name = "handkerchief"
 	path = /obj/item/reagent_containers/glass/rag/handkerchief
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/comic
+	misc_tags = list("General")
 	display_name = "comic selection"
 	description = "A selection of comics, manga, and magazines from across the Spur."
 	path = /obj/item/toy/comic
@@ -468,6 +484,7 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
+	misc_tags = list("General")
 	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
@@ -480,38 +497,45 @@
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo
+	misc_tags = list("General")
 	display_name = "photo"
 	path =  /obj/item/photo
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/photo_album
+	misc_tags = list("General")
 	display_name = "photo album"
 	path =  /obj/item/storage/photo_album
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/knitting_set
+	misc_tags = list("General")
 	display_name = "knitting set"
 	path =  /obj/item/storage/box/knitting
 	description = "A box of knitting supplies."
 	flags = null
 
 /datum/gear/yarn_box
+	misc_tags = list("General")
 	display_name = "knitting supplies"
 	path =  /obj/item/storage/box/yarn
 	description = "A box containing yarn."
 	flags = null
 
 /datum/gear/gadbook
+	misc_tags = list("General")
 	display_name = "gadpathurian morale manual"
 	path = /obj/item/versebook/gadpathur
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
 
 /datum/gear/aurora_miniature
+	misc_tags = list("General")
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
 
 /datum/gear/instruments
+	misc_tags = list("General")
 	display_name = "instrument selection"
 	description = "A selection of instruments for the musically inclined."
 	path = /obj/item/synthesized_instrument
@@ -527,10 +551,12 @@
 	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
+	misc_tags = list("General")
 	display_name = "analog radio"
 	path = /obj/item/lore_radio
 
 /datum/gear/pottedplant_small
+	misc_tags = list("General")
 	display_name = "potted plant"
 	description = "A small potted plant."
 	cost = 1
@@ -553,12 +579,14 @@
 	origin_restriction = list(/singleton/origin_item/origin/assunzione)
 
 /datum/gear/candles
+	misc_tags = list("General")
 	display_name = "candle pack"
 	description = "A pack of red candles."
 	cost = 1
 	path = /obj/item/storage/box/fancy/candle_box
 
 /datum/gear/mre
+	misc_tags = list("General")
 	display_name = "mre selection"
 	description = "A selection of different MREs."
 	cost = 2
