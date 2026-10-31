@@ -37,8 +37,6 @@ SUBSYSTEM_DEF(persistence)
 	var/char_cache = alist()
 	/// Dictionary<"[type](+[attribute])", container> cache of persistent generics.
 	var/generic_cache = alist()
-	/// Persistent vending machines present on the Horizon when the round's map finished loading.
-	var/list/vending_stock_register = list()
 
 /**
  * Subsystem info stub message generation.
@@ -103,13 +101,6 @@ SUBSYSTEM_DEF(persistence)
 	catch(var/exception/e_types)
 		log_subsystem_persistence_panic("Unhandled exception during persistent type initialization!", e_types)
 		return SS_INIT_FAILURE
-
-	if(map_supports_persistence)
-		try
-			vendingStockInitialize()
-		catch(var/exception/e_vending)
-			log_subsystem_persistence_panic("Unhandled exception during persistent vending stock initialization!", e_vending)
-			return SS_INIT_FAILURE
 
 	init_success = TRUE
 	return SS_INIT_SUCCESS

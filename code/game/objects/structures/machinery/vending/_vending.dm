@@ -236,6 +236,8 @@
 	var/persistent_stock = FALSE
 	/// Original map location used to associate this machine with its persistent stock. Runtime-created vendors leave this null.
 	var/tmp/persistent_stock_id
+	/// Saved normal stock supplied by the persistence type before atom initialization.
+	var/tmp/list/persistent_stock_content
 
 	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
 	var/default_item_amount = null
@@ -304,6 +306,26 @@
 /obj/structure/machinery/vending/LateInitialize()
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+	apply_persistent_stock()
+
+/** Receives saved stock before initialization so it can be applied after product records are built. */
+/obj/structure/machinery/vending/proc/receive_persistent_stock(list/saved_stock)
+	persistent_stock_content = saved_stock
+
+/** Applies stock supplied before initialization now that the product records have been built. */
+/obj/structure/machinery/vending/proc/apply_persistent_stock()
+	if(!persistent_stock_id || !islist(persistent_stock_content))
+		persistent_stock_content = null
+		return
+
+	for(var/datum/data/vending_product/product in product_records)
+		if(product.category != CAT_NORMAL)
+			continue
+		var/stock_key = "[product.product_path]|[product.category]"
+		var/saved_amount = persistent_stock_content[stock_key]
+		if(isnum(saved_amount))
+			product.amount = clamp(saved_amount, 0, product.max_amount)
+	persistent_stock_content = null
 
 /obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
