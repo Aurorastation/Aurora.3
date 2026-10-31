@@ -124,7 +124,6 @@
 			"label" = "Manage",
 			"value" = "",
 			"actions" = list(
-				list("label" = "Edit Comment", "action" = "edit_record_comment", "value" = record_comment.db_id, "icon" = "pen"),
 				list("label" = "Delete Comment", "action" = "delete_record_comment", "value" = record_comment.db_id, "color" = "bad", "icon" = "trash")
 			)
 		))
@@ -172,29 +171,6 @@
 		var/new_page = text2num(href_list["record_comments_page"])
 		if(new_page >= 1 && !comments_loading)
 			request_comment_page(new_page)
-		return TOPIC_REFRESH
-
-	if(href_list["edit_record_comment"])
-		if(!CanUseTopic(user))
-			return TOPIC_NOACTION
-		var/edit_comment_db_id = text2num(href_list["edit_record_comment"])
-		var/datum/record/record_comment/edit_comment = find_record_comment(edit_comment_db_id)
-		if(!edit_comment)
-			return TOPIC_NOACTION
-		var/comment_text = tgui_input_text(user, "Edit this comment.", "[capitalize(edit_comment.record_type)] Record Comment", default = html_decode(edit_comment.comment), multiline = TRUE, encode = FALSE)
-		comment_text = sanitize(comment_text, MAX_MESSAGE_LEN, encode = 0, extra = 0)
-		if(!comment_text || !CanUseTopic(user) || edit_comment != find_record_comment(edit_comment_db_id))
-			return TOPIC_NOACTION
-		var/old_comment = edit_comment.comment
-		var/old_updated_by = edit_comment.updated_by
-		edit_comment.comment = comment_text
-		edit_comment.updated_by = user.ckey
-		if(!edit_comment.save_to_db())
-			edit_comment.comment = old_comment
-			edit_comment.updated_by = old_updated_by
-			to_chat(user, SPAN_WARNING("The comment could not be saved to the persistent database."))
-			return TOPIC_NOACTION
-		request_comment_page(comments_page)
 		return TOPIC_REFRESH
 
 	if(href_list["delete_record_comment"])
