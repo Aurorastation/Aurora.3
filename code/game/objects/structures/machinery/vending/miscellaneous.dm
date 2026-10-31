@@ -117,6 +117,7 @@
 /obj/structure/machinery/vending/lavatory
 	name = "Lavatory Essentials"
 	desc = "Vends things that make you less reviled in the work-place!"
+	vend_id = "lavatory"
 	icon_state = "lavatory"
 	icon_vend = "lavatory-vend"
 	icon_deny = "lavatory-deny"

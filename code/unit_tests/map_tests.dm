@@ -255,6 +255,38 @@
 
 	return 1
 
+/datum/unit_test/map_test/mapped_vending_refills
+	name = "MAP: Mapped Horizon vending machines shall have refill canisters"
+
+/datum/unit_test/map_test/mapped_vending_refills/start_test()
+	if(SSatlas.current_map.path != MAP_WITH_PERSISTENCE_SUPPORT)
+		TEST_PASS("The current map is not the Horizon; skipping refill canister checks.")
+		return 1
+
+	var/list/refill_ids = list()
+	for(var/refill_type in subtypesof(/obj/item/vending_refill))
+		var/obj/item/vending_refill/refill = new refill_type
+		if(refill.charges > 0)
+			refill_ids[refill.vend_id] = TRUE
+		qdel(refill)
+
+	var/checks = 0
+	var/failed_checks = 0
+	for(var/obj/structure/machinery/vending/vendor in world)
+		if(!vendor.persistent_stock_id)
+			continue
+		checks++
+		if(!refill_ids[vendor.vend_id])
+			failed_checks++
+			TEST_FAIL("Mapped vending machine [vendor] at ([vendor.x],[vendor.y],[vendor.z]) has no stocked refill canister for vend_id '[vendor.vend_id]'.")
+
+	if(failed_checks)
+		TEST_FAIL("\[[failed_checks] / [checks]\] mapped Horizon vending machines have no refill canister.")
+	else
+		TEST_PASS("All \[[checks]\] mapped Horizon vending machines have refill canisters.")
+
+	return 1
+
 /datum/unit_test/map_test/all_station_areas_shall_be_on_station_zlevels
 	name = "MAP: Station areas shall be on station z-levels"
 	var/list/exclude = list(
