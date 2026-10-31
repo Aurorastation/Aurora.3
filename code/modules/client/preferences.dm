@@ -319,7 +319,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	. = ..()
 	show_character_slots = FALSE
 	character_setup_loading = FALSE
-	if(client)
+	if(client && user?.client)
 		for(var/map_id in preview_map_ids)
 			winset(client, preview_map_ids[map_id], "is-visible=false")
 	clear_character_previews()
