@@ -244,7 +244,7 @@
 		welcome_text += "Scan results show the following points of interest:<br />"
 
 		for(var/zlevel in GLOB.map_sectors)
-			var/obj/effect/overmap/visitable/O = GLOB.map_sectors[zlevel]
+			var/obj/effect/overmap/visitable/O = get_map_sector(zlevel)
 			if(O.name == horizon.name)
 				continue
 			if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
