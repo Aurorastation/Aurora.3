@@ -2,6 +2,11 @@
 	name = "Origin"
 	sort_order = 1
 
+/datum/category_item/player_setup_item/origin/proc/get_starting_funds_options()
+	if(pref.economic_status in list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF))
+		return STARTING_FUNDS_WEALTHY_OPTIONS
+	return STARTING_FUNDS_OPTIONS
+
 /datum/category_item/player_setup_item/origin/load_character(var/savefile/S)
 	S["culture"]    		>> pref.culture
 	S["origin"]     		>> pref.origin
@@ -9,6 +14,7 @@
 	S["religion"]			>> pref.religion
 	S["accent"]				>> pref.accent
 	S["economic_status"] 	>> pref.economic_status
+	S["starting_funds"] 	>> pref.starting_funds
 
 /datum/category_item/player_setup_item/origin/save_character(var/savefile/S)
 	S["culture"]			<< pref.culture
@@ -17,6 +23,7 @@
 	S["religion"]			<< pref.religion
 	S["accent"]				<< pref.accent
 	S["economic_status"]	<< pref.economic_status
+	S["starting_funds"]	<< pref.starting_funds
 
 /datum/category_item/player_setup_item/origin/gather_load_query()
 	return list(
@@ -25,6 +32,7 @@
 				"culture",
 				"origin",
 				"economic_status",
+				"starting_funds",
 				"citizenship",
 				"religion",
 				"accent"
@@ -42,6 +50,7 @@
 			"culture",
 			"origin",
 			"economic_status",
+			"starting_funds",
 			"citizenship",
 			"religion",
 			"accent",
@@ -55,6 +64,7 @@
 		"culture" = pref.culture,
 		"origin" = pref.origin,
 		"economic_status" = pref.economic_status,
+		"starting_funds" = pref.starting_funds,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
 		"accent" = pref.accent,
@@ -93,6 +103,7 @@
 		pref.accent	= our_origin.possible_accents[1]
 
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
+	pref.starting_funds = sanitize_inlist(pref.starting_funds, get_starting_funds_options(), initial(pref.starting_funds))
 
 /datum/category_item/player_setup_item/origin/ui_data(var/mob/user)
 	if(!SSrecords.initialized)
@@ -135,6 +146,7 @@
 				"title" = "Identity",
 				"fields" = list(
 					list("label" = "Economic Status", "value" = pref.economic_status, "action" = "economic_status"),
+					list("label" = "Starting Funds", "value" = pref.starting_funds, "action" = "starting_funds"),
 					list("label" = "Citizenship", "value" = pref.citizenship, "action" = "citizenship"),
 					list("label" = "Religion", "value" = pref.religion, "action" = "religion"),
 					list("label" = "Accent", "value" = pref.accent, "action" = "accent")
@@ -188,6 +200,14 @@
 		var/new_status = tgui_input_list(user, "Choose how wealthy your character is. Note that this applies a multiplier to a value that is also affected by your species and job.", "Character Preference", ECONOMIC_POSITIONS, pref.economic_status)
 		if(new_status && CanUseTopic(user))
 			pref.economic_status = new_status
+			if(!(pref.starting_funds in get_starting_funds_options()))
+				pref.starting_funds = STARTING_FUNDS_BANK_ACCOUNT
+			return TOPIC_REFRESH
+
+	if(href_list["starting_funds"])
+		var/new_starting_funds = tgui_input_list(user, "Choose how your character's starting funds are distributed. Physical funds will be placed in your bag.\n\nCash Bundle/Bank Account: Up to 200 credits or 50% of the total, whichever is lower.\n\nCharge Card/Bank Account: Requires an Economic Status of Well-off or Wealthy. Up to 500 credits or 50% of the total, whichever is lower.", "Character Preference", get_starting_funds_options(), pref.starting_funds)
+		if(new_starting_funds && (new_starting_funds in get_starting_funds_options()) && CanUseTopic(user))
+			pref.starting_funds = new_starting_funds
 			return TOPIC_REFRESH
 
 	if(href_list["citizenship"])
