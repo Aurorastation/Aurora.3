@@ -4,7 +4,7 @@
 	desc_extended = "A Necropolis Industries (now known as Zavodskoi Interstellar) engineered device, this grenade is one of the most effective and destructive portable emergency sterilization \
 	device available, causing high-intensity sustained fires at over 2000K."
 	var/effect = /obj/effect/decal/cleanable/napalm
-	var/spread_radius = 5
+	var/spread_radius = 3
 
 /obj/item/grenade/napalm/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
