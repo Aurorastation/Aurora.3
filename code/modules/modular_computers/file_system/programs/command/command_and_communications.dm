@@ -365,6 +365,7 @@ Command action procs
 
 	if(SSatlas.current_map.shuttle_call_restarts)
 		SSatlas.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		SSdiscord.post_webhook_event(WEBHOOK_TRANSFER, list())
 		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
 		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
 		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))
