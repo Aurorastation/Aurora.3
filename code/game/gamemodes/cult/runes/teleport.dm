@@ -24,7 +24,7 @@
 		network = pick(SScult.teleport_network)
 
 /datum/rune/teleport/do_tome_action(var/mob/living/user, atom/movable/A)
-	var/choice = alert(user, "Do you wish to delete this rune or configure it?", "Teleportation Rune", "Delete", "Configure")
+	var/choice = tgui_alert(user, "Do you wish to delete this rune or configure it?", "Teleportation Rune", list("Delete", "Configure"))
 	if(choice == "Configure")
 		var/configure = tgui_input_list(user, "Choose a network.", "Teleportation Rune", SScult.teleport_network)
 		if(configure)

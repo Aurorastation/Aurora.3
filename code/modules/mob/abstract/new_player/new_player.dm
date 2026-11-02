@@ -101,10 +101,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(SSticker.current_state <= GAME_STATE_PREGAME) // Make sure we don't ready up after the round has started
 			// Cannot join without a saved character, if we're on SQL saves.
 			if (GLOB.config.sql_saves && !client.prefs.current_character)
-				alert(src, "You have not saved your character yet. Please do so before readying up.")
+				tgui_alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
 			if(client.unacked_warning_count > 0)
-				alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
+				tgui_alert(src, "You can not ready up, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 				return
 
 			var/new_ready_state = text2num(href_list["ready"])
@@ -129,7 +129,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 		// Cannot join without a saved character, if we're on SQL saves.
 		if (GLOB.config.sql_saves && !client.prefs.current_character)
-			alert(src, "You have not saved your character yet. Please do so before attempting to join.")
+			tgui_alert(src, "You have not saved your character yet. Please do so before attempting to join.")
 			return
 
 		if(!check_rights(R_ADMIN, 0))
@@ -163,7 +163,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			return
 
 		if(client.unacked_warning_count > 0)
-			alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
+			tgui_alert(usr, "You can not join the game, because you have unacknowledged warnings or notifications. Acknowledge them in OOC->Warnings and Notifications.")
 			return
 
 		var/datum/species/S = GLOB.all_species[client.prefs.species]
@@ -277,7 +277,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 		return 0
 	if(GLOB.config.sql_saves && !client.prefs.current_character)
-		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
+		tgui_alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
 		to_chat(usr, SPAN_NOTICE("[rank] is not available. Please try another."))

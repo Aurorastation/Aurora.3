@@ -114,9 +114,14 @@
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
+		if(check_holy(destination))
+			to_chat(src, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
+			return FALSE
 		forceMove(destination)
+		return TRUE
 	else
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
+	return FALSE
 
 /**
  * An initial check for Z-level travel. Called relatively early in mob/proc/zMove.

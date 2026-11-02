@@ -77,7 +77,7 @@
 	if(!registered_user && register_user(user))
 		to_chat(user, SPAN_NOTICE("The microscanner marks you as its owner, preventing others from accessing its internals."))
 	if(registered_user == user)
-		switch(alert("Would you like edit the ID, or show it?","Show or Edit?", "Edit","Show"))
+		switch(tgui_alert(usr, "Would you like edit the ID, or show it?", "Show or Edit?", list("Edit", "Show")))
 			if("Edit")
 				ui_interact(user)
 			if("Show")

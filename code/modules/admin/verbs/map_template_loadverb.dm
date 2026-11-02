@@ -20,7 +20,7 @@
 	for(var/S in template.get_affected_turfs(T, TRUE))
 		preview += image('icons/effects/landmarks.dmi', S, "x3")
 	usr.client.images += preview
-	if(alert(usr,"Confirm location.","Template Confirm","Yes","No") == "Yes")
+	if(tgui_alert(usr, "Confirm location.", "Template Confirm", list("Yes", "No")) == "Yes")
 		log_and_message_admins("is attempting to place a map template [log_name].")
 		to_chat(usr, "Attempting to place map template [log_name].")
 		if(template.load(T, TRUE))
@@ -51,8 +51,8 @@
 	var/log_name = "([template.name]) on a new zlevel"
 
 	if (template.loaded && !(template.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
-		var/jesus_take_the_wheel = alert(usr, "That template has already been loaded and doesn't want to be loaded again. \
-			Proceeding may unpredictably break things and cause runtimes.", "Confirm load", "Cancel load", "Do you see any cops around?") == "Do you see any cops around?"
+		var/jesus_take_the_wheel = tgui_alert(usr, "That template has already been loaded and doesn't want to be loaded again. \
+			Proceeding may unpredictably break things and cause runtimes.", "Confirm load", list("Cancel load", "Do you see any cops around?")) == "Do you see any cops around?"
 		if (!jesus_take_the_wheel)
 			return
 

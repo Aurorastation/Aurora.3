@@ -397,7 +397,7 @@
 	set name = "Delete"
 	set category = "Storyteller"
 
-	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
+	var/action = tgui_alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", list("Yes", "No", "Hard Delete"))
 
 	if (action == "No" || !action)
 		return
