@@ -93,6 +93,7 @@ GLOBAL_DATUM(evacuation_controller, /datum/evacuation_controller)
 			if(!skip_announce)
 				priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_called_message, "%dock%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60)] minute\s"), new_sound = 'sound/AI/bluespace_jump_called.ogg')
 	SSdiscord.post_webhook_event(WEBHOOK_TRANSFER, list())
+	SSdiscord.send_to_announce("A transfer has been called and the current round will end soon.", 1)
 	return TRUE
 
 /datum/evacuation_controller/proc/cancel_evacuation()
