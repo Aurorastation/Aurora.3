@@ -501,7 +501,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(!M || !M.client || duration < 1)
 		return
 	// This variable exists simply to reduce total strength of screenshake; in the future, it should be hooked to a client preference setting (standard/reduced screenshake for motion-sickness)
-	var/reduction_modifier = 2/3
+	var/reduction_modifier = 1/3
 	var/drift_mode = (drift == TRUE)
 	var/client/C = M.client
 	var/oldx = C.pixel_x
