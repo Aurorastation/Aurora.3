@@ -3,4 +3,4 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - balance: "Halfed the intensity of visual screenshake from explosions."
+  - balance: "Roughly halfed the intensity of visual screenshake from explosions."
