@@ -349,7 +349,6 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]\n\n"
 	var/antag_text = ""
 	check_victory()
 	if(is_antag_mode)
@@ -362,8 +361,6 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 		sleep(10)
 		print_ownerless_uplinks()
-
-	SSdiscord.send_to_announce(discord_text + antag_text, 1)
 
 	var/clients = 0
 	var/surviving_total = 0
@@ -395,15 +392,17 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
 		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
-		discord_text = "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [escape_text]) and **[ghosts] ghosts**."
 
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
-		discord_text = "There were **no survivors** ([ghosts] ghosts)."
 	to_world(text)
 
-	SSdiscord.send_to_announce(discord_text)
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]"
+	discord_text += "\nThere were **[GLOB.round_connected_ckeys.len] connected players** in the round."
+	if(antag_text)
+		discord_text += "\n[antag_text]"
+
+	SSdiscord.send_to_announce(discord_text, 1)
 	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("total_connected"=GLOB.round_connected_ckeys.len, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
 
 	if(clients > 0)
