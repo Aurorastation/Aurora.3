@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(ticker)
 	pinned_transfer_target = REALTIMEOFDAY - world.timeofday + pinned_time_of_day - world.timezone HOURS
 	if(pinned_transfer_target <= REALTIMEOFDAY)
 		pinned_transfer_target += 24 HOURS
-	pinned_transfer_vote_consumed = pinned_transfer_target - REALTIMEOFDAY < (2 HOURS + 15 MINUTES)
+	pinned_transfer_vote_consumed = pinned_transfer_target - REALTIMEOFDAY < (2 HOURS + 30 MINUTES)
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(ticker)
 		if (GAME_STATE_PLAYING)
 			game_tick()
 
-	if(pinned_transfer_setting && pinned_transfer_target - REALTIMEOFDAY <= (2 HOURS + 15 MINUTES))
+	if(pinned_transfer_setting && pinned_transfer_target - REALTIMEOFDAY <= (2 HOURS + 30 MINUTES))
 		pinned_transfer_vote_consumed = TRUE
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
@@ -298,12 +298,12 @@ SUBSYSTEM_DEF(ticker)
 				if(!pinned_shift_change_called && !SSatlas.current_map.shuttle_call_restart_timer && GLOB.evacuation_controller.state == EVAC_IDLE)
 					pinned_shift_change_called = TRUE
 					init_shift_change(null, TRUE)
-			else if(time_until_pinned <= (2 HOURS + 15 MINUTES))
+			else if(time_until_pinned <= (2 HOURS + 30 MINUTES))
 				if(!pinned_transfer_vote_consumed)
 					pinned_transfer_vote_consumed = TRUE
 					if(!SSvote.current_vote)
 						SSvote.autotransfer_pinned()
-			if(time_until_pinned <= (2 HOURS + 15 MINUTES))
+			if(time_until_pinned <= (2 HOURS + 30 MINUTES))
 				return 1
 		if(get_round_duration() >= GLOB.next_transfer_time - 600)
 			SSvote.autotransfer()
