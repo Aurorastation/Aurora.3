@@ -64,7 +64,7 @@
 		return
 
 /obj/item/megaphone/proc/speak(var/msg, var/mob/living/user)
-	user.say(msg, user.get_default_language(), "broadcasts")
+	user.say(msg, user.get_default_language(), message_mods = list(SAY_MOD_VERB = "broadcasts", MODE_AMPLIFIED = TRUE))
 
 /obj/item/megaphone/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

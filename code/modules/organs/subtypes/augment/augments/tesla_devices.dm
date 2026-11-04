@@ -292,7 +292,7 @@
 	if(!message || owner.stat != CONSCIOUS)
 		return FALSE
 	message = capitalize(message)
-	owner.say(message, owner.get_default_language(), "broadcasts")
+	owner.say(message, owner.get_default_language(), message_mods = list(SAY_MOD_VERB = "broadcasts", MODE_AMPLIFIED = TRUE))
 	playsound(owner, 'sound/items/megaphone.ogg', 75, FALSE, 1)
 	for(var/mob/living/carbon/human/H in range(owner, 2) - owner)
 		H.earpain((H in range(owner, 1)) ? 3 : 2, TRUE, 2)

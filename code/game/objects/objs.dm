@@ -303,7 +303,7 @@
 /obj/proc/hides_under_flooring()
 	return level == 1
 
-/obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
+/obj/proc/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
 

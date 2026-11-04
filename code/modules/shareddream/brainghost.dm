@@ -80,7 +80,8 @@
 		awaken_impl(TRUE)
 		body.handle_shared_dreaming(TRUE)
 
-/mob/living/brain_ghost/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/brain_ghost/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+	message_mods = message_mods ? message_mods.Copy() : list()
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.
@@ -97,7 +98,9 @@
 		body.say(mumble_message) // Mumble in Nral Malic
 		body.set_stat(UNCONSCIOUS) // Toggled before anything else can happen. Ideally.
 
-	..(text, speaking, verb="says", alt_name="")
+	message_mods[SAY_MOD_VERB] = "says"
+	message_mods[SAY_MOD_NAME_SUFFIX] = ""
+	return ..()
 
 
 /mob/living/brain_ghost/get_floating_chat_y_offset()

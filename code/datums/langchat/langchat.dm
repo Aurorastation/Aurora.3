@@ -126,9 +126,14 @@
 	// Group listeners by exact text perceived.
 	var/list/groups = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
+		if(!LANGCHAT_CLIENT_ENABLED(listener))
+			continue
+		var/clarity = listener.get_clarity(msg, feedback = FALSE)
+		if(clarity == CLARITY_NONE || clarity == CLARITY_DROWSY)
 			continue
 		var/perceived = msg.plain_text_for(listener)
+		if(clarity == CLARITY_FAINT)
+			perceived = stars(perceived)
 		if(!length(perceived))
 			continue
 		var/list/group = groups[perceived]

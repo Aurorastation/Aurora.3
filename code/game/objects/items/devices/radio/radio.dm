@@ -422,7 +422,7 @@ var/global/list/default_interrogation_channels = list(
 	announcer.ResetAfterBroadcast()
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
-/obj/item/radio/proc/handle_message_mode(mob/living/M as mob, message, message_mode)
+/obj/item/radio/proc/handle_message_mode(atom/movable/M, message, message_mode)
 	// If a channel isn't specified, send to common.
 	if(!message_mode || message_mode == "headset")
 		return radio_connection
@@ -443,7 +443,7 @@ var/global/list/default_interrogation_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
+/obj/item/radio/talk_into(atom/movable/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
 	if(!on)
 		return FALSE
 	if(!M || !message)
@@ -460,11 +460,12 @@ var/global/list/default_interrogation_channels = list(
 			to_chat(M, SPAN_WARNING("Try as you might, you cannot will your decaying body into operating \the [src]."))
 			return FALSE
 
-	if(istype(M))
-		if(M.restrained() && !ignore_restrained)
+	if(ismob(M))
+		var/mob/speaker_mob = M
+		if(speaker_mob.restrained() && !ignore_restrained)
 			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
 			return FALSE
-		M.trigger_aiming(TARGET_CAN_RADIO)
+		speaker_mob.trigger_aiming(TARGET_CAN_RADIO)
 
 	if(!radio_connection)
 		set_frequency(frequency)
@@ -511,11 +512,11 @@ var/global/list/default_interrogation_channels = list(
 	signal.levels = GetConnectedZlevels(T.z)
 	signal.broadcast()
 
-/obj/item/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
+/obj/item/radio/hear_talk(atom/movable/M, msg, var/verb = "says", var/datum/language/speaking = null, datum/say_message/say_message = null)
 	if (!broadcasting || get_dist(src, M) > canhear_range)
 		return
 
-	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE)
+	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE, say_message = say_message)
 
 /obj/item/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
@@ -595,7 +596,7 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
 
-/obj/item/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained, var/datum/say_message/say_message = null)
+/obj/item/radio/borg/talk_into(atom/movable/M, message, channel, verb, datum/language/speaking, var/ignore_restrained, var/datum/say_message/say_message = null)
 	. = ..()
 	if (isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc

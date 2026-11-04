@@ -38,8 +38,11 @@
 
 	pockets.emp_act(severity)
 
-/obj/item/clothing/suit/storage/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	pockets.hear_talk(M, msg, verb, speaking)
+/obj/item/clothing/suit/storage/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(say_message)
+		pockets.Hear(say_message)
+	else
+		pockets.hear_talk(M, msg, verb, speaking)
 	..()
 
 //Jackets with buttons

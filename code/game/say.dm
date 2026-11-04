@@ -1,246 +1,226 @@
 /**
- * What makes things... talk.
- *
- * * message - The message to say.
- * * bubble_type - The type of speech bubble to use when talking
- * * spans - A list of spans to attach to the message. Includes the atom's speech span by default
- * * sanitize - Should we sanitize the message? Only set to FALSE if you have ALREADY sanitized it
- * * language - The language to speak in. Defaults to the atom's selected language
- * * ignore_spam - Should we ignore spam checks?
- * * forced - What was it forced by? null if voluntary. (NOT a boolean!)
- * * filterproof - Do we bypass the filter when checking the message?
- * * message_range - The range of the message. Defaults to 7
- * * saymode - Saymode passed to the speech
- * This is usually set automatically and is only relevant for living mobs.
- * * message_mods - A list of message modifiers, i.e. whispering/singing.
- * Most of these are set automatically but you can pass in your own pre-say.
+ * Shared local speech for mobs and objects. Message modifiers belong to the event.
+ * speaking: optional forced language; null uses the speaker's language configuration.
+ * message_mods: attribution (SAY_MOD_VERB), name suffix, and amplified presentation.
+ * ghost_hearing: whether player-controlled speakers may reach distant ghost ears.
+ * whisper: reduce local range; skip_edit: skip living speech impediments, not markup.
+ * message_range: optional initial tile range, independent of speech-sound volume.
  */
-/atom/movable/proc/say(
-	message,
-	bubble_type,
-	list/spans = list(),
-	sanitize = TRUE,
-	datum/language/language,
-	ignore_spam = FALSE,
-	forced,
-	filterproof = FALSE,
-	message_range = 7,
-	datum/saymode/saymode,
-	list/message_mods = list(),
-)
-	if(!try_speak(message, ignore_spam, forced, filterproof))
-		return
-	if(sanitize)
-		message = trim(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
-	if(!message || message == "")
-		return
-	spans |= speech_span
-	//language ||= get_selected_language()
-	send_speech(message, message_range, src, bubble_type, spans, language, message_mods, forced = forced)
-	return
+/atom/movable/proc/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+	if(QDELETED(src) || !get_turf(src) || !istext(text))
+		return FALSE
+	if(!isnull(message_range) && (!isnum(message_range) || message_range < 0))
+		return FALSE
+	// Player input is already HTML-encoded by say_verb; strip unsafe markup without double encoding.
+	text = trim(sanitize(text, encode = FALSE))
+	if(!length(text))
+		return FALSE
+	if(!ismob(src) && !can_speak(speaking || get_default_language()))
+		return FALSE
 
-/// Called when this movable hears a message from a source.
-/// Returns TRUE if the message was received and understood.
-/atom/movable/proc/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), message_range=0)
-	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, args)
+	var/datum/language/forced_language = (speaking && !speaking.always_parse_language) ? speaking : null
+	var/datum/say_message/msg = build_say_message(text, forced_language)
+	msg.message_mods = message_mods ? message_mods.Copy() : list()
+	msg.message_mode = msg.message_mods[SAY_MOD_MESSAGE_MODE]
+	msg.whisper = whisper
+	msg.message_range = isnull(message_range) ? world.view : message_range
+	if(!length(msg.to_string()))
+		return FALSE
+	var/datum/language/primary = msg.segments[1].language
+	if(copytext(msg.segments[1].text, 1, 2) == "%")
+		msg.segments[1].text = copytext(msg.segments[1].text, 2)
+		if(primary?.sing_verb)
+			msg.singing = TRUE
+			msg.sing_note = pick("\u2669", "\u266A", "\u266B")
+
+	var/list/used_radios = list()
+	var/prepared = prepare_say_message(msg, skip_edit, used_radios)
+	if(prepared == SAY_PREPARE_HANDLED)
+		return TRUE
+	if(prepared != SAY_PREPARE_CONTINUE || QDELETED(src))
+		return FALSE
+	return send_speech(msg, used_radios, ghost_hearing)
+
+/// Objects speak their configured language only; they do not inherit private mob channels.
+/atom/movable/proc/get_default_language()
+	return GLOB.all_languages[speech_language]
+
+/atom/movable/proc/can_speak(datum/language/speaking)
+	return speaking && speaking == get_default_language() && !(speaking.flags & (HIVEMIND|SIGNLANG))
+
+/// Objects do not interpret player language prefixes. Mobs override both parser hooks.
+/atom/movable/proc/get_language_trigger_regex()
+	return regex("(?!)", "g")
+
+/atom/movable/proc/resolve_language_key(key)
+	return null
+
+/atom/movable/proc/prepare_say_message(datum/say_message/msg, skip_edit, list/used_radios)
+	var/datum/language/primary = msg.segments[1].language
+	if(!msg.message_mods[SAY_MOD_VERB])
+		msg.message_mods[SAY_MOD_VERB] = say_quote(msg.to_string(), primary, msg.singing, msg.whisper)
+	if(msg.message_mods[MODE_AMPLIFIED])
+		msg.font_size = FONT_SIZE_HUGE
+	SEND_SIGNAL(src, COMSIG_MOVABLE_SAY_QUOTE, msg)
+	if(QDELETED(src))
+		return FALSE
+	return finalize_say_message(msg, skip_edit) ? SAY_PREPARE_CONTINUE : FALSE
+
+/atom/movable/proc/finalize_say_message(datum/say_message/msg, skip_edit = FALSE)
+	for(var/datum/say_segment/segment as anything in msg.segments)
+		segment.text = process_chat_markup(segment.text, list("~", "_"))
+	return length(msg.to_string()) ? TRUE : FALSE
+
+/// Physical propagation is shared; recipient-specific clarity remains with the receiver.
+/atom/movable/proc/send_speech(datum/say_message/msg, list/used_radios, ghost_hearing)
+	var/turf/origin = get_turf(src)
+	if(!origin)
+		return FALSE
+	if(msg.whisper)
+		msg.message_range = min(msg.message_range, 1)
+		msg.italics = TRUE
+	if(!(msg.single_language?.flags & PRESSUREPROOF))
+		var/datum/gas_mixture/environment = origin.return_air()
+		var/pressure = SAFE_XGM_PRESSURE(environment)
+		if(pressure < SOUND_MINIMUM_PRESSURE)
+			msg.message_range = min(msg.message_range, 1)
+		if(pressure < ONE_ATMOSPHERE * 0.4)
+			msg.italics = TRUE
+			msg.sound_vol *= 0.5
+
+	var/list/listening = get_speech_listeners(msg, used_radios, ghost_hearing)
+	var/list/hear_clients = deliver_say_message(msg, listening)
+	if(QDELETED(src))
+		return FALSE
+	show_speech_bubble(msg, msg.to_string(), hear_clients)
+	var/list/styles = list()
+	if(istype(msg.single_language, /datum/language/noise))
+		styles = list("emote", "langchat_small")
+	if(msg.whisper)
+		styles = list("langchat_italic")
+	var/datum/language/primary = msg.segments[1].language
+	if(primary && (msg.message_mods[SAY_MOD_VERB] in primary.shout_verb))
+		styles = list("langchat_yell")
+	if(msg.message_mods[MODE_AMPLIFIED])
+		styles += "radio"
+	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = styles)
+	finish_say_message(msg)
 	return TRUE
 
-/**
- * Checks if our movable can speak the provided message, passing it through filters
- * and spam detection. Does not call can_speak. CAN include feedback messages about
- * why someone can or can't speak
- *
- * Used in [proc/say] and other methods of speech (radios) after a movable has inputted some message.
- * If you just want to check if the movable is able to speak in character, use [proc/can_speak] instead.
- *
- * Parameters:
- * - message (string): the original message
- * - ignore_spam (bool): should we ignore spam?
- * - forced (null|string): what was it forced by? null if voluntary
- * - filterproof (bool): are we filterproof?
- *
- * Returns:
- * 	TRUE of FASE depending on if our movable can speak
- */
-/atom/movable/proc/try_speak(message, ignore_spam = FALSE, forced = null, filterproof = FALSE)
-	return can_speak()
+/atom/movable/proc/get_speech_listeners(datum/say_message/msg, list/used_radios, ghost_hearing)
+	var/list/listening = get_hearers_in_view(msg.message_range, src)
+	return mergelists(listening, get_intent_listeners(src, msg.message_range + 1), TRUE)
 
-/**
- * Checks if our movable can currently speak, vocally, in general.
- * Should NOT include feedback messages about why someone can or can't speak
-
- * Used in various places to check if a movable is simply able to speak in general,
- * regardless of OOC status (being muted) and regardless of what they're actually saying.
- */
-/atom/movable/proc/can_speak()
-	SHOULD_BE_PURE(TRUE)
-	return !HAS_TRAIT(src, TRAIT_MUTE)
-
-
-//Aurora Snowflake: Removed TTS
-/atom/movable/proc/send_speech(message, range = 7, obj/source = src, bubble_type, list/spans, datum/language/message_language, list/message_mods = list(), forced = FALSE)
-	for(var/atom/movable/hearing_movable as anything in get_hearers_in_view(range, source))
-		if(!hearing_movable)//theoretically this should use as anything because it shouldnt be able to get nulls but there are reports that it does.
-			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
+/// Consume the local recipient list so older whisper adapters cannot dispatch it twice.
+/atom/movable/proc/deliver_say_message(datum/say_message/msg, list/listeners)
+	var/list/heard = list()
+	for(var/atom/movable/listener as anything in listeners.Copy())
+		if(QDELETED(listener))
 			continue
-		hearing_movable.Hear(null, src, message_language, message, null, null, null, spans, message_mods, range)
+		var/received = listener.Hear(msg)
+		if(received && ismob(listener))
+			var/mob/hearing_mob = listener
+			if(hearing_mob.client)
+				heard |= hearing_mob.client
+	listeners.Cut()
+	return heard
 
-/atom/movable/proc/compose_message(atom/movable/speaker, datum/language/message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods = list(), visible_name = FALSE)
-	//This proc uses [] because it is faster than continually appending strings. Thanks BYOND.
-	//Basic span
-	//var/freq_color = get_radio_color(radio_freq, radio_freq_color)
-	//var/spanpart1 = "<span class='[radio_freq ? get_radio_span(radio_freq) : "game say"]' [freq_color ? "style='color:[freq_color];'" : ""]>"
-	var/spanpart1 = "<span class='game say'>"
-	//Start name span.
-	var/spanpart2 = "<span class='name'>"
-	//Radio freq/name display
-	//var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq, radio_freq_name)]\] " : ""
-	//Speaker name
-	var/namepart = speaker.get_message_voice(visible_name)
+/atom/movable/proc/Hear(datum/say_message/msg)
+	if(!istype(msg) || QDELETED(msg.speaker) || msg.delivered_to[src])
+		return FALSE
+	msg.delivered_to[src] = TRUE
+	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, msg)
+	return TRUE
 
-	//End name span.
-	var/endspanpart = "</span>"
+/mob/Hear(datum/say_message/msg)
+	if(!..())
+		return FALSE
+	return hear_message(msg)
 
-//	// Language icon.
-//	var/languageicon = ""
-//	if(!message_mods[MODE_CUSTOM_SAY_ERASE_INPUT])
-//		var/datum/language/dialect = GLOB.language_datum_instances[message_language]
-//		if(istype(dialect) && dialect.display_icon(src))
-//			languageicon = "[dialect.get_icon()] "
+/obj/Hear(datum/say_message/msg)
+	if(!..())
+		return FALSE
+	if(msg.single_language?.flags & PASSLISTENOBJ)
+		return FALSE
+	INVOKE_ASYNC(src, PROC_REF(hear_talk), msg.speaker, msg.to_string(), msg.message_mods[SAY_MOD_VERB], msg.segments[1].language, msg)
+	return TRUE
 
-	/** AURORA SNOWFLAKE */
+/atom/movable/proc/show_speech_bubble(datum/say_message/msg, message, list/show_to)
+	return
 
-/** 	// Accent icon.
-	var/accenticon = ""
-	if(!message_mods[MODE_CUSTOM_SAY_ERASE_INPUT])
-		var/datum/language/dialect = GLOB.language_datum_instances[message_language]
-		if(istype(dialect) && dialect.display_icon(src))
-			accenticon = "[dialect.get_icon()] " */
+/atom/movable/proc/finish_say_message(datum/say_message/msg)
+	log_say("[src] ([type]) : [msg.raw_message]")
 
-	/** END AURORA SNOWFLAKE */
+/atom/movable/proc/has_speech_client()
+	return FALSE
 
-	// The actual message part.
-	var/messagepart = speaker.generate_messagepart(raw_message, spans, message_mods)
-	messagepart = " <span class='message'>[messagepart]</span></span>"
+/mob/has_speech_client()
+	return !isnull(client)
 
-	//return "[spanpart1][spanpart2][freqpart][languageicon][accenticon][compose_track_href(speaker, namepart)][namepart][compose_job(speaker, message_language, raw_message, radio_freq)][endspanpart][messagepart]"
-	return "[spanpart1][spanpart2][compose_track_href(speaker, namepart)][namepart][endspanpart][messagepart]"
+/atom/movable/proc/GetVoice()
+	return name
 
-/atom/movable/proc/compose_track_href(atom/movable/speaker, message_langs, raw_message, radio_freq)
-	return ""
+/atom/movable/proc/get_accent_icon(datum/language/speaking, mob/hearer, force_accent)
+	return null
 
-/atom/movable/proc/compose_job(atom/movable/speaker, message_langs, raw_message, radio_freq)
-	return ""
+/// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
+/// A forced language takes the whole message with no prefix parsing.
+/atom/movable/proc/build_say_message(message, datum/language/forced_language)
+	RETURN_TYPE(/datum/say_message)
+	var/datum/say_message/say_message = new
+	say_message.speaker = src
+	say_message.raw_message = message
 
-/**
- * Works out and returns which prefix verb the passed message should use.
- *
- * input - The message for which we want the verb.
- * message_mods - A list of message modifiers, i.e. whispering/singing.
- */
-/atom/movable/proc/say_mod(input, list/message_mods = list())
-	var/ending = copytext_char(input, -1)
-	if(copytext_char(input, -2) == "!!")
-		return verb_yell
-	else if(message_mods[MODE_SING])
-		. = verb_sing
-	else if(message_mods[WHISPER_MODE])
-		. = verb_whisper
-	else if(ending == "?")
-		return verb_ask
-	else if(ending == "!")
-		return verb_exclaim
-	else
-		return get_default_say_verb()
+	if(!forced_language && !ismob(src))
+		forced_language = get_default_language()
+	if(forced_language)
+		say_message.collapse_to(forced_language, message)
+		return say_message
 
-/**
- * Gets the say verb we default to if no special verb is chosen.
- * This is primarily a hook for inheritors,
- * like human_say.dm's tongue-based verb_say changes.
- */
-/atom/movable/proc/get_default_say_verb()
-	return verb_say
+	var/datum/language/current = get_default_language()
+	if(copytext(message, 1, 2) == "!")
+		current = GLOB.all_languages[LANGUAGE_NOISE]
+		message = trim_left(copytext(message, 2))
 
-/**
- * This proc is used to generate the 'message' part of a chat message.
- * Generates the `says, "<span class='red'>meme</span>"` part of the `Grey Tider says, "meme"`,
- * or the `taps their microphone.` part of `Grey Tider taps their microphone.`.
- *
- * input - The message to be said
- * spans - A list of spans to attach to the message. Includes the atom's speech span by default
- * message_mods - A list of message modifiers, i.e. whispering/singing
- */
-/atom/movable/proc/generate_messagepart(input, list/spans = list(speech_span), list/message_mods = list())
-	// If we only care about the emote part, early return.
-	if(message_mods[MODE_CUSTOM_SAY_ERASE_INPUT])
-		return apply_message_emphasis(message_mods[MODE_CUSTOM_SAY_EMOTE])
+	var/regex/trigger = get_language_trigger_regex()
+	trigger.next = 1
 
-	// Otherwise, we format our full quoted message.
-	if(!input)
-		input = "..."
+	var/segment_start = 1
+	var/list/datum/say_segment/segments = list()
 
-	var/say_mod = message_mods[MODE_CUSTOM_SAY_EMOTE] || message_mods[SAY_MOD_VERB] || say_mod(input, message_mods)
+	while(trigger.Find(message))
+		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
+		var/prefix_pos = trigger.index + length(lead)
+		var/key_pos = prefix_pos + 1
 
-	SEND_SIGNAL(src, COMSIG_MOVABLE_SAY_QUOTE, args)
+		var/key_len = 2
+		var/datum/language/found = resolve_language_key(copytext(message, key_pos, key_pos + 2))
+		if(!found)
+			key_len = 1
+			found = resolve_language_key(copytext(message, key_pos, key_pos + 1))
+		if(!found)
+			continue	//not a language we can speak, leave it as literal text and keep scanning
 
-	if(copytext_char(input, -2) == "!!")
-		spans |= SPAN_YELL
+		var/before = copytext(message, segment_start, prefix_pos)
 
-	/* all inputs should be fully figured out past this point */
+		var/after = key_pos + key_len
+		if(copytext(message, after, after + 1) == " ")
+			after++
 
-	var/processed_input = apply_message_emphasis(input) //This MUST be done first so that we don't get clipped by spans
-	processed_input = attach_spans(processed_input, spans)
+		// If LANG_NO_MULTILANG is present, it must be first. If first,
+		// set the whole message to that language. If not, skip it.
+		if(found.flags & LANG_NO_MULTILANG)
+			if(!length(segments) && !length(before))
+				say_message.collapse_to(found, copytext(message, after))
+				return say_message
+			continue
 
-	var/processed_say_mod = apply_message_emphasis(say_mod)
+		segments += new /datum/say_segment(before, current)
+		segment_start = after
+		current = found
+		trigger.next = after
 
-	return "[processed_say_mod], \"[processed_input]\""
-
-/// Transforms the message emphasis mods from [/atom/proc/apply_message_emphasis] into the appropriate HTML tags. Includes escaping.
-#define ENCODE_HTML_EMPHASIS(input, char, html, varname) \
-	var/static/regex/##varname = regex("(?<!\\\\)[char](.+?)(?<!\\\\)[char]", "g");\
-	input = varname.Replace_char(input, "<[html]>$1</[html]>&#8203;") //zero-width space to force maptext to respect closing tags.
-
-/// Scans the input sentence for message emphasis modifiers, notably |italics|, +bold+, and _underline_ -mothblocks
-/atom/proc/apply_message_emphasis(input)
-	ENCODE_HTML_EMPHASIS(input, "\\|", "i", italics)
-	ENCODE_HTML_EMPHASIS(input, "\\+", "b", bold)
-	ENCODE_HTML_EMPHASIS(input, "\\_", "u", underline)
-	var/static/regex/remove_escape_backlashes = regex("\\\\(\\_|\\+|\\|)", "g") // Removes backslashes used to escape text modification.
-	input = remove_escape_backlashes.Replace_char(input, "$1")
-	return input
-
-#undef ENCODE_HTML_EMPHASIS
-
-/proc/attach_spans(input, list/spans)
-	return "[message_spans_start(spans)][input]</span>"
-
-/proc/message_spans_start(list/spans)
-	var/output = "<span class='"
-	for(var/S in spans)
-		output = "[output][S] "
-	output = "[output]'>"
-	return output
-
-/proc/say_test(text)
-	var/ending = copytext_char(text, -1)
-	if (ending == "?")
-		return "1"
-	else if (ending == "!")
-		return "2"
-	return "0"
-
-/**
- * Get what this atom sounds like when speaking
- *
- * * add_id_name - If TRUE, ID information such as honorifics are added into the voice
- */
-/atom/proc/get_voice(add_id_name = FALSE)
-	return "[src]" //Returns the atom's name, prepended with 'The' if it's not a proper noun
-
-/**
- * Get what this atom appears like in chat when speaking
- *
- * * visible_name - If TRUE, returns the visible name rather than the voice
- */
-/atom/proc/get_message_voice(visible_name)
-	return visible_name ? get_visible_name(add_id_name = TRUE) : get_voice(add_id_name = TRUE)
+	segments += new /datum/say_segment(copytext(message, segment_start), current)
+	say_message.segments = clean_segments(segments)
+	say_message.single_language = (length(say_message.segments) == 1) ? say_message.segments[1].language : null
+	return say_message

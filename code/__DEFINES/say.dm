@@ -3,6 +3,16 @@
 	Currently contains speech spans and message modes
 */
 #define SAY_MOD_VERB "say_mod_verb"
+/// Optional text appended after the resolved speaker name.
+#define SAY_MOD_NAME_SUFFIX "say_name_suffix"
+/// Local amplified presentation; does not imply radio transport or increased range.
+#define MODE_AMPLIFIED "amplified"
+/// Parsed mob radio/mode prefix, carried into the shared builder.
+#define SAY_MOD_MESSAGE_MODE "say_message_mode"
+/// Preparation completed and local dispatch should continue.
+#define SAY_PREPARE_CONTINUE 1
+/// A specialized route consumed the message successfully.
+#define SAY_PREPARE_HANDLED 2
 
 //Message modes. Each one defines a radio channel, more or less.
 //if you use ! as a mode key for some ungodly reason, change the first character for ion_num() so get_message_mode() doesn't freak out with state law prompts - shiz.

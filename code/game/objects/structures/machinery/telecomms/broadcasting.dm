@@ -118,11 +118,11 @@
 		origin_level = levels[1]
 		sector = GLOB.map_sectors["[levels[1]]"]
 
-	var/mob/M = speaker.resolve()
+	var/atom/movable/M = speaker.resolve()
 
 	data = list(
-		"name" = M.GetVoice(),
-		"job" = M.job,
+		"name" = M ? M.GetVoice() : "Unknown",
+		"job" = ismob(M) ? astype(M, /mob).job : "Device",
 		"message" = message,
 		"compression" = rand(35, 65),
 		"language" = language,
@@ -212,7 +212,7 @@
 
 
 	// --- Filter the message; place it in quotes apply a verb ---
-	var/mob/M = speaker.resolve()
+	var/atom/movable/M = speaker.resolve()
 
 	var/quotedmsg = null
 	if(M)
@@ -229,7 +229,7 @@
 	else
 		radio_msg = new
 		radio_msg.speaker = M
-		radio_msg.verb = data["say_verb"]
+		radio_msg.message_mods[SAY_MOD_VERB] = data["say_verb"]
 		radio_msg.collapse_to(language, message)
 	radio_msg.say_mode = SAYMODE_RADIO
 	radio_msg.base_clarity = compression ? CLARITY_FAINT : CLARITY_CLEAR

@@ -16,7 +16,7 @@
 /obj/item/assembly/voice/Destroy()
 	return ..()
 
-/obj/item/assembly/voice/hear_talk(mob/living/M, msg)
+/obj/item/assembly/voice/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(listening)
 		recorded = msg
 		listening = FALSE

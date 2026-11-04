@@ -832,7 +832,7 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	return 20
 
 /mob/living/heavy_vehicle/react_to_message(datum/say_message/msg)
-	if(can_listen())
+	if(ismob(msg.speaker) && can_listen())
 		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves

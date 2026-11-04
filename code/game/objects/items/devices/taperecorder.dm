@@ -33,9 +33,9 @@
 		QDEL_NULL(portable_drive)
 	return ..()
 
-/obj/item/taperecorder/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
+/obj/item/taperecorder/hear_talk(atom/movable/M, msg, var/verb = "says", datum/language/speaking = null, datum/say_message/say_message = null)
 	if(isanimal(M))
-		if(!M.universal_speak)
+		if(!astype(M, /mob).universal_speak)
 			return
 
 	if(recording)

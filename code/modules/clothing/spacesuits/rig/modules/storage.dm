@@ -41,8 +41,11 @@
 		return TRUE
 	return FALSE
 
-/obj/item/rig/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
+/obj/item/rig/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules
 	if(storage)
-		storage.pockets.hear_talk(M, msg, verb, speaking)
+		if(say_message)
+			storage.pockets.Hear(say_message)
+		else
+			storage.pockets.hear_talk(M, msg, verb, speaking)
 	return ..()

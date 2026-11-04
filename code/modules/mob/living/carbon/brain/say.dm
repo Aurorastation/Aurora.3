@@ -1,5 +1,6 @@
 //TODO: Convert this over for languages.
-/mob/living/carbon/brain/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/carbon/brain/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+	message_mods = message_mods ? message_mods.Copy() : list()
 	if (silent)
 		return
 
@@ -12,12 +13,12 @@
 		var/ending = copytext(text, length(text))
 		var/pre_ending = copytext(text, length(text) - 1, length(text))
 		if (speaking)
-			verb = speaking.get_spoken_verb(ending, pre_ending)
+			message_mods[SAY_MOD_VERB] = speaking.get_spoken_verb(ending, pre_ending)
 		else
 			if(ending=="!")
-				verb=pick("exclaims","shouts","yells")
+				message_mods[SAY_MOD_VERB]=pick("exclaims","shouts","yells")
 			if(ending=="?")
-				verb="asks"
+				message_mods[SAY_MOD_VERB]="asks"
 
 		if(prob(emp_damage*4))
 			if(prob(10))//10% chane to drop the message entirely
@@ -32,5 +33,5 @@
 		if(istype(container, /obj/item/mmi/radio_enabled))
 			var/obj/item/mmi/radio_enabled/R = container
 			if(R.radio)
-				R.radio.hear_talk(src, sanitize(text), verb, speaking)
-		..(trim(text), speaking, verb)
+				R.radio.hear_talk(src, sanitize(text), message_mods[SAY_MOD_VERB], speaking)
+		return ..(trim(text), speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range)
