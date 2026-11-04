@@ -33,7 +33,7 @@
 		if("toggle_active")
 			if(!C.Startup()) //Startup() whilst the device is active will return null.
 				if(!C.owned_field.is_shutdown_safe())
-					if(alert(usr, "Shutting down this fusion core without proper safety procedures will cause serious damage, do you wish to continue?", "Shut Down?", "Yes", "No") == "No")
+					if(tgui_alert(usr, "Shutting down this fusion core without proper safety procedures will cause serious damage, do you wish to continue?", "Shut Down?", list("Yes", "No")) == "No")
 						return FALSE
 				C.Shutdown()
 			return TRUE

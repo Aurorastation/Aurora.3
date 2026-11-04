@@ -46,7 +46,7 @@
 	water_overlay = W
 	W.alpha = 128
 
-	if(locate(/obj/structure/lattice) in src)
+	if(has_lattice())
 		movement_cost = 0
 
 	for(var/atom/movable/AM in src)
@@ -89,8 +89,7 @@
 /turf/simulated/floor/exoplanet/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
-	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
-	if(lattice)
+	if(has_lattice())
 		return ..()
 	START_PROCESSING(SSprocessing, src)
 	if(isobj(AM))
@@ -106,8 +105,7 @@
 /turf/simulated/floor/exoplanet/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
-	if(lattice)
+	if(has_lattice())
 		return
 	if(isobj(AM) && numobjects)
 		numobjects -= 1
@@ -121,9 +119,8 @@
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	for(var/mob/living/L in src)
-		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
-		if(!lattice)
+	if(!has_lattice())
+		for(var/mob/living/L in src)
 			wash(L)
 	if(!numobjects)
 		STOP_PROCESSING(SSprocessing, src)
@@ -181,8 +178,7 @@
 
 /turf/simulated/floor/exoplanet/water/shallow/sewage/process()
 	. = ..()
-	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src) //you're not gonna get covered in disgusting sewer water if you have a grate/lattice over it
-	if(lattice)
+	if(has_lattice()) // You're not going to get covered in sewage if you have a grate/lattice over it.
 		return
 	for(var/mob/living/carbon/human/H in src) // Sewage is poisonous.
 		if(!H.reagents.has_reagent(/singleton/reagent/toxin, 10))

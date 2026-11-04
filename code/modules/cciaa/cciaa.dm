@@ -33,7 +33,7 @@
 			to_chat(usr, SPAN_WARNING("Cancelled."))
 			return
 
-		var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
+		var/announce = tgui_alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", list("Yes", "No"))
 		if(announce == "Yes")
 			announce = TRUE
 

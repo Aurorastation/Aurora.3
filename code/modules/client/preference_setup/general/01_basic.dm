@@ -242,7 +242,7 @@
 /datum/category_item/player_setup_item/general/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["rename"])
 		if (!pref.can_edit_name)
-			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
+			tgui_alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
 		var/current_character = pref.current_character
@@ -271,12 +271,12 @@
 				return TOPIC_NOACTION
 
 	else if(href_list["namehelp"])
-		alert(user, "Due to game mechanics, you are no longer able to edit this information for this character. The grace period offered is 5 days since the character's initial save.\n\nIf you have a need to change the character's information, or further questions regarding this policy, please contact an administrator.")
+		tgui_alert(user, "Due to game mechanics, you are no longer able to edit this information for this character. The grace period offered is 5 days since the character's initial save.\n\nIf you have a need to change the character's information, or further questions regarding this policy, please contact an administrator.")
 		return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
 		if (!pref.can_edit_name)
-			alert(user, "You can no longer edit the name of your character.\n\nIf there is a legitimate need, please contact an administrator regarding the matter.")
+			tgui_alert(user, "You can no longer edit the name of your character.\n\nIf there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
 		pref.real_name = random_name(pref.gender, pref.species)
@@ -362,7 +362,7 @@
 		if(!pref.can_edit_ipc_tag)
 			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
 			return
-		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in the Republic of Biesel is highly illegal!", "IPC Tag", "Yes", "No")
+		var/choice = tgui_alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in the Republic of Biesel is highly illegal!", "IPC Tag", list("Yes", "No"))
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.machine_tag_status = TRUE
@@ -400,7 +400,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["hidden_status"])
-		var/choice = alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in their records.\n\n WARNING: This would involve forging of records or some other form of fraud, and is highly illegal in the Republic of Biesel", "Hidden Shell Status", "Yes", "No")
+		var/choice = tgui_alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in their records.\n\n WARNING: This would involve forging of records or some other form of fraud, and is highly illegal in the Republic of Biesel", "Hidden Shell Status", list("Yes", "No"))
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.hidden_shell_status = TRUE
@@ -410,13 +410,7 @@
 
 	else if (href_list["clear_metadata"])
 		if (CanUseTopic(user))
-			var/user_choice = alert(
-				user,
-				"Are you sure you wish to clear this character's OOC notes?",
-				"Clear OOC Notes Confirmation",
-				"Yes",
-				"No"
-			)
+			var/user_choice = tgui_alert(user, "Are you sure you wish to clear this character's OOC notes?", "Clear OOC Notes Confirmation", list("Yes", "No"))
 
 			if (user_choice == "No")
 				return TOPIC_NOACTION

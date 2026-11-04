@@ -18,6 +18,8 @@
 
 	var/obj/vehicle/train/lead
 	var/obj/vehicle/train/tow
+	/// Whether this vehicle can be connected to the ordinary train hitch system.
+	var/train_hitch_compatible = TRUE
 
 	can_hold_mob = TRUE
 
@@ -165,6 +167,9 @@
 /obj/vehicle/train/proc/attach_to(obj/vehicle/train/T, mob/user)
 	if (get_dist(src, T) > 1)
 		to_chat(user, SPAN_WARNING("\The [src] is too far away from \the [T] to hitch them together."))
+		return
+	if (!train_hitch_compatible || !T.train_hitch_compatible)
+		to_chat(user, SPAN_WARNING("\The [src] and \the [T] do not have compatible hitches."))
 		return
 
 	if (lead)

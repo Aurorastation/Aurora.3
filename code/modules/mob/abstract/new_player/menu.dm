@@ -315,7 +315,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		// Don't allow players to observe until initialization is more or less complete.
 		// Letting them join too early breaks things, they can wait.
-		alert(src, "Please wait, the map is not initialized yet.")
+		tgui_alert(src, "Please wait, the map is not initialized yet.")
 		return 0
 
 	if(!client)
@@ -323,7 +323,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	// Only display the warning if it's a /new/ new player,
 	// if they've died and gone back to menu they probably already know their respawn time (and it won't be reset anymore)
 	if(!get_death_time(CREW))
-		if(alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", "Yes", "No") != "Yes")
+		if(tgui_alert(src, "Are you sure you wish to observe? You will have to wait [GLOB.config.respawn_delay] minutes before being able to respawn.", "Player Setup", list("Yes", "No")) != "Yes")
 			return FALSE
 
 	var/mob/abstract/ghost/observer/observer = new /mob/abstract/ghost/observer(null, src)

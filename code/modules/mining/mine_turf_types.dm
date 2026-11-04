@@ -26,7 +26,7 @@
 /turf/simulated/lava/Entered(atom/movable/AM, atom/oldloc)
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
-		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
+		if(has_lattice())	// Should be safe to walk upon.
 			return TRUE
 		if(!istype(oldloc,/turf/simulated/lava))
 			to_chat(L, SPAN_WARNING("You are covered by fire and heat from entering \the [src]!"))
@@ -70,7 +70,7 @@
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
-	if(locate(/obj/structure/lattice/catwalk, src))	//should prevent people in lava from seeing messages about exiting lava
+	if(has_lattice())	// Should prevent people above lava from seeing messages about exiting it.
 		return TRUE
 
 	if(istype(AM, /mob/living))

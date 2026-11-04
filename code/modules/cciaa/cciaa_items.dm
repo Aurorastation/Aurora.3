@@ -200,7 +200,7 @@
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
 		return
 
-	var/confirmation = alert("Do you want to reset the recorder without saving?", "Reset Recorder", "Yes", "No")
+	var/confirmation = tgui_alert(usr, "Do you want to reset the recorder without saving?", "Reset Recorder", list("Yes", "No"))
 	if(confirmation != "Yes")
 		return
 
