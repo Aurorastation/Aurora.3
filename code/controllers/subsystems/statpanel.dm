@@ -39,6 +39,8 @@ SUBSYSTEM_DEF(statpanels)
 
 		if(pinned_round_time)
 			global_data += "Pinned Round Time: [pinned_round_time]"
+		else
+			global_data += "Pinned Round Time: Not set"
 
 		global_data += "Current Date: [worlddate2text()]"
 		global_data += "Round Time: [get_round_duration_formatted()]"
