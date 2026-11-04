@@ -29,13 +29,18 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [worlddate2text()]",
-			"Round Time: [get_round_duration_formatted()]",
-			"Ship Time: [worldtime2text()]",
-			"Current Space Sector: [SSatlas.current_sector.name]",
-			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
-			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
+
+		var/pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
+		if(pinned_round_time)
+			global_data += "Pinned Round Time: [time2text(pinned_round_time, "hh:mm:ss")]"
+
+		global_data += "Current Date: [worlddate2text()]"
+		global_data += "Round Time: [get_round_duration_formatted()]"
+		global_data += "Ship Time: [worldtime2text()]"
+		global_data += "Current Space Sector: [SSatlas.current_sector.name]"
+		global_data += "Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]"
+		global_data += "Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 
 		if(istype(SSticker.round_canon))
 			global_data[++global_data.len] = list(
