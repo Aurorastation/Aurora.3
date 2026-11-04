@@ -24,8 +24,8 @@ GLOBAL_VAR(last_transfer_vote)
 	if(forced)
 		return TRUE
 
-	if(SSticker.pinned_transfer_vote_called)
-		to_chat(by_who, SPAN_NOTICE("The final crew transfer vote before the pinned round time has already been held."))
+	if(SSticker.pinned_transfer_vote_consumed)
+		to_chat(by_who, SPAN_NOTICE("Crew transfer votes are disabled until the pinned round time."))
 		return FALSE
 
 	if(GLOB.security_level >= SEC_LEVEL_DELTA)
