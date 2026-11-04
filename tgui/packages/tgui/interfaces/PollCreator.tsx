@@ -237,46 +237,48 @@ export const PollCreator = () => {
                         onChange={(text) => updateOption(option.id, { text })}
                       />
                       {isRating && (
-                        <LabeledList mt={1}>
-                          <LabeledList.Item label="Rating Range">
-                            <NumberInput
-                              value={option.minval}
-                              step={1}
-                              onChange={(minval) =>
-                                updateOption(option.id, { minval })
-                              }
-                            />
-                            <Box inline mx={1}>
-                              to
-                            </Box>
-                            <NumberInput
-                              value={option.maxval}
-                              step={1}
-                              onChange={(maxval) =>
-                                updateOption(option.id, { maxval })
-                              }
-                            />
-                          </LabeledList.Item>
-                          {(
-                            [
-                              ['descmin', 'Minimum Label'],
-                              ['descmid', 'Median Label'],
-                              ['descmax', 'Maximum Label'],
-                            ] as const
-                          ).map(([field, label]) => (
-                            <LabeledList.Item key={field} label={label}>
-                              <TextArea
-                                fluid
-                                height={3}
-                                value={option[field]}
-                                placeholder="Optional"
-                                onChange={(value) =>
-                                  updateOption(option.id, { [field]: value })
+                        <Box mt={1}>
+                          <LabeledList>
+                            <LabeledList.Item label="Rating Range">
+                              <NumberInput
+                                value={option.minval}
+                                step={1}
+                                onChange={(minval) =>
+                                  updateOption(option.id, { minval })
+                                }
+                              />
+                              <Box inline mx={1}>
+                                to
+                              </Box>
+                              <NumberInput
+                                value={option.maxval}
+                                step={1}
+                                onChange={(maxval) =>
+                                  updateOption(option.id, { maxval })
                                 }
                               />
                             </LabeledList.Item>
-                          ))}
-                        </LabeledList>
+                            {(
+                              [
+                                ['descmin', 'Minimum Label'],
+                                ['descmid', 'Median Label'],
+                                ['descmax', 'Maximum Label'],
+                              ] as const
+                            ).map(([field, label]) => (
+                              <LabeledList.Item key={field} label={label}>
+                                <TextArea
+                                  fluid
+                                  height={3}
+                                  value={option[field]}
+                                  placeholder="Optional"
+                                  onChange={(value) =>
+                                    updateOption(option.id, { [field]: value })
+                                  }
+                                />
+                              </LabeledList.Item>
+                            ))}
+                          </LabeledList>
+                        </Box>
                       )}
                     </Box>
                   ))}
