@@ -162,12 +162,12 @@
 	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "emote")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 	if("radio" in styles)
 		styles.Remove("radio")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
