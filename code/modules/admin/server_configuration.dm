@@ -167,6 +167,7 @@
 					log_change(selected_pinned_round_time ? "Pinned round time changed to [selected_pinned_round_time]" : "Pinned round time cleared")
 					committed_pinned_round_time = selected_pinned_round_time
 					SSticker.set_pinned_round_time(selected_pinned_round_time)
+					SSstatpanels.pinned_round_time = selected_pinned_round_time
 				else
 					to_chat(ui.user, SPAN_WARNING("Failed to set the pinned round time."))
 			reset_state()

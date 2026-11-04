@@ -5,7 +5,6 @@ SUBSYSTEM_DEF(statpanels)
 	init_stage = INITSTAGE_EARLY
 	priority = FIRE_PRIORITY_STATPANEL
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	flags = SS_NO_INIT
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -19,6 +18,13 @@ SUBSYSTEM_DEF(statpanels)
 	///how many full runs this subsystem has completed. used for variable rate refreshes.
 	var/num_fires = 0
 
+	/// Time of pinned round configuration, kept in here as cache to prevent frequent registry lookups when not configured.
+	var/pinned_round_time
+
+/datum/controller/subsystem/statpanels/Initialize(timeofday)
+	pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
@@ -31,7 +37,6 @@ SUBSYSTEM_DEF(statpanels)
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
 		)
 
-		var/pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
 		if(pinned_round_time)
 			global_data += "Pinned Round Time: [pinned_round_time]"
 
