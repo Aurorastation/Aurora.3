@@ -51,13 +51,13 @@
 			char = input("Enter a single special character.\nYou may re-select the same characters.\nThe following characters are already in use by radio: ; : .\nThe following characters are already in use by special say commands: ! * ^", "Enter Character - [3 - keys.len] remaining") as null|text
 			if(char)
 				if(length(char) > 1)
-					alert(user, "Only single characters allowed.", "Error", "Ok")
+					tgui_alert(user, "Only single characters allowed.", "Error", list("Ok"))
 				else if(char in list(";", ":", "."))
-					alert(user, "Radio character. Rejected.", "Error", "Ok")
+					tgui_alert(user, "Radio character. Rejected.", "Error", list("Ok"))
 				else if(char in list("!","*", "^"))
-					alert(user, "Say character. Rejected.", "Error", "Ok")
+					tgui_alert(user, "Say character. Rejected.", "Error", list("Ok"))
 				else if(contains_az09(char))
-					alert(user, "Non-special character. Rejected.", "Error", "Ok")
+					tgui_alert(user, "Non-special character. Rejected.", "Error", list("Ok"))
 				else
 					keys.Add(char)
 		while(char && keys.len < 3)

@@ -41,7 +41,7 @@
 		return
 
 	var/datum/random_map/M
-	if(alert("Do you wish to customise the map?",,"Yes","No") == "Yes")
+	if(tgui_alert(usr, "Do you wish to customise the map?", , list("Yes", "No")) == "Yes")
 		var/seed = input("Seed? (blank for none)")       as text|null
 		var/lx =   input("X-size? (blank for default)")  as num|null
 		var/ly =   input("Y-size? (blank for default)")  as num|null

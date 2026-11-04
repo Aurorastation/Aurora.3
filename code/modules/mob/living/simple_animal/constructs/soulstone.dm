@@ -181,7 +181,7 @@
 	if(!A)
 		to_chat(U, "<span class='danger'>Capture failed!</span>: The soul stone is empty! Go kill someone!")
 		return;
-	var/construct_class = alert(U, "Please choose which type of construct you wish to create.",,"Juggernaut","Wraith","Artificer")
+	var/construct_class = tgui_alert(U, "Please choose which type of construct you wish to create.", , list("Juggernaut", "Wraith", "Artificer"))
 	switch(construct_class)
 		if("Juggernaut")
 			var/mob/living/simple_animal/construct/armored/Z = new /mob/living/simple_animal/construct/armored (get_turf(T.loc))
