@@ -731,7 +731,7 @@ var/global/list/default_interrogation_channels = list(
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = get_map_sector(T.z)
 	if(!istype(V) || !V.comms_support)
 		return ..()
 
