@@ -6921,7 +6921,7 @@ Follow by example and make good judgement based on length which list to include 
 //hephaestus g1
 /datum/sprite_accessory/marking/g1_panels
 	name = "G1 - Full Panel Colors"
-	icon = 'icons/mob/human_races/markings_industrial.dmi'
+	icon = 'icons/mob/human_races/markings_g1_industrial.dmi'
 	icon_state = "g1_primary"
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
@@ -6948,7 +6948,7 @@ Follow by example and make good judgement based on length which list to include 
 //hephaestus g2
 /datum/sprite_accessory/marking/g2_panels
 	name = "G2 - Full Panel Colors"
-	icon = 'icons/mob/human_races/markings_hephaestus.dmi'
+	icon = 'icons/mob/human_races/markings_g2_industrial.dmi'
 	icon_state = "g2_primary"
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
