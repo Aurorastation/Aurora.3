@@ -13,6 +13,7 @@ type ServerConfigurationData = {
   lore_summary_changed: BooleanLike;
   pinned_round_time: string;
   pinned_round_time_changed: BooleanLike;
+  pinned_round_time_configured: BooleanLike;
   read_only: BooleanLike;
   unsaved_changes: BooleanLike;
 };
@@ -148,7 +149,7 @@ export const ServerConfiguration = (props) => {
             <LabeledList>
               <LabeledList.Item label="Pinned round time">
                 <Button
-                  content={data.pinned_round_time || 'Select'}
+                  content={data.pinned_round_time || 'Unconfigured'}
                   disabled={data.read_only}
                   onClick={() => act('set_pinned_round_time')}
                 />
@@ -159,6 +160,15 @@ export const ServerConfiguration = (props) => {
                     content="Revert"
                     tooltip="Reset pinned round time"
                     onClick={() => act('reset_pinned_round_time')}
+                  />
+                ) : null}
+                {data.pinned_round_time_configured && data.pinned_round_time ? (
+                  <Button
+                    color="red"
+                    icon="trash"
+                    tooltip="Remove pinned round time"
+                    disabled={data.read_only}
+                    onClick={() => act('clear_pinned_round_time')}
                   />
                 ) : null}
               </LabeledList.Item>

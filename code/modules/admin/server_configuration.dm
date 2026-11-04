@@ -65,8 +65,9 @@
 	data["lore_summary"] = selected_lore_summary != null ? selected_lore_summary : committed_lore_summary || ""
 	data["lore_summary_changed"] = selected_lore_summary != null
 
-	data["pinned_round_time"] = selected_pinned_round_time || committed_pinned_round_time || ""
+	data["pinned_round_time"] = selected_pinned_round_time != null ? selected_pinned_round_time : committed_pinned_round_time || ""
 	data["pinned_round_time_changed"] = selected_pinned_round_time != null
+	data["pinned_round_time_configured"] = !!committed_pinned_round_time
 
 	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, FALSE, user=user) // Developers only get view-access, no edit permissions
 	data["unsaved_changes"] = check_for_unsaved_changes()
@@ -137,6 +138,10 @@
 		if("reset_pinned_round_time")
 			selected_pinned_round_time = null
 			return TRUE
+		if("clear_pinned_round_time")
+			if(committed_pinned_round_time)
+				selected_pinned_round_time = ""
+			return TRUE
 
 		if("commit_changes")
 			if(selected_sector)
@@ -159,7 +164,7 @@
 					to_chat(ui.user, SPAN_WARNING("Failed to set the lore summary."))
 			if(selected_pinned_round_time != null)
 				if(SSregistry.setValue(REGISTRY_PINNED_ROUND_TIME, selected_pinned_round_time))
-					log_change("Pinned round time changed to [selected_pinned_round_time]")
+					log_change(selected_pinned_round_time ? "Pinned round time changed to [selected_pinned_round_time]" : "Pinned round time cleared")
 					committed_pinned_round_time = selected_pinned_round_time
 					SSticker.set_pinned_round_time(selected_pinned_round_time)
 				else
