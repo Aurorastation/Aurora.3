@@ -30,6 +30,7 @@
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
+	desc_extended = null
 	self_recharge = TRUE
 	use_external_power = TRUE
 	can_turret = FALSE
@@ -37,6 +38,7 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
+	desc_extended = null
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
@@ -259,6 +261,7 @@
 		)
 
 ABSTRACT_TYPE(/obj/item/gun/energy/gun/skrell)
+	desc_extended = null
 	self_recharge = TRUE
 	fire_sound = 'sound/weapons/Laser2.ogg'
 	modifystate = null

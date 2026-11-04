@@ -102,6 +102,16 @@
 
 	. = ..()
 
+/obj/effect/overmap/visitable/ship/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE)
+	. = ..()
+	if(.)
+		overmap_event_handler.update_ship_hazards(src)
+
+/obj/effect/overmap/visitable/ship/forceMove(atom/destination)
+	. = ..()
+	if(.)
+		overmap_event_handler.update_ship_hazards(src)
+
 /obj/effect/overmap/visitable/ship/relaymove(mob/living/user, direction, accel_limit)
 	. = ..()
 

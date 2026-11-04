@@ -361,6 +361,8 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/skrell/nralakk_jackets.dmi'
 	item_state = "starcoat"
 	icon_state = "starcoat"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/under/skrell/cthur
 	name = "cthur uniform"

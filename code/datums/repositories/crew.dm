@@ -95,7 +95,7 @@ GLOBAL_DATUM_INIT(crew_repository, /datum/repository/crew, new())
 
 				crewmembers += list(crewmemberData)
 
-	crewmembers = sortByKey(crewmembers, "name")
+	crewmembers = sortByKeyText(crewmembers, "name")
 	cache_entry.timestamp = world.time + 5 SECONDS
 	cache_entry.data = crewmembers
 

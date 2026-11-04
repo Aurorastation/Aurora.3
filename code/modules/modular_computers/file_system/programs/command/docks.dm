@@ -8,8 +8,8 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_run = ACCESS_HEADS
-	required_access_download = ACCESS_HEADS
+	required_access_run = /datum/access/heads::id
+	required_access_download = /datum/access/heads::id
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	tgui_id = "Docks"
 

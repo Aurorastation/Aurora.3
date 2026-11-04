@@ -124,6 +124,8 @@
 
 // Armed Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"
+/// Signal raised against a mob attempting to attack a structure, used to query components for structure damage modifiers.
+#define COMSIG_ATTACK_STRUCTURE "attack_structure"
 
 // Various computer signals for interrupting via skill or other effects.
 #define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
@@ -146,3 +148,6 @@
 
 // Crafting Signals
 #define COMSIG_GET_CRAFTING_MODIFIERS "get_crafting_modifiers"
+
+/// Signal raised on a person attempting to repair a mech.
+#define COMSIG_GET_MECH_WELD_MODIFIERS "mech_weld_modifiers"

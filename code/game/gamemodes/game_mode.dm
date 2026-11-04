@@ -28,8 +28,6 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	var/station_was_nuked = 0                // See nuclearbomb.dm and malfunction.dm.
 	var/explosion_in_progress = 0            // Sit back and relax
-	var/waittime_l = 60 SECONDS                     // Lower bound on time before intercept arrives (in tenths of seconds)
-	var/waittime_h = 180 SECONDS                    // Upper bound on time before intercept arrives (in tenths of seconds)
 
 	var/event_delay_mod_moderate             // Modifies the timing of random events.
 	var/event_delay_mod_major                // As above.
@@ -281,8 +279,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
-	var/welcome_delay = rand(waittime_l, waittime_h)
-	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+	SSatlas.current_map.post_gamemode_setup()
 
 	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
@@ -352,7 +349,6 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]\n\n"
 	var/antag_text = ""
 	check_victory()
 	if(is_antag_mode)
@@ -361,16 +357,10 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 			sleep(10)
 			antag.check_victory()
 			antag.print_player_summary()
-			// Avoid the longest loop if we aren't actively using the bot.
-			if (SSdiscord.active)
-				antag_text += antag.print_player_summary_discord()
+			antag_text += antag.print_player_summary_discord()
 
 		sleep(10)
 		print_ownerless_uplinks()
-
-	discord_text += antag_text
-	SSdiscord.send_to_announce(discord_text, 1)
-	discord_text = ""
 
 	var/clients = 0
 	var/surviving_total = 0
@@ -403,16 +393,17 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
 		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
 
-		discord_text += "There [surviving_total>1 ? "were **[surviving_total] survivors**" : "was **one survivor**"]"
-		discord_text += " ([escaped_total>0 ? escaped_total : "none"] [escape_text]) and **[ghosts] ghosts**."
 	else
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
-
-		discord_text += "There were **no survivors** ([ghosts] ghosts)."
 	to_world(text)
 
-	SSdiscord.send_to_announce(discord_text)
-	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]"
+	discord_text += "\nThere were **[GLOB.round_connected_ckeys.len] connected players** in the round."
+	if(antag_text)
+		discord_text += "\n[antag_text]"
+
+	SSdiscord.send_to_announce(discord_text, 1)
+	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("total_connected"=GLOB.round_connected_ckeys.len, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
 
 	if(clients > 0)
 		feedback_set("round_end_clients", clients)
@@ -573,7 +564,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	for(var/mob/living/carbon/human/character in GLOB.player_list)
 		if(character.client)
-			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED)) // Discrimination.
+			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED) || (character.client.prefs.economic_status == ECONOMICALLY_BANKRUPT) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MINOR) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MODERATE) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MAJOR)) // Discrimination.
 				characters += character
 			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
 				characters += character

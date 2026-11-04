@@ -5,7 +5,7 @@
 	icon_state = "posibrain"
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	can_be_ipc = TRUE
 
 	should_use_health = TRUE
@@ -25,6 +25,21 @@
 	to_chat(brainmob, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
 	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
 	. = ..()
+
+/obj/item/mmi/digital/posibrain/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
+	. = ..()
+	if(. != BULLET_ACT_HIT)
+		return .
+
+	var/projectile_damage = hitting_projectile.get_structure_damage()
+	if(projectile_damage > 5)
+		bullet_ping(hitting_projectile)
+
+	if(!hitting_projectile.do_not_log)
+		visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile]!"))
+		to_chat(brainmob, SPAN_DANGER(FONT_LARGE("Your positronic is hit by \a [hitting_projectile]!")))
+
+	add_damage(projectile_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/item/mmi/digital/posibrain/update_icon()
 	if(brainmob.ckey)

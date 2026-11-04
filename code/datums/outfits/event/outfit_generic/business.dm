@@ -28,6 +28,8 @@
 	)
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/winter/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/laceup/tajara,

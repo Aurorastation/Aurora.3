@@ -27,7 +27,7 @@ export function LoadingScreen(props: LoadingScreenProps) {
   return (
     <Stack align="center" fill justify="center" vertical>
       <Stack.Item>
-        <Icon color="blue" name="toolbox" spin size={4} />
+        <Icon color="blue" name="spinner" spin size={4} />
       </Stack.Item>
       <Stack.Item>{props.label || 'Please wait...'}</Stack.Item>
     </Stack>

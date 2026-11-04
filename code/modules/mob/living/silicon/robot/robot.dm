@@ -103,7 +103,7 @@
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
-	var/list/req_access = list(ACCESS_ROBOTICS)
+	var/list/req_access = list(/datum/access/robotics::id)
 	var/key_type
 	var/scrambled_codes = FALSE // When true, doesn't show up on robotics console.
 
@@ -216,14 +216,14 @@
 
 /mob/living/silicon/robot/proc/update_access()
 	if(emagged || malf_AI_module || crisis)
-		id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
+		id_card.access = get_all_station_access() + /datum/access/equipment::id // Give full station access
 		return
 
 	id_card = new id_card_type()
 
 	if(module)
 		if(module.all_access)
-			id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
+			id_card.access = get_all_station_access() + /datum/access/equipment::id // Give full station access
 			return
 
 		for(var/job_type in module.specialized_access_types)
@@ -983,7 +983,8 @@
 	if(anti_theft)
 		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [SSatlas.current_map.company_name]!"))
 	else
-		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
+		ASYNC // Some callers require non-sleeping execution
+			say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 
 	addtimer(CALLBACK(src, PROC_REF(self_destruct_warning), 1), 2 SECONDS, TIMER_UNIQUE)
 
@@ -1194,7 +1195,7 @@
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override
-			id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
+			id_card.access = get_all_station_access() + /datum/access/equipment::id // Give full station access
 			var/time = time2text(world.realtime, "hh:mm:ss")
 			GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 			set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")

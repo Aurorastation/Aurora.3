@@ -96,8 +96,6 @@
 
 	bullet_ping(hitting_projectile)
 
-	health -= proj_damage
-
 	if(health <= 0)
 		deflate(TRUE)
 	return

@@ -37,7 +37,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	var/list/tolerated_types = list()
 	var/attack_emote = "stares menacingly at"
 
-	var/smart_melee = TRUE   // This makes melee mobs try to stay two tiles away from their target in combat, lunging in to attack only
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
 
@@ -278,8 +277,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		playsound(loc, attack_sound, 50, 1, 1)
 	if(target)
 		face_atom(target)
-		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -372,6 +369,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/OpenFire(atom/target, ignore_visibility = FALSE)
 	set waitfor = FALSE
 
+	if(!isturf(loc) || captured)
+		return
+
 	if(QDELETED(target))
 		LoseTarget()
 		return
@@ -418,6 +418,8 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	return target_hit
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(atom/target, location, user)
+	if(!isturf(loc))
+		return
 	Shoot(target, location, user)
 	if(casingtype)
 		new casingtype(loc)

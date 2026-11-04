@@ -574,7 +574,7 @@
 	},
 /area/raskara_okon)
 "hA" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -2226,7 +2226,7 @@
 	},
 /area/raskara_okon/mess_hall)
 "AU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -2250,7 +2250,7 @@
 	},
 /area/raskara_okon)
 "Br" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -2282,7 +2282,7 @@
 	},
 /area/raskara_okon/eva)
 "BU" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -2577,7 +2577,7 @@
 	},
 /area/raskara_okon/laboratory)
 "Gy" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -2988,7 +2988,7 @@
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -3614,7 +3614,7 @@
 	},
 /area/raskara_okon)
 "Ux" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004
@@ -3867,7 +3867,7 @@
 	},
 /area/raskara_okon/medbay)
 "Xk" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_okon";
 	name = "airlock_okon";
 	frequency = 1004

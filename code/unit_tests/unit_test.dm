@@ -30,25 +30,29 @@ GLOBAL_VAR_INIT(unit_tests_failures, 0)
 GLOBAL_VAR_INIT(total_unit_tests, 0)
 
 
-// We list these here so we can remove them from the for loop running this.
-// Templates aren't intended to be ran but just serve as a way to create child objects of it with inheritable tests for quick test creation.
-
+/// We list these here so we can remove them from the for loop running this.
+/// Templates aren't intended to be ran but just serve as a way to create child objects of it with inheritable tests for quick test creation.
 ABSTRACT_TYPE(/datum/unit_test)
 	var/name = "template - should not be ran."
-	var/disabled = 0        // If we want to keep a unit test in the codebase but not run it for some reason.
-	var/async = 0           // If the check can be left to do it's own thing, you must define a check_result() proc if you use this.
-	var/reported = 0	// If it's reported a success or failure.  Any tests that have not are assumed to be failures.
-	var/why_disabled = "No reason set."   // If we disable a unit test we will display why so it reminds us to check back on it later.
-	var/map_path // This should be the same as the path var on /datum/map - The unit test will only run for that map
+	/// If we want to keep a unit test in the codebase but not run it for some reason.
+	var/disabled = 0
+	/// If the check can be left to do its own thing, you must define a check_result() proc if you use this.
+	var/async = 0
+	/// If it's reported a success or failure.  Any tests that have not are assumed to be failures.
+	var/reported = 0
+	/// If we disable a unit test we will display why so it reminds us to check back on it later.
+	var/why_disabled = "No reason set."
+	/// These should be the same as the path var on /datum/map - The unit test will only run for those maps
+	var/list/map_path
 
-	///A list of strings, each of which represents a group which this UT belongs to, the UT pods will only run UTs that are in their list
+	/// A list of strings, each of which represents a group which this UT belongs to, the UT pods will only run UTs that are in their list
 	var/list/groups = list()
 
-	///The priority of the test, the larger it is the later it fires
+	/// The priority of the test, the larger it is the later it fires
 	var/priority = 1000
 
 
-/*
+/**
  * Log levels used to prettify correctly, only defined in this file (aka undef'd at the end)
  * Build unit test messages as per https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions, or for console output
  */

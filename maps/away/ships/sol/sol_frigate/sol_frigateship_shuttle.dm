@@ -23,7 +23,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/solfrig_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Solarian Frigate Shuttle"
-	req_access = list(ACCESS_SOL_SHIPS)
+	req_access = list(/datum/access/sol_ships::id)
 // --------
 
 // Controls docking behaviour
@@ -36,7 +36,6 @@
 	dock_target = "sol_light_interceptor"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_solfrig"
 	defer_initialisation = TRUE
 // --------
 

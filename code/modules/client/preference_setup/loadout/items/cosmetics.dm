@@ -50,7 +50,7 @@
 GLOBAL_DATUM_INIT(gear_tweak_lipstick_color, /datum/gear_tweak/color/lipstick, new())
 
 /datum/gear_tweak/color/lipstick/get_contents(var/metadata)
-	return "Lipstick Color: <font color='[metadata]'>&#9899;</font>"
+	return "Lipstick Color: [metadata]"
 
 /datum/gear_tweak/color/lipstick/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
 	lipstick.lipstick_color = metadata

@@ -14,6 +14,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	looping_sound = FALSE
 
+	light_system = MOVABLE_LIGHT
+
 /obj/item/modular_computer/handheld/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "To deploy the charging cable on this device, either drag and drop it over a nearby APC, or click on the APC with the computer in hand."

@@ -178,3 +178,12 @@
 	reagents = list(/singleton/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite/moss
+
+/singleton/recipe/psirenburger
+	appliance = SKILLET | GRILL
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/bowl/psiren_chips,
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/psiren

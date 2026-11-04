@@ -170,6 +170,9 @@
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
+/obj/structure/machinery/media/jukebox/anchored
+	anchored = TRUE
+
 // DEFINITIONS
 /obj/structure/machinery/media/jukebox/audioconsole
 	name = "audioconsole"

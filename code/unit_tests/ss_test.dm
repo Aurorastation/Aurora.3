@@ -14,7 +14,7 @@
 
 SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
-	init_order = INIT_ORDER_PERSISTENT_CONFIGURATION
+	init_order = INIT_ORDER_PROFILER
 	flags = SS_NO_FIRE
 
 	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(unit_tests)
 
 		TEST_GROUP_OPEN("[test.name]")
 
-		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
+		if (length(test.map_path) && SSatlas.current_map && !(SSatlas.current_map.path in test.map_path))
 			test.pass(TEST_OUTPUT_GREEN("Check Disabled: This test is not allowed to run on this map."), __FILE__, __LINE__)
 			TEST_GROUP_CLOSE("[test.name]")
 			if (MC_TICK_CHECK)

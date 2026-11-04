@@ -72,9 +72,14 @@
 
 								var/message = sanitize_tg(tgui_input_text(owner, "Enter a peer-to-peer message to send to [connected_ipc.real_name].", "Virtual Communication", max_length = MAX_MESSAGE_LEN))
 								// re-do all the checks just in case. bit ass but oh well
-								if(message && !port.is_broken() && (port.access_cable.target && port.access_cable.target == connected_ipc && !other_port.is_broken()))
+								var/mob/target_owner
+								if(istype(port.access_cable.target, /obj/item/organ/internal/machine/access_port))
+									var/obj/item/organ/internal/machine/access_port/target_port = port.access_cable.target
+									target_owner = target_port.owner
+								if(message && !port.is_broken() && (target_owner == connected_ipc && !other_port.is_broken()))
 									var/p2p_message = SPAN_ITALIC("Virtual Communication, ") + SPAN_BOLD("[owner.real_name] transmits: ") + SPAN_MACHINE_WARNING(message)
 									to_chat(connected_ipc, p2p_message)
+									to_chat(owner, p2p_message)
 									log_say("VIRTUAL COMMUNICATION: [owner]/[owner.client.ckey] to [connected_ipc]/[connected_ipc.client.ckey]: [message]")
 									. = TRUE
 							else

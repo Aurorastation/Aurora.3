@@ -58,27 +58,31 @@
 
 
 /obj/structure/machinery/gumballmachine/attackby(obj/item/attacking_item, mob/user)
-	if (istype(attacking_item, /obj/item/spacecash))
-		var/obj/item/spacecash/C = attacking_item
+	if (istype(attacking_item, /obj/item/currency))
+		var/obj/item/currency/C = attacking_item
+		if(!accepts_currency(C))
+			to_chat(user, SPAN_WARNING("This machine does not accept [C.name]."))
+			return TRUE
 		if(!on)
 			to_chat(user, SPAN_WARNING("\The [src] has no power!"))
 			return TRUE
 		if(amountleft <= 0)
 			to_chat(user, SPAN_WARNING("There's no more [typeofcandy] left!"))
 			return TRUE
-		if(C.worth < gumprice)
+		var/credit_value = C.get_credit_value()
+		if(credit_value < gumprice)
 			to_chat(user, SPAN_WARNING("You don't think this is enough to buy what you want from this."))
 			return TRUE
 		else
 			visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
-			var/changeleftover = C.worth - gumprice
+			var/changeleftover = credit_value - gumprice
 			user.drop_from_inventory(C,get_turf(src))
-			qdel(C)
 			buygumball()
 
 			if(changeleftover)
-				spawn_money(changeleftover, src.loc, user)
-	if(istype(attacking_item, /obj/item) && user.a_intent == I_HURT && !istype(attacking_item, /obj/item/spacecash))
+				C.spawn_change(changeleftover, src.loc, user)
+			qdel(C)
+	if(istype(attacking_item, /obj/item) && user.a_intent == I_HURT && !istype(attacking_item, /obj/item/currency))
 		if(broken)
 			return
 		if(prob(25))

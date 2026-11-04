@@ -659,7 +659,7 @@
 	pixel_x = 12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -807,7 +807,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "gi" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -1146,7 +1146,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -1168,7 +1168,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939
@@ -1626,7 +1626,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -1676,7 +1676,7 @@
 	pixel_x = -12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -1693,7 +1693,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939
@@ -1828,7 +1828,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -2468,7 +2468,7 @@
 	pixel_x = 12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -2572,7 +2572,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -2786,7 +2786,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -2814,7 +2814,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -2919,7 +2919,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -3845,7 +3845,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939
@@ -4498,7 +4498,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -4882,7 +4882,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -5013,7 +5013,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939
@@ -5200,7 +5200,7 @@
 	pixel_x = -12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -5442,7 +5442,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -5621,7 +5621,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -5751,7 +5751,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Np" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -5790,7 +5790,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -5838,7 +5838,7 @@
 	pixel_x = 6;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_4";
 	name = "airlock_kazhkz_4";
 	frequency = 2222
@@ -6086,7 +6086,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -6427,7 +6427,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939
@@ -6700,7 +6700,7 @@
 	pixel_y = -22;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_2";
 	name = "airlock_kazhkz_2";
 	frequency = 1989
@@ -6767,7 +6767,7 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_3";
 	name = "airlock_kazhkz_3";
 	frequency = 2126
@@ -7315,7 +7315,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kazhkz_1";
 	name = "airlock_kazhkz_1";
 	frequency = 1939

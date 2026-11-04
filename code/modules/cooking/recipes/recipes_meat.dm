@@ -158,3 +158,57 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/meatloaf
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/psitenders
+	appliance = FRYER | SKILLET
+	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/sauerkraut
+	)
+	result = /obj/item/reagent_containers/food/snacks/psitenders
+
+/singleton/recipe/psitenders/make_food(obj/container) // so people don't end up eating raw flour
+	. = ..()
+	var/list/results = .
+	for(var/thing in results)
+		var/obj/item/XMG = thing
+		XMG.reagents.del_reagent(/singleton/reagent/nutriment/flour)
+
+/singleton/recipe/psychoyaki
+	appliance = SKILLET | GRILL
+	reagents = list(/singleton/reagent/nutriment/coating/batter = 5, /singleton/reagent/nutriment/mayonnaise = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet,
+		/obj/item/reagent_containers/food/snacks/psiren_leather
+	)
+	result = /obj/item/reagent_containers/food/snacks/psychoyaki
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/psirensteak
+	appliance = SKILLET | MICROWAVE
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/psiren_body_meat)
+	result = /obj/item/reagent_containers/food/snacks/psirensteak
+
+/singleton/recipe/cornucopia
+	appliance = OVEN
+	reagents = list(/singleton/reagent/spacespice/pumpkinspice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat,
+		/obj/item/reagent_containers/food/snacks/risotto
+	)
+	result = /obj/item/reagent_containers/food/snacks/cornucopia
+	result_quantity = 2
+
+/singleton/recipe/grilled_tentacle
+	appliance = OVEN | GRILL
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/psiren_tentacle_meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/grilled_tentacle

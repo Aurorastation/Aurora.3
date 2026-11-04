@@ -6,7 +6,7 @@
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_TINY
 	vis_flags = VIS_INHERIT_LAYER | VIS_INHERIT_DIR
-	persistant_objects_expiration_time_days = 2
+	persistent_objects_expiration_time_days = 2
 
 	var/datum/weakref/attached
 	var/list/rand_icons
@@ -40,6 +40,7 @@
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom && user.Adjacent(attached_atom))
 		attack_hand(user)
+		return TRUE
 
 /obj/item/sticker/attackby(obj/item/attacking_item, mob/user)
 	if(!attached)

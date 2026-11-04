@@ -1,4 +1,4 @@
-#define GET_SPEECH_TYPE(owner) alert(owner.client, "What type of chat message would you like to use for your inspirational speech?", "Say Type", "Say", "Whisper", "Emote")
+#define GET_SPEECH_TYPE(owner) tgui_alert(owner.client, "What type of chat message would you like to use for your inspirational speech?", "Say Type", list("Say", "Whisper", "Emote"))
 #define GET_SPEECH_TEXT(owner) tgui_input_text(owner, "Write what you wish to say for your speech.", "Deliver Speech")
 
 /datum/moodlet/leadership

@@ -10,7 +10,7 @@
 	name = "charge"
 	icon_state = "audible_deception"
 	item_icons = null
-	cast_methods = CAST_USE
+	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 5
 	psi_cost = 5

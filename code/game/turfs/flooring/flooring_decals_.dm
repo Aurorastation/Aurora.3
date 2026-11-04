@@ -362,12 +362,12 @@
 	color = COLOR_DARK_BLUE_GRAY
 
 /obj/effect/floor_decal/corner_wide/dark_blue/diagonal
-	icon_state = "preview_diagonal"
-	blend_state = "diagonal"
+	icon_state = "preview_wide_diagonal"
+	blend_state = "wide_diagonal"
 
 /obj/effect/floor_decal/corner_wide/dark_blue/full
-	icon_state = "preview_threethirds"
-	blend_state = "threethirds"
+	icon_state = "preview_wide_threethirds"
+	blend_state = "wide_threethirds"
 
 /obj/effect/floor_decal/corner_wide/dark_green
 	name = "dark green corner"
@@ -525,6 +525,18 @@
 	blend_state = "wide_diagonal"
 
 /obj/effect/floor_decal/corner_wide/grey/full
+	icon_state = "preview_wide_threethirds"
+	blend_state = "wide_threethirds"
+
+/obj/effect/floor_decal/corner_wide/seafoam
+	name = "seafoam corner"
+	color = COLOR_SEAFOAM
+
+/obj/effect/floor_decal/corner_wide/seafoam/diagonal
+	icon_state = "preview_wide_diagonal"
+	blend_state = "wide_diagonal"
+
+/obj/effect/floor_decal/corner_wide/seafoam/full
 	icon_state = "preview_wide_threethirds"
 	blend_state = "wide_threethirds"
 

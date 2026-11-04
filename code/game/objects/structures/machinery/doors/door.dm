@@ -234,7 +234,9 @@
 	return !density
 
 /obj/structure/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	return (check_access_list(pass_info.access) && can_open())
+	// An already-open door is traversable. can_open() intentionally returns FALSE when density is FALSE,
+	// so calling it unconditionally caused pathfinding to treat open doors and shutters as walls.
+	return !density || (check_access_list(pass_info.access) && can_open())
 
 
 /obj/structure/machinery/door/proc/bumpopen(mob/user as mob)
@@ -255,20 +257,24 @@
 	var/damage = hitting_projectile.get_structure_damage()
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
-	if (damage > 90)
-		destroy_hits -= (1 * hitting_projectile.anti_materiel_potential)
+	if (damage >= 30 && health <= 0) //Midlaser damage.
+		if (damage > 90)
+			destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential)) //Double dip for strong projectiles, like emitters or the PEAC.
+		destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential))
 		if (destroy_hits <= 0)
 			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (hitting_projectile.damage_type)
 				if(DAMAGE_BRUTE)
-					new /obj/item/stack/material/steel(src.loc, 2)
-					new /obj/item/stack/rods(src.loc, 3)
+					for(var/i = 1 to 3)
+						if(prob(50))
+							new /obj/item/stack/material/steel(src.loc, 2)
+						else
+							new /obj/item/material/shard(src.loc, MATERIAL_STEEL)
 				if(DAMAGE_BURN)
 					new /obj/effect/decal/cleanable/ash(src.loc) // Turn it to ashes!
+					new /obj/item/material/shard(src.loc, MATERIAL_STEEL)
+			new /obj/particle_emitter/door_destruction(loc, 2 SECONDS)
 			qdel(src)
-
-	if(damage)
-		add_damage(damage)
 
 /obj/structure/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
@@ -419,6 +425,8 @@
 	update_icon()
 
 /obj/structure/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(stat & BROKEN)
+		return
 	set_broken()
 
 /obj/structure/machinery/door/proc/set_broken()
@@ -506,16 +514,15 @@
 	intent_message(MACHINE_SOUND)
 
 	do_animate("opening")
-	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
 	set_density(FALSE)
+	update_icon()
+	set_opacity(0)
 	update_nearby_tiles()
 	sleep(2)
 	src.layer = open_layer
 	explosion_resistance = 0
-	update_icon()
-	set_opacity(0)
 	operating = FALSE
 
 	if(autoclose && !QDELETED(src))

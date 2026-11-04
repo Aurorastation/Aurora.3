@@ -1,7 +1,7 @@
 /obj/item/clothing/head/hardhat
 	name = "hard hat"
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
-	icon = 'icons/obj/clothing/hats/hardhats.dmi'
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi'
 	icon_state = "hardhat_yellow"
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
@@ -112,7 +112,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	flash_protection = FLASH_PROTECTION_MODERATE
 	heat_protection = HEAD
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE

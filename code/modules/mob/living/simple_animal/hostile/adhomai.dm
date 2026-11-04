@@ -11,7 +11,7 @@
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
-	speed = -2
+	speed = 2
 	maxhealth = 80
 	health = 80
 	mob_size = 10
@@ -49,7 +49,7 @@
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
 
-	speed = -1
+	speed = 1
 	maxhealth = 75
 	health = 75
 

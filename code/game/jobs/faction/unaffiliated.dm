@@ -14,3 +14,7 @@
 	title_suffix = "INDEP"
 
 	ui_priority = INFINITY // bottom of the list
+
+	titles_to_loadout = list(
+		"Corporate Reporter" = /obj/outfit/job/journalistf
+	)

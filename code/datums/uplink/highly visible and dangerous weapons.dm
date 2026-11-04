@@ -293,6 +293,12 @@
 	path = /obj/item/psionic_jumpstarter/loner
 	antag_roles = list(MODE_TRAITOR)
 
+/datum/uplink_item/item/visible_weapons/technomancer_jumpstarter
+	name = "Technomancer Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/technomancer_jumpstarter
+	antag_roles = list(MODE_TRAITOR)
+
 /datum/uplink_item/item/visible_weapons/flamethrower
 	name = "Flamethrower"
 	desc = "A flamethrower, with a full canister of fuel installed. Handle with caution."

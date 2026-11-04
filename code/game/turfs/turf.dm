@@ -29,6 +29,8 @@
 
 	var/list/decals
 	var/list/blueprints
+	/// Cellular automata currently occupying this turf.
+	var/list/datum/automata_cell/autocells
 
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
@@ -132,6 +134,9 @@
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+	else if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	update_starlight()
 
@@ -145,10 +150,6 @@
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
-
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -172,7 +173,7 @@
 	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
-	remove_cleanables()
+	remove_cleanables(TRUE)
 	cleanup_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -282,7 +283,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/structure/machinery))
+			// The loc is due to multi-tile doors moving otherwise because they occupy multiple places.
+			if(AM.loc == src && istype(AM, /obj/structure/machinery))
 				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
@@ -599,7 +601,8 @@
 
 		for(var/obj/effect/O in src)
 			if(istype(O, /obj/effect/decal/cleanable))
-				qdel(O)
+				var/obj/effect/decal/cleanable/cleanable = O
+				cleanable.clean_with_basic_cleaner()
 
 			if(istype(O, /obj/effect/overlay))
 				var/obj/effect/overlay/OV = O
@@ -717,8 +720,8 @@
 	if(density)
 		return OUTSIDE_NO
 
-	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+	for(var/obj/structure/S in src)
+		if(istype(S, /obj/structure/component/tent_canvas))
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
@@ -797,9 +800,16 @@
 		if(below)
 			below.update_weather(new_weather)
 
-/turf/proc/remove_cleanables()
+/turf/proc/remove_cleanables(var/force = FALSE)
 	for(var/obj/effect/O in src)
-		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
+		if(istype(O, /obj/effect/decal/cleanable))
+			var/obj/effect/decal/cleanable/cleanable = O
+			if(force)
+				qdel(cleanable)
+			else
+				cleanable.clean_with_basic_cleaner()
+			continue
+		if(istype(O,/obj/effect/rune))
 			qdel(O)
 	clean_blood()
 

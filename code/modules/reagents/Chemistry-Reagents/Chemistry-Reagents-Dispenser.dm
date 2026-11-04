@@ -203,19 +203,15 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 		if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
 			M.adjustToxLoss(3 * removed * (strength / 100))
 
-		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
-			M.adjustToxLoss(3 * removed * (strength / 100))
-
-		if (has_valid_aug | alien != IS_UNATHI)
-			M.intoxication += (strength / 100) * removed * 6
-			if (druggy != 0)
-				M.druggy = max(M.druggy, druggy)
-			if (halluci)
-				M.hallucination = max(M.hallucination, halluci)
-			if(caffeine)
-				M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.adjustNutritionLoss(-nutriment_factor * removed)
-			M.adjustHydrationLoss(-hydration_factor * removed)
+		M.intoxication += (strength / 100) * removed * 6
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+		if(caffeine)
+			M.add_chemical_effect(CE_PULSE, caffeine*2)
+		M.adjustNutritionLoss(-nutriment_factor * removed)
+		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))

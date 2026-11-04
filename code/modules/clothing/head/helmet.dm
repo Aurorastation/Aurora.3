@@ -32,6 +32,7 @@
 	. = ..()
 	if(camera)
 		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
@@ -81,10 +82,13 @@
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
-	set name = "Toggle Helmet Camera"
+	set name = "Helmet Camera - Toggle On/Off"
 	set category = "Object.Equipped"
 	set src in usr
 
+	toggle_camera_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_camera_for(mob/user)
 	if(ispath(camera))
 		camera = new camera(src)
 		camera.set_status(0)
@@ -92,15 +96,42 @@
 	if(camera)
 		camera.set_status(!camera.status)
 		if(camera.status)
-			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
+			camera.c_tag = FindNameFromID(user)
+			to_chat(user, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
-			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
+			to_chat(user, SPAN_NOTICE("Camera deactivated."))
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network()
+	set name = "Helmet Camera - Toggle Expedition Network"
+	set category = "Object.Equipped"
+	set src in usr
+
+	toggle_expedition_camera_network_for(usr)
+
+/obj/item/clothing/head/helmet/proc/toggle_expedition_camera_network_for(mob/user)
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(!camera)
+		return
+
+	if(NETWORK_EXPEDITION in camera.network)
+		if(length(camera.network) == 1)
+			to_chat(user, SPAN_WARNING("This camera is already an expedition camera."))
+			return
+
+		camera.remove_network(NETWORK_EXPEDITION)
+		to_chat(user, SPAN_NOTICE("Camera disconnected from the expedition network."))
+		return
+
+	camera.add_network(NETWORK_EXPEDITION)
+	to_chat(user, SPAN_NOTICE("Camera connected to the expedition network."))
 
 /obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += FONT_SMALL(SPAN_NOTICE("To toggle or configure the helmet camera, right-click the helmet for options, or equip it and view your new Object verbs."))
 		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos
@@ -264,7 +295,7 @@
 	)
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/swat/peacekeeper
@@ -304,7 +335,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 1
 
 /obj/item/clothing/head/helmet/gladiator
@@ -334,23 +365,6 @@
 	)
 	siemens_coefficient = 0.35
 
-
-/obj/item/clothing/head/helmet/augment
-	name = "augment array"
-	desc = "A helmet with optical and cranial augments coupled to it."
-	icon_state = "v62"
-	armor = list(
-		MELEE = ARMOR_MELEE_VERY_HIGH,
-		BULLET = ARMOR_BALLISTIC_MEDIUM,
-		LASER = ARMOR_LASER_PISTOL,
-		ENERGY = ARMOR_ENERGY_RESISTANT,
-		BOMB = ARMOR_BOMB_PADDED
-	)
-	flags_inv = HIDEEARS|HIDEEYES
-	body_parts_covered = HEAD|EYES
-	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.1
 
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"

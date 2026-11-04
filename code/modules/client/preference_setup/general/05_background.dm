@@ -49,20 +49,19 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/background/content(var/mob/user)
-	var/list/dat = list("<br/><b>Records</b>:<br/>")
-
-	if(jobban_isbanned(user, "Records"))
-		dat += SPAN_DANGER("You are banned from using character records.<br>")
-	else
-		dat += "Medical Records:<br>"
-		dat += "<a href='byond://?src=[REF(src)];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='byond://?src=[REF(src)];clear=medical'>Clear</a><br><br>"
-		dat += "Employment Records:<br>"
-		dat += "<a href='byond://?src=[REF(src)];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><a href='byond://?src=[REF(src)];clear=general'>Clear</a><br><br>"
-		dat += "Security Records:<br>"
-		dat += "<a href='byond://?src=[REF(src)];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><a href='byond://?src=[REF(src)];clear=security'>Clear</a><br>"
-
-	. = dat.Join()
+/datum/category_item/player_setup_item/general/background/ui_data(var/mob/user)
+	var/list/records = list()
+	if(!jobban_isbanned(user, "Records"))
+		records += list(list("name" = "Medical", "preview" = html_decode(TextPreview(pref.med_record, 40)), "edit_action" = "set_medical_records", "clear_value" = "medical"))
+		records += list(list("name" = "Employment", "preview" = html_decode(TextPreview(pref.gen_record, 40)), "edit_action" = "set_general_records", "clear_value" = "general"))
+		records += list(list("name" = "Security", "preview" = html_decode(TextPreview(pref.sec_record, 40)), "edit_action" = "set_security_records", "clear_value" = "security"))
+	return list(
+		"kind" = "background",
+		"name" = name,
+		"ref" = REF(src),
+		"banned" = jobban_isbanned(user, "Records"),
+		"records" = records
+	)
 
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["set_medical_records"])
@@ -85,7 +84,7 @@
 
 	else if(href_list["clear"])
 		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
-			if(alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation","Yes","No") == "No")
+			if(tgui_alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation", list("Yes", "No")) == "No")
 				return TOPIC_NOACTION
 			switch(href_list["clear"])
 				if("medical")

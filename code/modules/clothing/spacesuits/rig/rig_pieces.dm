@@ -10,7 +10,6 @@
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
 	light_range = 4
-	icon = 'icons/obj/clothing/hats.dmi'
 	contained_sprite = FALSE
 
 /obj/item/clothing/gloves/rig
@@ -31,19 +30,19 @@
 	species_restricted = null
 	gender = PLURAL
 	icon_base = null
-	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
+	movement_sounds = list('sound/machines/rig/rigstep.ogg')
 
 /obj/item/clothing/shoes/magboots/rig/advanced
 	slowdown_active = 0
 
 /obj/item/clothing/shoes/magboots/rig/medium
-	footstep_sound_override = 'sound/machines/rig/rigstep_medium.ogg'
+	movement_sounds = list('sound/machines/rig/rigstep_medium.ogg')
 
 /obj/item/clothing/shoes/magboots/rig/heavy
-	footstep_sound_override = 'sound/machines/rig/rigstep_heavy.ogg'
+	movement_sounds = list('sound/machines/rig/rigstep_heavy.ogg')
 
 /obj/item/clothing/shoes/magboots/rig/chonk
-	footstep_sound_override = 'sound/machines/rig/rigstep_chonk.ogg'
+	movement_sounds = list('sound/machines/rig/rigstep_chonk.ogg')
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
@@ -59,7 +58,6 @@
 	resilience = 0.2
 	can_breach = 1
 	contained_sprite = FALSE
-	icon = 'icons/obj/clothing/suits.dmi'
 
 	supporting_limbs = list()
 

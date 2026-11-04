@@ -53,7 +53,7 @@
 								"Have a Republic citizen re-affirm their pledge of loyalty to the Republic of Biesel")
 
 /obj/outfit/job/representative/consular/ceti
-	name = "Tau Ceti Consular Officer"
+	name = "Republic of Biesel Civil Service Functionare"
 
 	uniform = /obj/item/clothing/under/suit_jacket/navy
 	accessory = /obj/item/clothing/accessory/tc_pin
@@ -65,15 +65,13 @@
 	)
 
 /obj/outfit/job/diplomatic_aide/ceti
-	name = "Tau Ceti Diplomatic Aide"
+	name = "Republic of Biesel Civil Service Aide"
 	accessory = /obj/item/clothing/accessory/tc_pin
 
 /obj/outfit/job/diplomatic_bodyguard/ceti
-	name = "Tau Ceti Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/rank/bssb
-	suit = /obj/item/clothing/suit/storage/toggle/bssb
+	name = "Republic of Biesel Civil Service Bodyguard"
 	backpack_contents = list(
-		/obj/item/gun/energy/blaster/revolver
+		/obj/item/gun/energy/blaster
 	)
 
 /obj/outfit/job/representative/consular/ceti/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -117,6 +115,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -140,6 +140,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -163,6 +165,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -239,6 +243,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -250,6 +256,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -261,6 +269,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,
@@ -331,6 +341,8 @@
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_UNATHI,
+			SPECIES_UNATHI_URAWANI,
+			SPECIES_UNATHI_ZIRALIXI,
 			SPECIES_VAURCA_WORKER,
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_ATTENDANT,

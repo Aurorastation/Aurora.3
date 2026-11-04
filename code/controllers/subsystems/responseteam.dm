@@ -87,11 +87,7 @@ SUBSYSTEM_DEF(distress)
 	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/ai/announcements/security_level_old.ogg', zlevels = requester.map_z)
 
 	log_and_message_admins("has launched a distress beacon from the [requester.name] with message: [distress_message].", user)
-	var/datum/distress_beacon/beacon = new()
-	beacon.requester = requester
-	beacon.distress_message = distress_message
-	beacon.user = user
-	beacon.user_name = user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
+	var/datum/distress_beacon/beacon = new(requester, distress_message, user)
 
 	active_distress_beacons[requester.name] = beacon
 
@@ -138,10 +134,10 @@ SUBSYSTEM_DEF(distress)
 	if(SSdistress.send_emergency_team)
 		to_chat(usr, SPAN_DANGER("[SSatlas.current_map.boss_name] has already dispatched an emergency response team!"))
 		return
-	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
+	if(tgui_alert(usr, "Do you want to dispatch an Emergency Response Team?", , list("Yes", "No")) != "Yes")
 		return
 	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
-		switch(alert("The ship is not on red alert. Do you still want to dispatch a response team?",,"Yes","No"))
+		switch(tgui_alert(usr, "The ship is not on red alert. Do you still want to dispatch a response team?", , list("Yes", "No")))
 			if("No")
 				return
 
@@ -173,8 +169,14 @@ SUBSYSTEM_DEF(distress)
 /datum/distress_beacon
 	var/distress_message
 	var/obj/effect/overmap/visitable/requester
-	var/mob/living/carbon/human/user
+	var/datum/weakref/user
 	var/user_name
+
+/datum/distress_beacon/New(new_requester, new_message, mob/new_user)
+	requester = requester
+	distress_message = distress_message
+	user = WEAKREF(new_user)
+	user_name = new_user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
 
 /datum/distress_beacon/Destroy()
 	requester = null

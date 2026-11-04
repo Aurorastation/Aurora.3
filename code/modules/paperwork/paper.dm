@@ -66,7 +66,7 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
-	persistant_objects_expiration_time_days = 180
+	persistent_objects_expiration_time_days = 180
 
 /obj/item/paper/Destroy()
 	info = null
@@ -817,10 +817,16 @@
 	color = "#eeffe8"
 	set_unsafe_on_init = TRUE
 	var/datum/weakref/scan_target
+	/// Patient name and station time retained even if the weakref later expires.
+	var/scan_subject_name
+	var/scan_time
 
 /obj/item/paper/medscan/Initialize(mapload, text, title, var/atom/set_scan_target)
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
+	if(set_scan_target)
+		scan_subject_name = set_scan_target.name
+		scan_time = worldtime2text()
 
 /obj/item/paper/notepad
 	name = "notepad paper"

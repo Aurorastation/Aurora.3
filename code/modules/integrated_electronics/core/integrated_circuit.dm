@@ -5,12 +5,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	interact(user)
-	external_examine(user)
+	. += external_examine(user)
 	. = ..()
 
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
-	any_examine(user)
+	return any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
 	. = list()
@@ -24,10 +24,18 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	setup_io(inputs, /datum/integrated_io, inputs_default)
 	setup_io(outputs, /datum/integrated_io, outputs_default)
 	setup_io(activators, /datum/integrated_io/activate)
+	var/phoron_matter = initial(phoron_cost) * 2000
+	var/steel_matter = max(1, w_class) * 200
+	if(phoron_matter || steel_matter)
+		matter = list(MATERIAL_STEEL = steel_matter, MATERIAL_PHORON = phoron_matter)
+		recyclable = TRUE
 	. = ..()
 
 /obj/item/integrated_circuit/proc/on_data_written() //Override this for special behaviour when new data gets pushed to the circuit.
 	return
+
+/obj/item/integrated_circuit/proc/get_printer_spawn_flags()
+	return spawn_flags
 
 /obj/item/integrated_circuit/Destroy()
 	for(var/datum/integrated_io/I in inputs)
@@ -70,7 +78,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/verb/rename_component()
 	set name = "Rename Circuit"
 	set category = "Object"
-	set desc = "Rename your circuit, useful to stay organized."
+	set desc = "Renames the circuit to make assemblies easier to organize."
 
 	var/mob/M = usr
 	if(!check_interactivity(M))
@@ -175,7 +183,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
 	if(power_draw_per_use)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_per_use] W (Active)</span>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><span class='highlight'>[extended_desc]</span>"
+	if(extended_desc)
+		HTML += "<br><span class='highlight'>[extended_desc]</span>"
 
 	var/datum/browser/B = new(user, assembly ? "assembly-[REF(assembly)]" : "circuit-[REF(src)]", (displayed_name && displayed_name != name) ? "[displayed_name] ([name])" : name, window_width, window_height)
 	B.set_content(HTML.Join())
@@ -298,6 +307,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		disconnect_all()
 		var/turf/T = get_turf(src)
 		forceMove(T)
+		if(Adjacent(usr, src))
+			usr.put_in_hands(src)
 		assembly = null
 		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 		to_chat(usr, SPAN_NOTICE("You pop \the [src] out of the case, and slide it out."))
@@ -319,7 +330,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/proc/pull_data()
 	for(var/datum/integrated_io/I in inputs)
-		I.push_data()
+		I.pull_data()
 
 /obj/item/integrated_circuit/proc/draw_idle_power()
 	if(assembly)

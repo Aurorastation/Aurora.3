@@ -100,7 +100,6 @@
 	landmark_transition = "nav_cult_base_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_cult_base_dock_hangar"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle

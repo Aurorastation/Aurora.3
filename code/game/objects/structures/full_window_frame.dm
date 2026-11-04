@@ -6,7 +6,7 @@
 	maxhealth = OBJECT_HEALTH_MEDIUM
 	color = COLOR_GRAY20
 	build_amt = 4
-	pass_flags_self = PASSRAILING
+	pass_flags_self = PASSRAILING | LETPASSTHROW
 	layer = WINDOW_FRAME_LAYER
 	anchored = TRUE
 	density = TRUE
@@ -53,6 +53,10 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover, /obj/structure/closet/crate))
+		return TRUE
+	if(istype(mover,/obj/projectile))
+		return TRUE
+	if(mover.throwing)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
@@ -183,16 +187,21 @@
 	if(istype(W))
 		W.hitby(arglist(args))
 
-/obj/structure/window_frame/wood
-	maxhealth = OBJECT_HEALTH_LOW
-	color = "#8f5847"
-
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.
 	anchored = FALSE
 
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
+
+/obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
+	color = "#8f5847"
+
+/obj/structure/window_frame/concrete
+	color = COLOR_CONCRETE
+
+// ---------- Shuttle frames
 
 /obj/structure/window_frame/shuttle
 	maxhealth = OBJECT_HEALTH_HIGH

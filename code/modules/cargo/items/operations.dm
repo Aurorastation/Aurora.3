@@ -23,7 +23,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -37,7 +37,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -246,6 +246,40 @@
 	groupable = FALSE
 	spawn_amount = 1
 
+/singleton/cargo_item/pkus_exosuit_parts
+	category = "operations"
+	name = "ADEPT P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 3000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg,
+		/obj/item/mech_component/chassis/pra_egg
+	)
+	access = /datum/access/robotics::id
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/pkus_exosuit_parts_heavy
+	category = "operations"
+	name = "ADEPT armored P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 5000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg/armored,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg/armored,
+		/obj/item/mech_component/chassis/pra_egg/armored/nuclear
+	)
+	access = /datum/access/robotics::id
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
 /singleton/cargo_item/poster19
 	category = "operations"
 	name = "random poster"
@@ -269,7 +303,7 @@
 	items = list(
 		/obj/item/clothing/accessory/holster
 	)
-	access = ACCESS_SECURITY
+	access = /datum/access/security::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -277,11 +311,53 @@
 /singleton/cargo_item/space_bike
 	category = "operations"
 	name = "space-bike"
-	supplier = "zharkov"
+	supplier = "hephaestus"
 	description = "Space wheelies! Woo!"
 	price = 800
 	items = list(
 		/obj/vehicle/bike
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/snowmobile
+	category = "operations"
+	name = "snowmobile"
+	supplier = "zharkov"
+	description = "A vehicle adapted to travel on snow."
+	price = 800
+	items = list(
+		/obj/vehicle/bike/snow
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/cargosled
+	category = "operations"
+	name = "cargo sled"
+	supplier = "zharkov"
+	description = "A cargo sled that can be hitched to a snowmobile. Suitable for cargo."
+	price = 400
+	items = list(
+		/obj/vehicle/train/cargo/trolley/sled
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/monowheel
+	category = "operations"
+	name = "monowheel"
+	supplier = "zharkov"
+	description = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
+	price = 900
+	items = list(
+		/obj/vehicle/bike/monowheel
 	)
 	access = 0
 	container_type = "box"
@@ -591,7 +667,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -605,7 +681,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -619,7 +695,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -633,7 +709,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -647,7 +723,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -661,7 +737,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -675,7 +751,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -689,7 +765,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -703,7 +779,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -717,7 +793,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -731,7 +807,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -745,7 +821,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -759,7 +835,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -773,7 +849,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/mech
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -787,7 +863,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -801,7 +877,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -815,7 +891,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/music
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -830,7 +906,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
-	access = ACCESS_CARGO
+	access = /datum/access/cargo::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

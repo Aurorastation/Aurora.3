@@ -119,6 +119,8 @@
 	var/slowdown = 0
 	/// Updated on accessory add/remove. This is how much the current accessories slow you down.
 	var/slowdown_accessory = 0
+	/// If TRUE, carrying or equipping this item adds slowdown based on its effective mass and the holder's lift capacity.
+	var/mass_based_slowdown = FALSE
 
 	/// Boolean, mostly for Ninja code at this point but basically will not allow the item to be removed if set to `FALSE`
 	var/canremove = TRUE
@@ -150,6 +152,11 @@
 	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = SFX_DROP
+	/// Sound played on movement. This is a list. If the list has ONE item, then it's treated as ONE sound. If the list has more than one item, then it's treated as a list where
+	/// the system will randomly play one of these sounds.
+	var/list/movement_sounds = null
+	/// The volume we want movement sounds to happen at for this object. Remember that on run intent, it's raised by 30.
+	var/movement_sound_volume = 40
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -361,16 +368,33 @@
 /obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..(user, distance, is_adjacent, get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-	if(armor_component && !armor_component.hidden)
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
+	if((armor_component && !armor_component.hidden) || get_cold_protection_rating())
+		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has protection values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Protection Values\]</a>"))
+
+/obj/item/proc/get_cold_protection_rating()
+	if(!cold_protection || isnull(min_cold_protection_temperature))
+		return
+	if(min_cold_protection_temperature <= WINTER_MIN_COLD_PROTECTION_TEMPERATURE)
+		return "Heavy"
+	if(min_cold_protection_temperature <= MODERATE_MIN_COLD_PROTECTION_TEMPERATURE)
+		return "Moderate"
+	return "Light"
+
+/obj/item/proc/get_cold_protection_percentage()
+	if(!cold_protection || isnull(min_cold_protection_temperature))
+		return 0
+	if(min_cold_protection_temperature < WINTER_MIN_COLD_PROTECTION_TEMPERATURE)
+		return 100
+	return clamp(round((T0C - min_cold_protection_temperature) / (T0C - WINTER_MIN_COLD_PROTECTION_TEMPERATURE) * 80, 1), 0, 80)
 
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		var/list/armor_details = list()
-		for(var/armor_type in armor_component.armor_values)
-			armor_details[armor_type] = armor_component.armor_values[armor_type]
-		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details)
+		if(armor_component && !armor_component.hidden)
+			for(var/armor_type in armor_component.armor_values)
+				armor_details[armor_type] = armor_component.armor_values[armor_type]
+		var/datum/tgui_module/armor_values/AV = new /datum/tgui_module/armor_values(usr, capitalize_first_letters(name), armor_details, get_cold_protection_rating(), get_cold_protection_percentage())
 		AV.ui_interact(usr)
 	return ..()
 
@@ -419,6 +443,17 @@
 
 /obj/item/proc/do_additional_pickup_checks(var/mob/user)
 	return TRUE
+
+/**
+ * Performs a strength-scaled pickup delay without preventing the user from
+ * lifting the item. The delay is bounded to keep very heavy parts usable.
+ */
+/obj/item/proc/do_mass_based_pickup_delay(mob/user)
+	if(!user)
+		return FALSE
+	var/pickup_delay = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
+	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), SPAN_NOTICE("You start lifting \the [src]..."))
+	return do_after(user, pickup_delay, src, DO_UNIQUE)
 
 /obj/item/attack_ai(mob/user as mob)
 	if (istype(src.loc, /obj/item/robot_module))
@@ -508,6 +543,8 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
+	SEND_SIGNAL(user, COMSIG_MOB_REMOVE_FOOTSTEP_SOUND, src, movement_sounds)
+
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -531,7 +568,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistant_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			persistent_objects_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
 			SSpersistence.objectsRegisterTrack(src, usr == null ? null : ckey(usr.key))
 			return
 
@@ -601,8 +638,8 @@
 	equipped(user, slot, initial)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
 		return FALSE
+	SEND_SIGNAL(user, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, movement_sounds, movement_sound_volume)
 	return TRUE
-
 
 /**
  * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
@@ -640,9 +677,6 @@
 			LAZYDISTINCTADD(user.item_verbs["[v]"], src)
 	else
 		remove_item_verbs(user)
-
-	//Ěent for observable
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	user.update_equipment_speed_mods()
 
@@ -1069,6 +1103,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.update_inv_wear_suit()
 		if (slot_w_uniform)
 			M.update_inv_w_uniform()
+		if (slot_pants)
+			M.update_inv_pants()
 		if (slot_l_store)
 			M.update_inv_pockets()
 		if (slot_r_store)
@@ -1318,7 +1354,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 /obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
-	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+	return mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', icon_state)
 
 /obj/item/proc/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] [ear_text] ear"

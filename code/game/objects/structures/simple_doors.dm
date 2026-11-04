@@ -202,7 +202,6 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	health -= hitting_projectile.damage
 	bullet_ping(hitting_projectile)
 	CheckHealth()
 

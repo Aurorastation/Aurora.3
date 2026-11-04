@@ -177,6 +177,7 @@
 	var/icon_retracted = "pockrifle-empty"
 	drop_sound = 'sound/items/drop/rifle.ogg'
 	pickup_sound = 'sound/items/pickup/rifle.ogg'
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)

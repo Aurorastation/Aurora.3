@@ -39,7 +39,7 @@
 	name = "ERT Protection Detail"
 
 	uniform = /obj/item/clothing/under/ccpolice
-	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
+	suit = /obj/item/clothing/suit/storage/vest/
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/radio/headset/ert
@@ -88,7 +88,7 @@
 	name = "ERT Commander"
 
 	uniform = /obj/item/clothing/under/rank/centcom_commander
-	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/commander
+	suit = /obj/item/clothing/suit/storage/vest
 	shoes = /obj/item/clothing/shoes/jackboots
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/radio/headset/ert
@@ -143,7 +143,7 @@
 	name = "NTCC Odin Security Specialist"
 
 	uniform = /obj/item/clothing/under/ccpolice
-	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
+	suit = /obj/item/clothing/suit/storage/vest
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/radio/headset/ert
@@ -243,6 +243,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless,
 		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/tajara,
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara
 	)

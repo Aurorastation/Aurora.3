@@ -1,5 +1,6 @@
 /obj/item/mech_component/propulsion
 	name = "legs"
+	mass = 200
 	center_of_mass = list("x"=24, "y"=4)
 	icon_state = "loader_legs"
 	power_use = 75

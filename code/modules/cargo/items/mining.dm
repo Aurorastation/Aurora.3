@@ -7,7 +7,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/mining
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +21,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/mining
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +35,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame05/prebuilt
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -49,7 +49,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame04/prebuilt
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -77,7 +77,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame02/prebuilt
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -91,7 +91,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -107,7 +107,7 @@
 		/obj/structure/machinery/mining/brace,
 		/obj/structure/machinery/mining/brace
 	)
-	access = ACCESS_MINING
+	access = /datum/access/mining::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

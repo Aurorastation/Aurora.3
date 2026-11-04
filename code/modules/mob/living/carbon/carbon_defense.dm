@@ -206,6 +206,3 @@
 	help_up_offer = 0
 	..()
 
-/mob/living/carbon/Resting(amount)
-	help_up_offer = 0
-	..()

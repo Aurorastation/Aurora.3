@@ -1,4 +1,7 @@
 GLOBAL_VAR(bomb_set)
+// Security needs time to respond to it
+#define MIN_BOMB_TIMER 600
+#define MAX_BOMB_TIMER 900
 
 /obj/structure/machinery/nuclearbomb
 	name = "\improper Nuclear Fission Explosive"
@@ -11,7 +14,7 @@ GLOBAL_VAR(bomb_set)
 	var/deployable = 0
 	var/extended = 0
 	var/lighthack = 0
-	var/timeleft = 120
+	var/timeleft = MIN_BOMB_TIMER
 	var/timing = 0
 	var/alerted = 0
 	var/r_code = "ADMIN"
@@ -268,7 +271,7 @@ GLOBAL_VAR(bomb_set)
 	switch(action)
 		if("time")
 			timeleft += text2num(params["value"])
-			timeleft = clamp(timeleft, 120, 600)
+			timeleft = clamp(timeleft, MIN_BOMB_TIMER, MAX_BOMB_TIMER)
 			return TRUE
 		if("timer")
 			if(timing == -1)
@@ -282,6 +285,9 @@ GLOBAL_VAR(bomb_set)
 			if(wires.is_cut(WIRE_TIMING))
 				to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 				return TRUE
+			if(!area_safety_check())
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), "\The [src]'s deployment light blinks red once and disables.")
+				return TRUE
 			if(!timing && !safety)
 				timing = 1
 				log_and_message_admins("engaged a nuclear bomb")
@@ -290,7 +296,7 @@ GLOBAL_VAR(bomb_set)
 			else
 				secure_device()
 			if(alerted == 0)
-				set_security_level(SEC_LEVEL_DELTA)
+				set_security_level(SEC_LEVEL_DELTA, TRUE, get_area(src))
 				alerted = 1
 			return TRUE
 		if("safety")
@@ -307,7 +313,13 @@ GLOBAL_VAR(bomb_set)
 				anchored = 0
 				visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
 				return TRUE
-			if(!isinspace())
+			if(isinspace())
+				to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
+				return TRUE
+			if(!area_safety_check())
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), "\The [src]'s deployment light blinks red once and disables.")
+				return TRUE
+			else
 				anchored = !anchored
 				if(anchored)
 					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
@@ -316,8 +328,6 @@ GLOBAL_VAR(bomb_set)
 					secure_device()
 					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
 					playsound(src, 'sound/machines/boltsup.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
-			else
-				to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 			return TRUE
 
 /obj/structure/machinery/nuclearbomb/proc/secure_device()
@@ -326,11 +336,21 @@ GLOBAL_VAR(bomb_set)
 
 	GLOB.bomb_set--
 	timing = 0
-	timeleft = clamp(timeleft, 120, 600)
+	timeleft = clamp(timeleft, MIN_BOMB_TIMER, MAX_BOMB_TIMER)
 	update_icon()
 
 /obj/structure/machinery/nuclearbomb/ex_act(severity)
 	return
+
+// Is it in a valid area
+/obj/structure/machinery/nuclearbomb/proc/area_safety_check()
+	var/area/A = get_area(src)
+	// It needs to be the game map and not in a rad shielded area.
+	// That keeps it out of maintenance and other areas we don't want it deployed in
+	if(A.area_flags & AREA_FLAG_RAD_SHIELDED || !A.station_area)
+		return FALSE
+	else
+		return TRUE
 
 #define NUKERANGE 80
 /obj/structure/machinery/nuclearbomb/proc/explode()
@@ -347,10 +367,9 @@ GLOBAL_VAR(bomb_set)
 	sleep(100)
 
 	var/off_station = 0
-	var/turf/bomb_location = get_turf(src)
-	if(bomb_location && is_station_level(bomb_location.z))
-		if( (bomb_location.x < (128-NUKERANGE)) || (bomb_location.x > (128+NUKERANGE)) || (bomb_location.y < (128-NUKERANGE)) || (bomb_location.y > (128+NUKERANGE)) )
-			off_station = 1
+	// This should really not be necessary, but lets do it just to be safe.
+	if(!area_safety_check() && isinspace())
+		off_station = 1
 	else
 		off_station = 2
 
@@ -365,7 +384,7 @@ GLOBAL_VAR(bomb_set)
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 0
 		if(off_station == 1)
-			to_world("<b>A nuclear device was set off, but the explosion was out of reach of the [station_name(TRUE)]!</b>")
+			to_world("<b>A nuclear device was set off, but the explosion was unable to destroy the [station_name(TRUE)]!</b>")
 		else if(off_station == 2)
 			to_world("<b>A nuclear device was set off, but the device was not on the [station_name(TRUE)]!</b>")
 		else
@@ -469,3 +488,6 @@ GLOBAL_VAR(bomb_set)
 				continue
 			T.icon_state = target_icon_state
 		last_turf_state = target_icon_state
+
+#undef MIN_BOMB_TIMER
+#undef MAX_BOMB_TIMER

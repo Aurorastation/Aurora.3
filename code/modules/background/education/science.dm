@@ -9,6 +9,8 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -28,6 +30,8 @@
 		SPECIES_TAJARA_MSAI = 25,
 		SPECIES_TAJARA_ZHAN = 25,
 		SPECIES_UNATHI = 25,
+		SPECIES_UNATHI_URAWANI = 25,
+		SPECIES_UNATHI_ZIRALIXI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -35,7 +39,8 @@
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_PROFESSIONAL,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR,
 	)
 
 /singleton/education/mechatronics_masters
@@ -49,6 +54,8 @@
 		SPECIES_TAJARA_MSAI = 25,
 		SPECIES_TAJARA_ZHAN = 25,
 		SPECIES_UNATHI = 25,
+		SPECIES_UNATHI_URAWANI = 25,
+		SPECIES_UNATHI_ZIRALIXI = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -56,7 +63,8 @@
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_TRAINED,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_PROFESSIONAL
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR,
 	)
 
 /singleton/education/xenobotany_degree
@@ -70,6 +78,8 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
@@ -90,6 +100,8 @@
 		SPECIES_TAJARA_MSAI = 30,
 		SPECIES_TAJARA_ZHAN = 30,
 		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)

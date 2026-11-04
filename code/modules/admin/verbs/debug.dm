@@ -12,7 +12,7 @@
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.")
 
-	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
+	switch(tgui_alert(usr, "Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", list("No", "Yes")))
 		if("Yes")
 			GLOB.config.all_logs_to_chat = 1
 		else
@@ -35,10 +35,41 @@
 	set name = "Debugs Toggle ALL"
 	if(!check_rights(R_DEBUG|R_DEV))	return
 
-	switch(alert("Do you want to turn on ALL LOGS?.", "All logs to ON?", "No", "Yes"))
+	switch(tgui_alert(usr, "Do you want to turn on ALL LOGS?.", "All logs to ON?", list("No", "Yes")))
 		if("Yes")
 			for(var/k in GLOB.config.logsettings)
 				GLOB.config.logsettings[k] = TRUE
+
+/client/proc/registry_get_value()
+	set category = "Debug"
+	set name = "Registry Get Value"
+	if(!check_rights(R_ADMIN|R_SERVER))
+		return
+
+	var/key = input(usr, "Enter the registry key to retrieve.", "Registry Get Value") as text|null
+	if(isnull(key))
+		return
+
+	var/value = SSregistry.getValue(key)
+	to_chat(usr, "Registry value for '[key]': '[value]'")
+
+/client/proc/registry_set_value()
+	set category = "Debug"
+	set name = "Registry Set Value"
+	if(!check_rights(R_ADMIN|R_SERVER))
+		return
+
+	var/key = input(usr, "Enter the registry key to set.", "Registry Set Value") as text|null
+	if(isnull(key))
+		return
+
+	var/value = input(usr, "Enter the registry value. Leave blank to clear the key.", "Registry Set Value") as text|null
+
+	var/success = SSregistry.setValue(key, value)
+	if (success)
+		to_chat(usr, "Registry set '[key]' to '[value]'.")
+	else
+		to_chat(usr, "Failed to set registry key '[key]'.")
 
 // callproc moved to code/modules/admin/callproc
 
@@ -69,7 +100,7 @@
 	set name = "Make Robot"
 
 	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
+		tgui_alert(usr, "Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
@@ -77,22 +108,22 @@
 		H.Robotize()
 
 	else
-		alert("Invalid mob")
+		tgui_alert(usr, "Invalid mob")
 
 /client/proc/cmd_admin_animalize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
 	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
+		tgui_alert(usr, "Wait until the game starts")
 		return
 
 	if(!M)
-		alert("That mob doesn't seem to exist, close the panel and try again.")
+		tgui_alert(usr, "That mob doesn't seem to exist, close the panel and try again.")
 		return
 
 	if(istype(M, /mob/abstract/new_player))
-		alert("The mob must not be a new_player.")
+		tgui_alert(usr, "The mob must not be a new_player.")
 		return
 
 	log_admin("[key_name(src)] has animalized [M.key].")
@@ -105,7 +136,7 @@
 	set name = "Make slime"
 
 	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
+		tgui_alert(usr, "Wait until the game starts")
 		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -113,7 +144,7 @@
 		H.slimeize()
 		feedback_add_details("admin_verb","MKMET") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		alert("Invalid mob")
+		tgui_alert(usr, "Invalid mob")
 
 //TODO: merge the vievars version into this or something maybe mayhaps
 /client/proc/cmd_debug_del_all()
@@ -144,7 +175,7 @@
 	set name = "Grant Full Access"
 
 	if (!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
+		tgui_alert(usr, "Wait until the game starts")
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
@@ -162,7 +193,7 @@
 			H.equip_to_slot_or_del(id, slot_wear_id)
 			H.update_inv_wear_id()
 	else
-		alert("Invalid mob")
+		tgui_alert(usr, "Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(src)] has granted [M.key] full access.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] has granted [M.key] full access."), 1)
@@ -174,7 +205,7 @@
 
 	if(!check_rights(R_DEBUG|R_ADMIN|R_DEV|R_FUN))	return
 	if(M.ckey)
-		if(alert("This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.",,"Yes","No") != "Yes")
+		if(tgui_alert(usr, "This mob is being controlled by [M.ckey]. Are you sure you wish to assume control of it? [M.ckey] will be made a ghost.", , list("Yes", "No")) != "Yes")
 			return
 		else
 			var/mob/abstract/ghost/observer/ghost = new/mob/abstract/ghost/observer(M,1)
@@ -365,7 +396,7 @@
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
 	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
+		tgui_alert(usr, "Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon))
 		M.dna.SetSEState(block,!M.dna.GetSEState(block))
@@ -376,7 +407,7 @@
 		message_admins("[key_name_admin(src)] has toggled [M.key]'s [blockname] block [state]!")
 		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!")
 	else
-		alert("Invalid mob")
+		tgui_alert(usr, "Invalid mob")
 
 /client/proc/cmd_display_del_log()
 	set category = "Debug"

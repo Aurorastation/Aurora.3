@@ -90,7 +90,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/ee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Engines Shuttle"
-	req_access = list(ACCESS_EE_SPY_SHIP)
+	req_access = list(/datum/access/ee_spy_ship::id)
 
 /datum/shuttle/autodock/overmap/ee_shuttle
 	name = "Einstein Engines Shuttle"
@@ -100,7 +100,6 @@
 	landmark_transition = "nav_transit_ee_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_ee"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ee_shuttle/hangar

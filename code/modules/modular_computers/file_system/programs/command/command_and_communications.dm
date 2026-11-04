@@ -4,8 +4,8 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access_run = ACCESS_HEADS
-	required_access_download = ACCESS_HEADS
+	required_access_run = /datum/access/heads::id
+	required_access_download = /datum/access/heads::id
 	requires_ntnet = TRUE
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON_AI
@@ -138,7 +138,7 @@
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 						return TRUE
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via bluespace.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return FALSE
 					Syndicate_announce(input, usr)
@@ -154,7 +154,7 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via bluespace.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)
@@ -171,7 +171,7 @@
 					return
 				if (selected_evac_option.needs_syscontrol && !ntn_cont)
 					return
-				var/confirm = alert("Are you sure you want to [selected_evac_option.option_desc]?", filedesc, "No", "Yes")
+				var/confirm = tgui_alert(usr, "Are you sure you want to [selected_evac_option.option_desc]?", filedesc, list("No", "Yes"))
 				if (confirm == "Yes" && !computer.use_check_and_message(usr))
 					GLOB.evacuation_controller.handle_evac_option(selected_evac_option.option_target, user)
 		if("setstatus")
@@ -365,6 +365,8 @@ Command action procs
 
 	if(SSatlas.current_map.shuttle_call_restarts)
 		SSatlas.current_map.shuttle_call_restart_timer = addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(reboot_world)), 10 MINUTES, TIMER_UNIQUE|TIMER_STOPPABLE)
+		SSdiscord.post_webhook_event(WEBHOOK_TRANSFER, list())
+		SSdiscord.send_to_announce("A transfer has been called and the current round will end soon.", 1)
 		log_game("[user? key_name(user) : "Autotransfer"] has called the 'shuttle' round restart.")
 		message_admins("[user? key_name_admin(user) : "Autotransfer"] has called the 'shuttle' round restart.", 1)
 		to_world(FONT_LARGE(SPAN_VOTE(SSatlas.current_map.shuttle_called_message)))

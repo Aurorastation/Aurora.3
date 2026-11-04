@@ -130,6 +130,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
 	)
 
+/obj/structure/machinery/vending/cola/all_currencies
+	accepted_currencies = CURRENCY_ALL
+
 /obj/item/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"

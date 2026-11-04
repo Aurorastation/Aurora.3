@@ -238,6 +238,8 @@
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo/tajara,
 		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo/tajara,
 
+		/obj/item/rig/industrial = /obj/item/rig/industrial/himeo/dequipped,
+
 		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
 	)
 

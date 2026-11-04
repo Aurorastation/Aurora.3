@@ -60,6 +60,8 @@
 			R = new /obj/item/radio/headset/bluespace(player)
 		if(BURG_FREQ)
 			R = new /obj/item/radio/headset/burglar(player)
+		if(JOCK_FREQ)
+			R = new /obj/item/radio/headset/jockey(player)
 		if(SYND_FREQ)
 			R = new /obj/item/radio/headset/syndicate(player)
 		if(RAID_FREQ)

@@ -429,19 +429,7 @@
 		return TRUE
 	return FALSE
 
-/mob/living/carbon/human/ClickOn(atom/A, params)
-	. = ..()
-	if (ismob(A) && istype(back, /obj/item/rig))
-		var/obj/item/rig/R = back
-		R.attack_disrupt_check(src)
-
-/mob/living/carbon/human/throw_item(atom/target)
-	. = ..()
-	if (ismob(src) && istype(back, /obj/item/rig))
-		var/obj/item/rig/R = back
-		R.attack_disrupt_check(src)
-
 /obj/item/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)
-			module.deactivate()
+			module.deactivate(src.wearer)

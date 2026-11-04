@@ -6,6 +6,8 @@
 	icon_state = "chokha"
 	item_state = "chokha"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/vysoka/purple
 	icon_state = "chokha_purple"
@@ -22,6 +24,7 @@
 /obj/item/clothing/suit/storage/vysoka/winter
 	icon_state = "winterchokha"
 	item_state = "winterchokha"
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/vysoka/winter/purple
 	icon_state = "winterchokha_purple"
@@ -54,6 +57,7 @@
 /obj/item/clothing/suit/storage/vysoka/f/winter
 	icon_state = "winterchokha"
 	item_state = "winterchokha"
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/vysoka/f/winter/purple
 	icon_state = "winterchokha_purple"
@@ -75,6 +79,8 @@
 	item_state = "fur"
 	icon = 'icons/obj/item/clothing/head/vysoka_caps.dmi'
 	contained_sprite = TRUE
+	cold_protection = HEAD
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/vysoka/purple
 	icon_state = "fur_purple"

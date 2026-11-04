@@ -72,8 +72,9 @@
 	switch(action)
 		if("freq")
 			var/new_frequency = text2num(params["freq"]) * 10
-			if(new_frequency < RADIO_LOW_FREQ || new_frequency > RADIO_HIGH_FREQ)
-				new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+			new_frequency = sanitize_frequency(new_frequency, RADIO_LOW_FREQ, RADIO_HIGH_FREQ)
+			if(new_frequency > RADIO_HIGH_FREQ)
+				new_frequency = RADIO_HIGH_FREQ - 1
 			set_frequency(new_frequency)
 
 		if("code")

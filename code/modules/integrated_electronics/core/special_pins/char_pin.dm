@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/char_pin.dm
+ * Character/string single-character pin behavior and validation.
+ */
+
 // These pins can only contain a 1 character string or null.
 /datum/integrated_io/char
 	name = "char pin"

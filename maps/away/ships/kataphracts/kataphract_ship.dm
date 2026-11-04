@@ -116,7 +116,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/kataphract_transport
 	name = "shuttle control console"
 	shuttle_tag = "Kataphract Transport"
-	req_access = list(ACCESS_KATAPHRACT)
+	req_access = list(/datum/access/kataphract::id)
 
 /datum/shuttle/autodock/overmap/kataphract_transport
 	name = "Kataphract Transport"
@@ -127,7 +127,6 @@
 	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2 // It's a big boy
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle

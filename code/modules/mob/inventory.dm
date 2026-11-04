@@ -164,6 +164,31 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	if(hand)	return r_hand
 	else		return l_hand
 
+/// Returns the PDA that should be used when linking the mob to nearby machinery.
+/mob/proc/get_pda_for_linking()
+	var/obj/item/modular_computer/pda = get_active_hand()
+	if(istype(pda))
+		return pda
+
+	pda = get_inactive_hand()
+	if(istype(pda))
+		return pda
+
+/mob/living/carbon/human/get_pda_for_linking()
+	. = ..()
+	if(.)
+		return
+
+	var/obj/item/organ/internal/augment/tesla_device/pda/augment = internal_organs_by_name[BP_AUG_TESLA_PDA]
+	if(augment?.internal_pda)
+		return augment.internal_pda
+
+	if(istype(wear_id, /obj/item/modular_computer))
+		return wear_id
+
+	if(istype(wrists, /obj/item/modular_computer))
+		return wrists
+
 //Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
 /mob/proc/get_type_in_hands(var/type)
 	if(hand)
@@ -413,6 +438,9 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	var/atom/movable/item = src.get_active_hand()
 	if(!item)
 		return FALSE
+	if(a_intent == I_HURT && !item.can_throw_on_harm)
+		balloon_alert(src, item.throw_on_harm_alert)
+		return TRUE
 
 	var/throw_range = item.throw_range
 	var/itemsize
@@ -422,12 +450,13 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
-			var/grabber_strength = get_effective_mass() * mob_strength
-			if(M.mass > grabber_strength)
+			var/grabber_strength = get_lift_capacity()
+			var/target_mass = M.get_effective_mass()
+			if(target_mass > grabber_strength)
 				to_chat(src, SPAN_WARNING("[M] is heavier (or more unwieldy) than your limit of [grabber_strength]kg, you cannot throw them!"))
 				return
 
-			throw_range = round(throw_range * (src.mob_size/M.mob_size))
+			throw_range = max(1, round(throw_range * clamp(grabber_strength / target_mass, 0.25, 2)))
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)

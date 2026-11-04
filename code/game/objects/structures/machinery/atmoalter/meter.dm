@@ -111,28 +111,28 @@
 
 /obj/structure/machinery/meter/process()
 	update_icon()
-	if (!target || (stat & (BROKEN|NOPOWER)))
+	if (!target || (stat & (BROKEN|NOPOWER)) || !frequency)
 		return FALSE
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
 		return FALSE
 	var/env_pressure = XGM_PRESSURE(environment)
 
-	if(frequency)
-		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
+	var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
 
-		if(!radio_connection) return
+	if(!radio_connection)
+		return
 
-		var/datum/signal/signal = new
-		signal.source = src
-		signal.transmission_method = TRANSMISSION_RADIO
-		signal.data = list(
-			"tag" = id,
-			"device" = "AM",
-			"pressure" = round(env_pressure),
-			"sigtype" = "status"
-		)
-		radio_connection.post_signal(src, signal)
+	var/datum/signal/signal = new
+	signal.source = src
+	signal.transmission_method = TRANSMISSION_RADIO
+	signal.data = list(
+		"tag" = id,
+		"device" = "AM",
+		"pressure" = round(env_pressure),
+		"sigtype" = "status"
+	)
+	radio_connection.post_signal(src, signal)
 
 /obj/structure/machinery/meter/Click()
 	if(istype(usr, /mob/living/silicon/ai)) // ghosts can call ..() for examine

@@ -88,6 +88,9 @@ SUBSYSTEM_DEF(air)
 	var/active_zones = 0
 	var/next_id = 1
 
+	/// Prevents gas temp graphics from being attached to turfs on non-Horizon z-levels.
+	var/suppress_nonhorizon_temperature_graphics = FALSE
+
 	#ifdef ZASDBG
 	var/updated = 0
 	#endif
@@ -110,6 +113,9 @@ SUBSYSTEM_DEF(air)
 		zone.c_invalidate()
 
 	edges.Cut()
+	for(var/turf/pending_turf as anything in tiles_to_update)
+		if(pending_turf)
+			pending_turf.needs_air_update = FALSE
 	tiles_to_update.Cut()
 	zones_to_update.Cut()
 	active_fire_zones.Cut()
@@ -297,6 +303,36 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	if (processing_zones)
 		processing_zones -= z
 
+/// Suppresses or restores temperature graphics on every currently loaded non-station z-level.
+/datum/controller/subsystem/air/proc/set_nonhorizon_temperature_graphics_suppressed(suppress)
+	suppress_nonhorizon_temperature_graphics = suppress
+	. = 0
+
+	for(var/z_level in 1 to world.maxz)
+		if(is_station_level(z_level))
+			continue
+
+		for(var/turf/simulated/T in Z_TURFS(z_level))
+			var/list/temperature_graphics
+
+			if(suppress)
+				for(var/obj/gas_overlay/graphic in T.vis_contents)
+					if(graphic.gas_id == GAS_HEAT || graphic.gas_id == GAS_COLD)
+						LAZYADD(temperature_graphics, graphic)
+			else if(TURF_HAS_VALID_ZONE(T))
+				for(var/obj/gas_overlay/graphic in T.zone.air.graphic)
+					if(graphic.gas_id == GAS_HEAT || graphic.gas_id == GAS_COLD)
+						LAZYADD(temperature_graphics, graphic)
+
+			if(LAZYLEN(temperature_graphics))
+				if(suppress)
+					T.update_graphic(graphic_remove = temperature_graphics)
+				else
+					T.update_graphic(graphic_add = temperature_graphics)
+				. += length(temperature_graphics)
+
+			CHECK_TICK
+
 /datum/controller/subsystem/air/proc/air_blocked(turf/A, turf/B)
 	#ifdef ZASDBG
 	ASSERT(isturf(A))
@@ -386,6 +422,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return
 	zones_to_update += Z
 	Z.needs_update = 1
+	Z.update_revision++
 
 /datum/controller/subsystem/air/proc/mark_edge_sleeping(connection_edge/E)
 	#ifdef ZASDBG

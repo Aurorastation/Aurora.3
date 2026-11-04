@@ -194,7 +194,7 @@
 	*accuracy_decrease = *accuracy_decrease + accuracy_penalty
 	*dispersion_increase = *dispersion_increase + dispersion_penalty
 
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, success_rate)
+/datum/component/timed_life/psiblock_drugs/yomi_genetics/proc/check_tremor_surgery(mob/living/user, mob/living/target, success_rate, duration)
 	SIGNAL_HANDLER
 	*success_rate = *success_rate + surgery_success_penalty
 
@@ -229,24 +229,6 @@
 	// For some reason, the timer cuts one minute away, so we add an extra minute to make up for it
 	var/seizure_long_delay = seizure_warning_delay + 1 MINUTE
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob/living/carbon/human, seizure), seizure_intensity), seizure_long_delay)
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap
-	min_tremor_time = 30 SECONDS
-	max_tremor_time = 2 MINUTES
-
-	min_seizure_time = 5 MINUTES
-	max_seizure_time = 30 MINUTES
-
-	telepathy_cancel_probability = 75
-	psi_sensitivity_modifier = -0.75
-	accuracy_penalty = 0.35
-	dispersion_penalty = 10
-	surgery_success_penalty = -20
-	seizure_intensity = 2
-
-/datum/component/timed_life/psiblock_drugs/yomi_genetics/cheap/Initialize(lifetime_seconds)
-	. = ..()
-	ongoing_effect_message = RISK_LOW + RISK_MEDIUM + RISK_HIGH
 
 /datum/component/timed_life/psiblock_drugs/yomi_genetics/expensive
 	min_tremor_time = 2 MINUTES

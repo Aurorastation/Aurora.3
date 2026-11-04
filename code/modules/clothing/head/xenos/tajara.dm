@@ -269,6 +269,8 @@
 	desc = "A warm hat issued to the PRA national police department, to be worn during the colder seasons."
 	icon_state = "taj_cop_hat"
 	item_state = "taj_cop_hat"
+	cold_protection = HEAD
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/tajaran/pra_cop/rural
 	name = "PRA NPD hat"

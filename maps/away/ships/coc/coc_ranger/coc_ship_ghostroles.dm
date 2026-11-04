@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/ranger/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY)
+	return list(/datum/access/external_airlocks::id, /datum/access/coalition::id, /datum/access/coalition_navy::id)
 
 // Only one role, to represent that synthetics are uncommon in the Rangers. As of 13/09/2024, Tajara or Skrell being available here isn't wanted by lore.
 /datum/ghostspawner/human/ranger/ranger_synthetic
@@ -84,4 +84,4 @@
 
 /obj/item/card/id/ranger_ship
 	name = "ranger ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY)
+	access = list(/datum/access/external_airlocks::id, /datum/access/coalition::id, /datum/access/coalition_navy::id)

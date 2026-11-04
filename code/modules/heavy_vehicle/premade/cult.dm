@@ -61,6 +61,8 @@
 	desc = "Despite its looks, this protective chassis provides supreme comfort to its pilot during their conquest."
 	hatch_descriptor = "bloodied ribcage"
 	pilot_coverage = 100
+	cockpit_hatch_size = 60
+	cockpit_pilot_damage_multiplier = 0.4
 	exosuit_desc_string = "a bloodied chassis"
 	icon_state = "cult_body"
 	max_damage = 150

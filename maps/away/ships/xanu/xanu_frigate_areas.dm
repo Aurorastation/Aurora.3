@@ -148,6 +148,13 @@
 /area/ship/xanu_frigate/corridor/aft
 	name = "Xanu Frigate - Aft Corridor"
 
+/area/ship/xanu_frigate/exterior
+	name = "Xanu Frigate - Exterior"
+	icon_state = "exterior"
+	needs_starlight = TRUE
+	has_gravity = FALSE
+	requires_power = FALSE
+
 //Shuttles
 /area/shuttle/xanu_boarder
 	name = "Xanu Spacefleet Runabout Parent Area"

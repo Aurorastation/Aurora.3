@@ -171,7 +171,7 @@
 
 	// No attached node, or no powernet.
 	if (!PN)
-		explosion(src.loc, 0, 1, 3, 6)
+		explosion(src.loc, 0, 1, 3, 6, spreading = TRUE)
 		return
 
 	// Propagate the power surge through the powernet nodes.
@@ -206,7 +206,7 @@
 		aa.emp_act(EMP_LIGHT)
 
 		if (prob(15 * dist))
-			explosion(aa.loc, 0, 0, 3, 4)
+			explosion(aa.loc, 0, 0, 3, 4, spreading = TRUE)
 
 	// Also destroy the source.
-	explosion(src.loc, 0, 0, 1, 2)
+	explosion(src.loc, 0, 0, 1, 2, spreading = TRUE)

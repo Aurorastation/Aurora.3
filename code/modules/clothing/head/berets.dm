@@ -1,7 +1,7 @@
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A baguette munching, cheese eating, wine drinking artist's favorite headwear. Hon hon!"
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
@@ -202,7 +202,7 @@
 	name = "\improper TCAF foreign legions dress beret"
 	desc = "A bright blue, red-rimmed dress beret with a rubber insignia of a torch, surrounded by red stars. Worn by those of the Foreign Legions of one of the TCAF's service branches."
 	icon_state = "tcaf_fl_dress"
-	item_state = "tcfl_dress"
+	item_state = "tcaf_fl_dress"
 
 /obj/item/clothing/head/beret/tcaf/foreign_legion/field
 	name = "TCAF foreign legions field beret"

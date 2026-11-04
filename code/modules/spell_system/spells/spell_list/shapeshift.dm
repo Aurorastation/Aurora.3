@@ -74,7 +74,7 @@
 				if(trans.mind)
 					trans.mind.transfer_to(M)
 				else
-					M.key = trans.key
+					trans.client.transfer_key_to_mob(M)
 				playsound(get_turf(M),revert_sound,50,1)
 				M.forceMove(get_turf(trans))
 				qdel(trans)

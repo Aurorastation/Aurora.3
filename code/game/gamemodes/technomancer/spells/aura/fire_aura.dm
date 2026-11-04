@@ -20,6 +20,7 @@
 /obj/item/spell/aura/fire/process()
 	if(!pay_energy(100))
 		qdel(src)
+		return
 	var/list/nearby_things = range(round(calculate_spell_power(4)),owner)
 
 	var/temp_change = calculate_spell_power(25)

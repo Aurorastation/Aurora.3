@@ -4,7 +4,7 @@
 	icon_state = "injector0"
 	density = TRUE
 	anchored = FALSE
-	req_access = list(ACCESS_ENGINE)
+	req_access = list(/datum/access/engine::id)
 	idle_power_usage = 10
 	active_power_usage = 500
 
@@ -81,6 +81,11 @@
 		return TRUE
 
 	if(cur_assembly)
+		if(istype(user, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = user
+			var/active_module = R.get_active_hand()
+			if(istype(active_module, /obj/item/gripper))
+				return TRUE
 		cur_assembly.dropInto(loc)
 		user.put_in_hands(cur_assembly)
 		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))

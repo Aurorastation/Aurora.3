@@ -1,3 +1,8 @@
+/*
+ * core/special_pins/number_pin.dm
+ * Number pin conversion, validation, and formatting.
+ */
+
 // These pins can only contain numbers (int and floating point) or null.
 /datum/integrated_io/number
 	name = "number pin"

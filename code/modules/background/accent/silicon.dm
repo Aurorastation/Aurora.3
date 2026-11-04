@@ -4,6 +4,12 @@
 	tag_icon = "tts"
 	text_tag = "TTS"
 
+/datum/accent/silicon/elektro_siik
+	name = ACCENT_ELEKTRO_SIIK
+	description = "An artificial voice created by varying the frequency of electrical discharges. Tinny and mechanically flat, it has little capacity for tone or emotion. It is commonly produced by Tesla and Elektroika voice technology."
+	tag_icon = "tajara_elektroika"
+	text_tag = "ESK"
+
 /datum/accent/silicon/goldendeep
 	name = ACCENT_MERCHANT
 	description = "The Merchant accent is a custom made invention from Golden Deep space to celebrate the affluent members of the collective. Sounding somewhat like a symphony and speech coalescing in a scenic pattern to make something literally 'music to one's ears'. This accent package is known to be exceedingly expensive for something so trivial and is reserved for only those of the Merchant class of the Golden Deep and synthetics above."

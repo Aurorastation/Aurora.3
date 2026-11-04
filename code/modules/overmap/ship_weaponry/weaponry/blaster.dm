@@ -20,6 +20,7 @@
 	caliber = SHIP_CALIBER_BLASTER
 	overmap_icon_state = "med_laser"
 	impact_type = SHIP_AMMO_IMPACT_BLASTER
+	projectile_type_override = /obj/projectile/ship_ammo/blaster
 
 /obj/projectile/ship_ammo/blaster
 	name = "blaster charge"

@@ -53,7 +53,6 @@
 	current_location = "nav_air_konyang_start"
 	dock_target = "airlock_air_konyang"
 	landmark_transition = "nav_air_konyang_transit"
-	logging_home_tag = "nav_air_konyang_start"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/air_konyang

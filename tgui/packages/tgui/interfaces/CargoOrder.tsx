@@ -207,7 +207,7 @@ export const MainPage = (props) => {
             .map((item) => (
               <Section
                 title={item.name}
-                key={item.name}
+                key={item.id}
                 buttons={
                   <Button
                     content={`${item.price_adjusted.toFixed(2)}电`}
@@ -270,7 +270,7 @@ export const ShowDetails = (props) => {
           <Table.Cell>{data.crate_fee.toFixed(2)}电</Table.Cell>
         </Table.Row>
         {data.order_items.map((item) => (
-          <Table.Row key={item.name}>
+          <Table.Row key={item.id}>
             <Table.Cell>{item.name}</Table.Cell>
             <Table.Cell>{item.price.toFixed(2)}电</Table.Cell>
           </Table.Row>

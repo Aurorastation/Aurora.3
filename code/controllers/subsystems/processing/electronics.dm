@@ -1,13 +1,12 @@
-#define IC_SPAWN_DEFAULT  1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
+#define IC_SPAWN_DEFAULT 1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
 #define IC_SPAWN_RESEARCH 2 // If the circuit design will be available in the IC printer after upgrading it.
 
 PROCESSING_SUBSYSTEM_DEF(electronics)
 	name = "Electronics"
-	wait = 2 SECONDS
+	wait = 1 SECOND
 	priority = SS_PRIORITY_ELECTRONICS
 	flags = SS_KEEP_TIMING
 	init_order = INIT_ORDER_MISC_FIRST
-
 	var/list/all_integrated_circuits = list()
 	var/list/printer_recipe_list = list()
 	var/list/printer_recipe_list_basic = list()
@@ -20,13 +19,14 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 	// First loop is to seperate the actual circuits from base circuits.
 	var/list/circuits_to_use = list()
 	for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
-		if((IC.spawn_flags & (IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH)))
+		if((IC.get_printer_spawn_flags() & (IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH)))
 			circuits_to_use += IC
 
 	// Second loop is to find all categories.
 	for(var/obj/item/integrated_circuit/IC in circuits_to_use)
 		if(!(IC.category_text in found_categories))
 			found_categories += IC.category_text
+
 	found_categories += "Assemblies"
 	found_categories += "Tools"
 
@@ -57,6 +57,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 		new /obj/item/electronic_assembly/medium/medical,
 		new /obj/item/electronic_assembly/medium/gun,
 		new /obj/item/electronic_assembly/medium/radio,
+		new /obj/item/electronic_assembly/medium/anomaly_drill,
 		new /obj/item/electronic_assembly/large/default,
 		new /obj/item/electronic_assembly/large/scope,
 		new /obj/item/electronic_assembly/large/terminal,
@@ -78,7 +79,7 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 		new /obj/item/clothing/glasses/circuitry,
 		new /obj/item/clothing/shoes/circuitry,
 		new /obj/item/clothing/head/circuitry,
-		new /obj/item/clothing/ears/circuitry,
+		new /obj/item/radio/headset/circuitry,
 		new /obj/item/clothing/suit/circuitry
 	)
 
@@ -94,12 +95,13 @@ PROCESSING_SUBSYSTEM_DEF(electronics)
 			var/is_basic = TRUE
 			if(istype(O, /obj/item/integrated_circuit))
 				var/obj/item/integrated_circuit/IC = O
-				if((IC.spawn_flags & IC_SPAWN_RESEARCH) && (!(IC.spawn_flags & IC_SPAWN_DEFAULT)))
+				var/printer_spawn_flags = IC.get_printer_spawn_flags()
+				if((printer_spawn_flags & IC_SPAWN_RESEARCH) && (!(printer_spawn_flags & IC_SPAWN_DEFAULT)))
 					is_basic = FALSE
-
-			printer_recipe_list_basic += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = is_basic, "category" = category))
-			printer_recipe_list_upgraded += list(list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = TRUE, "category" = category))
-
+			var/list/recipe = list(path = "[O.type]", name = "[O.name]", desc = "[O.desc]", "basic" = is_basic, "category" = category)
+			if(is_basic)
+				printer_recipe_list_basic += list(recipe)
+			printer_recipe_list_upgraded += list(recipe)
 
 	return SS_INIT_SUCCESS
 

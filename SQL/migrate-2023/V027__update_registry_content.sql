@@ -1,0 +1,2 @@
+ALTER TABLE `ss13_registry`
+  MODIFY COLUMN `content` MEDIUMTEXT NOT NULL;

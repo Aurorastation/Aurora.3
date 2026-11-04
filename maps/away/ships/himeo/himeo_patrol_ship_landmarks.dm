@@ -41,21 +41,21 @@
 	base_turf = /turf/simulated/floor/reinforced/airless
 
 // Airlock markers, Deck 1
-/obj/effect/map_effect/marker/airlock/himeo_patrol/fore
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/fore
 	name = "Airlock, Fore"
 	master_tag = "airlock_himeo_patrol_fore"
 
-/obj/effect/map_effect/marker/airlock/himeo_patrol/aft
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/aft
 	name = "Airlock, Aft"
 	master_tag = "airlock_himeo_patrol_aft"
 
-/obj/effect/map_effect/marker/airlock/himeo_patrol/starboard
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/starboard
 	name = "Airlock, Starboard"
 	master_tag = "airlock_himeo_patrol_starboard"
 
 // Airlock markers, Deck 2
 
-/obj/effect/map_effect/marker/airlock/himeo_patrol/deck_2/starboard
+/obj/effect/map_effect/marker/airlock/external/himeo_patrol/deck_2/starboard
 	name = "Airlock, Starboard"
 	master_tag = "airlock_himeo_patrol_deck_2_starboard"
 

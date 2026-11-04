@@ -71,13 +71,6 @@
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 		item_state = icon_state
 
-/obj/item/clothing/suit/storage/vest/hos/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = WEIGHT_CLASS_SMALL
-	pockets.max_storage_space = 8
-
 /obj/item/clothing/suit/storage/vest
 	var/icon_badge
 	var/icon_nobadge
@@ -110,7 +103,7 @@
 	item_state = "greatcoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
 		BIO = ARMOR_BIO_MINOR
 	)
@@ -123,6 +116,18 @@
 	desc = "A brown greatcoat. It looks warmer, if a bit heavier, than most other clothing."
 	icon_state = "greatcoat_bwn"
 	item_state = "greatcoat_bwn"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/recolor
+	name = "greatcoat"
+	desc = "A non-descript greatcoat. It looks warmer, if a bit heaver, than most other clothing."
+	icon_state = "greatcoat_recolor"
+	item_state = "greatcoat_recolor"
+	build_from_parts = TRUE
+	worn_overlay = "metal"
+
+/obj/item/clothing/suit/storage/toggle/greatcoat/recolor/alt
+	build_from_parts = FALSE
+	has_accents = TRUE
 
 // Corporate Jackets
 

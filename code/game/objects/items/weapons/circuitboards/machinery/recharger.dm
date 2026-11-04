@@ -14,3 +14,16 @@
 	req_components = list(
 		"/obj/item/stock_parts/capacitor" = 3
 		)
+
+/obj/item/circuitboard/cell_charger
+	name = T_BOARD("recharger")
+	build_path = /obj/structure/machinery/cell_charger
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 1)
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 2
+		)
+
+/obj/item/circuitboard/cell_charger/rack
+	name = T_BOARD("cell charger rack")
+	build_path = /obj/structure/machinery/cell_charger/rack

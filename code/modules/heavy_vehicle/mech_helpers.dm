@@ -161,20 +161,32 @@
 
 /mob/living/heavy_vehicle/proc/use_cell_power(var/power_to_use)
 	var/power_used = get_cell()?.use(power_to_use)
-	if(power_used <= 0)
+	if(power_used < power_to_use - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/drain_cell_power(var/power_to_drain)
 	var/power_used = get_cell()?.drain_power(0, 0, power_to_drain)
-	if(power_used <= 0)
+	if(power_used < power_to_drain - 1) //Self recharging cells would otherwise allow a mech to run indefinately at full functionality with 0.1% charge.
 		for(var/hardpoint in hardpoints)
 			var/obj/item/mecha_equipment/ME = hardpoints[hardpoint]
 			if(ME)
 				ME.deactivate()
+			if(power == MECH_POWER_ON)
+				playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
+				power = MECH_POWER_OFF
+				update_emp_protection()
+				if(hud_power_control)
+					SSicon_update.add_to_queue(hud_power_control)
 	return power_used
 
 /mob/living/heavy_vehicle/proc/checked_use_cell(var/power_to_drain)

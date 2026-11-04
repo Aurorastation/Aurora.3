@@ -361,7 +361,7 @@
 
 				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
-		return BULLET_ACT_HIT
+	return BULLET_ACT_HIT
 
 /proc/calculate_material_armor(amount)
 	var/result = 1 - MATERIAL_ARMOR_COEFFICENT * amount / (1 + MATERIAL_ARMOR_COEFFICENT * abs(amount))
@@ -434,7 +434,7 @@
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
 	name = "ears"
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
@@ -505,7 +505,9 @@
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
+	icon_state = "black"
+	item_state = "black"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
@@ -612,7 +614,7 @@
 //Head
 /obj/item/clothing/head
 	name = "head"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
@@ -711,7 +713,7 @@
 	if(istype(user, /mob/living/silicon/robot/drone))
 		var/mob/living/silicon/robot/drone/D = user
 		if(D.hat)
-			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
+			if(tgui_alert(usr, "You are already wearing a [D.hat]. Swap with [src]?", , list("Yes", "No")) == "Yes")
 				D.hat.forceMove(get_turf(src))
 				D.hat = null
 				D.CutOverlays(D.hat_overlay)
@@ -820,7 +822,7 @@
 //Mask
 /obj/item/clothing/mask
 	name = "mask"
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/item/clothing/masks.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
@@ -954,8 +956,6 @@
 	var/silent = 0
 	var/last_trip = 0
 
-	var/footstep_sound_override
-
 /obj/item/clothing/shoes/Destroy()
 	QDEL_NULL(holding)
 	return ..()
@@ -1074,22 +1074,10 @@
 	. = ..()
 	track_footprint = 0
 
-/obj/item/clothing/shoes/proc/do_special_footsteps(var/running)
-	if(!footstep_sound_override)
-		return FALSE
-	if(ishuman(loc))
-		var/mob/living/carbon/human/wearer = loc
-		if(running)
-			playsound(wearer, footstep_sound_override, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
-		else
-			footstep++
-			if (footstep % 2)
-				playsound(wearer, footstep_sound_override, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
-	return TRUE
 ///////////////////////////////////////////////////////////////////////
 //Suit
 /obj/item/clothing/suit
-	icon = 'icons/obj/clothing/suits.dmi'
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
@@ -1154,7 +1142,7 @@
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
 /obj/item/clothing/under
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
@@ -1475,7 +1463,8 @@
 /obj/item/clothing/ring
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'icons/obj/item/clothing/gloves/rings.dmi'
+	contained_sprite = TRUE
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

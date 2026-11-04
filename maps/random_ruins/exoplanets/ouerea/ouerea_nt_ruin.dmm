@@ -110,7 +110,7 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
-/obj/item/melee/baton/stunrod,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
@@ -123,6 +123,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
+/obj/item/melee/baton/stunrod,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},

@@ -13,7 +13,7 @@
 	var/produces_heat = TRUE
 	idle_power_usage = 800
 	var/delay = 10
-	req_access = list(ACCESS_RD) //Only the R&D can change server settings.
+	req_access = list(/datum/access/rd::id) //Only the R&D can change server settings.
 
 	var/list/linked_processors
 
@@ -279,7 +279,7 @@
 			temp_server.id_with_download += num
 
 	else if(href_list["reset_tech"])
-		var/choice = alert("Technology Data Rest", "Are you sure you want to reset this technology to its default data? Data lost cannot be recovered.", "Continue", "Cancel")
+		var/choice = tgui_alert(usr, "Technology Data Rest", "Are you sure you want to reset this technology to its default data? Data lost cannot be recovered.", list("Continue", "Cancel"))
 		if(choice == "Continue")
 			for(var/datum/tech/T in temp_server.files.known_tech)
 				if(T.id == href_list["reset_tech"])
@@ -288,7 +288,7 @@
 		temp_server.files.RefreshResearch()
 
 	else if(href_list["reset_design"])
-		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
+		var/choice = tgui_alert(usr, "Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", list("Continue", "Cancel"))
 		if(choice == "Continue")
 			temp_server.files.known_designs -= href_list["reset_design"]
 			temp_server.files.RefreshResearch()

@@ -75,6 +75,8 @@
 	name = "open exosuit chassis"
 	hatch_descriptor = "roll cage"
 	pilot_coverage = 40
+	cockpit_hatch_size = 90
+	cockpit_pilot_damage_multiplier = 0.6 ///The hatch is thick, but the pilot coverage is poor.
 	exosuit_desc_string = "an industrial rollcage"
 	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically. This variant has an extra compartment for a copilot, but has no sealed atmosphere."
 	max_damage = 200

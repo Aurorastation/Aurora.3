@@ -329,6 +329,12 @@
 	icon_state = "tile_darkmarble"
 	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
 
+/obj/item/stack/tile/marble/red
+	name = "red marble floor tile"
+	singular_name = "red marble floor tile"
+	icon_state = "tile_lightmarble"
+	matter = list(MATERIAL_MARBLE = TILE_MATERIAL_AMOUNT)
+
 /*
  * Cyborg modules
  */

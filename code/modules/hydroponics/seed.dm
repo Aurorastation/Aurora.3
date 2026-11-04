@@ -790,7 +790,7 @@
 		return FALSE
 
 	user.visible_message(SPAN_WARNING("[user] starts harvesting \the [display_name]"))
-	if (doafter > 0 && !do_after(user, doafter))
+	if (doafter > 0 && !do_after(user, doafter, do_flags = DO_BOTH_UNIQUE_ACT | DO_USER_SAME_HAND | DO_SHOW_PROGRESS))
 		to_chat(user, SPAN_DANGER("You were interrupted while trying to harvest \the [display_name]"))
 		return FALSE
 

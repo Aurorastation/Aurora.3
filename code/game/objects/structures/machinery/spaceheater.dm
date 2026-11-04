@@ -13,6 +13,8 @@
 	var/active = 0
 	/// This value gets overwritten on activation. heating_power scales with cell maxcharge (to a point).
 	var/heating_power = 40 KILO WATTS
+	/// Fraction of the local atmosphere processed each tick.
+	var/air_transfer_fraction = 0.25
 	var/current_temperature
 	/// Current target temperature for the unit.
 	var/set_temperature = T0C + 20
@@ -22,7 +24,8 @@
 	var/set_temperature_min = T0C
 	var/datum/gas_mixture/env
 	/// The cell we spawn with.
-	var/obj/item/cell/apc/cell
+	var/cell_type = /obj/item/cell/apc
+	var/obj/item/cell/cell
 	/// Is our cell high-powered? (>= 50 kW, so 'super' or better).
 	var/high_power_cell = FALSE
 
@@ -36,7 +39,7 @@
 
 /obj/structure/machinery/space_heater/Initialize()
 	. = ..()
-	cell = new(src)
+	cell = new cell_type(src)
 	/// Ensure env exists so TGUI doesn't attempt to round null for display.
 	env = loc.return_air()
 	update_icon()
@@ -185,7 +188,7 @@
 			if(env && abs(env.temperature - set_temperature) <= 0.1)
 				active = 0
 			else
-				var/transfer_moles = 0.25 * env.total_moles
+				var/transfer_moles = air_transfer_fraction * env.total_moles
 				var/datum/gas_mixture/removed = env.remove(transfer_moles)
 				if(removed)
 					var/heat_transfer = removed.get_thermal_energy_change(set_temperature)
@@ -216,6 +219,13 @@
 			active = 0
 			power_change()
 		update_icon()
+
+/obj/structure/machinery/space_heater/industrial
+	name = "industrial temperature control unit"
+	desc = "A portable industrial temperature control unit with a high-output heat exchanger. It can heat or cool large compartments."
+	cell_type = /obj/item/cell/hyper
+	air_transfer_fraction = 2 // 8x more efficient than standart
+	set_temperature_max = T0C + 60
 
 //For mounting on walls in planetary buildings and stuff.
 /obj/structure/machinery/space_heater/stationary

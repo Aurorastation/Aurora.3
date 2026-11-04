@@ -1106,6 +1106,12 @@
 /obj/random/tech_supply,
 /turf/template_noop,
 /area/template_noop)
+"bcW" = (
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "bde" = (
 /obj/structure/bed/stool/chair,
 /obj/random/dirt_75,
@@ -2445,6 +2451,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/control/offices)
+"cqI" = (
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "cqK" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/science_storage,
 /turf/template_noop,
@@ -3506,6 +3518,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/crystal,
 /area/template_noop)
+"dtW" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/enviro_testing_facility/inside/engineering/mech_lab)
 "dup" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -4020,7 +4035,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "dVz" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -5822,7 +5837,7 @@
 /turf/simulated/floor/carpet/green,
 /area/enviro_testing_facility/inside/medical/chief_office)
 "fQy" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "fQJ" = (
@@ -6686,7 +6701,7 @@
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/meeting)
 "gBG" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -10752,6 +10767,7 @@
 	pixel_x = 8;
 	pixel_y = 11
 	},
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "kIM" = (
@@ -10909,11 +10925,11 @@
 /area/enviro_testing_facility/inside/research/rnd)
 "kSl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/steel/full,
 /obj/random/dirt_75,
 /obj/structure/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "kUe" = (
@@ -11587,7 +11603,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "lDw" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -11600,10 +11616,10 @@
 /turf/simulated/floor/reinforced,
 /area/enviro_testing_facility/inside/security/armory)
 "lDP" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "lDW" = (
@@ -15696,7 +15712,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/reactors)
 "pMv" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
@@ -16463,7 +16479,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
 "qDv" = (
-/obj/structure/machinery/r_n_d/protolathe,
+/obj/structure/machinery/r_n_d/fabricator/protolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "qDB" = (
@@ -17487,6 +17503,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/structure/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "rOm" = (
@@ -21384,10 +21401,6 @@
 	dir = 9
 	},
 /obj/structure/table/steel,
-/obj/item/clothing/under/medical_gown/white{
-	pixel_x = 5;
-	pixel_y = 8
-	},
 /turf/simulated/floor/reinforced,
 /area/enviro_testing_facility/inside/research/electronics)
 "vKp" = (
@@ -39367,7 +39380,7 @@ duD
 pos
 kSl
 toG
-dVz
+dtW
 dVz
 jdE
 dVz
@@ -39569,7 +39582,7 @@ duD
 pos
 rNI
 toG
-ydD
+cqI
 ydD
 ydD
 jTa
@@ -42601,7 +42614,7 @@ pif
 orb
 lDw
 lDw
-eWD
+bcW
 lDw
 lDw
 gPy

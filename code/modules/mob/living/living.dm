@@ -144,9 +144,11 @@ default behaviour is:
 		now_pushing = TRUE
 
 		if(!target_movable_atom.anchored)
+			var/obj/pushed_object
 			if(isobj(target_movable_atom))
-				var/obj/object = target_movable_atom
-				if((can_pull_size == 0) || (can_pull_size < object.w_class))
+				pushed_object = target_movable_atom
+				// Humanoids are limited by mass-based movement delay rather than item size.
+				if((can_pull_size == 0) || (!ishuman(src) && can_pull_size < pushed_object.w_class))
 					now_pushing = FALSE
 					return
 
@@ -159,7 +161,10 @@ default behaviour is:
 			if(target_movable_atom == src.pulling)
 				stop_pulling()
 
+			var/atom/old_location = target_movable_atom.loc
 			step(target_movable_atom, target_direction)
+			if(pushed_object && pushed_object.loc != old_location)
+				setMoveCooldown(get_load_movement_delay(pushed_object))
 			if(ishuman(target_movable_atom))
 				var/mob/living/carbon/human/target_human = target_movable_atom
 				if(target_human.grabbed_by)
@@ -684,6 +689,12 @@ default behaviour is:
 			process_resist()
 
 /mob/living/proc/process_resist()
+	// Safety fallback for mobs that were incorrectly moved inside a crate shelf.
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.eject_trapped_mob(src)
+		return
+
 	//Getting out of someone's inventory.
 	if(istype(src.loc, /obj/item/holder))
 		escape_inventory(src.loc)
@@ -917,9 +928,15 @@ default behaviour is:
 	register_init_signals()
 
 	AddElement(/datum/element/connect_loc, loc_connections)
+	load_footstep_component()
+	if(footstep_sound)
+		SEND_SIGNAL(src, COMSIG_MOB_ADD_FOOTSTEP_SOUND, src, footstep_sound)
 
 /mob/living/Destroy()
 	cameraFollow = null
+	if(camera_view_cancel_action)
+		camera_view_cancel_action.Remove(src)
+		QDEL_NULL(camera_view_cancel_action)
 	if (length(actions))
 		for (var/datum/action/action in actions)
 			action.Remove(src)
@@ -1075,3 +1092,12 @@ default behaviour is:
 		set_density(FALSE)
 	else
 		set_density(TRUE)
+
+/**
+ * Used to override if a mob should have footsteps or not.
+ */
+/mob/living/proc/load_footstep_component()
+	if(anchored)
+		return
+
+	LoadComponent(footstep_component_type)

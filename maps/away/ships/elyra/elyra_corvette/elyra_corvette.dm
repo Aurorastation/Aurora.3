@@ -123,7 +123,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/elyran_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Elyran Naval Shuttle"
-	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
 	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
@@ -142,7 +142,6 @@
 	landmark_transition = "nav_transit_elyran_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_elyra"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/elyran_shuttle/hangar

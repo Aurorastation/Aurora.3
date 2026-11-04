@@ -43,7 +43,6 @@
 	pass_flags = PASSTABLE
 	speed = 6
 	mob_size = 6
-	smart_melee = FALSE
 
 	attacktext = "bites"
 	attack_vis_effect = ATTACK_EFFECT_BITE
@@ -51,6 +50,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
+	footstep_sound = 'sound/effects/creatures/spider_walk.ogg'
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -83,7 +83,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 30
-	venom_per_bite = 1
+	venom_per_bite = 8
 	speed = -2
 	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	fed = 1
@@ -111,7 +111,6 @@
 	venom_per_bite = 5
 	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -128,7 +127,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -147,7 +145,6 @@
 	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
-	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -396,14 +393,6 @@
 				C.pixel_x = P.pixel_x
 				C.pixel_y = P.pixel_y
 				break
-				if(istype(P, /obj/item))
-					var/obj/item/I = P
-					I.forceMove(C)
-				if(istype(P, /obj/structure))
-					var/obj/structure/S = P
-					if(!S.anchored)
-						S.forceMove(C)
-						large_cocoon = 1
 			if(large_cocoon)
 				C.icon_state = pick("cocoon_large1","cocoon_large2","cocoon_large3")
 

@@ -9,18 +9,24 @@
 
 	head = /obj/item/clothing/head/helmet/space/void/lancer
 	species_head = list(
-		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
+		SPECIES_UNATHI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/head/helmet/space/void/lancer/unathi
 	)
 
 	suit = /obj/item/clothing/suit/space/void/lancer
 	species_suit = list(
-		SPECIES_UNATHI = /obj/item/clothing/suit/space/void/lancer/unathi
+		SPECIES_UNATHI = /obj/item/clothing/suit/space/void/lancer/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/suit/space/void/lancer/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/suit/space/void/lancer/unathi
 	)
 	suit_store = /obj/item/tank/oxygen
 
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
-		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 	belt_contents = list(
@@ -51,7 +57,9 @@
 
 	gloves = /obj/item/clothing/gloves/yellow
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu
+		SPECIES_UNATHI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/yellow/specialu,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/yellow/specialu
 	)
 
 	belt = /obj/item/storage/belt/utility/very_full
@@ -70,7 +78,9 @@
 
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(
-		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_URAWANI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_UNATHI_ZIRALIXI = /obj/item/clothing/gloves/latex/nitrile/unathi
 	)
 
 	belt = /obj/item/storage/belt/medical

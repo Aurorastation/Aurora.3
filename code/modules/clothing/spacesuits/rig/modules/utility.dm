@@ -499,6 +499,7 @@
 		if("stabilizers")
 			if(engage(src, user))
 				jets.toggle_rockets_stabilization(user)
+				stabilize = jets.stabilization_on
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(!..())

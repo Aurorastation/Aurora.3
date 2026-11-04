@@ -28,7 +28,7 @@
 		return
 	use_power_oneoff(10)
 	active = TRUE
-	var/choice = alert(user, "Are you sure you want to launch a distress beacon?", "Distress Beacon", "Yes", "No")
+	var/choice = tgui_alert(user, "Are you sure you want to launch a distress beacon?", "Distress Beacon", list("Yes", "No"))
 	if(choice == "No" || !choice)
 		active = FALSE
 		return

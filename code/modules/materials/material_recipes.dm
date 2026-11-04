@@ -191,6 +191,7 @@
 		list(
 			new /datum/stack_recipe("box", /obj/item/storage/box/blank),
 			new /datum/stack_recipe("large box", /obj/item/storage/box/large/blank, 2),
+			new /datum/stack_recipe("takeout box", /obj/item/reagent_containers/bowl/takeout_box, 1),
 			new /datum/stack_recipe("donut box", /obj/item/storage/box/fancy/donut/empty),
 			new /datum/stack_recipe("egg carton", /obj/item/storage/box/fancy/egg_box),
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),
@@ -234,14 +235,6 @@
 	recipes += new /datum/stack_recipe_list("[display_name] costumes",
 		list(
 			new /datum/stack_recipe("corgi costume", /obj/item/clothing/suit/storage/hooded/wintercoat/corgi, 3)
-		))
-
-/singleton/material/hide/monkey/generate_recipes()
-	..()
-	recipes += new /datum/stack_recipe_list("[display_name] costumes",
-		list(
-			new /datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask),
-			new /datum/stack_recipe("monkey suit", /obj/item/clothing/suit/monkeysuit, 2)
 		))
 
 /singleton/material/silver/generate_recipes()

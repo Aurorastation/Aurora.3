@@ -15,6 +15,19 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
+/obj/item/reagent_containers/weldpack/empty
+	reagents_to_add = null
+
+/obj/item/reagent_containers/weldpack/Initialize(mapload)
+	var/turf/T = get_turf(src)
+	if(mapload && T && is_station_level(T.z))
+		// If the weldpack is spawned on a station level during map load, don't give it any fuel.
+		// This is in support of persistent welding fuel tanks and only for the persistent levels.
+		reagents_to_add = null
+		create_reagents(volume) // Ensure reagents datum is created, even if empty
+		update_volume()
+	. = ..() // After reagents_to_add is updated
+
 /obj/item/reagent_containers/weldpack/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
@@ -26,6 +39,20 @@
 		. += SPAN_NOTICE("\The [src] has [reagents.total_volume]u of reagents in it, <b>[fuel_volume]u</b> of which is fuel.")
 	else
 		. += SPAN_WARNING("\The [src] is empty!")
+
+/obj/item/reagent_containers/weldpack/proc/update_volume()
+	var/fill_level = reagents.total_volume / volume
+	if(fill_level <= 0.1)
+		icon_state = "welderpack_low"
+		item_state = "welderpack_low"
+	else
+		icon_state = "welderpack"
+		item_state = "welderpack"
+	update_icon()
+	update_worn_icon()
+
+/obj/item/reagent_containers/weldpack/on_reagent_change()
+	update_volume()
 
 /obj/item/reagent_containers/weldpack/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -52,7 +79,7 @@
 			message_admins("[key_name_admin(user)] triggered a fueltank explosion.")
 			log_game("[key_name(user)] triggered a fueltank explosion.")
 			to_chat(user, SPAN_DANGER("That was stupid of you."))
-			explosion(get_turf(src),-1,0,2)
+			explosion(get_turf(src), -1, 0, 2, spreading = TRUE)
 			qdel(src)
 		else
 			if(T.welding)
@@ -60,5 +87,6 @@
 			reagents.trans_type_to(attacking_item, /singleton/reagent/fuel, min(fuel_volume, T.reagents.maximum_volume - tool_fuel_volume))
 			to_chat(user, SPAN_NOTICE("Welder refilled!"))
 			playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
+			update_volume()
 		return
 	return ..()

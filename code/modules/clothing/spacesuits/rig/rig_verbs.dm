@@ -149,7 +149,7 @@
 	if(!check_power_cost(usr))
 		return
 
-	deploy(wearer)
+	retract(wearer)
 
 /obj/item/rig/verb/toggle_seals_verb()
 	set name = "Engage/Disengage Hardsuit"

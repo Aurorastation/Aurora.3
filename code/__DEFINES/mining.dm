@@ -10,3 +10,5 @@
 #define ORE_HYDROGEN	"metallic hydrogen"
 #define ORE_BAUXITE		"aluminium"
 #define ORE_GALENA		"lead"
+
+#define MINING_POINTS_CARRYOVER_MAX 15000

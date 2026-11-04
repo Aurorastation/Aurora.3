@@ -215,7 +215,7 @@
 		do_engage(1)
 
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
-	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
+	if(!skip_check && usr && tgui_alert(usr, "Are you sure you want to push that button?", "Self-destruct", list("No", "Yes")) == "No")
 		return
 	explosion(get_turf(src), explosion_values[1], explosion_values[2], explosion_values[3], explosion_values[4])
 	if(holder && holder.wearer)
@@ -341,10 +341,11 @@
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/device/door_hack/process()
-	if(holder && holder.wearer)
-		if(!(locate(/obj/item/multitool/hacktool/rig) in holder.wearer))
-			deactivate()
-			return FALSE
+	if(active) //Don't need to run locate every tick if the suit isn't in use.
+		if(holder && holder.wearer)
+			if(!(locate(/obj/item/multitool/hacktool/rig) in holder.wearer))
+				deactivate()
+				return FALSE
 
 	return ..()
 

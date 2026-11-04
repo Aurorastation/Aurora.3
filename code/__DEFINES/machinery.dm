@@ -102,7 +102,7 @@
 #define NETWORK_MEDICAL "Medical"
 #define NETWORK_MERCENARY "MercurialNet"
 #define NETWORK_TCAF "TCAF"
-#define NETWORK_MINE "MINE"
+#define NETWORK_MINE "Mining"
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_RESEARCH_OUTPOST "Research Outpost"
 #define NETWORK_ROBOTS "Robots"

@@ -158,6 +158,9 @@
 	text = replacetext(text, "MERCHANT", name)
 	return replacetext(text, "ORIGIN", origin)
 
+/datum/trader/proc/is_wanted_item(atom/movable/offer)
+	return is_type_in_list(offer, wanted_items)
+
 /datum/trader/proc/print_trading_items(var/num)
 	num = clamp(num,1,trading_items.len)
 	if(trading_items[num])
@@ -196,9 +199,7 @@
 	var/offer_worth = 0
 	for(var/item in offers)
 		var/atom/movable/offer = item
-		var/is_wanted = FALSE
-		if(is_type_in_list(offer,wanted_items))
-			is_wanted = TRUE
+		var/is_wanted = is_wanted_item(offer)
 		if(blacklisted_trade_items && blacklisted_trade_items.len)
 			if(ishuman(offer))
 				var/mob/living/carbon/human/A = offer
@@ -207,7 +208,7 @@
 			else if(is_type_in_list(offer,blacklisted_trade_items))
 				return FALSE
 
-		if(istype(offer,/obj/item/spacecash))
+		if(istype(offer,/obj/item/currency))
 			if(!(trade_flags & TRADER_MONEY))
 				return TRADER_NO_MONEY
 		else
@@ -325,7 +326,7 @@
 		return TRADER_NOT_ENOUGH
 
 	for(var/offer in offers)
-		if(!is_type_in_list(offer,wanted_items))
+		if(!is_wanted_item(offer))
 			return TRADER_FOUND_UNWANTED
 
 	playsound(get_turf(offers[1]), 'sound/effects/teleport.ogg', 50, 1)

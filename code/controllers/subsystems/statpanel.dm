@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(statpanels)
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
 
-		if(!target.stat_panel.is_ready())
+		if(!target?.stat_panel?.is_ready())
 			continue
 
 		if(target.stat_tab == "Status" && num_fires % status_wait == 0)
@@ -204,11 +204,21 @@ SUBSYSTEM_DEF(statpanels)
 	if(!target.obj_window)
 		target.obj_window = new /datum/object_window_info(target)
 	var/datum/object_window_info/obj_window = target.obj_window
+	// Unregister signals for any atoms we used to track but will no longer show
+	var/list/old_atoms = obj_window.atoms_to_show
+	if(old_atoms)
+		for(var/atom as anything in old_atoms)
+			if(!(atom in atoms_to_display))
+				obj_window.UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+				obj_window.UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
+
 	obj_window.atoms_to_show = atoms_to_display
 	START_PROCESSING(SSobj_tab_items, obj_window)
 	refresh_client_obj_view(target)
 
 /datum/controller/subsystem/statpanels/proc/refresh_client_obj_view(client/refresh)
+	if(!refresh.stat_panel)
+		return
 	var/list/turf_items = return_object_images(refresh)
 	if(!length(turf_items) || !refresh.mob?.listed_turf)
 		return
@@ -248,6 +258,7 @@ SUBSYSTEM_DEF(statpanels)
 		to_make += turf_item
 		already_seen[turf_item] = OBJ_IMAGE_LOADING
 		obj_window.RegisterSignal(turf_item, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
+		obj_window.RegisterSignal(turf_item, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf)) // we reset cache if anything in it moves
 	return turf_items
 
 #undef OBJ_IMAGE_LOADING
@@ -338,6 +349,10 @@ SUBSYSTEM_DEF(statpanels)
 	src.parent = parent
 
 /datum/object_window_info/Destroy(force)
+	if(atoms_to_show)
+		for(var/atom as anything in atoms_to_show)
+			UnregisterSignal(atom, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+			UnregisterSignal(atom, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show = null
 	atoms_to_images = null
 	atoms_to_imagify = null
@@ -402,9 +417,29 @@ SUBSYSTEM_DEF(statpanels)
 /// We use hard refs cause we'd need a signal for this anyway. Cleaner this way
 /datum/object_window_info/proc/viewing_atom_deleted(atom/deleted)
 	SIGNAL_HANDLER
+	UnregisterSignal(deleted, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(deleted, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
 	atoms_to_show -= deleted
 	atoms_to_imagify -= deleted
 	atoms_to_images -= deleted
+
+/*
+ * Immediately removes an item from the statpanel if it is no longer on the turf.
+ * This is used to immediately update the panel when an item is picked up.
+ * Prevents many bugs related to items that should no longer be accessible to the player, still being able to be clicked on.
+ * Eg. Loading a bullet into a magazine, the panel does not update, the bullet can be clicked again, despite already being in the magazine.
+ * The bullet can then be loaded into the magazine twice.
+ */
+/datum/object_window_info/proc/item_moved_from_turf(atom/moved)
+	SIGNAL_HANDLER
+	if(!actively_tracking)
+		return
+	UnregisterSignal(moved, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted))
+	UnregisterSignal(moved, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/object_window_info,item_moved_from_turf))
+	atoms_to_show -= moved
+	atoms_to_imagify -= moved
+	atoms_to_images -= moved
+	SSstatpanels.refresh_client_obj_view(parent)
 
 /mob/proc/set_listed_turf(turf/new_turf)
 	listed_turf = new_turf

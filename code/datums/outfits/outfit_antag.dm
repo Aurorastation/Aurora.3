@@ -282,7 +282,6 @@
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana/pirate,
 		/obj/item/clothing/head/bandana/red,
-		/obj/item/clothing/head/hgpiratecap,
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
@@ -699,10 +698,10 @@
 	name = "Technomancer"
 	allow_backbag_choice = FALSE
 
-	head = /obj/item/clothing/head/chameleon/technomancer
-	l_ear = /obj/item/radio/headset/bluespace
+	head = /obj/item/clothing/head/helmet/chameleon
+	l_ear = /obj/item/radio/headset/syndicate/alt
 	uniform = /obj/item/clothing/under/chameleon/technomancer
-	suit = /obj/item/clothing/suit/chameleon/technomancer
+	suit = /obj/item/clothing/suit/armor/chameleon
 	belt = /obj/item/flashlight
 	back = /obj/item/technomancer_core
 	shoes = /obj/item/clothing/shoes/chameleon/technomancer
@@ -710,7 +709,7 @@
 	r_pocket = /obj/item/disposable_teleporter/free
 	l_pocket = /obj/item/technomancer_catalog
 
-	id = /obj/item/card/id/bluespace
+	id = /obj/item/card/id/syndicate
 	id_iff = IFF_BLUESPACE
 
 	var/id_assignment = "Technomagus"
@@ -736,9 +735,9 @@
 /obj/outfit/admin/techomancer/apprentice
 	name = "Technomancer Apprentice"
 
-	head = /obj/item/clothing/head/chameleon/technomancer
+	head = /obj/item/clothing/head/helmet/chameleon
 	uniform = /obj/item/clothing/under/chameleon/technomancer
-	suit = /obj/item/clothing/suit/chameleon/technomancer
+	suit = /obj/item/clothing/suit/armor/chameleon
 	shoes = /obj/item/clothing/shoes/chameleon/technomancer
 
 	l_pocket = /obj/item/technomancer_catalog/apprentice

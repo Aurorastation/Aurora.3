@@ -20,6 +20,7 @@
 /obj/item/spell/aura/biomed/process()
 	if(!pay_energy(75))
 		qdel(src)
+		return
 	regen_tick++
 	if(regen_tick % 5 == 0)
 		var/list/nearby_mobs = range(calculate_spell_power(4),owner)

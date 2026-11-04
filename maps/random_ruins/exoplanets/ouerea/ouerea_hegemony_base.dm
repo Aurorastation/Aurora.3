@@ -35,7 +35,7 @@
 
 	spawnpoints = list("ouerea_base_soldier")
 	max_count = 4
-	possible_species = list(SPECIES_UNATHI)
+	possible_species = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	uses_species_whitelist = FALSE
 	outfit = /obj/outfit/admin/izweski

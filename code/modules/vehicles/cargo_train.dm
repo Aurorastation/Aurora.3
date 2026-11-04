@@ -1,3 +1,7 @@
+/obj/vehicle/train/cargo
+	/// Chance that the vehicle intercepts a projectile aimed at its rider.
+	var/protection_percent = 0
+
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
@@ -14,9 +18,13 @@
 	var/tgui_template = "TrainEngine"
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
+	protection_percent = 20
 	active_engines = 1
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
+
+	light_range = 3
+	light_power = 1
 
 /obj/vehicle/train/cargo/engine/Destroy()
 	QDEL_NULL(key)
@@ -31,6 +39,7 @@
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
 	. += "If latched, you can use a wrench to unlatch."
 	. += "Click-drag on a trolley to latch and tow it."
+	. += "Use run intent to run people over."
 
 /obj/vehicle/train/cargo/engine/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -56,15 +65,83 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
+	eject_prone_riders = FALSE
 
 	load_item_visible = 1
 	load_offset_x = 0
 	load_offset_y = 5
 	mob_offset_y = 8
 
+/obj/vehicle/train/cargo/trolley/sled
+	name = "cargo sled"
+	desc = "A rugged cargo sled designed to be hitched behind a snowmobile. Its broad bed can carry cargo."
+	icon = 'icons/obj/cargo_sled.dmi'
+	icon_state = "cargo_trailer"
+	passenger_allowed = TRUE
+	buckle_lying = -1
+	train_hitch_compatible = FALSE
+	var/obj/vehicle/bike/snow/snowmobile
+
+/obj/vehicle/train/cargo/trolley/sled/Destroy()
+	if(snowmobile)
+		unattach()
+	return ..()
+
+/obj/vehicle/train/cargo/trolley/sled/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag this onto a snowmobile, or a snowmobile onto this, to hitch it. Only one sled can be hitched to a snowmobile."
+	. += "It can carry a human passenger."
+
+/obj/vehicle/train/cargo/trolley/sled/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(snowmobile)
+		. += SPAN_NOTICE("It is hitched to \the [snowmobile] in the [dir2text(get_dir(src, snowmobile))].")
+
+/obj/vehicle/train/cargo/trolley/sled/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(istype(dropped, /obj/vehicle/bike/snow))
+		if(use_check_and_message(user))
+			return
+		attach_to_snowmobile(dropped, user)
+		return
+	return ..()
+
+/obj/vehicle/train/cargo/trolley/sled/proc/attach_to_snowmobile(obj/vehicle/bike/snow/new_snowmobile, mob/user)
+	if(get_dist(src, new_snowmobile) > 1)
+		to_chat(user, SPAN_WARNING("\The [src] is too far away from \the [new_snowmobile] to hitch them together."))
+		return FALSE
+	if(snowmobile || lead)
+		to_chat(user, SPAN_WARNING("\The [src] is already hitched to something."))
+		return FALSE
+	if(tow)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be hitched to a snowmobile while it is towing something."))
+		return FALSE
+	if(new_snowmobile.towed_sled)
+		to_chat(user, SPAN_WARNING("\The [new_snowmobile] is already towing a sled."))
+		return FALSE
+
+	snowmobile = new_snowmobile
+	new_snowmobile.towed_sled = src
+	anchored = TRUE
+	set_dir(get_dir(src, snowmobile))
+	to_chat(user, SPAN_NOTICE("You hitch \the [src] to \the [snowmobile]."))
+	playsound(loc, 'sound/items/wrench.ogg', 70, TRUE)
+	return TRUE
+
+/obj/vehicle/train/cargo/trolley/sled/unattach(mob/user)
+	if(!snowmobile)
+		return ..()
+
+	var/obj/vehicle/bike/snow/old_snowmobile = snowmobile
+	snowmobile = null
+	old_snowmobile.towed_sled = null
+	anchored = FALSE
+	to_chat(user, SPAN_NOTICE("You unhitch \the [src] from \the [old_snowmobile]."))
+
 /obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	if(train_hitch_compatible)
+		. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
+	. += "It can carry crates, large parcels, machinery, and other heavy cargo."
 
 //-------------------------------------------
 // Standard procs
@@ -167,13 +244,13 @@
 		return
 	..()
 
-// Cargo trains are open topped, so you can shoot at the driver.
-// Or you can shoot at the tug itself, if you're good.
+// Cargo trains are open topped, but protected sections can intercept shots aimed at their rider.
+// You can always shoot the vehicle itself directly.
 /obj/vehicle/train/cargo/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if (buckled && hitting_projectile.original == buckled)
-		buckled.bullet_act(arglist(args))
-	else
-		. = ..()
+		if (!prob(protection_percent))
+			return buckled.bullet_act(arglist(args))
+	return ..()
 
 /obj/vehicle/train/cargo/update_icon()
 	if(open)
@@ -228,7 +305,10 @@
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_LEANING))
-		return
+		return FALSE
+	if(H.mob_size > max_runover_size)
+		collide_with_oversized_mob(H)
+		return FALSE
 
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
 
@@ -236,15 +316,18 @@
 	for(var/i = 0, i < rand(1,5), i++)
 		var/def_zone = pick(parts)
 		H.apply_damage(rand(5,10), DAMAGE_BRUTE, def_zone)
+	return TRUE
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
 	attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey])</span>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
-	..()
+	if(!..())
+		return
 
 	if(HAS_TRAIT(H, TRAIT_LEANING))
 		return
@@ -266,7 +349,7 @@
 	if(user != load)
 		return 0
 
-	if(user.restrained())
+	if(user.restrained() || user.incapacitated())
 		return 0
 
 	if(is_train_head())
@@ -332,7 +415,7 @@
 /obj/vehicle/train/cargo/trolley/load(var/atom/movable/C)
 	if(ismob(C) && !passenger_allowed)
 		return 0
-	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
+	if(!istype(C,/obj/structure/machinery) && !istype(C,/obj/structure/closet) && !istype(C,/obj/structure/largecrate) && !istype(C,/obj/structure/bigDelivery) && !istype(C,/obj/structure/reagent_dispensers) && !istype(C,/obj/structure/ore_box) && !istype(C, /mob/living/carbon/human))
 		return 0
 
 	//if there are any items you don't want to be able to interact with, add them to this check
@@ -410,6 +493,7 @@
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
 		move_delay -= 1
+
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length

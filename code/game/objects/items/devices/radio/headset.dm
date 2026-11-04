@@ -25,15 +25,6 @@
 	pickup_sound = SFX_HEADSET_PICKUP
 	equip_sound = SFX_HEADSET_EQUIP
 
-/obj/item/radio/headset/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
-	. = ..()
-	if(!(is_adjacent && radio_desc))
-		return
-
-	. += "The following channels are available:"
-	. += radio_desc
-
 /obj/item/radio/headset/Initialize()
 	. = ..()
 	internal_channels.Cut()
@@ -872,7 +863,7 @@
 /obj/item/radio/headset/earmuff
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
+	icon = 'icons/obj/item/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
@@ -944,8 +935,6 @@
 	if(istype(V))
 		if(V.comms_support)
 			default_frequency = assign_away_freq(V.name)
-			if(V.comms_name)
-				name = "[V.comms_name] radio headset"
 	else
 		if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
 			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)

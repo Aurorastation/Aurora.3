@@ -95,16 +95,15 @@ GLOBAL_LIST_INIT(adminhelp_ignored_words, list("unknown","the","a","an","of","mo
 		ticket = new /datum/ticket(ckey)
 	else if(ticket.status == TICKET_ASSIGNED)
 		// manually check that the target client exists here as to not spam the usr for each logged out admin on the ticket
-		var/admin_found = 0
+		var/admin_found = FALSE
 		for(var/admin in ticket.assigned_admins)
 			var/client/admin_client = client_by_ckey(admin)
-			if(admin_client)
-				admin_found = 1
+			if(admin_client?.holder && ((R_ADMIN|R_MOD) & admin_client.holder.rights))
+				admin_found = TRUE
 				src.cmd_admin_pm(admin_client, original_msg, ticket)
 				break
-		if(!admin_found)
-			to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
-		return
+		if(admin_found)
+			return
 
 	ticket.append_message(src.ckey, null, original_msg)
 

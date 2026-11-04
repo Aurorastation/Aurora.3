@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/space/void/kataphract
 	name = "kataphract voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/hegemony.dmi'
 	icon_state = "kataphract_helm"
 	item_state = "kataphract_helm"
 	contained_sprite = TRUE
@@ -21,7 +21,7 @@
 /obj/item/clothing/suit/space/void/kataphract
 	name = "kataphract voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/hegemony.dmi'
 	icon_state = "kataphract"
 	item_state = "kataphract"
 	contained_sprite = TRUE
@@ -40,6 +40,8 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
@@ -68,7 +70,7 @@
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
 	desc = "A cheap but effective helmet made to fit with a larger combat assembly."
-	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig0-unathipirate"
 	item_state = "rig0-unathipirate"
 	contained_sprite = TRUE
@@ -89,7 +91,7 @@
 /obj/item/clothing/suit/space/void/unathi_pirate
 	name = "unathi raider voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. The cheap but effective design makes it a popular choice amongst pirates and the likes."
-	icon = 'icons/obj/clothing/voidsuit/unathi_pirate.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/unathi_pirate.dmi'
 	icon_state = "rig-unathipirate"
 	item_state = "rig-unathipirate"
 	contained_sprite = TRUE
@@ -106,6 +108,8 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/captain
 	name = "unathi raider captain helmet"
 	desc = "A decent helmet made to fit with a larger combat assembly."
@@ -121,7 +125,7 @@
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit"
 	contained_sprite = TRUE
@@ -139,10 +143,12 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
+
 /obj/item/clothing/head/helmet/space/void/hegemony
 	name = "hegemony military helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
-	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidhelm"
 	item_state = "hegemony-voidhelm"
 	contained_sprite = TRUE
@@ -212,6 +218,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
 	name = "tarwa conglomerate captain's voidsuit"
@@ -312,7 +320,7 @@
 	icon = 'icons/obj/unathi_ruins.dmi'
 	icon_state = "unathispacesuit"
 	item_state = "unathispacesuit"
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/unathi_ruin
@@ -322,5 +330,5 @@
 	icon = 'icons/obj/unathi_ruins.dmi'
 	icon_state = "unathispacehelm"
 	item_state = "unathispacehelm"
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_URAWANI, SPECIES_UNATHI_ZIRALIXI)
 	refittable = FALSE

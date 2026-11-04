@@ -16,6 +16,21 @@
 	icon = 'icons/effects/native_particles.dmi'
 	icon_state = "cooking_smoke"
 
+/particles/door_destruction
+	name = "door destruction"
+	width = 256
+	height = 256
+	count = 150
+	spawning = 12
+	lifespan = 20
+	fade = 12
+	position = generator("box", list(-24, -8, 0), list(24, 16, 48))
+	gravity = list(0.5, 0)
+	friction = 0.2
+	drift = generator("sphere", 0, 1.5)
+	icon = 'icons/effects/native_particles.dmi'
+	icon_state = "cooking_smoke"
+
 /particles/bar_smoke
 	width = 256
 	height = 256
@@ -111,6 +126,9 @@
 	particle_type = "heat"
 	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
+
+/obj/particle_emitter/door_destruction
+	particle_type = "door destruction"
 
 
 /obj/particle_emitter/heat/Initialize()

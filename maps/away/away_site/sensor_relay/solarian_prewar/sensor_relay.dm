@@ -36,7 +36,6 @@
 	Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty's Cradle and the Jewel Worlds, beacon stations are still \
 	a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
 	comms_support = TRUE
-	comms_name = "Sensor Relay"
 	initial_generic_waypoints = list(
 		"relay_n",
 		"relay_nw",
@@ -49,6 +48,9 @@
 /obj/effect/overmap/visitable/ship/stationary/sensor_relay/New(loc, ...)
 	designation = "Sensor Relay #[rand(100, 999)]"
 	..()
+
+/obj/effect/overmap/visitable/ship/stationary/sensor_relay/create_comms_groups()
+	return list("default" = new /datum/comms_group("Sensor Relay"))
 
 /obj/effect/overmap/visitable/ship/stationary/sensor_relay/handle_sensor_state_change(var/on)
 	if(on)

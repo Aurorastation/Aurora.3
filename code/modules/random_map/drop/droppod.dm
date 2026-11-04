@@ -83,7 +83,7 @@
 	if(placement_explosion_dev || placement_explosion_heavy || placement_explosion_light || placement_explosion_flash)
 		var/turf/T = locate((origin_x + n_ceil(limit_x / 2)-1), (origin_y + n_ceil(limit_y / 2)-1), origin_z)
 		if(istype(T))
-			explosion(T, placement_explosion_dev, placement_explosion_heavy, placement_explosion_light, placement_explosion_flash)
+			explosion(T, placement_explosion_dev, placement_explosion_heavy, placement_explosion_light, placement_explosion_flash, spreading = TRUE)
 			sleep(15) // Let the explosion finish proccing before we ChangeTurf(), otherwise it might destroy our spawned objects.
 	return ..()
 
@@ -162,7 +162,7 @@
 		if(!spawn_path)
 			return
 
-		if(alert("Do you wish the mob to have a player?",,"No","Yes") == "No")
+		if(tgui_alert(usr, "Do you wish the mob to have a player?", , list("No", "Yes")) == "No")
 			var/spawn_count = input("How many mobs do you wish the pod to contain?", "Drop Pod Selection", null) as num
 			if(spawn_count <= 0)
 				return
@@ -196,7 +196,7 @@
 					var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 					A.equip(spawned_mob)
 
-		if(alert("Are you SURE you wish to deploy this drop pod? It will cause a sizable explosion and gib anyone underneath it.",,"No","Yes") == "No")
+		if(tgui_alert(usr, "Are you SURE you wish to deploy this drop pod? It will cause a sizable explosion and gib anyone underneath it.", , list("No", "Yes")) == "No")
 			if(spawned_mob)
 				qdel(spawned_mob)
 			if(spawned_mobs.len)

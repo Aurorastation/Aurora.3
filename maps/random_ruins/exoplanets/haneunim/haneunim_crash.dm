@@ -47,7 +47,6 @@
 	landmark_transition = "nav_transit_haneunim_crash"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_start_haneunim_crash"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/haneunim_crash/start

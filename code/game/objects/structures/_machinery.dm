@@ -105,6 +105,8 @@ Class Procs:
 	var/stat = 0
 	/// Is this machine emagged?
 	var/emagged = 0
+	/// Bitfield of physical currencies this machine accepts. See `code/__DEFINES/economy.dm`.
+	var/accepted_currencies = CURRENCY_CREDITS
 
 	/// In what power state is this machine? Possible states include being off, idle, or active - see code/__defines/machinery.dm.
 	/// You should not be modifying this directly! Use the procs in power_usage.dm.
@@ -169,6 +171,13 @@ Class Procs:
 	///Do we want to hook into on_enter_area and on_exit_area?
 	///Disables some optimizations
 	var/always_area_sensitive = FALSE
+	/// Whether Alt-clicking this machine attempts to link a PDA carried or worn by the user.
+	var/pda_linkable = FALSE
+
+/obj/structure/machinery/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(pda_linkable)
+		. += "Alt-click this machine to link or unlink an available modular computer."
 
 /obj/structure/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -348,6 +357,40 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
+/obj/structure/machinery/AltClick(mob/user)
+	if(!pda_linkable)
+		return ..()
+	if(!user.TurfAdjacent(get_turf(src)))
+		return FALSE
+
+	var/obj/item/modular_computer/pda = user.get_pda_for_linking()
+	if(!pda)
+		to_chat(user, SPAN_WARNING("You do not have a PDA available to link."))
+		return TRUE
+
+	user.visible_message(
+		SPAN_NOTICE("\The [user] swipes \the [pda] over \the [src]."),
+		SPAN_NOTICE("You swipe \the [pda] over \the [src]."),
+		range = 3
+	)
+	add_fingerprint(user)
+	return toggle_pda_link(pda, user)
+
+/// Toggles a PDA's connection to this machine. PDA-linkable machinery should override this.
+/obj/structure/machinery/proc/toggle_pda_link(obj/item/modular_computer/pda, mob/user)
+	return FALSE
+
+/// Returns the label shown for a linked PDA, including the wearer's ID when the PDA has no inserted ID.
+/obj/structure/machinery/proc/get_pda_link_name(obj/item/modular_computer/pda, mob/user)
+	. = pda.name
+	if(pda.card_slot?.stored_card || !ishuman(user))
+		return
+
+	var/mob/living/carbon/human/human_user = user
+	var/obj/item/card/id/worn_id = human_user.wear_id?.GetID()
+	if(worn_id?.registered_name)
+		. += " ([worn_id.registered_name])"
+
 /obj/structure/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
 		return TRUE
@@ -362,14 +405,19 @@ Class Procs:
 	return ..()
 
 /obj/structure/machinery/attack_ranged(mob/user, params)
-	. = ..()
+	if(..())
+		return TRUE
 	if(isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
+			return TRUE
 
 /obj/structure/machinery/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	if(obj_flags & OBJ_FLAG_SIGNALER)
 		if(issignaler(attacking_item))
 			if(signaler)
@@ -488,23 +536,43 @@ Class Procs:
 	update_icon()
 	return TRUE
 
+/obj/structure/machinery/proc/get_part_replacement_type(obj/item/part)
+	var/obj/item/circuitboard/board = locate(/obj/item/circuitboard) in component_parts
+	var/replacement_type
+
+	if(board?.req_components)
+		for(var/component_type in board.req_components)
+			var/board_part_type = ispath(component_type) ? component_type : text2path(component_type)
+			if(!ispath(board_part_type, /obj/item/stock_parts) && !ispath(board_part_type, /obj/item/reagent_containers/glass))
+				continue
+			if(istype(part, board_part_type) && (!replacement_type || ispath(board_part_type, replacement_type)))
+				replacement_type = board_part_type
+
+	if(replacement_type)
+		return replacement_type
+
+	for(var/component_type in component_types)
+		var/component_part_type = ispath(component_type) ? component_type : text2path(component_type)
+		if(!ispath(component_part_type, /obj/item/stock_parts) && !ispath(component_part_type, /obj/item/reagent_containers/glass))
+			continue
+		if(istype(part, component_part_type) && (!replacement_type || ispath(component_part_type, replacement_type)))
+			replacement_type = component_part_type
+
+	return replacement_type
+
 /obj/structure/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!LAZYLEN(component_parts))
 		return FALSE
 	else if(istype(R))
 		var/parts_replaced = FALSE
 		if(panel_open)
-			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-			var/P
 			for(var/obj/item/reagent_containers/glass/G in component_parts)
-				for(var/D in CB.req_components)
-					var/T = text2path(D)
-					if(ispath(G.type, T))
-						P = T
-						break
+				var/replacement_type = get_part_replacement_type(G)
+				if(!replacement_type)
+					continue
 				for(var/obj/item/reagent_containers/glass/B in R.contents)
 					if(B.reagents && B.reagents.total_volume > 0) continue
-					if(istype(B, P) && istype(G, P))
+					if(istype(B, replacement_type))
 						if(B.volume > G.volume)
 							R.remove_from_storage(B, src)
 							R.handle_item_insertion(G, 1)
@@ -512,15 +580,14 @@ Class Procs:
 							component_parts += B
 							B.forceMove(src)
 							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							parts_replaced = TRUE
 							break
 			for(var/obj/item/stock_parts/A in component_parts)
-				for(var/D in CB.req_components)
-					var/T = text2path(D)
-					if(ispath(A.type, T))
-						P = T
-						break
+				var/replacement_type = get_part_replacement_type(A)
+				if(!replacement_type)
+					continue
 				for(var/obj/item/stock_parts/B in R.contents)
-					if(istype(B, P) && istype(A, P))
+					if(istype(B, replacement_type))
 						if(B.rating > A.rating)
 							R.remove_from_storage(B, src)
 							R.handle_item_insertion(A, 1)
@@ -530,9 +597,9 @@ Class Procs:
 							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 							parts_replaced = TRUE
 							break
-			RefreshParts()
-			update_icon()
-			if(parts_replaced) //only play sound when RPED actually replaces parts
+			if(parts_replaced)
+				RefreshParts()
+				update_icon()
 				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 			return TRUE
 		else

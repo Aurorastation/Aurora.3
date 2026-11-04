@@ -25,6 +25,8 @@
 		SPECIES_SKRELL,
 		SPECIES_SKRELL_AXIORI,
 		SPECIES_UNATHI,
+		SPECIES_UNATHI_URAWANI,
+		SPECIES_UNATHI_ZIRALIXI,
 		SPECIES_TAJARA,
 		SPECIES_TAJARA_MSAI,
 		SPECIES_TAJARA_ZHAN,
@@ -536,15 +538,17 @@
 	for(var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
-		var/burn_damage = get_wound_severity(O.burn_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/burn_damage = get_wound_severity(LIMB_GET_BURN_DAMAGE(O), (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["burn_damage"] = burn_damage
-		var/brute_damage = get_wound_severity(O.brute_dam, (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
+		var/brute_damage = get_wound_severity(LIMB_GET_BRUTE_DAMAGE(O), (O.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)
 		data["brute_damage"] = brute_damage
 
 		var/list/wounds = list()
 
 		if(O.status & ORGAN_ROBOT)
 			wounds += "inorganic"
+		if(O.status & ORGAN_DEAD)
+			wounds += "necrotic"
 		if(O.status & ORGAN_ARTERY_CUT)
 			wounds += "severed [O.artery_name]"
 		if(O.tendon_status() & TENDON_CUT)
@@ -931,11 +935,7 @@
 
 /obj/structure/machinery/body_scanconsole/embedded/get_occupant()
 	if(monitor_console?.table)
-
-		if(istype(monitor_console.table.occupant, /datum/weakref))
-			return monitor_console.table.occupant.resolve()
-		else
-			return monitor_console.table.occupant
+		return monitor_console?.table?.get_valid_occupant()
 
 	return null
 

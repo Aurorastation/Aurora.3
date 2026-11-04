@@ -2,6 +2,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/list/random_icon_states
 	var/swept_away
+	var/cleanable_by_basic_cleaners = TRUE
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
@@ -14,10 +15,15 @@
 /obj/effect/decal/cleanable/proc/post_sweep(var/mob/user)
 	return
 
+/obj/effect/decal/cleanable/proc/clean_with_basic_cleaner()
+	if(!cleanable_by_basic_cleaners)
+		return FALSE
+	qdel(src)
+	return TRUE
+
 /obj/effect/decal/cleanable/clean_blood(var/ignore = 0)
 	if(!ignore)
-		qdel(src)
-		return
+		return clean_with_basic_cleaner()
 	..()
 
 /obj/effect/decal/cleanable/Initialize(mapload)
@@ -34,3 +40,9 @@
 		if(T.is_space() || T.is_open())
 			animate(src, alpha = 0, time = 5 SECONDS)
 			QDEL_IN(src, 5 SECONDS)
+
+/obj/effect/decal/cleanable/snow
+	name = "snow"
+	icon = 'icons/turf/overlays.dmi'
+	icon_state = "snowfloor_transparent"
+	anchored = TRUE

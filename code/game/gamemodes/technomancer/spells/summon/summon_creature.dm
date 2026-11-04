@@ -36,8 +36,7 @@
 		"CARP"					=	/mob/living/simple_animal/hostile/carp,
 		"BEAR"					=	/mob/living/simple_animal/hostile/bear,
 		"PSIREN LASHER" 		=	/mob/living/simple_animal/hostile/psiren,
-		"PSIREN DARTER"			= 	/mob/living/simple_animal/hostile/psiren/ranged,
-		"PSIREN OMEN"			=	/mob/living/simple_animal/hostile/psiren/omen
+		"PSIREN DARTER"			= 	/mob/living/simple_animal/hostile/psiren/ranged
 		)
 	cooldown = 30
 	instability_cost = 10

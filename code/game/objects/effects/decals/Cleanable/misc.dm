@@ -55,13 +55,11 @@
 
 /obj/effect/decal/cleanable/greenglow/Initialize(mapload)
 	. = ..()
-	if (!mapload)	// Round-start goo should stick around.
-		QDEL_IN(src, 2 MINUTES)
 
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.apply_radiation(3)
+		H.rad_act(30)
 	STOP_PROCESSING(SSprocessing, src)
 
 ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
@@ -70,6 +68,13 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 	light_range = 2
 	light_power = 0.6
 	light_color = "#64C864"
+
+/obj/effect/decal/cleanable/greenglow/radioactive/post_sweep(var/mob/user)
+	if(radioactivity)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.rad_act(radioactivity)
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -122,7 +127,6 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
 	SSradiation.radiate(src, radioactivity)
-
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"

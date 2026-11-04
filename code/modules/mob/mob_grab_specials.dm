@@ -51,7 +51,7 @@
 		return
 
 	var/obj/item/organ/external/organ = target.get_organ(check_zone(target_zone))
-	if(!organ || organ.dislocated == -1)
+	if(!organ || LIMB_GET_DISLOCATED(organ) == -1)
 		return
 
 	attacker.visible_message(SPAN_DANGER("[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!"))

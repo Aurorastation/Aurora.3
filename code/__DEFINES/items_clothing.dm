@@ -173,11 +173,14 @@
 #define BODYTEMP_COLD_DAMAGE_LIMIT 260.15 // The limit the human body can take before it starts taking damage from coldness.
 
 #define SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // What min_cold_protection_temperature is set to for space-helmet quality headwear. MUST NOT BE 0.
-#define   SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // What min_cold_protection_temperature is set to for space-suit quality jumpsuits or suits. MUST NOT BE 0.
-#define       HELMET_MIN_COLD_PROTECTION_TEMPERATURE 160 // For normal helmets.
-#define        ARMOR_MIN_COLD_PROTECTION_TEMPERATURE 160 // For armor.
-#define       GLOVES_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // For some gloves.
-#define         SHOE_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // For shoes.
+#define	SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE 2.0 // What min_cold_protection_temperature is set to for space-suit quality jumpsuits or suits. MUST NOT BE 0.
+#define	WINTER_MIN_COLD_PROTECTION_TEMPERATURE 160 // For clothing purpose-built for extreme cold.
+#define	MODERATE_MIN_COLD_PROTECTION_TEMPERATURE (T0C - 50) // For heavily insulated everyday clothing.
+#define	LIGHT_MIN_COLD_PROTECTION_TEMPERATURE (T0C - 20) // For ordinary protective clothing.
+#define	HELMET_MIN_COLD_PROTECTION_TEMPERATURE 160 // For normal helmets.
+#define	ARMOR_MIN_COLD_PROTECTION_TEMPERATURE 160 // For armor.
+#define	GLOVES_MIN_COLD_PROTECTION_TEMPERATURE LIGHT_MIN_COLD_PROTECTION_TEMPERATURE // For some gloves.
+#define	SHOE_MIN_COLD_PROTECTION_TEMPERATURE LIGHT_MIN_COLD_PROTECTION_TEMPERATURE // For shoes.
 
 #define   SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE 5000  // These need better heat protect, but not as good heat protect as firesuits.
 #define     FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE 30000 // What max_heat_protection_temperature is set to for firesuit quality headwear. MUST NOT BE 0.

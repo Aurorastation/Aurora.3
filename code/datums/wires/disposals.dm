@@ -1,7 +1,7 @@
 /datum/wires/disposal
 	proper_name = "Disposals"
-	random = TRUE
 	holder_type = /obj/structure/machinery/disposal
+	associated_skill = MECHANICAL_ENGINEERING_SKILL_COMPONENT
 
 /datum/wires/disposal/New(atom/holder)
 	wires = list(

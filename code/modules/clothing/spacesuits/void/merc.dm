@@ -2,7 +2,7 @@
 /obj/item/clothing/head/helmet/space/void/merc
 	name = "blood-red voidsuit helmet"
 	desc = "An advanced helmet designed for work in special operations. Property of Hammertail Smiths."
-	icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 	icon_state = "syndie_helm"
 	item_state = "syndie_helm"
 	contained_sprite = TRUE
@@ -27,7 +27,7 @@
 /obj/item/clothing/suit/space/void/merc
 	name = "blood-red voidsuit"
 	desc = "An advanced suit that protects against injuries during special operations. Property of Hammertail Smiths."
-	icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+	icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 	icon_state = "syndie"
 	item_state = "syndie"
 	contained_sprite = TRUE
@@ -47,6 +47,8 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
+
+	movement_sounds = SFX_ARMOURED_VOIDSUIT_FOOTSTEPS
 
 /obj/item/clothing/head/helmet/space/void/merc/unathi
 	refit_initialize = BODYTYPE_UNATHI

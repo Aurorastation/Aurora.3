@@ -10,6 +10,7 @@
 	mob_swap_flags = ~HEAVY
 	light_system = MOVABLE_LIGHT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	footstep_component_type = /datum/component/mob_footsteps/human
 
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
@@ -924,6 +925,9 @@
 	return base_flash_protection
 
 /mob/living/carbon/human/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /atom/movable/screen/fullscreen/flash, length = 2.5 SECONDS)
+	if(eyes_are_closed())
+		return FALSE
+
 	if(..())
 		var/obj/item/organ/E = get_eyes(no_synthetic = !affect_silicon)
 		if(istype(E))
@@ -1112,15 +1116,16 @@
 	timevomit = clamp(timevomit, 1, 10)
 	level = clamp(level, 1, 3)
 
+	var/delay = rand(100,175)
 	lastpuke = TRUE
 	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
-		sleep(150 / timevomit)	//15 seconds until second warning
+		sleep(delay / timevomit)
 		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
-			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
+			sleep(delay / timevomit)
 			empty_stomach()
-	sleep(350)	//wait 35 seconds before next volley
+	sleep(delay * 2)
 	lastpuke = FALSE
 
 /// A damaged stomach can put blood in your vomit.
@@ -1207,7 +1212,7 @@
 	if(new_style)
 		f_style = new_style
 
-	var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
+	var/new_gender = tgui_alert(usr, "Please select gender.", "Character Generation", list("Male", "Female"))
 	if (new_gender)
 		if(new_gender == "Male")
 			gender = MALE
@@ -1877,7 +1882,7 @@
 	var/list/limbs = list()
 	for(var/limb in organs_by_name)
 		var/obj/item/organ/external/current_limb = organs_by_name[limb]
-		if(current_limb && current_limb.dislocated == 2)
+		if(current_limb && LIMB_GET_DISLOCATED(current_limb) == 2)
 			limbs |= limb
 	var/choice = tgui_input_list(usr, "Which joint do you wish to relocate?", "Relocate Joint", limbs)
 
@@ -2324,9 +2329,7 @@
 
 /mob/living/proc/look_up_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
@@ -2347,9 +2350,7 @@
 
 /mob/living/proc/look_down_open_space(var/turf/T)
 	if(client && !MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
-		if(z_eye)
-			reset_view(null)
-			QDEL_NULL(z_eye)
+		if(z_eye && clear_z_eye())
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)

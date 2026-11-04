@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(radio)
 
 	return frequency
 
-// Used to test connectivity to the telecomms network.
+/// Used to test connectivity to the telecomms network.
 /datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -167,7 +167,7 @@ SUBSYSTEM_DEF(radio)
 
 // Some misc procs not technically part of the subsystem, but are related.
 
-//callback used by objects to react to incoming radio signals
+/// Callback used by objects to react to incoming radio signals
 /obj/proc/receive_signal(datum/signal/signal, receive_method, receive_param)
 	SHOULD_NOT_SLEEP(TRUE)
 
@@ -252,11 +252,11 @@ SUBSYSTEM_DEF(radio)
 			LAZYREPLACEKEY(R.secure_radio_connections, old_channel, new_channel)
 
 /proc/assign_away_freq(channel)
-	if (!AWAY_FREQS_UNASSIGNED.len)
-		return FALSE
-
-	if (channel in AWAY_FREQS_ASSIGNED)
+	if(channel in AWAY_FREQS_ASSIGNED)
 		return AWAY_FREQS_ASSIGNED[channel]
+
+	if(!AWAY_FREQS_UNASSIGNED.len)
+		return FALSE
 
 	var/freq = pick_n_take(AWAY_FREQS_UNASSIGNED)
 	AWAY_FREQS_ASSIGNED[channel] = freq

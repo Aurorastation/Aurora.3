@@ -33,7 +33,7 @@
 			to_chat(usr, SPAN_WARNING("Cancelled."))
 			return
 
-		var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
+		var/announce = tgui_alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", list("Yes", "No"))
 		if(announce == "Yes")
 			announce = TRUE
 
@@ -48,7 +48,7 @@
 			P.stamped = new
 		P.stamped += /obj/item/stamp
 		P.AddOverlays(stampoverlay)
-		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
+		P.stamps += "<HR><i>This paper has been stamped by the Central Command Bluespace Relay.</i>"
 
 		if(fax.receivefax(P))
 			if(announce == 1)

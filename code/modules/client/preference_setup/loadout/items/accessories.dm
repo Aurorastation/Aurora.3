@@ -102,7 +102,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 
 /datum/gear/accessory/horrible_tie
 	display_name = "horrible tie"
-	path = /obj/item/clothing/accessory/horrible
+	path = /obj/item/clothing/accessory/tie/horrible
 
 /datum/gear/accessory/neck_accessories_colourable
 	display_name = "neck accessories selection (colourable)"
@@ -313,6 +313,16 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	badge["badge, electronic"] = /obj/item/clothing/accessory/badge/idbadge/intel
 	gear_tweaks += new /datum/gear_tweak/path(badge)
 
+/datum/gear/accessory/pressbadge
+	display_name = "press badge, corporate"
+	path = /obj/item/clothing/accessory/badge/press
+	allowed_roles = list("Corporate Reporter")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/pressbadge/independent
+	display_name = "press badge, independent"
+	path = /obj/item/clothing/accessory/badge/press/independent
+
 /datum/gear/accessory/namepin
 	display_name = "pins selection"
 	path = /obj/item/clothing/accessory/badge/namepin
@@ -426,11 +436,20 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
 	passcard["passcard, reconstruction mandate"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
 	passcard["passcard, mars"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	passcard["passcard, lycoris"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_lycoris
 	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
 	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
 	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	passcard["passcard, enceladus"] = /obj/item/clothing/accessory/badge/passcard/sol/enceladus
+	passcard["passcard, lhokgon"] = /obj/item/clothing/accessory/badge/passcard/sol/lhokgon
+	passcard["passcard, new peoria"] = /obj/item/clothing/accessory/badge/passcard/sol/new_peoria
+	passcard["passcard, novo igman"] = /obj/item/clothing/accessory/badge/passcard/sol/novo_igman
+	passcard["passcard, old mars"] = /obj/item/clothing/accessory/badge/passcard/sol/mars
+	passcard["passcard, unity station"] = /obj/item/clothing/accessory/badge/passcard/sol/unity_station
+	passcard["passcard, eris & dysnomia"] = /obj/item/clothing/accessory/badge/passcard/sol/eris
+	passcard["passcard, ganymede"] = /obj/item/clothing/accessory/badge/passcard/sol/ganymede
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia

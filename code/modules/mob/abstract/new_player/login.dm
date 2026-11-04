@@ -18,7 +18,8 @@
 	if(!client)
 		return
 
-	if(GLOB.motd)
-		to_chat(src, "<div class=\"motd\">[GLOB.motd]</div>")
+	var/motd = SSregistry.getValue(REGISTRY_MESSAGE_OF_THE_DAY, GLOB.motd)
+	if(motd)
+		to_chat(src, "<div class=\"motd\">[motd]</div>")
 
 	to_chat(src, "<div class='info'>Game ID: </div><div class='danger'>[GLOB.round_id]</div>")

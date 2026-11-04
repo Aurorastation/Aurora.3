@@ -74,11 +74,10 @@ GLOBAL_DATUM(revs, /datum/antagonist/revolutionary)
 	return TRUE
 
 /datum/antagonist/revolutionary/proc/alert_revolutionary_status(var/mob/living/carbon/human/player) //This is so dumb.
-	alert(player, "As a Head Revolutionary you are given an uplink with a lot of telecrystals. \
+	tgui_alert(player, "As a Head Revolutionary you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
-				Doing so may lead to administrative action being taken.",
-				"Antagonist Introduction", "I understand.")
+				Doing so may lead to administrative action being taken.", "Antagonist Introduction", list("I understand."))
 
 /datum/antagonist/revolutionary/get_antag_radio()
 	return "Mercenary"
