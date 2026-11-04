@@ -123,7 +123,7 @@
 	else if(href_list["add_language"])
 		var/datum/species/S = GLOB.all_species[pref.species]
 		if(pref.alternate_languages.len >= S.num_alternate_languages)
-			alert(user, "You have already selected the maximum number of alternate languages for this species!")
+			tgui_alert(user, "You have already selected the maximum number of alternate languages for this species!")
 		else
 			var/list/available_languages = S.secondary_langs.Copy()
 			for(var/L in GLOB.all_languages)
@@ -137,12 +137,12 @@
 			available_languages -= pref.alternate_languages
 
 			if(!available_languages.len)
-				alert(user, "There are no additional languages available to select.")
+				tgui_alert(user, "There are no additional languages available to select.")
 			else
 				var/new_lang = input(user, "Select an additional language", "Character Generation", null) as null|anything in available_languages
 				if(new_lang)
 					if (pref.alternate_languages.len >= S.num_alternate_languages)
-						alert(user, "You have already selected the maximum number of alternate languages for this species!")
+						tgui_alert(user, "You have already selected the maximum number of alternate languages for this species!")
 					else
 						pref.alternate_languages |= new_lang
 					return TOPIC_REFRESH

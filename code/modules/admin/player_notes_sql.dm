@@ -13,7 +13,7 @@
 		query_details["a_ckey"] = user.ckey
 
 	if (!establish_db_connection(GLOB.dbcon))
-		alert("SQL connection failed while trying to add a note!")
+		tgui_alert(usr, "SQL connection failed while trying to add a note!")
 		return
 
 	if (!player_address || !player_computerid)
@@ -62,7 +62,7 @@
 
 	switch (note_edit)
 		if ("delete")
-			if(alert("Delete this note?", "Delete?", "Yes", "No") == "Yes")
+			if(tgui_alert(usr, "Delete this note?", "Delete?", list("Yes", "No")) == "Yes")
 				var/DBQuery/deletequery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id:")
 				deletequery.Execute(list("note_id" = note_id))
 

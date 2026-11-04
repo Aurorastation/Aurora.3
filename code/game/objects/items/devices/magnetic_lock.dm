@@ -315,7 +315,7 @@
 					return
 
 		if (locate(/obj/structure/machinery/door/airlock) in oview(1, newtarget))
-			if (alert("Brace adjacent airlocks?",,"Yes", "No") == "Yes")
+			if (tgui_alert(usr, "Brace adjacent airlocks?", , list("Yes", "No")) == "Yes")
 				if (!check_target(newtarget, user)) return
 				for (var/obj/structure/machinery/door/airlock/A in get_step(newtarget.loc, turn(direction, -90)))
 					if (istype(A, newtarget.type))

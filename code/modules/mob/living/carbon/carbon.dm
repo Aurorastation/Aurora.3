@@ -476,7 +476,7 @@
 		else
 			to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
-	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
+	if(tgui_alert(src, "Are you sure you want to sleep for a while?", "Sleep", list("Yes", "No")) == "Yes")
 		willfully_sleeping = TRUE
 		usr.sleeping = 20 // Short nap.
 		usr.eye_blurry = 20

@@ -597,7 +597,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 			if(src.channel_name == "" || src.channel_name == "\[REDACTED\]" || src.scanned_user == "Unknown" || check || (src.scanned_user in existing_authors) )
 				src.screen=7
 			else
-				var/choice = alert("Please confirm Feed channel creation","Network Channel Handler","Confirm","Cancel")
+				var/choice = tgui_alert(usr, "Please confirm Feed channel creation", "Network Channel Handler", list("Confirm", "Cancel"))
 				if(choice=="Confirm")
 					SSnews.CreateFeedChannel(src.channel_name, src.scanned_user, c_locked)
 					src.screen=5
@@ -740,7 +740,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 			if(src.msg == "" || src.channel_name == "" || src.scanned_user == "Unknown")
 				src.screen = 16
 			else
-				var/choice = alert("Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]","Network Security Handler","Confirm","Cancel")
+				var/choice = tgui_alert(usr, "Please confirm Wanted Issue [(input_param==1) ? ("creation.") : ("edit.")]", "Network Security Handler", list("Confirm", "Cancel"))
 				if(choice=="Confirm")
 					if(input_param==1)          //If input_param == 1 we're submitting a new wanted issue. At 2 we're just editing an existing one. See the else below
 						var/datum/feed_message/WANTED = new /datum/feed_message
@@ -754,7 +754,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 						src.screen = 15
 					else
 						if(SSnews.wanted_issue.is_admin_message)
-							alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot edit it.","Ok")
+							tgui_alert(usr, "The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot edit it.", "Ok")
 							return
 						SSnews.wanted_issue.author = src.channel_name
 						SSnews.wanted_issue.body = src.msg
@@ -767,9 +767,9 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 
 		else if(href_list["cancel_wanted"])
 			if(SSnews.wanted_issue.is_admin_message)
-				alert("The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot take it down.","Ok")
+				tgui_alert(usr, "The wanted issue has been distributed by a [SSatlas.current_map.company_name] higherup. You cannot take it down.", "Ok")
 				return
-			var/choice = alert("Please confirm Wanted Issue removal","Network Security Handler","Confirm","Cancel")
+			var/choice = tgui_alert(usr, "Please confirm Wanted Issue removal", "Network Security Handler", list("Confirm", "Cancel"))
 			if(choice=="Confirm")
 				SSnews.wanted_issue = null
 				for(var/obj/structure/machinery/newscaster/NEWSCASTER in GLOB.allCasters)
@@ -783,7 +783,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 		else if(href_list["censor_channel_author"])
 			var/datum/feed_channel/FC = locate(href_list["censor_channel_author"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				tgui_alert(usr, "This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.", "Ok")
 				return
 			if(FC.author != "<B>\[REDACTED\]</B>")
 				FC.backup_author = FC.author
@@ -796,7 +796,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 		else if(href_list["censor_channel_story_author"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_author"])
 			if(MSG.is_admin_message)
-				alert("This message was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor its author.","Ok")
+				tgui_alert(usr, "This message was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor its author.", "Ok")
 				return
 			if(MSG.author != "<B>\[REDACTED\]</B>")
 				MSG.backup_author = MSG.author
@@ -809,7 +809,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 		else if(href_list["censor_channel_story_body"])
 			var/datum/feed_message/MSG = locate(href_list["censor_channel_story_body"])
 			if(MSG.is_admin_message)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.","Ok")
+				tgui_alert(usr, "This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot censor it.", "Ok")
 				return
 			if(MSG.body != "<B>\[REDACTED\]</B>")
 				MSG.backup_body = MSG.body
@@ -835,7 +835,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/structure/machinery/newscaster, list())
 		else if(href_list["toggle_d_notice"])
 			var/datum/feed_channel/FC = locate(href_list["toggle_d_notice"])
 			if(FC.is_admin_channel)
-				alert("This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.","Ok")
+				tgui_alert(usr, "This channel was created by a [SSatlas.current_map.company_name] Officer or a external news agency. You cannot place a D-Notice upon it.", "Ok")
 				return
 			FC.censored = !FC.censored
 			FC.update()

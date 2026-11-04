@@ -8,6 +8,8 @@ GLOBAL_LIST_EMPTY(directory)
 
 /// List of all mobs **with clients attached**. Excludes /mob/abstract/new_player
 GLOBAL_LIST_EMPTY(player_list)
+/// List of all clients (ckeys) that connected during the round. Includes disconnected ones.
+GLOBAL_LIST_EMPTY(round_connected_ckeys)
 /// List of all mobs, including clientless.
 GLOBAL_LIST_EMPTY(mob_list)
 /// List of all human mobs and sub-types, including clientless.
