@@ -405,12 +405,14 @@ Class Procs:
 	return ..()
 
 /obj/structure/machinery/attack_ranged(mob/user, params)
-	. = ..()
+	if(..())
+		return TRUE
 	if(isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
+			return TRUE
 
 /obj/structure/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
@@ -681,7 +683,7 @@ Class Procs:
 	return FALSE
 
 /obj/structure/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = get_map_sector(src)
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)

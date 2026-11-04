@@ -32,7 +32,7 @@
 	var/turf/T = get_turf(src)
 	can_explode = FALSE
 	visible_message(SPAN_DANGER("\The [src] explodes!"))
-	explosion(T, 6, 8, 10)
+	explosion(T, 6, 8, 10, spreading = TRUE)
 	SSradiation.radiate(src, 250)
 	new /obj/effect/decal/cleanable/greenglow(T)
 

@@ -534,11 +534,15 @@
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range
 	if(message_range == 0)
-		var/mob/user = loc
-		if(istype(user))
+		var/mob/user = get_message_recipient()
+		if(user)
 			to_chat(user, message)
 		return
 	audible_message(message, hearing_distance = message_range)
+
+/obj/item/modular_computer/proc/get_message_recipient()
+	if(ismob(loc))
+		return loc
 
 // TODO: Make pretty much everything use these helpers.
 /obj/item/modular_computer/proc/output_notice(var/message, var/message_range)
@@ -627,10 +631,10 @@
 	return FALSE
 
 /obj/item/modular_computer/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
-	if(!sector)
-		return
-	return attempt_hook_up_recursive(sector)
+	if(z)
+		var/obj/effect/overmap/visitable/sector = get_map_sector(src)
+		return attempt_hook_up_recursive(sector)
+	return
 
 /obj/item/modular_computer/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
 	if(attempt_hook_up(sector))

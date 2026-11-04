@@ -42,8 +42,9 @@
  * * hitting_projectile - projectile
  * * def_zone - zone hit
  * * piercing_hit - is this hit piercing or normal?
+ * * apply_projectile_effects - whether to call the projectile's `on_hit()` proc after sending bullet act signals
  */
-/atom/proc/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
+/atom/proc/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE, apply_projectile_effects = TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
 	var/sigreturn = SEND_SIGNAL(src, COMSIG_ATOM_PRE_BULLET_ACT, hitting_projectile, def_zone)
@@ -57,6 +58,8 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, hitting_projectile, def_zone)
 	if(QDELETED(hitting_projectile)) // Signal deleted it?
 		return BULLET_ACT_BLOCK
+	if(!apply_projectile_effects)
+		return BULLET_ACT_HIT
 
 	return hitting_projectile.on_hit(
 		target = src,
@@ -81,6 +84,15 @@
 /atom/proc/ex_act(severity, target)
 	set waitfor = FALSE
 	return
+
+/**
+ * Return the amount of blast power this atom absorbs.
+ *
+ * Direction is supplied so dense atoms can later implement directional armor
+ * without changing the cellular explosion machinery.
+ */
+/atom/proc/get_explosion_resistance(direction)
+	return max(0, explosion_resistance)
 
 /**
  * Respond to an emag being used on our atom. Generally gets overwritten.

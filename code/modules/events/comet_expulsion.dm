@@ -79,7 +79,7 @@
 
 /obj/effect/meteor/comet_expulsion/meteor_effect()
 	. = ..()
-	explosion(get_turf(src), ROUND_UP(hitpwr), ROUND_UP(hitpwr*1.2), ROUND_UP(hitpwr*1.4))
+	explosion(get_turf(src), ROUND_UP(hitpwr), ROUND_UP(hitpwr * 1.2), ROUND_UP(hitpwr * 1.4), spreading = TRUE)
 
 
 /*#############################
@@ -107,7 +107,7 @@
 		qdel(src)
 		return
 
-	var/obj/effect/overmap/visitable/target = GLOB.map_sectors["[pick(possible_station_levels)]"]
+	var/obj/effect/overmap/visitable/target = get_map_sector(pick(possible_station_levels))
 
 	if(!istype(target))
 		log_and_message_admins("Comet Expulsion failed to find a viable overmap target.")

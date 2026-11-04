@@ -38,12 +38,14 @@
 		return
 	if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
+		S.stop_automated_movement()
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = JAR_SPIDERLING
 		scoop(S, user)
 	if(ismob(A))
 		var/mob/L = A
 		if(L.mob_size <= MOB_TINY)
+			GLOB.move_manager.stop_looping(L)
 			contains = JAR_ANIMAL
 			scoop(L, user)
 		else
@@ -53,6 +55,7 @@
 	user.visible_message(SPAN_NOTICE("<b>[user]</b> scoops \the [A] into \the [src]."), SPAN_NOTICE("You scoop \the [A] into \the [src]."))
 	playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	A.forceMove(src)
+	contained |= A
 	update_icon()
 	return
 
@@ -84,9 +87,9 @@
 				release(S, user)
 		if(JAR_GUMBALL)
 			if(length(contained))
-				user.put_in_hands(contained[1])
-				contained -= contained[1]
-				release(contained[1], user)
+				var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = contained[1]
+				user.put_in_hands(G)
+				release(G, user)
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
 				var/turf/T = get_turf(src)
@@ -98,11 +101,20 @@
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes \the [A] out from \the [src]."), SPAN_NOTICE("You take \the [A] out from \the [src]."))
 	else
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), SPAN_NOTICE("You release \the [A] from \the [src]."))
-	if(length(contained) == 0)
+	contained -= A
+	if(!length(contents))
 		contains = JAR_NOTHING
 	playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	update_icon()
 	return
+
+/obj/item/glass_jar/Exited(atom/movable/gone, direction)
+	. = ..()
+	contained -= gone
+	if(!length(contents))
+		contains = JAR_NOTHING
+	if(!QDELETED(src))
+		update_icon()
 
 /obj/item/glass_jar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(user != over || use_check_and_message(user))
@@ -110,9 +122,9 @@
 	if(length(contained))
 		switch(contains)
 			if(JAR_GUMBALL)
-				release(contained[1], user)
-				user.put_in_hands(contained[1])
-				contained -= contained[1]
+				var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = contained[1]
+				user.put_in_hands(G)
+				release(G, user)
 
 /obj/item/glass_jar/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/currency))
@@ -120,16 +132,22 @@
 		if(contains == JAR_NOTHING)
 			contains = JAR_MONEY
 		if(contains != JAR_MONEY)
+			to_chat(user, SPAN_WARNING("\The [src] already contains something else!"))
 			return TRUE
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S] into \the [src]."))
 		user.drop_from_inventory(S,src)
+		contained |= S
 		update_icon()
+		return TRUE
 	if(istype(attacking_item, /obj/item/clothing/mask/chewable/candy/gum/gumball))
 		var/obj/item/clothing/mask/chewable/candy/gum/gumball/G = attacking_item
+		if(contains != JAR_NOTHING && contains != JAR_GUMBALL)
+			to_chat(user, SPAN_WARNING("\The [src] already contains something else!"))
+			return TRUE
 		if(length(contained) < GUMBALL_MAX)
-			contained += G
 			user.drop_from_inventory(G)
 			G.forceMove(src)
+			contained |= G
 			if(!contains)
 				contains = JAR_GUMBALL
 			user.visible_message("<b>[user]</b> puts a gumball in \the [src].", SPAN_NOTICE("You put a gumball in \the [src]."))
@@ -139,6 +157,9 @@
 		return TRUE
 	if(istype(attacking_item, /obj/item/holder))
 		var/obj/item/holder/H = attacking_item
+		if(contains != JAR_NOTHING)
+			to_chat(user, SPAN_WARNING("\The [src] already contains something else!"))
+			return TRUE
 		if(H.w_class <= WEIGHT_CLASS_SMALL)
 			contains = JAR_HOLDER
 			user.drop_from_inventory(H)
@@ -213,6 +234,7 @@
 	S.name = "Peter"
 	S.desc = "The journalist's pet spider, Peter. It has a miniature camera around its neck and seems to glow faintly."
 	S.forceMove(src)
+	contained |= S
 	contains = JAR_SPIDERLING
 	STOP_PROCESSING(SSprocessing, S)
 	update_icon()

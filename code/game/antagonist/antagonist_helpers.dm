@@ -1,19 +1,22 @@
 /datum/antagonist/proc/can_become_antag(var/datum/mind/player, var/ignore_role)
-	if(!player.current)
+	var/mob/player_mob = player?.current
+	if(flags & ANTAG_OVERRIDE_JOB)
+		player_mob = player?.get_player_mob()
+	if(!player_mob)
 		return FALSE
-	if(jobban_isbanned(player.current, bantype))
+	if(jobban_isbanned(player_mob, bantype))
 		return FALSE
 	if(!ignore_role)
 		if(establish_db_connection(GLOB.dbcon)) //no database, no age restriction
-			if(required_age && required_age > player.current.client.player_age)
+			if(required_age && required_age > player_mob.client?.player_age)
 				return FALSE
 		if(player.assigned_role in restricted_jobs)
 			return FALSE
 		if(GLOB.config.protect_roles_from_antagonist && (player.assigned_role in protected_jobs))
 			return FALSE
-		if(player.current.client.prefs && (player.current.client.prefs.species in restricted_species))
+		if(player_mob.client?.prefs && (player_mob.client.prefs.species in restricted_species))
 			return FALSE
-		if(player.current && (player.current.status_flags & NO_ANTAG))
+		if(player_mob.status_flags & NO_ANTAG)
 			return FALSE
 	return TRUE
 

@@ -83,12 +83,18 @@ GLOBAL_VAR_INIT(photo_count, 1)
 
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
+	var/image_size = 64 * photo_size
+	var/window_width = image_size
+	var/window_height = scribble ? max(400, image_size + 100) : image_size
+	if(user.client?.prefs.ui_scale && user.client.window_scaling)
+		window_width *= user.client.window_scaling
+		window_height *= user.client.window_scaling
 	var/dat = "<html><head><title>[name]</title></head>" \
 		+ "<body style='overflow:hidden;margin:0;text-align:center'>" \
-		+ "<img src='tmp_photo_[id].png' width='[64*photo_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
+		+ "<img src='tmp_photo_[id].png' width='[image_size]' style='-ms-interpolation-mode:nearest-neighbor' />" \
 		+ "[scribble ? "<br>Written on the back:<br><i>[scribble]</i>" : ""]" \
 		+ "</body></html>"
-	show_browser(user, HTML_SKELETON(dat), "window=book;size=[64*photo_size]x[scribble ? 400 : 64*photo_size]")
+	show_browser(user, HTML_SKELETON(dat), "window=book;size=[window_width]x[window_height]")
 	onclose(user, "[name]")
 	return
 
@@ -274,21 +280,30 @@ GLOBAL_VAR_INIT(photo_count, 1)
 /obj/item/camera/proc/createpicture(atom/target, mob/living/user, flag)
 	var/mobs = ""
 	var/list/turfs = list()
+	var/x_c = target.x - (size-1)/2
+	var/y_c = target.y - (size-1)/2
+	var/z_c = target.z
 
-	FOR_DVIEW(var/turf/T, size, target, INVISIBILITY_LIGHTING)
+	var/turf/topleft = locate(x_c, y_c, z_c)
+	if (!topleft)
+		return null
+
+	var/turf/viewpoint = get_turf(src)
+	if(istype(user, /mob/living/silicon/ai) && user.eyeobj)
+		viewpoint = get_turf(user.eyeobj)
+	if(!viewpoint || viewpoint.z != z_c)
+		return null
+
+	var/photo_radius = (size - 1) / 2
+	var/view_range = get_dist(viewpoint, target) + photo_radius
+	FOR_DVIEW(var/turf/T, view_range, viewpoint, INVISIBILITY_LIGHTING)
+		if(T.x < x_c || T.x >= x_c + size || T.y < y_c || T.y >= y_c + size)
+			continue
 		if (user.can_capture_turf(T))
 			mobs += get_mobs(T)
 			turfs += T
 
 	END_FOR_DVIEW
-
-	var/x_c = target.x - (size-1)/2
-	var/y_c = target.y - (size-1)/2
-	var/z_c	= target.z
-
-	var/turf/topleft = locate(x_c, y_c, z_c)
-	if (!topleft)
-		return null
 
 	var/icon/photoimage = generate_image_from_turfs(topleft, turfs, size, CAPTURE_MODE_REGULAR, user)
 

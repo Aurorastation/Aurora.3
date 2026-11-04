@@ -44,12 +44,12 @@
 	var/obj/item/clothing/glasses/GS = glasses
 
 	if(istype(GS) && GS.Look(A,src,0)) // for goggles
-		return
+		return TRUE
 
 	if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
-		return
+		return TRUE
 
-	. = ..()
+	return ..()
 
 /mob/living/RestrainedClickOn(var/atom/A)
 	return

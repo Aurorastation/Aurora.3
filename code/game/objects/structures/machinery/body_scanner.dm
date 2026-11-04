@@ -547,6 +547,8 @@
 
 		if(O.status & ORGAN_ROBOT)
 			wounds += "inorganic"
+		if(O.status & ORGAN_DEAD)
+			wounds += "necrotic"
 		if(O.status & ORGAN_ARTERY_CUT)
 			wounds += "severed [O.artery_name]"
 		if(O.tendon_status() & TENDON_CUT)
