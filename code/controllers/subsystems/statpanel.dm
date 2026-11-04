@@ -33,7 +33,7 @@ SUBSYSTEM_DEF(statpanels)
 
 		var/pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
 		if(pinned_round_time)
-			global_data += "Pinned Round Time: [time2text(pinned_round_time, "hh:mm:ss")]"
+			global_data += "Pinned Round Time: [pinned_round_time]"
 
 		global_data += "Current Date: [worlddate2text()]"
 		global_data += "Round Time: [get_round_duration_formatted()]"
