@@ -36694,10 +36694,6 @@
 	pixel_y = -3;
 	pixel_x = 17
 	},
-/obj/item/clothing/head/collectable/HoS{
-	pixel_y = 6;
-	pixel_x = -10
-	},
 /obj/item/flag/konyang/l,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)

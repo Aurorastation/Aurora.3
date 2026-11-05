@@ -594,24 +594,22 @@
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
 	/* START Spatial grid stuffs */
-	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
-		return
+	if(HAS_SPATIAL_GRID_CONTENTS(src) && SSspatial_grid.initialized)
+		var/turf/old_turf = get_turf(old_loc)
+		var/turf/new_turf = get_turf(src)
 
-	var/turf/old_turf = get_turf(old_loc)
-	var/turf/new_turf = get_turf(src)
+		if(old_turf && new_turf && (old_turf.z != new_turf.z \
+			|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
+			|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
 
-	if(old_turf && new_turf && (old_turf.z != new_turf.z \
-		|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
-		|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
+			SSspatial_grid.exit_cell(src, old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
 
-		SSspatial_grid.exit_cell(src, old_turf)
-		SSspatial_grid.enter_cell(src, new_turf)
+		else if(old_turf && !new_turf)
+			SSspatial_grid.exit_cell(src, old_turf)
 
-	else if(old_turf && !new_turf)
-		SSspatial_grid.exit_cell(src, old_turf)
-
-	else if(new_turf && !old_turf)
-		SSspatial_grid.enter_cell(src, new_turf)
+		else if(new_turf && !old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
 	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
@@ -621,6 +619,8 @@
 		if(!light.source_atom)
 			continue
 		light.source_atom.update_light()
+		if(QDELETED(light))
+			continue
 		if(!isturf(loc))
 			light.find_containing_atom()
 	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.

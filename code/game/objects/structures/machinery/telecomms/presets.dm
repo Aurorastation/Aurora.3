@@ -4,7 +4,7 @@
 /obj/structure/machinery/telecomms/hub/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -40,7 +40,7 @@
 /obj/structure/machinery/telecomms/receiver/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -87,7 +87,7 @@
 /obj/structure/machinery/telecomms/bus/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -151,7 +151,7 @@
 /obj/structure/machinery/telecomms/processor/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -197,7 +197,7 @@
 /obj/structure/machinery/telecomms/server/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -287,7 +287,7 @@
 /obj/structure/machinery/telecomms/broadcaster/preset_map/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 

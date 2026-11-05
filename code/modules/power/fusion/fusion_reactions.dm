@@ -325,11 +325,11 @@ GLOBAL_LIST(fusion_reactions)
 
 	for(var/obj/structure/machinery/fusion_fuel_injector/I in range(world.view, origin))
 		if(I.cur_assembly && I.cur_assembly.material_name == MATERIAL_SUPERMATTER)
-			explosion(get_turf(I), 6)
+			explosion(get_turf(I), 6, spreading = TRUE)
 			if(I && I.loc)
 				qdel(I)
 
 	sleep(5)
-	explosion(origin, 8)
+	explosion(origin, 8, spreading = TRUE)
 
 	return 1

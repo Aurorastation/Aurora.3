@@ -225,6 +225,10 @@
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
 	return access_point?.owner?.GetIdCard(TRUE)
 
+/obj/item/modular_computer/handheld/pda/tesla_internal/get_message_recipient()
+	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
+	return access_point?.owner
+
 /obj/item/modular_computer/handheld/pda/tesla_internal/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
 	if(istype(access_point) && access_point.owner == user && !access_point.is_broken() && access_point.has_tesla_power())

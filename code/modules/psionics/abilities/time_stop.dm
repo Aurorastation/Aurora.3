@@ -15,15 +15,6 @@
 	cooldown = 10
 	psi_cost = 30
 
-/obj/item/spell/time_stop/Destroy()
-	for(var/mob/living/L in get_hearers_in_view(5, owner))
-		if(L == owner)
-			continue
-		to_chat(L, SPAN_DANGER("Time around you returns to normal!"))
-		L.stunned = 0
-		L.silent = 0
-	return ..()
-
 /obj/item/spell/time_stop/on_use_cast(mob/user)
 	. = ..()
 	if(!.)
@@ -32,16 +23,9 @@
 	if(do_after(user, 1 SECOND))
 		user.visible_message(SPAN_DANGER(FONT_HUGE("[user] extends [user.get_pronoun("his")] arms to [user.get_pronoun("his")] sides!")),
 							SPAN_DANGER("You extend your arms to your side and crystallize the Nlom around you!"))
-		time_stop(user)
-
-/obj/item/spell/time_stop/proc/time_stop(mob/living/user)
-	for(var/mob/living/L in get_hearers_in_view(5, user))
-		if(L == user)
-			continue
-		to_chat(L, SPAN_DANGER("Time around you slows down to a crawl..."))
-		L.AdjustStunned(5)
-		L.silent += 30
-
-	if(do_after(user, 1 SECOND))
-		if(user.psi.spend_power(20))
-			time_stop(user)
+		for(var/mob/living/target in view(2, user))
+			if(target == user)
+				continue
+			to_chat(target, SPAN_DANGER("Time around you slows down to a crawl..."))
+			target.Stun(5)
+			target.silent = max(target.silent, 5)

@@ -269,7 +269,7 @@ SUBSYSTEM_DEF(vote)
 		"isLowerAdmin" = is_lower_admin,
 		"isUpperAdmin" = is_upper_admin,
 		// What the current user has selected in any ongoing votes.
-		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey],
+		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey]?["choice"],
 		"multiSelection" = current_vote?.choices_by_ckey,
 	)
 

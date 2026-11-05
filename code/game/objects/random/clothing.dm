@@ -184,7 +184,8 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/parka = 4,
-		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage = 3
+		/obj/item/clothing/suit/storage/hooded/wintercoat/parka/vintage = 3,
+		/obj/item/clothing/suit/storage/hooded/wintercoat/jacket = 4,
 	)
 
 /obj/random/bandana

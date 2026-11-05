@@ -48,6 +48,7 @@
 	..()
 
 /mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
+	lighting_alpha = default_lighting_alpha
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0

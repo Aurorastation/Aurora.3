@@ -370,3 +370,29 @@
   - rscadd: Implemented assorted mapping changes to the service department, inclusive
       of a new layout behind the bar's counter, tweaks to make the kitchen less claustrophobic,
       and some swapped turfs in hydroponics.
+2026-09-29:
+  ElorgRHG:
+  - bugfix: Fixed the Martian Union flag loadout selection having a banner instead.
+2026-09-30:
+  ElorgRHG:
+  - bugfix: Fixed the One Piece underwear bottom missing a sprite.
+  - bugfix: Fixed the solarian gargoyle voidsuit, and its variants, having the sprite
+      inappropriately (and unsafely) air out the posterior of its user.
+  - bugfix: Fixed the M'sai Ponytail 1 and M'sai Ponytail, Zieglertail hair styles
+      lacking a sprite.
+  FabianK3:
+  - bugfix: Fixed implants getting stuck in implant pads.
+  - bugfix: Fixed psionic mend.
+  - bugfix: Fixed psionic time-stop.
+  - bugfix: Fixed missing wood in cargo.
+  - code_imp: Fixed linter warning.
+  - bugfix: Fixed perm check spam in Server Configuration.
+  SimpleMaroon:
+  - imageadd: Changed the Solarian passcard sprites to updated ones to be in line
+      with lore. Sprites courtesy of the_ill_fated on Discord.
+  - qol: Added new Solarian passcards (Enceladus, Lhokgon, Lycoris, New Peoria, Novo
+      Igman, old Mars, Unity Station, Eris & Dysnomia, and Ganymede).
+  - qol: Changed the description for the generic Solarian passcard, and the description
+      of the current Mars passcard to be in line with current lore.
+  - spellcheck: Changed 'nationa_militia' icon state to 'national_militia' for the
+      Xanan militia passcard.

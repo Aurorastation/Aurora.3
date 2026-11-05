@@ -709,7 +709,7 @@
 		return
 	if(valve_open)
 		if(epp_active)
-			var/response = alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", "Yes", "No")
+			var/response = tgui_alert(usr, "Are you sure you want to close \the [tank]'s valve? The Emergency Positive Pressure system is currently active!", "Toggle Valve", list("Yes", "No"))
 			if(response == "No")
 				return
 			epp_active = FALSE
@@ -725,7 +725,7 @@
 	if(use_check_and_message(usr))
 		return
 	if(epp_active)
-		var/response = alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", "Yes", "No")
+		var/response = tgui_alert(usr, "Are you sure you want to turn off the Emergency Positive Pressure system? It is currently active!", "Toggle EPP", list("Yes", "No"))
 		if(response == "No")
 			return
 		epp_active = FALSE

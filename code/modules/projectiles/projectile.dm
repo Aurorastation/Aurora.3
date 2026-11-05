@@ -442,11 +442,14 @@
 	if(impacted[A.weak_reference]) // NEVER doublehit
 		return FALSE
 	var/turf/T = get_turf(A)
+	var/atom/selected_target = select_target(T, A, A)
+	if(!selected_target)
+		return FALSE
 	var/datum/point/point_cache = trajectory.copy_to()
-	if(ricochets < ricochets_max && check_ricochet(A))
+	if(ricochets < ricochets_max && check_ricochet(selected_target))
 		ricochets++
-		if(A.handle_ricochet(src))
-			on_ricochet(A)
+		if(selected_target.handle_ricochet(src))
+			on_ricochet(selected_target)
 			impacted = list() // Shoot a x-ray laser at a pair of mirrors I dare you
 			ignore_source_check = TRUE // Firer is no longer immune
 			decayedRange = max(0, decayedRange - reflect_range_decrease)
@@ -459,27 +462,33 @@
 			return TRUE
 
 	var/distance = get_dist(T, starting) // Get the distance between the turf shot from and the mob we hit and use that for the calculations.
+	var/aimed_zone = def_zone
 	// Originally was only `def_zone = ran_zone(def_zone, max(100-(7*distance), 5)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.`
 	//Because snowflake aurora BS, this is how we calculate what to hit if anything with a mob
-	if(ismob(A))
+	while(ismob(selected_target))
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
-		def_zone = get_zone_with_miss_chance(def_zone, A, miss_modifier, (distance > 1 || original != A), point_blank)
+		def_zone = get_zone_with_miss_chance(aimed_zone, selected_target, miss_modifier, (distance > 1 || original != selected_target), point_blank)
 		if (!def_zone)
-			A.visible_message(SPAN_NOTICE("\The [src] misses [A] narrowly!"))
-			return FALSE
-		var/atom/shield_target = check_human_shield(A)
+			selected_target.visible_message(SPAN_NOTICE("\The [src] misses [selected_target] narrowly!"))
+			impacted[WEAKREF(selected_target)] = TRUE
+			selected_target = select_target(T, selected_target, A)
+			if(!selected_target)
+				return FALSE
+			continue
+		var/atom/shield_target = check_human_shield(selected_target)
 		if(shield_target)
-			var/datum/weakref/original_ref = A.weak_reference
+			var/datum/weakref/original_ref = selected_target.weak_reference
 			impacted[original_ref] = TRUE
-			process_hit(T, shield_target, A)
+			process_hit(T, shield_target, selected_target)
 			impacted -= original_ref
 			penetrating = initial(penetrating)
 			projectile_piercing = initial(projectile_piercing)
 			pierce_chance = initial(pierce_chance)
-	else
-		def_zone = ran_zone(def_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
+		break
+	if(!ismob(selected_target))
+		def_zone = ran_zone(aimed_zone, clamp(accurate_range - (accuracy_falloff * distance), 5, 100)) //Lower accurancy/longer range tradeoff. 7 is a balanced number to use.
 
-	return process_hit(T, select_target(T, A, A), A) // SELECT TARGET FIRST!
+	return process_hit(T, selected_target, A)
 
 /**
  * The primary workhorse proc of projectile impacts.
@@ -528,7 +537,13 @@
 	if(mode == PROJECTILE_PIERCE_HIT)
 		++pierces
 	hit_something = TRUE
+	var/atom/old_loc = loc
 	var/result = target.bullet_act(src, def_zone, mode == PROJECTILE_PIERCE_HIT)
+	if(QDELETED(src))
+		return hit_something
+	// Teleporters and similar targets move the projectile instead of consuming it.
+	if(loc != old_loc)
+		return hit_something
 	if((result == BULLET_ACT_FORCE_PIERCE) || (mode == PROJECTILE_PIERCE_HIT))
 		if(!(movement_type & PHASING))
 			temporary_unstoppable_movement = TRUE

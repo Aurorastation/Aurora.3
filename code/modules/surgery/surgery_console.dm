@@ -199,6 +199,9 @@
 		if(O.status & ORGAN_SPLINTED)
 			add_surgery_scan_finding(zone_data, "Splinted", 1)
 
+		if(O.status & ORGAN_DEAD)
+			add_surgery_scan_finding(zone_data, "Necrotic tissue", 4)
+
 		if(O.open)
 			add_surgery_scan_finding(zone_data, "Open surgical site", 1)
 

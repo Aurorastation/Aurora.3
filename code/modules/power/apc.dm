@@ -422,17 +422,17 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light_color(LIGHT_COLOR_BLUE)
-			set_light(L_WALLMOUNT_RANGE)
+			set_light(L_WALLMOUNT_RANGE, l_color = LIGHT_COLOR_BLUE)
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
+			var/new_light_color = light_color
 			switch(charging)
 				if(CHARGING_OFF)
-					set_light_color("#F86060")
+					new_light_color = "#F86060"
 				if(CHARGING_ON)
-					set_light_color("#A8B0F8")
+					new_light_color = "#A8B0F8"
 				if(CHARGING_FULL)
-					set_light_color("#82FF4C")
-			set_light(L_WALLMOUNT_RANGE)
+					new_light_color = "#82FF4C"
+			set_light(L_WALLMOUNT_RANGE, l_color = new_light_color)
 		else
 			set_light(0)
 

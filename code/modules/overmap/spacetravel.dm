@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT_TYPED(cached_space, /obj/effect/overmap/visitable/sector/tempor
 	if (!T || !A)
 		return
 
-	var/obj/effect/overmap/visitable/M = GLOB.map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/M = get_map_sector(T.z)
 	if (!M)
 		return
 

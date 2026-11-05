@@ -59,7 +59,7 @@
 	data["lore_summary"] = selected_lore_summary != null ? selected_lore_summary : committed_lore_summary || ""
 	data["lore_summary_changed"] = selected_lore_summary != null
 
-	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, user=user) // Developers only get view-access, no edit permissions
+	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, FALSE, user=user) // Developers only get view-access, no edit permissions
 	data["unsaved_changes"] = check_for_unsaved_changes()
 	return data
 

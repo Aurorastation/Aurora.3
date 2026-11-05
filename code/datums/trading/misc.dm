@@ -104,8 +104,6 @@
 		/obj/item/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
 		/obj/item/grenade/fake                           = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
 		/obj/item/gun/bang/deagle                               = TRADER_SUBTYPES_ONLY
 	)
@@ -149,9 +147,6 @@
 		/obj/item/clothing/head/helmet/amohda           = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/wizrobe/magusblue       = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/unathi            = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/amohda            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
@@ -177,7 +172,6 @@
 	origin = "Azazi Bulk Supply Guild"
 	possible_trading_items = list(
 		/obj/item/rig/unathi                    = TRADER_ALL,
-		/obj/item/rig/internalaffairs           = TRADER_THIS_TYPE,
 		/obj/item/rig/industrial                = TRADER_THIS_TYPE,
 		/obj/item/rig/eva                       = TRADER_THIS_TYPE,
 		/obj/item/rig/ce                        = TRADER_THIS_TYPE,
@@ -219,6 +213,12 @@
 /datum/trader/ship/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
+	trade_flags = TRADER_GOODS|TRADER_WANTED_ONLY
+
+	possible_wanted_items = list(
+		/obj/item/reagent_containers/food/snacks/grown/kois = TRADER_THIS_TYPE,
+		/obj/item/stack/material/phoron = TRADER_THIS_TYPE
+	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/gas/vaurca            = TRADER_THIS_TYPE,
@@ -251,6 +251,17 @@
 		"insult_good"          = "Your humor izzz odd.",
 		"insult_bad"           = "I do not take inzzultzz kindly."
 	)
+
+/datum/trader/ship/vaurca/is_wanted_item(atom/movable/offer)
+	if(..())
+		return TRUE
+	if(!istype(offer, /obj/item/reagent_containers/glass))
+		return FALSE
+
+	var/obj/item/reagent_containers/glass/container = offer
+	if(!container.reagents || container.reagents.reagent_volumes.len != 1)
+		return FALSE
+	return container.reagents.has_reagent(/singleton/reagent/toxin/phoron)
 
 /datum/trader/ship/nka_trading_company
 	name = "Her Majesty's Mercantile Flotilla Ship"

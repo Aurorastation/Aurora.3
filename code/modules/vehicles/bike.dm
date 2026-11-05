@@ -55,7 +55,7 @@
 	. += ..()
 	. += "Click-drag yourself onto the bike to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
-	. += "Click the bike with a key to put it in, and click the bike with empty hand to take it out. The bike won't run without a key."
+	. += "Click the bike with a key to put it in, and click the bike with an empty hand to take it out. If the bike is occupied, use disarm intent to take the key instead of unbuckling the rider. The bike won't run without a key."
 	. += "CTRL-click the bike to toggle the engine."
 	. += "ALT-click to toggle the kickstand which prevents movement by driving and dragging."
 	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the bike."
@@ -110,7 +110,7 @@
 	registration_plate = "[rand(100,999)]-[rand(1000,9999)]"
 
 /obj/vehicle/bike/CtrlClick(var/mob/user)
-	if(Adjacent(user) && anchored)
+	if(user == load || (Adjacent(user) && anchored))
 		toggle_engine(user)
 	else
 		return ..()
@@ -182,7 +182,7 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(key)
+	if(key && (!load || user.a_intent == I_DISARM))
 		to_chat(user, "You take \the [key] out of \the [src]")
 		user.put_in_hands(key)
 		key = null
@@ -484,6 +484,40 @@
 	protection_percent = 10
 	can_hover = FALSE
 	key_type = /obj/item/key/bike/snow
+	/// The cargo sled currently hitched to this snowmobile. Snowmobiles can only pull one sled.
+	var/obj/vehicle/train/cargo/trolley/sled/towed_sled
+
+/obj/vehicle/bike/snow/Destroy()
+	if(towed_sled)
+		towed_sled.unattach()
+	return ..()
+
+/obj/vehicle/bike/snow/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag a cargo sled onto the snowmobile to hitch it. Use a wrench on the sled to unhitch it."
+
+/obj/vehicle/bike/snow/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(towed_sled)
+		. += SPAN_NOTICE("It is towing \the [towed_sled].")
+
+/obj/vehicle/bike/snow/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(istype(dropped, /obj/vehicle/train/cargo/trolley/sled))
+		if(use_check_and_message(user))
+			return
+		var/obj/vehicle/train/cargo/trolley/sled/sled = dropped
+		sled.attach_to_snowmobile(src, user)
+		return
+	return ..()
+
+/obj/vehicle/bike/snow/Move(var/turf/destination)
+	if(towed_sled && destination == get_turf(towed_sled))
+		return FALSE
+
+	var/turf/old_loc = get_turf(src)
+	. = ..()
+	if(. && towed_sled && !towed_sled.Move(old_loc))
+		towed_sled.unattach()
 
 /obj/vehicle/bike/snow/no_key
 	spawns_with_key = FALSE

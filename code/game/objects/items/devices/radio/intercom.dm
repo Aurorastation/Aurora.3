@@ -67,7 +67,7 @@ pixel_x = 8;
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = get_map_sector(T.z)
 	if(istype(V) && V.comms_support)
 		default_frequency = assign_away_freq(V.name)
 		channels += list(
@@ -444,7 +444,7 @@ pixel_x = 8;
 		AddOverlays(screen)
 		AddOverlays(screen_emis)
 		AddOverlays("intercom_scanline")
-		set_light(1.4, 1.3, COLOR_CYAN)
+		set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 		if(broadcasting)
 			var/mutable_appearance/screen_broadcasting = overlay_image(icon, "intercom_b")
 			var/mutable_appearance/screen_broadcasting_hologram = overlay_image(icon, "intercom_b")

@@ -283,19 +283,19 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_HEAD_DEF_ICON			'icons/obj/item/clothing/head/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/obj/item/clothing/back/back.dmi'
 #define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
-#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
-#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
-#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
-#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
-#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
-#define INV_PANTS_DEF_ICON			'icons/mob/pants.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/obj/item/clothing/under/misc_uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/obj/item/clothing/accessory/ties.dmi'
+#define INV_BELT_DEF_ICON 			'icons/obj/item/clothing/belts/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/obj/item/clothing/suit/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/obj/item/clothing/ears/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/obj/item/clothing/ears/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/obj/item/clothing/shoes/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/obj/item/clothing/wrists/wrist.dmi'
+#define INV_PANTS_DEF_ICON			'icons/obj/item/clothing/pants/pants.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF	  "Self Owned"
@@ -310,8 +310,12 @@
 #define ECONOMICALLY_POOR		"Poor"
 #define ECONOMICALLY_DESTITUTE  "Impoverished"
 #define ECONOMICALLY_RUINED		"Ruined"
+#define ECONOMICALLY_BANKRUPT	"Bankrupt"
+#define ECONOMICALLY_DEBT_MINOR	"Minor Debt"
+#define ECONOMICALLY_DEBT_MODERATE	"Moderate Debt"
+#define ECONOMICALLY_DEBT_MAJOR		"Major Debt"
 
-#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE, ECONOMICALLY_RUINED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE, ECONOMICALLY_RUINED, ECONOMICALLY_BANKRUPT, ECONOMICALLY_DEBT_MINOR, ECONOMICALLY_DEBT_MODERATE, ECONOMICALLY_DEBT_MAJOR)
 
 // Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1

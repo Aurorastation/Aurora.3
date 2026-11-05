@@ -101,7 +101,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? BP_L_HAND : BP_R_HAND]
 		E.droplimb(0,DROPLIMB_BLUNT)
-		explosion(get_turf(gun), -1, 0, 2, 3)
+		explosion(get_turf(gun), -1, 0, 2, 3, spreading = TRUE)
 		if(gun)
 			qdel(gun)
 

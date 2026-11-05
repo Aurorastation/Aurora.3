@@ -124,7 +124,7 @@
 /obj/item/ship_ammunition/proc/cookoff(var/caused_by_heat = TRUE)
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
-		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light)
+		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light, spreading = TRUE)
 		qdel(src)
 
 /obj/item/ship_ammunition/proc/can_be_loaded()
@@ -177,13 +177,13 @@
 /obj/item/ship_ammunition/touch_map_edge(var/new_z)
 	if(isprojectile(loc))
 		transfer_to_overmap(new_z)
-		origin = GLOB.map_sectors["[new_z]"]
+		origin = get_map_sector(new_z)
 		return TRUE
 	else
 		. = ..()
 
 /obj/item/ship_ammunition/proc/transfer_to_overmap(var/new_z)
-	var/obj/effect/overmap/start_object = GLOB.map_sectors["[new_z]"]
+	var/obj/effect/overmap/start_object = get_map_sector(new_z)
 	if(!start_object)
 		return FALSE
 
