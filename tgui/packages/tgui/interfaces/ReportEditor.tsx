@@ -32,7 +32,6 @@ type FieldSignature = {
   id: number;
   name: string;
   assignment: string;
-  signature: string;
   signed_at: string;
   can_remove: BooleanLike;
 };
@@ -55,8 +54,11 @@ type ReportEditorData = {
   field_count: number;
   filled_fields: number;
   read_only: BooleanLike;
+  drive_read_only: BooleanLike;
+  finalized: BooleanLike;
   selected_field: number;
   selected_value: string;
+  selected_is_checkbox: BooleanLike;
   selected_signatures: FieldSignature[];
   preview: string;
 };
@@ -71,13 +73,13 @@ export const ReportEditor = (props) => {
         scrollable={data.screen !== 3}
       >
         {data.screen === 3 ? (
-          <Stack vertical fill>
+          <Stack vertical fill className="ReportEditor__screen">
             {!!data.message && (
               <Stack.Item>
                 <Box className="ReportEditor__notice">{data.message}</Box>
               </Stack.Item>
             )}
-            <Stack.Item grow>
+            <Stack.Item grow className="ReportEditor__documentHost">
               <ReportDocument />
             </Stack.Item>
           </Stack>
@@ -205,12 +207,17 @@ const ReportDocument = (props) => {
     const target = event.target as HTMLElement;
     const field = target.closest<HTMLElement>('[data-report-field]');
     if (field?.dataset.reportField) {
-      act('select_field', { index: Number(field.dataset.reportField) });
+      const index = Number(field.dataset.reportField);
+      if (field.dataset.reportType === 'checkbox' && !data.read_only) {
+        act('toggle_checkbox', { index });
+      } else {
+        act('select_field', { index });
+      }
     }
   };
 
   return (
-    <Stack vertical fill>
+    <Stack vertical fill className="ReportEditor__document">
       <Stack.Item>
         <Box className="ReportEditor__header">
           <Stack align="center">
@@ -231,15 +238,27 @@ const ReportDocument = (props) => {
             </Stack.Item>
             <Stack.Item>
               <Button icon="arrow-left" content="Reports" onClick={() => act('show_files')} />
+              <Button
+                icon={data.finalized ? 'unlock' : 'lock'}
+                color={data.finalized ? 'average' : 'good'}
+                content={data.finalized ? 'Resume Editing' : 'Finalize'}
+                tooltip={
+                  data.finalized
+                    ? 'Return this report to editable working mode'
+                    : 'Make this report final and read-only'
+                }
+                disabled={!!data.drive_read_only}
+                onClick={() => act('set_finalized', { finalized: !data.finalized })}
+              />
               <Button icon="print" content="Print" onClick={() => act('print_report')} />
               <Button icon="file-export" content="Export" onClick={() => act('export_text')} />
             </Stack.Item>
           </Stack>
         </Box>
       </Stack.Item>
-      <Stack.Item grow>
-        <Stack fill>
-          <Stack.Item grow basis="72%">
+      <Stack.Item grow className="ReportEditor__documentBody">
+        <Stack fill className="ReportEditor__columns">
+          <Stack.Item grow basis="72%" className="ReportEditor__workspaceColumn">
             <Section fill scrollable className="ReportEditor__workspace">
               {/** biome-ignore lint/a11y/useKeyWithClickEvents: Individual report fields are keyboard-editable in the side panel. */}
               {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Form HTML is purified before display. */}
@@ -250,7 +269,7 @@ const ReportDocument = (props) => {
               />
             </Section>
           </Stack.Item>
-          <Stack.Item basis="28%">
+          <Stack.Item basis="28%" className="ReportEditor__sidebarColumn">
             <Box className="ReportEditor__sidebar">
               <Section
                 title={data.selected_field ? `Field ${data.selected_field} of ${data.field_count}` : 'Fields'}
@@ -278,13 +297,25 @@ const ReportDocument = (props) => {
                     <Box color="label" mb={1}>
                       All fields are optional. Select any highlighted field in the form.
                     </Box>
-                    <TextArea
-                      fluid
-                      height="12rem"
-                      disabled={!!data.read_only}
-                      value={data.selected_value || ''}
-                      onChange={(value) => act('set_field', { value })}
-                    />
+                    {data.selected_is_checkbox ? (
+                      <Button
+                        fluid
+                        icon="rotate"
+                        disabled={!!data.read_only}
+                        content={`Selection: ${data.selected_value || 'Blank'}`}
+                        onClick={() =>
+                          act('toggle_checkbox', { index: data.selected_field })
+                        }
+                      />
+                    ) : (
+                      <TextArea
+                        fluid
+                        height="12rem"
+                        disabled={!!data.read_only}
+                        value={data.selected_value || ''}
+                        onChange={(value) => act('set_field', { value })}
+                      />
+                    )}
                     <Button
                       mt={1}
                       icon="pen"
@@ -297,42 +328,39 @@ const ReportDocument = (props) => {
                       mt={1}
                       icon="eraser"
                       content="Clear Field"
-                      disabled={!!data.read_only}
-                      onClick={() => act('set_field', { value: '' })}
+                      disabled={!!data.read_only || !data.selected_value}
+                      onClick={() =>
+                        data.selected_is_checkbox
+                          ? act('clear_checkbox', { index: data.selected_field })
+                          : act('set_field', { value: '' })
+                      }
                     />
                     {!!data.selected_signatures?.length && (
                       <Box mt={1.25}>
                         <Box className="ReportEditor__signatureHeading">
                           Verified signatures
                         </Box>
-                        {data.selected_signatures.map((signature) => {
-                          const signatureHtml = {
-                            __html: sanitizeText(signature.signature),
-                          };
-                          return (
-                            <Box className="ReportEditor__signature" key={signature.id}>
-                              <Box className="ReportEditor__signatureMark">✓</Box>
-                              <Box className="ReportEditor__signatureBody">
-                                {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Character signature HTML is purified before display. */}
-                                <Box
-                                  className="ReportEditor__signatureText"
-                                  dangerouslySetInnerHTML={signatureHtml}
-                                />
-                                <Box>{signature.name}</Box>
-                                <Box color="label">{signature.assignment}</Box>
-                                <Box color="label">{signature.signed_at}</Box>
+                        {data.selected_signatures.map((signature) => (
+                          <Box className="ReportEditor__signature" key={signature.id}>
+                            <Box className="ReportEditor__signatureMark">✓</Box>
+                            <Box className="ReportEditor__signatureBody">
+                              <Box className="ReportEditor__signatureText">
+                                {signature.name}
                               </Box>
-                              {signature.can_remove && (
-                                <Button
-                                  icon="times"
-                                  color="bad"
-                                  tooltip="Remove your signature"
-                                  onClick={() => act('remove_signature', { id: signature.id })}
-                                />
-                              )}
+                              <Box color="label">{signature.assignment}</Box>
+                              <Box color="label">{signature.signed_at}</Box>
                             </Box>
-                          );
-                        })}
+                            {signature.can_remove && (
+                              <Button
+                                icon="times"
+                                color="bad"
+                                tooltip="Remove using the matching ID"
+                                disabled={!!data.read_only}
+                                onClick={() => act('remove_signature', { id: signature.id })}
+                              />
+                            )}
+                          </Box>
+                        ))}
                       </Box>
                     )}
                   </>
@@ -353,7 +381,12 @@ const ReportDocument = (props) => {
                   value={data.report_name}
                   onChange={(value) => act('rename_report', { name: value })}
                 />
-                {!!data.read_only && (
+                {!!data.finalized && !data.drive_read_only && (
+                  <Box color="good" mt={1}>
+                    This report is final and read-only. Use Resume Editing to make changes.
+                  </Box>
+                )}
+                {!!data.drive_read_only && (
                   <Box color="average" mt={1}>
                     This report is on a read-only drive.
                   </Box>

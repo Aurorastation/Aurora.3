@@ -52,8 +52,6 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	var/field_index
 	var/signer_name = "Unknown"
 	var/signer_assignment = "Unknown"
-	var/signer_ckey = ""
-	var/signature_text = "Unknown"
 	var/signed_at = ""
 	var/signed_value = ""
 
@@ -67,14 +65,12 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	copy.field_index = field_index
 	copy.signer_name = signer_name
 	copy.signer_assignment = signer_assignment
-	copy.signer_ckey = signer_ckey
-	copy.signature_text = signature_text
 	copy.signed_at = signed_at
 	copy.signed_value = signed_value
 	return copy
 
 /datum/report_signature/proc/flatten()
-	return "[signature_text] — [signer_name], [signer_assignment] — [signed_at]"
+	return "[signer_name] — [signer_assignment] — [signed_at]"
 
 /// A structured report made from an immutable database form snapshot.
 /datum/computer_file/data/report
@@ -91,6 +87,7 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	var/created_by = "Unknown"
 	var/created_at = ""
 	var/modified_at = ""
+	var/finalized = FALSE
 
 /datum/computer_file/data/report/clone(var/rename = FALSE, var/computer)
 	var/datum/computer_file/data/report/temp = ..(rename, computer)
@@ -106,6 +103,7 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	temp.created_by = created_by
 	temp.created_at = created_at
 	temp.modified_at = modified_at
+	temp.finalized = finalized
 	return temp
 
 /datum/computer_file/data/report/Destroy()
@@ -128,7 +126,8 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 		field_values += ""
 	refresh_stored_data()
 
-/// Counts [field] markers case-insensitively without changing the original form text.
+/// Counts editable markers case-insensitively without changing the original form text.
+/// A doubled [[field]] marker is still one field, but is presented as a checkbox.
 /datum/computer_file/data/report/proc/count_fields()
 	var/count = 0
 	var/search_from = 1
@@ -139,7 +138,22 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 		search_from = position + 7
 	return count
 
-/// Produces ordinary pencode with values inserted immediately before the retained markers.
+/// Returns whether a positional field uses the database forms' [[field]] checkbox syntax.
+/datum/computer_file/data/report/proc/field_is_checkbox(index)
+	if(index < 1 || index > field_count)
+		return FALSE
+	var/search_from = 1
+	var/current_index = 1
+	var/lower_template = lowertext(form_template)
+	var/position
+	while((position = findtext(lower_template, "\[field\]", search_from)))
+		if(current_index == index)
+			return position > 1 && copytext(lower_template, position - 1, position) == "\[" && copytext(lower_template, position + 7, position + 8) == "\]"
+		current_index++
+		search_from = position + 7
+	return FALSE
+
+/// Produces ordinary pencode with text inserted before retained markers and checkboxes flattened.
 /datum/computer_file/data/report/proc/filled_pencode(remove_markers = FALSE)
 	var/output = ""
 	var/search_from = 1
@@ -147,12 +161,24 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	var/lower_template = lowertext(form_template)
 	var/position
 	while((position = findtext(lower_template, "\[field\]", search_from)))
-		output += copytext(form_template, search_from, position)
-		output += flattened_field(field_index)
-		if(!remove_markers)
+		var/is_checkbox = position > 1 && copytext(lower_template, position - 1, position) == "\[" && copytext(lower_template, position + 7, position + 8) == "\]"
+		var/marker_start = is_checkbox ? position - 1 : position
+		var/marker_end = is_checkbox ? position + 8 : position + 7
+		output += copytext(form_template, search_from, marker_start)
+		if(is_checkbox)
+			var/checkbox_value = uppertext(field_values[field_index])
+			if(checkbox_value != "Y" && checkbox_value != "X")
+				checkbox_value = field_values[field_index] ? "Y" : " "
+			output += "\[[checkbox_value]\]"
+			for(var/datum/report_signature/signature in signatures)
+				if(signature.field_index == field_index)
+					output += "\n[signature.flatten()]"
+		else
+			output += flattened_field(field_index)
+		if(!remove_markers && !is_checkbox)
 			output += copytext(form_template, position, position + 7)
 		field_index++
-		search_from = position + 7
+		search_from = marker_end
 	output += copytext(form_template, search_from)
 	return output
 
@@ -179,18 +205,16 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 		output += signature.flatten()
 	return output
 
-/datum/computer_file/data/report/proc/add_signature(index, mob/user, obj/item/card/id/id_card)
-	if(index < 1 || index > field_count || !user || !id_card)
+/datum/computer_file/data/report/proc/add_signature(index, obj/item/card/id/id_card)
+	if(index < 1 || index > field_count || !id_card?.registered_name || id_card.registered_name == "\[UNSET\]")
 		return
 	for(var/datum/report_signature/existing in signatures)
-		if(existing.field_index == index && existing.signer_ckey == user.ckey)
+		if(existing.field_index == index && lowertext(existing.signer_name) == lowertext(id_card.registered_name))
 			return
 	var/datum/report_signature/signature = new
 	signature.field_index = index
 	signature.signer_name = id_card.registered_name
 	signature.signer_assignment = id_card.assignment || "Unassigned"
-	signature.signer_ckey = user.ckey
-	signature.signature_text = user.mind?.signature || id_card.registered_name
 	signature.signed_at = "[worlddate2text()] [worldtime2text()]"
 	signature.signed_value = field_values[index] || ""
 	signatures += signature
@@ -204,9 +228,11 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	signatures -= detached
 	return detached
 
-/datum/computer_file/data/report/proc/remove_signature(signature_id, signer_ckey)
+/datum/computer_file/data/report/proc/remove_signature(signature_id, obj/item/card/id/id_card)
+	if(!id_card?.registered_name || id_card.registered_name == "\[UNSET\]")
+		return FALSE
 	for(var/datum/report_signature/signature in signatures)
-		if(signature.id != signature_id || signature.signer_ckey != signer_ckey)
+		if(signature.id != signature_id || lowertext(signature.signer_name) != lowertext(id_card.registered_name))
 			continue
 		signatures -= signature
 		qdel(signature)
@@ -223,9 +249,14 @@ GLOBAL_VAR_INIT(report_signature_uid, 0)
 	refresh_stored_data()
 	return TRUE
 
+/datum/computer_file/data/report/proc/set_finalized(value)
+	finalized = !!value
+	modified_at = worldtime2text()
+	refresh_stored_data()
+
 /// Keeps File Manager, printing, and generic file transfers useful without making TXT authoritative.
 /datum/computer_file/data/report/proc/refresh_stored_data()
-	stored_data = filled_pencode()
+	stored_data = filled_pencode(finalized)
 	calculate_size()
 	if(hard_drive)
 		hard_drive.recalculate_size()

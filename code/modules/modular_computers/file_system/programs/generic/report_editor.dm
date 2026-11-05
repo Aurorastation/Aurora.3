@@ -62,19 +62,25 @@
 			if(length(loaded_report.field_values[i]) || loaded_report.has_signatures(i))
 				filled_fields++
 		data["filled_fields"] = filled_fields
-		data["read_only"] = loaded_report.hard_drive.read_only
+		data["drive_read_only"] = loaded_report.hard_drive.read_only
+		data["finalized"] = loaded_report.finalized
+		data["read_only"] = loaded_report.hard_drive.read_only || loaded_report.finalized
 		data["selected_field"] = selected_field
 		data["selected_value"] = selected_field ? loaded_report.field_values[selected_field] : ""
+		data["selected_is_checkbox"] = selected_field ? loaded_report.field_is_checkbox(selected_field) : FALSE
 		var/list/selected_signatures = list()
+		var/obj/item/card/id/current_id = user.GetIdCard()
+		var/current_id_name = current_id?.registered_name
+		if(current_id_name == "\[UNSET\]")
+			current_id_name = null
 		if(selected_field)
 			for(var/datum/report_signature/signature in loaded_report.get_signatures(selected_field))
 				selected_signatures += list(list(
 					"id" = signature.id,
 					"name" = signature.signer_name,
 					"assignment" = signature.signer_assignment,
-					"signature" = signature.signature_text,
 					"signed_at" = signature.signed_at,
-					"can_remove" = signature.signer_ckey == user.ckey
+					"can_remove" = current_id_name && lowertext(signature.signer_name) == lowertext(current_id_name)
 				))
 		data["selected_signatures"] = selected_signatures
 		data["preview"] = render_report_preview(loaded_report)
@@ -121,49 +127,54 @@
 		if("set_field")
 			if(!loaded_report || selected_field < 1)
 				return TRUE
-			if(loaded_report.hard_drive.read_only)
-				message = "That drive is read-only."
+			if(loaded_report.field_is_checkbox(selected_field))
 				return TRUE
 			var/value = params["value"] || ""
 			if(length(value) > REPORT_EDITOR_MAX_FIELD_LENGTH)
 				message = "That field is too long. The maximum is [REPORT_EDITOR_MAX_FIELD_LENGTH] characters."
 				return TRUE
-			var/old_value = loaded_report.field_values[selected_field]
-			var/old_modified_at = loaded_report.modified_at
-			var/list/invalidated_signatures = list()
-			if(value != old_value && loaded_report.has_signatures(selected_field))
-				if(tgui_alert(usr, "Changing this field will invalidate every signature attached to it. Continue?", "Invalidate Signatures", list("Cancel", "Continue")) != "Continue")
-					return TRUE
-				invalidated_signatures = loaded_report.detach_signatures(selected_field)
-			loaded_report.set_field(selected_field, value)
-			if(loaded_report.hard_drive.used_capacity > loaded_report.hard_drive.max_capacity)
-				loaded_report.field_values[selected_field] = old_value
-				loaded_report.signatures += invalidated_signatures
-				loaded_report.modified_at = old_modified_at
-				loaded_report.refresh_stored_data()
-				message = "There is not enough free space to save that field."
-			else
-				QDEL_LIST(invalidated_signatures)
-				message = ""
+			update_field(selected_field, value, usr)
+			return TRUE
+
+		if("toggle_checkbox")
+			if(!loaded_report)
+				return TRUE
+			var/index = text2num(params["index"])
+			if(index < 1 || index > loaded_report.field_count || !loaded_report.field_is_checkbox(index))
+				return TRUE
+			selected_field = index
+			var/current_value = uppertext(loaded_report.field_values[index])
+			var/next_value = current_value == "Y" ? "X" : (current_value == "X" ? "" : "Y")
+			update_field(index, next_value, usr)
+			return TRUE
+
+		if("clear_checkbox")
+			if(!loaded_report)
+				return TRUE
+			var/index = text2num(params["index"])
+			if(index < 1 || index > loaded_report.field_count || !loaded_report.field_is_checkbox(index))
+				return TRUE
+			selected_field = index
+			update_field(index, "", usr)
 			return TRUE
 
 		if("sign_field")
 			if(!loaded_report || selected_field < 1)
 				return TRUE
-			if(loaded_report.hard_drive.read_only)
-				message = "That drive is read-only."
+			if(loaded_report.hard_drive.read_only || loaded_report.finalized)
+				message = loaded_report.finalized ? "Resume editing before changing this report." : "That drive is read-only."
 				return TRUE
 			var/obj/item/card/id/id_card = usr.GetIdCard()
 			// ID_CARD_UNSET is local to cards_ids.dm and is undefined at the end of that file.
 			if(!id_card || !id_card.registered_name || id_card.registered_name == "\[UNSET\]")
 				message = "A valid ID card is required to sign a report."
 				return TRUE
-			var/datum/report_signature/signature = loaded_report.add_signature(selected_field, usr, id_card)
+			var/datum/report_signature/signature = loaded_report.add_signature(selected_field, id_card)
 			if(!signature)
 				message = "You have already signed this field."
 				return TRUE
 			if(loaded_report.hard_drive.used_capacity > loaded_report.hard_drive.max_capacity)
-				loaded_report.remove_signature(signature.id, usr.ckey)
+				loaded_report.remove_signature(signature.id, id_card)
 				message = "There is not enough free space to add that signature."
 				return TRUE
 			var/signer_assignment = id_card.assignment || "Unassigned"
@@ -171,25 +182,43 @@
 			return TRUE
 
 		if("remove_signature")
-			if(!loaded_report || loaded_report.hard_drive.read_only)
+			if(!loaded_report || loaded_report.hard_drive.read_only || loaded_report.finalized)
 				return TRUE
-			if(loaded_report.remove_signature(text2num(params["id"]), usr.ckey))
+			if(loaded_report.remove_signature(text2num(params["id"]), usr.GetIdCard()))
 				message = "Signature removed."
 			else
-				message = "You may only remove your own signature."
+				message = "A matching ID card is required to remove that signature."
 			return TRUE
 
 		if("rename_report")
 			if(!loaded_report)
 				return TRUE
-			if(loaded_report.hard_drive.read_only)
-				message = "That drive is read-only."
+			if(loaded_report.hard_drive.read_only || loaded_report.finalized)
+				message = loaded_report.finalized ? "Resume editing before renaming this report." : "That drive is read-only."
 				return TRUE
 			var/new_name = sanitize_filename(params["name"])
 			if(new_name)
 				loaded_report.filename = new_name
 				loaded_report.modified_at = worldtime2text()
 				message = ""
+			return TRUE
+
+		if("set_finalized")
+			if(!loaded_report)
+				return TRUE
+			if(loaded_report.hard_drive.read_only)
+				message = "That drive is read-only."
+				return TRUE
+			var/old_finalized = loaded_report.finalized
+			var/old_modified_at = loaded_report.modified_at
+			loaded_report.set_finalized(!!params["finalized"])
+			if(loaded_report.hard_drive.used_capacity > loaded_report.hard_drive.max_capacity)
+				loaded_report.finalized = old_finalized
+				loaded_report.modified_at = old_modified_at
+				loaded_report.refresh_stored_data()
+				message = "There is not enough free space to change the report mode."
+				return TRUE
+			message = loaded_report.finalized ? "Report finalized. Resume editing to make further changes." : "Report returned to working mode."
 			return TRUE
 
 		if("print_report")
@@ -293,6 +322,34 @@
 	screen = REPORT_EDITOR_FILES
 	message = new_message
 
+/// Applies either a text edit or checkbox toggle with the same signature and capacity safeguards.
+/datum/computer_file/program/report_editor/proc/update_field(index, value, mob/user)
+	if(!loaded_report || index < 1 || index > loaded_report.field_count)
+		return FALSE
+	if(loaded_report.hard_drive.read_only || loaded_report.finalized)
+		message = loaded_report.finalized ? "Resume editing before changing this report." : "That drive is read-only."
+		return FALSE
+	var/old_value = loaded_report.field_values[index]
+	if(value == old_value)
+		return TRUE
+	var/old_modified_at = loaded_report.modified_at
+	var/list/invalidated_signatures = list()
+	if(loaded_report.has_signatures(index))
+		if(tgui_alert(user, "Changing this field will invalidate every signature attached to it. Continue?", "Invalidate Signatures", list("Cancel", "Continue")) != "Continue")
+			return FALSE
+		invalidated_signatures = loaded_report.detach_signatures(index)
+	loaded_report.set_field(index, value)
+	if(loaded_report.hard_drive.used_capacity > loaded_report.hard_drive.max_capacity)
+		loaded_report.field_values[index] = old_value
+		loaded_report.signatures += invalidated_signatures
+		loaded_report.modified_at = old_modified_at
+		loaded_report.refresh_stored_data()
+		message = "There is not enough free space to save that field."
+		return FALSE
+	QDEL_LIST(invalidated_signatures)
+	message = ""
+	return TRUE
+
 /// Converts the whole form at once, using inert tokens so table and formatting tags remain balanced.
 /datum/computer_file/program/report_editor/proc/render_report_preview(datum/computer_file/data/report/report)
 	var/tokenized = ""
@@ -301,27 +358,35 @@
 	var/lower_template = lowertext(report.form_template)
 	var/position
 	while((position = findtext(lower_template, "\[field\]", search_from)))
-		tokenized += copytext(report.form_template, search_from, position)
+		var/is_checkbox = position > 1 && copytext(lower_template, position - 1, position) == "\[" && copytext(lower_template, position + 7, position + 8) == "\]"
+		var/marker_start = is_checkbox ? position - 1 : position
+		var/marker_end = is_checkbox ? position + 8 : position + 7
+		tokenized += copytext(report.form_template, search_from, marker_start)
 		tokenized += "REPORTEDITORTOKEN[field_index]END"
 		field_index++
-		search_from = position + 7
+		search_from = marker_end
 	tokenized += copytext(report.form_template, search_from)
 	tokenized = normalize_report_lists(tokenized)
 	var/rendered = pencode2html(tokenized)
 	for(var/i = 1 to report.field_count)
 		var/value = report.field_values[i]
+		var/is_checkbox = report.field_is_checkbox(i)
 		var/list/field_signatures = report.get_signatures(i)
-		var/display_value = value ? render_report_fragment(value) : ""
+		var/display_value = is_checkbox ? "" : (value ? render_report_fragment(value) : "")
 		for(var/datum/report_signature/signature in field_signatures)
 			if(length(display_value))
 				display_value += "<br>"
-			// Character signatures are already sanitized HTML produced by the preferences system.
-			display_value += "<span data-report-signature='true'><b>✓ [signature.signature_text]</b><br><small>[html_encode(signature.signer_name)] · [html_encode(signature.signer_assignment)] · [html_encode(signature.signed_at)]</small></span>"
-		if(!length(display_value))
+			display_value += "<span data-report-signature='true'><b>✓ [html_encode(signature.signer_name)]</b><br><small>[html_encode(signature.signer_assignment)] · [html_encode(signature.signed_at)]</small></span>"
+		if(!length(display_value) && !is_checkbox)
 			display_value = "Click to edit"
 		var/field_state = (value || field_signatures.len) ? "data-report-filled='true'" : "data-report-filled='false'"
 		if(i == selected_field)
 			field_state += " data-report-selected='true'"
+		if(is_checkbox)
+			var/checkbox_value = uppertext(value)
+			if(checkbox_value != "Y" && checkbox_value != "X")
+				checkbox_value = value ? "Y" : ""
+			field_state += " data-report-type='checkbox' data-report-checkbox-value='[checkbox_value]'"
 		var/replacement = "<span data-report-field='[i]' [field_state]>[display_value]</span>"
 		rendered = replacetext(rendered, "REPORTEDITORTOKEN[i]END", replacement)
 	return rendered
@@ -399,10 +464,11 @@
 	if(!computer?.nano_printer)
 		message = "Missing hardware: this computer has no printer."
 		return
-	if(!computer.nano_printer.print_text(loaded_report.filled_pencode(), loaded_report.filename))
+	var/print_contents = loaded_report.filled_pencode(loaded_report.finalized)
+	if(!computer.nano_printer.print_text(print_contents, loaded_report.filename))
 		message = "The printer could not print the report. It may be out of paper."
 		return
-	message = "Report printed with its field markers retained."
+	message = loaded_report.finalized ? "Final copy printed without editable field markers." : "Working copy printed with editable field markers."
 
 /datum/computer_file/program/report_editor/proc/export_text()
 	if(!loaded_report || !computer?.hard_drive)
