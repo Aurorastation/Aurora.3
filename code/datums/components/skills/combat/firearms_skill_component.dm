@@ -79,11 +79,13 @@
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_SAFETY)
+	UnregisterSignal(parent, COMSIG_GUN_SCOPE)
 	UnregisterSignal(parent, COMSIG_TURF_ENTERED)
 	UnregisterSignal(parent, COMSIG_GUN_FIRED)
 	return ..()
 
 /datum/component/skill/firearms/proc/set_stabilize(mob/user, turf/new_turf, old_loc)
+	SIGNAL_HANDLER
 	if(!istype(user.get_active_hand(), /obj/item/gun))
 		return
 	stabilize_delay = world.time + 1 SECOND
@@ -110,42 +112,49 @@
 		shooter.balloon_alert(shooter, "Steadied shots!")
 
 /datum/component/skill/firearms/proc/warmup(mob/shooter) // Trained and up ICly would always be steadied
+	SIGNAL_HANDLER
 	if(!stabilized && skill_level < SKILL_LEVEL_TRAINED && !unsteadied && count_to_unsteady < 5)
 		count_to_unsteady++
-	if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL && stabilized && last_tile == shooter.loc)
+	if(stabilized && (skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL))
 		stabilized_shots++
 	count_to_warmup++
+
 	if(count_to_warmup % 18 == 0)
 		var/datum/component/morale/morale_comp = shooter.GetComponent(MORALE_COMPONENT)
 		if(warmup_tier < 2)
 			warmup_tier++
+
 		if(!warmup_end || warmup_tier)
-			if(!morale_comp)
-				return
 			warmup_end = world.time + (((skill_level * bonus_mins_per_rank) + 5) * warmup_tier MINUTES) // 10m for Unfamiliar
-			var/datum/moodlet/warmed_up = morale_comp.load_moodlet(/datum/moodlet/firearms_practice, morale_value)
-			warmed_up.duration = abs(warmup_end - world.time)
-			warmed_up.refresh_moodlet()
-			for(var/datum/moodlet/firearms_practice/moodlet in morale_comp.moodlets) // Moodlets are unique, so not an actual loop
+			// EZ way to inform players of a temporary buff's duration is through a moodlet, + sanity checks for a skill-user w/o morale
+			var/datum/moodlet/warmed_up = morale_comp ? morale_comp.load_moodlet(/datum/moodlet/firearms_practice, morale_value) : null
+			warmed_up?.duration = abs(warmup_end - world.time)
+			warmed_up?.refresh_moodlet()
+
+			for(var/datum/moodlet/firearms_practice/moodlet in morale_comp?.moodlets) // Moodlets are unique, so not an actual loop
 				moodlet.owner = parent
 				moodlet.owner_lvl = skill_level
 			if(warmup_tier == 2)
 				accuracy_boost_chance = 65
-				warmed_up.set_moodlet(morale_value + skill_level)
-		if(warmup_tier == 2)
+				warmed_up?.set_moodlet(morale_value + skill_level)
+
+		if(warmup_tier == 2) // Re-notify when the buff is upgraded
 			var/time_left = warmup_end - world.time
 			var/minutes = round((time_left - (time_left % 600))/600)
+
 			if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 				to_chat(shooter, SPAN_NOTICE("You feel you'll be more accurate now after warming up."))
-			to_chat(shooter, "<span class='good'>You have refreshed your morale modifier from further firing:</span>" \
-			+ "\n\t - worth [morale_value + 2] points" \
-			+ "\n\t - remaining duration: [minutes] minutes"
-			)
+			if(morale_comp)
+				to_chat(shooter, "<span class='good'>You have refreshed your morale modifier from further firing:</span>" \
+				+ "\n\t - worth [morale_value + 2] points" \
+				+ "\n\t - remaining duration: [minutes] minutes"
+				)
+
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
+				to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, for the while.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
-					to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot without skill penalties under the duration.")
+					to_chat(shooter, "\t - a [accuracy_boost_chance]% chance of firing a shot without skill penalties for the while.")
 
 			shooter.balloon_alert(shooter, "WARMED UP!")
 		else
@@ -155,10 +164,10 @@
 			+ "\n\t - remaining duration: [minutes] minutes"
 			)
 			if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-				to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, under the duration.")
+				to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot with boosted accuracy, equal to being a tile closer, for the while.")
 			else
 				if(skill_level < SKILL_LEVEL_TRAINED)
-					to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot without skill penalties under the duration.")
+					to_chat(shooter, "\t - [accuracy_boost_chance]% chance of firing a shot without skill penalties for the while.")
 				to_chat(shooter, SPAN_NOTICE("You feel you've gotten the hang of this for a while."))
 			shooter.balloon_alert(shooter, "Warmed up!")
 		count_to_warmup = 0
@@ -166,6 +175,7 @@
 	if(stabilized && stabilized_shots == 2)
 		stabilized = FALSE
 		stabilized_shots = 0
+		shooter.balloon_alert(shooter, "Stabilization Used!")
 
 	if((skill_level >= SKILL_LEVEL_FAMILIAR && count_to_unsteady == 5) || (skill_level < SKILL_LEVEL_FAMILIAR && count_to_unsteady == 3))
 		unsteadied = TRUE
@@ -180,22 +190,26 @@
 	SIGNAL_HANDLER
 	var/skill_diff = skill_diff_reference - skill_level
 	// When stabilized, steadied, or warmed up: return before any negative skill adjustments. Ordered on reliability.
-	if(last_tile && last_tile != shooter.loc)
+	if(last_tile && last_tile != shooter.loc) // REQUIRES being still, otherwise players would just stabilize out of sight
 		stabilized = FALSE
 		stabilized_shots = 0
+
 	if(stabilized) // First to go because it's the most common and contextual
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1 // +1 tile closer, equal to +2 ranks as a boon for the higher level cost
 			*dispersion_increase = *dispersion_increase - dispersion // 30-degree dispersion DECREASE
 		return .
-	if(!unsteadied)
+
+	if(!unsteadied && (skill_level < SKILL_LEVEL_PROFESSIONAL || skill_level >= SKILL_LEVEL_PROFESSIONAL && !warmup_tier))
 		return
+
 	if(warmup_tier && world.time >= warmup_end)
 		warmup_tier = 0
 		warmup_end = null
 		accuracy_boost_chance = 55
 		to_chat(shooter, SPAN_WARNING("You feel your aim has wavered without practice."))
 		return
+
 	if((warmup_tier == 1 && prob(55)) || (warmup_tier == 2 && prob(65))) // Last to go as its effect is least common, & unpredictable
 		if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			playsound(shooter, 'sound/weapons/ammo_load.ogg', 90) // Actually tough to notice with gun fire
@@ -205,7 +219,8 @@
 			*accuracy_decrease = *accuracy_decrease - 1
 			*dispersion_increase = *dispersion_increase + dispersion * skill_diff
 		return .
-	// Count target as being half a tile further away from shooter per difference between a skilled professional, and shooter's skill level
+
+	// Count target as being 1/2 a tile further away from shooter per difference between a trained person, and shooter's skill level
 	*accuracy_decrease = *accuracy_decrease + accuracy_per_skill_diff * skill_diff
 	// Untrained shooters get an increased firing arc for their guns to 30 degrees.
 	if(skill_level < SKILL_LEVEL_TRAINED)
