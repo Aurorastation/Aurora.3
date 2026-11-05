@@ -847,9 +847,8 @@
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
-	overlay_state = "tc-pin"
 	contained_sprite = TRUE
-	flippable = 1
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
@@ -859,9 +858,8 @@
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
-	overlay_state = "sol-pin"
 	contained_sprite = TRUE
-	flippable = 1
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
@@ -870,35 +868,30 @@
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "sfp-pin"
 	item_state = "sfp-pin"
-	overlay_state = "sfp-pin"
 
 /obj/item/clothing/accessory/sol_pin/ssup
 	name = "Solarian Socialist Unity Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "ssup-pin"
 	item_state = "ssup-pin"
-	overlay_state = "ssup-pin"
 
 /obj/item/clothing/accessory/sol_pin/spp
 	name = "Solarian People's Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "spp-pin"
 	item_state = "spp-pin"
-	overlay_state = "spp-pin"
 
 /obj/item/clothing/accessory/sol_pin/spdp
 	name = "Solarian Popular Democratic Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "spdp-pin"
 	item_state = "spdp-pin"
-	overlay_state = "spdp-pin"
 
 /obj/item/clothing/accessory/sol_pin/commie
 	name = "Communist Party of the Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "commie-pin"
 	item_state = "commie-pin"
-	overlay_state = "commie-pin"
 
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
@@ -954,16 +947,14 @@
 		icon_state = "[initial(icon_state)][tucked ? "_tucked" : ""]"
 		item_state = "[initial(item_state)][tucked ? "_tucked" : ""]"
 
-/obj/item/clothing/accessory/badge/namepin
+/obj/item/clothing/accessory/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "namepintag"
-	item_state = "nametagpin"
-	overlay_state = null
+	item_state = "namepintag"
 	contained_sprite = TRUE
-	badge_string = null
-	slot_flags = SLOT_TIE
+	flippable = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/ribbon
