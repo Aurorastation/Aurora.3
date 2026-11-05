@@ -481,6 +481,8 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport/elyra
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
+	passport["passport, axiom"] = /obj/item/clothing/accessory/badge/passport/axiom
+	passport["passport, salamasian"] = /obj/item/clothing/accessory/badge/passport/salamasian
 	gear_tweaks += new /datum/gear_tweak/path(passport)
 
 /datum/gear/accessory/TCAFcard
@@ -597,6 +599,9 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	flagpatch_national["flagpatch, k'lax"] = /obj/item/clothing/accessory/flagpatch/klax
 	flagpatch_national["flagpatch, c'thur"] = /obj/item/clothing/accessory/flagpatch/cthur
 	flagpatch_national["flagpatch, burzsia"] = /obj/item/clothing/accessory/flagpatch/burzsia
+	flagpatch_national["flagpatch, golden deep"] = /obj/item/clothing/accessory/flagpatch/goldendeep
+	flagpatch_national["flagpatch, axiom"] = /obj/item/clothing/accessory/flagpatch/axiom
+	flagpatch_national["flagpatch, salamasia"] = /obj/item/clothing/accessory/flagpatch/salamasian
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai
