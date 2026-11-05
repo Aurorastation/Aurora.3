@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - balance: "Roughly halfed the intensity of visual screenshake from explosions."
