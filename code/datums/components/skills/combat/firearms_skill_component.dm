@@ -87,6 +87,8 @@
 
 /datum/component/skill/firearms/proc/set_stabilize(mob/user, turf/new_turf, old_loc)
 	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_TRAINED && skill_level < SKILL_LEVEL_PROFESSIONAL)
+		return
 	if(!istype(user.get_active_hand(), /obj/item/gun))
 		return
 	stabilize_delay = world.time + 1 SECOND
