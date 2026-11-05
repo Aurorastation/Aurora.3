@@ -1,0 +1,22 @@
+2026-11-05:
+  DreamySkrell:
+  - refactor: Refactor; adds `get_map_template` and `get_map_sector` procs.
+  ElorgRHG:
+  - bugfix: Fixed forensic gloves missing an onmob sprite.
+  FabianK3:
+  - balance: Roughly halfed the intensity of visual screenshake from explosions.
+  Greenjoe:
+  - rscadd: Adds some new levels of economic status, bankrupt (no money at all in
+      your account) and several levels of debt.
+  SimpleMaroon:
+  - imageadd: Added new Mictlani Trinarist robes and capes to the loadout.
+  - bugfix: Fixed the blue Trinarist cape mob sprites using gray instead of blue.
+  - rscadd: Added a Mictlani IPC origin under the Solarian culture so that the new
+      clothing items can be origin locked.
+  TheGreyWolf:
+  - bugfix: Fixed IPC tag spawning.
+  - bugfix: Fixed some issues with IPC damage never going away.
+  - bugfix: Polls and changelog now display a message in the chat.
+  diggiez:
+  - balance: The Bite ability, currently only available to Ta, only requires a neckgrab.
+  - qol: Black K'ois zombies get less message spam.

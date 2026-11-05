@@ -56,7 +56,7 @@
 		P = papers[papers.len]
 		papers.Remove(P)
 	else if(amount)
-		var/response = alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", "Regular", "Carbon-Copy", "Cancel")
+		var/response = tgui_alert(user, "Do you take regular paper, or Carbon copy paper?", "Paper type request", list("Regular", "Carbon-Copy", "Cancel"))
 		if(response != "Regular" && response != "Carbon-Copy")
 			return
 		amount--

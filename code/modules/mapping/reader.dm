@@ -76,6 +76,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	space_key = null
 	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
 	Master.StopLoadingMap()
+	if(. && !measureOnly)
+		require_area_resort()
 
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, cache_metadata = FALSE)
 	var/tfile = dmm_file//the map file we're creating

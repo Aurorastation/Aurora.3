@@ -57,11 +57,10 @@
 	return
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
-	for(var/area/A in get_sorted_areas())
-		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
+	for(var/obj/structure/machinery/light/L as anything in SSmachinery.all_lights)
+		if(!(L.z in affecting_z))
 			continue
-		if(turnOn)
-			A.radiation_active = TRUE
-		else
-			A.radiation_active = null
-		A.update_icon()
+		var/area/A = get_area(L)
+		if(!A || (A.area_flags & AREA_FLAG_RAD_SHIELDED))
+			continue
+		L.set_radiation_state(turnOn)

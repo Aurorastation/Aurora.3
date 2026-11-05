@@ -7,9 +7,11 @@
 /obj/item/clothing/accessory/badge
 	name = "badge"
 	desc = "A corporate security badge, made from gold and set on false leather."
+	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	overlay_state = "marshalbadge"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_TIE
 
 	var/stored_name
@@ -48,6 +50,7 @@
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
+	item_state = "badge_round"
 	overlay_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -57,7 +60,7 @@
 /obj/item/clothing/accessory/badge/attack_self(mob/user as mob)
 
 	if(!stored_name)
-		var/imprintID = alert(user,"Do you wish to imprint your name on \the [src.name]?","Imprint id","Yes", "No")
+		var/imprintID = tgui_alert(user, "Do you wish to imprint your name on \the [src.name]?", "Imprint id", list("Yes", "No"))
 		if(imprintID == "Yes")
 			to_chat(user, "You inspect your [src.name]. Everything seems to be in order and you give it a quick cleaning with your hand.")
 			set_name(user.real_name)
@@ -187,6 +190,7 @@
 	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
 	icon_state = "invbadge"
+	item_state = "invbadge"
 	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 
@@ -197,6 +201,7 @@
 	desc_extended = "The Biesel Security Services Bureau is the domestic intelligence and security service operating across the Republic of Biesel, \
 	holding jurisdiction over federal crimes that are particularly severe, target the overall republic, or cross member state territories."
 	icon_state = "badge_round_bssb"
+	item_state = "badge_round_bssb"
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
 	contained_sprite = TRUE
@@ -206,12 +211,14 @@
 	name = "\improper BSSB senior agent's badge"
 	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
+	item_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/bssb/bodyguard // for consular bodyguards
 	name = "\improper BSSB close protection officer badge"
 	desc = "A silver badge, set in purple leather, denoting the wearer as a Government Security Division close protection officer of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
+	item_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/sol_visa
@@ -273,6 +280,7 @@
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
 	icon_state = "sheriff"
+	item_state = "sheriff"
 	overlay_state = "sheriff"
 	badge_string = "County Sheriff"
 
@@ -286,6 +294,7 @@
 	name = "\improper ID badge"
 	desc = "A descriptive identification badge with the holder's credentials."
 	icon_state = "solbadge"
+	item_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
 	w_class = WEIGHT_CLASS_TINY
@@ -294,6 +303,7 @@
 	name = "\improper NT ID badge"
 	desc = "A descriptive identification badge with the holder's credentials. This one has red marks with the NanoTrasen logo on it."
 	icon_state = "ntbadge"
+	item_state = "ntbadge"
 	overlay_state = "ntbadge"
 	badge_string = null
 
@@ -301,13 +311,16 @@
 	name = "electronic ID badge"
 	desc = "A descriptive identification badge with the holder's credentials displayed with a harsh digital glow."
 	icon_state = "intelbadge"
+	item_state = "intelbadge"
 	overlay_state = "intelbadge"
 	badge_string = null
 
 /obj/item/clothing/accessory/badge/trinary
 	name = "trinary perfection brooch"
 	desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "trinary_badge"
+	item_state = "trinary_badge"
 	overlay_state = "trinary_badge"
 	badge_string = null
 
@@ -823,6 +836,25 @@
 	desc = "An electronic passport issued to a member of the Golden Deep Collective. This device lists and updates the owner's net worth in real time."
 	icon_state = "passport_goldendeep"
 	item_state = "passport_goldendeep"
+
+/obj/item/clothing/accessory/badge/passport/axiom
+	name = "ecclesiastical authority of axiom passport"
+	desc = "A passport issued to a citizen of the Ecclesiastical Authority of Axiom, an \
+		independent majority-synthetic nation based on the planet known to most as Orepit. \
+		A small prayer book is included in the back, translated in various organic \
+		and non-organic scripts."
+	icon_state = "passport_axiom"
+	item_state = "passport_axiom"
+
+/obj/item/clothing/accessory/badge/passport/salamasian
+	name = "salamasian republic passport"
+	desc = "A passport issued to a citizen of the Salamasian Republic, an independent \
+		human nation based on the planet known indigeneously as Nu'u. While it shares \
+		a planet with Ecclesiastical Axiom, a Trinarist theocracy, it is itself fiercly \
+		independent and protective of its land. Its back page is a transparent rubber \
+		film within which a thin layer of earth from Nu'u is suspended."
+	icon_state = "passport_salamasian"
+	item_state = "passport_salamasian"
 
 /obj/item/clothing/accessory/badge/passport/consortium
 	name = "consortium of hieroaetheria passport"
