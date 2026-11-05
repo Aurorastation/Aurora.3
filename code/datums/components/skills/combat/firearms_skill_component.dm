@@ -21,9 +21,10 @@
 	var/unsteadied
 	/// How long you're unsteadied for after reaching the threshold. 4 seconds for Unfamiliar, 2 for Familiar
 	var/next_steady
-	/** Firing practice warms you up long-term: every 18, stack up to 2 warmup tiers lasting for a duration & reducing penalties
-	 *The 18 isn't random, it's between the common ammo capacities of 15 -> 20 shots. Trained only gets morale from warmups as they
-	 *are meant to be the unchanged level, but Professional gets actual accuracy buffs.
+	/**
+	 * Firing practice warms you up long-term: every 18, stack up to 2 warmup tiers lasting for a duration & reducing penalties
+	 * The 18 isn't random, it's between the common ammo capacities of 15 -> 20 shots. Trained only gets morale from warmups as they
+	 * are meant to be the unchanged level, but Professional gets actual accuracy buffs.
 	 */
 	var/count_to_warmup
 	var/bonus_mins_per_rank = 5
