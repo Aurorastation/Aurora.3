@@ -24,29 +24,52 @@
 	var/insert_anim = "photocopier_scan"
 	/// Print animation.
 	var/print_animation = "photocopier_print"
+	/// Whether this photocopier's toner level persists when initially mapped onto the Horizon.
+	var/persistent_toner = TRUE
 	/// Original map identity used to persist toner without persisting the photocopier itself.
-	var/tmp/toner_persistence_attribute
+	var/tmp/toner_persistence_id
 
-/obj/structure/machinery/photocopier/Initialize(mapload)
-	. = ..()
-	if(type != /obj/structure/machinery/photocopier || !mapload || !SSpersistence.map_supports_persistence || !is_station_level(z))
+/singleton/persistent_type/generic/photocopier_toner
+	/// Persistent photocopiers present on the Horizon when the round's map finished loading.
+	var/list/photocopier_register = list()
+	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved toner.
+	var/toner_initialized = FALSE
+
+/** Loads saved toner into photocopiers mapped onto the Horizon. */
+/singleton/persistent_type/generic/photocopier_toner/initialization_hook()
+	photocopier_register = list()
+	toner_initialized = FALSE
+	if(!SSpersistence.map_supports_persistence)
 		return
 
-	var/turf/mapped_turf = get_turf(src)
-	toner_persistence_attribute = "[mapped_turf.x],[mapped_turf.y],[mapped_turf.z],[type]"
-	var/datum/persistent_generic/saved_toner = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner, toner_persistence_attribute)
-	// Compatibility with toner saved before the machine type became part of its stable identity.
-	if(!saved_toner)
-		saved_toner = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner, "[mapped_turf.x],[mapped_turf.y],[mapped_turf.z]")
-	if(saved_toner && islist(saved_toner.content) && isnum(saved_toner.content["toner"]))
-		toner = clamp(saved_toner.content["toner"], 0, max_toner)
-
-/singleton/persistent_type/generic/photocopier_toner/finalization_hook()
-	for(var/obj/structure/machinery/photocopier/copier in SSmachinery.machinery)
+	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner)
+	var/list/saved_toner = saved_generic?.content
+	for(var/obj/structure/machinery/photocopier/copier in world)
 		CHECK_TICK
-		if(copier.type != /obj/structure/machinery/photocopier || !copier.toner_persistence_attribute)
+		var/turf/copier_turf = get_turf(copier)
+		if(!copier_turf || !is_station_level(copier_turf.z) || !copier.persistent_toner)
 			continue
-		SSpersistence.genericSave(/singleton/persistent_type/generic/photocopier_toner, list("toner" = copier.toner), copier.toner_persistence_attribute)
+
+		photocopier_register += copier
+		copier.toner_persistence_id = "[copier_turf.x],[copier_turf.y],[copier_turf.z],[copier.type]"
+		var/saved_level = saved_toner?[copier.toner_persistence_id]
+		if(isnum(saved_level))
+			copier.toner = clamp(saved_level, 0, copier.max_toner)
+	toner_initialized = TRUE
+
+/** Saves toner for the initially mapped photocopiers without considering their current locations. */
+/singleton/persistent_type/generic/photocopier_toner/finalization_hook()
+	if(!toner_initialized)
+		return
+
+	var/list/all_toner = list()
+	for(var/obj/structure/machinery/photocopier/copier as anything in photocopier_register)
+		CHECK_TICK
+		if(QDELETED(copier))
+			continue
+		all_toner[copier.toner_persistence_id] = copier.toner
+
+	SSpersistence.genericSave(/singleton/persistent_type/generic/photocopier_toner, all_toner)
 
 /obj/structure/machinery/photocopier/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
@@ -318,6 +341,12 @@
 /obj/item/toner/Initialize(mapload)
 	. = ..()
 	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/toner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
+	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+	. += SPAN_TOOLTIP("This is a persistence mechanic. This cartridge and its remaining toner remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
 
 /obj/item/toner/persistent_objects_get_content()
 	var/list/content = ..()

@@ -204,34 +204,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/paperbin
-	category = "operations"
-	name = "paper bin"
-	supplier = "nanotrasen"
-	description = "Pre-stocked stationery bin filled with paper."
-	price = 12
-	items = list(
-		/obj/item/paper_bin
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/paperbinrefill
-	category = "operations"
-	name = "paper ream (x2)"
-	supplier = "nanotrasen"
-	description = "Wrapped reams of blank paper for refilling paper bins."
-	price = 10
-	items = list(
-		/obj/item/paper_bin_refill
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 2
-
 /singleton/cargo_item/pda
 	category = "operations"
 	name = "PDA"

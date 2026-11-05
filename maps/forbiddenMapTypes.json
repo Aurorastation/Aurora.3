@@ -5,6 +5,9 @@
 			"maps": ["sccv_horizon.dmm", "ops_warehouse_small_storage.dmm"],
 			"forbidden_types": [
 				"/obj/item/material/ashtray",
+				"/obj/item/paper_bin",
+				"/obj/item/paper_bin_refill",
+				"/obj/item/toner",
 				"/obj/structure/reagent_dispensers/extinguisher",
 				"/obj/structure/reagent_dispensers/watertank",
 				"/obj/structure/reagent_dispensers/fueltank",

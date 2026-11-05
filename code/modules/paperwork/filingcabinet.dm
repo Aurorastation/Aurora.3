@@ -20,8 +20,6 @@
 	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
 	/// Stable identity assigned to mapped Horizon cabinets for associating persistent papers.
 	var/tmp/persistent_storage_id
-	/// Papers deliberately placed in the persistent storage tab.
-	var/tmp/list/long_term_contents = list()
 
 	var/static/list/accepted_items = list(
 		/obj/item/paper,
@@ -60,10 +58,20 @@
 		for(var/obj/item/paper/paper in SSpersistence.object_track_register)
 			if(paper.persistent_filing_cabinet_id == persistent_storage_id)
 				paper.forceMove(src)
-				long_term_contents += paper
 	for(var/obj/item/I in loc)
+		if(istype(I, /obj/item/paper))
+			var/obj/item/paper/tracked_paper = I
+			if(tracked_paper.persistent_objects_track_active && !is_long_term_paper(tracked_paper))
+				continue
 		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
+
+/// Whether a paper's saved persistence data associates it with this cabinet's long-term storage.
+/obj/structure/filingcabinet/proc/is_long_term_paper(obj/item/item)
+	if(!persistent_storage_id || !istype(item, /obj/item/paper))
+		return FALSE
+	var/obj/item/paper/paper = item
+	return paper.persistent_filing_cabinet_id == persistent_storage_id
 
 /obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, accepted_items))
@@ -71,7 +79,6 @@
 			var/obj/item/paper/paper = attacking_item
 			paper.persistent_filing_cabinet_id = null
 			SSpersistence.objectsDeregisterTrack(paper)
-			long_term_contents -= paper
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
@@ -114,17 +121,13 @@
 	var/list/general = list()
 	var/list/long_term = list()
 
-	for(var/obj/item/item in long_term_contents.Copy())
-		if(QDELETED(item) || item.loc != src)
-			long_term_contents -= item
-
 	for(var/obj/item/item in contents)
 		var/list/item_data = list(
 			"name" = item.name,
 			"ref" = REF(item),
 			"can_archive" = istype(item, /obj/item/paper)
 		)
-		if(item in long_term_contents)
+		if(is_long_term_paper(item))
 			long_term += list(item_data)
 		else
 			general += list(item_data)
@@ -132,6 +135,8 @@
 	data["general"] = general
 	data["long_term"] = long_term
 	data["supports_persistence"] = !!persistent_storage_id
+	var/obj/item/paper/paper_type = /obj/item/paper
+	data["persistence_days"] = initial(paper_type.persistent_objects_expiration_time_days)
 	return data
 
 /obj/structure/filingcabinet/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -147,11 +152,10 @@
 
 	switch(action)
 		if("retrieve")
-			if(item in long_term_contents)
+			if(is_long_term_paper(item))
 				var/obj/item/paper/retrieved_paper = item
 				retrieved_paper.persistent_filing_cabinet_id = null
 				SSpersistence.objectsDeregisterTrack(retrieved_paper)
-				long_term_contents -= retrieved_paper
 			usr.put_in_hands(item)
 			flick("[initial(icon_state)]-open", src)
 			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
@@ -159,21 +163,19 @@
 			return TRUE
 
 		if("archive")
-			if(!persistent_storage_id || !istype(item, /obj/item/paper) || (item in long_term_contents))
+			if(!persistent_storage_id || !istype(item, /obj/item/paper) || is_long_term_paper(item))
 				return
 			var/obj/item/paper/archived_paper = item
 			archived_paper.persistent_filing_cabinet_id = persistent_storage_id
-			long_term_contents += archived_paper
 			SSpersistence.objectsRegisterTrack(archived_paper, ckey(usr.key))
 			return TRUE
 
 		if("unarchive")
-			if(!(item in long_term_contents))
+			if(!is_long_term_paper(item))
 				return
 			var/obj/item/paper/unarchived_paper = item
 			unarchived_paper.persistent_filing_cabinet_id = null
 			SSpersistence.objectsDeregisterTrack(unarchived_paper)
-			long_term_contents -= unarchived_paper
 			return TRUE
 
 /obj/structure/filingcabinet/proc/reset_icon_state()

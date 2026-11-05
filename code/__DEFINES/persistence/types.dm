@@ -17,7 +17,7 @@
 // ##### Persistent generics
 
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
-CREATE_PERSISTENT_TYPE_GENERIC(photocopier_toner, "Photocopier toner levels", "Remaining toner in mapped photocopiers, keyed by their original coordinates.", TRUE)
+CREATE_PERSISTENT_TYPE_GENERIC(photocopier_toner, "Photocopier toner levels", "Remaining toner in photocopiers mapped onto the SCCV Horizon.", FALSE)
 
 // ##### Persistent history
 

@@ -1,10 +1,11 @@
 import {
   Box,
   Button,
-  NoticeBox,
+  Icon,
   Section,
   Stack,
   Tabs,
+  Tooltip,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
@@ -20,6 +21,7 @@ type FilingCabinetData = {
   general: StoredItem[];
   long_term: StoredItem[];
   supports_persistence: BooleanLike;
+  persistence_days: number;
 };
 
 export const FilingCabinet = (props) => {
@@ -29,6 +31,9 @@ export const FilingCabinet = (props) => {
     'general',
   );
   const activeTab = data.supports_persistence ? tab : 'general';
+  const persistenceDuration = `${data.persistence_days} ${
+    data.persistence_days === 1 ? 'day' : 'days'
+  }`;
 
   const items = activeTab === 'general' ? data.general : data.long_term;
 
@@ -50,16 +55,17 @@ export const FilingCabinet = (props) => {
               onClick={() => setTab('long_term')}
             >
               Long-Term ({data.long_term.length})
+              <Tooltip
+                content={`This is a persistence mechanic. Papers stored here remain available between rounds and expire after ${persistenceDuration}. Use it only for documents intended to remain part of the setting.`}
+              >
+                <Box inline ml={1} color="label">
+                  <Icon name="calendar-days" mr={0.5} />
+                  {persistenceDuration}
+                </Box>
+              </Tooltip>
             </Tabs.Tab>
           )}
         </Tabs>
-
-        {activeTab === 'long_term' && (
-          <NoticeBox info>
-            Papers stored here persist between rounds. Use this storage only for
-            documents intended to remain part of the setting.
-          </NoticeBox>
-        )}
 
         <Section
           title={
