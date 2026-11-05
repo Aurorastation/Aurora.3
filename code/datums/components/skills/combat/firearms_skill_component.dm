@@ -209,7 +209,6 @@
 		warmup_end = null
 		accuracy_boost_chance = 55
 		to_chat(shooter, SPAN_WARNING("You feel your aim has wavered without practice."))
-		return
 
 	if((warmup_tier == 1 && prob(55)) || (warmup_tier == 2 && prob(65))) // Last to go as its effect is least common, & unpredictable
 		if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
