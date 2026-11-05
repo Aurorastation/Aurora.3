@@ -52,7 +52,7 @@
 	var/boost_chance = owner.GetComponent(FIREARMS_SKILL_COMPONENT).accuracy_boost_chance
 	var/boost_text = "\n\t - You have a [boost_chance]% chance of firing a shot [accuracy_text]."
 	. = ..()
-	if(owner_lvl >= SKILL_LEVEL_TRAINED)
+	if(owner_lvl >= SKILL_LEVEL_TRAINED && < SKILL_LEVEL_PROFESSIONAL)
 		return .
 	else
 		if(owner_lvl >= SKILL_LEVEL_PROFESSIONAL)
