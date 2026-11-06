@@ -20,10 +20,10 @@
 			continue
 
 		vending_stock_register += vendor
-		var/persistent_stock_id = "[vendor_turf.x],[vendor_turf.y],[vendor_turf.z],[vendor.type]"
+		var/persistent_stock_id = "[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]-[vendor.type]"
 		var/list/vendor_stock = saved_stock?[persistent_stock_id]
 		if(islist(vendor_stock))
-			vendor.receive_persistent_stock(vendor_stock)
+			vendor.persistent_stock_content = vendor_stock
 	stock_initialized = TRUE
 
 /** Saves stock for the initially mapped vendors without considering their current locations. */
@@ -39,6 +39,8 @@
 
 		var/list/vendor_stock = list()
 		for(var/datum/data/vending_product/product in vendor.product_records)
+			// This ignores premium items and contraband, as they are not normally visible
+			// And as such they would be harder to tell when they need refill or not make complete sense
 			if(product.category != CAT_NORMAL)
 				continue
 			var/stock_key = "[product.product_path]|[product.category]"

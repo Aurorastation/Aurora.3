@@ -256,11 +256,11 @@
 	return 1
 
 /datum/unit_test/map_test/mapped_vending_refills
-	name = "MAP: Mapped Horizon vending machines shall have refill canisters"
+	name = "MAP: Mapped vending machines shall have refill canisters"
 
 /datum/unit_test/map_test/mapped_vending_refills/start_test()
 	if(SSatlas.current_map.path != MAP_WITH_PERSISTENCE_SUPPORT)
-		TEST_PASS("The current map is not the Horizon; skipping refill canister checks.")
+		TEST_PASS("The current map is does not support persistence; skipping refill canister checks.")
 		return 1
 
 	var/list/refill_ids = list()
@@ -281,9 +281,9 @@
 			TEST_FAIL("Mapped vending machine [vendor] at ([vendor.x],[vendor.y],[vendor.z]) has no stocked refill canister for vend_id '[vendor.vend_id]'.")
 
 	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] mapped Horizon vending machines have no refill canister.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] mapped vending machines have no refill canister.")
 	else
-		TEST_PASS("All \[[checks]\] mapped Horizon vending machines have refill canisters.")
+		TEST_PASS("All \[[checks]\] mapped vending machines have refill canisters.")
 
 	return 1
 

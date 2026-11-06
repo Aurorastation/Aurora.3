@@ -293,7 +293,7 @@
 	var/turf/T = get_turf(src)
 	if(mapload && T)
 		if(is_station_level(T.z) && persistent_stock)
-			persistent_stock_id = "[T.x],[T.y],[T.z],[type]"
+			persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
 		if(!is_station_level(T.z))
 			if(!onstation_override)
 				onstation = FALSE
@@ -307,10 +307,6 @@
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 	apply_persistent_stock()
-
-/** Receives saved stock before initialization so it can be applied after product records are built. */
-/obj/structure/machinery/vending/proc/receive_persistent_stock(list/saved_stock)
-	persistent_stock_content = saved_stock
 
 /** Applies stock supplied before initialization now that the product records have been built. */
 /obj/structure/machinery/vending/proc/apply_persistent_stock()
