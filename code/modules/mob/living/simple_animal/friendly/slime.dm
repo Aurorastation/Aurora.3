@@ -1,4 +1,5 @@
 /mob/living/simple_animal/slime
+	ai_holder_type = /datum/ai_holder/simple_animal/slime
 	name = "pet slime"
 	desc = "A lovable, domesticated slime."
 	icon = 'icons/mob/npc/slimes.dmi'
@@ -28,6 +29,7 @@
 	return 0
 
 /mob/living/simple_animal/adultslime
+	ai_holder_type = /datum/ai_holder/simple_animal/slime
 	name = "pet slime"
 	desc = "A lovable, domesticated slime."
 	icon = 'icons/mob/npc/slimes.dmi'

@@ -22,7 +22,6 @@
 	return ..()
 
 /mob/living/carbon/slime/react_to_message(datum/say_message/msg)
-	if(is_friend(msg.speaker))
-		speech_buffer = list()
-		speech_buffer.Add(msg.speaker)
-		speech_buffer.Add(lowertext(html_decode(msg.to_string())))
+	. = ..()
+	if(ai_holder && isliving(msg.speaker))
+		ai_holder.on_hear_say(msg.speaker, html_decode(msg.to_string()))

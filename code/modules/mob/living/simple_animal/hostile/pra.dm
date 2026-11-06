@@ -1,4 +1,29 @@
+/datum/ai_holder/simple_animal/humanoid/android/hostile/republicon
+
+/datum/ai_holder/simple_animal/humanoid/android/hostile/republicon/on_target_acquired(atom/new_target, atom/old_target)
+	holder.say(istajara(new_target) ? "Subversive element detected!" : "Foreign invader detected!")
+
+/datum/ai_holder/simple_animal/humanoid/android/hostile/republicon/on_target_lost(atom/old_target)
+	holder.say("Returning to patrol.")
+
+/datum/ai_holder/simple_animal/retaliate/pra_exploration_drone
+	pointblank = TRUE
+	conserve_ammo = TRUE
+
+/datum/ai_holder/simple_animal/retaliate/pra_exploration_drone/on_target_acquired(atom/new_target, atom/old_target)
+	if(!ishuman(new_target))
+		holder.say("Hostile xenofauna detected!")
+	else if(istajara(new_target))
+		holder.say("Subversive element detected!")
+	else
+		holder.say("Foreign invader detected!")
+	playsound(holder, 'sound/effects/creatures/PRA_drone_aggro.ogg', 75, 1)
+
+/datum/ai_holder/simple_animal/retaliate/pra_exploration_drone/on_target_lost(atom/old_target)
+	holder.say("Returning to data gathering.")
+
 /mob/living/simple_animal/hostile/republicon
+	ai_holder_type = /datum/ai_holder/simple_animal/humanoid/android/hostile/republicon
 	name = "republican defensive robot"
 	accent = ACCENT_ELEKTRO_SIIK
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
@@ -97,17 +122,6 @@
 
 	return FALSE
 
-/mob/living/simple_animal/hostile/republicon/FoundTarget()
-	if(istajara(last_found_target))
-		say("Subversive element detected!")
-	else
-		say("Foreign invader detected!")
-	return
-
-/mob/living/simple_animal/hostile/republicon/LostTarget()
-	say("Returning to patrol.")
-	return
-
 /mob/living/simple_animal/hostile/republicon/isSynthetic()
 	return TRUE
 
@@ -136,6 +150,7 @@
 		casingtype = null
 
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
+	ai_holder_type = /datum/ai_holder/simple_animal/retaliate/pra_exploration_drone
 	name = "hadiist exploration drone"
 	desc = "A reconnaissance drone used by the People's Republic of Adhomai to explore space and collect information on planets."
 
@@ -233,15 +248,3 @@
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/Destroy()
 	QDEL_NULL(ion_trail)
 	return ..()
-
-/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/FoundTarget()
-	if(!ishuman(last_found_target))
-		say("Hostile xenofauna detected!")
-	else if(istajara(last_found_target))
-		say("Subversive element detected!")
-	else
-		say("Foreign invader detected!")
-	playsound(src, 'sound/effects/creatures/PRA_drone_aggro.ogg', 75, 1)
-
-/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone/LostTarget()
-	say("Returning to data gathering.")
