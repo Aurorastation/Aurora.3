@@ -27,11 +27,11 @@ ABSTRACT_TYPE(/singleton/persistent_type)
 	return
 
 /**
- *	Hook proc that is called by the subsystem starting finalization on each persistent type definition.
- *  Hooks are used for implementing finalization logic for mechanics that either
- *  don't have a single trigger to save or where repetitive saving would be too costly.
- *  Should return nothing, returned values are discarded.
- *  Implementation can be put where applicable, e.g. next to loading logic of the type.
+ * Hook proc that is called by the subsystem starting finalization on each persistent type definition.
+ * Hooks are used for implementing finalization logic for mechanics that either
+ * don't have a single trigger to save or where repetitive saving would be too costly.
+ * Should return nothing, returned values are discarded.
+ * Implementation can be put where applicable, e.g. next to loading logic of the type.
  */
 /singleton/persistent_type/proc/finalization_hook()
 	SHOULD_CALL_PARENT(FALSE)

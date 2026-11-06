@@ -847,9 +847,8 @@
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
-	overlay_state = "tc-pin"
 	contained_sprite = TRUE
-	flippable = 1
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
@@ -859,9 +858,8 @@
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "sol-pin"
 	item_state = "sol-pin"
-	overlay_state = "sol-pin"
 	contained_sprite = TRUE
-	flippable = 1
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
@@ -870,35 +868,30 @@
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "sfp-pin"
 	item_state = "sfp-pin"
-	overlay_state = "sfp-pin"
 
 /obj/item/clothing/accessory/sol_pin/ssup
 	name = "Solarian Socialist Unity Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "ssup-pin"
 	item_state = "ssup-pin"
-	overlay_state = "ssup-pin"
 
 /obj/item/clothing/accessory/sol_pin/spp
 	name = "Solarian People's Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "spp-pin"
 	item_state = "spp-pin"
-	overlay_state = "spp-pin"
 
 /obj/item/clothing/accessory/sol_pin/spdp
 	name = "Solarian Popular Democratic Party pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "spdp-pin"
 	item_state = "spdp-pin"
-	overlay_state = "spdp-pin"
 
 /obj/item/clothing/accessory/sol_pin/commie
 	name = "Communist Party of the Sol Alliance pin"
 	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
 	icon_state = "commie-pin"
 	item_state = "commie-pin"
-	overlay_state = "commie-pin"
 
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
@@ -954,16 +947,14 @@
 		icon_state = "[initial(icon_state)][tucked ? "_tucked" : ""]"
 		item_state = "[initial(item_state)][tucked ? "_tucked" : ""]"
 
-/obj/item/clothing/accessory/badge/namepin
+/obj/item/clothing/accessory/namepin
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
 	icon_state = "namepintag"
-	item_state = "nametagpin"
-	overlay_state = null
+	item_state = "namepintag"
 	contained_sprite = TRUE
-	badge_string = null
-	slot_flags = SLOT_TIE
+	flippable = TRUE
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/ribbon
@@ -982,9 +973,8 @@
 	icon = 'icons/obj/item/clothing/accessory/patches.dmi'
 	icon_state = "patch"
 	item_state = "patch"
-	overlay_state = "patch"
 	contained_sprite = TRUE
-	flippable = 1
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -994,35 +984,30 @@
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
 	icon_state = "scc_patch"
 	item_state = "scc_patch"
-	overlay_state = "scc_patch"
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoi
 	name = "\improper Zavodskoi Interstellar sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo."
 	icon_state = "necro_patch"
 	item_state = "necro_patch"
-	overlay_state = "necro_patch"
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	name = "\improper Zavodskoi Interstellar Security sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo with an insignia."
 	icon_state = "necrosec_patch"
 	item_state = "necrosec_patch"
-	overlay_state = "necrosec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/erisec
 	name = "\improper EPMC sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one denotes the wearer as an Eridani Private Military Contractor."
 	icon_state = "erisec_patch"
 	item_state = "erisec_patch"
-	overlay_state = "erisec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/idrissec
 	name = "\improper Idris Incorporated sleeve patch"
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
 	item_state = "idrissec_patch"
-	overlay_state = "idrissec_patch"
 
 /obj/item/clothing/accessory/sleevepatch/kog/pra
 	name = "\improper KOG Motorheads shoulder tabs"
@@ -1030,9 +1015,8 @@
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
 	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_pra"
-	icon_state = "kog_tabs_pra"
-	overlay_state = "kog_tabs_pra"
-	flippable = 0
+	item_state = "kog_tabs_pra"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/sleevepatch/kog/ala
 	name = "\improper KOG Last Chancers shoulder tabs"
@@ -1040,9 +1024,8 @@
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
 	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_ala"
-	icon_state = "kog_tabs_ala"
-	overlay_state = "kog_tabs_ala"
-	flippable = 0
+	item_state = "kog_tabs_ala"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/sleevepatch/kog/nka
 	name = "\improper KOG Starry Knights shoulder tabs"
@@ -1050,9 +1033,8 @@
 	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
 	icon = 'icons/obj/item/clothing/accessory/kog_tabs.dmi'
 	icon_state = "kog_tabs_nka"
-	icon_state = "kog_tabs_nka"
-	overlay_state = "kog_tabs_nka"
-	flippable = 0
+	item_state = "kog_tabs_nka"
+	flippable = FALSE
 
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"

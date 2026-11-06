@@ -9,9 +9,11 @@
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
 	vend_id = "admin"
+	persistent_stock = FALSE
 	req_access = list(/datum/access/janitor::id)
 	products = list(
 		/obj/item/vending_refill/booze = 2,
+		/obj/item/vending_refill/bomba = 2,
 		/obj/item/vending_refill/tools = 2,
 		/obj/item/vending_refill/coffee = 2,
 		/obj/item/vending_refill/snack = 2,
@@ -25,7 +27,16 @@
 		/obj/item/vending_refill/cutlery = 2,
 		/obj/item/vending_refill/robo = 2,
 		/obj/item/vending_refill/battlemonsters = 2,
-		/obj/item/vending_refill/encryption = 2
+		/obj/item/vending_refill/encryption = 2,
+		/obj/item/vending_refill/games = 2,
+		/obj/item/vending_refill/idris_delights = 2,
+		/obj/item/vending_refill/lavatory = 2,
+		/obj/item/vending_refill/mre = 2,
+		/obj/item/vending_refill/overloaders = 2,
+		/obj/item/vending_refill/quick_meals = 2,
+		/obj/item/vending_refill/ramen = 2,
+		/obj/item/vending_refill/wallpharm = 2,
+		/obj/item/vending_refill/wardrobe = 2
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -43,3 +54,76 @@
 		/obj/item/vending_refill/battlemonsters = 1,
 		/obj/item/vending_refill/encryption = 1
 	)
+
+// Restock packs for Horizon vendors not covered by the department-specific packs.
+/obj/item/vending_refill/vendors
+	name = "Omni-Restocker resupply canister"
+	vend_id = "admin"
+	charges = 50
+
+// In case the actor supply needs to be refilled
+/obj/item/vending_refill/actor
+	name = "actor supplies resupply canister"
+	vend_id = "actor"
+	charges = 50
+
+/obj/item/vending_refill/bomba
+	name = "Toximate resupply canister"
+	vend_id = "bomba"
+	charges = 50
+
+/obj/item/vending_refill/ert
+	name = "emergency security resupply canister"
+	vend_id = "ert"
+	charges = 50
+
+/obj/item/vending_refill/games
+	name = "games resupply canister"
+	vend_id = "games"
+	charges = 50
+
+// For antag vending machines mainly, should they need the refill
+/obj/item/vending_refill/generic_clothing
+	name = "generic clothing resupply canister"
+	vend_id = "generic_clothing"
+	charges = 60
+
+/obj/item/vending_refill/idris_delights
+	name = "Idris Delights resupply canister"
+	vend_id = "idris_delights"
+	charges = 50
+
+/obj/item/vending_refill/lavatory
+	name = "lavatory supplies resupply canister"
+	vend_id = "lavatory"
+	charges = 50
+
+/obj/item/vending_refill/mre
+	name = "MRE resupply canister"
+	vend_id = "mre"
+	charges = 50
+
+/obj/item/vending_refill/overloaders
+	name = "overloader resupply canister"
+	vend_id = "overloaders"
+	charges = 25
+
+/obj/item/vending_refill/quick_meals
+	name = "quick meals resupply canister"
+	vend_id = "quick-meals"
+	charges = 45
+
+/obj/item/vending_refill/ramen
+	name = "ramen resupply canister"
+	vend_id = "ramen"
+	charges = 30
+
+/obj/item/vending_refill/wallpharm
+	name = "pharmacy resupply canister"
+	vend_id = "wallpharm"
+	charges = 40
+
+/obj/item/vending_refill/wardrobe
+	name = "wardrobe resupply canister"
+	vend_id = "wardrobe"
+	charges = 60

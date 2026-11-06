@@ -325,13 +325,13 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 
 /datum/gear/accessory/namepin
 	display_name = "pins selection"
-	path = /obj/item/clothing/accessory/badge/namepin
+	path = /obj/item/clothing/accessory/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/namepin/New()
 	..()
 	var/list/pin = list()
-	pin["pin, name tag"] = /obj/item/clothing/accessory/badge/namepin
+	pin["pin, name tag"] = /obj/item/clothing/accessory/namepin
 	pin["pin, any/all pronouns"] = /obj/item/clothing/accessory/pronoun
 	pin["pin, he/him pronouns"] = /obj/item/clothing/accessory/pronoun/hehim
 	pin["pin, he/they pronouns"] = /obj/item/clothing/accessory/pronoun/hethey

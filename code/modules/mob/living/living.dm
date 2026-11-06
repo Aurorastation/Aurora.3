@@ -134,7 +134,8 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		target_mob.LAssailant = WEAKREF(src)
+		if(!istype(src, /mob/living/carbon/human/monkey) && !istype(src, /mob/living/carbon/slime)) //The slime should not set the LAssailant if it bumps into the monkey while trying to eat it.
+			target_mob.LAssailant = WEAKREF(src)
 
 	now_pushing = FALSE
 	. = ..()
