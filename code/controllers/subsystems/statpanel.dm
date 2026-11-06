@@ -5,7 +5,6 @@ SUBSYSTEM_DEF(statpanels)
 	init_stage = INITSTAGE_EARLY
 	priority = FIRE_PRIORITY_STATPANEL
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	flags = SS_NO_INIT
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -19,6 +18,13 @@ SUBSYSTEM_DEF(statpanels)
 	///how many full runs this subsystem has completed. used for variable rate refreshes.
 	var/num_fires = 0
 
+	/// Time of pinned round configuration, kept in here as cache to prevent frequent registry lookups when not configured.
+	var/pinned_round_time
+
+/datum/controller/subsystem/statpanels/Initialize(timeofday)
+	pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
+	return SS_INIT_SUCCESS
+
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
@@ -29,13 +35,19 @@ SUBSYSTEM_DEF(statpanels)
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [worlddate2text()]",
-			"Round Time: [get_round_duration_formatted()]",
-			"Ship Time: [worldtime2text()]",
-			"Current Space Sector: [SSatlas.current_sector.name]",
-			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
-			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
+
+		if(pinned_round_time)
+			global_data += "Pinned Round Time: [pinned_round_time]"
+		else
+			global_data += "Pinned Round Time: Not set"
+
+		global_data += "Current Date: [worlddate2text()]"
+		global_data += "Round Time: [get_round_duration_formatted()]"
+		global_data += "Ship Time: [worldtime2text()]"
+		global_data += "Current Space Sector: [SSatlas.current_sector.name]"
+		global_data += "Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]"
+		global_data += "Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 
 		if(istype(SSticker.round_canon))
 			global_data[++global_data.len] = list(

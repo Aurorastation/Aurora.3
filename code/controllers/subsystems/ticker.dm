@@ -40,6 +40,10 @@ SUBSYSTEM_DEF(ticker)
 	var/pregame_timeleft = 0
 
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
+	var/pinned_transfer_vote_consumed = FALSE
+	var/pinned_shift_change_called = FALSE
+	var/pinned_transfer_target
+	var/pinned_transfer_setting
 
 	var/triai = 0	//Global holder for Triumvirate
 	var/tipped = FALSE	//Did we broadcast the tip of the day yet?
@@ -80,11 +84,29 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
+	set_pinned_round_time(SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME))
 
 	//Initialize the auto-transfer time
 	GLOB.next_transfer_time = GLOB.config.vote_autotransfer_initial
 
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/ticker/proc/set_pinned_round_time(pinned_round_time)
+	if(pinned_round_time == pinned_transfer_setting)
+		return
+	pinned_transfer_setting = pinned_round_time
+	pinned_transfer_target = null
+	pinned_transfer_vote_consumed = FALSE
+	pinned_shift_change_called = FALSE
+	if(!pinned_round_time)
+		return
+
+	var/pinned_time_of_day = (text2num(copytext(pinned_round_time, 1, 3)) * 60 + text2num(copytext(pinned_round_time, 4, 6))) * 1 MINUTE
+	var/pinned_time_utc = MODULUS(pinned_time_of_day - world.timezone HOURS, 24 HOURS)
+	pinned_transfer_target = REALTIMEOFDAY - world.timeofday + pinned_time_utc
+	if(pinned_transfer_target <= REALTIMEOFDAY)
+		pinned_transfer_target += 24 HOURS
+	pinned_transfer_vote_consumed = pinned_transfer_target - REALTIMEOFDAY < (2 HOURS + 30 MINUTES)
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -124,6 +146,11 @@ SUBSYSTEM_DEF(ticker)
 
 	delay_end = SSticker.delay_end
 
+	pinned_transfer_vote_consumed = SSticker.pinned_transfer_vote_consumed
+	pinned_shift_change_called = SSticker.pinned_shift_change_called
+	pinned_transfer_target = SSticker.pinned_transfer_target
+	pinned_transfer_setting = SSticker.pinned_transfer_setting
+
 	triai = SSticker.triai
 
 	round_end_announced = SSticker.round_end_announced
@@ -140,6 +167,9 @@ SUBSYSTEM_DEF(ticker)
 			pregame_tick()
 		if (GAME_STATE_PLAYING)
 			game_tick()
+
+	if(pinned_transfer_setting && pinned_transfer_target - REALTIMEOFDAY <= (2 HOURS + 30 MINUTES))
+		pinned_transfer_vote_consumed = TRUE
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
 	if (GLOB.round_progressing)
@@ -261,8 +291,21 @@ SUBSYSTEM_DEF(ticker)
 			else if(!delay_notified)
 				to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 
-	//If we have not finished the game already, and assuming it's time, call the transfer vote as per config
+	//If we have not finished the game already, call the next transfer vote as scheduled.
 	if(!game_finished && !mode_finished && !post_game)
+		if(pinned_transfer_setting)
+			var/time_until_pinned = pinned_transfer_target - REALTIMEOFDAY
+			if(time_until_pinned <= 15 MINUTES)
+				if(!pinned_shift_change_called && !SSatlas.current_map.shuttle_call_restart_timer && GLOB.evacuation_controller.state == EVAC_IDLE)
+					pinned_shift_change_called = TRUE
+					init_shift_change(null, TRUE)
+			else if(time_until_pinned <= (2 HOURS + 30 MINUTES))
+				if(!pinned_transfer_vote_consumed)
+					pinned_transfer_vote_consumed = TRUE
+					if(!SSvote.current_vote)
+						SSvote.autotransfer_pinned()
+			if(time_until_pinned <= (2 HOURS + 30 MINUTES))
+				return 1
 		if(get_round_duration() >= GLOB.next_transfer_time - 600)
 			SSvote.autotransfer()
 			GLOB.next_transfer_time += GLOB.config.vote_autotransfer_interval
