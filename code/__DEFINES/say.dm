@@ -5,6 +5,8 @@
 #define SAY_MOD_VERB "say_mod_verb"
 /// Optional text appended after the resolved speaker name.
 #define SAY_MOD_NAME_SUFFIX "say_name_suffix"
+/// A transmitted identity captured when the event is created, independent of the emitter.
+#define MODE_SPEAKER_NAME_OVERRIDE "speaker_name_override"
 /// Local amplified presentation; does not imply radio transport or increased range.
 #define MODE_AMPLIFIED "amplified"
 /// Parsed mob radio/mode prefix, carried into the shared builder.

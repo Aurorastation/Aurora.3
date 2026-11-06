@@ -76,7 +76,7 @@
 	var/emote_led = rendered[2]
 
 	var/atom/movable/speaker = msg.speaker
-	var/speaker_name = speaker?.GetVoice()
+	var/speaker_name = msg.message_mods[MODE_SPEAKER_NAME_OVERRIDE] || speaker?.GetVoice()
 
 	var/datum/language/accent_language
 	for(var/datum/say_segment/segment as anything in msg.segments)
@@ -112,7 +112,7 @@
 	var/part_b = LAZYACCESS(radio_parts, 2)
 	var/part_c = LAZYACCESS(radio_parts, 3)
 
-	var/speaker_name = speaker ? speaker.GetVoice() : "Unknown"
+	var/speaker_name = msg.message_mods[MODE_SPEAKER_NAME_OVERRIDE] || (speaker ? speaker.GetVoice() : "Unknown")
 	if(hard_to_hear)
 		speaker_name = "Unknown"
 

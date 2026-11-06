@@ -178,6 +178,7 @@
 	return FALSE
 
 /obj/item/radio/spy
+	shortwave_overlays = FALSE
 	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"

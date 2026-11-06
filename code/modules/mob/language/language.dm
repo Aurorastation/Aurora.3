@@ -368,9 +368,6 @@
  * Returns `TRUE` if the mob speaks the language, `FALSE` otherwise
  */
 /mob/can_speak(datum/language/speaking)
-	SHOULD_NOT_SLEEP(TRUE)
-	SHOULD_BE_PURE(TRUE)
-
 	if(!istype(speaking))
 		stack_trace("No language supplied to check if it can be spoken!")
 		return FALSE

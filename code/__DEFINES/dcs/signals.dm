@@ -31,6 +31,9 @@
 /// From /atom/movable/Hear(): (datum/say_message/message).
 #define COMSIG_MOVABLE_HEAR "movable_hear"
 
+/// From /obj/item/radio/on_receive_message(): (list/data).
+#define COMSIG_RADIO_RECEIVE_MESSAGE "radio_receive_message"
+
 // /mob signals
 #define COMSIG_MOB_EXAMINATE "mob_examinate"
 #define COMSIG_MOB_FACEDIR "mob_facedir"

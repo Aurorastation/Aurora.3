@@ -551,4 +551,5 @@
 	set_death_time(MINISYNTH, world.time)
 
 /obj/item/radio/pai
+	shortwave_overlays = FALSE
 	canhear_range = 0 // only people on their tile

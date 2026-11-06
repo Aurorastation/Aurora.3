@@ -7,12 +7,12 @@
  * message_range: optional initial tile range, independent of speech-sound volume.
  */
 /atom/movable/proc/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
-	if(QDELETED(src) || !get_turf(src) || !istext(text))
+	if(QDELETED(src) || !istext(text))
 		return FALSE
 	if(!isnull(message_range) && (!isnum(message_range) || message_range < 0))
 		return FALSE
 	// Player input is already HTML-encoded by say_verb; strip unsafe markup without double encoding.
-	text = trim(sanitize(text, encode = FALSE))
+	text = trim(copytext_char(sanitize(text, encode = FALSE), 1, MAX_MESSAGE_LEN))
 	if(!length(text))
 		return FALSE
 	if(!ismob(src) && !can_speak(speaking || get_default_language()))
@@ -46,6 +46,8 @@
 	return GLOB.all_languages[speech_language]
 
 /atom/movable/proc/can_speak(datum/language/speaking)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 	return speaking && speaking == get_default_language() && !(speaking.flags & (HIVEMIND|SIGNLANG))
 
 /// Objects do not interpret player language prefixes. Mobs override both parser hooks.
@@ -92,6 +94,12 @@
 	var/list/hear_clients = deliver_say_message(msg, listening)
 	if(QDELETED(src))
 		return FALSE
+	present_say_message(msg, get_hearers_in_view(msg.message_range, src), hear_clients)
+	finish_say_message(msg)
+	return TRUE
+
+/// Render speech at this emitter. Radio playback reuses presentation without repeating local delivery.
+/atom/movable/proc/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
 	show_speech_bubble(msg, msg.to_string(), hear_clients)
 	var/list/styles = list()
 	if(istype(msg.single_language, /datum/language/noise))
@@ -101,11 +109,9 @@
 	var/datum/language/primary = msg.segments[1].language
 	if(primary && (msg.message_mods[SAY_MOD_VERB] in primary.shout_verb))
 		styles = list("langchat_yell")
-	if(msg.message_mods[MODE_AMPLIFIED])
+	if(msg.message_mods[MODE_AMPLIFIED] || msg.say_mode == SAYMODE_RADIO)
 		styles += "radio"
-	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = styles)
-	finish_say_message(msg)
-	return TRUE
+	langchat_say_message(msg, listeners, additional_styles = styles)
 
 /atom/movable/proc/get_speech_listeners(datum/say_message/msg, list/used_radios, ghost_hearing)
 	var/list/listening = get_hearers_in_view(msg.message_range, src)
@@ -126,7 +132,7 @@
 	return heard
 
 /atom/movable/proc/Hear(datum/say_message/msg)
-	if(!istype(msg) || QDELETED(msg.speaker) || msg.delivered_to[src])
+	if(!istype(msg) || (QDELETED(msg.speaker) && msg.say_mode != SAYMODE_RADIO) || msg.delivered_to[src])
 		return FALSE
 	msg.delivered_to[src] = TRUE
 	SEND_SIGNAL(src, COMSIG_MOVABLE_HEAR, msg)

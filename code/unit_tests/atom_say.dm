@@ -22,11 +22,43 @@
 /obj/item/radio/atom_say_test_radio
 	var/received = 0
 	var/datum/say_message/last_message
+	var/presented = 0
+	var/list/presentation_listeners
+
+/obj/item/radio/atom_say_test_radio/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
+	presented++
+	presentation_listeners = listeners.Copy()
+	return ..()
 
 /obj/item/radio/atom_say_test_radio/talk_into(atom/movable/speaker, message, channel, say_verb, datum/language/speaking, ignore_restrained, datum/say_message/say_message)
 	received++
 	last_message = say_message
 	return TRUE
+
+/obj/item/radio/intercom/atom_say_test_intercom
+	var/received = 0
+	var/datum/say_message/last_message
+	var/presented = 0
+	var/list/presentation_listeners
+	var/datum/say_message/presented_message
+	// Use existing screen art to exercise the independent scanline layer without new assets.
+	overlay_screen_scanlines = "intercom_screen"
+
+/obj/item/radio/intercom/atom_say_test_intercom/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
+	presented++
+	presentation_listeners = listeners.Copy()
+	presented_message = msg
+	return ..()
+
+/obj/item/radio/intercom/atom_say_test_intercom/talk_into(atom/movable/speaker, message, channel, say_verb, datum/language/speaking, ignore_restrained, datum/say_message/say_message)
+	received++
+	last_message = say_message
+	return TRUE
+
+/// Existing states exercise appearance transitions without adding production artwork.
+/obj/item/radio/atom_say_test_shortwave
+	overlay_power_on = "intercom_screen"
+	overlay_power_emissive = "intercom_screen"
 
 /mob/living/atom_say_test_listener
 	var/list/messages = list()
@@ -40,6 +72,13 @@
 /datum/unit_test/atom_say
 	name = "SPEECH: Atom delivery, modifiers, language comprehension, and range"
 	groups = list("mob", "speech")
+	var/receive_activity_signals = 0
+	var/list/last_radio_data
+
+/datum/unit_test/atom_say/proc/on_radio_receive(obj/item/radio/source, list/data)
+	SIGNAL_HANDLER
+	receive_activity_signals++
+	last_radio_data = data
 
 /datum/unit_test/atom_say/start_test()
 	var/turf/location = length(GLOB.tdome1) ? get_turf(pick(GLOB.tdome1)) : locate(/turf/simulated/floor)
@@ -49,9 +88,12 @@
 	var/obj/atom_say_test_receiver/device = new(location)
 	var/mob/living/atom_say_test_listener/listener = new(location)
 	var/obj/item/radio/atom_say_test_radio/radio = new(location)
-	radio.broadcasting = TRUE
-	radio.become_hearing_sensitive()
-	fixtures += list(speaker, device, listener, radio)
+	radio.set_broadcasting(TRUE)
+	var/obj/item/radio/intercom/atom_say_test_intercom/intercom = new(location)
+	intercom.set_on(TRUE)
+	intercom.set_broadcasting(TRUE)
+	RegisterSignal(intercom, COMSIG_RADIO_RECEIVE_MESSAGE, PROC_REF(on_radio_receive))
+	fixtures += list(speaker, device, listener, radio, intercom)
 	listener.add_language(LANGUAGE_TCB)
 	var/list/mods = list(SAY_MOD_VERB = "announces", SAY_MOD_NAME_SUFFIX = " (test)")
 	var/failures_before = GLOB.unit_tests_failures
@@ -68,13 +110,67 @@
 		TEST_FAIL("Devices must receive the actual object speaker and speech payload")
 	if(radio.received != 1 || radio.last_message != speaker.last_message)
 		TEST_FAIL("An open microphone must forward the object speaker's segmented message once")
-	var/datum/signal/subspace/vocal/signal = new(radio, radio.frequency, WEAKREF(speaker), GLOB.all_languages[LANGUAGE_TCB], "speech fixture", "announces", speaker.last_message)
+	if(intercom.received != 1 || intercom.last_message != speaker.last_message)
+		TEST_FAIL("An intercom must forward the object speaker's segmented message once")
+	var/datum/signal/subspace/vocal/signal = new(radio, radio.get_frequency(), WEAKREF(speaker), GLOB.all_languages[LANGUAGE_TCB], "speech fixture", "announces", speaker.last_message)
 	if(signal.data["name"] != speaker.name || signal.data["job"] != "Device" || signal.say_message != speaker.last_message)
 		TEST_FAIL("A radio signal must retain an object identity without mob-only fields")
 
+	// Real broadcast reception uses the shared Hear hook, deduplicating overlapping radios.
+	var/device_before = device.received
+	var/listener_before = length(listener.messages)
+	var/original_name = speaker.name
+	speaker.name = "changed after transmission"
+	signal.data["compression"] = 0
+	signal.broadcast()
+	speaker.name = original_name
+	if(device.received != device_before + 1 || length(listener.messages) != listener_before + 1)
+		TEST_FAIL("Radio playback must reach mobs and hearing-sensitive objects once across overlapping radios")
+	if(device.last_message?.say_mode != SAYMODE_RADIO || device.last_message?.speaker != speaker)
+		TEST_FAIL("Radio playback must preserve its transport and original object speaker")
+	if(!findtext(listener.messages[length(listener.messages)], original_name) || findtext(listener.messages[length(listener.messages)], "changed after transmission"))
+		TEST_FAIL("Radio identity must be captured at transmission time")
+	if(radio.received != 1 || intercom.received != 1)
+		TEST_FAIL("Radios and intercoms must not retransmit received radio speech")
+	if(radio.presented != 1 || intercom.presented != 1 || !(listener in intercom.presentation_listeners))
+		TEST_FAIL("Each receiving radio and intercom must present relayed speech to nearby listeners")
+	if(intercom.presented_message?.speaker != speaker || intercom.presented_message?.say_mode != SAYMODE_RADIO)
+		TEST_FAIL("Intercom presentation must retain the transmitted speaker and radio transport")
+	intercom.ImmediateOverlayUpdate()
+	var/scanline_layers = 0
+	for(var/appearance in intercom.overlays)
+		if(appearance:layer == intercom.layer + 0.2)
+			scanline_layers++
+	if(scanline_layers != 1)
+		TEST_FAIL("Intercom scanlines must be a single persistent layer above the screen content")
+	if(receive_activity_signals != 1 || last_radio_data != signal.data)
+		TEST_FAIL("Receiving radios must emit the TG-compatible activity signal with the transmission data")
+	intercom.set_on(FALSE)
+	intercom.ImmediateOverlayUpdate()
+	if(length(intercom.overlays))
+		TEST_FAIL("An unpowered intercom must show neither screen content nor scanlines")
+	intercom.set_on(TRUE)
+	intercom.on_receive_message(signal.data, intercom.presented_message, list())
+	if(length(intercom.presentation_listeners))
+		TEST_FAIL("Radio presentation must not expose speech to listeners excluded from the broadcast")
+	var/datum/say_message/intercom_mode = speaker.last_message.copy()
+	intercom_mode.message_mode = "intercom"
+	intercom.Hear(intercom_mode)
+	if(intercom.received != 1)
+		TEST_FAIL("Explicit intercom speech must not also transmit through the open microphone")
+	var/obj/atom_say_test_speaker/temporary_speaker = new(location)
+	var/datum/signal/subspace/vocal/announcement = new(radio, radio.get_frequency(), WEAKREF(temporary_speaker), GLOB.all_languages[LANGUAGE_TCB], "announcement fixture", "states")
+	announcement.data["name"] = "Automated announcement"
+	announcement.data["compression"] = 0
+	qdel(temporary_speaker)
+	announcement.broadcast()
+	if(!findtext(listener.messages[length(listener.messages)], "Automated announcement"))
+		TEST_FAIL("Automated radio identity must survive the original speaker's deletion")
+	var/device_after_radio = device.received
+
 	// A containment relay and direct spatial delivery must not notify a device twice.
 	device.Hear(speaker.last_message)
-	if(device.received != 1)
+	if(device.received != device_after_radio)
 		TEST_FAIL("The same local event must not be dispatched twice to a device")
 	var/obj/structure/closet/container = new(location)
 	var/obj/atom_say_test_receiver/contained_device = new(container)
@@ -104,6 +200,23 @@
 	if(device.last_message?.speaker != human || device.last_message?.to_string() != "Human fixture.")
 		TEST_FAIL("Human argument forwarding must preserve identity and skip_edit")
 
+	// A carried receiver would anchor its echo to the same mob as the original local speech.
+	var/datum/say_message/radio_echo = device.last_message.copy()
+	radio_echo.say_mode = SAYMODE_RADIO
+	radio.forceMove(human)
+	var/presented_before = radio.presented
+	radio.on_receive_message(list(), radio_echo, list(listener, human))
+	if(radio.presented != presented_before)
+		TEST_FAIL("A held or worn radio must not repeat its holder's speech above that holder")
+	radio.forceMove(listener)
+	radio.on_receive_message(list(), radio_echo, list(listener, human))
+	if(radio.presented != presented_before + 1)
+		TEST_FAIL("A carried radio must still present speech from a different speaker")
+	radio.forceMove(location)
+	radio.on_receive_message(list(), radio_echo, list(listener, human))
+	if(radio.presented != presented_before + 2)
+		TEST_FAIL("A separate receiving radio must still present the transmitted speech")
+
 	// Understanding is computed independently for each language segment and listener.
 	var/mob/living/atom_say_test_listener/other = new(location)
 	fixtures += other
@@ -117,6 +230,15 @@
 		TEST_FAIL("The Ceti listener must understand only the Ceti segment")
 	if(findtext(sol_pieces[1][1], "cetiword") || !findtext(sol_pieces[2][1], "solword"))
 		TEST_FAIL("The Sol listener must understand only the Sol segment")
+	var/datum/signal/subspace/vocal/mixed_signal = new(radio, radio.get_frequency(), WEAKREF(speaker), GLOB.all_languages[LANGUAGE_TCB], mixed.to_string(), "says", mixed)
+	mixed_signal.data["compression"] = 0
+	mixed_signal.broadcast()
+	if(length(device.last_message?.segments) != 2 || device.last_message?.single_language)
+		TEST_FAIL("Radio playback must preserve multilingual segments instead of flattening them")
+	if(mixed.say_mode == SAYMODE_RADIO || length(mixed.delivered_to))
+		TEST_FAIL("Radio delivery must use its own event without mutating the local message")
+	if(length(intercom.presented_message?.segments) != 2)
+		TEST_FAIL("Intercom overhead speech must retain multilingual segments for comprehension")
 	other.ear_deaf = TRUE
 	if(other.get_clarity(mixed, feedback = FALSE) != CLARITY_NONE)
 		TEST_FAIL("Object speech must respect listener deafness")
@@ -134,6 +256,22 @@
 	speaker.speech_language = LANGUAGE_BORER_HIVEMIND
 	if(speaker.say("private channel", speaking = private_language))
 		TEST_FAIL("A normal object must not acquire private language broadcasting")
+
+	var/obj/item/radio/atom_say_test_shortwave/shortwave = new(location)
+	fixtures += shortwave
+	shortwave.ImmediateOverlayUpdate()
+	if(!length(shortwave.overlays) || shortwave.icon_state != initial(shortwave.icon_state))
+		TEST_FAIL("A powered shortwave must layer its on appearance over the unchanged off body")
+	shortwave.set_on(FALSE)
+	shortwave.ImmediateOverlayUpdate()
+	if(length(shortwave.overlays))
+		TEST_FAIL("Turning off a shortwave must remove its powered and emissive overlays")
+	shortwave.set_on(TRUE)
+	shortwave.ImmediateOverlayUpdate()
+	if(!length(shortwave.overlays))
+		TEST_FAIL("Restoring shortwave power must restore its powered and emissive overlays")
+	if(shortwave.get_radio_overlay("missing-shortwave-art") || intercom.shortwave_overlays)
+		TEST_FAIL("Missing artwork must be optional and intercoms must keep their own appearance handling")
 
 	for(var/atom/movable/fixture as anything in fixtures)
 		qdel(fixture)

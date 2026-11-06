@@ -324,6 +324,7 @@
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/radio/exosuit
+	shortwave_overlays = FALSE
 	name = "exosuit radio"
 	cell = null
 
