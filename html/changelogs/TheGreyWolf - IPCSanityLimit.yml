@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed IPC overheating to insane levels."
+  - balance: "Reworked some of the IPC cooler logic. Power draw should be roughly similar to before."
