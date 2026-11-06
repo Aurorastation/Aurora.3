@@ -15,6 +15,10 @@
 		smooth_icon()
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
 			C.smooth_icon()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/draftingchalk/LateInitialize()
+	try_make_persistent_dirt()
 
 /obj/item/pen/drafting
 	name = "white drafting chalk"
