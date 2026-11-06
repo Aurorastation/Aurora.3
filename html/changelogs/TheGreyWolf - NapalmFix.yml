@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the spread of fire from napalm grenades."
-  - balance: "Reduced the radius of napalm grenades from 5 to 3 turfs."
