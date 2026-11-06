@@ -2,7 +2,6 @@
 	display_name = "idris advanced service cloth"
 	path = /obj/item/reagent_containers/glass/rag/advanced/idris
 	slot = slot_in_backpack
-	sort_category = "Factions"
 	cost = 1
 	faction = "Idris Incorporated"
 
@@ -861,7 +860,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "SCC armband"
 	path = /obj/item/clothing/accessory/armband/scc
 	slot = slot_tie
-	sort_category = "Factions"
 	cost = 1
 	faction = null
 
@@ -869,7 +867,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "SCC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/scc
 	slot = slot_tie
-	sort_category = "Factions"
 	cost = 1
 	faction = null
 
@@ -878,7 +875,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	description = "A selection of SCC coats"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
 	slot = slot_wear_suit
-	sort_category = "Factions"
 	cost = 1
 	faction = null
 
@@ -897,7 +893,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	description = "A selection of SCC headwear"
 	path = /obj/item/clothing/head/beret/scc
 	slot = slot_head
-	sort_category = "Factions"
 	cost = 1
 	faction = null
 
@@ -915,7 +910,6 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "SCC notepad"
 	description = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
 	path = /obj/item/journal/notepad/scc/filled
-	sort_category = "Factions"
 	cost = 1
 	faction = null
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

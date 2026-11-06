@@ -1,7 +1,6 @@
 /datum/gear/ears
 	display_name = "earwear, circuitry (empty)"
 	path = /obj/item/clothing/ears/circuitry
-	sort_category = "Earwear"
 	slot = slot_r_ear
 
 /datum/gear/ears/double

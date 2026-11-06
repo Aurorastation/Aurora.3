@@ -1,13 +1,10 @@
-GLOBAL_LIST_INIT(loadout_categories, list())
 GLOBAL_LIST_INIT(gear_datums, list())
 
-/datum/loadout_category
-	var/category = ""
-	var/list/gear = list()
-
-/datum/loadout_category/New(var/cat)
-	category = cat
-	..()
+/// Assoc list of tag group -> assoc list of tag -> amount of gear with that tag. Built by [/proc/build_loadout_tag_index].
+GLOBAL_LIST_INIT(loadout_tag_groups, list())
+GLOBAL_VAR_INIT(loadout_tags_ready, FALSE)
+/// Helper tags that mean "no restriction", these are never irrelevant for a character
+GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT_TAG_NO_ORIGIN, LOADOUT_TAG_NO_CULTURE, LOADOUT_TAG_NO_ROLE, LOADOUT_TAG_NO_DEPARTMENT, LOADOUT_TAG_NO_SPECIES))
 
 /hook/startup/proc/populate_gear_list()
 	// Setup custom loadout.
@@ -20,25 +17,154 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			continue
 
 		var/use_name = initial(G.display_name)
-		var/use_category = initial(G.sort_category)
-
-		if(!GLOB.loadout_categories[use_category])
-			GLOB.loadout_categories[use_category] = new /datum/loadout_category(use_category)
-		var/datum/loadout_category/LC = GLOB.loadout_categories[use_category]
 		GLOB.gear_datums[use_name] = new geartype
-		LC.gear[use_name] = GLOB.gear_datums[use_name]
 
-	sortTim(GLOB.loadout_categories, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
-	for(var/loadout_category in GLOB.loadout_categories)
-		var/datum/loadout_category/LC = GLOB.loadout_categories[loadout_category]
-		sortTim(LC.gear, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+	sortTim(GLOB.gear_datums, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
 
 	return TRUE
+
+/proc/add_tag_to_gear(var/datum/gear/gear, var/group, var/tag)
+	if(!group || !tag)
+		return
+	if(!gear.tags)
+		gear.tags = list()
+	if(!gear.tags[group])
+		gear.tags[group] = list()
+	gear.tags[group] |= tag
+
+/proc/get_loadout_slot_tag(var/datum/gear/gear)
+	if(gear.augment)
+		return "Augment"
+	if(ispath(gear.path, /obj/item/clothing/accessory))
+		return "Accessory"
+	switch(gear.slot)
+		if(slot_w_uniform)
+			return "Uniform"
+		if(slot_wear_suit)
+			return "Suit"
+		if(slot_head)
+			return "Head"
+		if(slot_wear_mask)
+			return "Mask"
+		if(slot_glasses)
+			return "Glasses"
+		if(slot_gloves)
+			return "Gloves"
+		if(slot_shoes)
+			return "Shoes"
+		if(slot_belt, slot_in_belt)
+			return "Belt"
+		if(slot_back)
+			return "Back"
+		if(slot_l_ear, slot_r_ear)
+			return "Ears"
+		if(slot_wear_id)
+			return "ID"
+		if(slot_wrists)
+			return "Wrists"
+		if(slot_pants)
+			return "Pants"
+		if(slot_l_store, slot_r_store)
+			return "Pocket"
+		if(slot_s_store)
+			return "Suit Storage"
+		if(slot_l_hand, slot_r_hand)
+			return "Hand"
+		if(slot_tie)
+			return "Accessory"
+	// No slot set, the item is sent to the storage (eg. backpack)
+	return "Storage"
+
+/// Fills `gear.tags` with the tags that can be derived from the gear's own vars. Department tags need jobs to exist, see [/proc/fill_department_tags_on_item].
+/proc/fill_automatic_tags_on_item(var/datum/gear/gear)
+	for(var/misc_tag in gear.misc_tags)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_MISC, misc_tag)
+	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SLOT, get_loadout_slot_tag(gear))
+	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction || LOADOUT_TAG_NO_FACTION)
+	if(!length(gear.origin_restriction))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_NO_ORIGIN)
+	if(!length(gear.culture_restriction))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CULTURE, LOADOUT_TAG_NO_CULTURE)
+	if(!length(gear.allowed_roles))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_NO_ROLE)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_NO_DEPARTMENT)
+	for(var/role in gear.allowed_roles)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ROLE, role)
+	if(!length(gear.whitelisted))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_NO_SPECIES)
+	for(var/species in gear.whitelisted)
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SPECIES, species)
+
+/// Adds the origins and cultures of the gear restrictions. Needs the origin singletons to exist, which happens after gear is created.
+/proc/fill_origin_tags_on_item(var/datum/gear/gear)
+	for(var/culture_path in gear.culture_restriction)
+		var/singleton/origin_item/culture = GET_SINGLETON(culture_path)
+		if(culture)
+			add_tag_to_gear(gear, LOADOUT_TAG_GROUP_CULTURE, culture.name)
+	for(var/origin_path in gear.origin_restriction)
+		var/singleton/origin_item/origin = GET_SINGLETON(origin_path)
+		if(origin)
+			add_tag_to_gear(gear, LOADOUT_TAG_GROUP_ORIGIN, origin.name)
+
+/// Adds the departments of `gear.allowed_roles`. Needs SSjobs to be initialized, which happens after gear is created.
+/proc/fill_department_tags_on_item(var/datum/gear/gear)
+	for(var/role in gear.allowed_roles)
+		var/datum/job/job = SSjobs.GetJob(role)
+		if(job)
+			for(var/department in job.departments)
+				add_tag_to_gear(gear, LOADOUT_TAG_GROUP_DEPARTMENT, department)
+		// Generic roles like "Engineering Personnel"
+		else if(length(role) > 10 && copytext(role, length(role) - 9) == " Personnel")
+			add_tag_to_gear(gear, LOADOUT_TAG_GROUP_DEPARTMENT, copytext(role, 1, length(role) - 9))
+
+/// Completes the tags that depend on jobs and builds `GLOB.loadout_tag_groups`. Safe to call repeatedly, does nothing once it succeeded.
+/proc/build_loadout_tag_index()
+	if(GLOB.loadout_tags_ready || !length(SSjobs.name_occupations))
+		return
+
+	var/list/groups = list()
+	for(var/group in list(LOADOUT_TAG_GROUP_SLOT, LOADOUT_TAG_GROUP_MISC, LOADOUT_TAG_GROUP_FACTION, LOADOUT_TAG_GROUP_ROLE, LOADOUT_TAG_GROUP_DEPARTMENT, LOADOUT_TAG_GROUP_SPECIES, LOADOUT_TAG_GROUP_ORIGIN, LOADOUT_TAG_GROUP_CULTURE))
+		groups[group] = list()
+
+	for(var/gear_name in GLOB.gear_datums)
+		var/datum/gear/G = GLOB.gear_datums[gear_name]
+		fill_department_tags_on_item(G)
+		fill_origin_tags_on_item(G)
+		for(var/group in G.tags)
+			if(!groups[group])
+				groups[group] = list()
+			for(var/tag in G.tags[group])
+				groups[group][tag]++
+
+	for(var/group in groups)
+		if(!length(groups[group]))
+			groups -= group
+			continue
+		sortTim(groups[group], GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+		// The "No ... Restriction" helper tags go first
+		var/list/ordered_tags = list()
+		for(var/helper_tag in GLOB.loadout_unrestricted_tags)
+			if(helper_tag in groups[group])
+				ordered_tags[helper_tag] = groups[group][helper_tag]
+		for(var/tag in groups[group])
+			if(!(tag in ordered_tags))
+				ordered_tags[tag] = groups[group][tag]
+		groups[group] = ordered_tags
+
+	GLOB.loadout_tag_groups = groups
+	GLOB.loadout_tags_ready = TRUE
 
 /datum/category_item/player_setup_item/loadout
 	name = "Loadout"
 	sort_order = 1
-	var/current_tab = "General"
+	/// Assoc list of tag group -> list with the one selected tag of that group, if any. Gear is shown if it has the selected tag of every group. If nothing is selected, the gear selected by the player is shown.
+	var/list/selected_tags = list()
+	/// Whether to show the tags that make no sense for the current character (other factions, roles, etc.)
+	var/show_hidden_tags = FALSE
+	/// Whether to show gear that the current character cannot take (other factions, roles, etc.)
+	var/show_all_items = FALSE
+	/// Whether to show the additional info in the gear cards, like restrictions and tags
+	var/show_item_info = FALSE
 	var/gear_reset = FALSE
 	var/search_input_value = ""
 
@@ -181,29 +307,76 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			var/datum/gear/G = GLOB.gear_datums[pref.gear[i]]
 			if(G)
 				total_cost += G.cost
-	var/list/categories = list()
-	for(var/category in GLOB.loadout_categories)
-		var/datum/loadout_category/category_data = GLOB.loadout_categories[category]
-		var/has_selected = FALSE
-		for(var/thing in category_data.gear)
-			if(thing in pref.gear)
-				has_selected = TRUE
-				break
-		categories += list(list("name" = category, "selected" = category == current_tab, "has_selected" = has_selected))
-	var/datum/loadout_category/LC = GLOB.loadout_categories[current_tab]
-	var/list/items = list()
+	build_loadout_tag_index()
+	var/list/chosen_gear_tags = list()
+	for(var/gear_name in pref.gear)
+		var/datum/gear/chosen = GLOB.gear_datums[gear_name]
+		if(!chosen)
+			continue
+		for(var/group in chosen.tags)
+			if(!chosen_gear_tags[group])
+				chosen_gear_tags[group] = list()
+			chosen_gear_tags[group] |= chosen.tags[group]
 	var/list/player_valid_gear_choices = valid_gear_choices()
-	for(var/gear_name in LC.gear)
+	var/datum/job/job = pref.return_chosen_high_job()
+	var/singleton/origin_item/character_origin = ispath(text2path(pref.origin)) ? GET_SINGLETON(text2path(pref.origin)) : null
+	var/character_origin_name = character_origin?.name
+	var/singleton/origin_item/character_culture = ispath(text2path(pref.culture)) ? GET_SINGLETON(text2path(pref.culture)) : null
+	var/character_culture_name = character_culture?.name
+	var/filtering = FALSE
+	for(var/group in selected_tags)
+		if(length(selected_tags[group]))
+			filtering = TRUE
+			break
+
+	// For every tag, count the gear that would be shown if that tag was selected, given the tags selected in other groups.
+	var/list/tag_counts = list()
+	var/list/visible_gear = list()
+	for(var/gear_name in GLOB.gear_datums)
 		if(!(gear_name in player_valid_gear_choices))
 			continue
-		var/datum/gear/G = LC.gear[gear_name]
-		var/datum/job/job = pref.return_chosen_high_job()
-		var/available = (G.check_faction(pref.faction) \
-			&& (job && G.check_role(job.title)) \
-			&& G.check_culture(text2path(pref.culture)) \
-			&& G.check_origin(text2path(pref.origin)) \
-			&& G.check_religion(pref.religion)) \
-			&& G.check_citizenship(pref.citizenship)
+		var/datum/gear/counted = GLOB.gear_datums[gear_name]
+		if(!show_all_items && !can_character_take_gear(counted, job))
+			continue
+		var/list/failed_groups = counted.get_failed_tag_groups(selected_tags)
+		if(length(failed_groups) > 1)
+			continue
+		if(!length(failed_groups) && (filtering || (gear_name in pref.gear)))
+			visible_gear += gear_name
+		for(var/group in counted.tags)
+			if(length(failed_groups) && failed_groups[1] != group)
+				continue
+			if(!tag_counts[group])
+				tag_counts[group] = list()
+			for(var/tag in counted.tags[group])
+				tag_counts[group][tag]++
+
+	var/list/tag_groups = list()
+	for(var/group in GLOB.loadout_tag_groups)
+		var/list/group_tags = list()
+		for(var/tag in GLOB.loadout_tag_groups[group])
+			var/is_selected = (tag in selected_tags[group])
+			var/irrelevant = is_tag_irrelevant_for_character(group, tag, job, character_origin_name, character_culture_name)
+			if(irrelevant && !show_hidden_tags && !is_selected)
+				continue
+			var/count = (tag_counts[group] ? tag_counts[group][tag] : 0) || 0
+			group_tags += list(list(
+				"name" = tag,
+				"count" = count,
+				"selected" = is_selected,
+				"has_selected" = !(tag in GLOB.loadout_unrestricted_tags) && (tag in chosen_gear_tags[group]),
+				"empty" = !count && !is_selected,
+				"irrelevant" = irrelevant
+			))
+		if(length(group_tags))
+			tag_groups += list(list("name" = group, "tags" = group_tags))
+	var/list/items = list()
+	for(var/gear_name in visible_gear)
+		var/datum/gear/G = GLOB.gear_datums[gear_name]
+		var/available = job && can_character_take_gear(G, job)
+		var/list/item_tags = list()
+		for(var/group in G.tags)
+			item_tags |= G.tags[group]
 		var/ticked = (G.display_name in pref.gear)
 		var/found_searched_text = FALSE
 		if(findtext(G.display_name, search_input_value))
@@ -248,7 +421,8 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			"description" = G.description,
 			"available" = available,
 			"selected" = ticked,
-			"restrictions" = restrictions,
+			"restrictions" = show_item_info ? restrictions : list(),
+			"tags" = show_item_info ? item_tags : list(),
 			"tweaks" = tweaks
 		)
 		items += list(item_data)
@@ -261,9 +435,42 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		"cost_limit" = GLOB.config.loadout_cost,
 		"gear_reset" = gear_reset,
 		"search" = search_input_value,
-		"categories" = categories,
+		"tag_groups" = tag_groups,
+		"filtering" = filtering,
+		"show_hidden_tags" = show_hidden_tags,
+		"show_all_items" = show_all_items,
+		"show_item_info" = show_item_info,
 		"items" = items
 	)
+
+/// Whether the tag can't ever be useful for the current character, eg. a tag of another faction
+/// Whether the character can actually take the gear, ignoring the job restrictions if there is no job chosen yet
+/datum/category_item/player_setup_item/loadout/proc/can_character_take_gear(var/datum/gear/G, var/datum/job/job)
+	return G.check_faction(pref.faction) \
+		&& (!job || G.check_role(job.title)) \
+		&& (!length(G.whitelisted) || (pref.species in G.whitelisted)) \
+		&& G.check_culture(text2path(pref.culture)) \
+		&& G.check_origin(text2path(pref.origin)) \
+		&& G.check_religion(pref.religion) \
+		&& G.check_citizenship(pref.citizenship)
+
+/datum/category_item/player_setup_item/loadout/proc/is_tag_irrelevant_for_character(var/group, var/tag, var/datum/job/job, var/character_origin_name, var/character_culture_name)
+	if(tag in GLOB.loadout_unrestricted_tags)
+		return FALSE
+	switch(group)
+		if(LOADOUT_TAG_GROUP_ORIGIN)
+			return character_origin_name && tag != character_origin_name
+		if(LOADOUT_TAG_GROUP_CULTURE)
+			return character_culture_name && tag != character_culture_name
+		if(LOADOUT_TAG_GROUP_FACTION)
+			return pref.faction && pref.faction != "None" && pref.faction != "Stellar Corporate Conglomerate" && tag != pref.faction
+		if(LOADOUT_TAG_GROUP_ROLE)
+			return job && tag != job.title
+		if(LOADOUT_TAG_GROUP_DEPARTMENT)
+			return job && !(tag in job.departments)
+		if(LOADOUT_TAG_GROUP_SPECIES)
+			return tag != pref.species
+	return FALSE
 
 /datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G)
 	. = pref.gear[G.display_name]
@@ -336,8 +543,32 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		// Refresh?
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["select_category"])
-		current_tab = href_list["select_category"]
+	else if(href_list["toggle_tag"] && href_list["tag_group"])
+		var/group = href_list["tag_group"]
+		var/tag = href_list["toggle_tag"]
+		if(!(tag in GLOB.loadout_tag_groups[group]))
+			return TOPIC_NOACTION
+		// Tags of the same group are mutually exclusive, selecting one replaces the other, selecting it again deselects it
+		if(tag in selected_tags[group])
+			selected_tags -= group
+		else
+			selected_tags[group] = list(tag)
+		return TOPIC_REFRESH
+
+	else if(href_list["clear_tags"])
+		selected_tags = list()
+		return TOPIC_REFRESH
+
+	else if(href_list["toggle_item_info"])
+		show_item_info = !show_item_info
+		return TOPIC_REFRESH
+
+	else if(href_list["toggle_all_items"])
+		show_all_items = !show_all_items
+		return TOPIC_REFRESH
+
+	else if(href_list["toggle_hidden_tags"])
+		show_hidden_tags = !show_hidden_tags
 		return TOPIC_REFRESH
 
 	else if(href_list["clear_loadout"])
@@ -454,8 +685,19 @@ GLOBAL_LIST_INIT(gear_datums, list())
 	 */
 	var/list/singleton/origin_item/origin/origin_restriction
 
-	///A string of the category this item will be listed in
-	var/sort_category = "General"
+	/**
+	 * A `/list` of tag strings that are manually added to the `LOADOUT_TAG_GROUP_MISC` group, for things that have no automatic tag
+	 *
+	 * Eg. `list("Toys")`
+	 */
+	var/list/misc_tags = list()
+
+	/**
+	 * Assoc `/list` of tag group (`LOADOUT_TAG_GROUP_*`) -> `/list` of tag strings, used to filter the loadout UI
+	 *
+	 * Most tags are filled automatically, see [/proc/fill_automatic_tags_on_item]
+	 */
+	var/list/tags = list()
 
 	///A `/list` of [/datum/gear_tweak] to apply
 	var/list/datum/gear_tweak/gear_tweaks = list()
@@ -485,6 +727,22 @@ GLOBAL_LIST_INIT(gear_datums, list())
 		gear_tweaks += list(GLOB.gear_tweak_color_rotation)
 	if(ispath(path, /obj/item/clothing/accessory))
 		gear_tweaks += list(GLOB.gear_tweak_accessory_slot)
+	fill_automatic_tags_on_item(src)
+
+/// Returns the groups in `selected` which have selected tags, but none of them is a tag of this gear
+/datum/gear/proc/get_failed_tag_groups(var/list/selected)
+	. = list()
+	for(var/group in selected)
+		var/list/wanted = selected[group]
+		if(!length(wanted))
+			continue
+		var/found = FALSE
+		for(var/tag in wanted)
+			if(tag in tags[group])
+				found = TRUE
+				break
+		if(!found)
+			. += group
 
 /datum/gear_data
 	var/path

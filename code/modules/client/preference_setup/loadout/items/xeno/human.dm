@@ -2,7 +2,6 @@
 	display_name = "CR suit"
 	path = /obj/item/clothing/under/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/offworlder/dress
@@ -17,7 +16,6 @@
 	display_name = "starshades"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	allowed_roles = list("Chief Engineer", "Ship Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel")
 
@@ -25,7 +23,6 @@
 	display_name = "legbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder/venter
@@ -40,7 +37,6 @@
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 
 /datum/gear/accessory/offworlder_armband/New()
 	..()
@@ -54,7 +50,6 @@
 	display_name = "jagmask"
 	path = /obj/item/clothing/mask/breath/offworlder/jagmask
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 
 /datum/gear/mask/offworlder/overmask
 	display_name = "overmask"
@@ -75,27 +70,23 @@
 	display_name = "starmitts"
 	path = /obj/item/clothing/gloves/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/offworlder_rig
 	display_name = "exo-stellar skeleton"
 	path = /obj/item/rig/light/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 
 /datum/gear/offworlder_rig/colorable
 	display_name = "colorable exo-stellar skeleton"
 	path = /obj/item/rig/light/offworlder/colorable
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder_card
 	display_name = "scarab passblade"
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
@@ -103,19 +94,16 @@
 	display_name = "native Burzsian mantle"
 	path = /obj/item/clothing/accessory/poncho/burzsian_mantle/native
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
 /datum/gear/head/human/conical
 	display_name = "non la conical hat"
-	sort_category = "Xenowear - Human"
 	path = /obj/item/clothing/head/nonla
 	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang, /singleton/origin_item/origin/new_hai_phong)
 
 /datum/gear/head/human/konyanger
 	display_name = "konyanger hat selection"
-	sort_category = "Xenowear - Human"
 	path = /obj/item/clothing/head/konyang
 	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang)
 
@@ -128,13 +116,11 @@
 
 /datum/gear/head/human/himeo
 	display_name = "himean cap"
-	sort_category = "Xenowear - Human"
 	path = /obj/item/clothing/head/softcap/himeo
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/head/human/fisanduhian_ushanka
 	display_name = "fisanduhian ushanka"
-	sort_category = "Xenowear - Human"
 	path = /obj/item/clothing/head/ushanka/dominia
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -144,7 +130,6 @@
 	path = /obj/item/clothing/head/vysoka
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
-	sort_category = "Xenowear - Human"
 
 /datum/gear/head/vysoka/New()
 	..()
@@ -166,7 +151,6 @@
 	path = /obj/item/clothing/head/gadpathur
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
-	sort_category = "Xenowear - Human"
 
 /datum/gear/head/gadpathur/New()
 	..()
