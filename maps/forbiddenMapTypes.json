@@ -7,6 +7,7 @@
 				"/obj/item/material/ashtray",
 				"/obj/item/paper_bin",
 				"/obj/item/paper_bin_refill",
+				"/obj/item/stickynote_pad",
 				"/obj/item/toner",
 				"/obj/structure/reagent_dispensers/extinguisher",
 				"/obj/structure/reagent_dispensers/watertank",

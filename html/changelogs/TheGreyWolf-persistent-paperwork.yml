@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Filing cabinets now provide separate short-term and persistent long-term persistent paper storage."
+  - rscadd: "Paper bins, paper reams, toner cartridges, and mapped photocopier toner levels can now persist between rounds."
+  - rscadd: "Stickynote pads were reworked slightly and are also properly persistent."
+  - qol: "Unused regular and carbon paper can now be returned to paper bins, while blank paper and sticky notes are excluded from persistence."
