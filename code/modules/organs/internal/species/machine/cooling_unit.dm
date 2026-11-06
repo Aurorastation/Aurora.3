@@ -1,6 +1,15 @@
 #define COOLING_UNIT_DEFAULT_THERMOSTAT_MAX 323.15
 #define COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP 423.15
 
+#define COOLING_POWER_LOW "low"
+#define COOLING_POWER_MEDIUM "medium"
+#define COOLING_POWER_HIGH "high"
+
+#define COOLING_POWER_LOW_OUTPUT_MULTIPLIER 0.5
+#define COOLING_POWER_HIGH_OUTPUT_MULTIPLIER 2.5
+#define COOLING_POWER_LOW_DRAW_MULTIPLIER 0.5
+#define COOLING_POWER_HIGH_DRAW_MULTIPLIER 3
+
 /obj/item/organ/internal/machine/cooling_unit
 	name = "air cooling unit"
 	desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature and prevents the chassis from overheating."
@@ -30,6 +39,8 @@
 	var/passive_temp_change = 2
 	/// The temperature that this cooling unit tries to regulate towards.
 	var/thermostat = T20C
+	/// The player-selected balance between cooling output and power draw.
+	var/power_setting = COOLING_POWER_MEDIUM
 	/// The minimum value the thermostat can reach. 0C.
 	var/thermostat_min = T0C
 	/// The maximum value the thermostat can reach. 50C.
@@ -81,41 +92,24 @@
 	data["broken"] = broken
 	if(!broken)
 		data["thermostat"] = thermostat - 273.15
-		data["thermostat_min"] = thermostat_min - 273.15
-		data["thermostat_max"] = thermostat_max - 273.15
-		data["passive_temp_change"] = passive_temp_change
+		data["power_setting"] = power_setting
+		data["cooling_output"] = passive_temp_change * get_cooling_output_multiplier()
 		data["bodytemperature"] = owner.bodytemperature - 273.15
 		data["temperature_safety"] = temperature_safety
-
-		var/estimated_power_consumption = base_power_consumption
-		var/integrity = get_integrity()
-		if(integrity < IPC_INTEGRITY_THRESHOLD_MEDIUM)
-			estimated_power_consumption = rand(-50, 100 + (100 - integrity))
-
-		if(thermostat < initial(thermostat))
-			// The higher the distance between the maximum thermostat setting and what we're actually at, the harder the cooling unit will work to cool us.
-			var/temperature_distance = round(thermostat_max - thermostat, 1)
-			estimated_power_consumption = temperature_distance * 0.5
-		else if(thermostat > initial(thermostat))
-			// higher thermostat = less power usage
-			estimated_power_consumption = -(thermostat_max / thermostat) - 0.5
-
-		data["estimated_power_consumption"] = max(0, base_power_consumption + estimated_power_consumption)
+		data["estimated_power_consumption"] = base_power_consumption * get_power_draw_multiplier()
 		data["safety_burnt"] = safety_burnt
+		data["locked_thermostat"] = locked_thermostat
 	return data
 
 /obj/item/organ/internal/machine/cooling_unit/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
-	if(action == "change_thermostat")
+	if(action == "change_power_setting")
 		if(locked_thermostat)
-			to_chat(owner, SPAN_MACHINE_WARNING("You can't change the thermostat manually! It just returns an error!"))
+			to_chat(owner, SPAN_MACHINE_WARNING("You can't change the cooling power manually! It just returns an error!"))
 			return FALSE
 
-		var/new_thermostat = params["change_thermostat"]
-		// remember we are getting passed celsius here
-		new_thermostat += T0C
-		if(new_thermostat >= thermostat_min && new_thermostat <= thermostat_max)
-			thermostat = new_thermostat
+		var/new_power_setting = params["power_setting"]
+		if(set_power_setting(new_power_setting))
 		. = TRUE
 
 	if(action == "temperature_safety")
@@ -146,7 +140,7 @@
 			var/heat_damage = max(excess_temperature * 0.01, 1)
 			take_internal_damage(heat_damage * seconds_per_tick)
 
-	var/temperature_change = passive_temp_change * seconds_per_tick
+	var/temperature_change = passive_temp_change * get_cooling_output_multiplier() * seconds_per_tick
 	if(owner.wear_suit)
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
@@ -170,21 +164,43 @@
 	if(!istype(cell))
 		return
 
-	// The lower our thermostat setting, the more power we consume.
-	var/extra_efficiency_multiplier = 1
-	var/extra_power_consumption = 0
-	if(thermostat < initial(thermostat))
-		// The higher the distance between the maximum thermostat setting and what we're actually at, the harder the cooling unit will work to cool us.
-		var/temperature_distance = round(thermostat_max - thermostat, 1)
-		extra_power_consumption = temperature_distance * 0.5
-		extra_efficiency_multiplier = temperature_distance * 0.05
-	else if(thermostat > initial(thermostat))
-		// higher thermostat = less power usage
-		extra_power_consumption = -(thermostat_max / thermostat) - 0.5
+	if(thermostat < owner.bodytemperature && temperature_change > 0)
+		var/actual_temperature_change = min(owner.bodytemperature - thermostat, temperature_change)
+		var/cooling_fraction = actual_temperature_change / temperature_change
+		var/requested_power = base_power_consumption * get_power_draw_multiplier() * cooling_fraction * seconds_per_tick
+		var/power_used = cell.use(requested_power)
+		if(power_used > 0)
+			owner.bodytemperature -= actual_temperature_change * min(power_used / requested_power, 1)
 
-	if(thermostat < owner.bodytemperature)
-		owner.bodytemperature = max(owner.bodytemperature - temperature_change * extra_efficiency_multiplier, thermostat)
-		cell.use(max(0, base_power_consumption + extra_power_consumption))
+/obj/item/organ/internal/machine/cooling_unit/proc/get_cooling_output_multiplier()
+	switch(power_setting)
+		if(COOLING_POWER_LOW)
+			return COOLING_POWER_LOW_OUTPUT_MULTIPLIER
+		if(COOLING_POWER_HIGH)
+			return COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
+	return 1
+
+/obj/item/organ/internal/machine/cooling_unit/proc/get_power_draw_multiplier()
+	switch(power_setting)
+		if(COOLING_POWER_LOW)
+			return COOLING_POWER_LOW_DRAW_MULTIPLIER
+		if(COOLING_POWER_HIGH)
+			return COOLING_POWER_HIGH_DRAW_MULTIPLIER
+	return 1
+
+/obj/item/organ/internal/machine/cooling_unit/proc/set_power_setting(new_power_setting)
+	if(!(new_power_setting in list(COOLING_POWER_LOW, COOLING_POWER_MEDIUM, COOLING_POWER_HIGH)))
+		return FALSE
+
+	power_setting = new_power_setting
+	switch(power_setting)
+		if(COOLING_POWER_LOW)
+			thermostat = thermostat_max
+		if(COOLING_POWER_MEDIUM)
+			thermostat = clamp(T20C, thermostat_min, thermostat_max)
+		if(COOLING_POWER_HIGH)
+			thermostat = thermostat_min
+	return TRUE
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
 	if(get_integrity_damage_probability())
@@ -259,3 +275,10 @@
 
 #undef COOLING_UNIT_DEFAULT_THERMOSTAT_MAX
 #undef COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP
+#undef COOLING_POWER_LOW
+#undef COOLING_POWER_MEDIUM
+#undef COOLING_POWER_HIGH
+#undef COOLING_POWER_LOW_OUTPUT_MULTIPLIER
+#undef COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
+#undef COOLING_POWER_LOW_DRAW_MULTIPLIER
+#undef COOLING_POWER_HIGH_DRAW_MULTIPLIER

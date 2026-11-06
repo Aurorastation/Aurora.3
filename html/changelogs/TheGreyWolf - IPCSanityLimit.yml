@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - bugfix: "Fixed IPC overheating to insane levels."
+  - balance: "Reworked internal IPC cooler controls into low, medium, and high power settings with distinct cooling output and power draw."
