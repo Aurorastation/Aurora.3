@@ -16,6 +16,9 @@ FORBID_INCLUDE = [
 
     # Included by tgs/includes.dm
     r'code/modules/tgs/**/*.dm',
+
+    # Anabasis includes are manually done through a define.
+    r'code/modules/anabasis/**/*.dm',
 ]
 
 lines = []
