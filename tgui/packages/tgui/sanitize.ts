@@ -51,6 +51,21 @@ const advTag = ['img'];
 // Background is here because it accepts image urls
 const defAttr = ['class', 'style', 'background'];
 
+// Attributes emitted by pencode2html. Record text is HTML-encoded before
+// papercode is expanded, so these cannot be supplied as raw HTML by players.
+const paperTag = defTag.concat('img');
+const paperAttr = [
+  'border',
+  'cellpadding',
+  'cellspacing',
+  'class',
+  'color',
+  'face',
+  'size',
+  'src',
+  'style',
+];
+
 /**
  * Feed it a string and it should spit out a sanitized version.
  *
@@ -79,5 +94,13 @@ export function sanitizeText(
   return DOMPurify.sanitize(input, {
     ALLOWED_TAGS: tags,
     FORBID_ATTR: forbidAttr,
+  });
+}
+
+/** Sanitizes the constrained HTML generated from player-authored papercode. */
+export function sanitizePaperText(input: string) {
+  return DOMPurify.sanitize(input, {
+    ALLOWED_TAGS: paperTag,
+    ALLOWED_ATTR: paperAttr,
   });
 }

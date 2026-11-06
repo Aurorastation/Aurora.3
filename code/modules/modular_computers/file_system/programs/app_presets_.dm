@@ -60,7 +60,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 
 #define COMPUTER_APP_PRESET_HORIZON_MEDICAL list(\
 	/datum/computer_file/program/suit_sensors,\
-	/datum/computer_file/program/records/medical,\
+	/datum/computer_file/program/records,\
 	/datum/computer_file/program/chemistry_codex,\
 	/datum/computer_file/program/scanner/medical,\
 	)
@@ -79,7 +79,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	/datum/computer_file/program/alarm_monitor/security,\
 	/datum/computer_file/program/camera_monitor,\
 	/datum/computer_file/program/digitalwarrant,\
-	/datum/computer_file/program/records/security,\
+	/datum/computer_file/program/records,\
 	/datum/computer_file/program/case_dossier,\
 	/datum/computer_file/program/guntracker,\
 )

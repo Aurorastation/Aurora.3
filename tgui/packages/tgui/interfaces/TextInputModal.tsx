@@ -4,15 +4,22 @@ import { isEscape, KEY } from 'tgui-core/keys';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+import type { PaperCodeContext } from '../papercode';
 import { InputButtons } from './common/InputButtons';
 import { Loader } from './common/Loader';
+import TextEditor from './common/TextEditor';
 
 type TextInputData = {
   large_buttons: boolean;
   max_length: number;
   message: string;
   multiline: boolean;
+  paper_preview: boolean;
   placeholder: string;
+  preview_context?: PaperCodeContext;
+  preview_limited: boolean;
+  preview_width: number;
+  preview_height: number;
   timeout: number;
   title: string;
 };
@@ -32,7 +39,12 @@ export const TextInputModal = (props) => {
     max_length,
     message = '',
     multiline,
+    paper_preview,
     placeholder = '',
+    preview_context,
+    preview_limited,
+    preview_width,
+    preview_height,
     timeout,
     title,
   } = data;
@@ -50,6 +62,10 @@ export const TextInputModal = (props) => {
   };
 
   const visualMultiline = multiline || input.length >= 30;
+  const paperEditorHeight = `${Math.max(
+    20,
+    37 + (preview_height - 600) / 12,
+  )}rem`;
   // Dynamically changes the window height based on the message.
   const windowHeight =
     135 +
@@ -58,7 +74,10 @@ export const TextInputModal = (props) => {
     (message.length && large_buttons ? 5 : 0);
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
-    if (event.key === KEY.Enter && (!visualMultiline || !event.shiftKey)) {
+    if (
+      event.key === KEY.Enter &&
+      (paper_preview ? event.ctrlKey : !visualMultiline || !event.shiftKey)
+    ) {
       act('submit', { entry: input });
     }
     if (isEscape(event.key)) {
@@ -66,7 +85,11 @@ export const TextInputModal = (props) => {
     }
   }
   return (
-    <Window title={title} width={325} height={windowHeight}>
+    <Window
+      title={title}
+      width={paper_preview ? preview_width : 325}
+      height={paper_preview ? preview_height : windowHeight}
+    >
       {timeout && <Loader value={timeout} />}
       <Window.Content onKeyDown={handleKeyDown}>
         <Section fill>
@@ -75,17 +98,29 @@ export const TextInputModal = (props) => {
               <Box color="label">{message}</Box>
             </Stack.Item>
             <Stack.Item grow>
-              <TextArea
-                autoFocus
-                autoSelect
-                fluid
-                height={multiline || input.length >= 30 ? '100%' : '1.8rem'}
-                maxLength={max_length}
-                onEscape={() => act('cancel')}
-                onChange={onType}
-                placeholder="Type something..."
-                value={input}
-              />
+              {paper_preview ? (
+                <TextEditor
+                  height={paperEditorHeight}
+                  initial_text={placeholder}
+                  limited={preview_limited}
+                  maxLength={max_length}
+                  onChange={onType}
+                  previewContext={preview_context}
+                  value={input}
+                />
+              ) : (
+                <TextArea
+                  autoFocus
+                  autoSelect
+                  fluid
+                  height={multiline || input.length >= 30 ? '100%' : '1.8rem'}
+                  maxLength={max_length}
+                  onEscape={() => act('cancel')}
+                  onChange={onType}
+                  placeholder="Type something..."
+                  value={input}
+                />
+              )}
             </Stack.Item>
             <Stack.Item>
               <InputButtons

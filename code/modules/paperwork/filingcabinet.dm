@@ -138,7 +138,11 @@ Important Notes:<BR>
 <CENTER><B>Comments/Log</B></CENTER><BR>
 "}
 				for(var/comment in R.security.comments)
-					P.info += "[comment]<BR>"
+					if(istype(comment, /datum/record/record_comment))
+						var/datum/record/record_comment/record_comment = comment
+						P.info += "[record_comment.as_html()]<BR>"
+					else
+						P.info += "[comment]<BR>"
 				P.info += "</TT>"
 				P.name = "Security Record ([R.name])"
 				virgin = 0	//tabbing here is correct- it's possible for people to try and use it
@@ -180,7 +184,11 @@ Important Notes:<BR>
 <CENTER><B>Comments/Log</B></CENTER><BR>
 "}
 				for(var/comment in R.medical.comments)
-					info += "[comment]<BR>"
+					if(istype(comment, /datum/record/record_comment))
+						var/datum/record/record_comment/record_comment = comment
+						info += "[record_comment.as_html()]<BR>"
+					else
+						info += "[comment]<BR>"
 				info += "</TT>"
 				var/pname = "Medical Record ([R.name])"
 				P.set_content_unsafe(pname, info)
