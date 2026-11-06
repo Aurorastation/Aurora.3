@@ -54,6 +54,9 @@
 		/obj/item/storage/box/fancy/mre/menu12 = 3
 	)
 
+/obj/structure/machinery/vending/mredispenser/free
+	prices = list()
+
 /obj/structure/machinery/vending/ramen
 	name = "\improper ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
