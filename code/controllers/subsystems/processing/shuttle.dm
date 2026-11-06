@@ -17,7 +17,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/list/lonely_shuttle_computers = list()   //shuttle computers that haven't been attached to their shuttles yet
 
-	var/list/landmarks_awaiting_sector = list()  //Stores automatic landmarks that are waiting for a sector to finish loading.
+	var/list/landmarks_awaiting_sector = list()  //Stores self-registering landmarks that are waiting for a sector to finish loading.
 	var/list/landmarks_still_needed = list()     //Stores landmark_tags that need to be assigned to the sector (landmark_tag = sector) when registered.
 	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
 	var/list/sectors_to_initialize               //Used to find all sector objects at the appropriate time.
@@ -130,7 +130,7 @@ SUBSYSTEM_DEF(shuttle)
 
 	var/landmarks_to_check = landmarks_awaiting_sector.Copy()
 	for(var/thing in landmarks_to_check)
-		var/obj/effect/shuttle_landmark/automatic/landmark = thing
+		var/obj/effect/shuttle_landmark/landmark = thing
 		if(landmark.z in given_sector.map_z)
 			given_sector.add_landmark(landmark, landmark.shuttle_restricted)
 			landmarks_awaiting_sector -= landmark
