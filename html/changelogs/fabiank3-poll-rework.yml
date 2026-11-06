@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - admin: "Updated the poll creation UI. Converted all inputs into a single TGUI."
