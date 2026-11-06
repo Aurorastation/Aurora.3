@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Made the various food, drink and snack vendors on the ship persistent."

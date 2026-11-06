@@ -71,6 +71,15 @@
 	// ### Char lookup
 	char_cache = alist()
 
+	// ##### Hooks
+	for (var/C in custom_types)
+		CHECK_TICK
+		var/singleton/persistent_type/type_instance = GET_SINGLETON(C)
+		try
+			type_instance.initialization_hook()
+		catch(var/exception/e)
+			log_subsystem_persistence_error("Unhandled exception during initialization_hook of [type_instance]", e)
+
 /**
  * Finalize persistent types.
  * Adds new persistent generics and history.
