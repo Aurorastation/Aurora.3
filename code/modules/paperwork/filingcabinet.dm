@@ -122,10 +122,14 @@
 	var/list/long_term = list()
 
 	for(var/obj/item/item in contents)
+		var/can_archive = FALSE
+		if(istype(item, /obj/item/paper))
+			var/obj/item/paper/paper = item
+			can_archive = !paper.is_blank()
 		var/list/item_data = list(
 			"name" = item.name,
 			"ref" = REF(item),
-			"can_archive" = istype(item, /obj/item/paper)
+			"can_archive" = can_archive
 		)
 		if(is_long_term_paper(item))
 			long_term += list(item_data)
@@ -166,6 +170,9 @@
 			if(!persistent_storage_id || !istype(item, /obj/item/paper) || is_long_term_paper(item))
 				return
 			var/obj/item/paper/archived_paper = item
+			if(archived_paper.is_blank())
+				to_chat(usr, SPAN_NOTICE("Blank paper cannot be placed in long-term storage."))
+				return
 			archived_paper.persistent_filing_cabinet_id = persistent_storage_id
 			SSpersistence.objectsRegisterTrack(archived_paper, ckey(usr.key))
 			return TRUE

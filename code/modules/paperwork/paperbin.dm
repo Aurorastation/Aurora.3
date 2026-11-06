@@ -26,6 +26,7 @@
 
 /obj/item/paper_bin/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "You can return unused regular or carbon paper to the bin by clicking the bin with it."
 	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
 	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
 	. += SPAN_TOOLTIP("This is a persistence mechanic. This bin and its remaining blank-paper stock remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
@@ -94,6 +95,18 @@
 /obj/item/paper_bin/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/i = attacking_item
+		if((i.type == /obj/item/paper || i.type == /obj/item/paper/carbon) && i.is_unused())
+			if(amount >= max_amount)
+				to_chat(user, SPAN_NOTICE("[src] is already fully stocked with generic paper."))
+				return
+
+			user.drop_from_inventory(i, get_turf(src))
+			amount++
+			to_chat(user, SPAN_NOTICE("You return [i] to [src]."))
+			qdel(i)
+			update_icon()
+			return
+
 		user.drop_from_inventory(i,src)
 		to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 		papers.Add(i)

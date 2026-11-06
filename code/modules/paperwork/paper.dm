@@ -132,6 +132,29 @@
 	update_space(info)
 	updateinfolinks()
 
+/// Whether this paper has any player-authored content worth persisting.
+/obj/item/paper/proc/is_blank()
+	return name == initial(name) && !length(info) && !length(stamps) && !length(stamped)
+
+/// Whether this paper is blank and undamaged enough to return to a paper dispenser.
+/obj/item/paper/proc/is_unused()
+	return is_blank() && !crumpled && !old_name && !rigged
+
+/// Updates tracking after this paper's contents change while it is in a persistence-supporting location.
+/obj/item/paper/proc/update_persistence_tracking(mob/user)
+	if(is_blank())
+		SSpersistence.objectsDeregisterTrack(src)
+		return
+
+	if(persistent_filing_cabinet_id || istype(loc, /obj/structure/noticeboard))
+		SSpersistence.objectsRegisterTrack(src, user ? ckey(user.key) : null)
+		return
+
+	if(istype(src, /obj/item/paper/stickynotes))
+		var/obj/item/paper/stickynotes/sticky_note = src
+		if(sticky_note.persistent_placement)
+			SSpersistence.objectsRegisterTrack(src, user ? ckey(user.key) : null)
+
 /obj/item/paper/update_icon()
 	if(!can_change_icon_state)
 		return
@@ -620,6 +643,7 @@
 			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()
+		update_persistence_tracking(usr)
 		if(c)
 			c.update_icon()
 
@@ -709,6 +733,7 @@
 		var/obj/item/pen/robopen/RP = attacking_item
 		if(istype(RP) && RP.mode == RENAME_PAPER)
 			RP.RenamePaper(user,src)
+			update_persistence_tracking(user)
 		else
 			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
 			paper_win.set_content("<head><title>[capitalize_first_letters(name)]</title><style>body {background-color: [color];}</style></head><body>[info_links][stamps]</body>")
@@ -753,6 +778,7 @@
 		burnpaper(attacking_item, user)
 
 	update_icon()
+	update_persistence_tracking(user)
 	add_fingerprint(user)
 	return
 
@@ -883,6 +909,8 @@
 	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
 	slot_flags = 0
 	item_flags = ITEM_FLAG_NO_BLUDGEON
+	/// Whether this note was deliberately stuck to something and should begin persisting once written on.
+	var/tmp/persistent_placement = FALSE
 
 /obj/item/paper/stickynotes/update_icon()
 	if(icon_state == "stickynote_scrap")
@@ -907,11 +935,13 @@
 	src.color = content["color"]
 	src.pixel_x = content["pixel_x"]
 	src.pixel_y = content["pixel_y"]
+	persistent_placement = TRUE
 	src.x = x
 	src.y = y
 	src.z = z
 
 /obj/item/paper/stickynotes/pickup()
+	persistent_placement = FALSE
 	SSpersistence.objectsDeregisterTrack(src)
 	..()
 
@@ -929,7 +959,9 @@
 	if(!params || !prox)
 		return
 
-	SSpersistence.objectsRegisterTrack(src, ckey(user.key))
+	persistent_placement = TRUE
+	if(!is_blank())
+		SSpersistence.objectsRegisterTrack(src, ckey(user.key))
 	user.drop_from_inventory(src,source_turf)
 	if(params) //Parallels taped paper placement method, and avoids seeing stickynotes through walls
 		var/list/mouse_control = mouse_safe_xy(params)
@@ -969,8 +1001,15 @@
 	var/paper_type = /obj/item/paper/stickynotes
 
 /obj/item/stickynote_pad/Initialize(mapload)
+	var/obj/item/paper/paper_path = /obj/item/paper
+	persistent_objects_expiration_time_days = initial(paper_path.persistent_objects_expiration_time_days)
 	. = ..()
 	update_icon()
+
+/obj/item/stickynote_pad/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	. = ..()
+	if(!isturf(loc))
+		SSpersistence.objectsDeregisterTrack(src)
 
 /obj/item/stickynote_pad/update_icon()
 	if(papers <= 15)
@@ -987,6 +1026,44 @@
 /obj/item/stickynote_pad/mechanics_hints()
 	. += ..()
 	. += "You can click it on grab intent to pick it up."
+	. += "You can return an unused sticky note to the pad by clicking the pad with it."
+	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
+	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+	. += SPAN_TOOLTIP("This is a persistence mechanic. When left on the SCCV Horizon, this pad and its remaining sticky notes remain available between rounds and expire after [persistence_duration]. Picking it up or storing it removes it from persistence.", persistence_label)
+
+/obj/item/stickynote_pad/pickup(mob/user)
+	SSpersistence.objectsDeregisterTrack(src)
+	return ..()
+
+/obj/item/stickynote_pad/dropped(mob/user)
+	. = ..()
+	var/turf/pad_turf = get_turf(src)
+	if(isturf(loc) && pad_turf && is_station_level(pad_turf.z))
+		SSpersistence.objectsRegisterTrack(src, user ? ckey(user.key) : null)
+	else
+		SSpersistence.objectsDeregisterTrack(src)
+
+/obj/item/stickynote_pad/on_enter_storage(obj/item/storage/storage)
+	. = ..()
+	SSpersistence.objectsDeregisterTrack(src)
+
+/obj/item/stickynote_pad/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/paper/stickynotes))
+		return ..()
+
+	var/obj/item/paper/stickynotes/sticky_note = attacking_item
+	if(!sticky_note.is_unused())
+		to_chat(user, SPAN_WARNING("You can only return an unused sticky note to [src]."))
+		return
+	if(papers >= initial(papers))
+		to_chat(user, SPAN_NOTICE("[src] is already full."))
+		return
+
+	user.drop_from_inventory(sticky_note, get_turf(src))
+	papers++
+	to_chat(user, SPAN_NOTICE("You return [sticky_note] to [src]."))
+	qdel(sticky_note)
+	update_icon()
 
 /obj/item/stickynote_pad/attack_hand(mob/user)
 	if(user.a_intent == I_GRAB)
@@ -1001,6 +1078,22 @@
 		qdel(src)
 		return
 
+	update_icon()
+
+/obj/item/stickynote_pad/persistent_objects_get_content()
+	var/list/content = ..()
+	content["papers"] = papers
+	content["color"] = color
+	return content
+
+/obj/item/stickynote_pad/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(isnum(content["papers"]))
+		papers = clamp(content["papers"], 1, initial(papers))
+	if(content["color"])
+		color = content["color"]
 	update_icon()
 
 /obj/item/stickynote_pad/random/Initialize()
