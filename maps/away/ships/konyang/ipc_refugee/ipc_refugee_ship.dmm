@@ -1756,19 +1756,19 @@
 	pixel_y = -7
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "l_leg";
 	name = "G2 Left Leg";
 	pixel_y = 20
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "l_foot";
 	name = "G2 Left Foot";
 	pixel_y = 20
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "r_leg";
 	name = "G2 Right Leg";
 	pixel_y = 18
@@ -1781,13 +1781,13 @@
 	pixel_y = 6
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "r_foot";
 	name = "G2 Right Foot";
 	pixel_y = 18
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "head";
 	name = "G2 Head";
 	pixel_y = 20;
@@ -1807,7 +1807,7 @@
 	pixel_y = 20
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "r_arm";
 	name = "G2 Right Arm";
 	pixel_y = 19
@@ -1820,13 +1820,13 @@
 	pixel_y = 16
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "r_hand";
 	name = "G2 Right Hand";
 	pixel_y = 19
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "l_arm";
 	name = "G2 Left Arm";
 	pixel_y = 20;
@@ -1834,7 +1834,7 @@
 	dir = 8
 	},
 /obj/effect/decal/fake_object{
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi';
 	icon_state = "l_hand";
 	name = "G2 Left Hand";
 	pixel_y = 20;

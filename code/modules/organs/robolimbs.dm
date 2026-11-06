@@ -109,7 +109,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 /datum/robolimb/hesphaistos
 	company = PROSTHETIC_HI
 	desc = "This limb is covered in thick plating coated with a militaristic olive drab."
-	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
+	icon = 'icons/mob/human_races/ipc/r_g2_industrial.dmi'
 	linked_frame = SPECIES_IPC_G2
 	fabricator_available = TRUE
 	allows_internal = FALSE
@@ -146,7 +146,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 /datum/robolimb/industrial
 	company = PROSTHETIC_IND
 	desc = "This limb is more robust than the standard Hephaestus Integrated Limb, and is better suited for industrial machinery."
-	icon = 'icons/mob/human_races/ipc/r_industrial.dmi'
+	icon = 'icons/mob/human_races/ipc/r_g1_industrial.dmi'
 	unavailable_at_chargen = 1
 	linked_frame = SPECIES_IPC_G1
 	fabricator_available = TRUE
