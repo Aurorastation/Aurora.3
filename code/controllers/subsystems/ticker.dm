@@ -814,6 +814,7 @@ SUBSYSTEM_DEF(ticker)
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
 				equip_custom_items(player, body_only = FALSE) // Equips all other custom items.
+			player.client.prefs.apply_quirks(player)
 
 		CHECK_TICK
 
