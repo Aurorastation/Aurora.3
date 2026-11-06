@@ -203,7 +203,7 @@
 			*dispersion_increase = *dispersion_increase - dispersion // 30-degree dispersion DECREASE
 		return .
 
-	if(!unsteadied && (skill_level < SKILL_LEVEL_PROFESSIONAL || skill_level >= SKILL_LEVEL_PROFESSIONAL && !warmup_tier))
+	if(!unsteadied && skill_level < SKILL_LEVEL_PROFESSIONAL)
 		return
 
 	if(warmup_tier && world.time >= warmup_end)
@@ -222,13 +222,12 @@
 			*dispersion_increase = *dispersion_increase + dispersion * skill_diff
 		return .
 
-	// Count target as being 1/2 a tile further away from shooter per difference between a trained person, and shooter's skill level
+	// Count target as 1/2 a tile further away from shooter per difference between a trained person, and shooter's skill level
 	*accuracy_decrease = *accuracy_decrease + accuracy_per_skill_diff * skill_diff
-	// Untrained shooters get an increased firing arc for their guns to 30 degrees.
-	if(skill_level < SKILL_LEVEL_TRAINED)
-		*dispersion_increase = *dispersion_increase + dispersion
-		if(!istype(bang, /obj/item/gun/energy))
-			*dispersion_increase += 15 // recoil
+	// Untrained shooters get +30 degrees spread to their firing arc. Trained get no change, Professional get -30 degrees spread.
+	*dispersion_increase = skill_level < SKILL_LEVEL_TRAINED ? *dispersion_increase + dispersion : *dispersion_increase + dispersion * skill_diff
+	if(!istype(bang, /obj/item/gun/energy)  && skill_level < SKILL_LEVEL_TRAINED)
+		*dispersion_increase += 15 // recoil
 
 /datum/component/skill/firearms/proc/gun_fumble(mob/living/shooter, obj/item/gun/shoota, cancelled, signaltype)
 	SIGNAL_HANDLER
