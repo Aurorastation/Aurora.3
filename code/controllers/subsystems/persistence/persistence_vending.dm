@@ -11,7 +11,7 @@
 	if(!SSpersistence.map_supports_persistence)
 		return
 
-	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_vending_stock)
+	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_vending_stock, skip_caching = TRUE)
 	var/list/saved_stock = saved_generic?.content
 	for(var/obj/structure/machinery/vending/vendor in world)
 		CHECK_TICK
