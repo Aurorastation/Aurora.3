@@ -173,7 +173,7 @@
 	description = "A wad of stickynotes."
 	price = 10
 	items = list(
-		/obj/item/paper/stickynotes/pad
+		/obj/item/stickynote_pad
 	)
 	access = 0
 	container_type = "crate"

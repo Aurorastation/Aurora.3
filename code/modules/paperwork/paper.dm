@@ -649,7 +649,7 @@
 		tape.stick(src, user)
 		return
 
-	if((istype(attacking_item, /obj/item/paper) &&  !istype(src, /obj/item/paper/stickynotes/pad)) || istype(attacking_item, /obj/item/photo))
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
 		if (istype(attacking_item, /obj/item/paper/carbon))
 			var/obj/item/paper/carbon/C = attacking_item
 			if (!C.iscopy && !C.copied)
@@ -946,41 +946,54 @@
 			else if(dir_offset & SOUTH)
 				pixel_y -= 32
 
-/obj/item/paper/stickynotes/pad
+/obj/item/stickynote_pad
 	name = "sticky note pad"
 	desc = "A pad of densely packed sticky notes."
+	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "stickypad_full"
 	item_state = "stickynote"
+	contained_sprite = TRUE
+	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
+	throw_range = 1
+	throw_speed = 1
+	layer = ABOVE_OBJ_LAYER
+	attack_verb = list("bapped")
+	color = COLOR_PALE_YELLOW
+	item_flags = ITEM_FLAG_NO_BLUDGEON
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+	/// The number of sticky notes remaining in the pad.
 	var/papers = 25
+	/// The sticky note type dispensed by the pad.
 	var/paper_type = /obj/item/paper/stickynotes
 
-/obj/item/paper/stickynotes/pad/update_icon()
+/obj/item/stickynote_pad/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/stickynote_pad/update_icon()
 	if(papers <= 15)
 		icon_state = "stickypad_empty"
-	else if(papers <= 25)
+	else if(papers < initial(papers))
 		icon_state = "stickypad_used"
 	else
 		icon_state = "stickypad_full"
-	if(info)
-		icon_state = "[icon_state]_words"
 
-/obj/item/paper/stickynotes/pad/feedback_hints(mob/user, distance, is_adjacent)
+/obj/item/stickynote_pad/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It has [papers] sticky note\s left."
 
-/obj/item/paper/stickynotes/pad/mechanics_hints()
+/obj/item/stickynote_pad/mechanics_hints()
 	. += ..()
 	. += "You can click it on grab intent to pick it up."
 
-/obj/item/paper/stickynotes/pad/attack_hand(mob/user)
+/obj/item/stickynote_pad/attack_hand(mob/user)
 	if(user.a_intent == I_GRAB)
 		return ..()
 
 	var/obj/item/paper/stickynotes/paper = new paper_type(get_turf(src))
-	paper.set_content("sticky note", info)
 	paper.color = color
-	info = null
 	user.put_in_hands(paper)
 	to_chat(user, SPAN_NOTICE("You pull \the [paper] off \the [src]."))
 	papers--
@@ -990,7 +1003,7 @@
 
 	update_icon()
 
-/obj/item/paper/stickynotes/pad/random/Initialize()
+/obj/item/stickynote_pad/random/Initialize()
 	. = ..()
 	color = pick(COLOR_YELLOW_GRAY , COLOR_GREEN_GRAY, COLOR_BLUE_GRAY , COLOR_ORANGE, COLOR_PALE_PINK)
 

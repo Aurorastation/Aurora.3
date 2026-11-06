@@ -41,9 +41,6 @@
 
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (istype(attacking_item, /obj/item/paper/stickynotes/pad))
-		return
-
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
 		if (!C.iscopy && !C.copied)

@@ -6895,7 +6895,7 @@
 /obj/structure/machinery/power/outlet{
 	pixel_y = 3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 8;
 	pixel_y = 6
 	},
@@ -7389,7 +7389,7 @@
 	pixel_y = 2
 	},
 /obj/item/pen,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -8736,7 +8736,7 @@
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -12160,7 +12160,7 @@
 	pixel_x = -6;
 	pixel_y = 2
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -16771,7 +16771,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -21661,7 +21661,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -23542,7 +23542,7 @@
 /obj/item/pen{
 	pixel_y = 4
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -26309,7 +26309,7 @@
 /obj/item/folder/sec,
 /obj/item/pen,
 /obj/item/paper_bin,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -29709,7 +29709,7 @@
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -31111,7 +31111,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/west,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -40359,7 +40359,7 @@
 	pixel_y = 3;
 	pixel_x = 5
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -41139,7 +41139,7 @@
 	pixel_x = -4;
 	pixel_y = 12
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 2;
 	pixel_y = -3
 	},
@@ -41491,7 +41491,7 @@
 	id = "bridgeconf";
 	pixel_x = -3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -47071,7 +47071,7 @@
 /obj/structure/machinery/light{
 	dir = 8
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -61285,7 +61285,7 @@
 	name = "Surgical Theatre Viewing Shutters";
 	dir = 9
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 6;
 	pixel_y = 9
 	},
@@ -61406,7 +61406,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -63083,7 +63083,7 @@
 /obj/structure/platform_deco{
 	dir = 8
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -64842,7 +64842,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 8;
 	pixel_y = 6
 	},
@@ -64969,7 +64969,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -65487,7 +65487,7 @@
 	req_access = null;
 	req_one_access = list(72)
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -85262,7 +85262,7 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/cell_charger,
 /obj/item/paper_scanner,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -85285,7 +85285,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/firealarm/east,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -94648,7 +94648,7 @@
 	req_access = null;
 	req_one_access = list(72)
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -119673,7 +119673,7 @@
 /obj/item/folder/yellow{
 	pixel_x = -5
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -120757,7 +120757,7 @@
 	pixel_x = 11;
 	pixel_y = 11
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -131999,7 +131999,7 @@
 	pixel_y = 8;
 	name = "Lobby Shutter "
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -150457,7 +150457,7 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -155822,7 +155822,7 @@
 	pixel_y = 8;
 	pixel_x = 1
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 4;
 	pixel_y = -1
 	},
@@ -166183,7 +166183,7 @@
 	},
 /obj/item/stack/packageWrap,
 /obj/item/hand_labeler,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -168279,7 +168279,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/firealarm/west,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -170623,7 +170623,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -170707,7 +170707,7 @@
 	pixel_x = 5;
 	pixel_y = 3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -6;
 	pixel_y = 2
 	},
@@ -174530,7 +174530,7 @@
 	pixel_x = -6;
 	pixel_y = 3
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -5;
 	pixel_y = 15
 	},
@@ -174851,7 +174851,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
@@ -181375,7 +181375,7 @@
 /obj/structure/sign/poster/civilian/bay_56{
 	pixel_y = 32
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -1;
 	pixel_y = 6
 	},
@@ -187984,7 +187984,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
@@ -188130,7 +188130,7 @@
 /obj/structure/machinery/light_switch/south{
 	pixel_x = -6
 	},
-/obj/item/paper/stickynotes/pad/random{
+/obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
