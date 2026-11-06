@@ -51,18 +51,22 @@ export const ThermostatWindow = (props) => {
           <AnimatedNumber value={round(data.bodytemperature, 1)} />
           °C.
         </Box>
-        <LabeledList mt={1}>
-          <LabeledList.Item label="Cooling cutoff">
-            <AnimatedNumber value={round(data.thermostat, 1)} />°C
-          </LabeledList.Item>
-          <LabeledList.Item label="Rated cooling output">
-            <AnimatedNumber value={round(data.cooling_output, 1)} /> K/s
-          </LabeledList.Item>
-          <LabeledList.Item label="Maximum power draw">
-            <AnimatedNumber value={round(data.estimated_power_consumption, 1)} />
-            kW
-          </LabeledList.Item>
-        </LabeledList>
+        <Box mt={1}>
+          <LabeledList>
+            <LabeledList.Item label="Cooling cutoff">
+              <AnimatedNumber value={round(data.thermostat, 1)} />°C
+            </LabeledList.Item>
+            <LabeledList.Item label="Rated cooling output">
+              <AnimatedNumber value={round(data.cooling_output, 1)} /> K/s
+            </LabeledList.Item>
+            <LabeledList.Item label="Maximum power draw">
+              <AnimatedNumber
+                value={round(data.estimated_power_consumption, 1)}
+              />
+              kW
+            </LabeledList.Item>
+          </LabeledList>
+        </Box>
         <Box mt={2} textAlign="center">
           <Knob
             size={2}
