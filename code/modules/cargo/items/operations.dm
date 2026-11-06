@@ -658,20 +658,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/omnirestockerresupplycanister
-	category = "operations"
-	name = "Omni-Restocker resupply canister"
-	supplier = "orion"
-	description = "A vending machine restock cart."
-	price = 6000
-	items = list(
-		/obj/item/vending_refill/vendors
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/toximateresupplycanister
 	category = "operations"
 	name = "Toximate resupply canister"
