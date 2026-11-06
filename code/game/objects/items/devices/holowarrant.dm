@@ -82,14 +82,14 @@
 	if(istype(record, /datum/record/warrant))
 		play_message(SPAN_NOTICE("\The [src] pings, \"New warrant on database.\""))
 
-/// Called right before the loaded warrant is deleted
+/// Called right before the warrant is deleted
 /obj/item/holowarrant/proc/handle_warrant_delete(datum/source)
 	SIGNAL_HANDLER
 
 	unload_warrant()
 	play_message(SPAN_NOTICE("\The [src] pings, \"Active warrant deleted.\""))
 
-/// Called right after the loaded warrant is modified
+/// Called right after the warrant is modified
 /obj/item/holowarrant/proc/handle_warrant_modify(datum/source)
 	SIGNAL_HANDLER
 
