@@ -5,9 +5,10 @@
 #define COOLING_POWER_MEDIUM "medium"
 #define COOLING_POWER_HIGH "high"
 
-#define COOLING_POWER_LOW_OUTPUT_MULTIPLIER 0.5
+// Low power retains the cooler's base output with a flat reduction to power draw.
+// High power trades efficiency for additional cooling speed.
+#define COOLING_POWER_LOW_DRAW_REDUCTION 1.5
 #define COOLING_POWER_HIGH_OUTPUT_MULTIPLIER 2.5
-#define COOLING_POWER_LOW_DRAW_MULTIPLIER 0.5
 #define COOLING_POWER_HIGH_DRAW_MULTIPLIER 3
 
 /obj/item/organ/internal/machine/cooling_unit
@@ -29,17 +30,16 @@
 	max_damage = 70
 	relative_size = 50
 
-	/// The power consumed when we are cooling down.
+	/// The maximum power consumed per second while cooling at the preset's base rate.
 	var/base_power_consumption = 8
 	/**
-	 * The passive temperature change in "Degrees Kelvin Per Second". This is reduced by a variety of conditions.
-	 * Basically, cooling units counteract an IPC's passive temperature gain. But the IPC's temperature goes to get itself fucked if the cooling unit dies.
-	 * Remember, can be negative or positive. Depends on what we're trying to stabilize towards.
+	 * The base cooling rate in degrees Kelvin per second. The selected power setting,
+	 * atmosphere, clothing, and organ damage can all modify the effective rate.
 	 */
 	var/passive_temp_change = 2
-	/// The temperature that this cooling unit tries to regulate towards.
+	/// The temperature cutoff at which the cooling unit stops drawing power.
 	var/thermostat = T20C
-	/// The player-selected balance between cooling output and power draw.
+	/// The player-selected balance between cooling output, cutoff temperature, and power draw.
 	var/power_setting = COOLING_POWER_MEDIUM
 	/// The minimum value the thermostat can reach. 0C.
 	var/thermostat_min = T0C
@@ -91,12 +91,16 @@
 	var/broken = is_broken()
 	data["broken"] = broken
 	if(!broken)
+		// The UI displays the cutoff and current temperature in Celsius, while the
+		// cooling logic and thermostat limits use Kelvin internally.
 		data["thermostat"] = thermostat - 273.15
 		data["power_setting"] = power_setting
 		data["cooling_output"] = passive_temp_change * get_cooling_output_multiplier()
 		data["bodytemperature"] = owner.bodytemperature - 273.15
 		data["temperature_safety"] = temperature_safety
-		data["estimated_power_consumption"] = base_power_consumption * get_power_draw_multiplier()
+		// This is the rated maximum. Actual draw is reduced as the IPC approaches
+		// its cutoff and can be lower when the power core lacks enough charge.
+		data["estimated_power_consumption"] = get_maximum_power_draw()
 		data["safety_burnt"] = safety_burnt
 		data["locked_thermostat"] = locked_thermostat
 	return data
@@ -110,7 +114,7 @@
 
 		var/new_power_setting = params["power_setting"]
 		if(set_power_setting(new_power_setting))
-		. = TRUE
+			. = TRUE
 
 	if(action == "temperature_safety")
 		if(safety_burnt)
@@ -140,6 +144,8 @@
 			var/heat_damage = max(excess_temperature * 0.01, 1)
 			take_internal_damage(heat_damage * seconds_per_tick)
 
+	// Start with the selected mode's ideal cooling, then reduce it according to
+	// the cooler's environment and physical condition.
 	var/temperature_change = passive_temp_change * get_cooling_output_multiplier() * seconds_per_tick
 	if(owner.wear_suit)
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
@@ -165,34 +171,45 @@
 		return
 
 	if(thermostat < owner.bodytemperature && temperature_change > 0)
+		// Do not overshoot the cutoff. Drawing the same fraction of maximum power
+		// as the fraction of this tick's cooling actually needed avoids paying the
+		// full running cost when the IPC is already close to its target.
 		var/actual_temperature_change = min(owner.bodytemperature - thermostat, temperature_change)
 		var/cooling_fraction = actual_temperature_change / temperature_change
-		var/requested_power = base_power_consumption * get_power_draw_multiplier() * cooling_fraction * seconds_per_tick
+		var/requested_power = get_maximum_power_draw() * cooling_fraction * seconds_per_tick
 		var/power_used = cell.use(requested_power)
 		if(power_used > 0)
+			// A nearly empty core provides proportional cooling instead of granting
+			// the entire temperature change for a partial power payment.
 			owner.bodytemperature -= actual_temperature_change * min(power_used / requested_power, 1)
 
+/// Returns the multiplier applied to the cooler's base cooling rate for the selected mode.
+/// Low and medium use the base rate, while high increases it.
 /obj/item/organ/internal/machine/cooling_unit/proc/get_cooling_output_multiplier()
 	switch(power_setting)
-		if(COOLING_POWER_LOW)
-			return COOLING_POWER_LOW_OUTPUT_MULTIPLIER
 		if(COOLING_POWER_HIGH)
 			return COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
 	return 1
 
-/obj/item/organ/internal/machine/cooling_unit/proc/get_power_draw_multiplier()
+/// Returns the selected mode's maximum power draw per second.
+/// Low applies a flat saving, medium uses the base draw, and high multiplies it.
+/obj/item/organ/internal/machine/cooling_unit/proc/get_maximum_power_draw()
 	switch(power_setting)
 		if(COOLING_POWER_LOW)
-			return COOLING_POWER_LOW_DRAW_MULTIPLIER
+			return max(0, base_power_consumption - COOLING_POWER_LOW_DRAW_REDUCTION)
 		if(COOLING_POWER_HIGH)
-			return COOLING_POWER_HIGH_DRAW_MULTIPLIER
-	return 1
+			return base_power_consumption * COOLING_POWER_HIGH_DRAW_MULTIPLIER
+	return base_power_consumption
 
+/// Validates a TGUI-provided mode and derives its thermostat cutoff.
+/// Low uses the warmest available cutoff, medium targets 20 C, and high uses the coldest available cutoff.
 /obj/item/organ/internal/machine/cooling_unit/proc/set_power_setting(new_power_setting)
 	if(!(new_power_setting in list(COOLING_POWER_LOW, COOLING_POWER_MEDIUM, COOLING_POWER_HIGH)))
 		return FALSE
 
 	power_setting = new_power_setting
+	// Existing thermostat bounds are retained because organ damage can raise the
+	// minimum temperature the cooler is physically capable of reaching.
 	switch(power_setting)
 		if(COOLING_POWER_LOW)
 			thermostat = thermostat_max
@@ -278,7 +295,6 @@
 #undef COOLING_POWER_LOW
 #undef COOLING_POWER_MEDIUM
 #undef COOLING_POWER_HIGH
-#undef COOLING_POWER_LOW_OUTPUT_MULTIPLIER
+#undef COOLING_POWER_LOW_DRAW_REDUCTION
 #undef COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
-#undef COOLING_POWER_LOW_DRAW_MULTIPLIER
 #undef COOLING_POWER_HIGH_DRAW_MULTIPLIER
