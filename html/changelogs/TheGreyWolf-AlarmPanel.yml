@@ -1,0 +1,6 @@
+author: TheGreyWolf & Wowzewow (Wezzy)
+
+delete-after: True
+
+changes:
+  - rscadd: "APC, air alarms and fire alarms can now be build on the same wall from the south side, and a floor maintenance panel was added to allow them to be constructed on the floor."
