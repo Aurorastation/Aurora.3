@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Money can now be selected where it starts in the origins tab. The current options are the bank, a charge card and biesei credits, as well as 50% options for the latter two. Tajara can additionally select adhomian knuckles.."
