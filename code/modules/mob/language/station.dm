@@ -471,8 +471,8 @@
 	return pick(GLOB.ai_names)
 
 // we're trimming out the punctuation and not readding it, so we need to readd it at the very end
-/datum/language/machine/scramble(var/input, var/list/known_languages)
-	. = ..()
+/datum/language/machine/scramble(var/input, var/list/known_languages, var/decipher_over_time = FALSE)
+	. = ..(input, known_languages, decipher_over_time)
 	return formalize_text(.)
 
 /datum/language/machine/process_word_prescramble(var/original_word, var/new_word, var/word_index, var/new_sentence, var/understand_chance, var/list/music_notes)

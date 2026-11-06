@@ -154,6 +154,7 @@ GLOBAL_LIST_INIT(debug_verbs, list(
 	,/client/proc/disable_movement
 	,/client/proc/Zone_Info
 	,/client/proc/Test_ZAS_Connection
+	,/client/proc/test_partial_understanding
 	//,/client/proc/ZoneTick
 	,/client/proc/rebootAirMaster
 	,/client/proc/hide_debug_verbs
@@ -166,6 +167,24 @@ GLOBAL_LIST_INIT(debug_verbs, list(
 	,/client/proc/get_bad_doors
 	,/client/proc/analyze_openturf
 	))
+
+/client/proc/test_partial_understanding(var/mob/living/target as mob in view())
+	set category = "Debug"
+	set name = "Test Partial Understanding"
+	set desc = "Makes the selected mob speak a test sentence in Sinta'Azaziba."
+
+	if(!check_rights(R_DEBUG|R_DEV))
+		return
+	if(!istype(target))
+		return
+
+	var/datum/language/sinta_azaziba = GLOB.all_languages[LANGUAGE_AZAZIBA]
+	if(!sinta_azaziba)
+		to_chat(src, SPAN_WARNING("Sinta'Azaziba is not currently available."))
+		return
+
+	target.say("Hey there, this is a normal standard sentence that should take a while for you to understand.", sinta_azaziba)
+	log_admin("[key_name(src)] used the partial understanding test verb on [key_name(target)].")
 
 
 /client/proc/enable_debug_verbs()
