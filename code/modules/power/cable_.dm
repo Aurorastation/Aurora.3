@@ -71,6 +71,7 @@ By design, d1 is the smallest direction and d2 is the highest
 // Needs to run before init or we have sad cable knots on away sites
 /obj/structure/cable/New()
 	. = ..()
+	dbg_assert(icon_state != "autowire", "Autowire cable [type] at ([x],[y],[z]) was not replaced, run tools/bapi/autowire.ps1 on the map.")
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
 	var/dash = findtext(icon_state, "-")
 	d1 = text2num(copytext(icon_state, 1, dash))

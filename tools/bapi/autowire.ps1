@@ -22,7 +22,7 @@ Write-Host "Make sure to commit before using this tool, so as to not lose any pr
 Write-Host "You have to provide a path to a specific map file as an argument."
 Write-Host ""
 Write-Host "Autowire replaces autowire cable helpers with appropriate straight/corner/junction cables."
-Write-Host "Only works for red cables (/obj/structure/cable/red/autowire). Does not place knots."
+Write-Host "Works for all cable colors (/obj/structure/cable/<color>/autowire). Does not place knots."
 Write-Host ""
 Write-Host "Example usage:"
 Write-Host "./autowire.ps1 -Path D:/Git/Aurora.3/maps/away/ships/my_map_folder/my_map_file.dmm"

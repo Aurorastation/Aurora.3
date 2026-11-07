@@ -17,18 +17,29 @@ const S: i32 = 2;
 const E: i32 = 4;
 const W: i32 = 8;
 
-/// (autowire helper path, base cable path that the replacement subtypes live under)
-const AUTOWIRE_CONFIG: [(&str, &str); 1] = [(
-    "/obj/structure/cable/red/autowire",
-    "/obj/structure/cable/red",
-)];
+/// Returns the base cable path (like `/obj/structure/cable/red`) if `path` is an autowire helper
+/// (like `/obj/structure/cable/red/autowire`) of any color.
+fn autowire_base(path: &str) -> Option<&str> {
+    let base = path.strip_suffix("/autowire")?;
+    let color = base.strip_prefix("/obj/structure/cable/")?;
+    (!color.is_empty() && !color.contains('/')).then_some(base)
+}
 
 fn is_autowire(path: &str) -> bool {
-    AUTOWIRE_CONFIG.iter().any(|(autowire, _)| *autowire == path)
+    autowire_base(path).is_some()
 }
 
 fn is_cable(path: &str) -> bool {
     path == CABLE_PATH || path.starts_with("/obj/structure/cable/")
+}
+
+/// Color of a cable, as the color segment of its path (`/obj/structure/cable/<color>/...`).
+/// The base `/obj/structure/cable` type is red by default.
+fn cable_color(path: &str) -> &str {
+    match path.strip_prefix("/obj/structure/cable/") {
+        Some(rest) => rest.split('/').next().unwrap_or("red"),
+        None => "red",
+    }
 }
 
 fn dir_from_name(name: &str) -> Option<i32> {
@@ -84,14 +95,16 @@ fn cable_dirs(prefab: &Prefab) -> (i32, i32) {
     dirs_from_path(&prefab.path).unwrap_or((0, 1))
 }
 
-/// Whether the tile at `coord` has a cable that connects to a tile in direction `towards` from it,
-/// or an autowire helper (which connects to everything around it).
-fn tile_connects_towards(umm: &GridMap, coord: Coord3, towards: i32) -> bool {
+/// Whether the tile at `coord` has a cable of the given `color` that connects to a tile in direction `towards` from it,
+/// or an autowire helper of that color (which connects to everything around it).
+fn tile_connects_towards(umm: &GridMap, coord: Coord3, towards: i32, color: &str) -> bool {
     let Some(tile) = umm.grid.get(&coord) else {
         return false;
     };
     tile.prefabs.iter().any(|prefab| {
-        if is_autowire(&prefab.path) {
+        if !is_cable(&prefab.path) || cable_color(&prefab.path) != color {
+            false
+        } else if is_autowire(&prefab.path) {
             true
         } else if is_cable(&prefab.path) {
             let (d1, d2) = cable_dirs(prefab);
@@ -168,7 +181,7 @@ pub fn autowire(map_path: &str) {
     let mut replacements: Vec<(Coord3, usize, Vec<String>)> = Vec::new();
     for (coord, tile) in umm.grid.iter() {
         for (index, prefab) in tile.prefabs.iter().enumerate() {
-            let Some((_, base)) = AUTOWIRE_CONFIG.iter().find(|(a, _)| *a == prefab.path) else {
+            let Some(base) = autowire_base(&prefab.path) else {
                 continue;
             };
 
@@ -182,7 +195,7 @@ pub fn autowire(map_path: &str) {
             let mut mask = 0;
             for ((dx, dy), dir, back) in neighbors {
                 let neighbor = Coord3::new(coord.x + dx, coord.y + dy, coord.z);
-                if tile_connects_towards(&umm, neighbor, back) {
+                if tile_connects_towards(&umm, neighbor, back, cable_color(base)) {
                     mask |= dir;
                 }
             }

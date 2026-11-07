@@ -4,7 +4,7 @@
 	color = COLOR_RED
 
 /**
- * Mapping helper, replaced by `tools/bapi/autowire.ps1` with straight/corner/junction red cables
+ * Mapping helper, replaced by `tools/bapi/autowire.ps1` with straight/corner/junction cables of its color
  * that connect to every adjacent cable pointing at this tile, and to every adjacent autowire.
  * Does not place knots, so place those under APCs/machinery yourself.
  */
@@ -164,6 +164,13 @@ ABSTRACT_TYPE(/obj/structure/cable/red/up)
 /obj/structure/cable/yellow
 	color = COLOR_YELLOW
 
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/yellow/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
+
 ABSTRACT_TYPE(/obj/structure/cable/yellow/knot)
 
 /obj/structure/cable/yellow/knot/north
@@ -315,6 +322,13 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/up)
 
 /obj/structure/cable/green
 	color = COLOR_LIME
+
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/green/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/knot)
 
@@ -468,6 +482,13 @@ ABSTRACT_TYPE(/obj/structure/cable/green/up)
 /obj/structure/cable/blue
 	color = COLOR_BLUE
 
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/blue/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
+
 ABSTRACT_TYPE(/obj/structure/cable/blue/knot)
 
 /obj/structure/cable/blue/knot/north
@@ -619,6 +640,13 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/up)
 
 /obj/structure/cable/pink
 	color = COLOR_PINK
+
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/pink/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/knot)
 
@@ -772,6 +800,13 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/up)
 /obj/structure/cable/orange
 	color = COLOR_ORANGE
 
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/orange/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
+
 ABSTRACT_TYPE(/obj/structure/cable/orange/knot)
 
 /obj/structure/cable/orange/knot/north
@@ -924,6 +959,13 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/up)
 /obj/structure/cable/cyan
 	color = COLOR_CYAN
 
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/cyan/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
+
 ABSTRACT_TYPE(/obj/structure/cable/cyan/knot)
 
 /obj/structure/cable/cyan/knot/north
@@ -1075,6 +1117,13 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/up)
 
 /obj/structure/cable/white
 	color = COLOR_WHITE
+
+/**
+ * Mapping helper, see `/obj/structure/cable/red/autowire`.
+ */
+/obj/structure/cable/white/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/knot)
 

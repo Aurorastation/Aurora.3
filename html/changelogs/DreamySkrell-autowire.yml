@@ -1,0 +1,8 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Added cable subtypes for every color (knots, straights, corners, bends, up, down)."
+  - rscadd: "Added `/autowire` mapping helpers for each color."
+  - rscadd: "Added the `autowire` bapi script tool (`tools/bapi/autowire.ps1`), which replaces `/autowire` cables on a map with the correct straight/corner/junction cables, connecting only to cables of the same color."
