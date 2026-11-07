@@ -1,11 +1,11 @@
-/mob/living/carbon/slime/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/carbon/slime/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	message_mods = message_mods ? message_mods.Copy() : list()
 	message_mods[SAY_MOD_VERB] = say_quote(text)
 
 	if(copytext(text,1,2) == "*")
 		return emote(copytext(text,2))
 
-	return ..(text, null, message_mods, ghost_hearing, whisper, skip_edit, message_range)
+	return ..(text, null, message_mods, ghost_hearing, whisper, skip_edit, message_range, spans, sanitize)
 
 /mob/living/carbon/slime/say_quote(var/text)
 	var/ending = copytext(text, length(text))

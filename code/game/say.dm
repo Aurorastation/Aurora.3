@@ -5,14 +5,19 @@
  * ghost_hearing: whether player-controlled speakers may reach distant ghost ears.
  * whisper: reduce local range; skip_edit: skip living speech impediments, not markup.
  * message_range: optional initial tile range, independent of speech-sound volume.
+ * spans: CSS classes applied to the rendered chat message.
+ * sanitize: disable only for trusted, already-formatted backend messages.
  */
-/atom/movable/proc/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/atom/movable/proc/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	if(QDELETED(src) || !istext(text))
 		return FALSE
 	if(!isnull(message_range) && (!isnum(message_range) || message_range < 0))
 		return FALSE
-	// Player input is already HTML-encoded by say_verb; strip unsafe markup without double encoding.
-	text = trim(copytext_char(sanitize(text, encode = FALSE), 1, MAX_MESSAGE_LEN))
+	// Player input is already HTML-encoded by say_verb; avoid double encoding it.
+	if(sanitize)
+		text = trim(copytext_char(sanitize(text, encode = FALSE), 1, MAX_MESSAGE_LEN))
+	else
+		text = trim(text)
 	if(!length(text))
 		return FALSE
 	if(!ismob(src) && !can_speak(speaking || get_default_language()))
@@ -21,6 +26,7 @@
 	var/datum/language/forced_language = (speaking && !speaking.always_parse_language) ? speaking : null
 	var/datum/say_message/msg = build_say_message(text, forced_language)
 	msg.message_mods = message_mods ? message_mods.Copy() : list()
+	msg.spans = spans ? spans.Copy() : list()
 	msg.message_mode = msg.message_mods[SAY_MOD_MESSAGE_MODE]
 	msg.whisper = whisper
 	msg.message_range = isnull(message_range) ? world.view : message_range
@@ -109,7 +115,7 @@
 	var/datum/language/primary = msg.segments[1].language
 	if(primary && (msg.message_mods[SAY_MOD_VERB] in primary.shout_verb))
 		styles = list("langchat_yell")
-	if(msg.message_mods[MODE_AMPLIFIED] || msg.say_mode == SAYMODE_RADIO)
+	if(msg.message_mods[MODE_AMPLIFIED] || msg.message_mods[MODE_RELAY] || msg.say_mode == SAYMODE_RADIO)
 		styles += "radio"
 	langchat_say_message(msg, listeners, additional_styles = styles)
 

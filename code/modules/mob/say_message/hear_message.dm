@@ -242,6 +242,8 @@
 	var/envelope = format_envelope(msg, muffled, clarity)
 	if(!length(envelope))
 		return
+	if(length(msg.spans))
+		envelope = "<span class='[html_encode(jointext(msg.spans, " "))]'>[envelope]</span>"
 	on_hear_message(envelope)
 	// This is a special case for internal mobs like cortical borers.
 	// They see through the eyes of their host so we must relay the message.

@@ -681,7 +681,7 @@
 	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/simple_animal/parrot/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	message_mods = message_mods ? message_mods.Copy() : list()
 
 	if(stat)
@@ -712,7 +712,7 @@
 				ears.talk_into(src,sanitize(text), message_mode, message_mods[SAY_MOD_VERB], null)
 
 
-	return ..(text, speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range)
+	return ..(text, speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range, spans, sanitize)
 
 
 /mob/living/simple_animal/parrot/react_to_message(datum/say_message/msg)

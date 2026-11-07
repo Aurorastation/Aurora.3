@@ -1,5 +1,5 @@
 //TODO: Convert this over for languages.
-/mob/living/carbon/brain/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/carbon/brain/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	message_mods = message_mods ? message_mods.Copy() : list()
 	if (silent)
 		return
@@ -34,4 +34,4 @@
 			var/obj/item/mmi/radio_enabled/R = container
 			if(R.radio)
 				R.radio.hear_talk(src, sanitize(text), message_mods[SAY_MOD_VERB], speaking)
-		return ..(trim(text), speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range)
+		return ..(trim(text), speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range, spans, sanitize)

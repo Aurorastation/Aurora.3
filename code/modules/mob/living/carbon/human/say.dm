@@ -65,7 +65,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/carbon/human/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	// Messaging the user is handled by the species proc.
 	if(!species.can_speak(src, speaking, text))
 		return FALSE

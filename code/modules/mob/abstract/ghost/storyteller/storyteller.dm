@@ -45,7 +45,7 @@
 	if(!can_reenter_corpse)
 		SSodyssey.remove_storyteller(src)
 
-/mob/abstract/ghost/storyteller/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/abstract/ghost/storyteller/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	if (!text)
 		return
 

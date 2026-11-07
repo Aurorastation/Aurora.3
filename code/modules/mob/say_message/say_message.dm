@@ -5,6 +5,8 @@
 
 	/// Event-owned attribution, name suffix, and presentation modifiers.
 	var/list/message_mods = list()
+	/// Event-owned CSS classes for chat presentation.
+	var/list/spans = list()
 
 	/// Local recipients already dispatched, including containment relays. Copies start fresh.
 	var/list/delivered_to = list()
@@ -168,6 +170,7 @@
 	var/datum/say_message/copy = new
 	copy.speaker = speaker
 	copy.message_mods = message_mods.Copy()
+	copy.spans = spans.Copy()
 	copy.raw_message = raw_message
 	copy.segments = segments
 	copy.single_language = single_language

@@ -6,6 +6,12 @@
 /obj/atom_say_test_speaker/finish_say_message(datum/say_message/msg)
 	last_message = msg
 
+/obj/item/lore_radio/atom_say_test_lore_radio
+	var/datum/say_message/last_message
+
+/obj/item/lore_radio/atom_say_test_lore_radio/finish_say_message(datum/say_message/msg)
+	last_message = msg
+
 /obj/atom_say_test_receiver
 	var/received = 0
 	var/datum/say_message/last_message
@@ -96,10 +102,11 @@
 	fixtures += list(speaker, device, listener, radio, intercom)
 	listener.add_language(LANGUAGE_TCB)
 	var/list/mods = list(SAY_MOD_VERB = "announces", SAY_MOD_NAME_SUFFIX = " (test)")
+	var/list/speech_spans = list("notice")
 	var/failures_before = GLOB.unit_tests_failures
 
 	// Execute the real object-to-mob and object-to-device paths, including the spatial grid.
-	var/said = speaker.say("speech fixture", message_mods = mods, message_range = 0)
+	var/said = speaker.say("speech fixture", message_mods = mods, message_range = 0, spans = speech_spans)
 	if(!said || length(listener.messages) != 1 || device.received != 1)
 		TEST_FAIL("Object speech must reach a nearby mob and hearing-sensitive device exactly once")
 	if(!findtext(jointext(listener.messages, " "), "announces") || !findtext(jointext(listener.messages, " "), " (test)"))
@@ -108,6 +115,11 @@
 		TEST_FAIL("A caller's zero range must not be replaced with the default or pressure range")
 	if(device.last_message?.speaker != speaker)
 		TEST_FAIL("Devices must receive the actual object speaker and speech payload")
+	if(!findtext(listener.messages[1], "class='notice'"))
+		TEST_FAIL("Speech spans must reach the rendered chat message")
+	speech_spans += "warning"
+	if("warning" in speaker.last_message.spans)
+		TEST_FAIL("A speech event must copy caller-owned span lists")
 	if(radio.received != 1 || radio.last_message != speaker.last_message)
 		TEST_FAIL("An open microphone must forward the object speaker's segmented message once")
 	if(intercom.received != 1 || intercom.last_message != speaker.last_message)
@@ -182,6 +194,9 @@
 		TEST_FAIL("Containment relays and direct delivery must share duplicate protection")
 	var/datum/say_message/copied = speaker.last_message.copy()
 	copied.message_mods[SAY_MOD_VERB] = "changed"
+	copied.spans += "warning"
+	if("warning" in speaker.last_message.spans)
+		TEST_FAIL("Copied radio events must not share mutable span lists with local speech")
 	if(mods[SAY_MOD_VERB] != "announces" || speaker.last_message.message_mods[SAY_MOD_VERB] != "announces")
 		TEST_FAIL("Message construction and copying must not mutate caller-owned modifiers")
 
@@ -195,10 +210,12 @@
 	human.add_language(LANGUAGE_TCB)
 	human.default_language = GLOB.all_languages[LANGUAGE_TCB]
 	human.stuttering = 100
-	if(!human.say("Human fixture.", message_mods = mods, skip_edit = TRUE, message_range = 0))
+	if(!human.say("Human fixture.", message_mods = mods, skip_edit = TRUE, message_range = 0, spans = list("notice")))
 		TEST_FAIL("A human override must reach the shared speech path")
 	if(device.last_message?.speaker != human || device.last_message?.to_string() != "Human fixture.")
 		TEST_FAIL("Human argument forwarding must preserve identity and skip_edit")
+	if(!("notice" in device.last_message.spans))
+		TEST_FAIL("Human speech overrides must forward spans to the shared speech path")
 
 	// A carried receiver would anchor its echo to the same mob as the original local speech.
 	var/datum/say_message/radio_echo = device.last_message.copy()
@@ -272,6 +289,31 @@
 		TEST_FAIL("Restoring shortwave power must restore its powered and emissive overlays")
 	if(shortwave.get_radio_overlay("missing-shortwave-art") || intercom.shortwave_overlays)
 		TEST_FAIL("Missing artwork must be optional and intercoms must keep their own appearance handling")
+
+	var/obj/item/lore_radio/atom_say_test_lore_radio/lore = new(location)
+	fixtures += lore
+	var/datum/language/sol = GLOB.all_languages[LANGUAGE_SOL_COMMON]
+	var/formatted_broadcast = "<i>"
+	for(var/character_index in 1 to MAX_MESSAGE_LEN)
+		formatted_broadcast += "x"
+	formatted_broadcast += "</i>"
+	lore.low_volume = TRUE
+	if(!lore.say_broadcast(formatted_broadcast, sol))
+		TEST_FAIL("Lore radio broadcasts must use the shared atom speech path")
+	if(lore.last_message?.single_language != sol || lore.get_default_language() != sol)
+		TEST_FAIL("Lore radios must configure their language from each received broadcast")
+	if(lore.last_message?.to_string() != formatted_broadcast)
+		TEST_FAIL("Trusted lore broadcasts must preserve formatting and their full length")
+	if(lore.last_message?.message_range != 1 || !("lore-radio" in lore.last_message.spans))
+		TEST_FAIL("Low-volume lore speech must retain its styling at a one-tile range")
+	if(!lore.last_message.message_mods[MODE_RELAY] || lore.last_message.font_size == FONT_SIZE_HUGE)
+		TEST_FAIL("Lore broadcasts must request the radio marker without amplified presentation")
+	lore.low_volume = FALSE
+	lore.say_broadcast("weather fixture")
+	if(lore.last_message?.single_language != GLOB.all_languages[LANGUAGE_TCB])
+		TEST_FAIL("Untagged and weather broadcasts must reset the previous station language")
+	if(lore.last_message?.message_range != world.view)
+		TEST_FAIL("Normal-volume lore speech must restore the ordinary local range")
 
 	for(var/atom/movable/fixture as anything in fixtures)
 		qdel(fixture)

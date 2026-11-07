@@ -204,7 +204,7 @@
 			heard_dying_message = 0
 			to_chat(src, SPAN_NOTICE("The soothing echoes of life reinvigorate you."))
 
-/mob/living/simple_animal/shade/bluespace/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/simple_animal/shade/bluespace/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	if(!possessive)
 		var/list/words_in_memory = dd_text2List(last_message_heard, " ")
 		var/list/words_in_message = dd_text2List(text, " ")

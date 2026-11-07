@@ -218,7 +218,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
-/mob/living/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null)
+/mob/living/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(text)
@@ -249,7 +249,7 @@ var/list/channel_to_radio_key = new
 	text = formalize_text(text)
 
 	message_mods[SAY_MOD_MESSAGE_MODE] = message_mode
-	return ..(text, speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range)
+	return ..(text, speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range, spans, sanitize)
 
 /mob/living/prepare_say_message(datum/say_message/msg, skip_edit, list/used_radios)
 	// the first segment's language is the message's primary

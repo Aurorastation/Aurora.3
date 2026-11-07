@@ -228,6 +228,8 @@
 		radio_msg = say_message.copy()
 	else
 		radio_msg = new
+		if(say_message)
+			radio_msg.spans = say_message.spans.Copy()
 		radio_msg.speaker = M
 		radio_msg.message_mods[SAY_MOD_VERB] = data["say_verb"]
 		radio_msg.collapse_to(language, message)
