@@ -83,6 +83,13 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 		/obj/item/rig,
 	)
 
+	/// Types (and their subtypes) this marker never touches, even if they match `types_whitelist`.
+	/// For exceptions to a whitelisted parent type.
+	var/list/types_blacklist = list(
+		// intentionally has no access requirements, so anyone can manually open it during a lockdown
+		/obj/structure/machinery/door/firedoor/noid,
+	)
+
 /obj/effect/map_effect/marker/access/Initialize(mapload, ...)
 	..()
 	return INITIALIZE_HINT_LATELOAD
@@ -94,6 +101,8 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 		req_one_access = list(req_one_access)
 	if(!isnull(types_whitelist) && !islist(types_whitelist))
 		types_whitelist = list(types_whitelist)
+	if(!isnull(types_blacklist) && !islist(types_blacklist))
+		types_blacklist = list(types_blacklist)
 
 	dbg_assert(clear_access || length(req_access) || length(req_one_access),
 		"Access marker [type] at [x] [y] [z] has no access requirements set.")
@@ -102,6 +111,8 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 
 	for(var/obj/thing in loc)
 		if(!is_type_in_list(thing, types_whitelist))
+			continue
+		if(is_type_in_list(thing, types_blacklist))
 			continue
 		if(clear_access)
 			thing.req_access = null
