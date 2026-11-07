@@ -203,7 +203,7 @@
 			*dispersion_increase = *dispersion_increase - dispersion // 30-degree dispersion DECREASE
 		return .
 
-	if(!unsteadied && skill_level < SKILL_LEVEL_PROFESSIONAL)
+	if(!unsteadied && skill_level < SKILL_LEVEL_TRAINED) // Trained & up don't get negative skill adjustments anyways
 		return
 
 	if(warmup_tier && world.time >= warmup_end)
