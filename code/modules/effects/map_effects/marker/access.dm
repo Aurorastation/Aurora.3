@@ -14,7 +14,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	name = "access marker"
 	desc = "See comments/documentation in code."
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "door_helper_access_req"
+	icon_state = "access_marker"
 
 	/// Access requirements added to objects under this marker. All of these are required.
 	/// Rarely used, prefer `req_one_access`.
@@ -130,5 +130,5 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 /// Removes all access requirements from the objects under it, making them usable by anyone.
 /obj/effect/map_effect/marker/access/none
 	name = "access marker (no access)"
-	icon_state = "door_helper_access_req_none"
+	icon_state = "access_marker_none"
 	clear_access = TRUE
