@@ -406,6 +406,11 @@
       opacity: 0.45;
     }
 
+    .loadout-tag--selected {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
     .loadout-tag--irrelevant {
       opacity: 0.6;
       filter: grayscale(1) brightness(0.55);

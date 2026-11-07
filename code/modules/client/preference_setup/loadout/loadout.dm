@@ -73,12 +73,14 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		if(slot_tie)
 			return "Accessory"
 	// No slot set, the item is sent to the storage (eg. backpack)
-	return "Storage"
+	return LOADOUT_TAG_SPAWNS_IN_STORAGE
 
 /// Fills `gear.tags` with the tags that can be derived from the gear's own vars. Department tags need jobs to exist, see [/proc/fill_department_tags_on_item].
 /proc/fill_automatic_tags_on_item(var/datum/gear/gear)
 	for(var/misc_tag in gear.misc_tags)
 		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_MISC, misc_tag)
+	if(ispath(gear.path, /obj/item/storage) || ispath(gear.path, /obj/item/clothing/accessory/storage) || ispath(gear.path, /obj/item/clothing/accessory/holster))
+		add_tag_to_gear(gear, LOADOUT_TAG_GROUP_MISC, LOADOUT_TAG_STORAGE)
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_SLOT, get_loadout_slot_tag(gear))
 	add_tag_to_gear(gear, LOADOUT_TAG_GROUP_FACTION, gear.faction || LOADOUT_TAG_NO_FACTION)
 	if(!length(gear.origin_restriction))
@@ -147,8 +149,11 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 			if(helper_tag in groups[group])
 				ordered_tags[helper_tag] = groups[group][helper_tag]
 		for(var/tag in groups[group])
-			if(!(tag in ordered_tags))
+			if(!(tag in ordered_tags) && tag != LOADOUT_TAG_SPAWNS_IN_STORAGE)
 				ordered_tags[tag] = groups[group][tag]
+		// "Spawns-in-storage" goes last in the slot group
+		if(group == LOADOUT_TAG_GROUP_SLOT && (LOADOUT_TAG_SPAWNS_IN_STORAGE in groups[group]))
+			ordered_tags[LOADOUT_TAG_SPAWNS_IN_STORAGE] = groups[group][LOADOUT_TAG_SPAWNS_IN_STORAGE]
 		groups[group] = ordered_tags
 
 	GLOB.loadout_tag_groups = groups

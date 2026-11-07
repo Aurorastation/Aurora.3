@@ -16,6 +16,11 @@
 #define LOADOUT_TAG_GROUP_DEPARTMENT "Department"
 #define LOADOUT_TAG_GROUP_SPECIES "Species Restriction"
 
+/// Slot tag for gear that has no slot and is sent to the character's storage (eg. backpack)
+#define LOADOUT_TAG_SPAWNS_IN_STORAGE "Spawns-in-storage"
+/// Misc tag, automatically added to gear that is itself a storage item (bags, belts, pill boxes, etc.)
+#define LOADOUT_TAG_STORAGE "Storage"
+
 // Helper tags for gear without a given restriction. They share the group with the actual restriction tags, so they are mutually exclusive.
 #define LOADOUT_TAG_NO_FACTION "No Faction Restriction"
 #define LOADOUT_TAG_NO_ORIGIN "No Origin Restriction"

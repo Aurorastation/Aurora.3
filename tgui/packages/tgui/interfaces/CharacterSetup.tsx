@@ -264,6 +264,40 @@ type CharacterSetupData = {
   items: PreferenceItem[];
 };
 
+const getLoadoutTagTooltip = (tag: LoadoutTag) => {
+  const parts: string[] = [];
+  const items = `${tag.count} ${tag.count === 1 ? 'item' : 'items'}`;
+
+  if (tag.selected) {
+    parts.push(
+      `Selected: showing items with this tag (and any other selected tags), ${items}. Click to deselect.`,
+    );
+  } else if (tag.count > 0) {
+    parts.push(
+      `${items} you can pick with this tag (and any other selected tags). Click to select.`,
+    );
+  } else {
+    parts.push(
+      'No items you can pick have this tag together with the currently selected tags.',
+    );
+  }
+  if (tag.has_selected) {
+    parts.push('You have already chosen some items with this tag.');
+  }
+  if (tag.irrelevant) {
+    parts.push("This tag doesn't apply to your character.");
+  }
+  return (
+    <>
+      {parts.map((part, index) => (
+        <Box key={part} mt={index > 0 ? 0.5 : 0}>
+          {part}
+        </Box>
+      ))}
+    </>
+  );
+};
+
 const LoadoutTagGroupRow = (props: {
   group: LoadoutTagGroup;
   onToggle: (tag: string) => void;
@@ -276,12 +310,13 @@ const LoadoutTagGroupRow = (props: {
       <Box className="loadout-tag-group__tags">
         {group.tags.map((tag) => (
           <Button
-            className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}`}
+            className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}${tag.selected ? ' loadout-tag--selected' : ''}`}
             color={tag.has_selected ? 'average' : undefined}
             compact
             key={tag.name}
             onClick={() => onToggle(tag.name)}
             selected={tag.selected}
+            tooltip={getLoadoutTagTooltip(tag)}
           >
             {tag.name} ({tag.count})
           </Button>
