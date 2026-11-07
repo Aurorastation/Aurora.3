@@ -68,27 +68,6 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	DRAW_FROM_POWERNET(powernet, .)
 
-/obj/structure/cable/yellow
-	color = COLOR_YELLOW
-
-/obj/structure/cable/green
-	color = COLOR_LIME
-
-/obj/structure/cable/blue
-	color = COLOR_BLUE
-
-/obj/structure/cable/pink
-	color = COLOR_PINK
-
-/obj/structure/cable/orange
-	color = COLOR_ORANGE
-
-/obj/structure/cable/cyan
-	color = COLOR_CYAN
-
-/obj/structure/cable/white
-	color = COLOR_WHITE
-
 // Needs to run before init or we have sad cable knots on away sites
 /obj/structure/cable/New()
 	. = ..()
