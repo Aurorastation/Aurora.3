@@ -3,6 +3,15 @@
 /obj/structure/cable/red
 	color = COLOR_RED
 
+/**
+ * Mapping helper, replaced by `tools/bapi/autowire.ps1` with straight/corner/junction red cables
+ * that connect to every adjacent cable pointing at this tile, and to every adjacent autowire.
+ * Does not place knots, so place those under APCs/machinery yourself.
+ */
+/obj/structure/cable/red/autowire
+	name = "autowire (run autowire.ps1)"
+	icon_state = "autowire"
+
 ABSTRACT_TYPE(/obj/structure/cable/red/knot)
 
 /obj/structure/cable/red/knot/north
