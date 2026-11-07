@@ -67,7 +67,7 @@ GLOBAL_VAR_INIT(intercom_range_display_status, 0)
 	set name = "Camera Report"
 
 	if(!Master)
-		alert(usr,"Master_controller not found.","Sec Camera Report")
+		tgui_alert(usr, "Master_controller not found.", "Sec Camera Report")
 		return 0
 
 	var/list/obj/structure/machinery/camera/CL = list()
@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(debug_verbs, list(
 	set category = "ZAS"
 	set name = "Reboot ZAS"
 
-	if(alert("This will destroy and remake all zone geometry on the whole map.","Reboot ZAS","Reboot ZAS","Nevermind") == "Reboot ZAS")
+	if(tgui_alert(usr, "This will destroy and remake all zone geometry on the whole map.", "Reboot ZAS", list("Reboot ZAS", "Nevermind")) == "Reboot ZAS")
 		SSair.reboot()
 
 /client/proc/count_objects_on_z_level()

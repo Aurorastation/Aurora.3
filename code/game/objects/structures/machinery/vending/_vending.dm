@@ -107,9 +107,9 @@
 	 *	optional if product_records is specified.
 	 *
 	 *	For each, use the following pattern:
-	 *	list(/type/path = amount,/type/path2 = amount2)
-	 *	No specified amount = only one in stock
-	 *	Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	 *	`list(/type/path = amount,/type/path2 = amount2)`
+	 *	No specified amount = uses `default_item_amount`
+	 *	Prices for each item, `list(/type/path = price)`, items not in the list don't have a price.
 	**/
 	var/list/products	= list()
 	var/list/contraband	= list()
@@ -232,6 +232,15 @@
 	var/extra_price = 50
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
+	/// Whether a mapped instance of this vendor should persist its normal stock between rounds.
+	var/persistent_stock = FALSE
+	/// Original map location used to associate this machine with its persistent stock. Runtime-created vendors leave this null.
+	var/tmp/persistent_stock_id
+	/// Saved normal stock supplied by the persistence type before atom initialization.
+	var/tmp/list/persistent_stock_content
+
+	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
+	var/default_item_amount = null
 
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -241,6 +250,18 @@
 
 /obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
+
+#ifdef UNIT_TEST
+	if(mapload)
+		dbg_assert(!length(difflist(products, initial(products))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in products.")
+		dbg_assert(!length(difflist(contraband, initial(contraband))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in contraband.")
+		dbg_assert(!length(difflist(premium, initial(premium))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in premium items.")
+
+	for(var/list/item_list in list(products, contraband, premium))
+		for(var/p in item_list)
+			dbg_assert(ispath(p, /obj), "Vending product [p] in vending machine [src] ([type]) is not a subtype of /obj.")
+#endif
+
 	wires = new(src)
 
 	if(src.product_slogans)
@@ -271,6 +292,8 @@
 	// Check if we were created off-station during mapload. Non-station vending machines are always free.
 	var/turf/T = get_turf(src)
 	if(mapload && T)
+		if(is_station_level(T.z) && persistent_stock)
+			persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
 		if(!is_station_level(T.z))
 			if(!onstation_override)
 				onstation = FALSE
@@ -283,6 +306,22 @@
 /obj/structure/machinery/vending/LateInitialize()
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+	apply_persistent_stock()
+
+/** Applies stock supplied before initialization now that the product records have been built. */
+/obj/structure/machinery/vending/proc/apply_persistent_stock()
+	if(!persistent_stock_id || !islist(persistent_stock_content))
+		persistent_stock_content = null
+		return
+
+	for(var/datum/data/vending_product/product in product_records)
+		if(product.category != CAT_NORMAL)
+			continue
+		var/stock_key = "[product.product_path]|[product.category]"
+		var/saved_amount = persistent_stock_content[stock_key]
+		if(isnum(saved_amount))
+			product.amount = clamp(saved_amount, 0, product.max_amount)
+	persistent_stock_content = null
 
 /obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
@@ -324,6 +363,8 @@
 		list(src.contraband, CAT_HIDDEN),
 		list(src.premium, CAT_COIN))
 
+	var/fallback_amount = !isnull(default_item_amount) ? default_item_amount : 1
+
 	for(var/current_list in all_products)
 		var/category = current_list[2]
 
@@ -331,11 +372,15 @@
 			var/datum/data/vending_product/product = new/datum/data/vending_product(entry)
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
-			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
-				product.amount = rand(1,product.max_amount)
+
+			var/entry_amount = current_list[1][entry]
+			product.max_amount = !isnull(entry_amount) ? entry_amount : fallback_amount
+
+			if (random_itemcount == 1 && category == CAT_NORMAL) // Only the normal category is randomized.
+				product.amount = rand(1, product.max_amount)
 			else
 				product.amount = product.max_amount
+
 			product.category = category
 
 			src.product_records.Add(product)
