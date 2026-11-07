@@ -6,10 +6,10 @@
 /// /obj/effect/map_effect/marker/access/security
 /// 	req_one_access = list(/datum/access/security::id)
 /// ```
-/// and then map that over doors, lockers, buttons, etc, instead of var-editing raw numeric access onto them.
+/// And then map that over doors, lockers, buttons, etc, instead of var-editing raw numeric access onto them.
 ///
 /// Only objects that are of a type in `types_whitelist` will be modified.
-/// This is the abstract type; define subtypes with the access set.
+/// This is the abstract type; define subtypes with the actual access set.
 ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	name = "access marker"
 	desc = "See comments/documentation in code."
@@ -30,16 +30,57 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	/// Types (and their subtypes) this marker is allowed to add access requirements to.
 	/// Anything else is left untouched.
 	var/list/types_whitelist = list(
+		// doors
 		/obj/structure/machinery/door/airlock,
 		/obj/structure/machinery/door/window,
+		/obj/structure/machinery/door/firedoor,
+		/obj/structure/machinery/door/urban,
+
+		// buttons, controllers, panels
 		/obj/structure/machinery/button,
-		/obj/structure/machinery/computer,
-		/obj/structure/machinery/vending,
+		/obj/structure/machinery/access_button,
+		/obj/structure/machinery/embedded_controller,
+		/obj/structure/machinery/turretid,
+		/obj/structure/machinery/ringer,
 		/obj/structure/machinery/alarm,
 		/obj/structure/machinery/power/apc,
-		/obj/structure/machinery/turretid,
+
+		// computers and vendors
+		/obj/structure/machinery/computer,
+		/obj/structure/machinery/vending,
+		/obj/structure/machinery/smartfridge/secure,
+		/obj/structure/machinery/seed_storage,
+		/obj/structure/machinery/chemical_dispenser,
+
+		// lockers, crates, racks
 		/obj/structure/closet/secure_closet,
 		/obj/structure/closet/crate/secure,
+		/obj/structure/closet/walllocker,
+		/obj/structure/weapons_rack,
+		/obj/item/storage/secure,
+
+		// lockable machinery
+		/obj/structure/machinery/porta_turret,
+		/obj/structure/machinery/suit_cycler,
+		/obj/structure/machinery/power/emitter,
+		/obj/structure/machinery/shieldgen,
+		/obj/structure/machinery/stasis_cage,
+
+		// spawners and markers that pass their access on to what they spawn
+		// note that init order between spawners and the access marker is not guaranteed
+		// but it should not matter in practice
+		// if marker runs first, spawner gets the access added, and adds it to what it spawns
+		// if spawner runs first, then marker adds access to whatever was spawned
+		/obj/effect/map_effect/window_spawner,
+		/obj/effect/map_effect/marker/airlock,
+
+		// misc
+		/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
+		/obj/structure/machinery/photocopier/faxmachine,
+		/obj/structure/sign/double/barsign,
+		/obj/item/quikpay,
+		/obj/item/holomenu,
+		/obj/item/rig,
 	)
 
 /obj/effect/map_effect/marker/access/Initialize(mapload, ...)
@@ -78,4 +119,5 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 /// Removes all access requirements from the objects under it, making them usable by anyone.
 /obj/effect/map_effect/marker/access/none
 	name = "access marker (no access)"
+	icon_state = "door_helper_access_req_none"
 	clear_access = TRUE
