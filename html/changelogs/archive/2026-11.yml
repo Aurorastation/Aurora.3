@@ -1,0 +1,42 @@
+2026-11-05:
+  DreamySkrell:
+  - refactor: Refactor; adds `get_map_template` and `get_map_sector` procs.
+  ElorgRHG:
+  - bugfix: Fixed forensic gloves missing an onmob sprite.
+  FabianK3:
+  - balance: Roughly halfed the intensity of visual screenshake from explosions.
+  Greenjoe:
+  - rscadd: Adds some new levels of economic status, bankrupt (no money at all in
+      your account) and several levels of debt.
+  SimpleMaroon:
+  - imageadd: Added new Mictlani Trinarist robes and capes to the loadout.
+  - bugfix: Fixed the blue Trinarist cape mob sprites using gray instead of blue.
+  - rscadd: Added a Mictlani IPC origin under the Solarian culture so that the new
+      clothing items can be origin locked.
+  TheGreyWolf:
+  - bugfix: Fixed IPC tag spawning.
+  - bugfix: Fixed some issues with IPC damage never going away.
+  - bugfix: Polls and changelog now display a message in the chat.
+  diggiez:
+  - balance: The Bite ability, currently only available to Ta, only requires a neckgrab.
+  - qol: Black K'ois zombies get less message spam.
+2026-11-06:
+  ElorgRHG:
+  - imageadd: Added Golden Deep, Axiomite and Salamasian flagpatches.
+  - bugfix: Fixed sleeve patches not having a correct flipped sprite.
+  - bugfix: Fixed KOG shoulder tabs not having visible onmob sprites.
+  - bugfix: Fixed Sol Alliance (and party) pins not having working flipped sprites.
+  - bugfix: Fixed the name tag pin not having a visible onmob sprite.
+  - imageadd: Added the Ecclesiastical Authority of Axiom and Salamasian Republic
+      passports.
+  Fenodyree:
+  - bugfix: Fixes slimes not taming, because the monkey was not grabbed or pulled
+      by the player before feeding it to the slime.
+  - bugfix: Fixes pouring water on monkey cubes.
+  Stradfarian:
+  - imageadd: Added two tajaran hairstyles and two tajaran beards.
+  TheGreyWolf:
+  - bugfix: Fixed a backend issue causing TGUI to be unable to build.
+  - rscadd: Made the various food, drink and snack vendors on the ship persistent.
+  - bugfix: Fixes the spread of fire from napalm grenades.
+  - balance: Reduced the radius of napalm grenades from 5 to 3 turfs.

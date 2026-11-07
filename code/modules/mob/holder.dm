@@ -229,6 +229,7 @@
 				to_chat(src, SPAN_NOTICE("You climb up onto [grabber]."))
 			else
 				to_chat(grabber, SPAN_NOTICE("You scoop up [src]."))
+				src.LAssailant = grabber //So slimes know who is feeding them.
 				to_chat(src, SPAN_NOTICE("[grabber] scoops you up."))
 
 			H.sync(src)

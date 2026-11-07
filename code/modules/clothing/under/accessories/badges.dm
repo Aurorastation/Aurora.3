@@ -837,6 +837,25 @@
 	icon_state = "passport_goldendeep"
 	item_state = "passport_goldendeep"
 
+/obj/item/clothing/accessory/badge/passport/axiom
+	name = "ecclesiastical authority of axiom passport"
+	desc = "A passport issued to a citizen of the Ecclesiastical Authority of Axiom, an \
+		independent majority-synthetic nation based on the planet known to most as Orepit. \
+		A small prayer book is included in the back, translated in various organic \
+		and non-organic scripts."
+	icon_state = "passport_axiom"
+	item_state = "passport_axiom"
+
+/obj/item/clothing/accessory/badge/passport/salamasian
+	name = "salamasian republic passport"
+	desc = "A passport issued to a citizen of the Salamasian Republic, an independent \
+		human nation based on the planet known indigeneously as Nu'u. While it shares \
+		a planet with Ecclesiastical Axiom, a Trinarist theocracy, it is itself fiercly \
+		independent and protective of its land. Its back page is a transparent rubber \
+		film within which a thin layer of earth from Nu'u is suspended."
+	icon_state = "passport_salamasian"
+	item_state = "passport_salamasian"
+
 /obj/item/clothing/accessory/badge/passport/consortium
 	name = "consortium of hieroaetheria passport"
 	desc = "A passport issued to a citizen of the Consortium of Hieroaetheria. A testament to inclusiveness anywhere its owner takes with it."
