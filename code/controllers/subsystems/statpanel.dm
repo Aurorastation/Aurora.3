@@ -25,6 +25,9 @@ SUBSYSTEM_DEF(statpanels)
 	pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
 	return SS_INIT_SUCCESS
 
+/datum/controller/subsystem/statpanels/Recover()
+	pinned_round_time = SSstatpanels.pinned_round_time
+
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++

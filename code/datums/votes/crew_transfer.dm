@@ -25,7 +25,7 @@ GLOBAL_VAR(last_transfer_vote)
 		return TRUE
 
 	if(SSticker.pinned_transfer_vote_consumed)
-		to_chat(by_who, SPAN_NOTICE("Crew transfer votes are currently disabled until the due to the upcomingpinned round."))
+		to_chat(by_who, SPAN_NOTICE("Crew transfer votes are currently disabled due to the upcoming pinned round."))
 		return FALSE
 
 	if(GLOB.security_level >= SEC_LEVEL_DELTA)

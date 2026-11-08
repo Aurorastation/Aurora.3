@@ -168,10 +168,11 @@ SUBSYSTEM_DEF(ticker)
 		if (GAME_STATE_PLAYING)
 			game_tick()
 
+/datum/controller/subsystem/ticker/proc/pregame_tick()
+	// Consume the precursor opportunity if the lobby crosses its cutoff.
 	if(pinned_transfer_setting && pinned_transfer_target - REALTIMEOFDAY <= (2 HOURS + 30 MINUTES))
 		pinned_transfer_vote_consumed = TRUE
 
-/datum/controller/subsystem/ticker/proc/pregame_tick()
 	if (GLOB.round_progressing)
 		pregame_timeleft--
 
@@ -299,11 +300,15 @@ SUBSYSTEM_DEF(ticker)
 			 * which offers one chance to end the current round while respecting active or recent transfer votes.
 			 * Unrelated votes defer that opportunity within the window.
 			 * Once consumed, or once too little time remains for a full round, ordinary player transfer votes are disabled.
-			 * Periodic automatic transfer votes are suppressed from the precursor window onward.
+			 * Periodic automatic transfer votes are suppressed until the shift-change window closes.
 			 * Near the pinned start, a separate window (15m before pinned round) attempts shift change if none is underway.
+			 * Player transfer votes are re-enabled once that window closes (less than 10m before the pinned start).
 			 * Window bounds prevent premature or late calls while allowing deferred attempts.
 			 */
 			var/time_until_pinned = pinned_transfer_target - REALTIMEOFDAY
+
+			if(time_until_pinned < 10 MINUTES)
+				pinned_transfer_vote_consumed = FALSE // Sanity check - Transfer went wrong: Allow votes again
 
 			// The pinned round should be starting soon, call transfer to start on time.
 			if(time_until_pinned <= 15 MINUTES && time_until_pinned >= 10 MINUTES && SSticker.current_state == GAME_STATE_PLAYING)
@@ -323,7 +328,7 @@ SUBSYSTEM_DEF(ticker)
 
 			// Fallback case - Not enough time for a full round before the pinned round, disable voting only
 			// in case the current round already intersects with the round preceeding the pinned time
-			if(time_until_pinned < (2 HOURS + 30 MINUTES))
+			if(time_until_pinned < 2 HOURS + 30 MINUTES && time_until_pinned >= 10 MINUTES)
 				pinned_transfer_vote_consumed = TRUE // Disable voting
 				return 1
 
