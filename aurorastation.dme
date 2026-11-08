@@ -4033,6 +4033,7 @@
 #include "code\modules\tgui_input\list.dm"
 #include "code\modules\tgui_input\number.dm"
 #include "code\modules\tgui_input\text.dm"
+#include "code\modules\tgui_input\time.dm"
 #include "code\modules\tgui_input\say_modal\modal.dm"
 #include "code\modules\tgui_input\say_modal\speech.dm"
 #include "code\modules\tgui_input\say_modal\typing.dm"
