@@ -25,7 +25,7 @@ GLOBAL_VAR(last_transfer_vote)
 		return TRUE
 
 	if(SSticker.pinned_transfer_vote_consumed)
-		to_chat(by_who, SPAN_NOTICE("Crew transfer votes are disabled until the pinned round time."))
+		to_chat(by_who, SPAN_NOTICE("Crew transfer votes are currently disabled until the due to the upcomingpinned round."))
 		return FALSE
 
 	if(GLOB.security_level >= SEC_LEVEL_DELTA)
@@ -87,18 +87,18 @@ GLOBAL_VAR(last_transfer_vote)
 	if(winning_option == "Initiate Crew Transfer")
 		init_shift_change(null, TRUE)
 
-/datum/vote/crewtransfer/pinned
-	name = "Crew Transfer for last round before scheduled round"
+/datum/vote/crewtransfer/pinned_round_precursor
+	name = "Crew Transfer for last full round before upcoming pinned round"
 
-/datum/vote/crewtransfer/pinned/can_be_initiated(mob/by_who, forced)
+/datum/vote/crewtransfer/pinned_round_precursor/can_be_initiated(mob/by_who, forced)
 	return forced && ..()
 
-/datum/vote/crewtransfer/pinned/get_vote_result(list/non_voters)
+/datum/vote/crewtransfer/pinned_round_precursor/get_vote_result(list/non_voters)
 	if(!choices["Initiate Crew Transfer"] && !choices["Continue The Round"])
 		return list("Continue The Round")
 	return ..()
 
-/datum/vote/crewtransfer/pinned/get_result_text(list/all_winners, real_winner, list/non_voters)
+/datum/vote/crewtransfer/pinned_round_precursor/get_result_text(list/all_winners, real_winner, list/non_voters)
 	if(!choices["Initiate Crew Transfer"] && !choices["Continue The Round"])
-		return SPAN_BOLD("Vote Result: Continue The Round - No Votes! The current round will continue until the scheduled round.")
+		return SPAN_BOLD("Vote Result: Continue The Round - No Votes! The current round will be extended until the upcoming pinned round.")
 	return ..()

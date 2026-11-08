@@ -294,18 +294,40 @@ SUBSYSTEM_DEF(ticker)
 	//If we have not finished the game already, call the next transfer vote as scheduled.
 	if(!game_finished && !mode_finished && !post_game)
 		if(pinned_transfer_setting)
+			/* A configured pinned round reserves time for a final full round and its scheduled start.
+			 * Normal transfer scheduling continues until the precursor window (~2h35 before pinned round),
+			 * which offers one chance to end the current round while respecting active or recent transfer votes.
+			 * Unrelated votes defer that opportunity within the window.
+			 * Once consumed, or once too little time remains for a full round, ordinary player transfer votes are disabled.
+			 * Periodic automatic transfer votes are suppressed from the precursor window onward.
+			 * Near the pinned start, a separate window (15m before pinned round) attempts shift change if none is underway.
+			 * Window bounds prevent premature or late calls while allowing deferred attempts.
+			 */
 			var/time_until_pinned = pinned_transfer_target - REALTIMEOFDAY
-			if(time_until_pinned <= 15 MINUTES)
+
+			// The pinned round should be starting soon, call transfer to start on time.
+			if(time_until_pinned <= 15 MINUTES && time_until_pinned >= 10 MINUTES && SSticker.current_state == GAME_STATE_PLAYING)
 				if(!pinned_shift_change_called && !SSatlas.current_map.shuttle_call_restart_timer && GLOB.evacuation_controller.state == EVAC_IDLE)
 					pinned_shift_change_called = TRUE
-					init_shift_change(null, TRUE)
-			else if(time_until_pinned <= (2 HOURS + 30 MINUTES))
-				if(!pinned_transfer_vote_consumed)
-					pinned_transfer_vote_consumed = TRUE
-					if(!SSvote.current_vote)
-						SSvote.autotransfer_pinned()
-			if(time_until_pinned <= (2 HOURS + 30 MINUTES))
+					init_shift_change(null, TRUE) // Commit to pinned round
+					return 1
+			// Time window for one last full round before pinned round
+			else if(time_until_pinned >= 2 HOURS + 30 MINUTES && time_until_pinned <= 2 HOURS + 35 MINUTES)
+				// Check if there is already an unrelated vote and let that pass first
+				if(!pinned_transfer_vote_consumed && (!SSvote.current_vote || istype(SSvote.current_vote, /datum/vote/crewtransfer)))
+					pinned_transfer_vote_consumed = TRUE // If the current vote is a transfer vote, respect it and don't start a new one again
+					// There was no transfer vote in the last 10 minutes we need to respect, call a vote for a final round before our pinned round
+					if(!SSvote.current_vote && (!GLOB.last_transfer_vote || get_round_duration() - GLOB.last_transfer_vote >= 10 MINUTES))
+						SSvote.autotransfer_pinned_round_precursor()
 				return 1
+
+			// Fallback case - Not enough time for a full round before the pinned round, disable voting only
+			// in case the current round already intersects with the round preceeding the pinned time
+			if(time_until_pinned < (2 HOURS + 30 MINUTES))
+				pinned_transfer_vote_consumed = TRUE // Disable voting
+				return 1
+
+		// Regular periodic auto transfer
 		if(get_round_duration() >= GLOB.next_transfer_time - 600)
 			SSvote.autotransfer()
 			GLOB.next_transfer_time += GLOB.config.vote_autotransfer_interval

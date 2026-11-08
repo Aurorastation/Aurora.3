@@ -306,7 +306,7 @@ SUBSYSTEM_DEF(vote)
 			)
 
 		// Hide pinned crew transfer vote from the general list.
-		if(!istype(vote, /datum/vote/crewtransfer/pinned))
+		if(!istype(vote, /datum/vote/crewtransfer/pinned_round_precursor))
 			all_vote_data += list(vote_data)
 
 	data["possibleVotes"] = all_vote_data
@@ -364,8 +364,8 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/autotransfer()
 	return initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
 
-/datum/controller/subsystem/vote/proc/autotransfer_pinned()
-	return initiate_vote(/datum/vote/crewtransfer/pinned, "Server", null, TRUE)
+/datum/controller/subsystem/vote/proc/autotransfer_pinned_round_precursor()
+	return initiate_vote(/datum/vote/crewtransfer/pinned_round_precursor, "Server", null, TRUE)
 
 /*##############################
 	Aurora snowflake area end
