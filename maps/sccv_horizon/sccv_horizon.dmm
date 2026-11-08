@@ -2132,12 +2132,14 @@
 /turf/template_noop,
 /area/template_noop)
 "alT" = (
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/green,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/machinery/disposal/small/north,
+/turf/simulated/floor/tiled/white,
+/area/horizon/service/kitchen)
 "alW" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/card/id/captains_spare,
@@ -10594,11 +10596,9 @@
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/hallway/aft)
 "brr" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/structure/machinery/light/small/floor,
-/turf/simulated/floor/lino/diamond,
+/obj/effect/floor_decal/industrial/hatch/service,
+/obj/structure/machinery/vending/quick_e_meals,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "bru" = (
 /turf/unsimulated/wall/steel,
@@ -13970,16 +13970,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/medical/pharmacy)
-"bOU" = (
-/obj/effect/floor_decal/industrial/hatch/service,
-/obj/structure/machinery/media/jukebox{
-	anchored = 1
-	},
-/obj/structure/machinery/status_display{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/mess_hall)
 "bOV" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16272,11 +16262,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hangar/intrepid)
 "cfl" = (
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c"
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "galley_tint"
 	},
-/turf/template_noop,
-/area/template_noop)
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "cfm" = (
 /turf/simulated/open,
 /area/turbolift/research/deck_2)
@@ -17956,13 +17946,6 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_3/cafe)
-"cri" = (
-/obj/structure/machinery/appliance/cooker/fryer,
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
 "crp" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -20842,15 +20825,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos)
-"cJB" = (
-/obj/structure/bed/stool/bar/padded/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/turf/simulated/floor/lino/diamond,
-/area/horizon/service/mess_hall)
 "cJC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -24351,11 +24325,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "dhe" = (
-/obj/structure/disposalpipe/junction{
-	dir = 8
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/machinery/light/small/floor,
+/turf/simulated/floor/lino/diamond,
+/area/horizon/service/mess_hall)
 "dhg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -24945,6 +24920,16 @@
 /obj/structure/machinery/alarm/north,
 /turf/simulated/floor/carpet/green,
 /area/horizon/medical/psych)
+"dkq" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/machinery/ringer/west{
+	department = "Hydroponics";
+	id = "ringer_hydroponics";
+	req_access = list(35);
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/hydroponics)
 "dkt" = (
 /obj/structure/machinery/alarm/west,
 /turf/simulated/floor/tiled,
@@ -30282,11 +30267,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
-"dSP" = (
-/obj/effect/floor_decal/industrial/hatch/service,
-/obj/structure/machinery/vending/quick_e_meals,
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/mess_hall)
 "dST" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/engineering/reactor/indra/mainchamber)
@@ -40783,10 +40763,11 @@
 /area/horizon/hallway/primary/deck_3/starboard)
 "foI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
-	},
 /obj/effect/floor_decal/spline/plain/green,
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 4
+	},
+/obj/structure/machinery/light/small/floor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -43625,12 +43606,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/shuttle/mining)
 "fId" = (
-/obj/structure/platform_deco{
+/obj/structure/bed/stool/bar/padded/red{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/effect/floor_decal/industrial/arrow/service,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/mess_hall)
 "fIe" = (
 /obj/effect/decal/cleanable/ash{
@@ -55569,9 +55551,12 @@
 /turf/unsimulated/floor/dark_monotile,
 /area/antag/actor)
 "hkJ" = (
-/obj/structure/disposalpipe/segment/mainline,
-/turf/template_noop,
-/area/template_noop)
+/obj/structure/machinery/appliance/cooker/fryer,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/kitchen)
 "hkW" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -59026,10 +59011,18 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/holding_cell_a)
 "hHd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
-	id = "galley_tint"
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/green,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/horizon/service/kitchen)
 "hHg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -72329,13 +72322,14 @@
 /turf/simulated/open/airless,
 /area/horizon/exterior/no_shields)
 "jsJ" = (
-/obj/structure/table/stone/marble,
-/obj/structure/machinery/door/blast/shutters{
-	id = "kitchen_counter_shutter";
-	dir = 8
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/kitchen)
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/service/mess_hall)
 "jsL" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/table/steel,
@@ -75764,19 +75758,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/upperdeck)
 "jPz" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/green,
-/obj/effect/floor_decal/spline/plain/corner/green{
-	dir = 4
-	},
-/obj/structure/machinery/light/small/floor,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/table/stone/marble,
+/obj/structure/machinery/door/blast/shutters{
+	id = "kitchen_counter_shutter";
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "jPB" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -82804,16 +82791,6 @@
 /obj/effect/floor_decal/corner/black,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hangar/auxiliary)
-"kHL" = (
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/ringer/west{
-	department = "Hydroponics";
-	id = "ringer_hydroponics";
-	req_access = list(35);
-	pixel_x = -10
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/horizon/service/hydroponics)
 "kHN" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -91796,11 +91773,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "lQT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/floor_decal/industrial/outline_straight/service{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/service/kitchen)
 "lQV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -92852,15 +92833,6 @@
 "lYY" = (
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos/propulsion/starboard)
-"lYZ" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_straight/service{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/service/mess_hall)
 "lZd" = (
 /obj/structure/platform_deco{
 	icon_state = "ledge_deco"
@@ -110736,9 +110708,9 @@
 	pixel_x = 13;
 	pixel_y = 13
 	},
-/obj/item/flashlight/lamp/green{
-	pixel_x = -4;
-	pixel_y = 5
+/obj/item/flashlight/lamp/off{
+	pixel_x = -6;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
@@ -131612,6 +131584,16 @@
 /obj/structure/machinery/vending/coffee,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/primary/deck_3/port)
+"qYD" = (
+/obj/effect/floor_decal/industrial/hatch/service,
+/obj/structure/machinery/media/jukebox{
+	anchored = 1
+	},
+/obj/structure/machinery/status_display{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/horizon/service/mess_hall)
 "qYG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -134857,15 +134839,6 @@
 /obj/structure/grille,
 /turf/space,
 /area/template_noop)
-"ruJ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/green,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/structure/machinery/disposal/small/north,
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "ruO" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -150282,12 +150255,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_2/research)
-"trP" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/template_noop,
-/area/template_noop)
 "trQ" = (
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -159956,12 +159923,14 @@
 /turf/unsimulated/floor,
 /area/centcom/bar)
 "uEU" = (
-/obj/structure/disposalpipe/segment/mainline{
-	icon_state = "pipe-c-yellow";
-	dir = 4
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 1
 	},
-/turf/template_noop,
-/area/template_noop)
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/service/mess_hall)
 "uEW" = (
 /obj/structure/shuttle_part/ert{
 	icon_state = "2,4";
@@ -159979,13 +159948,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/starboard/deck_2)
 "uEZ" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 9
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
-/obj/effect/floor_decal/spline/plain/corner/green{
-	dir = 1
+/obj/structure/bed/stool/bar/padded/red{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/lino/diamond,
 /area/horizon/service/mess_hall)
 "uFa" = (
 /turf/simulated/floor/beach/sand{
@@ -162446,16 +162415,6 @@
 	icon_state = "panelscorched"
 	},
 /area/centcom/legion/hangar5)
-"uUK" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/service{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "uUM" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -164357,15 +164316,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway/upper)
-"vgK" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/service/mess_hall)
 "vgP" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
@@ -165675,7 +165625,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "vqP" = (
-/obj/effect/floor_decal/spline/plain/corner/green{
+/obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -175602,6 +175552,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/cafeteria)
+"wDd" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_straight/service{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/service/mess_hall)
 "wDl" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 9
@@ -184634,13 +184593,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
 "xJv" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/structure/bed/stool/bar/padded/red{
+/obj/structure/platform_deco{
 	dir = 4
 	},
-/turf/simulated/floor/lino/diamond,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/effect/floor_decal/industrial/arrow/service,
+/turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/mess_hall)
 "xJw" = (
 /obj/effect/floor_decal/industrial/hatch_tiny/service,
@@ -185112,12 +185070,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_chapel)
-"xMM" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "xMO" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/alarm/east,
@@ -283871,7 +283823,7 @@ eSV
 eSV
 eSV
 eSV
-xMM
+eSV
 eSV
 eSV
 eSV
@@ -284128,7 +284080,7 @@ eSV
 eSV
 eSV
 eSV
-lQT
+eSV
 eSV
 eSV
 eSV
@@ -284385,7 +284337,7 @@ eSV
 eSV
 eSV
 eSV
-lQT
+eSV
 eSV
 eSV
 eSV
@@ -284642,7 +284594,7 @@ eSV
 eSV
 eSV
 eSV
-cfl
+eSV
 eSV
 eSV
 eSV
@@ -284899,7 +284851,7 @@ eSV
 eSV
 eSV
 eSV
-uEU
+eSV
 eSV
 eSV
 eSV
@@ -285154,9 +285106,9 @@ eSV
 eSV
 eSV
 eSV
-hkJ
-hkJ
-dhe
+eSV
+eSV
+eSV
 eSV
 eSV
 eSV
@@ -285413,7 +285365,7 @@ eSV
 eSV
 eSV
 eSV
-alT
+eSV
 eSV
 eSV
 eSV
@@ -285670,7 +285622,7 @@ eSV
 eSV
 eSV
 eSV
-lQT
+eSV
 eSV
 eSV
 eSV
@@ -285927,7 +285879,7 @@ eSV
 eSV
 eSV
 eSV
-lQT
+eSV
 eSV
 eSV
 eSV
@@ -286184,7 +286136,7 @@ eSV
 eSV
 eSV
 eSV
-lQT
+eSV
 eSV
 eSV
 eSV
@@ -286441,7 +286393,7 @@ eSV
 eSV
 eSV
 eSV
-trP
+eSV
 eSV
 eSV
 eSV
@@ -286670,7 +286622,7 @@ wgd
 mfc
 cTt
 hGX
-fId
+xJv
 mCy
 qVn
 tXB
@@ -286928,8 +286880,8 @@ rxz
 tWA
 knZ
 knZ
-lYZ
-hHd
+wDd
+cfl
 xTF
 jme
 xaU
@@ -287184,9 +287136,9 @@ lsE
 gRh
 txG
 hpC
-cJB
-xJv
-hHd
+fId
+uEZ
+cfl
 tZN
 xqR
 oaA
@@ -287442,9 +287394,9 @@ iEg
 txG
 xvd
 umk
-jsJ
+jPz
 wxI
-cri
+hkJ
 cKy
 pny
 omW
@@ -287957,7 +287909,7 @@ sem
 kSh
 hQJ
 tMa
-ruJ
+alT
 qbf
 qCw
 uJY
@@ -288467,12 +288419,12 @@ nfm
 aaS
 nBM
 cFl
-vqP
+uEU
 xvd
 umk
-jsJ
+jPz
 wxI
-cri
+hkJ
 utM
 cYl
 btX
@@ -288723,12 +288675,12 @@ cMH
 jRa
 tZc
 jHq
-bOU
-vgK
-brr
+qYD
+vqP
+dhe
 nvo
 nvo
-hHd
+cfl
 tZN
 ilv
 krl
@@ -288984,10 +288936,10 @@ bLP
 uyl
 orW
 orW
-uEZ
-hHd
+jsJ
+cfl
 xTF
-foI
+hHd
 iwK
 cfA
 kDa
@@ -289239,12 +289191,12 @@ txY
 jHq
 feW
 try
-dSP
+brr
 iVr
 alt
 nGl
-uUK
-jPz
+lQT
+foI
 xFY
 uyM
 pkR
@@ -289755,7 +289707,7 @@ hSy
 kHi
 sGl
 npY
-kHL
+dkq
 crT
 lQn
 bwb
