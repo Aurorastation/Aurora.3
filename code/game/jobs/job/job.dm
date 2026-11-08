@@ -156,15 +156,16 @@
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,10) + rand(5, 10)) * econ_status * economic_modifier * species_modifier + (rand(0,99) / 100)
-	var/starting_funds = H.client ? H.client.prefs.starting_funds : STARTING_FUNDS_BANK_ACCOUNT
-	if(starting_funds == STARTING_FUNDS_CHARGE_CARD && !((H.client?.prefs.economic_status) in list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF)))
-		starting_funds = STARTING_FUNDS_BANK_ACCOUNT
+	var/starting_funds_location = H.client ? H.client.prefs.starting_funds_location : STARTING_FUNDS_BANK_ACCOUNT
+	if(starting_funds_location == STARTING_FUNDS_CHARGE_CARD && !((H.client?.prefs.economic_status) in list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF)))
+		starting_funds_location = STARTING_FUNDS_BANK_ACCOUNT
 	var/physical_money_amount
-	switch(starting_funds)
-		if(STARTING_FUNDS_CASH)
-			physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CASH_CAP), 0.01)
-		if(STARTING_FUNDS_CHARGE_CARD)
-			physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CHARGE_CARD_CAP), 0.01)
+	if(money_amount > 0)
+		switch(starting_funds_location)
+			if(STARTING_FUNDS_CASH)
+				physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CASH_CAP), 0.01)
+			if(STARTING_FUNDS_CHARGE_CARD)
+				physical_money_amount = round(min(money_amount / 2, STARTING_FUNDS_CHARGE_CARD_CAP), 0.01)
 	var/account_balance = money_amount
 	if(!isnull(physical_money_amount))
 		account_balance -= physical_money_amount
@@ -175,7 +176,7 @@
 
 /datum/job/proc/equip_starting_funds(var/mob/living/carbon/human/H, var/money_amount)
 	var/obj/item/spacecash/physical_funds
-	switch(H.client?.prefs.starting_funds)
+	switch(H.client?.prefs.starting_funds_location)
 		if(STARTING_FUNDS_CASH)
 			var/obj/item/spacecash/bundle/cash_bundle = new(H)
 			cash_bundle.worth = money_amount
