@@ -86,6 +86,15 @@
 #define CAT_HIDDEN 2  // also used in corresponding wires/vending.dm
 #define CAT_COIN   4
 
+// Brand intelligence vending machine malfunction profiles.
+#define VENDING_MALFUNCTION_NONE 0
+#define VENDING_MALFUNCTION_CATALOGUE 1
+#define VENDING_MALFUNCTION_REFUSAL 2
+#define VENDING_MALFUNCTION_MIXUP 3
+#define VENDING_MALFUNCTION_GIVEAWAY 4
+#define VENDING_MALFUNCTION_LAUNCHER 5
+#define VENDING_MALFUNCTION_ELECTRICAL 6
+
 // Camera networks
 #define NETWORK_CRESCENT "Crescent"
 #define NETWORK_CIVILIAN_EAST "Civilian East"
