@@ -1,18 +1,20 @@
-// ----------- red
+// ----------------------- red
 
 /obj/structure/cable/red
 	color = COLOR_RED
 
 /**
- * Mapping helper, replaced by `tools/bapi/autowire.ps1` with straight/corner/junction cables of its color
+ * Mapping helper, replaced by `tools/bapi/autowire.ps1`,
+ * with straight/corner/junction cables of its color
  * that connect to every adjacent cable pointing at this tile, and to every adjacent autowire.
  * Does not place knots, so place those under APCs/machinery yourself.
  */
-/obj/structure/cable/red/autowire
+ABSTRACT_TYPE(/obj/structure/cable/red/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/red/knot/north
 	icon_state = "0-1"
@@ -39,6 +41,7 @@ ABSTRACT_TYPE(/obj/structure/cable/red/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/red/straight/north_south
 	icon_state = "1-2"
@@ -47,6 +50,7 @@ ABSTRACT_TYPE(/obj/structure/cable/red/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/red/corner/north_east
 	icon_state = "1-4"
@@ -61,6 +65,7 @@ ABSTRACT_TYPE(/obj/structure/cable/red/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/red/bend/north_northeast
 	icon_state = "1-5"
@@ -129,6 +134,7 @@ ABSTRACT_TYPE(/obj/structure/cable/red/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/red/down/north
 	icon_state = "11-1"
@@ -155,23 +161,23 @@ ABSTRACT_TYPE(/obj/structure/cable/red/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/red/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/red/up/knot
 	icon_state = "12-0"
 
-// ----------- yellow
+// ----------------------- yellow
 
 /obj/structure/cable/yellow
 	color = COLOR_YELLOW
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/yellow/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/yellow/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/yellow/knot/north
 	icon_state = "0-1"
@@ -198,6 +204,7 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/yellow/straight/north_south
 	icon_state = "1-2"
@@ -206,6 +213,7 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/yellow/corner/north_east
 	icon_state = "1-4"
@@ -220,6 +228,7 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/yellow/bend/north_northeast
 	icon_state = "1-5"
@@ -288,6 +297,7 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/yellow/down/north
 	icon_state = "11-1"
@@ -314,23 +324,23 @@ ABSTRACT_TYPE(/obj/structure/cable/yellow/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/yellow/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/yellow/up/knot
 	icon_state = "12-0"
 
-// ----------- green
+// ----------------------- green
 
 /obj/structure/cable/green
 	color = COLOR_LIME
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/green/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/green/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/green/knot/north
 	icon_state = "0-1"
@@ -357,6 +367,7 @@ ABSTRACT_TYPE(/obj/structure/cable/green/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/green/straight/north_south
 	icon_state = "1-2"
@@ -365,6 +376,7 @@ ABSTRACT_TYPE(/obj/structure/cable/green/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/green/corner/north_east
 	icon_state = "1-4"
@@ -379,6 +391,7 @@ ABSTRACT_TYPE(/obj/structure/cable/green/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/green/bend/north_northeast
 	icon_state = "1-5"
@@ -447,6 +460,7 @@ ABSTRACT_TYPE(/obj/structure/cable/green/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/green/down/north
 	icon_state = "11-1"
@@ -473,23 +487,23 @@ ABSTRACT_TYPE(/obj/structure/cable/green/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/green/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/green/up/knot
 	icon_state = "12-0"
 
-// ----------- blue
+// ----------------------- blue
 
 /obj/structure/cable/blue
 	color = COLOR_BLUE
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/blue/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/blue/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/blue/knot/north
 	icon_state = "0-1"
@@ -516,6 +530,7 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/blue/straight/north_south
 	icon_state = "1-2"
@@ -524,6 +539,7 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/blue/corner/north_east
 	icon_state = "1-4"
@@ -538,6 +554,7 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/blue/bend/north_northeast
 	icon_state = "1-5"
@@ -606,6 +623,7 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/blue/down/north
 	icon_state = "11-1"
@@ -632,23 +650,23 @@ ABSTRACT_TYPE(/obj/structure/cable/blue/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/blue/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/blue/up/knot
 	icon_state = "12-0"
 
-// ----------- pink
+// ----------------------- pink
 
 /obj/structure/cable/pink
 	color = COLOR_PINK
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/pink/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/pink/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/pink/knot/north
 	icon_state = "0-1"
@@ -675,6 +693,7 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/pink/straight/north_south
 	icon_state = "1-2"
@@ -683,6 +702,7 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/pink/corner/north_east
 	icon_state = "1-4"
@@ -697,6 +717,7 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/pink/bend/north_northeast
 	icon_state = "1-5"
@@ -765,6 +786,7 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/pink/down/north
 	icon_state = "11-1"
@@ -791,23 +813,23 @@ ABSTRACT_TYPE(/obj/structure/cable/pink/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/pink/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/pink/up/knot
 	icon_state = "12-0"
 
-// ----------- orange
+// ----------------------- orange
 
 /obj/structure/cable/orange
 	color = COLOR_ORANGE
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/orange/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/orange/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/orange/knot/north
 	icon_state = "0-1"
@@ -834,6 +856,7 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/orange/straight/north_south
 	icon_state = "1-2"
@@ -842,6 +865,7 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/orange/corner/north_east
 	icon_state = "1-4"
@@ -856,6 +880,7 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/orange/bend/north_northeast
 	icon_state = "1-5"
@@ -924,6 +949,7 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/orange/down/north
 	icon_state = "11-1"
@@ -950,23 +976,23 @@ ABSTRACT_TYPE(/obj/structure/cable/orange/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/orange/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/orange/up/knot
 	icon_state = "12-0"
 
-// ----------- cyan
+// ----------------------- cyan
 
 /obj/structure/cable/cyan
 	color = COLOR_CYAN
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/cyan/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/cyan/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/cyan/knot/north
 	icon_state = "0-1"
@@ -993,6 +1019,7 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/cyan/straight/north_south
 	icon_state = "1-2"
@@ -1001,6 +1028,7 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/cyan/corner/north_east
 	icon_state = "1-4"
@@ -1015,6 +1043,7 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/cyan/bend/north_northeast
 	icon_state = "1-5"
@@ -1083,6 +1112,7 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/cyan/down/north
 	icon_state = "11-1"
@@ -1109,23 +1139,23 @@ ABSTRACT_TYPE(/obj/structure/cable/cyan/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/cyan/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/cyan/up/knot
 	icon_state = "12-0"
 
-// ----------- white
+// ----------------------- white
 
 /obj/structure/cable/white
 	color = COLOR_WHITE
 
-/**
- * Mapping helper, see `/obj/structure/cable/red/autowire`.
- */
-/obj/structure/cable/white/autowire
+/// Mapping helper, see `/obj/structure/cable/red/autowire`.
+ABSTRACT_TYPE(/obj/structure/cable/white/autowire)
 	name = "autowire (run autowire.ps1)"
 	icon_state = "autowire"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/knot)
+	icon_state = "0-1"
 
 /obj/structure/cable/white/knot/north
 	icon_state = "0-1"
@@ -1152,6 +1182,7 @@ ABSTRACT_TYPE(/obj/structure/cable/white/knot)
 	icon_state = "0-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/straight)
+	icon_state = "1-2"
 
 /obj/structure/cable/white/straight/north_south
 	icon_state = "1-2"
@@ -1160,6 +1191,7 @@ ABSTRACT_TYPE(/obj/structure/cable/white/straight)
 	icon_state = "4-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/corner)
+	icon_state = "1-4"
 
 /obj/structure/cable/white/corner/north_east
 	icon_state = "1-4"
@@ -1174,6 +1206,7 @@ ABSTRACT_TYPE(/obj/structure/cable/white/corner)
 	icon_state = "2-8"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/bend)
+	icon_state = "1-5"
 
 /obj/structure/cable/white/bend/north_northeast
 	icon_state = "1-5"
@@ -1242,6 +1275,7 @@ ABSTRACT_TYPE(/obj/structure/cable/white/bend)
 	icon_state = "9-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/down)
+	icon_state = "11-1"
 
 /obj/structure/cable/white/down/north
 	icon_state = "11-1"
@@ -1268,6 +1302,9 @@ ABSTRACT_TYPE(/obj/structure/cable/white/down)
 	icon_state = "11-10"
 
 ABSTRACT_TYPE(/obj/structure/cable/white/up)
+	icon_state = "12-0"
 
 /obj/structure/cable/white/up/knot
 	icon_state = "12-0"
+
+// ----------------------- fin
