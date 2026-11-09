@@ -406,6 +406,8 @@
 
 	var/cancelled = FALSE
 	SEND_SIGNAL(src, COMSIG_INPUT_KEY_QUICK_EQUIP, &cancelled)
+	if(cancelled)
+		return
 
 /mob/living/simple_animal/spiderbot/remote_mech/a_intent_change(input as text)
 	switch(input)
