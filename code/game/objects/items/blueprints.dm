@@ -91,7 +91,7 @@
 
 /obj/item/blueprints/outpost/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "These blueprints can create and modify areas on exoplanets and active Odyssey scenario sites."
+	. += "These blueprints can create and modify areas on exoplanets and some away sites."
 
 /obj/item/blueprints/outpost/attack_self(mob/user)
 	if(!length(valid_z_levels) || !valid_z_levels) //Outpost blueprints can initialize before exoplanets, so put this in here to doublecheck it.
