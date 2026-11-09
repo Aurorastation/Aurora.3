@@ -57,3 +57,5 @@ delete-after: True
 changes:
   - refactor: "Wardrobe vending repath."
   - refactor: "Cleans up unused `onstation` vars in vending machines."
+  - rscadd: "Adds themed wardrobe vendors."
+  - rscadd: "Adds themed wardrobe item spawn token and maps it to actor and antag areas."
