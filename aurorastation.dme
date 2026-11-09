@@ -1635,6 +1635,8 @@
 #include "code\game\objects\structures\machinery\vending\wardrobe\_wardrobe.dm"
 #include "code\game\objects\structures\machinery\vending\wardrobe\generic.dm"
 #include "code\game\objects\structures\machinery\vending\wardrobe\horizon.dm"
+#include "code\game\objects\structures\machinery\vending\wardrobe\themed_human.dm"
+#include "code\game\objects\structures\machinery\vending\wardrobe\themed_merc.dm"
 #include "code\game\objects\structures\machinery\vending\wardrobe\themed_tajara.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\bed.dm"
 #include "code\game\objects\structures\stool_bed_chair_nest\chairs.dm"

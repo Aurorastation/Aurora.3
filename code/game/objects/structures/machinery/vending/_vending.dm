@@ -208,8 +208,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
 	var/default_item_amount = null
 
-	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
-	var/default_item_amount = null
 
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
