@@ -146,7 +146,7 @@ SUBSYSTEM_DEF(ghostroles)
 		if(SSatlas.current_map.use_overmap)
 			var/atom/spawner = G.select_spawnlocation(FALSE)
 			if(istype(spawner))
-				var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[spawner.z]"]
+				var/obj/effect/overmap/visitable/sector = get_map_sector(spawner.z)
 				if(istype(sector))
 					spawn_overmap_location = sector.name
 

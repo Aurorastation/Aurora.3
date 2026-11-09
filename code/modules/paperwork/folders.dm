@@ -184,7 +184,7 @@
 	. += "The seal is [sealed ? "intact" : "broken"]."
 
 /obj/item/folder/envelope/proc/sealcheck(user)
-	var/ripperoni = alert("Are you sure you want to break the seal on \the [src]?", "Confirmation","Yes", "No")
+	var/ripperoni = tgui_alert(usr, "Are you sure you want to break the seal on \the [src]?", "Confirmation", list("Yes", "No"))
 	if(ripperoni == "Yes")
 		visible_message(SPAN_NOTICE("[user] breaks the seal on \the [src], and opens it."))
 		sealed = FALSE

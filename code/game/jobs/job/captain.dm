@@ -35,7 +35,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 
 	uniform = /obj/item/clothing/under/scc_captain
 	shoes = /obj/item/clothing/shoes/laceup/brown
-	head = /obj/item/clothing/head/caphat/scc
+	head = /obj/item/clothing/head/caphat
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/scc/gold/captain
 

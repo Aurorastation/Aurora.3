@@ -30,20 +30,20 @@
  * Returns a list of all non-abstract types derived from the specified base types.
  */
 /proc/nonabstract_typesof(target)
-    if(!ispath(target) && !islist(target))
-        dbg_assert(ispath(target) || islist(target), "Expected a typepath or list of paths, got '[target || "null"]'.")
-        return list()
+	if(!ispath(target) && !islist(target))
+		dbg_assert(ispath(target) || islist(target), "Expected a typepath or list of paths, got '[target || "null"]'.")
+		return list()
 
-    var/list/paths_to_check = islist(target) ? target : list(target)
-    var/list/concrete_types = list()
+	var/list/paths_to_check = islist(target) ? target : list(target)
+	var/list/concrete_types = list()
 
-    for(var/base_path in paths_to_check)
-        if(!ispath(base_path))
-            dbg_stack_trace("Entry '[base_path || "null"]' in path list is not a valid typepath.")
-            continue
+	for(var/base_path in paths_to_check)
+		if(!ispath(base_path))
+			dbg_stack_trace("Entry '[base_path || "null"]' in path list is not a valid typepath.")
+			continue
 
-        for(var/typepath in typesof(base_path))
-            if(!is_abstract(typepath))
-                concrete_types |= typepath
+		for(var/typepath in typesof(base_path))
+			if(!is_abstract(typepath))
+				concrete_types |= typepath
 
-    return concrete_types
+	return concrete_types

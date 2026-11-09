@@ -198,6 +198,15 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
+	/// Whether a mapped instance of this vendor should persist its normal stock between rounds.
+	var/persistent_stock = FALSE
+	/// Original map location used to associate this machine with its persistent stock. Runtime-created vendors leave this null.
+	var/tmp/persistent_stock_id
+	/// Saved normal stock supplied by the persistence type before atom initialization.
+	var/tmp/list/persistent_stock_content
+
+	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
+	var/default_item_amount = null
 
 	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
 	var/default_item_amount = null
@@ -209,6 +218,18 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 
 /obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
+
+#ifdef UNIT_TEST
+	if(mapload)
+		dbg_assert(!length(difflist(products, initial(products))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in products.")
+		dbg_assert(!length(difflist(contraband, initial(contraband))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in contraband.")
+		dbg_assert(!length(difflist(premium, initial(premium))), "Vending machine [src] at ([x],[y],[z] on [loc]) has mapped-in premium items.")
+
+	for(var/list/item_list in list(products, contraband, premium))
+		for(var/p in item_list)
+			dbg_assert(ispath(p, /obj), "Vending product [p] in vending machine [src] ([type]) is not a subtype of /obj.")
+#endif
+
 	wires = new(src)
 
 	if(src.product_slogans)
@@ -236,11 +257,32 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		build_inventory()
 	power_change()
 
+	// Associate mapped station vendors with their persistent stock.
+	var/turf/T = get_turf(src)
+	if(mapload && T && is_station_level(T.z) && persistent_stock)
+		persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
+
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/vending/LateInitialize()
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+	apply_persistent_stock()
+
+/** Applies stock supplied before initialization now that the product records have been built. */
+/obj/structure/machinery/vending/proc/apply_persistent_stock()
+	if(!persistent_stock_id || !islist(persistent_stock_content))
+		persistent_stock_content = null
+		return
+
+	for(var/datum/data/vending_product/product in product_records)
+		if(product.category != CAT_NORMAL)
+			continue
+		var/stock_key = "[product.product_path]|[product.category]"
+		var/saved_amount = persistent_stock_content[stock_key]
+		if(isnum(saved_amount))
+			product.amount = clamp(saved_amount, 0, product.max_amount)
+	persistent_stock_content = null
 
 /obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times

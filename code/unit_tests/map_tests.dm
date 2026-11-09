@@ -255,28 +255,35 @@
 
 	return 1
 
-/datum/unit_test/map_test/mapped_products
-	name = "MAP: Check for mapped vending products"
+/datum/unit_test/map_test/mapped_vending_refills
+	name = "MAP: Mapped vending machines shall have refill canisters"
 
-/datum/unit_test/map_test/mapped_products/start_test()
+/datum/unit_test/map_test/mapped_vending_refills/start_test()
+	if(SSatlas.current_map.path != MAP_WITH_PERSISTENCE_SUPPORT)
+		TEST_PASS("The current map is does not support persistence; skipping refill canister checks.")
+		return 1
+
+	var/list/refill_ids = list()
+	for(var/refill_type in subtypesof(/obj/item/vending_refill))
+		var/obj/item/vending_refill/refill = new refill_type
+		if(refill.charges > 0)
+			refill_ids[refill.vend_id] = TRUE
+		qdel(refill)
+
 	var/checks = 0
 	var/failed_checks = 0
-	var/list/obj/structure/machinery/vending/V_to_test = list()
-
-	for(var/obj/structure/machinery/vending/T in world)
+	for(var/obj/structure/machinery/vending/vendor in world)
+		if(!vendor.persistent_stock_id)
+			continue
 		checks++
-		V_to_test += T
-	for(var/obj/structure/machinery/vending/V in V_to_test)
-		var/obj/structure/machinery/vending/temp_V = new V.type
-		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
+		if(!refill_ids[vendor.vend_id])
 			failed_checks++
-
-			TEST_FAIL("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
+			TEST_FAIL("Mapped vending machine [vendor] at ([vendor.x],[vendor.y],[vendor.z]) has no stocked refill canister for vend_id '[vendor.vend_id]'.")
 
 	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] mapped vending machines have no refill canister.")
 	else
-		TEST_PASS("All \[[checks]\] vending machines have valid product lists.")
+		TEST_PASS("All \[[checks]\] mapped vending machines have refill canisters.")
 
 	return 1
 

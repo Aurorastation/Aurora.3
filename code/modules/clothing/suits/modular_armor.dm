@@ -865,6 +865,34 @@
 	icon_state = "flagpatch_burzsia"
 	item_state = "flagpatch_burzsia"
 
+/obj/item/clothing/accessory/flagpatch/goldendeep
+	name = "golden deep flagpatch"
+	desc = "A flagpatch bearing the gold, diamond and black colors of the Mercantile \
+		Collective of the Golden Deep, the first true synthetic nation and, according to \
+		many, a hotbed of avarice and villainy. It depicts the GDMV Midas, flagship of \
+		the Golden Deep, throwing a plume of energy in its wake."
+	icon_state = "flagpatch_goldendeep"
+	item_state = "flagpatch_goldendeep"
+
+/obj/item/clothing/accessory/flagpatch/axiom
+	name = "axiom flagpatch"
+	desc = "A flagpatch of the Ecclesiastical Authority of Axiom, depicting the \
+		formally recognized coat of arms of the Authority; a great red eye, encircled \
+		by a gear, below which is the planet of Nu'u accompanied by Encoded Axiomite \
+		Liturgical script. A shield with which to defend the weak, and to ensure the \
+		success of the faithful's glorious Ascension."
+	icon_state = "flagpatch_axiom"
+	item_state = "flagpatch_axiom"
+
+/obj/item/clothing/accessory/flagpatch/salamasian
+	name = "salamasian flagpatch"
+	desc = "A flagpatch of the Salamasian Republic, depicting several of the \
+		cosmic bodies indigeneous to the system Nu'u calls home. It is designed \
+		to depict the perspective of a human on the ground of Nu'u, thereby reminding \
+		all Salamasians of their essential roots; it is the inheritance of their ancestors."
+	icon_state = "flagpatch_salamasian"
+	item_state = "flagpatch_salamasian"
+
 // Wildlands
 
 /obj/item/clothing/accessory/flagpatch/fsf

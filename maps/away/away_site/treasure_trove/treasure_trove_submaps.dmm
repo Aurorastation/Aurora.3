@@ -511,7 +511,6 @@
 /area/trove/tunnels)
 "iz" = (
 /obj/structure/cult/talisman,
-/obj/item/clothing/head/culthood/magus,
 /obj/random/dirt_75,
 /turf/simulated/floor/cult,
 /area/trove/tunnels)

@@ -83,7 +83,7 @@
 					to_chat(target, SPAN_CULT("And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
 					target.visible_message(SPAN_WARNING("The markings below [target] lose their glow, this unworthy offering has been rejected!"))
 			else
-				var/choice = alert(target,"Do you want to join the cult? (Choosing ghost will ghost you and spawn a shade)", "Submit to Nar'Sie", "Resist", "Submit", "Ghost")
+				var/choice = tgui_alert(target, "Do you want to join the cult? (Choosing ghost will ghost you and spawn a shade)", "Submit to Nar'Sie", list("Resist", "Submit", "Ghost"))
 				waiting_for_input[target] = FALSE
 				switch(choice)
 					if("Submit")

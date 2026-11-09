@@ -161,6 +161,7 @@
 /obj/structure/machinery/vending/wallpharm
 	name = "NanoPharm Mini"
 	desc = "A wall-mounted pharmaceuticals vending machine packed with over-the-counter bottles. For the sick salaried worker in you."
+	vend_id = "wallpharm"
 	icon_state = "wallpharm"
 	density = FALSE
 	products = list(
