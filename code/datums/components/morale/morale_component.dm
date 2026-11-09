@@ -265,20 +265,13 @@
 		return PROCESS_KILL
 
 	var/current_time = REALTIMEOFDAY
-	var/list_trimmed = FALSE
 	for (var/datum/moodlet/moodlet as anything in moodlets)
 		if (moodlet.time_to_die > current_time || QDELING(moodlet))
 			continue
 
-		morale_points -= moodlet.get_morale_modifier()
+		add_morale_points(-moodlet.get_morale_modifier())
 		qdel(moodlet, TRUE)
 		moodlets.Remove(moodlet)
-		list_trimmed = TRUE
-
-	if (!list_trimmed)
-		return
-
-	UPDATE_MORALE
 
 /*
 						AND NOW THE GIANT WALL OF SIGNAL HANDLERS
