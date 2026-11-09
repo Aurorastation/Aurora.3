@@ -37,7 +37,7 @@
 	area_name_effect.screen_loc = "LEFT+1,BOTTOM+2"
 
 	last_selected_image = image('icons/effects/blueprints.dmi', "selected")
-	last_selected_image.plane = HUD_PLANE
+	last_selected_image.plane = ABOVE_LIGHTING_PLANE
 	last_selected_image.appearance_flags = NO_CLIENT_COLOR|RESET_COLOR
 
 /mob/abstract/eye/blueprints/Destroy()
@@ -50,7 +50,8 @@
 
 /mob/abstract/eye/blueprints/release(var/mob/user)
 	if(owner && owner.client && user == owner)
-		owner.client.images.Cut()
+		owner.client.images -= last_selected_image
+		owner.client.images -= selection_images
 	. = ..()
 
 /mob/abstract/eye/blueprints/proc/create_area()
@@ -68,6 +69,7 @@
 	var/area/A = finalize_area(area_name)
 	for(var/turf/T in selected_turfs)
 		T.change_area(T.loc, A)
+	update_area_name()
 	remove_selection() // Reset the selection for clarity.
 
 /mob/abstract/eye/blueprints/proc/finalize_area(var/area_name)
@@ -144,6 +146,7 @@
 	if(!last_selected_turf) //The player has only placed one corner of the block
 		last_selected_turf = next_selected_turf
 		last_selected_image.loc = last_selected_turf
+		update_images()
 		return
 	if(last_selected_turf.z != next_selected_turf.z) // No multi-Z areas. Contiguity checks this as well, but this is cheaper.
 		return
@@ -236,6 +239,7 @@
 /mob/abstract/eye/blueprints/proc/remove_selection()
 	selected_turfs.Cut()
 	last_selected_turf = null
+	last_selected_image.loc = null
 	update_images()
 
 /mob/abstract/eye/blueprints/proc/update_images()
@@ -248,8 +252,8 @@
 		for(var/turf/T in selected_turfs)
 			var/selection_icon_state = selected_turfs[T] ? "valid" : "invalid"
 			var/image/I = image('icons/effects/blueprints.dmi', T, selection_icon_state)
-			I.plane = HUD_PLANE
-			I.appearance_flags = NO_CLIENT_COLOR
+			I.plane = ABOVE_LIGHTING_PLANE
+			I.appearance_flags = NO_CLIENT_COLOR|RESET_COLOR
 			selection_images += I
 
 	owner.client.images |= last_selected_image
@@ -257,9 +261,13 @@
 
 /mob/abstract/eye/blueprints/setLoc(T)
 	. = ..()
+	update_area_name()
+
+/mob/abstract/eye/blueprints/proc/update_area_name()
 	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
 	var/area/A = get_area(src)
 	if(!A)
+		area_name_effect.maptext = null
 		return
 	area_name_effect.maptext = "<span style=\"[style]\">[area_prefix], [A.name]</span>"
 
