@@ -378,3 +378,96 @@
 /mob/living/simple_animal/spiderbot/ai/Initialize()
 	. = ..()
 	internal_id.access = get_all_station_access()
+
+/**
+ * An internal control mob used by remote-controlled exosuits.
+ *
+ * This remains a spiderbot subtype for the remote-control radio and access
+ * handling, but deliberately does not expose the spiderbot interface to its
+ * operator.
+ */
+/mob/living/simple_animal/spiderbot/remote_mech
+
+/mob/living/simple_animal/spiderbot/remote_mech/Initialize()
+	. = ..()
+	remove_verb(src, /mob/living/proc/ventcrawl)
+	remove_verb(src, /mob/living/proc/hide)
+	remove_verb(src, /mob/living/simple_animal/spiderbot/verb/get_item)
+	remove_verb(src, /mob/living/simple_animal/spiderbot/verb/drop_held_item)
+	remove_verb(src, /mob/living/simple_animal/spiderbot/proc/control_integrated_radio)
+
+/mob/living/simple_animal/spiderbot/remote_mech/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
+	HUD.remote_mech_hud(ui_style, ui_color, ui_alpha)
+
+/// Quick equip is one of the two mech strafe inputs, but normally only humans receive this verb.
+/mob/living/simple_animal/spiderbot/remote_mech/verb/quick_equip()
+	set name = "quick-equip"
+	set hidden = TRUE
+
+	var/cancelled = FALSE
+	SEND_SIGNAL(src, COMSIG_INPUT_KEY_QUICK_EQUIP, &cancelled)
+
+/mob/living/simple_animal/spiderbot/remote_mech/a_intent_change(input as text)
+	switch(input)
+		if(I_HELP, I_DISARM, I_GRAB, I_HURT)
+			set_intent(input)
+		if("right")
+			set_intent(intent_numeric((intent_numeric(a_intent) + 1) % 4))
+		if("left")
+			set_intent(intent_numeric((intent_numeric(a_intent) + 3) % 4))
+	if(hud_used?.action_intent)
+		hud_used.action_intent.icon_state = "intent_[a_intent]"
+
+/// Copy the skills which are actually exercised through the exosuit controls.
+/mob/living/simple_animal/spiderbot/remote_mech/proc/sync_operator_skills(mob/living/operator)
+	for(var/component_type in list(PILOT_MECHS_SKILL_COMPONENT, FIREARMS_SKILL_COMPONENT))
+		var/datum/component/skill/operator_skill = operator.GetComponent(component_type)
+		var/datum/component/skill/remote_skill = GetComponent(component_type)
+		if(operator_skill)
+			if(remote_skill)
+				remote_skill.skill_level = operator_skill.skill_level
+			else
+				AddComponent(component_type, operator_skill.skill_level)
+		else if(remote_skill)
+			qdel(remote_skill)
+
+/mob/living/simple_animal/spiderbot/remote_mech/ai
+	radio_type = /obj/item/radio/headset/heads/ai_integrated
+
+/mob/living/simple_animal/spiderbot/remote_mech/ai/Initialize()
+	. = ..()
+	internal_id.access = get_all_station_access()
+
+/mob/living/simple_animal/spiderbot/remote_mech/ai/mind_initialize()
+	..()
+	mind.assigned_role = "AI"
+
+/datum/hud/proc/remote_mech_hud(ui_style = 'icons/hud/mob/midnight.dmi', ui_color = COLOR_WHITE, ui_alpha = 255)
+	adding = list()
+
+	var/atom/movable/screen/using = new /atom/movable/screen()
+	using.name = "act_intent"
+	using.icon = ui_style
+	using.icon_state = "intent_[mymob.a_intent]"
+	using.screen_loc = ui_acti
+	using.color = ui_color
+	using.alpha = ui_alpha
+	adding += using
+	action_intent = using
+
+	var/atom/movable/screen/movement_intent/remote_mech/movement = new
+	movement.icon = ui_style
+	movement.icon_state = (mymob.m_intent == M_RUN ? "running" : "walking")
+	movement.color = ui_color
+	movement.alpha = ui_alpha
+	adding += movement
+	move_intent = movement
+
+	mymob.client.screen += adding
+
+/atom/movable/screen/movement_intent/remote_mech/Click(location, control, params)
+	if(!istype(usr, /mob/living/simple_animal/spiderbot/remote_mech))
+		return
+
+	usr.m_intent = (usr.m_intent == M_RUN ? M_WALK : M_RUN)
+	update_move_icon(usr)
