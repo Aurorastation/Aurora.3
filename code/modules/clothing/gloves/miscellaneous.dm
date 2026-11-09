@@ -467,6 +467,7 @@
 	icon = 'icons/obj/item/clothing/gloves/forensic_gloves.dmi'
 	icon_state = "forensic"
 	item_state = "forensic"
+	contained_sprite = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/gloves/single

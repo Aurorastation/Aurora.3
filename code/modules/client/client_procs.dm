@@ -382,6 +382,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	stat_panel = new(src, "statbrowser")
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
 	GLOB.clients += src
+	GLOB.round_connected_ckeys |= ckey
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")

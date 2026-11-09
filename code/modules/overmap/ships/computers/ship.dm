@@ -316,6 +316,6 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 /obj/structure/machinery/computer/ship/Initialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if(istype(my_sector, linked_type))
 			attempt_hook_up(my_sector)

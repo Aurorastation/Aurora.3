@@ -76,7 +76,7 @@ GLOBAL_PROTECT(config)
 	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
 	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[GLOB.round_id].log"
 
-	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
+	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.realtime, "YYYY-MM") + ".yml")
 	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
 
 	log_startup()

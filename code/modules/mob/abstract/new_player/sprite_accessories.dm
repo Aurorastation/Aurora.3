@@ -3410,6 +3410,19 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "long mane"
 
+/datum/sprite_accessory/hair/taj_ears/taj_ears_hair_flat
+	name = "Tajara Flat"
+	icon_state = "hair_flat"
+	length = 1
+	chatname = "neat mane"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_tassels
+	name = "Tajara Tassels"
+	icon_state = "hair_tassels"
+	length = 3
+	chatname = "braided mane"
+
+
 //msai hair, longer ears
 /datum/sprite_accessory/hair/msai_ears
 	icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -3754,6 +3767,18 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "msai_long_wavy"
 	length = 3
 	chatname = "long mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_tassels
+	name = "M'sai Tassels"
+	icon_state = "msai_tassels"
+	length = 3
+	chatname = "braided mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_hair_flat
+	name = "M'sai Flat"
+	icon_state = "msai_flat"
+	length = 1
+	chatname = "neat mane"
 
 //tesla rejuvenation suit hair
 /datum/sprite_accessory/hair/tesla_ears
@@ -4243,6 +4268,14 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/taj_goatee/taj_smallstache
 	name = "Tajara Smallsatche"
 	icon_state = "facial_smallstache"
+
+/datum/sprite_accessory/facial_hair/taj_goatee/taj_shortmane
+	name = "Tajara Short Mane"
+	icon_state = "facial_shortmane"
+
+/datum/sprite_accessory/facial_hair/taj_goatee/taj_jawline
+	name = "Tajara Jawline"
+	icon_state = "facial_jawline"
 
 
 /datum/sprite_accessory/facial_hair/tesla_body_goatee
