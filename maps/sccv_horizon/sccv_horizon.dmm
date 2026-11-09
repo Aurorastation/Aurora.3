@@ -53450,6 +53450,27 @@
 /obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/xenoarch/atrium)
+"gWi" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "shutter0";
+	name = "shutter"
+	},
+/obj/structure/table/reinforced/wood,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor,
+/area/antag/raider)
 "gWo" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -91123,7 +91144,19 @@
 	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/vending/wardrobe/generic,
+/obj/structure/table/rack,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "lLR" = (
@@ -109028,60 +109061,24 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/main_compartment)
 "oft" = (
-/obj/structure/closet/gimmick{
-	name = "sol clothing"
-	},
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/flag/sol,
-/obj/item/flag/sol,
-/obj/item/flag/sol/l,
-/obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/dress/subofficer,
-/obj/item/clothing/under/rank/sol/dress/officer,
-/obj/item/clothing/under/rank/sol/dress/admiral,
-/obj/item/clothing/head/sol/dress/marine,
-/obj/item/clothing/head/sol/dress/officer,
-/obj/item/clothing/head/sol/dress/admiral,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
+/obj/structure/table/rack,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ofw" = (
@@ -444106,7 +444103,7 @@ lEG
 iwq
 akW
 mIc
-qpY
+gWi
 erD
 dlD
 uzl
