@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - server: "Added daily pinned rounds. If configured by admins, the server will automatically schedule rounds to start a round at the specified time. One round before the pinned round an automatic transfer vote is offered to either allow one full round before the pinned round or to enforce the current round to be prolonged up until the pinned round. The status panel displays the current configuration."
-  - admin: "Added pinned round time config to server configuration menu."
