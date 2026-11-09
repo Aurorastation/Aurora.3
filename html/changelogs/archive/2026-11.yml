@@ -43,3 +43,18 @@
 2026-11-08:
   FabianK3:
   - admin: Updated the poll creation UI. Converted all inputs into a single TGUI.
+2026-11-09:
+  FabianK3:
+  - server: Added daily pinned rounds. If configured by admins, the server will automatically
+      schedule rounds to start a round at the specified time. One round before the
+      pinned round an automatic transfer vote is offered to either allow one full
+      round before the pinned round or to enforce the current round to be prolonged
+      up until the pinned round. The status panel displays the current configuration.
+  - admin: Added pinned round time config to server configuration menu.
+  TheGreyWolf:
+  - rscadd: Money can now be selected where it starts in the origins tab. The current
+      options are the bank, a charge card and biesei credits, as well as 50% options
+      for the latter two. Tajara can additionally select adhomian knuckles..
+  rattydew:
+  - bugfix: Resolved a missing accessory sprite for the red Han'san scaleshield custom
+      item.
