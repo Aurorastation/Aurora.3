@@ -6,3 +6,4 @@ changes:
   - qol: "Balloon alerts now appear in chat when disabled by your floating-message settings."
   - bugfix: "Balloon alerts to viewers now properly includes the source mob, if applicable."
   - rscadd: "Added the ability for balloon alerts to appear to hearers, instead of viewers."
+  - qol: "Runechat now uses outlines instead of drop shadows, for superior performance."
