@@ -1264,7 +1264,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		if("deny")
 			if(rattle_sound)
 				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
-			balloon_alert_to_viewers("*rattles*")
+			balloon_alert_to_hearers("*rattles*")
 			shake_animation(1)
 
 	return
@@ -1315,7 +1315,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					previous_req_access = list()
 
 		else
-			balloon_alert_to_viewers("*rattles*")
+			balloon_alert_to_hearers("*rattles*")
 			if(rattle_sound)
 				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 

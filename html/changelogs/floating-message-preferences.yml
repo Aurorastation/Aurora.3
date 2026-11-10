@@ -4,3 +4,5 @@ changes:
   - rscadd: "Added separate floating-message settings for objects, ghosts, and emotes."
   - rscadd: "Runechat and balloon alert length is now configurable, with the maximum (and default) length increasing from 64 to 110 characters."
   - qol: "Balloon alerts now appear in chat when disabled by your floating-message settings."
+  - bugfix: "Balloon alerts to viewers now properly includes the source mob, if applicable."
+  - rscadd: "Added the ability for balloon alerts to appear to hearers, instead of viewers."

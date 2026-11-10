@@ -124,7 +124,7 @@
 
 /singleton/maneuver/leap/areagrab/show_initial_message(mob/living/user, atom/target)
 	. = ..()
-	user.balloon_alert_to_viewers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
+	user.balloon_alert_to_hearers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
 
 	//Let them hear, let them fear
 	for(var/mob/living/carbon/human/person_in_range in get_hearers_in_LOS(world.view+5))
