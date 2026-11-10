@@ -191,6 +191,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 100
 	var/floating_chat_color
+	var/max_chat_length = FLOATING_MESSAGE_MAX_LENGTH
 	var/speech_bubble_type = "default"
 
 	var/list/pai = list()	// A list for holding pAI related data.
@@ -248,6 +249,17 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	SStgui.close_uis(src)
 	clear_character_previews()
 	return ..()
+
+/datum/preferences/proc/should_show_floating_message(atom/source, is_emote = FALSE)
+	if(!(toggles_secondary & FLOATING_MESSAGES))
+		return FALSE
+	if(!ismob(source) && (toggles_secondary & HIDE_FLOATING_OBJECTS))
+		return FALSE
+	if(isobserver(source) && (toggles_secondary & HIDE_FLOATING_GHOSTS))
+		return FALSE
+	if(is_emote && (toggles_secondary & HIDE_FLOATING_EMOTES))
+		return FALSE
+	return TRUE
 
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
