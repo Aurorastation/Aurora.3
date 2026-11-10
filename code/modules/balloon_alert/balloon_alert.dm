@@ -24,8 +24,22 @@
 	var/list/hearers = UNLINT(get_hearers_in_view(vision_distance, src))
 	hearers -= ignored_mobs
 
-	for(var/mob/hearer in hearers - src)
+	for(var/mob/hearer in hearers)
 		if(hearer.is_blind())
+			continue
+
+		balloon_alert(hearer, (hearer == src && self_message) || message)
+
+/// Create balloon alerts (text that floats up) to everything within range.
+/// Will only display to people who can hear.
+/atom/proc/balloon_alert_to_hearers(message, self_message, hearing_distance = 7, list/ignored_mobs)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/list/hearers = UNLINT(get_hearers_in_view(hearing_distance, src))
+	hearers -= ignored_mobs
+
+	for(var/mob/hearer in hearers)
+		if(isdeaf(hearer))
 			continue
 
 		balloon_alert(hearer, (hearer == src && self_message) || message)
