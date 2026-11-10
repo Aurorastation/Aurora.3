@@ -423,3 +423,25 @@
 	reagents = list(/singleton/reagent/nutriment/flour = 10, /singleton/reagent/sugar = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sliceable/strawberrybars
+
+/singleton/recipe/lavacake
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar
+	)
+	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	result = /obj/item/reagent_containers/food/snacks/lava_cake
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/lavacake_white
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	reagents = list(/singleton/reagent/nutriment/flour = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	result = /obj/item/reagent_containers/food/snacks/lava_cake/white
+	reagent_mix = RECIPE_REAGENT_REPLACE

@@ -243,7 +243,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
 "bm" = (
-/obj/structure/machinery/mecha_part_fabricator,
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
@@ -757,7 +757,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "cx" = (
-/obj/structure/machinery/r_n_d/circuit_imprinter,
+/obj/structure/machinery/r_n_d/fabricator/circuit_imprinter,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
@@ -771,7 +771,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict)
 "cA" = (
-/obj/structure/machinery/r_n_d/protolathe{
+/obj/structure/machinery/r_n_d/fabricator/protolathe{
 	icon_state = "protolathe_t";
 	stat = 1
 	},
@@ -1784,6 +1784,18 @@
 /obj/structure/machinery/light/small/emergency,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/airless,
+/area/derelict)
+"DN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/machinery/computer/rdconsole/core{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/derelict)
+"JN" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/structure/machinery/r_n_d/material_silo,
+/turf/simulated/floor/tiled/white/airless,
 /area/derelict)
 
 (1,1,1) = {"
@@ -29878,7 +29890,7 @@ bU
 bU
 bU
 bH
-bU
+DN
 dO
 dO
 fk
@@ -30393,7 +30405,7 @@ bU
 bU
 bH
 bU
-bU
+JN
 dO
 fk
 dO

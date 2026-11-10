@@ -8,8 +8,8 @@
 	parent_organ = BP_CHEST
 	subtle = 1
 
-	/// ~3 minutes/stage (at two seconds/tick)
-	stage_interval = 90
+	/// ~4 minutes/stage (at two seconds/tick)
+	stage_interval = 120
 
 	max_stage = 5
 
@@ -44,25 +44,25 @@
 		to_chat(affecting_organ.owner, SPAN_NOTICE("Your [affecting_organ.name] itches."))
 
 	if(prob(33))
-		owner.adjustNutritionLoss(3)
+		owner.adjustNutritionLoss(2)
 
 	if(stage >= 2)
-		if(prob(8))
+		if(prob(6))
 			gestating_spiderlings += 1
 
 		if(prob(33))
-			owner.adjustNutritionLoss(4)
+			owner.adjustNutritionLoss(3)
 		if(prob(5))
 			owner.emote("whimper")
 		if(prob(2))
 			to_chat(owner, SPAN_WARNING(pick("You feel nauseous and hungry at the same time.", "You feel a burning pain in your [parent_organ].", "Your sense of balance seems broken.")))
 
 	if(stage >= 3)
-		if(prob(6))
+		if(prob(4))
 			gestating_spiderlings += 1
 
 		if(prob(33))
-			owner.adjustNutritionLoss(5)
+			owner.adjustNutritionLoss(4)
 		if(prob(10))
 			affecting_organ.take_damage(rand(1,3))
 			owner.adjustHalLoss(8)
@@ -75,11 +75,10 @@
 			owner.seizure(0.4)
 
 	if(stage >= 4)
-		if(prob(6))
+		if(prob(5))
 			gestating_spiderlings += rand(1,2)
 
 		if(prob(5))
-			owner.reagents.add_reagent(/singleton/reagent/toxin/greimorian_eggs, (gestating_spiderlings / 3))
 			owner.adjustHalLoss(12)
 			to_chat(owner, SPAN_WARNING(pick("A sharp, caustic pain boils out from your [affecting_organ.name]!", "You can feel the flesh of your [affecting_organ.name] beginning to bulge!", "It's going to burst! Your [affecting_organ.name] is going to burst!")))
 		if(prob(5))
@@ -91,7 +90,7 @@
 
 		if(prob(10))
 			owner.seizure(0.6)
-		if(prob(5))
+		if(prob(4))
 			ruptured = TRUE
 			owner.adjustHalLoss(75)
 			owner.seizure()

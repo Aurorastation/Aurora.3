@@ -282,6 +282,18 @@
 	filling_color = "#921f10"
 	bitesize = 4
 
+/obj/item/reagent_containers/food/snacks/stew/psiren_surprise
+	name = "psiren surprise"
+	desc = "What's in this thing? Oh, haha, don't worry about it. What? Moving? Don't be silly! That's because it's still bubbling! This is just a nice, hearty stew, and what's important is that there's enough here for multiple people! Or, uh, one person from mining, I guess. (Psst! Hey, quit moving in there! Don't make me use the ladle again!)"
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "psiren_surprise"
+	trash = /obj/item/trash/stew
+	filling_color = "#68391a"
+	bitesize = 4
+	is_liquid = TRUE
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("vegetables" = 5, "fishy undertones" = 3))
+
 // Chilli
 
 /obj/item/reagent_containers/food/snacks/hotchili

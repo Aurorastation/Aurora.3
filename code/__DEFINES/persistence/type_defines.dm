@@ -17,11 +17,21 @@ ABSTRACT_TYPE(/singleton/persistent_type)
 #define PERSISTENCE_INTERNAL_TYPE_DEFINE_TYPE_VALUE_HISTORY 2
 
 /**
- *	Hook proc that is called by the subsystem starting finalization on each persistent type definition.
- *  Hooks are used for implementing finalization logic for mechanics that either
- *  don't have a single trigger to save or where repetitive saving would be too costly.
- *  Should return nothing, returned values are discarded.
- *  Implementation can be put where applicable, e.g. next to loading logic of the type.
+ * Hook proc that is called by the subsystem after initialization of all persistent type definitions.
+ * Hooks are used for implementing loading logic specific to an individual persistent mechanic.
+ * Should return nothing, returned values are discarded.
+ * Implementation can be put where applicable, e.g. next to saving logic of the type.
+ */
+/singleton/persistent_type/proc/initialization_hook()
+	SHOULD_CALL_PARENT(FALSE)
+	return
+
+/**
+ * Hook proc that is called by the subsystem starting finalization on each persistent type definition.
+ * Hooks are used for implementing finalization logic for mechanics that either
+ * don't have a single trigger to save or where repetitive saving would be too costly.
+ * Should return nothing, returned values are discarded.
+ * Implementation can be put where applicable, e.g. next to loading logic of the type.
  */
 /singleton/persistent_type/proc/finalization_hook()
 	SHOULD_CALL_PARENT(FALSE)
@@ -50,8 +60,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_GENERIC(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE) \
 	/singleton/persistent_type/generic/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 	}
 
@@ -60,8 +70,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_HISTORY(TYPE_NAME, TITLE, DESCRIPTION, REQUIRES_ATTRIBUTE, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = ##REQUIRES_ATTRIBUTE; \
 		expiration_rule = ##EXPIRATION_RULE; \
 	}
@@ -71,8 +81,8 @@ ABSTRACT_TYPE(/singleton/persistent_type/history/character) // Base type with ex
 #define CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(TYPE_NAME, TITLE, DESCRIPTION, EXPIRATION_RULE) \
 	/singleton/persistent_type/history/character/##TYPE_NAME \
 	{ \
-		title = #TITLE; \
-		description = #DESCRIPTION; \
+		title = TITLE; \
+		description = DESCRIPTION; \
 		requires_attribute = TRUE; \
 		expiration_rule = ##EXPIRATION_RULE; \
 	}

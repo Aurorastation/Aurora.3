@@ -1,0 +1,108 @@
+
+/// External airlock marker, for non-docking non-shuttle airlocks.
+/// Just a plain external access airlock.
+/obj/effect/map_effect/marker/airlock/external
+	name = "external airlock marker"
+
+/obj/effect/map_effect/marker/airlock/external/LateInitialize()
+	if(!master_tag || !frequency)
+		return
+
+	var/is_interior = locate(/obj/effect/map_effect/marker_helper/airlock/interior) in loc
+	var/is_exterior = locate(/obj/effect/map_effect/marker_helper/airlock/exterior) in loc
+	var/is_out = locate(/obj/effect/map_effect/marker_helper/airlock/out) in loc
+	var/found_controller = FALSE
+
+	// iterate over airlock components under this marker
+	// and actually set them up
+	for(var/thing in loc)
+		// Check for an advanced controller to set up.
+		var/obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/advanced_controller = thing
+		if(istype(advanced_controller))
+			// common controller vars
+			found_controller = TRUE
+			advanced_controller.set_frequency(frequency)
+			advanced_controller.id_tag = MARKER_AIRLOCK_TAG_MASTER
+			advanced_controller.tag_airpump = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
+			advanced_controller.tag_chamber_sensor = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
+			advanced_controller.tag_exterior_sensor = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
+			advanced_controller.tag_exterior_door = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
+			advanced_controller.tag_interior_door = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
+			advanced_controller.cycle_to_external_air = cycle_to_external_air
+			advanced_controller.req_access = req_access
+			advanced_controller.req_one_access = req_one_access
+			// controller subtype specific vars
+			advanced_controller.program = new /datum/computer/file/embedded_program/airlock(advanced_controller)
+			continue
+
+		// If we didn't find an advanced controller, fall back to the basic kind
+		var/obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/controller = thing
+		if(istype(controller) && !found_controller)
+			// common controller vars
+			found_controller = TRUE
+			controller.set_frequency(frequency)
+			controller.id_tag = MARKER_AIRLOCK_TAG_MASTER
+			controller.tag_airpump = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
+			controller.tag_chamber_sensor = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
+			controller.tag_exterior_sensor = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
+			controller.tag_exterior_door = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
+			controller.tag_interior_door = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
+			controller.cycle_to_external_air = cycle_to_external_air
+			controller.req_access = req_access
+			controller.req_one_access = req_one_access
+			// controller subtype specific vars
+			controller.program = new /datum/computer/file/embedded_program/airlock(controller)
+			continue
+
+		// and all the other airlock components
+
+		var/obj/structure/machinery/door/airlock/door = thing
+		if(istype(door))
+			door.set_frequency(frequency)
+			door.req_access = req_access
+			door.req_one_access = req_one_access
+			door.lock()
+			if(is_interior)
+				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_INTERIOR
+			else if(is_exterior)
+				door.id_tag = MARKER_AIRLOCK_TAG_DOOR_EXTERIOR
+			continue
+
+		var/obj/structure/machinery/airlock_sensor/sensor = thing
+		if(istype(sensor))
+			sensor.req_access = req_access
+			sensor.req_one_access = req_one_access
+			sensor.set_frequency(frequency)
+			sensor.master_tag = MARKER_AIRLOCK_TAG_MASTER
+			if(is_interior)
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_INTERIOR
+			else if(is_exterior)
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_EXTERIOR
+			else
+				sensor.id_tag = MARKER_AIRLOCK_TAG_SENSOR_CHAMBER
+			continue
+
+		var/obj/structure/machinery/atmospherics/unary/vent_pump/pump = thing
+		if(istype(pump))
+			pump.frequency = frequency
+			unregister_radio(pump, frequency)
+			pump.setup_radio()
+			if(is_exterior)
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_OUT_EXTERNAL
+			else if(is_out)
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_OUT_INTERNAL
+			else
+				pump.id_tag = MARKER_AIRLOCK_TAG_AIRPUMP_CHAMBER
+			continue
+
+		var/obj/structure/machinery/access_button/button = thing
+		if(istype(button))
+			button.set_frequency(frequency)
+			button.master_tag = MARKER_AIRLOCK_TAG_MASTER
+			button.req_access = req_access
+			button.req_one_access = req_one_access
+			if(is_interior)
+				button.command = "cycle_interior"
+			else if(is_exterior)
+				button.command = "cycle_exterior"
+			continue

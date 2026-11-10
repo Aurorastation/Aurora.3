@@ -53,17 +53,26 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockConsoleAdvanced", name, ui_x=470, ui_y=290)
+		ui = new(user, src, "AirlockConsoleAdvanced", name, ui_x=470, ui_y=390)
 		ui.open()
 
 /obj/structure/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_data(mob/user)
 	var/list/data = list()
 
+	data["controller_powered"] = !(stat & NOPOWER)
 	data["chamber_pressure"] = round(program.memory["chamber_sensor_pressure"])
+	data["cycle_status"] = program.memory["cycle_status"]
+	data["exterior_door_state"] = program.memory["exterior_status"]["state"]
+	data["exterior_door_lock"] = program.memory["exterior_status"]["lock"]
+	data["exterior_door_power"] = program.memory["exterior_status"]["power"]
 	data["has_exterior_sensor"] = has_exterior_sensor
 	data["external_pressure"] = round(program.memory["external_sensor_pressure"])
+	data["interior_door_state"] = program.memory["interior_status"]["state"]
+	data["interior_door_lock"] = program.memory["interior_status"]["lock"]
+	data["interior_door_power"] = program.memory["interior_status"]["power"]
 	data["has_interior_sensor"] = has_interior_sensor
 	data["internal_pressure"] = round(program.memory["internal_sensor_pressure"])
+	data["pump_status"] = program.memory["pump_status"]
 	data["processing"] = program.memory["processing"]
 	data["purge"] = program.memory["purge"]
 	data["secure"] = program.memory["secure"]
@@ -87,13 +96,22 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockConsoleStandard", name, ui_x=470, ui_y=290)
+		ui = new(user, src, "AirlockConsoleStandard", name, ui_x=470, ui_y=330)
 		ui.open()
 
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
 	var/list/data = list()
 
+	data["controller_powered"] = !(stat & NOPOWER)
 	data["chamber_pressure"] = round(program.memory["chamber_sensor_pressure"])
+	data["cycle_status"] = program.memory["cycle_status"]
+	data["exterior_door_state"] = program.memory["exterior_status"]["state"]
+	data["exterior_door_lock"] = program.memory["exterior_status"]["lock"]
+	data["exterior_door_power"] = program.memory["exterior_status"]["power"]
+	data["interior_door_state"] = program.memory["interior_status"]["state"]
+	data["interior_door_lock"] = program.memory["interior_status"]["lock"]
+	data["interior_door_power"] = program.memory["interior_status"]["power"]
+	data["pump_status"] = program.memory["pump_status"]
 	data["processing"] = program.memory["processing"]
 
 	return data

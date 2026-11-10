@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
@@ -422,17 +422,17 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light_color(LIGHT_COLOR_BLUE)
-			set_light(L_WALLMOUNT_RANGE)
+			set_light(L_WALLMOUNT_RANGE, l_color = LIGHT_COLOR_BLUE)
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
+			var/new_light_color = light_color
 			switch(charging)
 				if(CHARGING_OFF)
-					set_light_color("#F86060")
+					new_light_color = "#F86060"
 				if(CHARGING_ON)
-					set_light_color("#A8B0F8")
+					new_light_color = "#A8B0F8"
 				if(CHARGING_FULL)
-					set_light_color("#82FF4C")
-			set_light(L_WALLMOUNT_RANGE)
+					new_light_color = "#82FF4C"
+			set_light(L_WALLMOUNT_RANGE, l_color = new_light_color)
 		else
 			set_light(0)
 
@@ -882,6 +882,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
 				H.adjustFireLoss(10, 0)
+				return
 			if(infected)
 				for(var/obj/item/implant/mindshield/ipc/I in H)
 					if(I.implanted)
@@ -893,8 +894,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				to_chat(H, SPAN_DANGER("F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now."))
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
+				return
 			else if(cell && cell.charge > 0)
 				synthetic_siphon_power(H)
+				return
 			else
 				to_chat(user, SPAN_NOTICE("There is no charge to draw from that APC."))
 				return
@@ -1545,7 +1548,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 /obj/structure/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP,ACCESS_RESEARCH,ACCESS_XENOBIOLOGY)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/research::id,/datum/access/xenobiology::id)
 
 /obj/structure/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -1565,7 +1568,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 
 /obj/structure/machinery/power/apc/vault/north
 	dir = NORTH
@@ -1609,13 +1612,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/canary::id)
 
 // Construction site APC, starts turned off
 /obj/structure/machinery/power/apc/high/inactive

@@ -303,6 +303,15 @@
 	result = /obj/item/reagent_containers/food/snacks/bowl/eggrolls_meat
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
+/singleton/recipe/takoyaki //If Ginger ever gets added to the game please add it as an ingredient here
+	appliance = SKILLET | GRILL
+	reagents = list(/singleton/reagent/nutriment/coating/batter = 5, /singleton/reagent/nutriment/mayonnaise = 5, /singleton/reagent/spacespice = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/squidmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/takoyaki
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
 // Mictlani
 
 /singleton/recipe/pozole

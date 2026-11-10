@@ -98,25 +98,40 @@ SUBSYSTEM_DEF(overlays)
 	var/list/result = list()
 	var/icon/icon = subject.icon
 	var/atom/entry
+	var/overlay_appearance
 	for (var/i = 1 to length(sources))
 		entry = sources[i]
 		if (!entry)
 			continue
 		else if (istext(entry))
-			result += GetStateAppearance(icon, entry)
+			overlay_appearance = GetStateAppearance(icon, entry)
 		else if (isicon(entry))
-			result += GetIconAppearance(entry)
+			overlay_appearance = GetIconAppearance(entry)
 		else if (istype(entry, /mutable_appearance))
-			result += entry
+			overlay_appearance = entry
 		else
 			if (isloc(entry))
 				if (entry.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
 					entry.UpdateOverlays()
 			if (!ispath(entry))
-				result += entry.appearance
+				overlay_appearance = entry.appearance
 			else
 				var/image/image = entry
-				result += image.appearance
+				overlay_appearance = image.appearance
+
+		// If the caller is a turf, we put the overlay's layer slightly above it.
+		// So this way overlays extending over to neighbouring turfs don't appear under them depending on load order.
+		// We only apply this if source hasn't explictly provided a layer (think the FLOAT_LAYER as a default layer for overlays).
+		// For more info see overlays doc. in byond ref.
+		var/turf/T = subject
+		if(istype(T))
+			var/mutable_appearance/turf_overlay = new()
+			turf_overlay.appearance = overlay_appearance
+			if(turf_overlay.layer == FLOAT_LAYER)
+				turf_overlay.layer = T.is_plating() ? ABOVE_PLATING_LAYER : TURF_DETAIL_LAYER
+				overlay_appearance = turf_overlay.appearance
+
+		result += overlay_appearance
 	return result
 
 
@@ -306,4 +321,3 @@ SUBSYSTEM_DEF(overlays)
 		overlays |= other.atom_protected_overlay_cache
 	if (cache_target & ATOM_ICON_CACHE_NORMAL)
 		overlays |= other.atom_overlay_cache
-

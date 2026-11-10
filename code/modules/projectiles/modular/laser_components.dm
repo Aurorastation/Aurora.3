@@ -152,7 +152,7 @@
 			user.apply_damage(25*max(prototype.criticality, 1), DAMAGE_BRUTE, BP_R_HAND, prototype, DAMAGE_FLAG_EXPLODE)
 	else
 		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] hisses and explosively vents hot phoron!"))
-	explosion(get_turf(prototype), 0, 0, round(max(prototype.criticality, 1)*2,1))
+	explosion(get_turf(prototype), 0, 0, round(max(prototype.criticality, 1) * 2, 1), spreading = TRUE)
 	..()
 
 /obj/item/laser_components/capacitor/phoron/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
@@ -165,7 +165,7 @@
 	else
 		visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical causing a massive explosion!"))
 	empulse(get_turf(src), round(max(prototype.criticality, 1),1), round(max(prototype.criticality, 1)*4,1))
-	explosion(get_turf(prototype), 0, round(max(prototype.criticality, 1),1), round(max(prototype.criticality, 1)*3,1))
+	explosion(get_turf(prototype), 0, round(max(prototype.criticality, 1), 1), round(max(prototype.criticality, 1) * 3, 1), spreading = TRUE)
 	..()
 
 /obj/item/laser_components/capacitor/bluespace
@@ -187,15 +187,15 @@
 	visible_message(SPAN_WARNING("\The [src] in \the [prototype] flickers then vanishes along with everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(3*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*2,1))
-		do_teleport(M, get_turf(M), rand(2,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(2,4)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*2,1))
 	..()
 /obj/item/laser_components/capacitor/bluespace/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	visible_message(SPAN_DANGER("\The [src] in \the [prototype] implodes in a catastrophic spatial anomaly, teleporting everything around it!"))
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(6*max(prototype.criticality, 1),1),T))
-		empulse(get_turf(M), 0, round(max(prototype.criticality, 1)*4,1))
-		do_teleport(M, get_turf(M), rand(4,12)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		do_teleport(M, get_turf(M), rand(3,6)*round(max(prototype.criticality, 1),1), asoundin = 'sound/effects/phasein.ogg')
+		empulse(T, 0, round(max(prototype.criticality, 1)*4,1))
 	..()
 
 //Lenses
@@ -302,7 +302,7 @@
 	burst = 10
 	damage = 2 //With the way armour works, splitting the damage across multiple shots actually reduces the overall damage, so we compensate by increasing it.
 	fire_delay = 10
-	chargetime = 3
+	chargetime = 2
 	accuracy = -1
 	icon_state = "rotating_lens"
 	increasable_stats = list()
@@ -472,7 +472,7 @@
 	name = "decloner modulator"
 	desc = "Modulates the beam into firing highly radioactive particulates."
 	projectile = /obj/projectile/energy/declone
-	damage = 0.5
+	damage = 0.4
 	icon_state = "decloner"
 	firing_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4, TECH_POWER = 3)

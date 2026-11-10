@@ -191,12 +191,15 @@
 			trigger_aiming(TARGET_CAN_CLICK)
 			return
 		else // non-adjacent click
+			var/performed_ranged_action = FALSE
 			if(W)
-				W.afterattack(A, src, 0, params) // 0: not Adjacent
+				performed_ranged_action = W.afterattack(A, src, 0, params) // 0: not Adjacent
+				performed_ranged_action ||= istype(W, /obj/item/gun)
 			else
-				RangedAttack(A, params)
+				performed_ranged_action = RangedAttack(A, params)
 
-			trigger_aiming(TARGET_CAN_CLICK)
+			if(performed_ranged_action)
+				trigger_aiming(TARGET_CAN_CLICK)
 	return 1
 
 	/* END AURORA SNOWFLAKE CODE */
@@ -259,9 +262,8 @@
 		return TRUE
 
 	if((mutations & LASER_EYES) && a_intent == I_HURT)
-		LaserEyes(A, modifiers) // moved into a proc below
-		return
-	A.attack_ranged(src, modifiers)
+		return LaserEyes(A, modifiers) // moved into a proc below
+	return A.attack_ranged(src, modifiers)
 
 /*
 	Restrained ClickOn
@@ -393,14 +395,16 @@
 	var/turf/T = get_turf(src)
 	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
 	fire_projectile(/obj/projectile/beam, T, 'sound/weapons/wave.ogg', firer = src)
+	return TRUE
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
 		to_chat(src, SPAN_WARNING("You're out of energy!  You need food!"))
-		return
-	..()
+		return FALSE
+	. = ..()
 	adjustNutritionLoss(rand(1,5))
 	handle_regular_hud_updates()
+	return .
 
 // Simple helper to face what you clicked on, in case it should be needed in more than one place
 /mob/proc/face_atom(var/atom/A, var/force_face = FALSE)

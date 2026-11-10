@@ -70,7 +70,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/tirakqi_crew/get_id_access()
-	return list(ACCESS_SKRELL, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/skrell::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

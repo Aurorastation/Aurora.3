@@ -35,7 +35,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /obj/outfit/admin/militia_crew/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/militia_crew/captain
 	short_name = "militia_crew_captain"
@@ -60,4 +60,4 @@
 
 /obj/item/card/id/militia_ship
 	name = "militia ship id"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS)
+	access = list(/datum/access/external_airlocks::id)

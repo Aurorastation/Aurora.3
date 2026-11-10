@@ -255,53 +255,57 @@
 //TCOMS stock parts
 
 /obj/item/stock_parts/subspace/ansible
-	name = "subspace ansible"
-	icon_state = "subspace_ansible"
-	desc = "A compact module capable of sensing extradimensional activity."
+	name = "bluespace ansible"
+	icon_state = "ansible_crystal"
+	desc = "A specially energised bluespace crystal that can be used to receive and transcribe transmissions received from within bluespace."
+	desc_extended = "Perhaps the most under-valued use of phoron and bluespace, and the backbone of interstellar FTL communications. \
+	Without these, it will be back to warp couriers and dreaded sub-luminal radio communications..."
 	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 5 ,TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
+	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10, MATERIAL_PHORON = 50)
 
 /obj/item/stock_parts/subspace/filter
 	name = "hyperwave filter"
 	icon_state = "hyperwave_filter"
-	desc = "A tiny device capable of filtering and converting super-intense radiowaves."
+	desc = "A tiny device capable of filtering and converting bluespace transmissions."
 	origin_tech = list(TECH_DATA = 4, TECH_MAGNET = 2)
 	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
 
 /obj/item/stock_parts/subspace/amplifier
-	name = "subspace amplifier"
+	name = "bluespace amplifier"
 	icon_state = "subspace_amplifier"
-	desc = "A compact micro-machine capable of amplifying weak subspace transmissions."
+	desc = "A compact ampule of phoron gas capable of amplifying weak bluespace transmissions."
 	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
+	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10, MATERIAL_PHORON = 50)
 
 /obj/item/stock_parts/subspace/treatment
-	name = "subspace treatment disk"
+	name = "bluespace treatment disk"
 	icon_state = "treatment_disk"
-	desc = "A compact micro-machine capable of stretching out hyper-compressed radio waves."
+	desc = "A compact micro-machine capable of stretching out hyper-compressed bluespace transmissions."
 	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 2, TECH_MATERIAL = 5, TECH_BLUESPACE = 2)
 	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
 
 /obj/item/stock_parts/subspace/analyzer
-	name = "subspace wavelength analyzer"
+	name = "bluespace transmission analyzer"
 	icon_state = "wavelength_analyzer"
-	desc = "A sophisticated analyzer capable of analyzing cryptic subspace wavelengths."
+	desc = "A sophisticated analyzer capable of analyzing cryptic bluespace transmissions."
 	origin_tech = list(TECH_DATA = 3, TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
 	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
 
 /obj/item/stock_parts/subspace/crystal
-	name = "ansible crystal"
+	name = "bluespace transmission crystal"
 	icon_state = "ansible_crystal"
-	desc = "A crystal made from pure glass used to transmit laser databursts to subspace."
+	desc = "A specially energised bluespace crystal capable of punching tiny micro-portals into bluespace, through which laser databursts can be transmitted FTL."
+	desc_extended = "Perhaps the most under-valued use of phoron and bluespace, and the backbone of interstellar FTL communications. \
+	Without these, it will be back to warp couriers and dreaded sub-luminal radio communications..."
 	origin_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2)
-	matter = list(MATERIAL_GLASS = 50)
+	matter = list(MATERIAL_PHORON = 50)
 
 /obj/item/stock_parts/subspace/transmitter
-	name = "subspace transmitter"
+	name = "data laser transmitter"
 	icon_state = "subspace_transmitter"
-	desc = "A large piece of equipment used to open a window into the subspace dimension."
+	desc = "A small laser that can be used to transmit data through an opened bluespace micro-portal."
 	origin_tech = list(TECH_MAGNET = 5, TECH_MATERIAL = 5, TECH_BLUESPACE = 3)
-	matter = list(MATERIAL_STEEL = 50)
+	matter = list(MATERIAL_STEEL = 25, MATERIAL_GLASS = 25)
 
 #undef STOCK_PART_BASIC
 #undef STOCK_PART_ADVANCED

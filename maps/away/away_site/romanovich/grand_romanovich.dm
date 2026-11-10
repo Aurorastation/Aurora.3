@@ -21,8 +21,10 @@
 	desc = "An adhomian style casino in Tau Ceti's space."
 
 	comms_support = TRUE
-	comms_name = "casino"
 	use_common = TRUE
+
+/obj/effect/overmap/visitable/sector/grand_romanovich/create_comms_groups()
+	return list("default" = new /datum/comms_group("casino"))
 
 /area/grand_romanovich
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP

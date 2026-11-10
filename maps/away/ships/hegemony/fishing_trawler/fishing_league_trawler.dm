@@ -83,7 +83,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/fishing_trawler
 	name = "shuttle control console"
 	shuttle_tag = "Fishing League Shuttle"
-	req_access = list(ACCESS_FISHING_LEAGUE)
+	req_access = list(/datum/access/unathi_trawler_access::id)
 
 /datum/shuttle/autodock/overmap/fishing_trawler
 	name = "Fishing League Shuttle"
@@ -94,5 +94,4 @@
 	landmark_transition = "fishing_trawler_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "fishing_trawler_shuttle"
 	defer_initialisation = TRUE

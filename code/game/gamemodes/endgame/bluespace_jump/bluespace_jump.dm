@@ -123,7 +123,7 @@
 		H.appearance = daddy.appearance
 
 	H.real_name = daddy.real_name
-	H.flavor_text = daddy.flavor_text
+	H.flavor_texts = daddy.flavor_texts.Copy()
 	daddy.dust()
 	qdel(src)
 

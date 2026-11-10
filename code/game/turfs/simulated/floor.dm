@@ -23,7 +23,9 @@
 	heat_capacity = 10000
 	var/lava = 0
 
-	/// If the turf should generate details. Default: TRUE
+	/// Used for simple turf icon smoothing, which just adds edges to the turf if it's adjacent to a different type turf.
+	/// See `update_icon()` for the use case.
+	// ideally this shouldn't be true by default, not all turfs have edges
 	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/examine_descriptor(mob/user)
@@ -56,10 +58,20 @@
 
 /turf/simulated/floor/Initialize(mapload, var/floortype)
 	. = ..()
+
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
 		set_flooring(GET_SINGLETON(floortype), mapload)
+
+	var/area/area = loc
+	if(area.generate_dirt > 0)
+		var/dirt_to_spawn = round(area.generate_dirt / 100)
+		if(prob(area.generate_dirt % 100))
+			dirt_to_spawn++
+		while(dirt_to_spawn > 0)
+			new /obj/effect/decal/cleanable/dirt(src)
+			dirt_to_spawn--
 
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)

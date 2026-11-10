@@ -255,28 +255,35 @@
 
 	return 1
 
-/datum/unit_test/map_test/mapped_products
-	name = "MAP: Check for mapped vending products"
+/datum/unit_test/map_test/mapped_vending_refills
+	name = "MAP: Mapped vending machines shall have refill canisters"
 
-/datum/unit_test/map_test/mapped_products/start_test()
+/datum/unit_test/map_test/mapped_vending_refills/start_test()
+	if(SSatlas.current_map.path != MAP_WITH_PERSISTENCE_SUPPORT)
+		TEST_PASS("The current map is does not support persistence; skipping refill canister checks.")
+		return 1
+
+	var/list/refill_ids = list()
+	for(var/refill_type in subtypesof(/obj/item/vending_refill))
+		var/obj/item/vending_refill/refill = new refill_type
+		if(refill.charges > 0)
+			refill_ids[refill.vend_id] = TRUE
+		qdel(refill)
+
 	var/checks = 0
 	var/failed_checks = 0
-	var/list/obj/structure/machinery/vending/V_to_test = list()
-
-	for(var/obj/structure/machinery/vending/T in world)
+	for(var/obj/structure/machinery/vending/vendor in world)
+		if(!vendor.persistent_stock_id)
+			continue
 		checks++
-		V_to_test += T
-	for(var/obj/structure/machinery/vending/V in V_to_test)
-		var/obj/structure/machinery/vending/temp_V = new V.type
-		if(length(difflist(V.products, temp_V.products)) || length(difflist(V.contraband, temp_V.contraband)) || length(difflist(V.premium, temp_V.premium)))
+		if(!refill_ids[vendor.vend_id])
 			failed_checks++
-
-			TEST_FAIL("Vending machine [V] at ([V.x],[V.y],[V.z] on [V.loc] has mapped-in products, contraband, or premium items.")
+			TEST_FAIL("Mapped vending machine [vendor] at ([vendor.x],[vendor.y],[vendor.z]) has no stocked refill canister for vend_id '[vendor.vend_id]'.")
 
 	if(failed_checks)
-		TEST_FAIL("\[[failed_checks] / [checks]\] Some vending machines have mapped-in product lists.")
+		TEST_FAIL("\[[failed_checks] / [checks]\] mapped vending machines have no refill canister.")
 	else
-		TEST_PASS("All \[[checks]\] vending machines have valid product lists.")
+		TEST_PASS("All \[[checks]\] mapped vending machines have refill canisters.")
 
 	return 1
 
@@ -492,6 +499,46 @@
 		TEST_FAIL("\[[failed_checks] / [checks]\] Checked objects had their dir var manually edited.")
 	else
 		TEST_PASS("All \[[checks]\] checked objects are mapped with their initial dir values.")
+
+	return test_status
+
+/datum/unit_test/map_test/research_fabricator_connections
+	name = "MAP: Research fabricator connections"
+
+/datum/unit_test/map_test/research_fabricator_connections/start_test()
+	var/fabricator_count = 0
+	var/console_count = 0
+	var/fabricators_without_console = 0
+	var/consoles_without_silo = 0
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/obj/structure/machinery/r_n_d/fabricator/fabricator in world)
+		fabricator_count++
+
+		var/obj/structure/machinery/computer/rdconsole/nearby_console = locate() in range(7, fabricator)
+		if(nearby_console)
+			continue
+
+		fabricators_without_console++
+		TEST_FAIL("[fabricator.name] at ([fabricator.x], [fabricator.y], [fabricator.z]) in [get_area(fabricator)] has no research console within 7 turfs.")
+
+	for(var/obj/structure/machinery/computer/rdconsole/console in world)
+		if(QDELETED(console) || !is_station_level(console.z))
+			continue
+
+		console_count++
+
+		var/obj/structure/machinery/r_n_d/material_silo/nearby_silo = locate() in range(7, console)
+		if(nearby_silo)
+			continue
+
+		consoles_without_silo++
+		TEST_FAIL("[console.name] at ([console.x], [console.y], [console.z]) in [get_area(console)] has no material silo within 7 turfs.")
+
+	if(fabricators_without_console || consoles_without_silo)
+		test_status = TEST_FAIL("\[[fabricators_without_console] / [fabricator_count]\] research fabricators lacked a nearby research console. \[[consoles_without_silo] / [console_count]\] research consoles lacked a nearby material silo.")
+	else
+		TEST_PASS("All [fabricator_count] research fabricators had a nearby research console, and all [console_count] research consoles had a nearby material silo.")
 
 	return test_status
 

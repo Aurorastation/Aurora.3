@@ -11,6 +11,7 @@
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
 	needspin = FALSE
+	has_unique_gun_action = TRUE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
 	var/max_w_class = WEIGHT_CLASS_NORMAL                                 // Hopper intake size.

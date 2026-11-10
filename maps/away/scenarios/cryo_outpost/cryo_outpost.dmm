@@ -586,7 +586,7 @@
 	id = "cryo_outpost_armory_door_bolts";
 	pixel_x = 24;
 	specialfunctions = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/item/clothing/mask/balaclava/grey,
 /obj/item/clothing/head/helmet/security/generic,
@@ -852,7 +852,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/security{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1035,7 +1035,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_warehouse)
@@ -1277,7 +1277,7 @@
 	id = "cryo_outpost_armory_door_bolts";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/random/civgun,
 /obj/random/civgun/rifle,
@@ -1367,7 +1367,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/medical)
@@ -1746,7 +1746,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/engineering{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1846,7 +1846,7 @@
 	pixel_x = 28;
 	pixel_y = 32;
 	dir = 1;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
@@ -1893,7 +1893,7 @@
 /obj/random/dirt_75,
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
@@ -2361,7 +2361,7 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
@@ -2619,7 +2619,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
@@ -3216,7 +3216,7 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(244);
+	req_one_access = list(/datum/access/cryo_outpost_access);
 	id_tag = "cryo_outpost_armory_door_bolts"
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -3558,7 +3558,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
@@ -4206,7 +4206,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
@@ -4813,7 +4813,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
@@ -6010,7 +6010,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = -20;
 	dir = 8;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
@@ -6425,7 +6425,7 @@
 	id = "cryo_outpost_shutter_entrance_aux_east_out";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
@@ -6857,7 +6857,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
@@ -8465,7 +8465,7 @@
 	id = "cryo_outpost_shutter_entrance_aux_west_in";
 	pixel_x = 28;
 	pixel_y = -20;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_west)
@@ -8478,7 +8478,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
@@ -8817,7 +8817,7 @@
 	id = "cryo_outpost_shutter_entrance_aux_east_in";
 	pixel_x = 28;
 	pixel_y = -20;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_east)
@@ -9010,7 +9010,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
@@ -10000,7 +10000,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/security{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
@@ -10189,7 +10189,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
@@ -10874,7 +10874,7 @@
 	id = "cryo_outpost_shutter_entrance_aux_west_out";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
@@ -11808,7 +11808,7 @@
 	pixel_x = 28;
 	pixel_y = 32;
 	dir = 1;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
@@ -12136,7 +12136,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
@@ -12840,7 +12840,7 @@
 	},
 /obj/structure/machinery/door/airlock/blue{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
@@ -12990,7 +12990,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = -20;
 	dir = 8;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
@@ -13369,7 +13369,7 @@
 /area/cryo_outpost/inside/habitation_east)
 "paq" = (
 /obj/structure/machinery/door/window/southright{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 1
@@ -14909,7 +14909,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -15203,7 +15203,7 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
@@ -15951,14 +15951,14 @@
 	pixel_y = 36;
 	dir = 1;
 	pixel_x = 6;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_main_out";
 	pixel_y = 24;
 	dir = 1;
 	pixel_x = 6;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
@@ -16662,7 +16662,7 @@
 /obj/random/dirt_75,
 /obj/structure/machinery/door/airlock/research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
@@ -17404,7 +17404,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass_engineering{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -17783,7 +17783,7 @@
 /area/cryo_outpost/inside/warehouse)
 "tOn" = (
 /obj/structure/machinery/door/window/southleft{
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
@@ -21586,7 +21586,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_research{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
@@ -21705,7 +21705,7 @@
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
@@ -21787,7 +21787,7 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_one_access = list(244)
+	req_one_access = list(/datum/access/cryo_outpost_access)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)

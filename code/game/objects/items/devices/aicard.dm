@@ -86,7 +86,7 @@
 
 	switch(action)
 		if("wipe")
-			var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
+			var/confirm = tgui_alert(usr, "Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", list("Yes", "No"))
 			if(confirm == "Yes" && (CanUseTopic(usr, state) == STATUS_INTERACTIVE))
 				admin_attack_log(usr, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
 				flush = 1
@@ -188,4 +188,4 @@
 		return
 	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
-		rig.forced_move(direction, user)
+		INVOKE_ASYNC(rig, TYPE_PROC_REF(/obj/item/rig, forced_move), direction, user)

@@ -14,7 +14,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/projectile/bullet/on_hit(atom/target, blocked, def_zone)
-	if(isliving(target) && (..(target, blocked, def_zone) == BULLET_ACT_HIT))
+	if(isliving(target) && blocked < 100)
 		var/mob/living/L = target
 		shake_camera(L, 3, 2)
 	return ..()
@@ -112,6 +112,7 @@
 	name = "rubber ball"
 	icon_state = "pellets"
 	damage = 2
+	check_armor = MELEE
 	agony = 50
 	embed = FALSE
 	var/balls = 4
@@ -482,7 +483,7 @@
 
 /obj/projectile/bullet/gauss/highex/on_hit(atom/target, blocked, def_zone)
 	. = ..()
-	explosion(get_turf(target), -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2, spreading = TRUE)
 	if(ismob(target))
 		var/mob/living/exploding_mob = target  //This damage is dealt directly, instead of using ex_act, so that floors aren't destroyed and the target isnt stunned.
 		exploding_mob.apply_damage(40, DAMAGE_BRUTE, def_zone, "Explosive blast", DAMAGE_FLAG_EXPLODE)
@@ -509,7 +510,7 @@
 	armor_penetration = 5
 
 /obj/projectile/bullet/cannonball/explosive/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), -1, 1, 2)
+	explosion(get_turf(target), -1, 1, 2, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/bullet/nuke
@@ -525,7 +526,7 @@
 			if(ishuman(mob))
 				mob.apply_damage(250, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	new /obj/effect/temp_visual/nuke(target.loc)
-	explosion(get_turf(target),2,5,9)
+	explosion(get_turf(target), 2, 5, 9, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/bullet/shard
@@ -549,7 +550,7 @@
 	var/heavy_impact_range = 1
 
 /obj/projectile/bullet/recoilless_rifle/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), -1, heavy_impact_range, 2)
+	explosion(get_turf(target), -1, heavy_impact_range, 2, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/bullet/peac
@@ -569,7 +570,7 @@
 /obj/projectile/bullet/peac/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	explosion(get_turf(target), devastation_range, heavy_impact_range, light_impact_range)
+	explosion(get_turf(target), devastation_range, heavy_impact_range, light_impact_range, spreading = TRUE)
 
 /obj/projectile/bullet/peac/he
 	name = "high-explosive missile"

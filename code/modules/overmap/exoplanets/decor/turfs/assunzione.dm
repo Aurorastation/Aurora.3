@@ -8,6 +8,3 @@
 /turf/simulated/floor/exoplanet/assunzione/Initialize(mapload)
 	. = ..()
 	icon_state = "rust[rand(1,12)]"
-
-/turf/simulated/floor/exoplanet/assunzione/no_edge
-	has_edge_icon = FALSE

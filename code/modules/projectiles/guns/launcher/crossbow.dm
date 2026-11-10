@@ -48,6 +48,7 @@
 	slot_flags = SLOT_BACK
 	needspin = FALSE
 	has_safety = FALSE
+	has_unique_gun_action = TRUE
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.

@@ -121,7 +121,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
-	req_access = list(ACCESS_HOUSE_VOLVALAAD_SHIP)
+	req_access = list(/datum/access/house_volvalaad_ship::id)
 
 /datum/shuttle/autodock/overmap/dominian_science_shuttle
 	name = "Dominian Science Shuttle"
@@ -132,7 +132,6 @@
 	dock_target = "airlock_dominian_science_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_dominian_science_vessel"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/dominian_science_shuttle/hangar

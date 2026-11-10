@@ -43,6 +43,15 @@
 	broken_overlay = null
 	burned_overlay = null
 
+/turf/simulated/floor/exoplanet/tiled/gridded
+	name = "gridded tiles"
+	icon_state = "grid"
+	initial_flooring = /singleton/flooring/tiling/gridded
+	tile_decal_state = "grid_light"
+	color = COLOR_GRAY40
+	broken_overlay = null
+	burned_overlay = null
+
 /turf/simulated/floor/exoplanet/tiled/freezer
 	name = "tiles"
 	icon_state = "freezer"

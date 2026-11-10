@@ -25,11 +25,11 @@
 
 	if (SSatlas.current_map.use_overmap)
 		// exoplanet
-		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = get_map_sector(z)
 		if (istype(exoplanet) && istype(exoplanet.theme))
 			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area, exoplanet)
 		// away site
-		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
+		var/datum/map_template/ruin/away_site/away_site = get_map_template(z)
 		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
 			away_site.exoplanet_theme_base.on_turf_generation(src, null, away_site)
 
@@ -222,15 +222,12 @@
 	other.icon_state = icon_state
 	other.name = name
 	other.layer = layer
-	other.decals = decals
+	other.decals = decals?.Copy()
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (atom_overlay_cache)
-		other.atom_overlay_cache = atom_overlay_cache
-
-	if (atom_protected_overlay_cache)
-		other.atom_protected_overlay_cache = atom_protected_overlay_cache
+	other.atom_overlay_cache = atom_overlay_cache?.Copy()
+	other.atom_protected_overlay_cache = atom_protected_overlay_cache?.Copy()
 
 	other.overlays = overlays.Copy()
 
@@ -238,6 +235,7 @@
 	. = ..()
 
 	if (ignore_air || !zone || !istype(other))
+		other.update_icon()
 		return
 
 	if (!other.air)
@@ -256,6 +254,7 @@
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	.=..()
 	other.flooring = flooring
+	other.update_icon()
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()

@@ -5,12 +5,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 /obj/item/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	interact(user)
-	external_examine(user)
+	. += external_examine(user)
 	. = ..()
 
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
-	any_examine(user)
+	return any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
 	. = list()
@@ -24,6 +24,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	setup_io(inputs, /datum/integrated_io, inputs_default)
 	setup_io(outputs, /datum/integrated_io, outputs_default)
 	setup_io(activators, /datum/integrated_io/activate)
+	var/phoron_matter = initial(phoron_cost) * 2000
+	var/steel_matter = max(1, w_class) * 200
+	if(phoron_matter || steel_matter)
+		matter = list(MATERIAL_STEEL = steel_matter, MATERIAL_PHORON = phoron_matter)
+		recyclable = TRUE
 	. = ..()
 
 /obj/item/integrated_circuit/proc/on_data_written() //Override this for special behaviour when new data gets pushed to the circuit.
@@ -302,6 +307,8 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		disconnect_all()
 		var/turf/T = get_turf(src)
 		forceMove(T)
+		if(Adjacent(usr, src))
+			usr.put_in_hands(src)
 		assembly = null
 		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 		to_chat(usr, SPAN_NOTICE("You pop \the [src] out of the case, and slide it out."))

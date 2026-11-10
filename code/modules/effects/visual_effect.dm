@@ -30,4 +30,7 @@
 
 /obj/effect/visual/Destroy()
 	STOP_VISUAL(src)
+	// A bare animate(src) only supersedes the current sequence, which can retain src until BYOND discards it.
+	// A negative duration removes the animation slice immediately and releases its native reference.
+	animate(src, time = -1)
 	return ..()

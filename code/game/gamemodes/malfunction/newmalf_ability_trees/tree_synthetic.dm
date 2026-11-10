@@ -75,7 +75,7 @@
 				break
 
 	if(target)
-		if(alert(user, "Really try to reset cyborg [target.name]?", "Reset Cyborg", "Yes", "No") != "Yes")
+		if(tgui_alert(user, "Really try to reset cyborg [target.name]?", "Reset Cyborg", list("Yes", "No")) != "Yes")
 			return
 		if(!ability_pay(user, price))
 			return
@@ -194,7 +194,7 @@
 				break
 
 	if(target)
-		if(alert(user, "Really try to overclock cyborg [target.name]?", "Overclock Cyborg", "Yes", "No") != "Yes")
+		if(tgui_alert(user, "Really try to overclock cyborg [target.name]?", "Overclock Cyborg", list("Yes", "No")) != "Yes")
 			return
 		if(!ability_pay(user, price))
 			return
@@ -225,7 +225,7 @@
 	if(!ability_prechecks(user,price))
 		return
 
-	if (alert(user, "Start synthetic takeover? This can not be stopped and will not be covert.", "Synthetic Takeover?:", "Yes", "No") != "Yes")
+	if (tgui_alert(user, "Start synthetic takeover? This can not be stopped and will not be covert.", "Synthetic Takeover?:", list("Yes", "No")) != "Yes")
 		return
 	if (!ability_prechecks(user, price) || !ability_pay(user, price) || user.synthetic_takeover)
 		if(user.synthetic_takeover)
@@ -387,7 +387,7 @@
 	for(var/B in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = B
 		target.malf_AI_module = TRUE
-		target.id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
+		target.id_card.access = get_all_station_access() + /datum/access/equipment::id // Give full station access
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
 	sleep(300) //Allows the AI to reset its borgs into combat units
 	to_chat(user, "Bypassing crisis module safeties.")

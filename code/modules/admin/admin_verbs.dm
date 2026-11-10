@@ -88,6 +88,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/allow_stationbound_reset,
 	/client/proc/end_round,
 	/client/proc/event_manager_panel,
+	/client/proc/persistence_panel,
+	/client/proc/server_configuration,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
 	/client/proc/change_human_appearance_admin,	// Allows an admin to change the basic appearance of human-based mobs ,
@@ -149,8 +151,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey,
-	/datum/admins/proc/toggle_persistence
+	/datum/admins/proc/set_odyssey
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -195,6 +196,8 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/Debug2,
 	/client/proc/DebugToggle,
 	/client/proc/DebugToggleAll,
+	/client/proc/registry_get_value,
+	/client/proc/registry_set_value,
 	/client/proc/kill_air,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_debug_make_powernets,
@@ -205,6 +208,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/cmd_admin_delete,
 	/client/proc/cmd_debug_del_all,
 	/client/proc/air_report,
+	/client/proc/toggle_nonhorizon_temperature_graphics,
 	/client/proc/reload_admins,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
@@ -455,6 +459,7 @@ GLOBAL_LIST_INIT(admin_verbs_mod, list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
+	/client/proc/persistence_panel,
 	/client/proc/aooc,
 	/client/proc/toggle_aooc,
 	/client/proc/alooc,
@@ -490,6 +495,8 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/debug_controller,
 	/client/proc/debug_variables,
 	/client/proc/dsay,
+	/client/proc/persistence_panel,
+	/client/proc/server_configuration,
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
@@ -738,7 +745,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	set category = "Fun"
 	set name = "OOC Text Color"
 	if(!holder)	return
-	var/response = alert(src, "Please choose a distinct color that is easy to read and doesn't mix with all the other chat and radio frequency colors.", "Change own OOC color", "Pick new color", "Reset to default", "Cancel")
+	var/response = tgui_alert(src, "Please choose a distinct color that is easy to read and doesn't mix with all the other chat and radio frequency colors.", "Change own OOC color", list("Pick new color", "Reset to default", "Cancel"))
 	if(response == "Pick new color")
 		prefs.ooccolor = input(src, "Please select your OOC colour.", "OOC colour") as color
 	else if(response == "Reset to default")
@@ -837,7 +844,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		SSair.can_fire = TRUE
 		to_chat(usr, "<b>Enabled air processing.</b>")
 	else
-		if(alert("Confirm disabling air processing?",,"Yes","No") == "No")
+		if(tgui_alert(usr, "Confirm disabling air processing?", , list("Yes", "No")) == "No")
 			return
 		SSair.can_fire = FALSE
 		to_chat(usr, "<b>Disabled air processing.</b>")
@@ -862,7 +869,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 
 	if(holder)
-		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
+		if(tgui_alert(usr, "Confirm self-deadmin for the round? You can re-admin yourself at any time.", , list("Yes", "No")) == "Yes")
 			log_admin("[src] deadmined themself.")
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
@@ -948,7 +955,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		to_chat(usr, "Only mobs with clients can alter their own appearance.")
 		return
 
-	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
+	switch(tgui_alert(usr, "Do you wish for [H] to be allowed to select non-whitelisted races?", "Alter Mob Appearance", list("Yes", "No", "Cancel")))
 		if("Yes")
 			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, without whitelisting of races.")
 			H.change_appearance(APPEARANCE_ALL, H, FALSE)
@@ -989,7 +996,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		if(!istype(selected_human, /mob/living/carbon/human))
 			to_chat(usr, SPAN_WARNING("You can only do this to humans!"))
 			return
-		switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
+		switch(tgui_alert(usr, "Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.", , list("Yes", "No")))
 			if("No")
 				return
 		var/new_facial = input("Please select facial hair color.", "Character Generation") as color
@@ -1032,7 +1039,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		if(new_fstyle)
 			selected_human.f_style = new_fstyle
 
-		var/new_gender = alert(usr, "Please select gender.", "Character Generation", "Male", "Female")
+		var/new_gender = tgui_alert(usr, "Please select gender.", "Character Generation", list("Male", "Female"))
 		if (new_gender)
 			if(new_gender == "Male")
 				selected_human.gender = MALE
@@ -1169,7 +1176,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	if (!check_rights(R_SERVER|R_DEBUG))
 		return
 
-	var/ans = alert(src, "This will force explosions to run in the [GLOB.config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
+	var/ans = tgui_alert(src, "This will force explosions to run in the [GLOB.config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", list("Yes", "Cancel"))
 
 	if (!ans || ans == "Cancel")
 		to_chat(src, SPAN_NOTICE("Cancelled."))
@@ -1190,7 +1197,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 
 	var/mob/living/silicon/ai/target = tgui_input_list(usr, "Choose the AI to force-wipe.", "AI Termination", GLOB.ai_list)
 
-	if (!target || alert("Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", "No", "No", "Yes") != "Yes")
+	if (!target || tgui_alert(usr, "Are you sure you want to wipe [target.name]? They will be ghosted and their job slot freed.", "Confirm AI Termination", list("No", "No", "Yes")) != "Yes")
 		return
 
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
@@ -1204,7 +1211,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(alert(usr, "Are you sure you want to end the round?", "Confirm Round End", "No", "Yes") != "Yes")
+	if(tgui_alert(usr, "Are you sure you want to end the round?", "Confirm Round End", list("No", "Yes")) != "Yes")
 		return
 
 	log_and_message_admins("has ended the round with the End Round button.")
@@ -1218,7 +1225,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	if (!check_rights(R_DEBUG))
 		return
 
-	if (alert("Reconnect to SQL?", "SQL Reconnection", "No", "No", "Yes") != "Yes")
+	if (tgui_alert(usr, "Reconnect to SQL?", "SQL Reconnection", list("No", "No", "Yes")) != "Yes")
 		return
 
 	log_and_message_admins("is attempting to reconnect the server to MySQL.")
@@ -1233,7 +1240,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	if (!check_rights(R_DEBUG|R_ADMIN))
 		return
 
-	if (alert("Regenerate player lists?", "Player List Repair", "No", "No", "Yes") != "Yes")
+	if (tgui_alert(usr, "Regenerate player lists?", "Player List Repair", list("No", "No", "Yes")) != "Yes")
 		return
 
 	log_and_message_admins("is rebuilding the master player mob list.")
@@ -1259,7 +1266,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	if (!check_rights(R_DEBUG|R_ADMIN))
 		return
 
-	if (alert("Rebuild openturfs? Openturfs may look strange while this runs.", "Fix openturf", "No", "No", "DO IT") != "DO IT")
+	if (tgui_alert(usr, "Rebuild openturfs? Openturfs may look strange while this runs.", "Fix openturf", list("No", "No", "DO IT")) != "DO IT")
 		return
 
 	log_and_message_admins("has regenerated all openturfs.")
@@ -1338,7 +1345,9 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		return
 
 	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
-	SSpersistent_configuration.forced_awaymission = mission_name
+	if(!SSregistry.setValue("forced_awaymission", mission_name))
+		to_chat(usr, SPAN_WARNING("Failed to persist forced away mission to registry."))
+		return
 
 	if(!mission_name)
 		log_and_message_admins("reset the forced away mission.")

@@ -1,7 +1,7 @@
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/structure/machinery/computer/security
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	var/list/console_networks
 	var/locked = 1
 	var/emagged = 0
@@ -23,6 +23,12 @@
 	name = T_BOARD("mining camera monitor")
 	build_path = /obj/structure/machinery/computer/security/mining
 	console_networks = list("MINE")
+	req_access = list()
+
+/obj/item/circuitboard/security/public
+	name = T_BOARD("public camera monitor")
+	build_path = /obj/structure/machinery/computer/security/terminal/public
+	console_networks = list(NETWORK_EXPEDITION, NETWORK_NEWS)
 	req_access = list()
 
 /obj/item/circuitboard/security/construct(var/obj/structure/machinery/computer/security/C)

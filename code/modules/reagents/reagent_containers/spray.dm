@@ -123,7 +123,7 @@
 	set category = "Object.Held"
 	set src in usr
 
-	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
+	if (tgui_alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", list("Yes", "No")) != "Yes")
 		return
 	if(isturf(usr.loc))
 		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
@@ -133,6 +133,11 @@
 /obj/item/reagent_containers/spray/cleaner
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
+
+/obj/item/reagent_containers/spray/cleaner/surgical
+	name = "surgical cleaner"
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
+	icon_state = "sterilespray"
 
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
@@ -294,3 +299,14 @@
 		return
 
 	..()
+
+/obj/item/reagent_containers/spray/cleaner/glass_glue
+	name = "single-use glass adhesive spray"
+	desc = "A small spray tube of a Hephaestus Industries ultra-strong silicate epoxy adhesive. For window and glass repair. Single-use!"
+	volume = 20
+	icon_state = "deodorant"
+	item_state = "deodorant"
+	possible_transfer_amounts = null
+	spray_size = 1
+	spray_sizes = null
+	reagents_to_add = list(/singleton/reagent/silicate = 20)

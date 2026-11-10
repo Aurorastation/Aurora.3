@@ -30,6 +30,7 @@
 	if(content["material"])
 		set_material(content["material"])
 		max_butts = round(material.hardness/10)
+		update_icon()
 	var/fill_count = content["fill_count"]
 	if(fill_count)
 		if(fill_count > max_butts)

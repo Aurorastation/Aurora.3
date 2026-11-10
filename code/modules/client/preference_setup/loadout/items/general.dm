@@ -291,6 +291,7 @@
 	banners["banner, New Peoria"] = /obj/item/flag/new_peoria
 	banners["banner, Lhokgon"] = /obj/item/flag/lhokgon
 	banners["banner, Venus"] = /obj/item/flag/venus
+	banners["banner, Eris"] = /obj/item/flag/eris
 	banners["banner, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium
 	banners["banner, Eternal Republic of the Ekane"] = /obj/item/flag/ekane
 	banners["banner, Union of Gla'orr"] = /obj/item/flag/glaorr
@@ -412,6 +413,7 @@
 	flags["flag, New Peoria"] = /obj/item/flag/new_peoria/l
 	flags["flag, Lhokgon"] = /obj/item/flag/lhokgon/l
 	flags["flag, Venus"] = /obj/item/flag/venus/l
+	flags["flag, Eris"] = /obj/item/flag/eris/l
 	flags["flag, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium/l
 	flags["flag, Eternal Republic of the Ekane"] = /obj/item/flag/ekane/l
 	flags["flag, Union of Gla'orr"] = /obj/item/flag/glaorr/l
@@ -422,7 +424,7 @@
 	flags["flag, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm/l
 	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
 	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
-	flags["flag, Martian Union"] = /obj/item/flag/mars/old
+	flags["flag, Martian Union"] = /obj/item/flag/mars/old/l
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
 	flags["flag, Antique Visegrad"] = /obj/item/flag/visegrad_old/l
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l

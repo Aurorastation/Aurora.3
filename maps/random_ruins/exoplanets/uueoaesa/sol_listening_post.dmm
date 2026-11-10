@@ -41,7 +41,7 @@
 /turf/simulated/wall/r_wall,
 /area/sol_listening_post)
 "cC" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
@@ -181,7 +181,7 @@
 /turf/simulated/floor/bluegrid/server,
 /area/sol_listening_post)
 "kF" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
@@ -259,7 +259,7 @@
 /turf/template_noop,
 /area/template_noop)
 "mY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
@@ -526,7 +526,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/sol_listening_post)
 "Bx" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
@@ -671,7 +671,7 @@
 /area/sol_listening_post)
 "JX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"
@@ -788,7 +788,7 @@
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "RY" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	frequency = 2117;
 	master_tag = "airlock_sol_uueoa";
 	name = "airlock_sol_uueoa"

@@ -1,0 +1,79 @@
+.SurgeryPlanner {
+  &__body-map {
+    position: relative;
+    width: 230px;
+    height: 330px;
+    margin: 6px auto 0;
+  }
+
+  &__zone {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid #91a5ad;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.28);
+
+    &--organic {
+      background: #667d86;
+    }
+
+    &--robotic {
+      background: #386b88;
+    }
+
+    &--hybrid {
+      background: repeating-linear-gradient(
+        135deg,
+        #667d86 0,
+        #667d86 7px,
+        #386b88 7px,
+        #386b88 13px
+      );
+      border-color: #7cc6d8;
+    }
+
+    &--missing {
+      background: #30353a;
+      border-color: #555c62;
+      opacity: 0.7;
+    }
+
+    &--selected {
+      border: 2px solid #7de5ff;
+      box-shadow: 0 0 8px rgba(125, 229, 255, 0.9);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.45;
+    }
+  }
+
+  &__hybrid-label {
+    color: #9dd7e3;
+  }
+
+  &__scan-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    min-width: 17px;
+    height: 17px;
+    padding: 0 2px;
+    line-height: 15px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.65);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    color: #17191b;
+    font-size: 11px;
+    font-weight: 700;
+    pointer-events: none;
+    z-index: 8;
+  }
+}

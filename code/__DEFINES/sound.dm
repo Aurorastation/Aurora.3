@@ -14,6 +14,9 @@
 #define CHANNEL_INSTRUMENTS 1012
 #define CHANNEL_MOB_SOUNDS 1011
 
+// Client preference volume channels. These are separate from BYOND's playback channels above.
+#define SOUND_VOLUME_CHANNEL_LOOPING 1
+
 /// Default range of a sound.
 #define SOUND_RANGE 17
 #define MEDIUM_RANGE_SOUND_EXTRARANGE -5

@@ -21,6 +21,7 @@
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
+	use_material_sound = FALSE
 
 /obj/item/material/knife/bloody/Initialize()
 	. = ..()
@@ -28,7 +29,10 @@
 
 /obj/item/material/knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(active == 1)
-		if((target_zone != BP_EYES && target_zone != BP_HEAD) || target_mob.eyes_protected(src, FALSE))
+		var/mob/living/carbon/carbon_target = target_mob
+		if(istype(carbon_target) && carbon_target.check_attack_throat(src, user, target_zone))
+			return
+		if(target_zone != BP_EYES || target_mob.eyes_protected(src, FALSE))
 			return ..()
 		if((user.is_clumsy()) && prob(50))
 			target_mob = user
@@ -58,11 +62,12 @@
 		var/obj/S = thing
 		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50)
+		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50, affecting = O)
 		if(do_mob(usr, H, 100))
-			H.remove_implant(S, FALSE)
+			H.remove_implant(S, FALSE, O)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")
-		H.emote("scream")
+		if(ORGAN_CAN_FEEL_PAIN(O))
+			H.emote("scream")
 
 /obj/item/material/knife/ritual
 	name = "ritual knife"

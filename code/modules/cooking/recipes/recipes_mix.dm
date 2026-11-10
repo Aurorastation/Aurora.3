@@ -115,6 +115,7 @@
 /singleton/recipe/citrus_delight //ported from tg
 	fruit = list("orange" = 1, "lemon" = 1, "lime" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/citrus_delight
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/spring_salad //ported from tg
 	fruit = list("peas" = 1, "carrot" = 1, "cabbage" = 2)

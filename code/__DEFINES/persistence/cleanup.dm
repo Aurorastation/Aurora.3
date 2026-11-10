@@ -16,6 +16,9 @@ ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule)
 ABSTRACT_TYPE(/singleton/persistent_type_history_expiration_rule/row_count)
 	var/max_row_count = 0
 
+/singleton/persistent_type_history_expiration_rule/row_count/one
+	max_row_count = 1
+
 /singleton/persistent_type_history_expiration_rule/row_count/ten
 	max_row_count = 10
 

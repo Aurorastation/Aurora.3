@@ -31,7 +31,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/assunzione/cop/get_id_access()
-	return list(ACCESS_PORTOFCALL_POLICE)
+	return list(/datum/access/portofcall_police::id)
 
 /datum/ghostspawner/human/assunzione_cop/overseer
 	short_name = "assunzione_cop_overseer"
@@ -79,7 +79,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/assunzione/vendor/get_id_access()
-	return list(ACCESS_PORTOFCALL_VENDORS)
+	return list(/datum/access/portofcall_vendors::id)
 
 /datum/ghostspawner/human/assunzione_electromechanic
 	short_name = "assunzione_electromechanic"
@@ -109,7 +109,7 @@
 	l_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/assunzione/mechanic/get_id_access()
-	return list(ACCESS_PORTOFCALL_VENDORS)
+	return list(/datum/access/portofcall_vendors::id)
 
 /datum/ghostspawner/human/assunzione_clinic
 	short_name = "assunzione_clinic"
@@ -148,7 +148,7 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/assunzione/clinic/get_id_access()
-	return list(ACCESS_PORTOFCALL_VENDORS)
+	return list(/datum/access/portofcall_vendors::id)
 
 /datum/ghostspawner/human/assunzione_utility
 	short_name = "assunzione_utility"
@@ -209,7 +209,7 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/assunzione/stafylia/get_id_access()
-	return list(ACCESS_PORTOFCALL_VENDORS)
+	return list(/datum/access/portofcall_vendors::id)
 
 /datum/ghostspawner/human/assunzione_keeper
 	short_name = "assunzione_keeper"
@@ -235,4 +235,4 @@
 	back = /obj/item/storage/backpack/satchel
 
 /obj/outfit/admin/assunzione/keeper/get_id_access()
-	return list(ACCESS_PORTOFCALL_VENDORS)
+	return list(/datum/access/portofcall_vendors::id)

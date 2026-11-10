@@ -16,6 +16,10 @@ SUBSYSTEM_DEF(persistence)
 	var/init_success = FALSE
 	/// Global toggle to prevent saving at round end, changed by toggle_persistence proc, used for admin purposes.
 	var/prevent_saving = FALSE
+	/// The map that was initialized on, used to check if the map has changed during the round.
+	var/initialized_on_map = null
+	/// Indicates if the current map supports persistence. Set during subsystem init.
+	var/map_supports_persistence = FALSE
 	/// In-memory register of all persistent objects that were loaded or created during the round, used for tracking and finalization purposes.
 	var/object_track_register = list()
 	/// Dictionary<"[type](+[attribute])" cache of persistent history records.
@@ -68,36 +72,6 @@ SUBSYSTEM_DEF(persistence)
 		return FALSE
 	return TRUE
 
-/datum/admins/proc/toggle_persistence()
-	set name = "Toggle Persistence"
-	set category = "Special Verbs"
-
-	if(!check_rights(R_ADMIN))
-		return
-
-	var/message = ""
-	var/options = list()
-	if(SSpersistence.prevent_saving)
-		message = "The persistence subsystem will NOT save at the end of the round. Do you want to re-enable it?"
-		options = list("Re-enable saving", "Cancel")
-	else
-		message = "The persistence subsystem will save at the end of the round. Do you want to prevent this? This can be un-done before the round ends."
-		options = list("Prevent saving", "Cancel")
-
-	var/confirm = tgui_alert(usr, message, "Toggle Persistence Saving", options)
-	if(confirm == "Prevent saving")
-		SSpersistence.prevent_saving = TRUE
-		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_WARNING("disabled"))] by an administrator.")))
-		log_and_message_admins("has toggled persistence saving at round end, it is now disabled", usr)
-	else if (confirm == "Re-enable saving")
-		SSpersistence.prevent_saving = FALSE
-		to_world(FONT_LARGE(EXAMINE_BLOCK_RED("Persistence saving at the end of the round has been [SPAN_BOLD(SPAN_GOOD("re-enabled"))] by an administrator.")))
-		log_and_message_admins("has toggled persistence saving at round end, it is now re-enabled", usr)
-	else
-		return
-
-	feedback_add_details("admin_verb","TPS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 /**
  * Initialization of the persistence subsystem.
  * Includes generic startup checks and init of the different persistent data types.
@@ -111,6 +85,10 @@ SUBSYSTEM_DEF(persistence)
 	if(!databaseCheckConnection("subsystem init"))
 		log_subsystem_persistence_error("SQL connection unavailable. Init not possible.")
 		return SS_INIT_FAILURE
+
+	if(SSatlas.current_map.path == MAP_WITH_PERSISTENCE_SUPPORT) // Persistence is currently only supported on the main map
+		map_supports_persistence = TRUE
+		initialized_on_map = SSatlas.current_map.path
 
 	try
 		objectsInitialize()
@@ -138,6 +116,10 @@ SUBSYSTEM_DEF(persistence)
 
 	if(prevent_saving)
 		log_subsystem_persistence_warning("Persistence subsystem was toggled to not save. Skipping subsystem finalization.")
+		return
+
+	if(initialized_on_map != SSatlas.current_map.path)
+		log_subsystem_persistence_panic("Persistence subsystem was initialized on map [initialized_on_map], but the current map is [SSatlas.current_map.path]. Skipping subsystem finalization to prevent anomalous data!")
 		return
 
 	if(!databaseCheckConnection("subsystem shutdown"))

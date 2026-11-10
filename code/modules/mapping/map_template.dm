@@ -176,7 +176,6 @@
 		SSatlas.current_map.player_levels |= z_index
 
 	smooth_zlevel(world.maxz)
-	require_area_resort()
 
 	post_exoplanet_generation(bounds)
 

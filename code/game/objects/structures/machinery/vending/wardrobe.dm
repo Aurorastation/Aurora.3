@@ -2,8 +2,10 @@
  * Drobes
  */
 
-/obj/structure/machinery/vending/wardrobe
+ABSTRACT_TYPE(/obj/structure/machinery/vending/wardrobe)
 	name = "Drobe - PARENT DO NOT USE"
+	vend_id = "wardrobe"
+	persistent_stock = FALSE
 	random_itemcount = FALSE
 	restock_items = TRUE
 
@@ -506,6 +508,14 @@
 		/obj/item/clothing/suit/storage/tajaran/messa = 3,
 		/obj/item/clothing/suit/storage/tajaran/matake = 2,
 		/obj/item/clothing/suit/storage/tajaran/azubarre = 2,
+		/obj/item/clothing/suit/storage/hooded/trinary_robes = 1,
+		/obj/item/clothing/suit/storage/hooded/trinary_robes/templeist = 1,
+		/obj/item/clothing/suit/storage/hooded/trinary_robes/habit = 1,
+		/obj/item/clothing/head/trinary = 1,
+		/obj/item/clothing/accessory/poncho/trinary/shouldercape = 1,
+		/obj/item/clothing/accessory/poncho/trinary/pellegrina = 1,
+		/obj/item/clothing/accessory/poncho/trinary = 1,
+		/obj/item/clothing/accessory/badge/trinary = 1,
 		/obj/item/clothing/head/chaplain_hood = 3,
 		/obj/item/clothing/head/nun_hood = 3,
 		/obj/item/clothing/head/hijab = 3,
@@ -515,6 +525,7 @@
 		/obj/item/clothing/mask/trinary_mask = 3,
 		/obj/item/clothing/mask/gas/unathi = 3,
 		/obj/item/clothing/mask/tajara = 3,
+		/obj/item/clothing/ears/antenna/trinary_halo = 1,
 		/obj/item/clothing/accessory/apron/dharmela = 2,
 		/obj/item/clothing/shoes/sneakers/black = 3,
 		/obj/item/storage/box/fancy/candle_box = 3,

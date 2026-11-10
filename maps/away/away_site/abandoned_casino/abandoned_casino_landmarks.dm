@@ -90,6 +90,6 @@
 // Non-docking airlock landmarks
 // ----
 
-/obj/effect/map_effect/marker/airlock/abandoned_casino/solars
+/obj/effect/map_effect/marker/airlock/external/abandoned_casino/solars
 	name = "Solar Array Access"
 	master_tag = "airlock_abandoned_casino_solar"

@@ -10,6 +10,17 @@
   justify-content: center;
 }
 
+.AlertModal__MessageContainer {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.AlertModal__FormattedMessage {
+  height: 100%;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
 .AlertModal__Buttons {
   justify-content: center;
 }

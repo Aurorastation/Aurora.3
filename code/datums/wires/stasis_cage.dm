@@ -26,7 +26,7 @@
 		. += "The panel is unpowered."
 	else
 		. += "The panel is powered."
-		. += "The biometric safety sensors are [(WIRE_SAFETY in cut_wires) ? "connected" : "disconnected"]."
+		. += "The biometric safety sensors are [(WIRE_SAFETY in cut_wires) ? "disconnected" : "connected"]."
 		. += "The cage's emergency auto-release mechanism is [(WIRE_RELEASE in cut_wires) ? "disabled" : "enabled"]."
 		. += "The cage lid motors are [(WIRE_LOCK in cut_wires) ? "overriden" : "nominal"]."
 

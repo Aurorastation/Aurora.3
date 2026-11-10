@@ -47,12 +47,12 @@
 				return
 		if(emagged)
 			if(insults)
-				user.audible_message("<B>[user]</B> broadcasts, <FONT size=5>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
+				speak(pick(insultmsg), user)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			user.audible_message("<B>[user]</B> broadcasts, <FONT size=5>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
+			speak(message, user)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
 		for (var/mob/living/carbon/human/C in range(user, 2) - user)
@@ -62,6 +62,9 @@
 				C.earpain(2, TRUE, 2)
 		spamcheck = world.time + 50
 		return
+
+/obj/item/megaphone/proc/speak(var/msg, var/mob/living/user)
+	user.say(msg, user.get_default_language(), "broadcasts")
 
 /obj/item/megaphone/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

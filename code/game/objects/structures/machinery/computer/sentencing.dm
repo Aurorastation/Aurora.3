@@ -5,7 +5,7 @@
 	icon_state = "computerw"
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list( ACCESS_BRIG, ACCESS_HEADS )
+	req_one_access = list( /datum/access/holding::id, /datum/access/heads::id )
 	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 
@@ -601,13 +601,13 @@
 			if( !incident )
 				return
 			if( !incident.notes )
-				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
+				if( tgui_alert(usr, "No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?", , list("Yes", "No")) == "No" )
 					return
 			render_guilty( usr )
 		if( "render_guilty_fine" )
 			//Check for the notes
 			if( !incident.notes )
-				if( alert("No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?",,"Yes","No") == "No" )
+				if( tgui_alert(usr, "No incident notes were added. Adding a short description of the incident is highly recommended. Do you still want to continue with the print?", , list("Yes", "No")) == "No" )
 					return
 			//Get the ID Card
 			render_guilty_fine( usr )

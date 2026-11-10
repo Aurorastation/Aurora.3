@@ -874,7 +874,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /turf/simulated/floor/tiled,
 /area/hideout)
 "mj" = (
@@ -987,7 +987,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
@@ -1346,7 +1346,7 @@
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/machinery/access_button{
 	pixel_x = -26;
@@ -1497,7 +1497,7 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/structure/machinery/airlock_sensor{
 	pixel_x = -24;
 	dir = 4;
@@ -2480,7 +2480,7 @@
 /obj/effect/decal/cleanable/blood/no_dry,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/full,
@@ -2759,7 +2759,7 @@
 /area/hideout)
 "Qv" = (
 /obj/structure/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/machinery/access_button{
 	pixel_x = 33;
@@ -2785,7 +2785,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/shady,
+/obj/effect/map_effect/marker/airlock/external/shady,
 /obj/structure/machinery/light/small{
 	dir = 4
 	},

@@ -132,7 +132,7 @@
 				var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 				if(!F || !istype(F))
 					return TRUE
-				if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
+				if(F.do_not_edit && (tgui_alert(usr, "WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", list("No", "Yes")) == "No"))
 					return TRUE
 			screen = new_screen
 
@@ -282,7 +282,7 @@
 			if(!F || !istype(F))
 				return FALSE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,ACCESS_IT))
+			if(can_run(usr,FALSE,/datum/access/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
@@ -308,7 +308,7 @@
 			if(!F || !istype(F))
 				return TRUE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,ACCESS_IT))
+			if(can_run(usr,FALSE,/datum/access/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))

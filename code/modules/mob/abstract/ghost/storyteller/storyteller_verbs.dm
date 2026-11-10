@@ -37,6 +37,21 @@
 			return
 		return create_mob(usr)
 
+	else if(href_list["storyteller_jump_to"])
+		if(usr != src)
+			return
+
+		var/mob/target = locate(href_list["storyteller_jump_to"])
+		if(!istype(target))
+			return
+
+		var/turf/target_turf = get_turf(target)
+		if(target_turf)
+			abstract_move(target_turf)
+		else
+			to_chat(src, SPAN_WARNING("That player is not currently on a valid turf."))
+		return
+
 	else if(href_list["object_list"])
 		if(!GLOB.config.allow_admin_spawning)
 			to_chat(usr, "Spawning of items is not allowed.")
@@ -382,7 +397,7 @@
 	set name = "Delete"
 	set category = "Storyteller"
 
-	var/action = alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", "Yes", "No", "Hard Delete")
+	var/action = tgui_alert(src, "Are you sure you want to delete:\n[O]\nat ([O.x], [O.y], [O.z])?", "Confirmation", list("Yes", "No", "Hard Delete"))
 
 	if (action == "No" || !action)
 		return

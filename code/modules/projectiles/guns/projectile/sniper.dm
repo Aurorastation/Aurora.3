@@ -23,6 +23,7 @@
 	scoped_accuracy = 4
 	var/bolt_open = 0
 	var/has_scope = TRUE
+	has_unique_gun_action = TRUE
 
 	is_wieldable = TRUE
 

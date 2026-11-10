@@ -39,9 +39,12 @@
 	var/area/last_camera_area
 	/// Used to set when this alarm should clear, in case the origin is lost.
 	var/end_time
+	/// Whether this alarm should be exposed to the station-wide alarm network.
+	var/report_to_station = TRUE
 
-/datum/alarm/New(var/atom/origin, var/atom/source, var/duration, var/severity)
+/datum/alarm/New(var/atom/origin, var/atom/source, var/duration, var/severity, var/report_to_station = TRUE)
 	src.origin = origin
+	src.report_to_station = report_to_station
 	// Sets up both cameras and last alarm area.
 	cameras()
 	set_source_data(source, duration, severity)

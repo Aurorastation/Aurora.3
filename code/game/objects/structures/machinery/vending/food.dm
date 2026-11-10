@@ -7,6 +7,8 @@
 /obj/structure/machinery/vending/mredispenser
 	name = "MRE dispenser"
 	desc = "A vending machine filled with MRE's."
+	persistent_stock = TRUE
+	vend_id = "mre"
 	icon_state = "mrevend"
 	icon_deny = "mrevend-deny"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
@@ -57,6 +59,7 @@
 /obj/structure/machinery/vending/ramen
 	name = "\improper ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
+	persistent_stock = TRUE
 	icon_state = "ramen"
 	icon_vend = "ramen-vend"
 	icon_deny = "ramen-deny"
@@ -75,6 +78,8 @@
 /obj/structure/machinery/vending/quick_e_meals
 	name = "\improper quick-e-meals vendor"
 	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
+	persistent_stock = TRUE
+	vend_id = "quick-meals"
 	icon_state = "quick_e"
 	icon_screen = "quick_e-screen"
 	icon_vend = "quick_e-vend"
@@ -117,3 +122,59 @@
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
 		/obj/item/storage/box/unique/donkpockets = 11.00
 	)
+
+/obj/structure/machinery/vending/idris_delights
+	name = "\improper idris delights vendor"
+	desc = "A selection of delicious cold ice creams and popsicles, brought to you by the Idris corporation. The various colors form the ice creams on offer stand out from the monochromatic Idris color scheme."
+	persistent_stock = TRUE
+	vend_id = "idris_delights"
+	icon_state = "idrisdelight"
+	icon_screen = "idrisdelight-screen"
+	icon_vend = "idrisdelight-vend"
+	icon_deny = "idrisdelight-deny"
+	light_mask = "idrisdelight-lightmask"
+
+	product_slogans = "It's always summer somewhere!"
+	idle_power_usage = 255
+	temperature_setting = -1
+	light_range = 2
+	light_color = COLOR_BABY_BLUE
+	products = list(
+		/obj/item/storage/box/fancy/popsicle/choc_o_block_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/odin_pop_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/burrly_duo_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/burrly_white_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/swimstars_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_strawberry_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_lemon_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/idrice_cola_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/sunsicle_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/dreamwich_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_classic_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged = 3,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged = 3
+	)
+	premium = list(
+		/obj/item/storage/box/fancy/popsicle/chocolate_taco_packaged = 2
+	)
+	contraband = list(
+		/obj/item/storage/box/fancy/popsicle/traitor_pop_packaged = 5
+	)
+	prices = list(
+		/obj/item/storage/box/fancy/popsicle/choc_o_block_packaged = 1.80,
+		/obj/item/storage/box/fancy/popsicle/odin_pop_packaged = 2.50,
+		/obj/item/storage/box/fancy/popsicle/burrly_duo_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/burrly_white_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/swimstars_packaged = 3.50,
+		/obj/item/storage/box/fancy/popsicle/idrice_strawberry_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/idrice_lemon_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/idrice_cola_packaged = 1.00,
+		/obj/item/storage/box/fancy/popsicle/sunsicle_packaged = 2.00,
+		/obj/item/storage/box/fancy/popsicle/dreamwich_packaged = 2.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_classic_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dirtberry_packaged = 4.00,
+		/obj/item/storage/box/fancy/popsicle/torpedo_dyn_packaged = 4.00
+	)
+
+/obj/structure/machinery/vending/idris_delights/all_currencies
+	accepted_currencies = CURRENCY_ALL

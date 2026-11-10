@@ -134,7 +134,8 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		target_mob.LAssailant = WEAKREF(src)
+		if(!istype(src, /mob/living/carbon/human/monkey) && !istype(src, /mob/living/carbon/slime)) //The slime should not set the LAssailant if it bumps into the monkey while trying to eat it.
+			target_mob.LAssailant = WEAKREF(src)
 
 	now_pushing = FALSE
 	. = ..()
@@ -144,9 +145,11 @@ default behaviour is:
 		now_pushing = TRUE
 
 		if(!target_movable_atom.anchored)
+			var/obj/pushed_object
 			if(isobj(target_movable_atom))
-				var/obj/object = target_movable_atom
-				if((can_pull_size == 0) || (can_pull_size < object.w_class))
+				pushed_object = target_movable_atom
+				// Humanoids are limited by mass-based movement delay rather than item size.
+				if((can_pull_size == 0) || (!ishuman(src) && can_pull_size < pushed_object.w_class))
 					now_pushing = FALSE
 					return
 
@@ -159,7 +162,10 @@ default behaviour is:
 			if(target_movable_atom == src.pulling)
 				stop_pulling()
 
+			var/atom/old_location = target_movable_atom.loc
 			step(target_movable_atom, target_direction)
+			if(pushed_object && pushed_object.loc != old_location)
+				setMoveCooldown(get_load_movement_delay(pushed_object))
 			if(ishuman(target_movable_atom))
 				var/mob/living/carbon/human/target_human = target_movable_atom
 				if(target_human.grabbed_by)
@@ -684,6 +690,12 @@ default behaviour is:
 			process_resist()
 
 /mob/living/proc/process_resist()
+	// Safety fallback for mobs that were incorrectly moved inside a crate shelf.
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.eject_trapped_mob(src)
+		return
+
 	//Getting out of someone's inventory.
 	if(istype(src.loc, /obj/item/holder))
 		escape_inventory(src.loc)
@@ -923,6 +935,9 @@ default behaviour is:
 
 /mob/living/Destroy()
 	cameraFollow = null
+	if(camera_view_cancel_action)
+		camera_view_cancel_action.Remove(src)
+		QDEL_NULL(camera_view_cancel_action)
 	if (length(actions))
 		for (var/datum/action/action in actions)
 			action.Remove(src)
@@ -1087,3 +1102,14 @@ default behaviour is:
 		return
 
 	LoadComponent(footstep_component_type)
+
+/**
+ * Returns whether this mob's current movement can produce a footfall.
+ * Subtypes without usable feet should override this proc.
+ */
+/mob/living/proc/can_make_footfall()
+	if(buckled_to || lying || incorporeal_move || HAS_TRAIT(src, TRAIT_NO_FOOTFALL))
+		return FALSE
+
+	var/turf/current_turf = get_turf(src)
+	return !isspaceturf(current_turf) && check_solid_ground() && !CanAvoidGravity()

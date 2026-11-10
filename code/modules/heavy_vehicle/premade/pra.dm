@@ -54,6 +54,8 @@
 	name = "\improper P'kus-3 chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
+	cockpit_hatch_size = 70
+	cockpit_pilot_damage_multiplier = 0.8
 	exosuit_desc_string = "a light armored chassis"
 	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "egg_body"
@@ -97,6 +99,8 @@
 	icon_state = "strong_egg_body"
 	max_damage = 150
 	power_use = 250
+	cockpit_hatch_size = 40
+	cockpit_pilot_damage_multiplier = 0.5
 
 	cell_type = /obj/item/cell/mecha/nuclear
 

@@ -29,6 +29,8 @@
 
 	var/list/decals
 	var/list/blueprints
+	/// Cellular automata currently occupying this turf.
+	var/list/datum/automata_cell/autocells
 
 	/// If true, turf will be treated as space or a hole
 	var/is_hole
@@ -132,6 +134,9 @@
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+	else if(!baseturf)
+		// Hard-coding this for performance reasons.
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	update_starlight()
 
@@ -145,10 +150,6 @@
 
 	if(opacity)
 		directional_opacity = ALL_CARDINALS
-
-	else if(!baseturf)
-		// Hard-coding this for performance reasons.
-		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
@@ -282,7 +283,8 @@
 
 		if(is_new_area_valid)
 			new_area.Entered(AM)
-			if(istype(AM, /obj/structure/machinery))
+			// The loc is due to multi-tile doors moving otherwise because they occupy multiple places.
+			if(AM.loc == src && istype(AM, /obj/structure/machinery))
 				var/obj/structure/machinery/M = AM
 				M.shuttle_move(src)
 
@@ -431,12 +433,7 @@
 
 	if(does_footprint && footprint_color && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		var/has_feet = TRUE
-		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
-			has_feet = FALSE
-		if(!H.buckled_to && !H.lying && has_feet)
+		if(H.can_make_footfall())
 			if(H.shoes) //Adding ash to shoes
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
@@ -458,7 +455,9 @@
 
 	if(tracks_footprint && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		H.species?.deploy_trail(H, src)
+		// Prone movement can still leave a body trail without producing a footfall.
+		if(H.can_make_footfall() || (H.lying && !H.buckled_to && !HAS_TRAIT(H, TRAIT_NO_FOOTFALL)))
+			H.species?.deploy_trail(H, src)
 
 	..()
 
@@ -719,8 +718,8 @@
 	if(density)
 		return OUTSIDE_NO
 
-	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
-		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+	for(var/obj/structure/S in src)
+		if(istype(S, /obj/structure/component/tent_canvas))
 			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)

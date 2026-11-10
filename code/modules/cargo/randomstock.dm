@@ -101,10 +101,9 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
 		/mob/living/simple_animal/hostile/viscerator = 1,
 		/mob/living/simple_animal/hostile/scarybat = 1,
-		// TODO: Reduce this to 1/3rd the current value once the lemurian sea arc concludes
-		/mob/living/simple_animal/hostile/psiren = 1,
-		/mob/living/simple_animal/hostile/psiren/omen = 1,
-		/mob/living/simple_animal/hostile/psiren/ranged = 1,
+		/mob/living/simple_animal/hostile/psiren = 0.2,
+		/mob/living/simple_animal/hostile/psiren/omen = 0.2,
+		/mob/living/simple_animal/hostile/psiren/ranged = 0.2,
 		/mob/living/simple_animal/hostile/rogue_drone = 0.5
 		)
 

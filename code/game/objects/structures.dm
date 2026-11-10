@@ -54,9 +54,11 @@
 /obj/structure/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
 	if(user?.a_intent == I_HURT && maxhealth)
+		var/damage = attacking_item.force
+		SEND_SIGNAL(user, COMSIG_ATTACK_STRUCTURE, src, &damage)
 		user.do_attack_animation(src)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		add_damage(damage, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		if(hitsound)
 			playsound(user, hitsound, attacking_item.get_clamped_volume())
 
@@ -120,10 +122,11 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	if(hitting_projectile.get_structure_damage() > 5)
+	var/structure_damage = hitting_projectile.get_structure_damage()
+	if(structure_damage > 5)
 		bullet_ping(hitting_projectile)
 
-	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
+	add_damage(structure_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/structure/proc/climb_on()
 
@@ -185,7 +188,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
+	if(!do_after(user, user.get_conditioning_action_delay(5 SECONDS), src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 

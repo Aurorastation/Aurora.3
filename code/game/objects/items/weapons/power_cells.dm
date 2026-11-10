@@ -37,6 +37,11 @@
 	maxcharge = 250
 	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
 
+/obj/item/cell/device/empty/Initialize()
+	. = ..()
+	charge = 0
+	update_icon()
+
 /obj/item/cell/device/high
 	name = "advanced power cell"
 	desc = "A small, advanced power cell designed to power more energy demanding handheld devices."

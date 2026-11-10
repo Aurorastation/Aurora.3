@@ -371,7 +371,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
-/area/ship/kasf_corvette/engie)
+/area/ship/kasf_corvette/exterior)
 "cq" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/francisca/frag,
@@ -598,7 +598,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/starboardthrust)
 "dK" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -637,8 +637,6 @@
 /area/ship/kasf_corvette/starboardthrust)
 "dY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/mech_recharger,
-/obj/effect/decal/cleanable/blood/oil,
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
 	pixel_x = 24;
@@ -647,9 +645,8 @@
 	name = "Mechbay Garage Shutters";
 	req_one_access = list(218)
 	},
-/mob/living/heavy_vehicle/premade/light/recon{
-	desc = "A light and nimble recon exosuit bearing the colour scheme of the Konyang Armed Forces, evidently a hand-me-down from the Solarian Armed Forces.";
-	e_color = "#767e8c"
+/obj/structure/machinery/computer/rdconsole/robotics/terminal{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
@@ -912,7 +909,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/kasf_corvette/exterior)
 "fD" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/orange{
@@ -949,7 +946,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -990,7 +987,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -1096,6 +1093,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/mech_recharger,
 /obj/structure/machinery/light,
+/mob/living/heavy_vehicle/premade/light/recon{
+	desc = "A light and nimble recon exosuit bearing the colour scheme of the Konyang Armed Forces, evidently a hand-me-down from the Solarian Armed Forces.";
+	e_color = "#767e8c"
+	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "gu" = (
@@ -1369,13 +1371,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/mainhall)
-"ih" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/ship/kasf_corvette/engie)
 "ij" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1673,12 +1668,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/atmos)
 "kg" = (
-/obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
+/area/ship/kasf_corvette/exterior)
 "kr" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -1729,7 +1724,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
 "kK" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -2667,9 +2662,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/kasf_corvette/atmos)
+/area/ship/kasf_corvette/exterior)
 "qf" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -2686,7 +2681,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -3478,7 +3473,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -3512,11 +3507,8 @@
 /area/shuttle/kasf_shuttle)
 "uE" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/space)
+/turf/space,
+/area/ship/kasf_corvette/exterior)
 "uH" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3608,7 +3600,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/kasf_corvette/atmos)
+/area/ship/kasf_corvette/exterior)
 "vg" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -3997,7 +3989,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
-/area/ship/kasf_corvette/atmos)
+/area/ship/kasf_corvette/exterior)
 "xR" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -5158,7 +5150,7 @@
 "DH" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/kasf_corvette/exterior)
 "DI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -5299,7 +5291,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, airlock"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -5336,7 +5328,7 @@
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/portwep)
 "Et" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -5391,7 +5383,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
 "EQ" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -5411,7 +5403,6 @@
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/armory)
 "EY" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 4
 	},
@@ -5425,13 +5416,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/item/reagent_containers/weldpack{
-	pixel_y = 14;
-	pixel_x = 6
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_y = 12;
-	pixel_x = -6
+/obj/structure/machinery/vending/robotics{
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
@@ -5685,7 +5671,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/airless,
-/area/ship/kasf_corvette/engie)
+/area/ship/kasf_corvette/exterior)
 "FZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -5705,7 +5691,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/kasf_corvette/exterior)
 "Gl" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5967,12 +5953,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/starboardthrust)
 "HJ" = (
-/obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor,
+/turf/space,
+/area/ship/kasf_corvette/exterior)
 "HV" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/light,
@@ -6022,7 +6008,7 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -6097,7 +6083,7 @@
 /obj/structure/machinery/airlock_sensor{
 	pixel_y = -25
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -6134,7 +6120,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -6279,10 +6265,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kasf_shuttle)
 "Jn" = (
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "Jq" = (
@@ -6427,7 +6411,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/cic)
 "Ko" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	req_access = null
 	},
 /obj/structure/machinery/light{
@@ -6613,7 +6597,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/portthrust)
 "Lm" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -7159,8 +7143,8 @@
 /area/ship/kasf_corvette/engie)
 "OL" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/kasf_corvette/exterior)
 "OM" = (
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 9
@@ -7999,8 +7983,8 @@
 /area/ship/kasf_corvette/mainhall)
 "Tb" = (
 /obj/structure/grille,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/kasf_corvette/exterior)
 "Tg" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
@@ -8582,6 +8566,14 @@
 	icon_state = "0-2"
 	},
 /obj/item/blueprints,
+/obj/item/storage/box/lights/mixed{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 14;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
 "Xu" = (
@@ -8605,7 +8597,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, airlock"
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_port";
 	name = "airlock_kasf_port";
 	frequency = 2501
@@ -8751,7 +8743,7 @@
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "airlock_kasf_starboard";
 	name = "airlock_kasf_starboard";
 	frequency = 2502
@@ -39356,8 +39348,8 @@ DN
 DN
 DN
 DN
-OL
-OL
+fB
+DH
 fB
 fB
 zJ
@@ -39846,7 +39838,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 zH
 Yy
 gP
@@ -40103,7 +40095,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 KO
 iZ
 rQ
@@ -40399,8 +40391,8 @@ zJ
 zJ
 zJ
 zJ
-ih
-ih
+fB
+fB
 cn
 FY
 Is
@@ -42163,7 +42155,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 qY
 Gq
 rP
@@ -42420,7 +42412,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 Ok
 xn
 OS
@@ -42677,7 +42669,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 qY
 Ed
 rP
@@ -44729,7 +44721,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 QQ
 by
 ze
@@ -44986,7 +44978,7 @@ Is
 Is
 Is
 Is
-OL
+uE
 kW
 jx
 Av
@@ -45524,10 +45516,10 @@ uI
 uI
 uI
 uI
-OL
-OL
-uE
-uE
+qd
+DH
+qd
+qd
 ns
 ns
 Ey

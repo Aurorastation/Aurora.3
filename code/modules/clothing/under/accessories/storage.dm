@@ -126,8 +126,11 @@
 /obj/item/clothing/accessory/storage/overalls
 	name = "overalls"
 	desc = "Heavy-duty overalls for use on the work site, with plenty of convenient pockets to boot."
+	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
 	icon_state = "mining_overalls"
+	item_state = "mining_overalls"
 	overlay_state = "mining_overalls"
+	contained_sprite = TRUE
 	slots = 5
 
 /obj/item/clothing/accessory/storage/overalls/mining
@@ -138,12 +141,14 @@
 	name = "engineer's overalls"
 	desc = "Heavy-duty overalls to keep all your extra tools and notes in place, and keep the inevitable oil off your jumpsuit."
 	icon_state = "engineering_overalls"
+	item_state = "engineering_overalls"
 	overlay_state = "engineering_overalls"
 
 /obj/item/clothing/accessory/storage/overalls/chief
 	name = "chief engineer's overalls"
 	desc = "Heavy duty overalls, bleached white to signify a \"Chief Engineer.\" Keeping them clean until the end of shift is a challenge unto itself."
 	icon_state = "ce_overalls"
+	item_state = "ce_overalls"
 	overlay_state = "ce_overalls"
 
 /obj/item/clothing/accessory/storage/pouches
@@ -183,7 +188,9 @@
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"
 	desc = "A heavily decorated harness of sinew and leather with two knife-loops."
+	icon = 'icons/obj/item/clothing/accessory/unathi_harness.dmi'
 	icon_state = "unathiharness2"
+	contained_sprite = TRUE
 	slots = 2
 
 /obj/item/clothing/accessory/storage/knifeharness/Initialize()
@@ -203,7 +210,9 @@
 /obj/item/clothing/accessory/storage/bayonet
 	name = "bayonet sheath"
 	desc = "A leather sheath designated to hold a bayonet."
+	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster_machete"
+	contained_sprite = TRUE
 	slots = 1
 
 /obj/item/clothing/accessory/storage/bayonet/Initialize()
@@ -219,8 +228,10 @@
 /obj/item/clothing/accessory/storage/bandolier
 	name = "bandolier"
 	desc = "A pocketed belt designated to hold shotgun shells."
+	icon = 'icons/obj/item/clothing/accessory/bandolier.dmi'
 	icon_state = "bandolier"
 	item_state = "bandolier"
+	contained_sprite = TRUE
 	slots = 16
 
 /obj/item/clothing/accessory/storage/bandolier/Initialize()

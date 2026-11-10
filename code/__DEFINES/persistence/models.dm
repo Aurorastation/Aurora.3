@@ -19,4 +19,6 @@
 	var/singleton/persistent_type/history/type_define = null // Definition type
 	var/attribute = null // Attribute for aggregation into type+attribute
 	var/content = null // Treat this as a string - Open for implementing caller (e.g. raw string or json)
+	var/created_at = null // Null if the generic hasn't been saved yet, otherwise timestamp when the generic was saved
+	var/expires_at = null // Null if the generic hasn't been saved yet, otherwise timestamp when the generic will expire
 	var/expires_in_days = PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS // Expiration timespan used when generic is saved

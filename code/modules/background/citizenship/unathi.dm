@@ -1,9 +1,9 @@
 /datum/citizenship/izweski
 	name = CITIZENSHIP_IZWESKI
-	description = "The Hegemony is a feudal empire ruled by the Izweski Clan. Underneath the Hegemon, who rules from the homeworld of Moghes, there are colony worlds ruled by Overlords. \
+	description = "The Karszekani Moghes is a feudal empire ruled by the Izweski Clan. Underneath the Karszekan, who rules from the homeworld of Moghes, there are colony worlds ruled by Overlords. \
 	Under Overlords land on planets are divided between Lords, with the rest of the feudal hierarchy being beneath them. The Clan system is deeply entrenched in Unathi society, \
 	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
-	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
+	apocalyptic world war that nearly plunged the species into ruin, the Karszekani Moghes has rebounded and is currently working on making the Karszekani a galactic power."
 	consular_outfit = /obj/outfit/job/representative/consular/izweski
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/izweski
 	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/izweski
@@ -76,12 +76,12 @@
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
 				rep_objectives = pick("Obtain [rand(2,3)] sheets of solid phoron below market value, buying directly from the source.",
-								"Compile and report information on Hegemony citizens who could potentially harbor anti-Izweski sentiment.",
+								"Compile and report information on Karszekani citizens who could potentially harbor anti-Izweski sentiment.",
 								"Promote the advantages of K'lax engineering to the [SSatlas.current_map.boss_name] in order to invite future investment in the Hegemony.")
 			else
 				rep_objectives = pick("Encourage [rand(1,2)] Unathi to become Zo'saa by signing up with the local Order",
 								"Gather [rand(2,3)] evidences of any marginalization of Unathi beliefs",
-								"Compile and report information on Hegemony citizens who could potentially harbor anti-Izweski sentiment.")
+								"Compile and report information on Karszekani citizens who could potentially harbor anti-Izweski sentiment.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
@@ -103,7 +103,7 @@
 	return rep_objectives
 
 /obj/outfit/job/representative/consular/izweski
-	name = "Izweski Hegemony Consular Officer"
+	name = "Karszekani Moghes Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/camera = 1)
@@ -126,12 +126,12 @@
 	return TRUE
 
 /obj/outfit/job/diplomatic_aide/izweski
-	name = "Izweski Hegemony Diplomatic Aide"
+	name = "Karszekani Moghes Diplomatic Aide"
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/accessory/poncho/unathimantle
 
 /obj/outfit/job/diplomatic_bodyguard/izweski
-	name = "Izweski Hegemony Diplomatic Bodyguard"
+	name = "Karszekani Moghes Diplomatic Bodyguard"
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(
 		/obj/item/gun/energy/pistol/hegemony = 1

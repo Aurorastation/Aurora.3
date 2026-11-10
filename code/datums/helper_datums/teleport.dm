@@ -62,8 +62,8 @@
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
 			AB.use_power_oneoff(AB.active_power_usage)
-			bad_turfs += circle_range_turfs(get_turf(AB),8)
-			good_turfs += circle_range_turfs(get_turf(AB),9)
+			bad_turfs += RANGE_TURFS(8, get_turf(AB))
+			good_turfs += RANGE_TURFS(9, get_turf(AB))
 		if(invalid_inhibitors)
 			GLOB.bluespace_inhibitors -= invalid_inhibitors
 		if(length(good_turfs) && length(bad_turfs))

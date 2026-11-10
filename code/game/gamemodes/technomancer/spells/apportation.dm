@@ -12,6 +12,7 @@
 	name = "apportation"
 	icon_state = "apportation"
 	desc = "Allows you to reach through Bluespace with your hand, and grab something, bringing it to you instantly."
+	cooldown = 50
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_TELE
 
@@ -50,26 +51,26 @@
 			to_chat(L, SPAN_DANGER("You are teleported towards \the [user]!"))
 			spark(L, 5, GLOB.cardinals)
 			spark(user, 5, GLOB.cardinals)
-			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
-			addtimer(CALLBACK(src, PROC_REF(seize_mob), L, user), 1 SECOND)
-			user.drop_item(src)
-			src.loc = null
+			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 2, user)
+			addtimer(CALLBACK(src, PROC_REF(seize_mob), L, user), 5, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 /obj/item/spell/apportation/proc/seize_mob(var/mob/living/L, var/mob/user)
 	if(!user.Adjacent(L))
 		to_chat(user, SPAN_WARNING("\The [L] is out of your reach."))
-		qdel(src)
 		return
 
 	L.Weaken(3)
+
+	var/obj/item/grab/G = new /obj/item/grab(user, user, L)
+	if(!G)
+		return
+
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
-
-	var/obj/item/grab/G = new(user, L)
-
+	user.drop_item(src)
 	user.put_in_hands(G)
-
+	playsound(loc, SFX_GRAB, 50, FALSE, -1)
 	G.state = GRAB_PASSIVE
-	G.icon_state = "grabbed1"
+	G.icon_state = "grabbed"
 	G.synch()
-	qdel(src)
 
+	qdel(src)

@@ -7,7 +7,7 @@
 #define CITIZENSHIP_ERIDANI "Eridani Federation"
 #define CITIZENSHIP_DOMINIA "Empire of Dominia"
 
-#define CITIZENSHIP_IZWESKI "Izweski Hegemony"
+#define CITIZENSHIP_IZWESKI "Karszekani Moghes"
 
 #define CITIZENSHIP_NRALAKK "Nralakk Federation"
 
@@ -63,7 +63,7 @@
 #define RELIGION_RASKARA_ALT "Raskariim (Suns)"
 
 #define RELIGION_HIVEPANTHEON "Hive Pantheon"
-#define RELIGION_PREIMMINENNCE "Preimminennce"
+#define RELIGION_PREIMMINENCE "Preimminence"
 #define RELIGION_PILOTDREAM "Pilot Dream"
 
 #define RELIGION_ETERNAL "Orthodox Eternal"
@@ -150,24 +150,24 @@
 #define ACCENT_HARRNRRI "Harr'nrri Siik'mas"
 #define ACCENT_ZARRJIRI "Zarr'jiri Siik'mas"
 
-#define ACCENT_HEARTLAND_NOBLE "Izweski Heartland Noble"
-#define ACCENT_HEARTLAND_PEASANT "Izweski Heartland Peasant"
-#define ACCENT_TRAD_NOBLE "Noble Traditional"
-#define ACCENT_TRAD_PEASANT "Peasant Traditional"
+#define ACCENT_HEARTLAND_NOBLE "Kresh Karszekani"
+#define ACCENT_HEARTLAND_PEASANT "Saketh Karszekani"
+#define ACCENT_TRAD_NOBLE "Kresh Traditional"
+#define ACCENT_TRAD_PEASANT "Saketh Traditional"
 #define ACCENT_WASTELAND "Deep Wastelander"
 #define ACCENT_AUTAKH "Aut'akh Dialect"
 #define ACCENT_QUEENDOM "Queendom Dialect"
-#define ACCENT_TZA_PEASANT "Tza Prairie Peasant"
-#define ACCENT_TZA_NOBLE "Tza Prairie Noble"
-#define ACCENT_SOUTHLANDS_PEASANT "Southlands Peasant"
-#define ACCENT_SOUTHLANDS_NOBLE "Southlands Noble"
-#define ACCENT_BROKEN_PEASANT "Broken Coalition Peasant"
-#define ACCENT_BROKEN_NOBLE "Broken Coalition Noble"
+#define ACCENT_TZA_PEASANT "Saketh Tza Prairie"
+#define ACCENT_TZA_NOBLE "Kresh Tza Prairie"
+#define ACCENT_SOUTHLANDS_PEASANT "Saketh Southlands"
+#define ACCENT_SOUTHLANDS_NOBLE "Kresh Southlands"
+#define ACCENT_BROKEN_PEASANT "Saketh Broken Coalition"
+#define ACCENT_BROKEN_NOBLE "Kresh Broken Coalition Noble"
 #define ACCENT_UNATHI_SPACER "Spacer"
 #define ACCENT_HAZANA "Hazana"
 #define ACCENT_TORN "Torn Cities"
-#define ACCENT_ZAZ_LOW "Zazalai Mountains Peasant"
-#define ACCENT_ZAZ_HIGH "Zazalai Mountains Noble"
+#define ACCENT_ZAZ_LOW "Saketh Zazalai Mountains"
+#define ACCENT_ZAZ_HIGH "Kresh Zazalai Mountains"
 #define ACCENT_OUEREA "Ouerea"
 #define ACCENT_UNATHI_MOROZI "Unathi Morozi"
 
@@ -210,6 +210,7 @@
 #define ACCENT_UNDERSONG "Undersong"
 
 #define ACCENT_TTS "Text-to-Speech"
+#define ACCENT_ELEKTRO_SIIK "Elektro'Siik"
 #define ACCENT_MERCHANT "Golden Deep Merchant"
 #define ACCENT_THESIAN "Golden Deep Thesian"
 
@@ -227,6 +228,14 @@
 
 #define RELIGIONS_BIESEL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define CITIZENSHIPS_BIESEL list(CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION)
+#define ORIGINS_BIESEL list(\
+	/singleton/origin_item/origin/biesel, /singleton/origin_item/origin/new_gibson, /singleton/origin_item/origin/reade,\
+	/singleton/origin_item/origin/valkyrie, /singleton/origin_item/origin/biesel_grown, /singleton/origin_item/origin/diona_district_11,\
+	/singleton/origin_item/origin/titan_prime, /singleton/origin_item/origin/biesel_wildborn, /singleton/origin_item/origin/ipc_tau_ceti,\
+	/singleton/origin_item/origin/skrell_biesel, /singleton/origin_item/origin/little_adhomai, /singleton/origin_item/origin/little_adhomai/zhan,\
+	/singleton/origin_item/origin/little_adhomai/msai, /singleton/origin_item/origin/zoleth, /singleton/origin_item/origin/scay,\
+	/singleton/origin_item/origin/vaur, /singleton/origin_item/origin/xakt, /singleton/origin_item/origin/athvur,\
+	/singleton/origin_item/origin/queenless_zora)
 
 #define RELIGIONS_COALITION list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY)
 #define RELIGIONS_COALITION_ALL list(RELIGION_NONE, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_BUDDHISM, RELIGION_SHINTO, RELIGION_HINDU, RELIGION_TAOISM, RELIGION_JUDAISM, RELIGION_SIKHISM, RELIGION_OTHER, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_MOROZ)

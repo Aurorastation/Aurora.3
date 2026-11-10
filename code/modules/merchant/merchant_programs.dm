@@ -137,9 +137,9 @@
 	if(pad)
 		var/list/targets = pad.get_targets()
 		for(var/target in targets)
-			if(istype(target, /obj/item/spacecash))
-				var/obj/item/spacecash/cash = target
-				bank += cash.worth
+			if(istype(target, /obj/item/currency))
+				var/obj/item/currency/cash = target
+				bank += cash.get_credit_value()
 				qdel(target)
 		last_comms = "ALL MONEY DETECTED ON PAD transferred"
 		return
@@ -249,13 +249,13 @@
 				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
-	required_access_run = list(ACCESS_NKA)
-	required_access_download = list(ACCESS_NKA)
+	required_access_run = list(/datum/access/nka::id)
+	required_access_download = list(/datum/access/nka::id)
 
 /datum/computer_file/program/merchant/guild
-	required_access_run = list(ACCESS_MERCHANTS_GUILD)
-	required_access_download = list(ACCESS_MERCHANTS_GUILD)
+	required_access_run = list(/datum/access/merchants_guild::id)
+	required_access_download = list(/datum/access/merchants_guild::id)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
-	required_access_download = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
+	required_access_run = list(/datum/access/golden_deep::id, /datum/access/golden_deep_owned::id)
+	required_access_download = list(/datum/access/golden_deep::id, /datum/access/golden_deep_owned::id)

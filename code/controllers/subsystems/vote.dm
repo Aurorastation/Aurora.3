@@ -120,21 +120,20 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/submit_single_vote(mob/voter, their_vote)
 	if(!current_vote)
 		return
-	if(!voter?.ckey)
-		return
-	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+	var/vote_power = current_vote.get_voting_power(voter)
+	if(vote_power <= 0)
 		return
 
 	// If user has already voted, remove their specific vote
 	if(voter.ckey in current_vote.choices_by_ckey)
-		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
-		current_vote.choices[their_old_vote]--
+		var/list/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
+		current_vote.choices[their_old_vote["choice"]] -= their_old_vote["power"]
 
 	else
 		voted += voter.ckey
 
-	current_vote.choices_by_ckey[voter.ckey] = their_vote
-	current_vote.choices[their_vote]++
+	current_vote.choices_by_ckey[voter.ckey] = list("choice" = their_vote, "power" = vote_power)
+	current_vote.choices[their_vote] += vote_power
 
 	return TRUE
 
@@ -270,7 +269,7 @@ SUBSYSTEM_DEF(vote)
 		"isLowerAdmin" = is_lower_admin,
 		"isUpperAdmin" = is_upper_admin,
 		// What the current user has selected in any ongoing votes.
-		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey],
+		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey]?["choice"],
 		"multiSelection" = current_vote?.choices_by_ckey,
 	)
 
@@ -306,7 +305,9 @@ SUBSYSTEM_DEF(vote)
 				"vote" = vote_data,
 			)
 
-		all_vote_data += list(vote_data)
+		// Hide pinned crew transfer vote from the general list.
+		if(!istype(vote, /datum/vote/crewtransfer/pinned_round_precursor))
+			all_vote_data += list(vote_data)
 
 	data["possibleVotes"] = all_vote_data
 
@@ -358,10 +359,13 @@ SUBSYSTEM_DEF(vote)
 ###########################*/
 
 /datum/controller/subsystem/vote/proc/autogamemode()
-	initiate_vote(/datum/vote/gamemode, "Server", null, TRUE)
+	return initiate_vote(/datum/vote/gamemode, "Server", null, TRUE)
 
 /datum/controller/subsystem/vote/proc/autotransfer()
-	initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
+	return initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
+
+/datum/controller/subsystem/vote/proc/autotransfer_pinned_round_precursor()
+	return initiate_vote(/datum/vote/crewtransfer/pinned_round_precursor, "Server", null, TRUE)
 
 /*##############################
 	Aurora snowflake area end

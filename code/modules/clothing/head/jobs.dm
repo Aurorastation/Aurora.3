@@ -38,12 +38,6 @@
 		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
 		)
 
-//HOP
-/obj/item/clothing/head/caphat/hop
-	name = "crew resource's hat"
-	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
-	icon_state = "hopcap"
-
 /obj/item/clothing/head/caphat/xo
 	name = "executive officer cap"
 	desc = "A stylish cap issued to SCC executive officers."
@@ -73,6 +67,8 @@
 	desc = "It's hood that covers the head. It keeps you warm during the space winters."
 	icon_state = "chaplain_hood"
 	flags_inv = BLOCKHAIR
+	cold_protection = HEAD
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 //Chaplain
 /obj/item/clothing/head/nun_hood

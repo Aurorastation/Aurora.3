@@ -24,6 +24,8 @@
 	var/initial_inline_html
 	var/initial_inline_js
 	var/initial_inline_css
+	/// This skin-defined window is already loading off-screen and must not be browsed a second time when acquired.
+	var/preloaded_hidden = FALSE
 
 	var/list/oversized_payloads = list()
 
@@ -82,6 +84,7 @@
 	html = replacetextEx(html, "\[tgui:storagecdn]", GLOB.config.storage_cdn_iframe)
 	// Inject assets
 	var/inline_assets_str = ""
+	var/open_before_assets = locked_by?.interface == "CharacterSetup"
 	for(var/datum/asset/asset in assets)
 		var/mappings = asset.get_url_mappings()
 		for(var/name in mappings)
@@ -91,7 +94,8 @@
 				inline_assets_str += "Byond.loadCss('[url]', true);\n"
 			else if(copytext(name, -3) == ".js")
 				inline_assets_str += "Byond.loadJs('[url]', true);\n"
-		asset.send(client)
+		if(!open_before_assets)
+			asset.send(client)
 	if(length(inline_assets_str))
 		inline_assets_str = "<script>\n" + inline_assets_str + "</script>\n"
 	html = replacetextEx(html, "<!-- tgui:assets -->\n", inline_assets_str)
@@ -108,6 +112,9 @@
 		html = replacetextEx(html, "<!-- tgui:inline-css -->", inline_css)
 	// Open the window
 	client << browse(html, "window=[id];[options]")
+	if(open_before_assets)
+		for(var/datum/asset/deferred_asset in assets)
+			deferred_asset.send(client)
 	// Detect whether the control is a browser
 	is_browser = winexists(client, id) == "BROWSER"
 	// Instruct the client to signal UI when the window is closed.
@@ -129,6 +136,26 @@
 	// Resend assets
 	for(var/datum/asset/asset in sent_assets)
 		send_asset(asset)
+
+/// Loads Character Setup into its hidden, skin-defined browser before it is requested.
+/client/proc/preload_character_setup_tgui()
+	var/window_id = TGUI_WINDOW_ID(TGUI_CHARACTER_SETUP_WINDOW_INDEX)
+	var/datum/tgui_window/window = tgui_windows[window_id]
+	if(!window)
+		window = new(src, window_id, pooled = TRUE)
+	if(window.status != TGUI_WINDOW_CLOSED || window.locked)
+		return
+	// Unlike browse(display=0), this is a real browser which executes TGUI while
+	// hidden. The browser and preview maps already exist in skin.dmf, avoiding
+	// BYOND 516's grey/flicker bug when map controls are added to a live popup.
+	winset(src, window_id, "is-visible=false")
+	window.preloaded_hidden = TRUE
+	window.initialize(
+		strict_mode = TRUE,
+		assets = list(get_asset_datum(/datum/asset/simple/tgui)),
+		inline_html = file("tgui/public/character-setup-loading.html")
+	)
+	winset(src, window_id, "is-visible=false")
 
 /**
  * public
@@ -334,6 +361,10 @@
 	// being suspended.
 	if(type == "log" && href_list["fatal"])
 		fatally_errored = TRUE
+	// browse() may ask Dream Seeker to show an existing skin window. Keep a
+	// background Character Setup preload hidden until its TGUI datum acquires it.
+	if(type == "ready" && preloaded_hidden && !locked)
+		winset(client, id, "is-visible=false")
 	// Mark window as ready since we received this message from somewhere
 	if(status != TGUI_WINDOW_READY)
 		status = TGUI_WINDOW_READY

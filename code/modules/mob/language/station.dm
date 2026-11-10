@@ -259,12 +259,12 @@
 		personal_name += "[pick(name_sounds)]"
 	new_name += "[capitalize(personal_name)]"
 	switch(hive)
-		if("C'thur Hive")
-			new_name += "C'thur"
-		if("K'lax Hive")
-			new_name += "K'lax"
-		if("Zo'ra Hive")
-			new_name += "Zo'ra"
+		if("C'thur")
+			new_name += " C'thur"
+		if("K'lax")
+			new_name += " K'lax"
+		if("Zo'ra")
+			new_name += " Zo'ra"
 		else
 			var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
 			new_name += " [pickweight(hive_names)]"

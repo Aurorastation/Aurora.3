@@ -28,6 +28,7 @@
 	caliber = SHIP_CALIBER_40MM
 	burst = 8
 	cookoff_heavy = 0
+	projectile_type_override = /obj/projectile/ship_ammo/francisca
 
 /obj/item/ship_ammunition/francisca/ap
 	name = "40mm AP ammunition box"

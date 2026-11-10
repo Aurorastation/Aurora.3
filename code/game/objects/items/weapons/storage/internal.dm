@@ -52,14 +52,22 @@
 		if (!(real_master_item.loc == user) || (real_master_item.loc && real_master_item.loc.loc == user))
 			return 0
 
+		var/atom/movable/screen/inventory/inventory_slot = over_object
+		var/target_slot
+		switch(inventory_slot.slot_id)
+			if(slot_r_hand)
+				target_slot = slot_r_hand
+			if(slot_l_hand)
+				target_slot = slot_l_hand
+		if(!target_slot)
+			return 0
+		if(user.get_equipped_item(target_slot))
+			return 0
+
 		if (!( user.restrained() ) && !( user.stat ))
 			if(!user.prepare_for_slotmove(real_master_item)) //Prevents removing hardsuits when they have storage modules in them.
 				return 0
-			switch(over_object.name)
-				if("right hand")
-					user.equip_to_slot_if_possible(real_master_item, slot_r_hand)
-				if("left hand")
-					user.equip_to_slot_if_possible(real_master_item, slot_l_hand)
+			user.equip_to_slot_if_possible(real_master_item, target_slot)
 			real_master_item.add_fingerprint(user)
 			return 0
 	return 0
@@ -139,7 +147,8 @@
 		/obj/item/storage/box/fancy/cigarettes/dyn = HELMET_GARB_PASS_ICON,
 		/obj/item/storage/box/fancy/cigarettes/wulu = HELMET_GARB_PASS_ICON,
 		/obj/item/clothing/head/hachimaki = HELMET_GARB_PASS_ICON,
-		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON
+		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON,
+		/obj/item/electronic_assembly/default = HELMET_GARB_PASS_ICON
 	)
 	can_hold_strict = TRUE
 

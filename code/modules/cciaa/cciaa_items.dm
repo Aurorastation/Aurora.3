@@ -200,7 +200,7 @@
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
 		return
 
-	var/confirmation = alert("Do you want to reset the recorder without saving?", "Reset Recorder", "Yes", "No")
+	var/confirmation = tgui_alert(usr, "Do you want to reset the recorder without saving?", "Reset Recorder", list("Yes", "No"))
 	if(confirmation != "Yes")
 		return
 
@@ -360,7 +360,7 @@
 	name = "central command internal affairs jacket"
 
 /obj/item/storage/lockbox/cciaa
-	req_access = list(ACCESS_CENT_CCIA)
+	req_access = list(/datum/access/cent_ccia::id)
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8

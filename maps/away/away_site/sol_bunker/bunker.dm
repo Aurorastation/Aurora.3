@@ -20,7 +20,7 @@
 	name = "lone asteroid"
 	desc = "A lone asteroid. Strange signals are coming from this one."
 
-/obj/effect/map_effect/marker/airlock/sol_bunker
+/obj/effect/map_effect/marker/airlock/external/sol_bunker
 	name = "Entrance Airlock"
 	master_tag = "airlock_sol_bunker"
 

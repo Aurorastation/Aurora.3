@@ -35,6 +35,9 @@
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 
+	if(default_part_replacement(user, attacking_item))
+		return
+
 	if(panel_open)
 		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 			var/obj/item/multitool/M = attacking_item

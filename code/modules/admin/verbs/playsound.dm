@@ -10,7 +10,7 @@ GLOBAL_LIST_INIT_TYPED(sounds_cache, /sound, list())
 
 	GLOB.sounds_cache += S
 
-	if(alert("Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request" ,"Play", "Cancel") == "Cancel")
+	if(tgui_alert(usr, "Do you ready?\nSong: [S]\nNow you can also play this sound using \"Play Server Sound\".", "Confirmation request", list("Play", "Cancel")) == "Cancel")
 		return
 
 	log_admin("[key_name(src)] played sound [S]")

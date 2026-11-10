@@ -10,11 +10,13 @@
 /obj/projectile/ion/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
+	apply_emp_effect(target)
+
+/// Applies this projectile's single EMP effect. Subtypes should override this instead of on_hit().
+/obj/projectile/ion/proc/apply_emp_effect(atom/target)
 	empulse(target, pulse_range, pulse_range)
 
-/obj/projectile/ion/stun/on_hit(atom/target, blocked, def_zone)
-	. = ..()
-
+/obj/projectile/ion/stun/apply_emp_effect(atom/target)
 	if(isipc(target))
 		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/internal/machine/surge/s = H.internal_organs_by_name[BP_SURGE_PROTECTOR]
@@ -76,7 +78,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/gyro/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/bullet/gyro/law
@@ -87,7 +89,7 @@
 /obj/projectile/bullet/gyro/law/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
-	explosion(get_turf(target), -1, 0, 2)
+	explosion(get_turf(target), -1, 0, 2, spreading = TRUE)
 	var/obj/T = target
 	var/throwdir = get_dir(firer,target)
 	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
@@ -216,7 +218,7 @@
 	edge = TRUE
 
 /obj/projectile/bullet/trod/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/chameleon
@@ -236,7 +238,7 @@
 	penetrating = 1
 
 /obj/projectile/bullet/cannon/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), 1, 2, 3, 3)
+	explosion(get_turf(target), 1, 2, 3, 3, spreading = TRUE)
 	. = ..()
 
 //magic
@@ -257,7 +259,7 @@
 	damage_type = DAMAGE_BURN
 
 /obj/projectile/magic/fireball/on_hit(atom/target, blocked, def_zone)
-	explosion(get_turf(target), 0, 0, 4)
+	explosion(get_turf(target), 0, 0, 4, spreading = TRUE)
 	. = ..()
 
 /obj/projectile/magic/teleport //literaly bluespace crystal code, because i am lazy and it seems to work
@@ -302,7 +304,7 @@
 
 /obj/item/missile/throw_impact(atom/hit_atom)
 	if(primed)
-		explosion(get_turf(hit_atom), 0, 1, 2, 4)
+		explosion(get_turf(hit_atom), 0, 1, 2, 4, spreading = TRUE)
 		qdel(src)
 	else
 		..()

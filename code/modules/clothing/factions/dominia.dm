@@ -31,6 +31,8 @@
 	icon_state = "dom_thermal_gloves"
 	item_state = "dom_thermal_gloves"
 	contained_sprite = TRUE
+	cold_protection = HANDS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/lyodsuit
 	name = "lyodsuit boots"
@@ -39,6 +41,8 @@
 	icon_state = "dom_thermal_boots"
 	item_state = "dom_thermal_boots"
 	contained_sprite = TRUE
+	cold_protection = FEET
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/accessory/poncho/dominia_cape
 	name = "dominian cape"
@@ -271,6 +275,8 @@
 	icon_state = "greatcoat_red"
 	item_state = "greatcoat_red"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/dominia/gold
 	icon_state = "greatcoat_gold"
@@ -285,6 +291,7 @@
 	desc = "This is a coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
 	icon_state = "coat_red"
 	item_state = "coat_red"
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/dominia/coat/gold
 	icon_state = "coat_gold"
@@ -309,6 +316,7 @@
 	the Service also employs many commoners - as long as they can pass the rigorous examinations required to become a full member."
 	icon_state = "dominia_consular_coat"
 	item_state = "dominia_consular_coat"
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/dominia
 	contained_sprite = TRUE
@@ -323,6 +331,9 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
+	body_parts_covered = UPPER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber/long
 	name = "long fisanduhian bomber jacket"
@@ -330,6 +341,7 @@
 	heat, or concealing a small pistol."
 	icon_state = "dominia_bomber_long"
 	item_state = "dominia_bomber_long"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/dominia
 	contained_sprite = TRUE
@@ -387,6 +399,8 @@
 	icon = 'icons/obj/item/clothing/under/human/dominia/dominia_sweater.dmi'
 	icon_state = "dom_sweater"
 	item_state = "dom_sweater"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/under/dominia/lyodsuit
 	name = "lyodsuit"
@@ -396,6 +410,8 @@
 	icon_state = "dom_thermal"
 	item_state = "dom_thermal"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	name = "hoodied lyodsuit"

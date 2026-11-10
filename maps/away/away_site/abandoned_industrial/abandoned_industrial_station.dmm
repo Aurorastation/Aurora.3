@@ -2283,6 +2283,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/abandoned_industrial_station/exterior)
+"hr" = (
+/obj/random/tool,
+/obj/random/dirt_75,
+/obj/structure/machinery/computer/rdconsole/robotics{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/hangar)
 "ht" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
@@ -6886,7 +6894,7 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/bridge)
 "vX" = (
-/obj/structure/machinery/mecha_part_fabricator{
+/obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator{
 	dir = 4;
 	req_access = null
 	},
@@ -15992,9 +16000,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/obj/random/tech_supply{
-	pixel_x = 5
-	},
+/obj/structure/machinery/r_n_d/material_silo,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_industrial_station/hangar)
 "YN" = (
@@ -16098,6 +16104,9 @@
 	pixel_y = -16
 	},
 /obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_x = 5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_industrial_station/hangar)
 "Zb" = (
@@ -52583,7 +52592,7 @@ kI
 eA
 gX
 gM
-sw
+hr
 Sq
 Zv
 bX

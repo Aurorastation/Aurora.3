@@ -138,7 +138,13 @@
 				var/mob/ruser = src
 				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
 					ruser = user
+				var/obj/item/gun/mounted_gun
+				if(system_moved && istype(temp_system, /obj/item/gun))
+					mounted_gun = temp_system
+					mounted_gun.accuracy_user_override = user
 				temp_system.afterattack(A,ruser,adj,params)
+				if(mounted_gun)
+					mounted_gun.accuracy_user_override = null
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
 				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays
@@ -240,6 +246,8 @@
 	to_chat(user, SPAN_NOTICE("You climb into \the [src]."))
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
+	add_verb(user, /mob/proc/toggle_exosuit_camera)
+	add_verb(user, /mob/proc/change_exosuit_camera_network)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
 	RegisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP, PROC_REF(strafe_left))
 	RegisterSignal(user, COMSIG_INPUT_KEY_DROP, PROC_REF(strafe_right))
@@ -274,11 +282,91 @@
 		user.client.eye = user
 	if(user in pilots)
 		set_intent(I_HURT)
+		remove_verb(user, /mob/proc/toggle_exosuit_camera)
+		remove_verb(user, /mob/proc/change_exosuit_camera_network)
 		LAZYREMOVE(pilots, user)
 		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
 		UnregisterSignal(user, COMSIG_INPUT_KEY_QUICK_EQUIP)
 		UnregisterSignal(user, COMSIG_INPUT_KEY_DROP)
 		UNSETEMPTY(pilots)
+
+/mob/proc/change_exosuit_camera_network()
+	set name = "Change Exosuit Camera Network"
+	set category = "Exosuit Interface"
+
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(exosuit) || !(src in exosuit.pilots))
+		remove_verb(src, /mob/proc/change_exosuit_camera_network)
+		return
+
+	var/obj/structure/machinery/camera/mech_camera = exosuit.camera
+	if(!mech_camera)
+		to_chat(src, SPAN_WARNING("\The [exosuit] has no camera."))
+		return
+
+	var/datum/mind/controller_mind = old_mob ? old_mob.mind : mind
+	var/list/available_networks = list(
+		NETWORK_COMMAND,
+		NETWORK_ENGINEERING,
+		NETWORK_MEDICAL,
+		NETWORK_MINE,
+		NETWORK_RESEARCH,
+		NETWORK_SECURITY,
+		NETWORK_SUPPLY,
+		NETWORK_SERVICE,
+		NETWORK_EXPEDITION,
+		NETWORK_NEWS
+	)
+	if(player_is_antag(controller_mind))
+		available_networks += NETWORK_MECHS
+
+	var/default_network = mech_camera.network[1]
+	if(!(default_network in available_networks))
+		default_network = null
+
+	var/chosen_network = tgui_input_list(src, "Select a camera network for \the [exosuit].", "Exosuit Camera Network", available_networks, default_network)
+	if(!chosen_network || !(chosen_network in available_networks))
+		return
+	if(chosen_network == NETWORK_MECHS && !player_is_antag(controller_mind))
+		return
+	if(QDELETED(exosuit) || loc != exosuit || !(src in exosuit.pilots) || QDELETED(mech_camera) || exosuit.camera != mech_camera)
+		return
+
+	if(length(mech_camera.network) == 1 && mech_camera.network[1] == chosen_network)
+		to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera is already connected to [chosen_network]."))
+		return
+
+	var/list/old_networks = mech_camera.network.Copy()
+	for(var/old_network in old_networks)
+		if(old_network != chosen_network)
+			mech_camera.remove_network(old_network)
+	mech_camera.add_network(chosen_network)
+	to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera network is now [chosen_network]."))
+
+/mob/proc/toggle_exosuit_camera()
+	set name = "Exosuit Camera - Toggle On/Off"
+	set category = "Exosuit Interface"
+
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(exosuit) || !(src in exosuit.pilots))
+		remove_verb(src, /mob/proc/toggle_exosuit_camera)
+		return
+
+	if(!exosuit.camera)
+		to_chat(src, SPAN_WARNING("\The [exosuit] has no camera."))
+		return
+
+	exosuit.camera_enabled = !exosuit.camera_enabled
+	var/camera_functional = exosuit.head?.camera && exosuit.head.camera.is_functional()
+	exosuit.camera.set_status(exosuit.camera_enabled && camera_functional)
+
+	if(exosuit.camera_enabled)
+		if(exosuit.camera.status)
+			to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera is now active."))
+		else
+			to_chat(src, SPAN_WARNING("\The [exosuit]'s camera cannot be activated due to hardware damage."))
+	else
+		to_chat(src, SPAN_NOTICE("\The [exosuit]'s camera is now inactive."))
 
 /mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
 	SIGNAL_HANDLER
@@ -335,7 +423,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
 	if (!legs)
@@ -359,7 +453,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
 	if (!legs || !can_turn(user, delay_modifier))
@@ -387,7 +487,13 @@
 	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
 	if (!legs || !legs.motivator)
 		return
+	trample_retry = FALSE
 	. = ..()
+	if(!. && trample_retry && loc != newloc)
+		// Retry normal movement after the collision made the target passable.
+		trample_retry = FALSE
+		. = ..()
+	trample_retry = FALSE
 	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
 	if(. && !istype(loc, /turf/space))
 		if(legs.mech_step_sound)
@@ -409,6 +515,29 @@
 		for (var/mob/pilot in pilots)
 			to_chat(pilot, SPAN_WARNING("Your exosuit's legs spark as you attempt to control them!"))
 		spark(src, 3, GLOB.alldirs)
+
+/mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
+	if(!trample_on_move || !isliving(target_movable_atom))
+		return ..()
+
+	var/mob/living/target_mob = target_movable_atom
+	if(target_mob.mob_size > max_trample_size)
+		return ..()
+
+	var/was_lying = target_mob.lying
+	target_mob.apply_effect(2, WEAKEN)
+	if(target_mob.lying)
+		if(!was_lying)
+			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
+			trample_retry = TRUE
+		// Leave them here; entering their tile applies the existing trample damage.
+		return
+	return ..()
+
+/mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
+	if(swapping)
+		return FALSE
+	return ..()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
 	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
@@ -566,10 +695,14 @@
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/robotanalyzer))
-				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
-				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
-					if(limb)
-						limb.return_diagnostics(user)
+				var/obj/item/robotanalyzer/analyzer_item = attacking_item
+				if(istype(analyzer_item, /obj/item/robotanalyzer/augment/tesla))
+					var/obj/item/robotanalyzer/augment/tesla/tesla_analyzer = analyzer_item
+					if(!tesla_analyzer.has_tesla_power(user))
+						return
+				var/datum/component/robotics_analyzer/analyzer = analyzer_item.GetComponent(analyzer_item.analyzer_component_type)
+				if(analyzer)
+					analyzer.attack_mech(src, user)
 				return
 
 	return ..()
@@ -655,6 +788,9 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!new_name || new_name == name || (user != src && !(user in pilots)))
 		return
 	name = new_name
+	if(camera)
+		camera.c_tag = name
+		invalidateCameraCache()
 	to_chat(user, SPAN_NOTICE("You have redesignated this exosuit as \the [name]."))
 
 /mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
@@ -663,6 +799,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!isliving(H))
 		return
 	if(src == H)
+		return
+	if(H.mob_size > max_trample_size)
 		return
 
 	if(legs?.trample_damage)

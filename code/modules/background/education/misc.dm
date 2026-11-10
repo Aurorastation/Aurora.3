@@ -8,6 +8,8 @@
 		SPECIES_TAJARA_MSAI = 21,
 		SPECIES_TAJARA_ZHAN = 21,
 		SPECIES_UNATHI = 21,
+		SPECIES_UNATHI_URAWANI = 21,
+		SPECIES_UNATHI_ZIRALIXI = 21,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
@@ -22,6 +24,8 @@
 		SPECIES_TAJARA_MSAI = 21,
 		SPECIES_TAJARA_ZHAN = 21,
 		SPECIES_UNATHI = 21,
+		SPECIES_UNATHI_URAWANI = 21,
+		SPECIES_UNATHI_ZIRALIXI = 21,
 		SPECIES_SKRELL = 55,
 		SPECIES_SKRELL_AXIORI = 55
 	)
@@ -58,7 +62,8 @@
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
-		/singleton/skill/tenacity = SKILL_LEVEL_TRAINED
+		/singleton/skill/tenacity = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/expeditionary_trade

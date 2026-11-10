@@ -60,7 +60,7 @@
 
 /datum/design/item/modular_weapon/modular_teranium
 	req_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_MAGNET = 6)
-	materials = list(MATERIAL_STEEL = 4000, MATERIAL_GLASS = 1000, MATERIAL_URANIUM = 500)
+	materials = list(MATERIAL_STEEL = 4000, MATERIAL_GLASS = 1000, MATERIAL_GOLD = 500)
 	build_path = /obj/item/laser_components/capacitor/teranium
 
 /datum/design/item/modular_weapon/modular_phoron
@@ -70,7 +70,7 @@
 
 /datum/design/item/modular_weapon/modular_bs
 	req_tech = list(TECH_POWER = 7, TECH_ENGINEERING = 7, TECH_PHORON = 6, TECH_BLUESPACE = 5)
-	materials = list(MATERIAL_STEEL = 4000, MATERIAL_PHORON = 3000, MATERIAL_URANIUM = 500, MATERIAL_DIAMOND = 1000)
+	materials = list(MATERIAL_STEEL = 4000, MATERIAL_PHORON = 3000, MATERIAL_SILVER = 500, MATERIAL_DIAMOND = 1000)
 	build_path = /obj/item/laser_components/capacitor/bluespace
 
 /datum/design/item/modular_weapon/modular_lens
@@ -125,7 +125,7 @@
 
 /datum/design/item/modular_weapon/modular_gatling
 	req_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6, TECH_POWER = 3)
-	materials = list(MATERIAL_STEEL = 750, MATERIAL_GLASS = 3000, MATERIAL_PHORON = 2000, MATERIAL_SILVER = 2000, MATERIAL_DIAMOND = 1000)
+	materials = list(MATERIAL_STEEL = 750, MATERIAL_GLASS = 3000, MATERIAL_PHORON = 2000, MATERIAL_SILVER = 2000, MATERIAL_GOLD = 1000)
 	build_path = /obj/item/laser_components/modifier/gatling
 
 /datum/design/item/modular_weapon/modular_scope

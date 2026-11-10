@@ -101,53 +101,43 @@
 	if(length(condition_hints))
 		. += condition_hints
 
-	// Extra object descriptions examination code.
-	if(show_extended)
-		// If the item has a extended description, show it.
-		if(desc_extended)
-			. += desc_extended
-		// If the item has a description regarding game mechanics, show it.
-		if(desc_mechanics)
-			. += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
-			. += FONT_SMALL("[desc_mechanics]")
-		// If the item has a description with assembly/disassembly instructions, show it.
-		if(desc_build)
-			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
-			// Not a span because desc_build can use both NOTICE and ALERT.
-			. += FONT_SMALL("[desc_build]")
-		// If the item has a description about its upgrade components and what they do, show it.
-		// This one doesnt come prepended with a hyphen because theyre added when the desc is dynamically built.
-		if(desc_upgrade)
-			. += FONT_SMALL("<b>Upgrades</b>")
-			. += FONT_SMALL("[desc_upgrade]")
-		// If the item has an antagonist description and the user is an antagonist/ghost, show it.
-		if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
-			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
-			. += FONT_SMALL("[desc_antag]")
-	else
-		// Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		if(desc_extended || desc_mechanics || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
-			// If any of the above are true, show that the object has more information available.
-			. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available:"))
-			// If the item has a extended description, show that it is available.
-			if(desc_extended)
-				. +=  FONT_SMALL("- <b>Extended Description</b>")
-			// If the item has a description regarding game mechanics, show that it is available.
-			if(desc_mechanics)
-				. += FONT_SMALL(SPAN_NOTICE("- <b>Mechanics</b>"))
-			// If the item has a description regarding game mechanics, show that it is available.
-			if(desc_build)
-				. += FONT_SMALL(SPAN_NOTICE("- <b>Assembly/Disassembly</b>"))
-			// If the item has a description regarding game mechanics, show that it is available.
-			if(desc_upgrade)
-				. += FONT_SMALL(SPAN_NOTICE("- <b>Upgrades</b>"))
-			// If the item has an antagonist description and the user is an antagonist/ghost, show that it is available.
-			if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
-				. += FONT_SMALL(SPAN_ALERT("- <b>Antagonist Interactions</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("<a href='byond://?src=[REF(src)];examine_fluff=1'>\[Show in Chat\]</a>"))
+	// Build the additional information once so it can either be displayed directly or folded out in chat.
+	var/list/extended_examine_strings = list()
+	var/list/extended_examine_categories = list()
+	if(desc_extended)
+		extended_examine_categories += "Extended Description"
+		extended_examine_strings += desc_extended
+	if(desc_mechanics)
+		extended_examine_categories += "Mechanics"
+		extended_examine_strings += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
+		extended_examine_strings += FONT_SMALL("[desc_mechanics]")
+	if(desc_build)
+		extended_examine_categories += "Assembly/Disassembly"
+		extended_examine_strings += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
+		// Not a span because desc_build can use both NOTICE and ALERT.
+		extended_examine_strings += FONT_SMALL("[desc_build]")
+	if(desc_upgrade)
+		extended_examine_categories += "Upgrades"
+		extended_examine_strings += FONT_SMALL("<b>Upgrades</b>")
+		extended_examine_strings += FONT_SMALL("[desc_upgrade]")
+	if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
+		extended_examine_categories += "Antagonism"
+		extended_examine_strings += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
+		extended_examine_strings += FONT_SMALL("[desc_antag]")
+
+	if(length(extended_examine_strings))
+		if(show_extended)
+			. += extended_examine_strings
+		else
+			var/extended_examine_text = extended_examine_strings.Join("<br>")
+			var/extended_examine_summary = FONT_SMALL(SPAN_NOTICE("\[?\] Additional examine information: [english_list(extended_examine_categories)]"))
+			. += "<details class='examine_foldout'><summary>[extended_examine_summary]</summary><div class='examine_foldout__content'>[extended_examine_text]<hr class='examine_foldout__divider'></div></details>"
 	// If the item has any feedback text, show it.
 	if(desc_feedback)
-		. += "</br>[desc_feedback]"
+		if(length(extended_examine_strings) && !show_extended)
+			. += desc_feedback
+		else
+			. += "</br>[desc_feedback]"
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -183,16 +173,10 @@
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE_TAGS, user, .)
 
-/**
- * Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
- */
 /atom/Topic(href, href_list)
 	. = ..()
 	if (.)
 		return
-
-	if(href_list["examine_fluff"])
-		examinate(usr, src, show_extended = TRUE)
 
 	var/client/usr_client = usr.client
 	var/list/paramslist = list()

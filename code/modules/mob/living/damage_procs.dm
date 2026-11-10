@@ -8,13 +8,13 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE, check_armor = null)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!damage)
 		return FALSE
 
-	var/list/after_armor = modify_damage_by_armor(def_zone, damage, damagetype, damage_flags, src, armor_pen, silent)
+	var/list/after_armor = modify_damage_by_armor(def_zone, damage, damagetype, damage_flags, src, armor_pen, silent, check_armor)
 	damage = after_armor[1]
 	damagetype = after_armor[2]
 	damage_flags = after_armor[3] // args modifications in case of parent calls

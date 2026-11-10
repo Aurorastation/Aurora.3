@@ -21,6 +21,10 @@
 			if(V)
 				V.unload(user)
 		qdel(src)
+	else if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/labeler = attacking_item
+		if(!labeler.mode)
+			return attack_hand(user)
 	else
 		return attack_hand(user)
 

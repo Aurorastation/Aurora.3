@@ -585,3 +585,50 @@
 2026-07-28:
   Hellfirejag:
   - bugfix: Fixed a bad pointer error with psiblock drugs.
+2026-07-30:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes Mechatronic Fabricator's emissive overlay.
+  - bugfix: Fixes Hivenet Manifest hive color assignments.
+  - bugfix: Fixes Crew Manifest color defines.
+  - bugfix: Inbuilt /silicon modular computers no longer broken by EMPs.
+  - bugfix: Fixes energy gun desc_extended inheritances.
+  ElorgRHG:
+  - bugfix: The screens of unpowered PDAs no longer disappear
+  FabianK3:
+  - rscadd: Added persistence to roller water/fuel/extinguisher tanks.
+  - rscdel: Added water and extinguisher tanks to cargo orders.
+  - balance: Reduce the cargo bounty for water and fuel tanks down to 1.
+  Fenodyree:
+  - bugfix: Fixes C4 effects not correctly getting their parent item.
+  - bugfix: Fixes C4 not being placed correctly.
+  - bugfix: Fixes Dirty Bombs deleting their own radiation source.
+  - bugfix: Fixes Dirty Bomb goop puddles disapearing long before the radiation does.
+  - bugfix: Fixes drinking radioactive waste not irradiating you.
+  - bugfix: Fixes solar cells producing 1.5% of their intended output. This was caused
+      by light levels now being between 0-1, not 0-100.
+  - bugfix: Fixes circuit printers not being able to print IC clothes.
+  Geeves:
+  - rscadd: The Autakh integrated stun baton can now be deployed and used like a normal
+      baton. The ten second cooldown between hits, reduced stats, and nutrition loss
+      for use remains as before.
+  Hellfirejag:
+  - rscadd: Added a new Technomancer Jumpstarter as a traitor uplink item.
+  SimpleMaroon:
+  - rscadd: 'Added two recolorable greatcoats to the loadout: One that has recolorable
+      belt/buttons and one that doesn''t.'
+  kermit:
+  - rscadd: Added a glass repair adhesive to EngiVends for repairing window cracks
+      without having to completely decon/recon a window.
+  - rscadd: Replaces some of the IRL chocolate bars with lore chocolate bars (GetMore
+      chocolate, Readies, an Idris Bar).
+  - rscadd: Adds the chocolate bars (old and new) to commissary restock vendors.
+  mineymonkey:
+  - bugfix: Steel is needed to make the cloning disk properly now.
+2026-07-31:
+  fyni:
+  - rscadd: Updates all references to the Hegemony to the Karszekani Moghes for accents,
+      origins, citizenships and consulars.
+  - rscadd: Add the Kreshwan title to Karszekani consulars.
+  hazelmouse:
+  - rscadd: Implemented a remap of the Machinist Workshop.
+  - rscadd: North-facing platforms now layer correctly over humans.

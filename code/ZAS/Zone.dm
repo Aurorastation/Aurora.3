@@ -8,6 +8,7 @@ Class Vars:
 	name - A name of the format "Zone [#]", used for debugging.
 	invalid - True if the zone has been erased and is no longer eligible for processing.
 	needs_update - True if the zone has been added to the update list.
+	update_revision - Incremented when needs_update flips on, and retained after needs_update is cleared.
 	edges - A list of edges that connect to this zone.
 	air - The gas mixture that any turfs in this zone will return. Values are per-tile with a group multiplier.
 
@@ -47,6 +48,8 @@ Class Procs:
 	var/list/fire_tiles
 
 	var/needs_update = 0
+	/// Counter incremented when zone is dirtied for processing.
+	var/update_revision = 0
 
 	var/list/connection_edge/edges
 
@@ -172,6 +175,7 @@ Class Procs:
 	to_chat(M, "P: [XGM_PRESSURE(air)] kPa V: [air.volume]L T: [air.temperature]�K ([air.temperature - T0C]�C)")
 	to_chat(M, "O2 per N2: [(air.gas[GAS_NITROGEN] ? air.gas[GAS_OXYGEN]/air.gas[GAS_NITROGEN] : "N/A")] Moles: [air.total_moles]")
 	to_chat(M, "Simulated: [contents.len] ([air.group_multiplier])")
+	to_chat(M, "Update Revision: [update_revision]")
 	//to_chat(M, "Unsimulated: [unsimulated_contents.len]")
 	//to_chat(M, "Edges: [LAZYLEN(edges)]")
 	if(invalid) to_chat(M, "Invalid!")

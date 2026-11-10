@@ -5,8 +5,9 @@ ABSTRACT_TYPE(/obj/item/package)
 	update_icon_on_init = TRUE
 	has_accents = TRUE
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 50
 	force = 15
-	slowdown = 0.5
+	slowdown = 0
 
 /obj/item/package/proc/wield(var/mob/living/carbon/human/user)
 	var/obj/A = user.get_inactive_hand()
@@ -22,10 +23,12 @@ ABSTRACT_TYPE(/obj/item/package)
 /obj/item/package/dropped(mob/user)
 	..()
 	item_state = initial(item_state)
+	slowdown = initial(slowdown)
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
+		user.update_equipment_speed_mods()
 
 /obj/item/package/can_swap_hands(var/mob/user)
 	var/obj/item/offhand/O = user.get_inactive_hand()
@@ -36,27 +39,32 @@ ABSTRACT_TYPE(/obj/item/package)
 /obj/item/package/too_heavy_to_throw()
 	return TRUE
 
+/// Large packages need both hands unless the carrier can comfortably lift twice their mass.
+/obj/item/package/proc/requires_two_hands(mob/user)
+	return get_effective_mass() * 2 > user.get_lift_capacity()
+
+/// Applies handling based on the package's mass relative to the carrier's lift capacity.
+/obj/item/package/proc/configure_carry(mob/living/carbon/human/user)
+	slowdown = clamp(get_effective_mass() / user.get_lift_capacity(), 0, 2)
+	if(requires_two_hands(user))
+		wield(user)
+	user.update_equipment_speed_mods()
+
 /obj/item/package/do_additional_pickup_checks(var/mob/living/carbon/human/user)
 	if(!ishuman(user))
 		return FALSE
 
-	if(user.species.mob_size < 12)
+	if(requires_two_hands(user))
 		var/obj/A = user.get_inactive_hand()
 		if(A)
 			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
 			return
 
 	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."))
-	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
+	var/pickup_time = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
+	if(do_after(user, pickup_time, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> heaves \the [src] up!", SPAN_NOTICE("You heave \the [src] up!"))
-		// larger mobs, such as industrials, can hold two pieces of cargo
-		if(user.species.mob_size < 12)
-			wield(user)
-			slowdown = 1
-		else
-			slowdown = 0
-
-		user.update_equipment_speed_mods()
+		configure_carry(user)
 
 		return TRUE
 	return FALSE

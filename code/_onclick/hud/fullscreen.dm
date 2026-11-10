@@ -9,7 +9,11 @@
 			clear_fullscreen(category, FALSE)
 			screen = null
 		else if(!severity || severity == screen.severity)
-			return null
+			// The HUD may have been rebuilt since this overlay was created. Ensure
+			// cached fullscreen overlays are restored instead of only returning.
+			if(client && (stat != DEAD || screen.allstate))
+				client.screen |= screen
+			return screen
 
 	if(!screen)
 		screen = new type()

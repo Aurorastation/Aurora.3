@@ -80,6 +80,10 @@
 	var/no_light_control = FALSE
 	/// If TRUE, lights in area will be darkened by the night mode controller.
 	var/allow_nightmode = FALSE
+	/// If TRUE, lights will initialize in nightmode state.
+	var/starts_with_nightmode = FALSE
+	/// If TRUE, lights will be guaranteed to initialize without being broken by chance.
+	var/lights_start_intact = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -114,6 +118,13 @@
 	/// defaults to TRUE, false disables hostile events (like drone uprising).
 	var/hostile_events = TRUE
 
+	/// Amount and probability of dirt to spawn.
+	/// `null` or `<= 0`: No dirt generated.
+	/// `1` to `99`: Percentage chance to generate 1 dirt.
+	/// `100`: Exactly 1 guaranteed dirt.
+	/// `> 100`: 1 guaranteed dirt per 100, plus the remainder as a chance for an extra (150 = 1 guaranteed + 50% chance for a 2nd).
+	var/generate_dirt = null
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
@@ -127,10 +138,8 @@
 	. = ..()
 
 /area/Initialize(mapload)
-#ifdef UNIT_TEST
-	if (!islist(ambience))
-		log_error("Area: [src.type] set list/ambience with [ambience] instead of a list. This var MUST be a list().")
-#endif
+	if(ambience && !islist(ambience))
+		ambience = list(ambience)
 
 	icon_state = "white"
 	color = null

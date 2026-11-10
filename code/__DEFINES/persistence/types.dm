@@ -17,6 +17,7 @@
 // ##### Persistent generics
 
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
+CREATE_PERSISTENT_TYPE_GENERIC(horizon_vending_stock, "SCCV Horizon vending stock", "Remaining normal stock in vending machines mapped onto the SCCV Horizon.", FALSE)
 
 // ##### Persistent history
 
@@ -25,3 +26,4 @@ CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector po
 // ##### Persistent history with character validation
 
 CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(mining_points, "Mining yield history", "History of mining points yield of individual miners.", /singleton/persistent_type_history_expiration_rule/age/week)
+CREATE_PERSISTENT_TYPE_HISTORY_CHARACTER(mining_point_balance, "Mining point balance", "History of unspent mining point balances of individual miners.", /singleton/persistent_type_history_expiration_rule/row_count/one)

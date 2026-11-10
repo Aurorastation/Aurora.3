@@ -151,7 +151,7 @@
 		src.visible_message("\The [src] buzzes. That ID has already been scanned.")
 		return 0
 
-	if (!(ACCESS_HEADS in access))
+	if (!(/datum/access/heads::id in access))
 		src.visible_message("\The [src] buzzes, rejecting [ident].")
 		return 0
 

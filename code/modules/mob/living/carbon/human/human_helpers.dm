@@ -48,6 +48,7 @@
 	..()
 
 /mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
+	lighting_alpha = default_lighting_alpha
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0
@@ -204,6 +205,14 @@
 		return null
 
 	return eyes
+
+/// Returns TRUE when this mob's vision organ has been voluntarily closed.
+/mob/living/carbon/human/proc/eyes_are_closed()
+	var/obj/item/organ/internal/eyes/eyes = get_eyes()
+	return eyes?.eyes_closed
+
+/mob/living/carbon/human/is_blind()
+	return ..() || eyes_are_closed()
 
 /mob/living/carbon/human/proc/awaken_psi_basic(var/source)
 	var/static/list/psi_operancy_messages = list(

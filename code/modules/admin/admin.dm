@@ -216,6 +216,23 @@ var/global/enabled_spooking = 0
 				body += "<a href='byond://?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#006600'>[k]</a>"
 			else
 				body += "<a href='byond://?src=[REF(src)];toglang=[REF(M)];lang=[html_encode(k)]' style='color:#ff0000'>[k]</a>"
+	// skills
+	body += "<br><br><b>Skills:</b><br>"
+	for(var/singleton/skill_category/category as anything in SSskills.skill_tree)
+		body += "<b>[category.name]</b><br>"
+		for(var/subcategory in SSskills.skill_tree[category])
+			for(var/singleton/skill/skill as anything in SSskills.skill_tree[category][subcategory])
+				body += "[skill.name]: "
+				var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
+				var/first_level = TRUE
+				for(var/skill_level in skill.skill_level_descriptions)
+					if(!first_level)
+						body += " | "
+					first_level = FALSE
+					var/skill_level_name = skill.skill_level_map[skill_level]
+					var/skill_link = "<a href='byond://?src=[REF(src)];setskill=[REF(M)];skill=[html_encode("[skill.type]")];skill_level=[skill_level]'>[skill_level_name]</a>"
+					body += skill_component?.skill_level == skill_level ? "<b>[skill_link]</b>" : skill_link
+				body += "<br>"
 
 	body += {"<br>
 		</body></html>
@@ -679,7 +696,7 @@ var/global/enabled_spooking = 0
 	set desc="Restarts the world"
 	if (!usr.client.holder)
 		return
-	var/confirm = alert("Restart the game world?", "Restart", "Yes", "Cancel")
+	var/confirm = tgui_alert(usr, "Restart the game world?", "Restart", list("Yes", "Cancel"))
 	if(confirm == "Cancel")
 		return
 	if(confirm == "Yes")
@@ -886,7 +903,7 @@ var/global/enabled_spooking = 0
 		SSticker.delay_end = !SSticker.delay_end
 		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
 		message_admins(SPAN_NOTICE("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"]."), 1)
-		return //alert("Round end delayed", null, null, null, null, null)
+		return
 	GLOB.round_progressing = !GLOB.round_progressing
 	if (!GLOB.round_progressing)
 		to_world("<b>The game start has been delayed.</b>")
@@ -925,7 +942,7 @@ var/global/enabled_spooking = 0
 	set desc="Reboots the server post haste"
 	set name="Immediate Reboot"
 	if(!usr.client.holder)	return
-	if( alert("Reboot server?",,"Yes","No") == "No")
+	if( tgui_alert(usr, "Reboot server?", , list("Yes", "No")) == "No")
 		return
 	to_world(SPAN_DANGER("Rebooting world!</span> <span class='notice'>Initiated by [usr.client.holder.fakekey ? "Admin" : usr.key]!"))
 	log_admin("[key_name(usr)] initiated an immediate reboot.")
@@ -944,9 +961,9 @@ var/global/enabled_spooking = 0
 			message_admins("[key_name_admin(usr)] has unprisoned [key_name_admin(M)]", 1)
 			log_admin("[key_name(usr)] has unprisoned [key_name(M)]")
 		else
-			alert("Admin jumping disabled")
+			tgui_alert(usr, "Admin jumping disabled")
 	else
-		alert("[M.name] is not prisoned.")
+		tgui_alert(usr, "[M.name] is not prisoned.")
 	feedback_add_details("admin_verb","UP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
@@ -982,7 +999,7 @@ var/global/enabled_spooking = 0
 	if(!seedtype || !SSplants.seeds[seedtype])
 		return
 	var/datum/seed/S = SSplants.seeds[seedtype]
-	S.harvest(usr,0,0,1)
+	S.spawn_seed(get_turf(usr))
 	log_admin("[key_name(usr)] spawned [seedtype] fruit at ([usr.x],[usr.y],[usr.z])")
 
 /datum/admins/proc/spawn_custom_item()
@@ -1085,7 +1102,7 @@ var/global/enabled_spooking = 0
 	set name = "Show Game Mode"
 
 	if(!ROUND_IS_STARTED)
-		alert("Not before roundstart!", "Alert")
+		tgui_alert(usr, "Not before roundstart!", "Alert")
 		return
 
 	var/out = "<font size=5><b>Current mode: [SSticker.mode.name] (<a href='byond://?src=[REF(SSticker.mode)];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b></font><br/>"
@@ -1265,7 +1282,7 @@ var/global/enabled_spooking = 0
 	if (tomob.ckey)
 		question = "This mob already has a user ([tomob.key]) in control of it! "
 	question += "Are you sure you want to place [frommob.name]([frommob.key]) in control of [tomob.name]?"
-	var/ask = alert(question, "Place ghost in control of mob?", "Yes", "No")
+	var/ask = tgui_alert(usr, question, "Place ghost in control of mob?", list("Yes", "No"))
 	if (ask != "Yes")
 		return 1
 	if (!frommob || !tomob) //make sure the mobs don't go away while we waited for a response
@@ -1363,7 +1380,7 @@ var/global/enabled_spooking = 0
 			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
 			target.paralysis = 8000
 		else
-			if (alert(user, "The player is currently winded. Do you want to unwind the player?", "Unwind player?", "Yes", "No") == "No")
+			if (tgui_alert(user, "The player is currently winded. Do you want to unwind the player?", "Unwind player?", list("Yes", "No")) == "No")
 				return
 			target.paralysis = 0
 			msg = "has unparalyzed [key_name_admin(target)]."

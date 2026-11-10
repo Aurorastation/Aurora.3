@@ -6,8 +6,8 @@
 	PRIVATE_PROC(TRUE)
 	object_track_register = list()
 
-	if(SSatlas.current_map.path != "sccv_horizon") // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
-		log_subsystem_persistence_info("Persistent objects: Current map did not match SCCV Horizon, skipping persistent object initialization.")
+	if(!map_supports_persistence)
+		log_subsystem_persistence_info("Persistent objects: Current map does not support persistence, skipping persistent object finalization.")
 		return
 
 	// Delete all persistent objects in the database that have expired and have passed the cleanup grace period (PERSISTENT_EXPIRATION_CLEANUP_DELAY_DAYS)
@@ -30,6 +30,8 @@
 		// the object to continue with init logic after the subsystem is done in LateInitialize.
 		var/obj/instance = new typepath()
 		instance.persistent_objects_track_id = data["id"]
+		instance.persistent_objects_created_at = data["created_at"]
+		instance.persistent_objects_expires_at = data["expires_at"]
 		objectsApplyTrackContent(instance, data["content"], data["x"], data["y"], data["z"])
 		objectsRegisterTrack(instance, data["author_ckey"])
 
@@ -40,10 +42,8 @@
 /datum/controller/subsystem/persistence/proc/objectsFinalize()
 	PRIVATE_PROC(TRUE)
 
-	if(SSatlas.current_map.path != "sccv_horizon") // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
-		log_subsystem_persistence_info("Persistent objects: Current map did not match SCCV Horizon, skipping persistent object finalization.")
-		if(length(object_track_register) > 0)
-			log_subsystem_persistence_warning("Persistent objects: There are [length(object_track_register)] tracked objects at finalization, while the map is not supported! These track will not be saved! Verify that SSatlas.current_map.path has not changed during the round!")
+	if(!map_supports_persistence)
+		log_subsystem_persistence_info("Persistent objects: Current map does not support persistence, skipping persistent object finalization.")
 		return
 
 	// Subsystem shutdown:

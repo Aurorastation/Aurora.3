@@ -23,7 +23,7 @@
 
 /obj/item/implantpad/attack_hand(mob/user)
 	if(case && (user.l_hand == src || user.r_hand == src))
-		user.put_in_active_hand(case)
+		user.put_in_hands(case)
 
 		case.add_fingerprint(user)
 		case = null

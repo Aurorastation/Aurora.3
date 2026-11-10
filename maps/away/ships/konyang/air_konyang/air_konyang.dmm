@@ -387,7 +387,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/air_konyang/rear_hall)
 "kG" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -589,7 +589,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1011,7 +1011,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1117,7 +1117,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/air_konyang/mainroom)
 "BW" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1242,7 +1242,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/air_konyang/bridge)
 "FF" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1373,7 +1373,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1517,7 +1517,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1639,7 +1639,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/air_konyang/atmos)
 "PH" = (
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},
@@ -1915,7 +1915,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	master_tag = "air_konyang_1";
 	name = "air_konyang_1"
 	},

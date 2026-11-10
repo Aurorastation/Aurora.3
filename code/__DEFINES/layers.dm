@@ -50,7 +50,7 @@
 #define GAME_PLANE -6
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
-	#define HOLOMAP_LAYER 1.01
+	#define ABOVE_PLATING_LAYER 1.01
 	#define DECAL_PLATING_LAYER 1.02
 	#define DISPOSALS_PIPE_LAYER 1.03
 	#define LATTICE_LAYER 1.04
@@ -122,6 +122,7 @@
 	#define MECH_DECAL_LAYER 4.14
 	// ABOVE_HUMAN
 	#define ABOVE_HUMAN_LAYER 4.15
+	#define PADDING_MATERIAL_LAYER 4.1501
 	#define ABOVE_ABOVE_HUMAN_LAYER 4.151
 	#define VEHICLE_LOAD_LAYER 4.16
 	#define CAMERA_LAYER 4.17
@@ -153,6 +154,9 @@
 #define ABOVE_GAME_PLANE -5
 
 #define ROOF_PLANE -4
+
+/// Above temporary roofs, for tall natural features such as tree canopies.
+#define TREE_CANOPY_PLANE -3
 
 #define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
 

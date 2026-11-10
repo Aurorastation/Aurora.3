@@ -11,6 +11,8 @@
 #define TGUI_WINDOW_SOFT_LIMIT 5
 /// Maximum number of open windows
 #define TGUI_WINDOW_HARD_LIMIT 9
+/// Pooled window reserved and preloaded for the character setup UI.
+#define TGUI_CHARACTER_SETUP_WINDOW_INDEX 5
 
 /// Maximum ping timeout allowed to detect zombie windows
 #define TGUI_PING_TIMEOUT (4 SECONDS)

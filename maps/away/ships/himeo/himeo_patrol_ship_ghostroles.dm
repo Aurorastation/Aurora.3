@@ -159,4 +159,4 @@
 	)
 
 /obj/outfit/admin/himeo_patrol_ship/get_id_access()
-	return list(ACCESS_HIMEO_PATROL_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/enviro_testing_facility_access_sec::id, /datum/access/external_airlocks::id)

@@ -76,7 +76,7 @@ GLOBAL_PROTECT(config)
 	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
 	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[GLOB.round_id].log"
 
-	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
+	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.realtime, "YYYY-MM") + ".yml")
 	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
 
 	log_startup()
@@ -224,16 +224,16 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 			if (0)
 				hard_reset = TRUE
 			else
-				if (SSpersistent_configuration.rounds_since_hard_restart >= GLOB.config.rounds_until_hard_restart)
+				var/rounds_since_hard_restart = text2num(SSregistry.getValue("rounds_since_hard_restart", "0"))
+				if (rounds_since_hard_restart >= GLOB.config.rounds_until_hard_restart)
 					hard_reset = TRUE
-					SSpersistent_configuration.rounds_since_hard_restart = 0
+					SSregistry.setValue("rounds_since_hard_restart", "0")
 				else
 					hard_reset = FALSE
-					SSpersistent_configuration.rounds_since_hard_restart++
+					SSregistry.setValue("rounds_since_hard_restart", num2text(rounds_since_hard_restart + 1))
 	else if (!world.TgsAvailable() && hard_reset)
 		hard_reset = FALSE
 
-	SSpersistent_configuration.save_to_file("data/persistent_config.json")
 	Master.Shutdown()
 
 	for(var/thing in GLOB.clients)

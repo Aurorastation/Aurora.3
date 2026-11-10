@@ -20,6 +20,8 @@
 	icon_state = "gadpathur_coat"
 	item_state = "gadpathur_coat"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur
 	name = "gadpathurian trenchcoat"
@@ -31,6 +33,7 @@
 	icon_state = "gadpathurtrench"
 	item_state = "gadpathurtrench"
 	contained_sprite = TRUE
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/trench/gadpathur/leather
 	name = "gadpathurian leather coat"
@@ -48,6 +51,7 @@
 	icon_state = "gadpathurthermal"
 	item_state = "gadpathurthermal"
 	contained_sprite = TRUE
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/gadpathur
 	name = "cadre cap"
@@ -134,9 +138,11 @@
 /obj/item/clothing/accessory/gadpathurian_leader
 	name = "section leader badge"
 	desc = "A Section Leader's badge is typically worn below one's overwear, in order to ensure that the hated Solarians will be unable to easily identify a leader in a crowd."
+	icon = 'icons/obj/item/clothing/accessory/gadpathur_leader_badge.dmi'
 	icon_state = "gadpathurleaderbadge"
 	item_state = "gadpathurleaderbadge"
 	overlay_state = "gadpathurleaderbadge"
+	contained_sprite = TRUE
 
 	flippable = TRUE
 

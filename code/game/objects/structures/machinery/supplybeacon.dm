@@ -77,6 +77,7 @@
 	if(POWER_SURPLUS(src) < 500)
 		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
 		return
+	update_use_power(POWER_USE_ACTIVE)
 	set_light(3, 3, "#00CCAA")
 	icon_state = "beacon_active"
 	if(user) to_chat(user, SPAN_NOTICE("You activate the beacon. The supply drop will be dispatched soon."))

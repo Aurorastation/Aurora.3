@@ -22,6 +22,12 @@
 
 	stat = POWEROFF	//Starts turned off
 
+	component_types = list(
+		/obj/item/circuitboard/stove,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/matter_bin = 2)
+
 	starts_with = list(
 		/obj/item/reagent_containers/cooking_container/skillet,
 		/obj/item/reagent_containers/cooking_container/pot,

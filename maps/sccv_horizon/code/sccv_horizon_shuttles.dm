@@ -106,13 +106,18 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/horizon/shuttle/intrepid/main_compartment, /area/horizon/shuttle/intrepid/port_compartment, /area/horizon/shuttle/intrepid/starboard_compartment, /area/horizon/shuttle/intrepid/junction_compartment, /area/horizon/shuttle/intrepid/buffet, /area/horizon/shuttle/intrepid/medical, /area/horizon/shuttle/intrepid/engineering, /area/horizon/shuttle/intrepid/port_storage, /area/horizon/shuttle/intrepid/flight_deck)
+	shuttle_area = list(
+		/area/horizon/shuttle/intrepid/main_compartment,
+		/area/horizon/shuttle/intrepid/port_nacelle,
+		/area/horizon/shuttle/intrepid/starboard_nacelle,
+		/area/horizon/shuttle/intrepid/airlock,
+		/area/horizon/shuttle/intrepid/medical,
+		/area/horizon/shuttle/intrepid/flight_deck)
 	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
 	range = 2
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_intrepid"
 
 /obj/effect/shuttle_landmark/intrepid/hangar
 	name = "First Deck Intrepid Hangar Bay"
@@ -136,7 +141,6 @@
 	landmark_transition = "nav_transit_canary"
 	range = 2
 	fuel_consumption = 4
-	logging_home_tag = "nav_hangar_canary"
 
 /obj/effect/shuttle_landmark/canary/hangar
 	name = "First Deck Canary Hangar Bay"
@@ -160,7 +164,6 @@
 	landmark_transition = "nav_transit_quark"
 	range = 1
 	fuel_consumption = 3
-	logging_home_tag = "nav_hangar_quark"
 
 /obj/effect/shuttle_landmark/quark/hangar
 	name = "First Deck Quark Hangar Bay"
@@ -184,7 +187,6 @@
 	landmark_transition = "nav_transit_mining"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_mining"
 
 /obj/effect/shuttle_landmark/mining/hangar
 	name = "First Deck Spark Hangar Bay"

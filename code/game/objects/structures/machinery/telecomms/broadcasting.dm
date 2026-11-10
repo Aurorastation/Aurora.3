@@ -23,7 +23,7 @@
 			)
 
 	if(SSatlas.current_map.use_overmap && istype(source))
-		sector = GLOB.map_sectors["[source.z]"]
+		sector = get_map_sector(source.z)
 
 /datum/signal/subspace/proc/copy()
 	var/datum/signal/subspace/copy = new
@@ -112,11 +112,11 @@
 		origin_level = T.z
 		levels = list(T.z)
 		if(SSatlas.current_map.use_overmap)
-			sector = GLOB.map_sectors["[T.z]"]
+			sector = get_map_sector(T.z)
 	else // if the source is in nullspace, it's probably an autosay
 		levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 		origin_level = levels[1]
-		sector = GLOB.map_sectors["[levels[1]]"]
+		sector = get_map_sector(levels[1])
 
 	var/mob/M = speaker.resolve()
 
@@ -177,6 +177,11 @@
 					radios += indie_radio
 
 	var/list/receive = get_hearers_in_radio_ranges(radios)
+
+	// Electronic radio headsets expose received traffic to their built-in
+	// command receiver independently of whether a mob can hear the message.
+	for(var/obj/item/radio/headset/circuitry/circuit_headset in radios)
+		circuit_headset.receive_circuit_radio_command(data["name"], message, get_frequency_name(frequency))
 
 	// Cut out admins which have radio chatter disabled
 	for (var/mob/R in receive)

@@ -96,51 +96,58 @@
 					if(ED)
 						pref.education = "[ED.type]"
 
-// Skills HTML UI, along with a lot of other components here, lifted from Baystation 12. Credit goes to Afterthought12. Thank you for saving me from HTML hell!
-/datum/category_item/player_setup_item/skills/content(var/mob/user)
+/datum/category_item/player_setup_item/skills/ui_data(var/mob/user)
 	if(!SSskills.initialized)
-		return "<center><large>Skills not initialized yet. Please wait a bit and reload this section.</large></center>"
-
-	var/list/dat = list()
-
-	dat += "<body>"
-	dat += "<style>.Selectable,.Current,.Unavailable,.Toohigh,.Forced{border: 1px solid #161616;padding: 1px 4px 1px 4px;margin: 0 2px 0 0}</style>"
-	dat += "<style>.Forced,a.Forced{background: #FF0000}</style>"
-	dat += "<style>.Selectable,a.Selectable{background: #40628a}</style>"
-	dat += "<style>.Current,a.Current{background: #2f943c}</style>"
-	dat += "<style>.Unavailable{background: #d09000}</style>"
+		return list(
+			"kind" = "notice",
+			"name" = name,
+			"ref" = REF(src),
+			"message" = "Skills not initialized yet. Please wait a bit and reload this section."
+		)
 	var/singleton/education/ED = GET_SINGLETON(text2path(pref.education))
-	dat += "<center><b>Education:</b> <a href='?src=[REF(src)];open_education_menu=1'>[ED.name]</a></center><br/><hr>"
-	dat += "<table>"
 	var/singleton/education/education = GET_SINGLETON(text2path(pref.education))
+	var/list/categories = list()
 	for(var/category in SSskills.skill_tree)
 		var/singleton/skill_category/skill_category = category
-		dat += "<tr><th colspan = 4><b>[skill_category.name] ([calculate_remaining_skill_points(skill_category)] points remaining)</b>"
-		dat += "</th></tr>"
+		var/list/subcategories = list()
 		for(var/subcategory in SSskills.skill_tree[skill_category])
-			dat += "<tr><th colspan = 3><b>[subcategory]</b></th></tr>"
+			var/list/skills = list()
 			for(var/singleton/skill/skill in SSskills.skill_tree[skill_category][subcategory])
-				dat += get_skill_row(skill, education)
-	dat += "</table>"
+				skills += list(get_skill_ui_data(skill, education))
+			subcategories += list(list("name" = subcategory, "skills" = skills))
+		categories += list(list(
+			"name" = skill_category.name,
+			"remaining" = calculate_remaining_skill_points(skill_category),
+			"subcategories" = subcategories
+		))
+	return list(
+		"kind" = "skills",
+		"name" = name,
+		"ref" = REF(src),
+		"education" = ED.name,
+		"education_description" = ED.description,
+		"categories" = categories
+	)
 
-	. = JOINTEXT(dat)
-
-/**
- * Returns an HTML skill row.
- */
-/datum/category_item/player_setup_item/skills/proc/get_skill_row(singleton/skill/skill, singleton/education/education)
-	var/list/dat = list()
-	dat += "<tr style='text-align:left;'>"
-	dat += "<th><a href='?src=[REF(src)];skillinfo=[skill.type]'>[skill.name]</a></th>"
-
+/datum/category_item/player_setup_item/skills/proc/get_skill_ui_data(singleton/skill/skill, singleton/education/education)
 	var/level_from_pref = pref.skills[skill.type]
 	var/current_level = level_from_pref ? level_from_pref : SKILL_LEVEL_UNFAMILIAR
 	var/maximum_skill_level = get_maximum_skill_level(skill, education)
-
+	var/current_description = replacetext(skill.skill_level_descriptions[current_level], "<br>", "\n")
+	current_description = html_decode(strip_html_properly(current_description))
+	var/list/levels = list()
 	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= skill.maximum_level, i++)
-		dat += skill_to_button(skill, education, current_level, i, maximum_skill_level)
-
-	return JOINTEXT(dat)
+		if(i <= 0)
+			continue
+		levels += list(get_skill_level_ui_data(skill, education, current_level, i, maximum_skill_level))
+	return list(
+		"name" = skill.name,
+		"type" = "[skill.type]",
+		"description" = skill.description,
+		"current_description" = current_description,
+		"uneducated_cap" = skill.uneducated_skill_cap ? skill.skill_level_map[skill.uneducated_skill_cap] : null,
+		"levels" = levels
+	)
 
 /datum/category_item/player_setup_item/skills/proc/get_maximum_skill_level(singleton/skill/skill, singleton/education/education)
 	var/base_maximum_level = skill.get_maximum_level(education)
@@ -159,43 +166,34 @@
 
 	return SKILL_LEVEL_UNFAMILIAR
 
-/**
- * Turns a skill into a dynamic button.
- */
-/datum/category_item/player_setup_item/skills/proc/skill_to_button(singleton/skill/skill, singleton/education/education, current_level, selection_level, maximum_skill_level)
+/datum/category_item/player_setup_item/skills/proc/get_skill_level_ui_data(singleton/skill/skill, singleton/education/education, current_level, selection_level, maximum_skill_level)
 	var/effective_level = selection_level
-	if(effective_level <= 0)
-		return "<th></th>"
-
 	var/level_name = skill.skill_level_map[effective_level]
 	var/cost = skill.get_cost(effective_level)
-	var/button_label = "[level_name] ([cost])"
 	var/given_skill = FALSE
 	var/education_skill = 0
-
-	// Prevent removal of skills given by education. These are meant to be minimum skills for jobs, after all.
 	if(skill.type in education.skills)
 		given_skill = TRUE
 		education_skill = education.skills[skill.type]
-
+	var/state = "unavailable"
+	var/selectable = FALSE
 	if((effective_level < education_skill) && given_skill)
-		return "<th>[span("Forced", "[button_label]")]</th>"
+		state = "forced"
 	else if((effective_level < current_level) && !given_skill)
-		return "<th>[add_link(skill, education, button_label, "'Current'", effective_level)]</th>"
+		state = "selectable"
+		selectable = skill.get_maximum_level(education) >= effective_level
 	else if(effective_level == current_level)
-		return "<th>[span("Current", "[button_label]")]</th>"
+		state = "current"
 	else if(effective_level <= maximum_skill_level)
-		return "<th>[add_link(skill, education, button_label, "'Selectable'", effective_level)]</th>"
-	else
-		return "<th>[span("Toohigh", "[button_label]")]</th>"
-
-/**
- * Returns a button to set a skill in the skill UI.
- */
-/datum/category_item/player_setup_item/skills/proc/add_link(singleton/skill/skill, singleton/education/education, text, style, value)
-	if(skill.get_maximum_level(education) >= value)
-		return "<a class=[style] href='?src=[REF(src)];setskill=[skill.type];newvalue=[value]'>[text]</a>"
-	return text
+		state = "selectable"
+		selectable = skill.get_maximum_level(education) >= effective_level
+	return list(
+		"label" = level_name,
+		"cost" = cost,
+		"value" = effective_level,
+		"state" = state,
+		"selectable" = selectable
+	)
 
 /**
  * Returns the currently remaining skill points in a given category.
@@ -247,25 +245,7 @@
 	return max(0, cost)
 
 /datum/category_item/player_setup_item/skills/OnTopic(href, href_list, user)
-	if(href_list["skillinfo"])
-		var/singleton/skill/skill_to_show = GET_SINGLETON(text2path(href_list["skillinfo"]))
-		if(!skill_to_show)
-			log_debug("SKILLS: Invalid skill selected for [user]: [skill_to_show]")
-			return
-		var/datum/browser/skill_window = new(user, "skill_info", "Skill Information")
-		var/dat = "<html><center><b>[skill_to_show.name]</center></b>"
-		dat += "<hr>[skill_to_show.description]<br>"
-		if(skill_to_show.uneducated_skill_cap)
-			dat += "Without the relevant education, you may only reach the <b>[skill_to_show.skill_level_map[skill_to_show.uneducated_skill_cap]]</b> level.<br>"
-		dat += "<hr>"
-		var/skill_level = (skill_to_show.type in pref.skills) ? pref.skills[skill_to_show.type] : SKILL_LEVEL_UNFAMILIAR
-		dat += "Your current level in this skill is [SPAN_BOLD(skill_to_show.skill_level_map[skill_level])].<br>"
-		dat += "[skill_to_show.skill_level_descriptions[skill_level]]"
-		dat += "</html>"
-		skill_window.set_content(dat)
-		skill_window.open()
-
-	else if(href_list["setskill"])
+	if(href_list["setskill"])
 		var/singleton/skill/new_skill = GET_SINGLETON(text2path(href_list["setskill"]))
 		if(!new_skill)
 			log_debug("SKILLS: Invalid skill selected for [user]: [new_skill]")
@@ -291,44 +271,27 @@
 		var/result = tgui_input_list(user, "Choose your character's education.", "Education", options)
 		var/singleton/education/chosen_education = options[result]
 		if(chosen_education)
-			show_education_window(chosen_education, "set_education_data", user)
-
-	else if(href_list["set_education_data"])
-		user << browse(null, "window=set_education_data")
-		var/new_education = html_decode(href_list["set_education_data"])
-		pref.education = new_education
-
-		pref.skills = list() // reset skills because we have to give them new minimums
-		to_chat(user, SPAN_WARNING("Your skills have been reset as you changed your education."))
-		var/singleton/education/education = GET_SINGLETON(text2path(new_education))
-		if(istype(education))
-			for(var/skill in education.skills)
+			var/list/granted_skills = list()
+			for(var/granted_skill in chosen_education.skills)
+				var/singleton/skill/granted_skill_data = GET_SINGLETON(granted_skill)
+				granted_skills += "[granted_skill_data.name] ([granted_skill_data.skill_level_map[chosen_education.skills[granted_skill_data.type]]])"
+			var/education_summary = html_decode(strip_html(chosen_education.description))
+			if(length(granted_skills))
+				education_summary += "\n\nGranted skills: [english_list(granted_skills)]"
+			if(tgui_alert(user, education_summary, chosen_education.name, list("Select", "Cancel")) != "Select")
+				return TOPIC_NOACTION
+			pref.education = "[chosen_education.type]"
+			pref.skills = list()
+			to_chat(user, SPAN_WARNING("Your skills have been reset as you changed your education."))
+			for(var/skill in chosen_education.skills)
 				var/singleton/skill/new_skill = GET_SINGLETON(skill)
-				pref.skills[new_skill.type] = education.skills[new_skill.type]
-				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [new_skill.skill_level_map[education.skills[new_skill.type]]]."))
-
-		sanitize_character()
-		return TOPIC_REFRESH
+				pref.skills[new_skill.type] = chosen_education.skills[new_skill.type]
+				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [new_skill.skill_level_map[chosen_education.skills[new_skill.type]]]."))
+			sanitize_character()
+			return TOPIC_REFRESH
+		return TOPIC_NOACTION
 
 	return ..()
-
-/**
- * Opens a window showing details of an education.
- */
-/datum/category_item/player_setup_item/skills/proc/show_education_window(var/singleton/education/ED, var/topic_data, var/mob/user)
-	var/datum/browser/education_win = new(user, topic_data, "Education Selection")
-	var/dat = "<html><center><b>[ED.name]</center></b>"
-	dat += "<hr>[ED.description]<hr>"
-	dat += "This education gives you the following skills: "
-	var/list/skills_to_show = list()
-	for(var/skill in ED.skills)
-		var/singleton/skill/S = GET_SINGLETON(skill)
-		skills_to_show += "[S.name] ([SPAN_DANGER(S.skill_level_map[ED.skills[S.type]])])"
-	dat +=  "<b>[english_list(skills_to_show)]</b>.<br>"
-	dat += "<br><center>\[<a href='?src=[REF(src)];[topic_data]=[html_encode(ED.type)]'>Select</a>\]</center>"
-	dat += "</html>"
-	education_win.set_content(dat)
-	education_win.open()
 
 /**
  * Finds and returns the first suitable education for the pref datum.

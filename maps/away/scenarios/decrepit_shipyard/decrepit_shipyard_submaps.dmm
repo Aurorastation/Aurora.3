@@ -385,7 +385,7 @@
 	pixel_y = 28;
 	pixel_x = 7
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "gt" = (
@@ -423,7 +423,7 @@
 	pixel_y = -28;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "hd" = (
@@ -612,7 +612,7 @@
 	pixel_y = 30;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "lC" = (
@@ -724,7 +724,7 @@
 	pixel_y = -30;
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "nS" = (
@@ -824,7 +824,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "pt" = (
@@ -939,7 +939,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "sc" = (
@@ -1295,7 +1295,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "zl" = (
@@ -1407,7 +1407,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "AL" = (
@@ -1569,7 +1569,7 @@
 	pixel_y = 30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "CZ" = (
@@ -2065,7 +2065,7 @@
 	pixel_y = 30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "NP" = (
@@ -2149,7 +2149,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/starboard,
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "PZ" = (
@@ -2345,7 +2345,7 @@
 /obj/structure/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/obj/effect/map_effect/marker/airlock/external/decrepit_shipyard_shuttle/port,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Sj" = (

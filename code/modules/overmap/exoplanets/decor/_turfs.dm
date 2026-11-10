@@ -9,6 +9,7 @@
 	has_resources = TRUE
 	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	turf_flags = TURF_FLAG_BACKGROUND
+	has_edge_icon = FALSE
 
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
@@ -50,8 +51,8 @@
 
 	if(SSatlas.current_map.use_overmap)
 		// if exoplanet
-		var/datum/site = GLOB.map_sectors["[z]"]
-		var/datum/template = GLOB.map_templates["[z]"]
+		var/datum/site = get_map_sector(z)
+		var/datum/template = get_map_template(z)
 		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
 			if(exoplanet.atmosphere)
@@ -77,8 +78,8 @@
 	. = ..()
 	if(SSatlas.current_map.use_overmap)
 		// if exoplanet
-		var/datum/site = GLOB.map_sectors["[z]"]
-		var/datum/template = GLOB.map_templates["[z]"]
+		var/datum/site = get_map_sector(z)
+		var/datum/template = get_map_template(z)
 		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
 			// Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
@@ -90,6 +91,9 @@
 			if(away_site.exoplanet_lightlevel && is_outside())
 				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
+/turf/simulated/floor/exoplanet/is_plating()
+	return FALSE
+
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
 	if(initial_flooring)
 		. = ..()
@@ -100,10 +104,13 @@
 			AddOverlays(resource_indicator)
 		if(LAZYLEN(decals))
 			AddOverlays(decals)
+
+		var/list/overlay_group = list()
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))
 				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
+				rock_side.layer = ABOVE_PLATING_LAYER
 				switch(direction)
 					if(NORTH)
 						rock_side.pixel_y += world.icon_size
@@ -113,9 +120,12 @@
 						rock_side.pixel_x += world.icon_size
 					if(WEST)
 						rock_side.pixel_x -= world.icon_size
-				overlays += rock_side
+				overlay_group += rock_side
+
 			else if(update_neighbors)
 				turf_to_check.update_icon()
+
+		AddOverlays(overlay_group)
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
@@ -155,7 +165,7 @@
 
 /turf/unsimulated/planet_edge/Initialize()
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = get_map_sector(z)
 	if(!istype(E))
 		return
 	var/nx = x
@@ -182,7 +192,7 @@
 
 /turf/unsimulated/planet_edge/CollidedWith(atom/bumped_atom)
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = get_map_sector(z)
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))

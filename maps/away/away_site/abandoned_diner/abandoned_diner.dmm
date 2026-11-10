@@ -2771,7 +2771,7 @@
 	pixel_y = 28;
 	pixel_x = 5
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "diner_engi";
 	master_tag = "diner_engi"
 	},
@@ -3726,7 +3726,7 @@
 	pixel_y = 22;
 	pixel_x = -24
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "diner_engi";
 	master_tag = "diner_engi"
 	},
@@ -3832,7 +3832,7 @@
 	pixel_x = 12;
 	pixel_y = 28
 	},
-/obj/effect/map_effect/marker/airlock{
+/obj/effect/map_effect/marker/airlock/external{
 	name = "diner_engi";
 	master_tag = "diner_engi"
 	},

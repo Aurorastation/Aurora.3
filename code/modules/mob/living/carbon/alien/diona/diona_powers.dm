@@ -32,7 +32,7 @@
 		return FALSE
 
 	to_chat(src, SPAN_WARNING("Requesting consent from [H]"))
-	var/r = alert(H, "[src] wishes to join your collective, and become a part of your gestalt. If you accept they will become an equal part of you, though you will remain in control.", "[src] wishes to join you", "Welcome!", "No, leave us..")
+	var/r = tgui_alert(H, "[src] wishes to join your collective, and become a part of your gestalt. If you accept they will become an equal part of you, though you will remain in control.", "[src] wishes to join you", list("Welcome!", "No, leave us.."))
 	if(r != "Welcome!")
 		to_chat(src, SPAN_WARNING("[H.name] has rejected your wish to merge!"))
 		return FALSE
@@ -94,7 +94,7 @@
 	if(D.key)
 		//Code for requesting permission goes here. We will return if its denied or ignored
 		to_chat(src, SPAN_WARNING("Requesting consent from [D]."))
-		var/r = alert(D,"[src] wishes to absorb your being, and make you a part of their gestalt. If you accept you will join with them, and give up control to be a part of their collective. \nYou will be part of their larger gestalt if they grow later, too, and all of your stored biomass will be transferred to them. You can split away at anytime, but you cannot reclaim the biomass. Do you wish to be absorbed?", "[src] wishes to absorb you", "Yes, I will join!", "No, I wish to remain alone!")
+		var/r = tgui_alert(D, "[src] wishes to absorb your being, and make you a part of their gestalt. If you accept you will join with them, and give up control to be a part of their collective. \nYou will be part of their larger gestalt if they grow later, too, and all of your stored biomass will be transferred to them. You can split away at anytime, but you cannot reclaim the biomass. Do you wish to be absorbed?", "[src] wishes to absorb you", list("Yes, I will join!", "No, I wish to remain alone!"))
 		if(r != "Yes, I will join!")
 			to_chat(src, SPAN_WARNING("[D] has refused to join you!"))
 			return
@@ -153,7 +153,7 @@
 		remove_verb(src, /mob/living/carbon/alien/diona/proc/split)
 		return
 
-	var/r = alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "I am ready to leave.", "I'll stick around.")
+	var/r = tgui_alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", list("I am ready to leave.", "I'll stick around."))
 	if(r != "I am ready to leave.")
 		return
 
@@ -236,7 +236,7 @@
 		return FALSE
 
 	var/energy = FALSE
-	var/r = alert(src, "Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
+	var/r = tgui_alert(src, "Do you choose to eject echoes as nymphs or energy?", "Identify Waste", list("Energy", "Nymphs"))
 	if(r == "Energy")
 		energy = TRUE
 

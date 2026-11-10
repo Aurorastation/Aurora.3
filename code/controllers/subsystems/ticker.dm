@@ -1,4 +1,5 @@
 #define LOBBY_TIME 150
+#define AUTOGAMEMODE_VOTE_BUFFER 15
 
 #define SETUP_OK 0
 #define SETUP_REVOTE 1
@@ -39,6 +40,10 @@ SUBSYSTEM_DEF(ticker)
 	var/pregame_timeleft = 0
 
 	var/delay_end = 0	//if set to nonzero, the round will not restart on it's own
+	var/pinned_transfer_vote_consumed = FALSE
+	var/pinned_shift_change_called = FALSE
+	var/pinned_transfer_target
+	var/pinned_transfer_setting
 
 	var/triai = 0	//Global holder for Triumvirate
 	var/tipped = FALSE	//Did we broadcast the tip of the day yet?
@@ -79,11 +84,29 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
+	set_pinned_round_time(SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME))
 
 	//Initialize the auto-transfer time
 	GLOB.next_transfer_time = GLOB.config.vote_autotransfer_initial
 
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/ticker/proc/set_pinned_round_time(pinned_round_time)
+	if(pinned_round_time == pinned_transfer_setting)
+		return
+	pinned_transfer_setting = pinned_round_time
+	pinned_transfer_target = null
+	pinned_transfer_vote_consumed = FALSE
+	pinned_shift_change_called = FALSE
+	if(!pinned_round_time)
+		return
+
+	var/pinned_time_of_day = (text2num(copytext(pinned_round_time, 1, 3)) * 60 + text2num(copytext(pinned_round_time, 4, 6))) * 1 MINUTE
+	var/pinned_time_utc = MODULUS(pinned_time_of_day - world.timezone HOURS, 24 HOURS)
+	pinned_transfer_target = REALTIMEOFDAY - world.timeofday + pinned_time_utc
+	if(pinned_transfer_target <= REALTIMEOFDAY)
+		pinned_transfer_target += 24 HOURS
+	pinned_transfer_vote_consumed = pinned_transfer_target - REALTIMEOFDAY < (2 HOURS + 30 MINUTES)
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
 	var/state = ""
@@ -123,6 +146,11 @@ SUBSYSTEM_DEF(ticker)
 
 	delay_end = SSticker.delay_end
 
+	pinned_transfer_vote_consumed = SSticker.pinned_transfer_vote_consumed
+	pinned_shift_change_called = SSticker.pinned_shift_change_called
+	pinned_transfer_target = SSticker.pinned_transfer_target
+	pinned_transfer_setting = SSticker.pinned_transfer_setting
+
 	triai = SSticker.triai
 
 	round_end_announced = SSticker.round_end_announced
@@ -141,6 +169,10 @@ SUBSYSTEM_DEF(ticker)
 			game_tick()
 
 /datum/controller/subsystem/ticker/proc/pregame_tick()
+	// Consume the precursor opportunity if the lobby crosses its cutoff.
+	if(pinned_transfer_setting && pinned_transfer_target - REALTIMEOFDAY <= (2 HOURS + 30 MINUTES))
+		pinned_transfer_vote_consumed = TRUE
+
 	if (GLOB.round_progressing)
 		pregame_timeleft--
 
@@ -172,7 +204,30 @@ SUBSYSTEM_DEF(ticker)
 				pregame()
 			if (SETUP_REATTEMPT)
 				pregame_timeleft = 1 SECOND
-				to_world("Reattempting gamemode selection.")
+				to_world(pick(list(
+					"Shuffling cards...",
+					"Looking at the stars for guidance...",
+					"Checking the Nlom field...",
+					"Sorting supermatter crystals...",
+					"Counting phoron moles...",
+					"Reading bluespace signatures...",
+					"Counting dionae floating in space...",
+					"Listening for an answer in the Srom...",
+					"Harmonizing with the Rootsong...",
+					"Comparing the light of S'rendarr and Messa...",
+					"Asking the Queens for guidance...",
+					"Consulting an Akhandi monk...",
+					"Charting a course through the Lemurian Sea...",
+					"Sorting through corporate paperwork...",
+					"Aligning thrusters...",
+					"Charging security laser rifles...",
+					"Prefilling syringes...",
+					"Sorting through cargo orders...",
+					"Refilling soda dispensers...",
+					"Putting viscerators in crates...",
+					"Consulting the Goddess Touched seers...",
+					"Releasing the cave geist..."
+				)))
 
 /datum/controller/subsystem/ticker/proc/game_tick(var/force_end = FALSE)
 	if(current_state != GAME_STATE_PLAYING)
@@ -237,8 +292,48 @@ SUBSYSTEM_DEF(ticker)
 			else if(!delay_notified)
 				to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 
-	//If we have not finished the game already, and assuming it's time, call the transfer vote as per config
+	//If we have not finished the game already, call the next transfer vote as scheduled.
 	if(!game_finished && !mode_finished && !post_game)
+		if(pinned_transfer_setting)
+			/* A configured pinned round reserves time for a final full round and its scheduled start.
+			 * Normal transfer scheduling continues until the precursor window (~2h35 before pinned round),
+			 * which offers one chance to end a current round at least 2h old while respecting active or recent transfer votes.
+			 * Younger rounds skip that vote and continue toward the pinned round with ordinary transfer voting disabled.
+			 * Unrelated votes defer that opportunity within the window.
+			 * Once consumed, or once too little time remains for a full round, ordinary player transfer votes are disabled.
+			 * Periodic automatic transfer votes are suppressed until the shift-change window closes.
+			 * Near the pinned start, a separate window (15m before pinned round) attempts shift change if none is underway.
+			 * Player transfer votes are re-enabled once that window closes (less than 10m before the pinned start).
+			 * Window bounds prevent premature or late calls while allowing deferred attempts.
+			 */
+			var/time_until_pinned = pinned_transfer_target - REALTIMEOFDAY
+
+			if(time_until_pinned < 10 MINUTES)
+				pinned_transfer_vote_consumed = FALSE // Sanity check - Transfer went wrong: Allow votes again
+
+			// The pinned round should be starting soon, call transfer to start on time.
+			if(time_until_pinned <= 15 MINUTES && time_until_pinned >= 10 MINUTES && SSticker.current_state == GAME_STATE_PLAYING)
+				if(!pinned_shift_change_called && !SSatlas.current_map.shuttle_call_restart_timer && GLOB.evacuation_controller.state == EVAC_IDLE)
+					pinned_shift_change_called = TRUE
+					init_shift_change(null, TRUE) // Commit to pinned round
+					return 1
+			// Time window to offer one last full round, provided the current round is at least 2h old
+			else if(time_until_pinned >= 2 HOURS + 30 MINUTES && time_until_pinned <= 2 HOURS + 35 MINUTES)
+				// Check if there is already an unrelated vote and let that pass first
+				if(!pinned_transfer_vote_consumed && (!SSvote.current_vote || istype(SSvote.current_vote, /datum/vote/crewtransfer)))
+					pinned_transfer_vote_consumed = TRUE // Consume the opportunity even if the round is too young or a transfer vote already exists
+					// Only offer a new vote for rounds at least 2h old, with no active vote or transfer vote in the last 10 minutes
+					if(get_round_duration() >= 2 HOURS && !SSvote.current_vote && (!GLOB.last_transfer_vote || get_round_duration() - GLOB.last_transfer_vote >= 10 MINUTES))
+						SSvote.autotransfer_pinned_round_precursor()
+				return 1
+
+			// Fallback case - Not enough time for a full round before the pinned round, disable voting only
+			// in case the current round already intersects with the round preceeding the pinned time
+			if(time_until_pinned < 2 HOURS + 30 MINUTES && time_until_pinned >= 10 MINUTES)
+				pinned_transfer_vote_consumed = TRUE // Disable voting
+				return 1
+
+		// Regular periodic auto transfer
 		if(get_round_duration() >= GLOB.next_transfer_time - 600)
 			SSvote.autotransfer()
 			GLOB.next_transfer_time += GLOB.config.vote_autotransfer_interval
@@ -442,8 +537,8 @@ SUBSYSTEM_DEF(ticker)
 		login_music = shuffle(login_music)
 
 	if (is_revote)
-		pregame_timeleft = LOBBY_TIME
-		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [LOBBY_TIME]s.")
+		pregame_timeleft = max(LOBBY_TIME, GLOB.config.vote_autogamemode_timeleft + AUTOGAMEMODE_VOTE_BUFFER)
+		LOG_DEBUG("SSticker: lobby reset due to game setup failure, using pregame time [pregame_timeleft]s.")
 	else
 		var/mc_init_time = round(Master.init_timeofday, 1)
 		var/dynamic_time = LOBBY_TIME - mc_init_time
@@ -451,7 +546,7 @@ SUBSYSTEM_DEF(ticker)
 		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
-			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 60
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + AUTOGAMEMODE_VOTE_BUFFER
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
@@ -502,18 +597,26 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/setup()
 	//Create and announce mode
+	var/secret_autotraitor_fallback = FALSE
 	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
 		src.hide_mode = ROUNDTYPE_SECRET
 	else if (GLOB.master_mode == ROUNDTYPE_STR_MIXED_SECRET)
 		src.hide_mode = ROUNDTYPE_MIXED_SECRET
 
 	var/list/runnable_modes = GLOB.config.get_runnable_modes(GLOB.master_mode)
+	var/datum/game_mode/extended_mode = GLOB.gamemode_cache["extended"]
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && length(runnable_modes) == 1 && (extended_mode in runnable_modes))
+		runnable_modes.Cut()
 	if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 		if(!runnable_modes.len)
-			current_state = GAME_STATE_PREGAME
-			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
-			return SETUP_REVOTE
-		if(GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
+			if(GLOB.master_mode == ROUNDTYPE_STR_SECRET)
+				src.mode = GLOB.gamemode_cache["autotraitor"]
+				secret_autotraitor_fallback = TRUE
+			else
+				current_state = GAME_STATE_PREGAME
+				to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
+				return SETUP_REVOTE
+		if(!secret_autotraitor_fallback && GLOB.secret_force_mode != ROUNDTYPE_STR_SECRET && GLOB.secret_force_mode != ROUNDTYPE_STR_MIXED_SECRET)
 			src.mode = GLOB.config.pick_mode(GLOB.secret_force_mode)
 		if(!src.mode)
 			var/list/weighted_modes = list()
@@ -545,6 +648,8 @@ SUBSYSTEM_DEF(ticker)
 		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
 		prevent_unready = FALSE
 		return SETUP_REVOTE
+	if(GLOB.master_mode == ROUNDTYPE_STR_SECRET && mode == extended_mode && !round_canon_admin_forced)
+		set_round_canon(/singleton/canonicity/limited, TRUE)
 
 	prevent_unready = FALSE
 
@@ -556,6 +661,8 @@ SUBSYSTEM_DEF(ticker)
 	var/fail_reasons = list()
 
 	var/can_start = src.mode.can_start()
+	if(secret_autotraitor_fallback)
+		can_start &= ~(GAME_FAILURE_NO_PLAYERS | GAME_FAILURE_NO_ANTAGS | GAME_FAILURE_TOO_MANY_PLAYERS)
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
@@ -587,7 +694,7 @@ SUBSYSTEM_DEF(ticker)
 				tmpmodes+=M.name
 			tmpmodes = sortList(tmpmodes)
 			if(tmpmodes.len)
-				to_world("<B>Possibilities:</B> [english_list(tmpmodes)]")
+				admin_notice("[SPAN_BOLD("Possibilities:")] [english_list(tmpmodes)]", R_DEBUG)
 	else
 		src.mode.announce()
 
@@ -759,7 +866,9 @@ SUBSYSTEM_DEF(ticker)
 			else if(!player.mind.assigned_role)
 				continue
 			else
-				player.create_character()
+				var/mob/living/carbon/human/character = player.create_character()
+				var/datum/component/morale/morale = character.GetComponent(MORALE_COMPONENT)
+				morale?.load_moodlet(/datum/moodlet/roundstart_ready, 10)
 				qdel(player)
 		CHECK_TICK
 
@@ -830,3 +939,4 @@ SUBSYSTEM_DEF(ticker)
 #undef SETUP_REVOTE
 #undef SETUP_REATTEMPT
 #undef LOBBY_TIME
+#undef AUTOGAMEMODE_VOTE_BUFFER

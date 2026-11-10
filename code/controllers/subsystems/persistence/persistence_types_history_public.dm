@@ -105,11 +105,12 @@
  * 	target_type =	Singleton persistent type definition. See /singleton/persistent_type and subtypes.
  *					If the type definition is a character record type, the attribute must be a valid character ID or the record will be rejected.
  *  attribute =		Custom attribute of the record, can be null if the type definition doesn't require it.
+ *  skip_caching =	If set to TRUE, the results won't be added to the types cache, defaults to FALSE.
  * RETURN:
  * 	Single /persistent_record or null.
  */
-/datum/controller/subsystem/persistence/proc/historyGetLastRecord(var/singleton/persistent_type/history/target_type, attribute)
-	var/result = historyGetLastRecords(target_type, attribute, 1)
+/datum/controller/subsystem/persistence/proc/historyGetLastRecord(var/singleton/persistent_type/history/target_type, attribute, skip_caching = FALSE)
+	var/result = historyGetLastRecords(target_type, attribute, 1, skip_caching)
 	if(length(result) == 0)
 		return null
 	else
@@ -233,14 +234,20 @@
 		log_subsystem_persistence_warning("Attempted to draw more records then allowed for target type [target_type].")
 
 	var/singleton/persistent_type/type_instance = GET_SINGLETON(target_type)
-	var/list/result = list()
 
-	var/attributes = historyDatabaseGetAllAttributes(type_instance.database_id)
+	var/attributes = list()
+	if(type_instance.requires_attribute)
+		attributes = historyDatabaseGetAllAttributes(type_instance.database_id) // Retrieve all attributes in the database
+		for(var/datum/persistent_record_container/cache_entry in history_cache) // Get attributes that aren't in the database yet
+			if(cache_entry.type_define == target_type && cache_entry.attribute && !(cache_entry.attribute in attributes))
+				attributes += cache_entry.attribute
+
+	var/list/result = list()
 	if(attributes && length(attributes) > 0)
 		for(var/attribute in attributes)
-			result += list(alist("attribute" = attribute, "records" = historyGetAllRecords(target_type, attribute, skip_caching)))
+			result += list(alist("attribute" = attribute, "records" = historyGetLastRecords(target_type, attribute, limit, skip_caching)))
 	else
-		var/no_attribute_records = historyGetAllRecords(target_type, null, skip_caching)
+		var/no_attribute_records = historyGetLastRecords(target_type, null, limit, skip_caching)
 		if(no_attribute_records && length(no_attribute_records) > 0)
 			result = list(alist("attribute" = null, "records" = no_attribute_records))
 	return result

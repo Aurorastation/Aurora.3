@@ -32,7 +32,9 @@
 	)
 
 	comms_support = TRUE
-	comms_name = "pra satellite"
+
+/obj/effect/overmap/visitable/sector/pra_satellite/create_comms_groups()
+	return list("default" = new /datum/comms_group("pra satellite"))
 
 /obj/effect/shuttle_landmark/pra_satellite
 	base_turf = /turf/space
@@ -51,18 +53,18 @@
 	landmark_tag = "nav_hadiist_satellite_3"
 
 // Airlock Markers
-/obj/effect/map_effect/marker/airlock/pra_satellite
+/obj/effect/map_effect/marker/airlock/external/pra_satellite
 	frequency = 1004
 
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/starboard
 	name = "airlock_pra_satellite_starboard"
 	master_tag = "airlock_pra_satellite_starboard"
 
-/obj/effect/map_effect/marker/airlock/pra_satellite/port
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/port
 	name = "airlock_pra_satellite_port"
 	master_tag = "airlock_pra_satellite_port"
 
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft
+/obj/effect/map_effect/marker/airlock/external/pra_satellite/aft
 	name = "airlock_pra_satellite_aft"
 	master_tag = "airlock_pra_satellite_aft"
 

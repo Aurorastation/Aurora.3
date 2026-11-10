@@ -70,6 +70,9 @@
 	var/obj/item/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
+/obj/item/clothing/proc/get_action_circuit()
+	return action_circuit
+
 /obj/item/clothing/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(IC)
 		examinate(user, IC)
@@ -111,7 +114,7 @@
 
 /obj/item/clothing/under/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/under/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -134,7 +137,7 @@
 
 /obj/item/clothing/gloves/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/gloves/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -167,7 +170,7 @@
 
 /obj/item/clothing/glasses/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/glasses/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -205,7 +208,7 @@
 
 /obj/item/clothing/shoes/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/shoes/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -228,7 +231,7 @@
 
 /obj/item/clothing/head/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/head/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -250,7 +253,7 @@
 
 /obj/item/clothing/ears/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/small, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/ears/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots
@@ -273,7 +276,7 @@
 
 /obj/item/clothing/suit/circuitry/Initialize(mapload, printed = FALSE)
 	setup_integrated_circuit(/obj/item/electronic_assembly/clothing/large, printed)
-	return ..()
+	return ..(mapload)
 
 /obj/item/clothing/suit/circuitry/build_additional_parts(mob/living/carbon/human/H, mob_icon, slot)
 	var/static/list/valid_slots

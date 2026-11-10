@@ -102,7 +102,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/tcaf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "TCAF Armed Transport Shuttle"
-	req_access = list(ACCESS_TCAF)
+	req_access = list(/datum/access/tcaf::id)
 
 /datum/shuttle/autodock/overmap/tcaf_shuttle
 	name = "TCAF Armed Transport Shuttle"
@@ -113,7 +113,6 @@
 	dock_target = "airlock_tcaf_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tcaf"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/tcaf_shuttle/hangar

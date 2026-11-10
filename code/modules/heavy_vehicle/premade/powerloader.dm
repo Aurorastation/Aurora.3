@@ -75,6 +75,8 @@
 	name = "open exosuit chassis"
 	hatch_descriptor = "roll cage"
 	pilot_coverage = 40
+	cockpit_hatch_size = 90
+	cockpit_pilot_damage_multiplier = 0.6 ///The hatch is thick, but the pilot coverage is poor.
 	exosuit_desc_string = "an industrial rollcage"
 	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically. This variant has an extra compartment for a copilot, but has no sealed atmosphere."
 	max_damage = 200
@@ -183,7 +185,7 @@
 	name = "stationbound power loader"
 	e_color = COLOR_GREEN_GRAY
 	dummy_colour = COLOR_GREEN_GRAY
-	dummy_type = /mob/living/simple_animal/spiderbot/ai
+	dummy_type = /mob/living/simple_animal/spiderbot/remote_mech/ai
 	remote_network = REMOTE_AI_MECH
 	remote_type = /obj/item/remote_mecha/ai
 	does_hardpoint_lock = FALSE
