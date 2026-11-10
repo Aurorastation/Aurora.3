@@ -7,7 +7,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	var/mech_remote_network = REMOTE_GENERIC_MECH
 	var/hardpoint_lock = FALSE // Whether mechs that receive this upgrade gets locked
-	var/dummy_path = /mob/living/simple_animal/spiderbot
+	var/dummy_path = /mob/living/simple_animal/spiderbot/remote_mech
 
 /obj/item/remote_mecha/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -31,4 +31,4 @@
 	name = "AI exosuit remote upgrade"
 	desc = "A device that, when inserted into an exosuit, allows it to be remotely piloted by the artificial intelligence."
 	mech_remote_network = REMOTE_AI_MECH
-	dummy_path = /mob/living/simple_animal/spiderbot/ai
+	dummy_path = /mob/living/simple_animal/spiderbot/remote_mech/ai
