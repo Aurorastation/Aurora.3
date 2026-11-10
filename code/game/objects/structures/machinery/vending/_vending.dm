@@ -1000,11 +1000,11 @@
 	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
-	if(brand_intelligence_uses > 0 && prob(1))
-		if(brand_intelligence_malfunction == VENDING_MALFUNCTION_GIVEAWAY)
+	if(brand_intelligence_uses > 0)
+		if(brand_intelligence_malfunction == VENDING_MALFUNCTION_GIVEAWAY && prob(3))
 			if(brand_intelligence_giveaway())
 				brand_intelligence_uses--
-		else if(brand_intelligence_malfunction == VENDING_MALFUNCTION_LAUNCHER)
+		else if(brand_intelligence_malfunction == VENDING_MALFUNCTION_LAUNCHER && prob(5))
 			if(src.throw_item())
 				brand_intelligence_uses--
 		if(!brand_intelligence_uses)
