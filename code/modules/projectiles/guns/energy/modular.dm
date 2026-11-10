@@ -15,6 +15,7 @@
 	matter = list(MATERIAL_STEEL = 2000)
 	can_turret = TRUE
 	zoomdevicename = null
+	can_throw_on_harm = TRUE
 	max_shots = 0
 	burst_delay = 0
 	pin = null
@@ -192,9 +193,6 @@
 			if(do_after(user, 12/skill_level SECONDS, src, DO_REPAIR_CONSTRUCT))
 				repair_components(N, skill_level, user)
 
-	//TODO: High skilled technicans can add mods to guns after final assembly, requires a rework of the weapon analyzer.
-	//if(istype(attacking_item, /obj/item/laser_components/modifier))
-
 	if(attacking_item.tool_behaviour != TOOL_SCREWDRIVER)
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
@@ -255,7 +253,8 @@
 
 /obj/item/gun/energy/laser/prototype/proc/delayed_overload(var/mob/user)
 	if(capacitor.reliability - capacitor.condition > 0)
-		to_chat(user, SPAN_DANGER("\The [src.capacitor] stops overloading, you fixed it just in time."))
+		if(user)
+			to_chat(user, SPAN_DANGER("\The [src.capacitor] stops overloading, you fixed it just in time."))
 	else
 		if(prob(50 * criticality))
 			critical_fail(user)
@@ -293,24 +292,29 @@
 		handle_mod()
 
 	if(capacitor.reliability - capacitor.condition <= 0) //The gun explodes if its capacitor reaches 0 reliability.
-		var/overload_delay = 3/criticality
+		var/overload_delay = 4 / max(criticality, 0.1)
 		var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
-		switch(skill_level ? skill_level : 6)
-			if(2 to 3)
-				to_chat(user, SPAN_HIGHDANGER("\The [src] hisses ominously!"))
-			if(4 to 5)
-				overload_delay *= 1.5
-				to_chat(user, SPAN_HIGHDANGER("\The [src] hisses ominously as \the [capacitor]'s housing begins to fail, you release the trigger but it's too late! Get rid of it!"))
-			if(6 to INFINITY)
-				overload_delay *= 2
-				to_chat(user, SPAN_HIGHDANGER("You instantly release the trigger as \the [capacitor]'s housing begins to fail! You have less than [round(overload_delay)] seconds to repair \the [src] or throw it away!"))
+		if(user) //Turrets can also fire modlasers, don't assume there will be a user
+			switch(skill_level ? skill_level : 6)
+				if(2 to 3)
+					to_chat(user, SPAN_HIGHDANGER("\The [src] hisses ominously!"))
+					balloon_alert(user, "your gun hisses ominously!")
+				if(4 to 5)
+					overload_delay *= 2
+					to_chat(user, SPAN_HIGHDANGER("\The [src] hisses ominously as \the [capacitor]'s housing begins to fail, you release the trigger but it's too late! Get rid of it!"))
+					balloon_alert(user, "throw your gun!")
+				if(6 to INFINITY)
+					overload_delay *= 4
+					to_chat(user, SPAN_HIGHDANGER("You instantly release the trigger as \the [capacitor]'s housing begins to fail! You have less than [round(overload_delay)] seconds to repair \the [src] or throw it away!"))
+					balloon_alert(user, "fix or throw your gun!")
 
 		addtimer(CALLBACK(src, PROC_REF(delayed_overload)), overload_delay SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		animate(src, overload_delay SECONDS + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
 		return
 
 	if(focusing_lens.reliability - focusing_lens.condition <= 0)
-		to_chat(user, SPAN_DANGER("\The [src]'s focusing lens shatters with a loud crack!"))
+		if(user)
+			to_chat(user, SPAN_DANGER("\The [src]'s focusing lens shatters with a loud crack!"))
 		qdel(focusing_lens)
 		focusing_lens = null
 
@@ -422,7 +426,8 @@
 				damaged_components.Remove(component) //If a component has reached the improvement cap, it can't be improved anymore.
 
 		if(!upgradable_components.len)
-			to_chat(user, SPAN_WARNING("There's nothing to improve on the components of this gun."))
+			if(user)
+				to_chat(user, SPAN_WARNING("There's nothing to improve on the components of this gun."))
 			break
 
 		var/obj/item/laser_components/selected_component = pick(upgradable_components)
