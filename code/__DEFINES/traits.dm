@@ -204,6 +204,9 @@
 /// Apply this to make a mob passable by other mobs.
 #define TRAIT_UNDENSE "undense"
 
+/// The mob is being moved without placing its feet on the ground.
+#define TRAIT_NO_FOOTFALL "no_footfall"
+
 /// Trait comes from leaning on a wall.
 #define TRAIT_SOURCE_WALL_LEANING "wall_leaning"
 
