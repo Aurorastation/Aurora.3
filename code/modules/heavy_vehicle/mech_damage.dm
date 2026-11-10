@@ -1,5 +1,18 @@
-///Returns TRUE if an incoming attack should target the pilot instead of the mech, FALSE otherwise.
+/// Returns TRUE if an incoming attack should target the pilot after protection and evasive maneuvers.
 /mob/living/heavy_vehicle/proc/should_target_pilot(atom/attack_source = null)
+	if(!is_pilot_exposed(attack_source))
+		return FALSE
+
+	// Environmental effects cannot be avoided by twisting the torso.
+	if(attack_source && !incapacitated() && !lockdown && !maintenance_protocols)
+		var/mob/living/pilot = pick(pilots)
+		if(SEND_SIGNAL(pilot, COMSIG_MECH_AVOID_PILOT_HIT, src) & COMPONENT_MECH_AVOID_PILOT_HIT)
+			return FALSE
+
+	return TRUE
+
+/// Returns TRUE if cockpit coverage, hatch position, and shields expose the pilot to this attack.
+/mob/living/heavy_vehicle/proc/is_pilot_exposed(atom/attack_source = null)
 	if(!body || !LAZYLEN(pilots)) //If there is no pilot, or the mech somehow doesn't have a body don't try hit the pilot.
 		return FALSE
 

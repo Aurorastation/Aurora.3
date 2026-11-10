@@ -95,6 +95,7 @@
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
+/// Sent to the shooter before firing: (&accuracy_decrease, &dispersion_increase).
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
 
 // Mech signals
@@ -104,6 +105,13 @@
 #define COMSIG_MECH_MOVE_STRAFE "mech_move_strafe"
 
 #define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"
+
+/// Sent to the attacking pilot: (mob/living/heavy_vehicle/mech, &melee_damage, &attack_delay).
+#define COMSIG_MECH_MELEE_ATTACK "mech_melee_attack"
+
+/// Sent to a pilot when an incoming attack would hit the cockpit: (mob/living/heavy_vehicle/mech)
+#define COMSIG_MECH_AVOID_PILOT_HIT "mech_avoid_pilot_hit"
+	#define COMPONENT_MECH_AVOID_PILOT_HIT (1<<0)
 
 // Unarmed Combat Signals
 

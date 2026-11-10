@@ -133,11 +133,11 @@
 
 			var/resolved
 
-			if(adj) resolved = temp_system.resolve_attackby(A, src, params)
+			var/mob/ruser = src
+			if(!system_moved || istype(temp_system, /obj/item/gun)) // Guns use the pilot so firing signals reach their skill components.
+				ruser = user
+			if(adj) resolved = temp_system.resolve_attackby(A, istype(temp_system, /obj/item/gun) ? user : src, params)
 			if(!resolved && A && temp_system)
-				var/mob/ruser = src
-				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
-					ruser = user
 				temp_system.afterattack(A,ruser,adj,params)
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
 				log_admin("used [temp_system] targetting [A]", user, src.loc)
@@ -159,15 +159,18 @@
 		D.TryToSwitchState(user)
 		return
 	else if(adj)
-		setClickCooldown(arms.action_delay)
-		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
+		var/melee_damage = arms.melee_damage
+		var/attack_delay = arms.action_delay
+		SEND_SIGNAL(user, COMSIG_MECH_MELEE_ATTACK, src, &melee_damage, &attack_delay)
+		setClickCooldown(max(1, attack_delay))
+		playsound(src.loc, arms.punch_sound, 45 + 25 * (melee_damage / 50), -1 )
 		if(ismob(A))
 			var/mob/target = A
 			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
 			src.attack_log += "\[[time_stamp()]\]<span class='warning'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
 			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
 			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
-		return A.attack_generic(src, arms.melee_damage, "attacked")
+		return A.attack_generic(src, max(0, melee_damage), "attacked")
 	return
 
 /mob/living/heavy_vehicle/setClickCooldown(var/timeout)
