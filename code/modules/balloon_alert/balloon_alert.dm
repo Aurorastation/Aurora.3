@@ -39,6 +39,10 @@
 	if (isnull(viewer_client))
 		return
 
+	if(!runechat_prefs_check(viewer, is_emote = TRUE))
+		to_chat(viewer, span("emote", "[icon2html(src, viewer)] [src.name]: [text]"))
+		return
+
 	var/bound_width = ICON_SIZE_X
 	if (ismovable(src))
 		var/atom/movable/movable_source = src
