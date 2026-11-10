@@ -292,9 +292,9 @@
 		handle_mod()
 
 	if(capacitor.reliability - capacitor.condition <= 0) //The gun explodes if its capacitor reaches 0 reliability.
-		var/overload_delay = 4 / max(criticality, 0.1)
-		var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
+		var/overload_delay = 5 / max(criticality, 0.1)
 		if(user) //Turrets can also fire modlasers, don't assume there will be a user
+			var/skill_level = (GET_SKILL_LEVEL(user, FIREARMS_SKILL_COMPONENT) + GET_SKILL_LEVEL(user, RESEARCH_SKILL_COMPONENT))
 			switch(skill_level ? skill_level : 6)
 				if(2 to 3)
 					to_chat(user, SPAN_HIGHDANGER("\The [src] hisses ominously!"))
@@ -307,6 +307,9 @@
 					overload_delay *= 4
 					to_chat(user, SPAN_HIGHDANGER("You instantly release the trigger as \the [capacitor]'s housing begins to fail! You have less than [round(overload_delay)] seconds to repair \the [src] or throw it away!"))
 					balloon_alert(user, "fix or throw your gun!")
+		else
+			src.visible_message(SPAN_HIGHDANGER("\The [src] hisses ominously!"))
+			balloon_alert_to_viewers("\The [src] hisses ominously!")
 
 		addtimer(CALLBACK(src, PROC_REF(delayed_overload)), overload_delay SECONDS, TIMER_STOPPABLE|TIMER_DELETE_ME)
 		animate(src, overload_delay SECONDS + rand(-5, 5), -1, LINEAR_EASING, color = COLOR_RED)
