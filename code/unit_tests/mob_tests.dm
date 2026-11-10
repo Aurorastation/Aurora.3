@@ -211,6 +211,36 @@
 	qdel(H)
 	return TRUE
 
+/datum/unit_test/welding_eye_protection
+	name = "MOB: Welding eye protection blocks welding arcs"
+	groups = list("mob")
+
+/datum/unit_test/welding_eye_protection/start_test()
+	var/list/protective_equipment = list(
+		/obj/item/clothing/glasses/welding = slot_glasses,
+		/obj/item/clothing/glasses/aug/welding = slot_glasses,
+		/obj/item/clothing/head/welding = slot_head
+	)
+
+	for(var/equipment_type in protective_equipment)
+		var/mob/living/carbon/human/H = new(pick(GLOB.tdome1))
+		var/obj/item/equipment = new equipment_type(H)
+		if(!H.equip_to_slot_if_possible(equipment, protective_equipment[equipment_type], delete_on_fail = TRUE, disable_warning = TRUE, bypass_blocked_check = TRUE))
+			TEST_FAIL("A human could not equip [equipment_type] for the test.")
+			qdel(H)
+			return TRUE
+
+		// Simulate a camera or zoom state clearing the vision cache. Physical protection must remain effective.
+		H.flash_protection = FLASH_PROTECTION_NONE
+		if(H.flash_act(FLASH_PROTECTION_MAJOR, ignore_inherent = TRUE))
+			TEST_FAIL("A welding arc affected a human wearing [equipment_type].")
+			qdel(H)
+			return TRUE
+		qdel(H)
+
+	TEST_PASS("Welding eye protection blocks welding arcs independently of the equipment vision cache.")
+	return TRUE
+
 // ============================================================================
 
 /proc/create_test_mob_with_mind(var/turf/mobloc = null, var/mobtype = /mob/living/carbon/human, var/add_to_playerlist = FALSE)
