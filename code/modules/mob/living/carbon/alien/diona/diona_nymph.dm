@@ -58,11 +58,13 @@
 	/// Whether the nymph can crawl through vents.
 	var/dionae_vent_crawl = TRUE
 
-
 	var/datum/reagents/metabolism/ingested
 
 	/// Whether they can attach to a host.
 	var/can_attach = TRUE
+
+/mob/living/carbon/alien/diona/can_make_footfall()
+	return FALSE
 
 /mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
 	if(prob(flower_chance))
