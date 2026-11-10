@@ -116,11 +116,18 @@
 
 #define COMSIG_CONTAINER_DRANK "container_drank"
 
+// Cooking Skill Signals
+
+/// Raised against a food item when someone takes a bite out of it: (mob/eater, mob/feeder)
+#define COMSIG_FOOD_EATEN "food_eaten"
+
 // Hydroponics Signals
 /// Signal raised against the harvester of a plant during the Harvest() proc.
 #define COMSIG_PLANT_HARVESTER "plant_harvester"
 /// Signal raised against the plant being harvested during the Harvest() proc.
 #define COMSIG_PLANT_HARVESTED "plant_harvested"
+/// Signal raised against the harvester of a plant for each product spawned by the Harvest() proc: (atom/movable/product, datum/seed/plant)
+#define COMSIG_PLANT_PRODUCT_HARVESTED "plant_product_harvested"
 
 // Armed Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"

@@ -16,21 +16,29 @@
 
 /singleton/skill/cooking
 	name = "Cooking"
-	description = "Users of this skill gain bonuses when harvesting parts from animals."
+	description = "Users of this skill gain bonuses when harvesting parts from animals. " \
+		+ "Food they prepare in cooking appliances is of varying quality, and provides a long lasting morale bonus to anyone who eats it."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
 	component_type = COOKING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from cooking.",
-		SKILL_LEVEL_FAMILIAR = "You gain +1 product when butchering any animal",
-		SKILL_LEVEL_TRAINED = "You gain +2 products when butchering any animal",
-		SKILL_LEVEL_PROFESSIONAL = "You gain +3 products when butchering any animal"
+		SKILL_LEVEL_FAMILIAR = \
+			" - You gain +1 product when butchering any animal.<br>" \
+			+ " - Food you prepare provides a +10 morale modifier that lasts for 2 hours.",
+		SKILL_LEVEL_TRAINED = \
+			" - You gain +2 products when butchering any animal.<br>" \
+			+ " - Food you prepare provides a +15 morale modifier that lasts for 2 hours.",
+		SKILL_LEVEL_PROFESSIONAL = \
+			" - You gain +3 products when butchering any animal.<br>" \
+			+ " - Food you prepare provides a +20 morale modifier that lasts for 2 hours."
 	)
 
 /singleton/skill/gardening
 	name = "Gardening"
-	description = "Users of this skill gain bonuses when harvesting grown plants."
+	description = "Users of this skill gain bonuses when harvesting grown plants. " \
+		+ "Produce grown is of higher quality when made using this skill, and provides larger morale bonuses when used by a skilled cook to prepare meals."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_SERVICE
@@ -39,13 +47,16 @@
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers to gardening.",
 		SKILL_LEVEL_FAMILIAR = \
 			" - You gain +1 produce when harvesting plants.<br>" \
-			+ " - You harvest plants 0.3333 seconds faster",
+			+ " - You harvest plants 0.3333 seconds faster<br>." \
+			+ " - Your produce gives up to +5 morale when used to prepare meals.",
 		SKILL_LEVEL_TRAINED = \
 			" - You gain +2 produce when harvesting plants.<br>" \
-			+ " - You harvest plants 0.6666 seconds faster",
+			+ " - You harvest plants 0.6666 seconds faster<br>" \
+			+ " - Your produce gives up to +10 morale when used to prepare meals.",
 		SKILL_LEVEL_PROFESSIONAL = \
 			" - You gain +3 produce when harvesting plants.<br>" \
-			+ " - You harvest plants 1 second faster."
+			+ " - You harvest plants 1 second faster.<br>" \
+			+ " - Your produce gives up to +15 morale when used to prepare meals.",
 	)
 
 // Temporarily commented because this is a little too complicated to catch in the initial PR release.

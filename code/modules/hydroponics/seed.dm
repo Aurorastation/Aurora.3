@@ -827,11 +827,15 @@
 			total_yield *= 0.5
 
 		for(var/i = 0;i<total_yield;i++)
-			spawn_seed(get_turf(user))
+			var/atom/movable/product = spawn_seed(get_turf(user))
+			// Let components on the harvester modify each individual product, e.g. to mark its quality.
+			SEND_SIGNAL(user, COMSIG_PLANT_PRODUCT_HARVESTED, product, src)
 	return TRUE
 
+/// Spawns a single product of this seed at the given location, and returns it.
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)
+	. = product
 	// Set descriptions
 	if(product_desc)
 		product.desc = product_desc
