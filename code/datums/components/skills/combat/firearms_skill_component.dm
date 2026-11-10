@@ -149,7 +149,7 @@
 				to_chat(shooter, SPAN_NOTICE("You feel you'll be more accurate now after warming up."))
 			if(morale_comp)
 				to_chat(shooter, "<span class='good'>You have refreshed your morale modifier from further firing:</span>" \
-				+ "\n\t - worth [morale_value + 2] points" \
+				+ "\n\t - worth [morale_value + skill_level] points" \
 				+ "\n\t - remaining duration: [minutes] minutes"
 				)
 
