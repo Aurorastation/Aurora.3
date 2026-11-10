@@ -596,7 +596,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && delay && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS)) //Only show a progress bar if it is enabled, has a delay, and there is a client with them turned on to see it.
+	if (display_progress && delay > 0 && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS)) //Only show a progress bar if it is enabled, has a delay, and there is a client with them turned on to see it.
 		var/atom/loc_check = target
 		for(var/i = 0; !isturf(loc_check.loc) && i < 5; i++)
 			loc_check = target.loc
