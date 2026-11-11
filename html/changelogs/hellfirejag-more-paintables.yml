@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "The following can now be painted with a paint gun: Walls, Windows, Window Frames, Computers, Chairs, Windoors, Tables, Grates."
