@@ -159,7 +159,7 @@
 		crystals += attacking_item
 		attacking_item.forceMove(null)
 		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.",
-								SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+								self_message = SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."), visible_message_flags = GHOST_MESSAGE)
 		updateDialog()
 
 	else if(istype(attacking_item, /obj/item/gps))
@@ -169,7 +169,7 @@
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
 			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.",
-									SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
+									self_message = SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."), visible_message_flags = GHOST_MESSAGE)
 
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 

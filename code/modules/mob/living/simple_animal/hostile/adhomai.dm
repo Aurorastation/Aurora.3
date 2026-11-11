@@ -150,13 +150,13 @@
 
 /mob/living/simple_animal/hostile/plasmageist/attack_hand(mob/living/carbon/human/M as mob)
 	M.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	visible_message(SPAN_WARNING("\The [M] tries to touch \the [src]!"))
+	visible_message(SPAN_WARNING("\The [M] tries to touch \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	tesla_zap(M, 5, 5000)
 
 /mob/living/simple_animal/hostile/plasmageist/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(isliving(user))
-		visible_message(SPAN_WARNING("\The [user] tries to touch \the [src]!"))
+		visible_message(SPAN_WARNING("\The [user] tries to touch \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		tesla_zap(user, 5, 5000)
 
 /mob/living/simple_animal/hostile/plasmageist/death(gibbed)

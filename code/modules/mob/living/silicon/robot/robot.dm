@@ -535,10 +535,10 @@
 
 	mopping = !mopping
 	if(mopping)
-		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), self_message = SPAN_NOTICE("You enable your integrated mopping system."), visible_message_flags = GHOST_MESSAGE)
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else
-		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), self_message = SPAN_NOTICE("You disable your integrated mopping system."), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
@@ -649,7 +649,7 @@
 				adjustBruteLoss(-30)
 				updatehealth()
 				add_fingerprint(user)
-				visible_message(SPAN_WARNING("\The [user] has fixed some of the dents on \the [src]!"))
+				visible_message(SPAN_WARNING("\The [user] has fixed some of the dents on \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 				return
 		else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
 			if(!getFireLoss())
@@ -660,12 +660,12 @@
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				adjustFireLoss(-30)
 				updatehealth()
-				visible_message(SPAN_WARNING("\The [user] has fixed some of the burnt wires on \the [src]!"))
+				visible_message(SPAN_WARNING("\The [user] has fixed some of the burnt wires on \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 				return
 		else if(attacking_item.tool_behaviour == TOOL_CROWBAR)	// crowbar means open or close the cover
 			if(opened)
 				if(cell)
-					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
+					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), self_message = SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."), visible_message_flags = GHOST_MESSAGE)
 					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_WARNING("You are too far from \the [src] to close its hatch."))
@@ -678,7 +678,7 @@
 					if(!mmi)
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
 						return
-					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
+					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), self_message = SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."), visible_message_flags = GHOST_MESSAGE)
 					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						to_chat(user, SPAN_NOTICE("You damage some parts of the chassis, but eventually manage to rip out \the [mmi]!"))
 						new /obj/item/robot_parts/robot_suit/equipped(get_turf(src))
@@ -712,7 +712,7 @@
 				if(locked)
 					to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 				else
-					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
+					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), self_message = SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."), visible_message_flags = GHOST_MESSAGE)
 					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_NOTICE("You are too far from \the [src] to open its hatch."))
@@ -756,7 +756,7 @@
 				handle_panel_overlay()
 		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
-			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
+			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), self_message = SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."), visible_message_flags = GHOST_MESSAGE)
 			handle_panel_overlay()
 		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && cell)	// radio
 			if(radio)

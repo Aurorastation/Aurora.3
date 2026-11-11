@@ -2,7 +2,7 @@
 	if(istype(M) && M.a_intent == I_HELP && !stat)
 		if(M.is_diona() && do_merge(M))
 			return
-		M.visible_message(SPAN_NOTICE("[M] pets \the [src]."))
+		M.visible_message(SPAN_NOTICE("[M] pets \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		return
 	else if (stat == DEAD)
 		get_scooped(M) // GET SCOOPED - geeves
@@ -21,7 +21,7 @@
 	else if(H.a_intent == I_GRAB && hat && !(H.l_hand && H.r_hand))
 		hat.forceMove(get_turf(src))
 		H.put_in_hands(hat)
-		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
+		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."), visible_message_flags = GHOST_MESSAGE)
 		hat = null
 		update_icon()
 	else
@@ -34,7 +34,7 @@
 			return
 		user.unEquip(attacking_item)
 		wear_hat(attacking_item)
-		user.visible_message(SPAN_NOTICE("\The [user] puts \the [attacking_item] on \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] puts \the [attacking_item] on \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		return
 	else if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
 		..()

@@ -24,7 +24,8 @@
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
 		user.visible_message(
 			"<b>[user]</b> pours into [target] from [src].",
-			SPAN_NOTICE("You transfer [trans] units of the solution.")
+			self_message = SPAN_NOTICE("You transfer [trans] units of the solution."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		return TRUE
 	if(!target.reagents || !target.reagents.total_volume)
@@ -37,7 +38,8 @@
 	var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
 	user.visible_message(
 		"<b>[user]</b> scoops from [target] with [src].",
-		SPAN_NOTICE("You scoop up [trans] units with [src].")
+		self_message = SPAN_NOTICE("You scoop up [trans] units with [src]."),
+		visible_message_flags = GHOST_MESSAGE
 	)
 	return TRUE
 

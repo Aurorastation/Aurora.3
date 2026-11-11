@@ -96,7 +96,7 @@
 	if(istype(last_found_target, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = last_found_target
 		e.damage_field(rand(1,2))
-		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
+		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"), visible_message_flags = GHOST_MESSAGE)
 		src.do_attack_animation(e)
 		return e
 

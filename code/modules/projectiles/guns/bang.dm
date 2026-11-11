@@ -66,7 +66,7 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 	balloon_alert_to_hearers("*pop*")
 
 	if (user)
-		user.visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"), SPAN_WARNING("A flag pops out of the barrel!"))
+		user.visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"), self_message = SPAN_WARNING("A flag pops out of the barrel!"), visible_message_flags = GHOST_MESSAGE)
 	else
 		visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"))
 
@@ -81,7 +81,7 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 	. = ..()
 	if(fired_gun)
 		user.visible_message(SPAN_NOTICE("\The [user] pushes the flag back into the barrel of \the [src.name]."),
-								SPAN_NOTICE("You push the flag back into the barrel of \the [src.name]."))
+								self_message = SPAN_NOTICE("You push the flag back into the barrel of \the [src.name]."), visible_message_flags = GHOST_MESSAGE)
 		bang_flag.icon_state = "bang_flag_rew"
 		addtimer(CALLBACK(src, PROC_REF(remove_flag)), FRAME_ANIM_TIME)
 		playsound(src.loc, 'sound/weapons/TargetOff.ogg', 50,1)

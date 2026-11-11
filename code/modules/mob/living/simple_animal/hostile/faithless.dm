@@ -56,7 +56,7 @@
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)
-			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"

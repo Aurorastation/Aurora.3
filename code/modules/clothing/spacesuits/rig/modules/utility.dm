@@ -703,8 +703,8 @@
 	// currently on. Which means they want to do a vertical leap upwards!
 	if (dist)
 		H.visible_message(SPAN_WARNING("\The [H] leaps horizontally at \the [T]!"),
-			SPAN_WARNING("You leap horizontally at \the [T]!"),
-			SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"))
+			self_message = SPAN_WARNING("You leap horizontally at \the [T]!"),
+			blind_message = SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"), visible_message_flags = GHOST_MESSAGE)
 		H.face_atom(T)
 		H.throw_at(T, leapDistance, 1, spin = FALSE)
 		return TRUE
@@ -726,7 +726,7 @@
 			to_chat(user, SPAN_WARNING("There is no valid ledge to scale ahead of you!"))
 			return
 
-		H.visible_message(SPAN_NOTICE("\The [H] leaps up, out of view!"), SPAN_NOTICE("You leap up!"))
+		H.visible_message(SPAN_NOTICE("\The [H] leaps up, out of view!"), self_message = SPAN_NOTICE("You leap up!"), visible_message_flags = GHOST_MESSAGE)
 
 		// This setting is necessary even for combat type, to stop you from moving onto
 		// the turf, falling back down, and then getting forcemoved to the final destination.
@@ -737,9 +737,9 @@
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
-			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
+			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), self_message = SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."), visible_message_flags = GHOST_MESSAGE)
 			if (!do_after(H, 4 SECONDS))
-				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
+				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), self_message = SPAN_DANGER("You are interrupted and fall back down!"), visible_message_flags = GHOST_MESSAGE)
 
 				// Climbers will auto-fall if they exit the turf. This is for in case
 				// something else interrupts them.
@@ -749,9 +749,9 @@
 
 				return TRUE
 
-			H.visible_message(SPAN_NOTICE("\The [H] finishes climbing onto \the [valid_climbable]."), SPAN_NOTICE("You finish climbing onto \the [valid_climbable]."))
+			H.visible_message(SPAN_NOTICE("\The [H] finishes climbing onto \the [valid_climbable]."), self_message = SPAN_NOTICE("You finish climbing onto \the [valid_climbable]."), visible_message_flags = GHOST_MESSAGE)
 		else
-			H.visible_message(SPAN_WARNING("\The [H] lands on \the [valid_climbable] with a heavy slam!"), SPAN_WARNING("You land on \the [valid_climbable] with a heavy thud!"))
+			H.visible_message(SPAN_WARNING("\The [H] lands on \the [valid_climbable] with a heavy slam!"), self_message = SPAN_WARNING("You land on \the [valid_climbable] with a heavy thud!"), visible_message_flags = GHOST_MESSAGE)
 
 		// open/Exited() removes from climbers.
 		H.forceMove(leapEnd)
@@ -906,7 +906,7 @@ GLOBAL_LIST_EMPTY(lattice_users)
 		return FALSE
 
 	target = get_turf(target)
-	holder.wearer.visible_message("<b>[user]</b> sprays metal foam at \the [target]!", SPAN_NOTICE("You spray metal foam at \the [target]."))
+	holder.wearer.visible_message("<b>[user]</b> sprays metal foam at \the [target]!", self_message = SPAN_NOTICE("You spray metal foam at \the [target]."), visible_message_flags = GHOST_MESSAGE)
 	var/list/turf_list = getline(user, get_turf(target))
 	turf_list -= turf_list[1] // remove the tile we're on
 	var/counter = spray_distance

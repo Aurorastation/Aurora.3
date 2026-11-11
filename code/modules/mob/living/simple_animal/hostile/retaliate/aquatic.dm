@@ -62,5 +62,5 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/retaliate/aquatic)
 /mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
 		user.gib()
-		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [attacking_item]!"))
+		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 		return TRUE

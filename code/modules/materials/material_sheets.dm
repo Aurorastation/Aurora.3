@@ -295,7 +295,7 @@
 		if(amount < 5)
 			to_chat(user, SPAN_WARNING("You need at least five sheets of steel to do this!"))
 			return
-		user.visible_message("<b>[user]</b> starts carving some steel wool out of \the [src].", SPAN_NOTICE("You start carving some steel wool out of \the [src]."))
+		user.visible_message("<b>[user]</b> starts carving some steel wool out of \the [src].", self_message = SPAN_NOTICE("You start carving some steel wool out of \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 10 SECONDS))
 			if(amount < 5)
 				return
@@ -424,7 +424,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		chopping = TRUE
 		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
-				SPAN_NOTICE("You begin chopping \the [src] into planks."))
+				blind_message = SPAN_NOTICE("You begin chopping \the [src] into planks."))
 		playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
 		if(do_after(user, 70))
 			if(amount && Adjacent(user))
@@ -464,7 +464,7 @@
 /obj/item/stack/material/cloth/attackby(obj/item/attacking_item, mob/user)
 	if(is_sharp(attacking_item))
 		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [attacking_item]."),
-							SPAN_NOTICE("You begin cutting up [src] with [attacking_item]."))
+							self_message = SPAN_NOTICE("You begin cutting up [src] with [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
 			for(var/i in 1 to rand(1,3)) // average of 2 per

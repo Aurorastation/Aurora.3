@@ -95,7 +95,7 @@
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
+	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", self_message = SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."), visible_message_flags = GHOST_MESSAGE)
 	show_content(target_mob)
 
 /obj/item/holowarrant/update_icon()

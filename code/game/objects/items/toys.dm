@@ -82,7 +82,7 @@
 
 /obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
-		src.visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
+		src.visible_message(SPAN_WARNING("\The [src] bursts!"),blind_message = "You hear a pop and a splash.")
 		src.reagents.touch_turf(get_turf(hit_atom))
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.touch(A)
@@ -121,18 +121,18 @@
 /obj/item/toy/balloon/attack_self(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(user.a_intent == I_HELP)
-		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes [src]!"), SPAN_NOTICE("You poke [src]!"))
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes [src]!"), self_message = SPAN_NOTICE("You poke [src]!"), visible_message_flags = GHOST_MESSAGE)
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), self_message = SPAN_WARNING("You punch [src]!"), visible_message_flags = GHOST_MESSAGE)
 	else if (user.a_intent == I_GRAB)
 		if(prob(66))
-			user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to pop [src]!"), SPAN_WARNING("You attempt to pop [src]!"))
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to pop [src]!"), self_message = SPAN_WARNING("You attempt to pop [src]!"), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_WARNING("<b>\The [user]</b> pops [src]!"), SPAN_WARNING("You pop [src]!"))
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> pops [src]!"), self_message = SPAN_WARNING("You pop [src]!"), visible_message_flags = GHOST_MESSAGE)
 			burst()
 	else
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> lightly bats the [src]."),
-								SPAN_NOTICE("You lightly bat the [src]."))
+								self_message = SPAN_NOTICE("You lightly bat the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/toy/balloon/update_icon()
 	switch(status)
@@ -667,7 +667,7 @@
 
 /obj/item/toy/snappop/attack_self(mob/user)
 	user.drop_from_inventory(src)
-	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), SPAN_NOTICE("You throw \the [src] at your feet."))
+	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), self_message = SPAN_NOTICE("You throw \the [src] at your feet."), visible_message_flags = GHOST_MESSAGE)
 	do_pop()
 
 /obj/item/toy/snappop/throw_impact(atom/hit_atom)
@@ -686,7 +686,7 @@
 /obj/item/toy/snappop/proc/do_pop()
 	spark(src, 3, GLOB.alldirs)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
+	visible_message(SPAN_WARNING("\The [src] explodes!"), blind_message = SPAN_WARNING("You hear a snap!"))
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
@@ -1043,15 +1043,15 @@
 	poke_cooldown = world.time + 2 SECONDS
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),
-								SPAN_NOTICE("You hug [src]!"))
+								self_message = SPAN_NOTICE("You hug [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), self_message = SPAN_WARNING("You punch [src]!"), visible_message_flags = GHOST_MESSAGE)
 	else if (user.a_intent == I_GRAB)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"), SPAN_WARNING("You attempt to strangle [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"), self_message = SPAN_WARNING("You attempt to strangle [src]!"), visible_message_flags = GHOST_MESSAGE)
 	else
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes the [src]."),
-								SPAN_NOTICE("You poke the [src]."))
+								self_message = SPAN_NOTICE("You poke the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"")
@@ -1317,22 +1317,26 @@
 	if(user.a_intent == I_HELP)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> pets \the [src]."),
-			SPAN_NOTICE("You pet \the [src].")
+			self_message = SPAN_NOTICE("You pet \the [src]."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 	else if(user.a_intent == I_DISARM)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> squeezes \the [src]."),
-			SPAN_NOTICE("You squeeze \the [src].")
+			self_message = SPAN_NOTICE("You squeeze \the [src]."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 	else if(user.a_intent == I_GRAB)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> hugs \the [src]."),
-			SPAN_NOTICE("You hug \the [src].")
+			self_message = SPAN_NOTICE("You hug \the [src]."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 	else if(user.a_intent == I_HURT)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> pokes \the [src]."),
-			SPAN_NOTICE("You poke \the [src].")
+			self_message = SPAN_NOTICE("You poke \the [src]."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
 		visible_message("<b>\The [src]</b> says, \"[phrase]\"")
@@ -1342,7 +1346,8 @@
 		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
-			SPAN_NOTICE("You extend \the [src]'s legs.")
+			self_message = SPAN_NOTICE("You extend \the [src]'s legs."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		icon_state = "herring_gull"
 		item_state = "herring_gull"
@@ -1350,7 +1355,8 @@
 		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
-			SPAN_NOTICE("You tuck in \the [src]'s legs.")
+			self_message = SPAN_NOTICE("You tuck in \the [src]'s legs."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		icon_state = "herring_gull_lying"
 		item_state = "herring_gull_lying"
@@ -1418,13 +1424,13 @@
 /obj/item/toy/ringbell/attack_hand(mob/user)
 	switch(user.a_intent)
 		if (I_HELP)
-			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), self_message = SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
 		if (I_DISARM)
-			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), self_message = SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
 		if (I_HURT)
-			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), self_message = SPAN_WARNING("You ring \the [src] to signal a disqualification!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
@@ -1487,7 +1493,7 @@
 /obj/item/toy/partypopper/attack_self(mob/user)
 	if(icon_state == "partypopper")
 		spark(src, 1, user.dir)
-		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
+		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), self_message = SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 		icon_state = "partypopper_e"
 		var/turf/T = get_step(src, user.dir)
@@ -1588,15 +1594,15 @@
 	var/volume = 0
 	switch(user.a_intent)
 		if(I_HELP)
-			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), self_message = SPAN_NOTICE("You play with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		if(I_DISARM)
-			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), self_message = SPAN_NOTICE("You squeeze \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			volume = 30
 		if(I_GRAB)
-			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), self_message = SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")), visible_message_flags = GHOST_MESSAGE)
 			volume = 40
 		if(I_HURT)
-			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), self_message = SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")), visible_message_flags = GHOST_MESSAGE)
 			volume = 50
 	if(volume)
 		playsound(src.loc, squeeze_sound, volume, TRUE)
@@ -1636,11 +1642,11 @@
 		return
 
 	if(!(user?.a_intent == I_HELP))
-		user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(2,5)), 1)
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] kicks \the [src]."))
+	user.visible_message(SPAN_NOTICE("[user] kicks \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	throw_at(get_edge_target_turf(user, get_dir(old_loc, src)), base_kick_distance+(rand(1,2)), 1)
 
 /obj/item/toy/football/AltClick(var/mob/user)
@@ -1651,7 +1657,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] has to be on the floor to kick it!"))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] forcefully kicks \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	throw_at(get_edge_target_turf(user, get_dir(user, src)), base_kick_distance+(rand(2,5)), 1)
 
 /obj/item/toy/football/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params) //ripped from box/fancy/tray

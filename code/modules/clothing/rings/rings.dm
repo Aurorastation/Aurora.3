@@ -9,7 +9,7 @@
 	if(!proximity)
 		return
 	if(ishuman(A) && user != A)
-		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."))
+		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), self_message = SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/ring/newgibson_uraniumglass_ring
 	name = "uranium glass ring"

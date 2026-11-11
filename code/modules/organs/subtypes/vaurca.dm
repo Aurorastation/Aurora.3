@@ -171,7 +171,7 @@
 
 	if(owner.stat == DEAD)
 		if(!remote_cast)
-			owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."))
+			owner.visible_message(SPAN_WARNING("[owner]'s corpse spasms suddenly, legs twitching and antennae moving wildly as something hums beneath [owner.get_pronoun("his")] exoskeleton. After a moment, [owner.get_pronoun("he")] goes still."), visible_message_flags = GHOST_MESSAGE)
 			icon_state = "admin_socket_on"
 			desc += "The Emergency Remote Cast light is green, indicating it has been triggered."
 			remote_cast = TRUE
@@ -373,7 +373,7 @@
 	var/obj/icon = src
 
 	if ((istype(attacking_item, /obj/item/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."))
+		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."), visible_message_flags = GHOST_MESSAGE)
 
 		var/pressure = XGM_PRESSURE(air_contents)
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
@@ -663,7 +663,7 @@
 			else
 				H.stun_effect_act(0, 50, DAMAGE_PAIN, target_zone, owner, check_armor = ENERGY)
 
-			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"))
+			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 /obj/item/organ/external/hand/right/vaurca/medical

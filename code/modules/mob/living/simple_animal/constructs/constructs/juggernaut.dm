@@ -39,7 +39,7 @@
 		if(prob(reflectchance))
 			adjustBruteLoss(hitting_projectile.damage * 0.3)
 			visible_message(SPAN_DANGER("\The [hitting_projectile.name] gets reflected by \the [src]'s shell!"), \
-							SPAN_DANGER("\The [hitting_projectile.name] gets reflected by \the [src]'s shell!"))
+							self_message = SPAN_DANGER("\The [hitting_projectile.name] gets reflected by \the [src]'s shell!"), visible_message_flags = GHOST_MESSAGE)
 
 			// Find a turf near or on the original location to bounce to
 			if(hitting_projectile.starting)

@@ -29,7 +29,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message(SPAN_DANGER("\The [src] goes off!"),
-									SPAN_DANGER("\The [src] goes off in your face!"))
+									self_message = SPAN_DANGER("\The [src] goes off in your face!"), visible_message_flags = GHOST_MESSAGE)
 
 			return
 
@@ -373,7 +373,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.mob_size <10)
-				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"), visible_message_flags = GHOST_MESSAGE)
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 4, 4)
 

@@ -44,8 +44,8 @@
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
-					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					"You hear a ratchet")
+					self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
 		anchored = !anchored
 		return TRUE
 	return ..()
@@ -125,7 +125,7 @@
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/dnaforensics/proc/complete_scan()
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
+	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), vision_distance = 2)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()

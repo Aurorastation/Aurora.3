@@ -52,7 +52,7 @@
 				add_fingerprint(user)
 			locked = !locked
 			user.visible_message(SPAN_NOTICE("[user] [locked ? null : "un"]locks \the [src]."),
-									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
+									self_message = SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			update_icon()
 		else if(!silent)
 			to_chat(user, SPAN_NOTICE("Access denied."))
@@ -76,11 +76,11 @@
 		update_icon()
 
 		if(visual_feedback)
-			visible_message(visual_feedback, audible_feedback)
+			visible_message(visual_feedback, blind_message = audible_feedback)
 		else if(user && emag_source)
-			visible_message(SPAN_WARNING("\The [src] has been broken by \the [user] with \an [emag_source]!"), "You hear a faint electrical spark.")
+			visible_message(SPAN_WARNING("\The [src] has been broken by \the [user] with \an [emag_source]!"), blind_message = "You hear a faint electrical spark.")
 		else
-			visible_message(SPAN_WARNING("\The [src] sparks and breaks open!"), "You hear a faint electrical spark.")
+			visible_message(SPAN_WARNING("\The [src] sparks and breaks open!"), blind_message = "You hear a faint electrical spark.")
 		return 1
 
 /obj/structure/closet/proc/verb_togglelock()

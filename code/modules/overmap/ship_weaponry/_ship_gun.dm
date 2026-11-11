@@ -130,11 +130,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.get_fuel() >= 20)
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
-								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
+								self_message = SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 15 SECONDS))
 				set_health(maxhealth)
 				user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! It's not a pretty job, but it'll do."),
-									SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."))
+									self_message = SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."), visible_message_flags = GHOST_MESSAGE)
 				WT.use(20)
 				return TRUE
 			else

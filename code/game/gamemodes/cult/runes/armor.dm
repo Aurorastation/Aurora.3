@@ -5,7 +5,7 @@
 /datum/rune/armor/do_rune_action(mob/living/user, atom/movable/A)
 	user.say("N'ath reth sh'yro eth d'raggathnor!")
 	user.visible_message(SPAN_DANGER("A flash of red light appears around [user], as a set of armor envelops their body!"),
-							SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."))
+							self_message = SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."), visible_message_flags = GHOST_MESSAGE)
 
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user

@@ -436,7 +436,7 @@
 		return
 
 	var/obj/item/organ/external/oopsie = limb_list[chosen_limb]
-	visible_message(SPAN_DANGER("[src] ejects [get_pronoun("his")] [oopsie] with a hiss!"))
+	visible_message(SPAN_DANGER("[src] ejects [get_pronoun("his")] [oopsie] with a hiss!"), visible_message_flags = GHOST_MESSAGE)
 	oopsie.droplimb(TRUE, DROPLIMB_EDGE)
 
 /mob/living/carbon/human/proc/attach_hephaestus_limb()
@@ -467,7 +467,7 @@
 		to_chat(src,SPAN_WARNING("You are missing the appropriate joint to attach that limb!"))
 		return
 
-	visible_message(SPAN_NOTICE("[src] begins attaching \the [limb] to the appropriate joint..."))
+	visible_message(SPAN_NOTICE("[src] begins attaching \the [limb] to the appropriate joint..."), visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(src, 10 SECONDS))
 		return
 
@@ -475,7 +475,7 @@
 	drop_from_inventory(limb)
 	limb.replaced(src)
 
-	visible_message(SPAN_NOTICE("[src] attaches \the [limb] to their body!"))
+	visible_message(SPAN_NOTICE("[src] attaches \the [limb] to their body!"), visible_message_flags = GHOST_MESSAGE)
 	update_body()
 	updatehealth()
 	UpdateDamageIcon()

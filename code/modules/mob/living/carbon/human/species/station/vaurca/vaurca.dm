@@ -204,7 +204,7 @@
 	return FALSE
 
 /datum/species/bug/sleep_msg(var/mob/M)
-	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carapace in place, becoming completely still."))
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carapace in place, becoming completely still."), visible_message_flags = GHOST_MESSAGE)
 	to_chat(M, SPAN_NOTICE("You lock your carapace into place, becoming completely still."))
 
 /datum/species/bug/sleep_examine_msg(var/mob/M)

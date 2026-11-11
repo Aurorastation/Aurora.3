@@ -173,7 +173,7 @@
 		B.pulse(forceLeft - 1, dirs - get_dir(B, src))
 
 /obj/effect/blob/proc/attack_msg(atom/source)
-	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
+	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), self_message = SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
 
 /obj/effect/blob/proc/attack_door(var/obj/structure/machinery/door/D)
@@ -278,10 +278,10 @@
 
 /obj/effect/blob/core/proc/report_shield_status(var/status)
 	if(status == CORE_SHIELD_LOW)
-		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield fails, leaving the nucleus vulnerable!"), 3)
+		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield fails, leaving the nucleus vulnerable!"), blind_message = 3)
 		reported_low_damage = TRUE
 	if(status == CORE_SHIELD_HIGH)
-		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield seems to have fully reformed."), 3)
+		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield seems to have fully reformed."), blind_message = 3)
 		reported_low_damage = FALSE
 
 // Rough icon state changes that reflect the core's health

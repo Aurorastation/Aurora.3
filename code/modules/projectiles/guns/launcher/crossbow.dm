@@ -76,14 +76,14 @@
 /obj/item/gun/launcher/crossbow/unique_action(mob/living/user)
 	if(tension)
 		if(bolt)
-			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string and removes \the [bolt].", SPAN_NOTICE("You relax the tension on \the [src]'s string and remove \the [bolt]."))
+			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string and removes \the [bolt].", self_message = SPAN_NOTICE("You relax the tension on \the [src]'s string and remove \the [bolt]."), visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 			bolt.forceMove(get_turf(src))
 			var/obj/item/arrow/A = bolt
 			bolt = null
 			A.removed(user)
 		else
-			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
+			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", self_message = SPAN_NOTICE("You relax the tension on \the [src]'s string."), visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 		tension = 0
 		update_icon()
@@ -99,12 +99,12 @@
 		return
 
 	current_user = user
-	user.visible_message("<b>[user]</b> begins to draw back the string of \the [src].", SPAN_NOTICE("You begin to draw back the string of \the [src]."))
+	user.visible_message("<b>[user]</b> begins to draw back the string of \the [src].", self_message = SPAN_NOTICE("You begin to draw back the string of \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	tension = 1
 
 	while(bolt && tension && loc == current_user)
 		if(!do_after(user, draw_time)) //crossbow strings don't just magically pull back on their own.
-			user.visible_message("<b>[user]</b> stops drawing and relaxes the string of \the [src].", SPAN_WARNING("You stop drawing back and relax the string of \the [src]."))
+			user.visible_message("<b>[user]</b> stops drawing and relaxes the string of \the [src].", self_message = SPAN_WARNING("You stop drawing back and relax the string of \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 			tension = 0
 			update_icon()
@@ -123,7 +123,7 @@
 			to_chat(usr, SPAN_NOTICE("\The [src] clunks as you draw the string to its maximum tension!"))
 			return
 
-		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", SPAN_NOTICE("You continue drawing back the string of \the [src]!"))
+		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", self_message = SPAN_NOTICE("You continue drawing back the string of \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, 'sound/weapons/reload_clip.ogg', 50, FALSE)
 
 /obj/item/gun/launcher/crossbow/attackby(obj/item/attacking_item, mob/user)
@@ -131,7 +131,7 @@
 		if (istype(attacking_item, /obj/item/arrow))
 			user.drop_from_inventory(attacking_item, src)
 			bolt = attacking_item
-			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", SPAN_NOTICE("You slide \the [bolt] into \the [src]."))
+			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", self_message = SPAN_NOTICE("You slide \the [bolt] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			update_icon()
 			if(istype(attacking_item, /obj/item/arrow/rod) && attacking_item.throwforce < 15)
 				// un-heated converted arrow rod
@@ -144,7 +144,7 @@
 				bolt.fingerprintslast = src.fingerprintslast
 				bolt.forceMove(src)
 				update_icon()
-				user.visible_message("<b>[user]</b> jams \the [bolt] into \the [src].", SPAN_NOTICE("You jam \the [bolt] into \the [src]."))
+				user.visible_message("<b>[user]</b> jams \the [bolt] into \the [src].", self_message = SPAN_NOTICE("You jam \the [bolt] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				superheat_rod(user)
 			return
 
@@ -316,7 +316,7 @@
 
 /obj/item/gun/launcher/crossbow/RFD/unique_action(mob/living/user as mob)
 	if(tension)
-		user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
+		user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", self_message = SPAN_NOTICE("You relax the tension on \the [src]'s string."), visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 		tension = 0
 		update_icon()

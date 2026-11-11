@@ -50,7 +50,7 @@
 	if(prob(25) && buckled) //has a chance of being thrown off when it explodes
 		if(ishuman(buckled))
 			var/mob/living/carbon/human/C = buckled
-			C.visible_message(SPAN_DANGER ("\The [C] is thrown off from \the [src]!"))
+			C.visible_message(SPAN_DANGER ("\The [C] is thrown off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			unload(C)
 			C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 			C.apply_effect(2, WEAKEN)

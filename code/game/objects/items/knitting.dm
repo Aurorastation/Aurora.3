@@ -97,7 +97,7 @@
 		return
 	var/type_path = name2knit[knit_name]
 
-	user.visible_message("<b>[user]</b> begins knitting something soft and cozy.")
+	user.visible_message("<b>[user]</b> begins knitting something soft and cozy.", visible_message_flags = GHOST_MESSAGE)
 	working = TRUE
 	update_icon()
 
@@ -114,7 +114,7 @@
 	ball = null
 	working = FALSE
 	update_icon()
-	user.visible_message("<b>[user]</b> finishes working on \the [S].")
+	user.visible_message("<b>[user]</b> finishes working on \the [S].", visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/yarn
 	name = "ball of yarn"

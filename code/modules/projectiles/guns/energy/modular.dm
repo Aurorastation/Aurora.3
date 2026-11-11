@@ -504,8 +504,9 @@
 	if(chargetime)
 		user.visible_message(
 						SPAN_DANGER("\The [user] begins charging the [src]!"),
-						SPAN_DANGER("You begin charging the [src]!"),
-						SPAN_DANGER("You hear a low pulsing roar!")
+						self_message = SPAN_DANGER("You begin charging the [src]!"),
+						blind_message = SPAN_DANGER("You hear a low pulsing roar!"),
+						visible_message_flags = GHOST_MESSAGE
 						)
 		is_charging = 1
 

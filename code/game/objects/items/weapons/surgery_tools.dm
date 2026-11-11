@@ -299,7 +299,7 @@
 	if(..() && contents.len)
 		spill(3, get_turf(target_mob))
 		playsound(target_mob, SFX_TRAY_HIT, 50, 1)  //sound playin' again
-		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"))
+		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
 	..()

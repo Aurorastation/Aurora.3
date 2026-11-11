@@ -79,13 +79,13 @@
 
 	interacting += user
 
-	user.visible_message(SPAN_NOTICE("\The [user] begins assembling \the [src]'s [stage_to_do]."))
+	user.visible_message(SPAN_NOTICE("\The [user] begins assembling \the [src]'s [stage_to_do]."), visible_message_flags = GHOST_MESSAGE)
 	stages[stage_to_do] = STAGE_PROGRESS
 	if(!do_after(user, assembly_time_per_stage))
 		stages[stage_to_do] = STAGE_DISASSEMBLED
 		interacting -= user
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] finishes assembling the [stage_to_do]."))
+	user.visible_message(SPAN_NOTICE("\The [user] finishes assembling the [stage_to_do]."), visible_message_flags = GHOST_MESSAGE)
 	stages[stage_to_do] = STAGE_ASSEMBLED
 
 	interacting -= user
@@ -130,13 +130,13 @@
 
 	interacting += user
 
-	user.visible_message(SPAN_NOTICE("\The [user] begins disassembling \the [src]'s [stage_to_do]."))
+	user.visible_message(SPAN_NOTICE("\The [user] begins disassembling \the [src]'s [stage_to_do]."), visible_message_flags = GHOST_MESSAGE)
 	stages[stage_to_do] = STAGE_PROGRESS
 	if(!do_after(user, disassembly_time_per_stage))
 		stages[stage_to_do] = STAGE_ASSEMBLED
 		interacting -= user
 		return FALSE
-	user.visible_message(SPAN_NOTICE("\The [user] finishes disassembling the [stage_to_do]."))
+	user.visible_message(SPAN_NOTICE("\The [user] finishes disassembling the [stage_to_do]."), visible_message_flags = GHOST_MESSAGE)
 	stages[stage_to_do] = STAGE_DISASSEMBLED
 
 	interacting -= user

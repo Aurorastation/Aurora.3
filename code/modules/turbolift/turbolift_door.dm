@@ -38,7 +38,7 @@
 					if(!(locate(/obj/structure/machinery/door/airlock/lift) in dest))
 						if(LM.Move(dest))
 							moved = 1
-							LM.visible_message("\The [LM] scurries away from the closing doors.")
+							LM.visible_message("\The [LM] scurries away from the closing doors.", visible_message_flags = GHOST_MESSAGE)
 							break
 				if(!moved) // nowhere to go....
 					LM.gib()

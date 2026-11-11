@@ -125,15 +125,15 @@
 			return
 
 		if((key.key_data != registration_plate))
-			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", self_message = "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.", visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", self_message = "You turn \a [key] in the ignition of \the [src], and it beeps happily.", visible_message_flags = GHOST_MESSAGE)
 			turn_on()
-			src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+			src.visible_message("\The [src] rumbles to life.", blind_message = "You hear something rumble deeply.")
 			playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
 	else
 		turn_off()
-		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+		src.visible_message("\The [src] putters before turning off.", blind_message = "You hear something putter slowly.")
 
 /obj/vehicle/bike/AltClick(var/mob/user)
 	if(Adjacent(user))
@@ -146,7 +146,7 @@
 		return
 
 	if(kickstand)
-		user.visible_message("\The [user] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts up \the [src]'s kickstand.", self_message = "You put up \the [src]'s kickstand.", blind_message = "You hear a thunk.", visible_message_flags = GHOST_MESSAGE)
 		playsound(src, 'sound/machines/vehicles/bike_stand_up.ogg', 50, 1)
 	else
 		if(isturf(loc))
@@ -154,7 +154,7 @@
 			if (T.is_hole)
 				to_chat(user, SPAN_WARNING("You don't think kickstands work here."))
 				return
-		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
+		user.visible_message("\The [user] puts down \the [src]'s kickstand.", self_message = "You put down \the [src]'s kickstand.", blind_message = "You hear a thunk.", visible_message_flags = GHOST_MESSAGE)
 
 		playsound(src, 'sound/machines/vehicles/bike_stand_down.ogg', 50, 1)
 		if(ismob(pulledby))
@@ -189,7 +189,7 @@
 		if(on)
 			toggle_engine(user)
 	else if(user != load && load)
-		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
+		user.visible_message("[user] starts to unbuckle [load] from \the [src]!", visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
@@ -326,14 +326,14 @@
 				if(V.buckled)
 					if(ishuman(V.buckled))
 						var/mob/living/carbon/human/I = V.buckled
-						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
+						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"), visible_message_flags = GHOST_MESSAGE)
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
 				if(prob(25))
 					if(ishuman(buckled))
 						var/mob/living/carbon/human/C = buckled
-						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"))
+						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 						unload(C)
 						C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 						C.apply_effect(2, WEAKEN)

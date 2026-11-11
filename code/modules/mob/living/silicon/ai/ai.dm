@@ -792,20 +792,20 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
+			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."), visible_message_flags = GHOST_MESSAGE)
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
+			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			anchored = FALSE
 			exit_vr()
 			return
 		else
-			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
+			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..", visible_message_flags = GHOST_MESSAGE)
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"))
+			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			anchored = 1
 			return
 	else

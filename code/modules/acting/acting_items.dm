@@ -13,7 +13,7 @@
 		active = 0
 		spawn(30)
 			new /obj/item/storage/box/syndie_kit/chameleon(src.loc)
-			src.visible_message("\The [src] beeps, dispensing a small box onto the floor.", "You hear a beeping sound followed by a thumping noise of some kind.")
+			src.visible_message("\The [src] beeps, dispensing a small box onto the floor.", blind_message = "You hear a beeping sound followed by a thumping noise of some kind.")
 			active = 1
 
 /obj/structure/machinery/acting/changer

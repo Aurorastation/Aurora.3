@@ -33,7 +33,7 @@
 	..()
 	new/obj/effect/decal/cleanable/egg_smudge(src.loc)
 	src.reagents.splash(hit_atom, reagents.total_volume)
-	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), SPAN_WARNING("You hear a smack."))
+	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), blind_message = SPAN_WARNING("You hear a smack."))
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/attacking_item, mob/user)

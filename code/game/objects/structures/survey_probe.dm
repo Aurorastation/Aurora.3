@@ -52,14 +52,16 @@
 		if(!anchored)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),
-				SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
+				self_message = SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
+				visible_message_flags = GHOST_MESSAGE,
 				)
 			attacking_item.play_tool_sound(user, 30)
 			deploy()
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
-				SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
+				self_message = SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
+				visible_message_flags = GHOST_MESSAGE,
 				)
 			attacking_item.play_tool_sound(user, 30)
 			undeploy()
@@ -72,7 +74,8 @@
 	if(anchored)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] activates \the [src], starting the surveying process."),
-			SPAN_NOTICE("You activate \the [src], starting the surveying process."),
+			self_message = SPAN_NOTICE("You activate \the [src], starting the surveying process."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 		timer_id = addtimer(CALLBACK(src, PROC_REF(survey_end)), 20 SECONDS)
 		icon_state = "[initial(icon_state)]_active"

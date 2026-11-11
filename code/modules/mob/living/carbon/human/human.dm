@@ -554,7 +554,7 @@
 			if(7)//snowflake arc - only happens when they have long hair.
 				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_HEAD)
 				h_style = "skinhead"
-				visible_message(SPAN_WARNING("[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), SPAN_DANGER("your hair burns as the current flows through it, turning to dust!"), SPAN_NOTICE("You hear a crackling sound, and smell burned hair!."))
+				visible_message(SPAN_WARNING("[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), self_message = SPAN_DANGER("your hair burns as the current flows through it, turning to dust!"), blind_message = SPAN_NOTICE("You hear a crackling sound, and smell burned hair!."), visible_message_flags = GHOST_MESSAGE)
 				update_hair()
 	else
 		damage_areas = list(def_zone)
@@ -595,8 +595,9 @@
 	if (shock_damage > 15)
 		visible_message(
 		SPAN_WARNING("[src] was shocked by the [source]!"),
-		SPAN_DANGER("You feel a powerful shock course through your body!"),
-		SPAN_WARNING("You hear a heavy electrical crack.")
+		self_message = SPAN_DANGER("You feel a powerful shock course through your body!"),
+		blind_message = SPAN_WARNING("You hear a heavy electrical crack."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
@@ -604,8 +605,9 @@
 	else
 		visible_message(
 		SPAN_WARNING("[src] was mildly shocked by the [source]."),
-		SPAN_WARNING("You feel a mild shock course through your body."),
-		SPAN_WARNING("You hear a light zapping.")
+		self_message = SPAN_WARNING("You feel a mild shock course through your body."),
+		blind_message = SPAN_WARNING("You hear a light zapping."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 
 	spark(loc, 5, GLOB.alldirs)
@@ -1009,7 +1011,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
+		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), self_message = SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), blind_message = SPAN_WARNING("You hear a spooky xylophone melody."), visible_message_flags = GHOST_MESSAGE)
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -1063,10 +1065,10 @@
 
 	var/obj/effect/decal/cleanable/vomit/splat
 	if(vomitReceptacle)
-		src.visible_message(SPAN_WARNING("[src] vomits into \the [vomitReceptacle]!"), SPAN_WARNING("You vomit into \the [vomitReceptacle]!"))
+		src.visible_message(SPAN_WARNING("[src] vomits into \the [vomitReceptacle]!"), self_message = SPAN_WARNING("You vomit into \the [vomitReceptacle]!"), visible_message_flags = GHOST_MESSAGE)
 		splat = new /obj/effect/decal/cleanable/vomit(vomitReceptacle)
 	else
-		src.visible_message(SPAN_WARNING("\The [src] vomits!"), SPAN_WARNING("You vomit!"))
+		src.visible_message(SPAN_WARNING("\The [src] vomits!"), self_message = SPAN_WARNING("You vomit!"), visible_message_flags = GHOST_MESSAGE)
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			splat = new /obj/effect/decal/cleanable/vomit(location)
@@ -1117,7 +1119,7 @@
 		if(incapacitated())
 			to_chat(src, SPAN_WARNING("You cannot do that right now."))
 			return
-		visible_message(SPAN_WARNING("\The [src] retches a bit..."))
+		visible_message(SPAN_WARNING("\The [src] retches a bit..."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(src, 30))
 			return
 		timevomit = max(timevomit, 5)
@@ -1230,7 +1232,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
+	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), self_message = SPAN_NOTICE("You change your appearance!"), blind_message = SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1503,10 +1505,10 @@
 
 	if(!self)
 		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts [usr.get_pronoun("his")] hand on [src]'s wrist and begins counting their pulse."),\
-		"You begin counting [src]'s pulse")
+		self_message = "You begin counting [src]'s pulse", visible_message_flags = GHOST_MESSAGE)
 	else
 		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
-		"You begin counting your pulse.")
+		self_message = "You begin counting your pulse.", visible_message_flags = GHOST_MESSAGE)
 
 	if(pulse())
 		to_chat(usr, SPAN_NOTICE("[self ? "You have a" : "[src] has a"] pulse! Counting..."))
@@ -1754,9 +1756,9 @@
 	else if (handle_coverage)
 		. *= get_bp_coverage(target_zone)
 		if(isvaurca(src) && . == SUIT_INJECTION_MOD)
-			user.visible_message("<b>[user]</b> begins hunting for an injection port on \the [src]'s carapace.")
+			user.visible_message("<b>[user]</b> begins hunting for an injection port on \the [src]'s carapace.", visible_message_flags = GHOST_MESSAGE)
 		else if(. >= SUIT_INJECTION_MOD)
-			user.visible_message("<b>[user]</b> begins hunting for \the [src]'s injection port.")
+			user.visible_message("<b>[user]</b> begins hunting for \the [src]'s injection port.", visible_message_flags = GHOST_MESSAGE)
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed skin nor thin material on \the [affecting.loc]'s [target_zone] to inject into."
@@ -1902,10 +1904,10 @@
 
 	if(self)
 		U.visible_message(SPAN_WARNING("[U] tries to relocate their [current_limb.joint]..."), \
-		SPAN_WARNING("You brace yourself to relocate your [current_limb.joint]..."))
+		self_message = SPAN_WARNING("You brace yourself to relocate your [current_limb.joint]..."), visible_message_flags = GHOST_MESSAGE)
 	else
 		U.visible_message(SPAN_WARNING("[U] tries to relocate [S]'s [current_limb.joint]..."), \
-		SPAN_WARNING("You begin to relocate [S]'s [current_limb.joint]..."))
+		self_message = SPAN_WARNING("You begin to relocate [S]'s [current_limb.joint]..."), visible_message_flags = GHOST_MESSAGE)
 
 	if(!do_after(U, 30))
 		return
@@ -1914,11 +1916,11 @@
 
 	if(self)
 		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
-		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
+		self_message = SPAN_DANGER("You pop your [current_limb.joint] back in!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	else
 		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
-		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
+		self_message = SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, SFX_FRACTURE, 50, 1, -2)
 	current_limb.undislocate()
 
@@ -2153,9 +2155,9 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
 		if(!nervous_system_failure())
-			visible_message("<b>[src]</b> jerks and gasps for breath!")
+			visible_message("<b>[src]</b> jerks and gasps for breath!", visible_message_flags = GHOST_MESSAGE)
 		else
-			visible_message("<b>[src]</b> twitches a bit as [get_pronoun("his")] heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as [get_pronoun("his")] heart restarts!", visible_message_flags = GHOST_MESSAGE)
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -2343,7 +2345,7 @@
 		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src, T)
-			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
+			visible_message(SPAN_NOTICE("[src] looks up."), self_message = SPAN_NOTICE("You look up."), visible_message_flags = GHOST_MESSAGE)
 			reset_view(z_eye)
 			return
 		to_chat(src, SPAN_NOTICE("You can see \the [above ? above : "ceiling"]."))
@@ -2363,14 +2365,14 @@
 			return
 		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(T, src, T)
-			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
+			visible_message(SPAN_NOTICE("[src] looks below."), self_message = SPAN_NOTICE("You look below."), visible_message_flags = GHOST_MESSAGE)
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
 			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(T, src, T)
-				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
+				visible_message(SPAN_NOTICE("[src] leans over to look below."), self_message = SPAN_NOTICE("You lean over to look below."), visible_message_flags = GHOST_MESSAGE)
 				reset_view(z_eye)
 				return
 		to_chat(src, SPAN_NOTICE("You can see \the [T ? T : "floor"]."))

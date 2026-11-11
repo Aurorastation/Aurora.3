@@ -161,27 +161,27 @@
 		if (100 to 249) //Minor Dose
 			if (warning_threshold < 1)
 				warning_threshold++
-				visible_message(SPAN_NOTICE("\The [src] chimes a notice: Minor dose recieved."), range = 1)
+				visible_message(SPAN_NOTICE("\The [src] chimes a notice: Minor dose recieved."), vision_distance = 1)
 				playsound(src, 'sound/machines/buzz-two.ogg', vol = 20, falloff_exponent = 2)
 		if (250 to 499) //Moderate Dose
 			if (warning_threshold < 2)
 				warning_threshold++
-				visible_message(SPAN_WARNING("\The [src] chimes a warning: Moderate dose recieved. Exit radiological zone."), range = 2)
+				visible_message(SPAN_WARNING("\The [src] chimes a warning: Moderate dose recieved. Exit radiological zone."), vision_distance = 2)
 				playsound(src, 'sound/machines/buzz-two.ogg', vol = 40, falloff_exponent = 2)
 		if (500 to 749) //Major Dose
 			if (warning_threshold < 3)
 				warning_threshold++
-				visible_message(SPAN_WARNING("\The [src] beeps an alert: Major dose recieved. Exit radiological zone promptly, seek medical attention."), range = 3)
+				visible_message(SPAN_WARNING("\The [src] beeps an alert: Major dose recieved. Exit radiological zone promptly, seek medical attention."), vision_distance = 3)
 				playsound(src, 'sound/machines/buzz-two.ogg', vol = 60, falloff_exponent = 2)
 		if (750 to 998) //Deadly Dose
 			if (warning_threshold < 4)
 				warning_threshold++
-				visible_message(SPAN_DANGER("\The [src] buzzes urgently: Extreme dose recieved! Exit radiological zone immediately, seek urgent medical attention!" ), range = 5)
+				visible_message(SPAN_DANGER("\The [src] buzzes urgently: Extreme dose recieved! Exit radiological zone immediately, seek urgent medical attention!" ), vision_distance = 5)
 				playsound(src, 'sound/machines/airalarm.ogg', vol = 60, falloff_exponent = 2)
 		if (999 to INFINITY) //Max Dose
 			if (warning_threshold < 5)
 				warning_threshold++
-				visible_message(SPAN_DANGER("\The [src]'s siren screams: FATAL DOSE RECIEVED! RUN FROM RADIOLOGICAL ZONE! LIFE EXPECTANCY WITHOUT TREATMENT IS MINUTES!"), range = 7)
+				visible_message(SPAN_DANGER("\The [src]'s siren screams: FATAL DOSE RECIEVED! RUN FROM RADIOLOGICAL ZONE! LIFE EXPECTANCY WITHOUT TREATMENT IS MINUTES!"), vision_distance = 7)
 				playsound(src, 'sound/machines/airalarm.ogg', vol = 80, falloff_exponent = 2)
 
 /obj/item/geiger/dosimeter/update_icon()

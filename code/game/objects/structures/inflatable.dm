@@ -124,7 +124,7 @@
 		return
 
 	if(attacking_item.can_puncture())
-		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"))
+		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), self_message = SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 		deflate(TRUE)
 	else if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 		hit(attacking_item.force)
@@ -191,10 +191,10 @@
 	health -= damage
 	user.do_attack_animation(src)
 	if(health <= 0)
-		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"))
+		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		INVOKE_ASYNC(src, PROC_REF(deflate), TRUE)
 	else
-		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"))
+		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"), visible_message_flags = GHOST_MESSAGE)
 	return TRUE
 
 /obj/structure/inflatable/door //Based on mineral door code

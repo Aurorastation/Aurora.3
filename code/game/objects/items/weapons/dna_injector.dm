@@ -106,7 +106,7 @@
 	if(inuse)
 		return 0
 
-	user.visible_message(SPAN_DANGER("\The [user] is trying to inject \the [target_mob] with \the [src]!"))
+	user.visible_message(SPAN_DANGER("\The [user] is trying to inject \the [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	inuse = 1
 	s_time = world.time
 	spawn(50)
@@ -118,7 +118,7 @@
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(target_mob)
 
-	target_mob.visible_message(SPAN_DANGER("\The [target_mob] has been injected with \the [src] by \the [user]."))
+	target_mob.visible_message(SPAN_DANGER("\The [target_mob] has been injected with \the [src] by \the [user]."), visible_message_flags = GHOST_MESSAGE)
 
 	var/mob/living/carbon/human/H = target_mob
 	if(!istype(H))

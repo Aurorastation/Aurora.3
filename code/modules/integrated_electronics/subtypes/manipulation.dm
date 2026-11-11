@@ -188,7 +188,7 @@
 		if(attached_grenade)
 			to_chat(user, SPAN_WARNING("There is already a grenade attached!"))
 		else if(user.unEquip(G, force = 1))
-			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), SPAN_NOTICE("You attach \the [G] to \the [src]."))
+			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), self_message = SPAN_NOTICE("You attach \the [G] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -196,7 +196,7 @@
 
 /obj/item/integrated_circuit/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."))
+		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), self_message = SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		user.put_in_any_hand_if_possible(attached_grenade) || attached_grenade.dropInto(loc)
 		detach_grenade()
 	else
@@ -518,7 +518,7 @@
 			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", self_message = SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."), visible_message_flags = GHOST_MESSAGE)
 		user.drop_item(src)
 		LAZYADD(crystals, attacking_item)
 		attacking_item.forceMove(null)
@@ -1044,7 +1044,7 @@
 
 	var/atom/movable/AM = get_object()
 	if(AM)
-		AM.visible_message("\The [AM] stops pulling \the [pulling].")
+		AM.visible_message("\The [AM] stops pulling \the [pulling].", visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))
 
 	pulling = null
 	set_pin_data(IC_OUTPUT, 1, FALSE)
@@ -1148,7 +1148,7 @@
 		controlling = L
 		card.forceMove(src)
 		aicard = card
-		user.visible_message("\The [user] loads \the [card] into \the [src]'s device slot.")
+		user.visible_message("\The [user] loads \the [card] into \the [src]'s device slot.", visible_message_flags = GHOST_MESSAGE)
 		to_chat(L, SPAN_NOTICE("### IICC FIRMWARE LOADED ###"))
 
 /obj/item/integrated_circuit/manipulation/ai/proc/unload_ai()

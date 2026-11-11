@@ -66,7 +66,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/match/attack_self(mob/user)
 	var/turf/location = get_turf(src)
 	new /obj/effect/decal/cleanable/ash(location)
-	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", range = 3)
+	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 	qdel(src)
 
 /obj/item/flame/match/process()
@@ -84,7 +84,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/attack_self(mob/user as mob)
 	if(lit)
-		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", range = 3)
+		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		die(TRUE)
 	return ..()
 
@@ -92,7 +92,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 	if(attacking_item.isFlameSource() && !src.lit)
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
-		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", range = 3)
+		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		light()
 
 /obj/item/flame/match/dropped(mob/user)
@@ -357,7 +357,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			return 1
 		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
 			last_drag = world.time
-			H.visible_message(SPAN_NOTICE("[H.name] takes a drag of their [name]."))
+			H.visible_message(SPAN_NOTICE("[H.name] takes a drag of their [name]."), visible_message_flags = GHOST_MESSAGE)
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			reagents.trans_to_mob(H, (rand(5,10)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
@@ -380,11 +380,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit)
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), self_message = SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(TRUE, TRUE)
 	else // Cigarette packing. For compulsive smokers.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), self_message = SPAN_NOTICE("You tap \the [src] against your palm."), visible_message_flags = GHOST_MESSAGE)
 	return ..()
 
 
@@ -632,7 +632,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
 	if(lit == TRUE)
-		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), SPAN_NOTICE("You put out [src]."))
+		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), self_message = SPAN_NOTICE("You put out [src]."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		lit = 0
 		icon_state = icon_off
@@ -640,7 +640,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		STOP_PROCESSING(SSprocessing, src)
 	else if (burn_rate)
 		var/turf/location = get_turf(user)
-		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), SPAN_NOTICE("You empty out [src]."))
+		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), self_message = SPAN_NOTICE("You empty out [src]."), visible_message_flags = GHOST_MESSAGE)
 		new /obj/effect/decal/cleanable/ash(location)
 		burn_rate = 0
 		reagents.clear_reagents()
@@ -946,23 +946,23 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			if(istype(src, /obj/item/flame/lighter/zippo))
 				if(last_open <= world.time - 20) //Spam limiter.
 					last_open = world.time
-					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
+					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 			else // cheap lighter.
 				if(prob(95))
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
-						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
+						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 				else
 					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
-						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
+						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"), visible_message_flags = GHOST_MESSAGE)
 					if(user.l_hand == src)
 						user.apply_damage(2, DAMAGE_BURN,BP_L_HAND)
 					else
 						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
-						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		else
 			lit = FALSE
 			update_icon()
@@ -970,9 +970,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			if(last_close <= world.time - 20) //Spam limiter.
 				last_close = world.time
 				if(istype(src, /obj/item/flame/lighter/zippo))
-					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 				else
-					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
+					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 
 			set_light_on(FALSE)
 			STOP_PROCESSING(SSprocessing, src)
@@ -998,7 +998,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		return
 
 	if(lit && M.IgniteMob())
-		M.visible_message(SPAN_DANGER("\The [user] ignites \the [M] with \the [src]!"))
+		M.visible_message(SPAN_DANGER("\The [user] ignites \the [M] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == BP_MOUTH && lit)
 		var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
@@ -1006,10 +1006,10 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			cig.attackby(src, user)
 		else
 			var/response = ""
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), self_message = SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."), visible_message_flags = GHOST_MESSAGE)
 			response = tgui_alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", list("Accept", "Decline"))
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."), visible_message_flags = GHOST_MESSAGE)
 				return
 			if(!M.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance to do that."))
@@ -1026,7 +1026,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	. = ..()
 	var/mob/living/carbon/M = hit_atom
 	if(istype(M) && lit && M.IgniteMob())
-		M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
+		M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/flame/lighter/process()
 	var/turf/location = get_turf(src)
@@ -1036,7 +1036,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	if(lit && prob(10) && isliving(src.loc))
 		var/mob/living/M = src.loc
 		if(M.IgniteMob())
-			M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	if (istype(loc, /obj/item/storage))//A lighter shouldn't stay lit inside a closed container
 		lit = 0
@@ -1155,7 +1155,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			to_chat(user, SPAN_WARNING("\The [src] is lit already!"))
 			return
 		if(user.unEquip(attacking_item))
-			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), self_message = SPAN_NOTICE("You stick a cigarette filter into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
 			filter = TRUE
 			name = "filtered [name]"

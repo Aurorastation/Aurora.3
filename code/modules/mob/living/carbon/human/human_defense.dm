@@ -16,7 +16,7 @@ emp_act
 	if(!MOB_IS_INCAPACITATED(INCAPACITATION_DISABLED))
 		var/deflection_chance = check_martial_deflection_chance()
 		if(prob(deflection_chance))
-			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [hitting_projectile]!"), SPAN_NOTICE("You deftly dodge \the [hitting_projectile]!"))
+			visible_message(SPAN_WARNING("\The [src] deftly dodges \the [hitting_projectile]!"), self_message = SPAN_NOTICE("You deftly dodge \the [hitting_projectile]!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(src, SFX_BULLET_MISS, 75, TRUE)
 			return BULLET_ACT_FORCE_PIERCE
 
@@ -75,10 +75,10 @@ emp_act
 
 				drop_from_inventory(c_hand)
 				if (affected.status & ORGAN_ROBOT)
-					visible_message("<b>[src]</b> drops what they were holding, their [affected.name] malfunctioning!")
+					visible_message("<b>[src]</b> drops what they were holding, their [affected.name] malfunctioning!", visible_message_flags = GHOST_MESSAGE)
 				else
 					var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-					visible_message("<b>[src]</b> [(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!")
+					visible_message("<b>[src]</b> [(!can_feel_pain()) ? "" : emote_scream ]drops what they were holding in their [affected.name]!", visible_message_flags = GHOST_MESSAGE)
 
 	..(stun_after_armor, agony_after_armor, damage_type, def_zone, used_weapon, damage_flags)
 
@@ -199,7 +199,7 @@ emp_act
 		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
 		for(var/obj/item/grab/G in holding)
 			if(G.affecting && prob(holding[G]) && G.affecting != user)
-				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
+				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), self_message = SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"), visible_message_flags = GHOST_MESSAGE)
 				return G.affecting
 	return src
 
@@ -216,7 +216,7 @@ emp_act
 		target_zone = user.zone_sel.selecting
 
 	if(!hit_zone)
-		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))
+		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"), visible_message_flags = GHOST_MESSAGE)
 		return
 
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]") != BULLET_ACT_HIT)
@@ -234,7 +234,7 @@ emp_act
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
 
-	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!"))
+	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!"), visible_message_flags = GHOST_MESSAGE)
 	return standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
 /mob/living/carbon/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
@@ -271,7 +271,7 @@ emp_act
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
-					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
+					visible_message(SPAN_DANGER("[src] [species.knockout_message]"), visible_message_flags = GHOST_MESSAGE)
 					apply_effect(20, PARALYZE, GLOB.blocked)
 
 		//Apply blood
@@ -322,7 +322,7 @@ emp_act
 
 	var/blocked_ratio = get_blocked_ratio(organ.limb_name, W.damtype, W.damage_flags(), W.armor_penetration, W.force)
 	if(prob(W.force * (1 - blocked_ratio)))
-		visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
+		visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"), visible_message_flags = GHOST_MESSAGE)
 		organ.dislocate(1)
 		return 1
 	return 0
@@ -348,7 +348,7 @@ emp_act
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
-					visible_message(SPAN_WARNING("[src] catches [O]!"))
+					visible_message(SPAN_WARNING("[src] catches [O]!"), visible_message_flags = GHOST_MESSAGE)
 					throw_mode_off()
 					return
 
@@ -377,7 +377,7 @@ emp_act
 				zone = null
 
 		if(!zone)
-			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
@@ -385,7 +385,7 @@ emp_act
 		var/hit_area = affecting.name
 
 		src.visible_message(SPAN_WARNING("[src] has been hit in the [hit_area] by [O]."),
-							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
+							self_message = SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"), visible_message_flags = GHOST_MESSAGE)
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
 		if(ismob(O.throwing?.thrower?.resolve()))
@@ -428,7 +428,7 @@ emp_act
 			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
-							SPAN_WARNING("You stagger under the impact!"))
+							self_message = SPAN_WARNING("You stagger under the impact!"), visible_message_flags = GHOST_MESSAGE)
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src) return
@@ -441,7 +441,8 @@ emp_act
 						src.forceMove(T)
 						visible_message(
 							SPAN_WARNING("\The [src] is pinned to the wall by \the [O]!"),
-							SPAN_WARNING("You are pinned to the wall by \the [O]!")
+							self_message = SPAN_WARNING("You are pinned to the wall by \the [O]!"),
+							visible_message_flags = GHOST_MESSAGE
 						)
 						src.anchored = TRUE
 						src.pinned += O
@@ -449,7 +450,7 @@ emp_act
 		var/mob/living/carbon/human/H = hitting_atom
 		H.Weaken(3)
 		Weaken(3)
-		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
+		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), self_message = SPAN_WARNING("You get knocked over by [H]!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/carbon/human/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	if(!def_zone) ..()
@@ -566,9 +567,9 @@ emp_act
 		G.icon_state = "grabbed1"
 		G.hud.icon_state = "reinforce1"
 		G.last_action = world.time
-		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
+		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"), visible_message_flags = GHOST_MESSAGE)
 		return 1
-	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
+	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"), visible_message_flags = GHOST_MESSAGE)
 	return 1
 
 /mob/living/carbon/human/set_on_fire()

@@ -72,7 +72,7 @@
 		desc = "It appears to be broken."
 		icon_state = src.icon_broken
 		item_state = icon_state
-		visible_message(visual_feedback, audible_feedback)
+		visible_message(visual_feedback, blind_message = audible_feedback)
 		return 1
 
 /obj/item/storage/lockbox/loyalty

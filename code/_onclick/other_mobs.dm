@@ -97,7 +97,7 @@
 		switch(src.a_intent)
 			if (I_HELP) // We just poke the other
 				M.visible_message(SPAN_NOTICE("[src] gently pokes [M]!"),
-									SPAN_NOTICE("[src] gently pokes you!"))
+									self_message = SPAN_NOTICE("[src] gently pokes you!"), visible_message_flags = GHOST_MESSAGE)
 
 			if (I_DISARM) // We stun the target, with the intention to feed
 				var/stunprob = 1
@@ -126,7 +126,7 @@
 				if(prob(stunprob))
 					powerlevel = max(0, powerlevel-3)
 					M.visible_message(SPAN_DANGER("[src] has shocked [M]!"),
-										SPAN_DANGER("[src] has shocked you!"))
+										self_message = SPAN_DANGER("[src] has shocked you!"), visible_message_flags = GHOST_MESSAGE)
 
 					M.Weaken(power)
 					M.Stun(power)
@@ -138,12 +138,12 @@
 						M.adjustFireLoss(powerlevel * rand(6,10))
 				else if(prob(40))
 					M.visible_message(SPAN_DANGER("[src] has pounced at [M]!"),
-										SPAN_DANGER("[src] has pounced at you!"))
+										self_message = SPAN_DANGER("[src] has pounced at you!"), visible_message_flags = GHOST_MESSAGE)
 
 					M.Weaken(power)
 				else
 					M.visible_message(SPAN_DANGER("[src] has tried to pounce at [M]!"),
-										SPAN_DANGER("[src] has tried to pounce at you!"))
+										self_message = SPAN_DANGER("[src] has tried to pounce at you!"), visible_message_flags = GHOST_MESSAGE)
 
 				M.updatehealth()
 			if (I_GRAB) // We feed

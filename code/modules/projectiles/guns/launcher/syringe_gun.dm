@@ -98,12 +98,12 @@
 
 /obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
-		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", SPAN_WARNING("You unlatch and carefully relax the bolt on [src], unloading the spring."))
+		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", self_message = SPAN_WARNING("You unlatch and carefully relax the bolt on [src], unloading the spring."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 		next = null
 	else if(darts.len)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", SPAN_WARNING("You draw back the bolt on the [src], loading the spring!"))
+		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", self_message = SPAN_WARNING("You draw back the bolt on the [src], loading the spring!"), visible_message_flags = GHOST_MESSAGE)
 		next = darts[1]
 	add_fingerprint(user)
 
@@ -118,7 +118,7 @@
 		var/obj/item/syringe_cartridge/C = darts[1]
 		darts -= C
 		user.put_in_hands(C)
-		user.visible_message("[user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
+		user.visible_message("[user] removes \a [C] from [src].", self_message = SPAN_NOTICE("You remove \a [C] from [src]."), visible_message_flags = GHOST_MESSAGE)
 	else
 		..()
 
@@ -131,7 +131,7 @@
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		darts += C //add to the end
-		user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
+		user.visible_message("[user] inserts \a [C] into [src].", self_message = SPAN_NOTICE("You insert \a [C] into [src]."), visible_message_flags = GHOST_MESSAGE)
 	else
 		..()
 

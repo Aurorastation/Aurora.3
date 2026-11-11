@@ -86,7 +86,7 @@
 /obj/item/mech_component/proc/install_component(var/obj/item/thing, var/mob/user)
 	user.drop_from_inventory(thing)
 	thing.forceMove(src)
-	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	return 1
 
 /obj/item/mech_component/proc/update_component_damage()
@@ -132,7 +132,7 @@
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
-			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			removed.forceMove(user.loc)
 			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
 			update_components()
@@ -204,7 +204,7 @@
 		to_chat(user, SPAN_WARNING("You need at least [needed_amount] unit\s of cable to repair this section."))
 		return
 
-	user.visible_message("\The [user] begins replacing the wiring of \the [src]...")
+	user.visible_message("\The [user] begins replacing the wiring of \the [src]...", visible_message_flags = GHOST_MESSAGE)
 
 	if(burn_damage)
 		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))

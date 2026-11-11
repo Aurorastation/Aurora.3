@@ -178,7 +178,7 @@
 		return
 
 	if(user != occupant_resolved && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
-		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
+		user.visible_message(SPAN_WARNING("\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, 3 SECONDS, src, DO_UNIQUE))
 			return
 		occupant_resolved = get_valid_occupant()
@@ -187,7 +187,7 @@
 			return TRUE
 
 		suppressing = !suppressing
-		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
+		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK, visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, SFX_SWITCH, 50, 1)
 
 /**
@@ -271,7 +271,7 @@
 		return FALSE
 
 	if(patient == giver) //Putting yourself on the table
-		giver.visible_message("\The [giver] climbs on \the [src].", "You climb on \the [src].")
+		giver.visible_message("\The [giver] climbs on \the [src].", self_message = "You climb on \the [src].", visible_message_flags = GHOST_MESSAGE)
 	else //Putting someone else on the table, or noone
 		visible_message(SPAN_NOTICE("\The [patient] has been laid on \the [src] by \the [giver]."))
 
@@ -321,9 +321,9 @@
 			return
 
 		if(patient == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), self_message = SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), self_message = SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 
 		//Move the patient on the table after a short delay and buckle him
 		if(do_mob(user, patient, 1 SECOND, needhand = FALSE))
@@ -350,9 +350,9 @@
 			return TRUE
 
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), self_message = SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), self_message = SPAN_NOTICE("You start putting \the [L] onto \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			take_occupant(G.affecting,usr)
 			qdel(attacking_item)

@@ -41,7 +41,7 @@
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		H.visible_message(SPAN_WARNING("[H] transforms!"))
+		H.visible_message(SPAN_WARNING("[H] transforms!"), visible_message_flags = GHOST_MESSAGE)
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 		if(mind) //likely transfomration sting on ghosted corpse if no mind
@@ -93,7 +93,7 @@
 		H.buckled_to.unbuckle()
 
 	changeling.use_charges(1)
-	H.visible_message(SPAN_WARNING("[H] transforms!"))
+	H.visible_message(SPAN_WARNING("[H] transforms!"), visible_message_flags = GHOST_MESSAGE)
 	changeling.geneticdamage = 30
 	to_chat(H, SPAN_WARNING("Our genes cry out!"))
 
@@ -149,7 +149,7 @@
 
 	changeling.use_charges(1)
 	C.remove_changeling_powers()
-	C.visible_message(SPAN_WARNING("[C] transforms!"))
+	C.visible_message(SPAN_WARNING("[C] transforms!"), visible_message_flags = GHOST_MESSAGE)
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
@@ -322,7 +322,7 @@
 	ling.untransform_occupant = O
 	ling.client.init_verbs()
 
-	H.visible_message(SPAN_HIGHDANGER("[H]'s head decouples from their body in a shower of gore!"))
+	H.visible_message(SPAN_HIGHDANGER("[H]'s head decouples from their body in a shower of gore!"), visible_message_flags = GHOST_MESSAGE)
 	head.droplimb(FALSE, DROPLIMB_BLUNT)
 
 	feedback_add_details("changeling_powers", "EMT")
@@ -475,8 +475,8 @@
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque arm blades!"),
-								SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
-								SPAN_DANGER("You hear cloth ripping and tearing!"))
+								self_message = SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
+								blind_message = SPAN_DANGER("You hear cloth ripping and tearing!"), visible_message_flags = GHOST_MESSAGE)
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -485,8 +485,8 @@
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 	src.visible_message(SPAN_DANGER("A grotesque blade forms around [M]\'s arm!"),
-							SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
-							SPAN_DANGER("You hear organic matter ripping and tearing!"))
+							self_message = SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
+							blind_message = SPAN_DANGER("You hear organic matter ripping and tearing!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -513,8 +513,8 @@
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque shield!"),
-							SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
-							SPAN_DANGER("You hear cloth ripping and tearing!"))
+							self_message = SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
+							blind_message = SPAN_DANGER("You hear cloth ripping and tearing!"), visible_message_flags = GHOST_MESSAGE)
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -523,8 +523,8 @@
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	src.visible_message(SPAN_DANGER("The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!"),
-							SPAN_WARNING("We inflate our hand into a robust shield."),
-							SPAN_WARNING("You hear organic matter ripping and tearing!"))
+							self_message = SPAN_WARNING("We inflate our hand into a robust shield."),
+							blind_message = SPAN_WARNING("You hear organic matter ripping and tearing!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/proc/horror_form()
 	set category = "Changeling"
@@ -546,13 +546,13 @@
 	changeling.use_charges(50)
 
 	M.visible_message(SPAN_DANGER("[M] writhes and contorts, their body expanding to inhuman proportions!"), \
-						SPAN_DANGER("We begin our transformation to our true form!"))
+						SPAN_DANGER("We begin our transformation to our true form!"), visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		M.visible_message(SPAN_DANGER("[M]'s transformation abruptly reverts itself!"), \
-							SPAN_DANGER("Our transformation has been interrupted!"))
+							SPAN_DANGER("Our transformation has been interrupted!"), visible_message_flags = GHOST_MESSAGE)
 		return FALSE
 
-	M.visible_message(SPAN_DANGER("[M] grows into an abomination and lets out an awful scream!"))
+	M.visible_message(SPAN_DANGER("[M] grows into an abomination and lets out an awful scream!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
@@ -597,7 +597,7 @@
 	if(!changeling)
 		return FALSE
 
-	visible_message(SPAN_DANGER("<font size=4>[src] lets out an ear piercing shriek!</font>"), SPAN_DANGER("<font size=4>You let out an ear-shattering shriek!</font>"), SPAN_DANGER("You hear a painfully loud shriek!"))
+	visible_message(SPAN_DANGER("<font size=4>[src] lets out an ear piercing shriek!</font>"), self_message = SPAN_DANGER("<font size=4>You let out an ear-shattering shriek!</font>"), blind_message = SPAN_DANGER("You hear a painfully loud shriek!"), visible_message_flags = GHOST_MESSAGE)
 	changeling.use_charges(30)
 
 	var/list/victims = list()
@@ -658,7 +658,7 @@
 	if(!changeling)
 		return FALSE
 
-	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"))
+	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"), visible_message_flags = GHOST_MESSAGE)
 	log_and_message_admins("used dissonant shriek.")
 	empulse(get_turf(src), 2, 3)
 	remove_verb(src, /mob/proc/dissonant_shriek)

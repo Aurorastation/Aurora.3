@@ -155,7 +155,7 @@
 		environment.adjust_gas(GAS_WATERVAPOR, WATER_MOLS_PER_MIL * amount)
 		napalm.audible_message(
 			SPAN_DANGER("The water sputters violently as it lands on \the [napalm.name]!"),
-			SPAN_DANGER("The fire goes down a bit on \the [napalm.name], but immediately returns!")
+			deaf_message = SPAN_DANGER("The fire goes down a bit on \the [napalm.name], but immediately returns!")
 		)
 		return
 
@@ -203,7 +203,7 @@
 				S.target = null
 				++S.discipline
 		if(S.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), self_message = SPAN_DANGER("Your flesh burns in the water!"), visible_message_flags = GHOST_MESSAGE)
 
 
 /singleton/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

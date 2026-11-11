@@ -923,7 +923,7 @@
  * Creates sleeping bag structure on the target turf, deleting this item in the process
  */
 /obj/item/sleeping_bag/proc/unroll(var/turf/target, var/mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	var/obj/structure/bed/sleeping_bag/S = new /obj/structure/bed/sleeping_bag(target, MATERIAL_CLOTH)
 	S.color = color
 	qdel(src)
@@ -973,7 +973,7 @@
 		return
 	var/obj/item/sleeping_bag/S = new held_item(get_turf(src))
 	S.color = color
-	usr.visible_message(SPAN_NOTICE("\The [usr] rolls up \the [src]."))
+	usr.visible_message(SPAN_NOTICE("\The [usr] rolls up \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	qdel(src)
 
 /*
@@ -1006,7 +1006,7 @@
 
 /obj/item/material/folding_table/proc/deploy(var/turf/T, var/direction, var/mob/user)
 	new /obj/structure/table/rack/folding_table(T)
-	user.visible_message(SPAN_NOTICE("\The [user] sets up \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] sets up \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	qdel(src)
 
 /obj/structure/table/rack/folding_table
@@ -1029,7 +1029,7 @@
 	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
 	new /obj/item/material/folding_table(get_turf(src))
-	user.visible_message(SPAN_NOTICE("\The [user] collapses \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] collapses \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	qdel(src)
 
 /obj/item/material/stool/chair/folding/camping

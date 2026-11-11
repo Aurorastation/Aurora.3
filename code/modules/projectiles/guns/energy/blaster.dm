@@ -51,7 +51,7 @@
 	has_unique_gun_action = TRUE
 
 /obj/item/gun/energy/blaster/revolver/unique_action(mob/living/user)
-	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
+	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), self_message = SPAN_WARNING("You spin the cylinder of \the [src]!"), blind_message = SPAN_NOTICE("You hear something metallic spin and click."), visible_message_flags = GHOST_MESSAGE)
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 
 /obj/item/gun/energy/blaster/carbine
@@ -205,7 +205,8 @@
 		power_supply.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[power_supply] pops out of the cell mount!",
-			SPAN_NOTICE("[power_supply] pops out of \the [src] and clatters on the floor!")
+			self_message = SPAN_NOTICE("[power_supply] pops out of \the [src] and clatters on the floor!"),
+			visible_message_flags = GHOST_MESSAGE
 			)
 		power_supply.update_icon()
 		power_supply = null

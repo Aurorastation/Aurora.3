@@ -320,13 +320,13 @@
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
-		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
+		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), self_message = SPAN_NOTICE("You start detaching \the [attached_satchel]."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if(!attached_satchel)
 				return
 			attached_satchel.forceMove(get_turf(user))
 			user.put_in_hands(attached_satchel)
-			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [attached_satchel]."), SPAN_NOTICE("You detach \the [attached_satchel]."))
+			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [attached_satchel]."), self_message = SPAN_NOTICE("You detach \the [attached_satchel]."), visible_message_flags = GHOST_MESSAGE)
 			attached_satchel = null
 		return
 
@@ -375,7 +375,7 @@
 				component_parts += attacking_item
 				attacking_item.add_fingerprint(user)
 				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
-					SPAN_NOTICE("You insert the power cell into \the [src]."))
+					blind_message = SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else
 			to_chat(user, SPAN_WARNING("The hatch must be open to insert a power cell."))

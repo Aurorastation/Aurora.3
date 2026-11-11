@@ -919,10 +919,10 @@
 		item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", self_message = SPAN_NOTICE("You pull \the [src] down to hang around your neck."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/mask/proc/raise_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
+	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] up to cover your face."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(adjustable)
@@ -972,7 +972,7 @@
 	holding.forceMove(get_turf(usr))
 
 	if(usr.put_in_hands(holding))
-		usr.visible_message(SPAN_DANGER("\The [usr] pulls \a [holding] out of their boot!"))
+		usr.visible_message(SPAN_DANGER("\The [usr] pulls \a [holding] out of their boot!"), visible_message_flags = GHOST_MESSAGE)
 		holding = null
 		playsound(get_turf(src), 'sound/weapons/holster/unholster_knife.ogg', 25)
 	else
@@ -994,7 +994,7 @@
 		user.unEquip(attacking_item)
 		attacking_item.forceMove(src)
 		holding = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [attacking_item] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [attacking_item] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		playsound(get_turf(src), 'sound/weapons/holster/holster_knife.ogg', 25)
 		verbs |= /obj/item/clothing/shoes/proc/draw_knife
 		update_icon()
@@ -1339,20 +1339,20 @@
 	if (src.loc == user)
 		switch(sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "You disable your suit's remote sensing equipment.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "You disable your suit's remote sensing equipment.", visible_message_flags = GHOST_MESSAGE)
 			if(SUIT_SENSOR_BINARY)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse.", visible_message_flags = GHOST_MESSAGE)
 			if(SUIT_SENSOR_VITAL)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse and vital lifesigns.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse and vital lifesigns.", visible_message_flags = GHOST_MESSAGE)
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse, vital lifesigns, and your coordinate position.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse, vital lifesigns, and your coordinate position.", visible_message_flags = GHOST_MESSAGE)
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
-			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), "You disable [src.loc]'s remote sensing equipment.")
+			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), self_message = "You disable [src.loc]'s remote sensing equipment.", visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", "You adjust [src.loc]'s sensors.")
+			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", self_message = "You adjust [src.loc]'s sensors.", visible_message_flags = GHOST_MESSAGE)
 	else
-		user.visible_message("[user] adjusts the tracking sensor on [src]", "You adjust the sensor on [src].")
+		user.visible_message("[user] adjusts the tracking sensor on [src]", self_message = "You adjust the sensor on [src].", visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/under/emp_act(severity)
 	..()

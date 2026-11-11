@@ -95,7 +95,7 @@
 
 /datum/component/robotics_analyzer/proc/attack_mech(mob/living/heavy_vehicle/mech, mob/living/user)
 	clear_scan()
-	user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [mech]'s components."), SPAN_NOTICE("You have analyzed \the [mech]'s components."))
+	user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [mech]'s components."), self_message = SPAN_NOTICE("You have analyzed \the [mech]'s components."), visible_message_flags = GHOST_MESSAGE)
 	scan_title = "Diagnostic report for [mech]"
 	var/component_count = 0
 	for(var/obj/item/mech_component/component in list(mech.head, mech.body, mech.arms, mech.legs))
@@ -128,7 +128,7 @@
 /datum/component/robotics_analyzer/proc/robotics_scan_mob(mob/living/target_mob, mob/living/user, just_scan = FALSE)
 	clear_scan()
 	if(!just_scan)
-		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [target_mob]'s components."), SPAN_NOTICE("You have analyzed \the [target_mob]'s components."))
+		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [target_mob]'s components."), self_message = SPAN_NOTICE("You have analyzed \the [target_mob]'s components."), visible_message_flags = GHOST_MESSAGE)
 
 	if(isrobot(target_mob))
 		robot_scan(target_mob)
@@ -208,7 +208,7 @@
 
 /proc/robotic_analyze_mob(var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
 	if(!just_scan)
-		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [M]'s components."), SPAN_NOTICE("You have analyzed \the [M]'s components."))
+		user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [M]'s components."), self_message = SPAN_NOTICE("You have analyzed \the [M]'s components."), visible_message_flags = GHOST_MESSAGE)
 
 	var/scan_type
 	if(isrobot(M))

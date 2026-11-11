@@ -246,7 +246,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 // Allows portals to transfer emotes.
 // Only portal masters do this to avoid flooding the other side with duplicate messages.
-/obj/effect/map_effect/portal/master/see_emote(mob/M, text)
+/obj/effect/map_effect/portal/master/see_emote(mob/M, text, emote_type = VISIBLE_MESSAGE)
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
@@ -254,12 +254,12 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 	for(var/mob/mob in mobs_to_relay)
 		var/rendered = span("message", "[text]")
-		mob.show_message(rendered)
+		mob.show_message(rendered, emote_type, null, emote_type == VISIBLE_MESSAGE ? AUDIBLE_MESSAGE : VISIBLE_MESSAGE)
 
 	..()
 
 // Allows portals to transfer visible messages.
-/obj/effect/map_effect/portal/master/show_message(msg, type, alt, alt_type)
+/obj/effect/map_effect/portal/master/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	if(!counterpart)
 		return
 	var/rendered = span("message", "[msg]")
@@ -267,7 +267,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/list/mobs_to_relay = get_hearers_in_view(world.view, T)
 
 	for(var/mob/mob in mobs_to_relay)
-		mob.show_message(rendered)
+		mob.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 
 	..()
 

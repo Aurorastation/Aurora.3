@@ -185,8 +185,9 @@
 		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(
 				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
-				SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
-				SPAN_NOTICE("You hear the sound of a welder, slicing apart metal.")
+				self_message = SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
+				blind_message = SPAN_NOTICE("You hear the sound of a welder, slicing apart metal."),
+				visible_message_flags = GHOST_MESSAGE
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)

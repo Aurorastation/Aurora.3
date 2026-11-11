@@ -139,7 +139,7 @@ LINEN BINS
 		playsound(get_turf(loc), SFX_RUSTLE, 15, 1, -5)
 		var/folds = fold
 		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."),
-				SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
+				self_message = SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
@@ -173,7 +173,7 @@ LINEN BINS
 		playsound(get_turf(loc), SFX_RUSTLE, 15, 1, -5)
 		var/rolls = roll
 		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
-							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
+							self_message = SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
@@ -200,7 +200,7 @@ LINEN BINS
 /obj/item/bedsheet/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [attacking_item]."),
-							SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."))
+							self_message = SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
@@ -208,7 +208,7 @@ LINEN BINS
 		return TRUE
 	else if(is_sharp(attacking_item))
 		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [attacking_item]."),
-							SPAN_NOTICE("You begin cutting up \the [src] with \the [attacking_item]."))
+							self_message = SPAN_NOTICE("You begin cutting up \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))

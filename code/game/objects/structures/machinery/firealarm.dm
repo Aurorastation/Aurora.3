@@ -124,16 +124,16 @@
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message(SPAN_NOTICE("\The [user] has reconnected [src]'s detecting unit!"),
-												SPAN_NOTICE("You have reconnected [src]'s detecting unit."))
+												self_message = SPAN_NOTICE("You have reconnected [src]'s detecting unit."), visible_message_flags = GHOST_MESSAGE)
 
 					else
 						user.visible_message(SPAN_NOTICE("\The [user] has disconnected [src]'s detecting unit!"),
-												SPAN_NOTICE("You have disconnected [src]'s detecting unit."))
+												self_message = SPAN_NOTICE("You have disconnected [src]'s detecting unit."), visible_message_flags = GHOST_MESSAGE)
 
 					return TRUE
 				else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					user.visible_message(SPAN_NOTICE("\The [user] has cut the wires inside \the [src]!"),
-											SPAN_NOTICE("You have cut the wires inside \the [src]."))
+											self_message = SPAN_NOTICE("You have cut the wires inside \the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)

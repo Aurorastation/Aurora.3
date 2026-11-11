@@ -526,7 +526,7 @@
 			if(skip_obstacle)
 				continue
 
-			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
+			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"), visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))
 			tick_instability += rand(10,25)
 			AM.emp_act(EMP_LIGHT)
 

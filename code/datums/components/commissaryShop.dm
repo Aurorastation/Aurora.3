@@ -92,7 +92,7 @@
 			return
 		credit += cashmoney.get_credit_value()
 		user.drop_from_inventory(cashmoney,get_turf(owner))
-		user.visible_message("\The [user] inserts [cashmoney] into \the [owner]." )
+		user.visible_message("\The [user] inserts [cashmoney] into \the [owner].", visible_message_flags = GHOST_MESSAGE )
 		qdel(cashmoney)
 		return
 
@@ -105,7 +105,7 @@
 		if(credit >= price_guess)
 			spawn_money(price_guess, owner.loc, user)
 			credit = max(0, credit - price_guess)
-		user.visible_message("\The [user] remove some credits from \the [owner].", "You hear a drawer being opened and the clinking of coins, followed by a drawer being closed." )
+		user.visible_message("\The [user] remove some credits from \the [owner].", self_message = "You hear a drawer being opened and the clinking of coins, followed by a drawer being closed.", visible_message_flags = GHOST_MESSAGE )
 
 /// Print out a relevant receipt
 /datum/component/quikpay_shop/proc/print_receipt()
@@ -145,14 +145,14 @@
 		to_chat(user, SPAN_WARNING("[icon2html(cashmoney, user)] That is not enough money."))
 		return FALSE
 	if(cashmoney.is_bundle())
-		user.visible_message(SPAN_INFO("\The [user] inserts some cash into \the [owner]."))
+		user.visible_message(SPAN_INFO("\The [user] inserts some cash into \the [owner]."), visible_message_flags = GHOST_MESSAGE)
 		cashmoney.deduct_credit_value(transaction_amount)
 
 		if(cashmoney.worth <= 0)
 			user.drop_from_inventory(cashmoney,get_turf(owner))
 			qdel(cashmoney)
 	else
-		user.visible_message(SPAN_INFO("\The [user] inserts physical currency into \the [owner]."))
+		user.visible_message(SPAN_INFO("\The [user] inserts physical currency into \the [owner]."), visible_message_flags = GHOST_MESSAGE)
 		var/left = credit_value - transaction_amount
 		user.drop_from_inventory(cashmoney,get_turf(owner))
 
@@ -326,7 +326,7 @@
 		if("confirm")
 			buying_receipt(usr)
 			playsound(owner, 'sound/machines/ping.ogg', 25, TRUE)
-			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."))
+			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."), audible_message_flags = (ismob(owner) ? GHOST_MESSAGE : NONE))
 			. = TRUE
 
 		if("locking")
@@ -371,8 +371,8 @@
 
 /// Ends the transaction by using a card, giving a message
 /datum/component/quikpay_shop/proc/end_transaction(mob/user)
-	user.visible_message("\The [user] swipes a card on \the [owner]." )
-	owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."))
+	user.visible_message("\The [user] swipes a card on \the [owner].", visible_message_flags = GHOST_MESSAGE )
+	owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."), audible_message_flags = (ismob(owner) ? GHOST_MESSAGE : NONE))
 	playsound(owner, 'sound/machines/chime.ogg', 50, TRUE)
 	print_receipt()
 	to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))

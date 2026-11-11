@@ -27,5 +27,5 @@
 	var/mob/living/M = hit_atom
 	if(prob(15))
 		M.throw_at(get_edge_target_turf(loc, loc.dir), 2, 7)
-		M.visible_message(SPAN_DANGER("[M] is floored by psychic energy!"), SPAN_DANGER("You are floored by psychic energy!"))
+		M.visible_message(SPAN_DANGER("[M] is floored by psychic energy!"), self_message = SPAN_DANGER("You are floored by psychic energy!"), visible_message_flags = GHOST_MESSAGE)
 		M.apply_effect(2, WEAKEN)

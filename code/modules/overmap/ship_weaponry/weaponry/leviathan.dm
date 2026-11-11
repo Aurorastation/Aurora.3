@@ -157,12 +157,12 @@
 	if(!is_landmark_hit)
 		if(ismob(target))
 			var/mob/M = target
-			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
+			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"), visible_message_flags = GHOST_MESSAGE)
 			M.dust()
 			return
 		explosion(get_turf(target), 6, 6, 6, spreading = TRUE)
 	else
-		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
+		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"), visible_message_flags = (ismob(target) ? GHOST_MESSAGE : NONE))
 		explosion(get_turf(target), 30, 30, 30, spreading = TRUE)
 
 /obj/structure/machinery/zat_lever
@@ -239,13 +239,13 @@
 		return
 	open = !open
 	if(open)
-		user.visible_message(SPAN_NOTICE("[user] opens \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] opens \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(LK)
 			icon_state = "key_case-o"
 		else
 			icon_state = "key_case-e"
 	else
-		user.visible_message(SPAN_NOTICE("[user] closes \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] closes \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		icon_state = "key_case"
 
 /obj/item/leviathan_case/attack_hand(mob/user)
@@ -255,7 +255,7 @@
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 	if(LK)
-		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."))
+		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."), visible_message_flags = GHOST_MESSAGE)
 		user.put_in_hands(LK)
 		LK = null
 		icon_state = "key_case-e"
@@ -267,7 +267,7 @@
 	if(!LK && open)
 		if(istype(attacking_item, /obj/item/leviathan_key))
 			var/obj/item/leviathan_key/key = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			LK = key
 			user.drop_from_inventory(key, src)
 			icon_state = "key_case-o"

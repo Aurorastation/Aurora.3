@@ -354,7 +354,7 @@
 	if(!AM || QDELETED(AM))
 		return
 
-	AM.visible_message(SPAN_WARNING("[AM] falls into [src]!"), SPAN_DANGER("You stumble and stare into \the [src] as you fall. It will be a long ride..."))
+	AM.visible_message(SPAN_WARNING("[AM] falls into [src]!"), self_message = SPAN_DANGER("You stumble and stare into \the [src] as you fall. It will be a long ride..."), visible_message_flags = GHOST_MESSAGE)
 	AM.forceMove(pick(possible_turfs_to_land_on))
 
 	AM.alpha = oldalpha

@@ -331,7 +331,7 @@
 
 /datum/teleport/instant/science/teleportChecks()
 	if(istype(teleatom, /obj/item/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
-		teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
+		teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"), visible_message_flags = (ismob(teleatom) ? GHOST_MESSAGE : NONE))
 		return FALSE
 
 
@@ -342,14 +342,14 @@
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/disk/nuclear)))
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			MM.visible_message(SPAN_DANGER("\The [MM] bounces off of the portal!"),SPAN_WARNING("Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through."))
+			MM.visible_message(SPAN_DANGER("\The [MM] bounces off of the portal!"),self_message = SPAN_WARNING("Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through."), visible_message_flags = GHOST_MESSAGE)
 		else
-			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"), visible_message_flags = (ismob(teleatom) ? GHOST_MESSAGE : NONE))
 		return FALSE
 
 	if(isAdminLevel(destination.z)) //centcomm z-level
 		if(!isemptylist(teleatom.search_contents_for(/obj/item/storage/backpack/holding)))
-			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"), visible_message_flags = (ismob(teleatom) ? GHOST_MESSAGE : NONE))
 			return FALSE
 
 

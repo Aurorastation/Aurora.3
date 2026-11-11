@@ -579,7 +579,8 @@
 
 	user.visible_message(
 		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),
-		SPAN_ALERT("You scan \the [target] with \the [src]."))
+		self_message = SPAN_ALERT("You scan \the [target] with \the [src]."),
+		visible_message_flags = GHOST_MESSAGE)
 
 	flick("kinetic_analyzer_scan", src)
 	if(istype(target,/obj/item/gun/custom_ka))

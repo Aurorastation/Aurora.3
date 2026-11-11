@@ -46,7 +46,7 @@
 		L.adjust_instability(2)
 		if(L.stat == DEAD || L.stat == UNCONSCIOUS)
 			L.forceMove(get_turf(src))
-			L.visible_message(SPAN_WARNING("\The [src] ejects [L]!"))
+			L.visible_message(SPAN_WARNING("\The [src] ejects [L]!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/effect/phase_shift/relaymove(mob/living/user, direction)
 	. = ..()

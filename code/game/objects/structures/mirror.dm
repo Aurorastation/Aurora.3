@@ -88,10 +88,10 @@
 		return 0
 
 	if(damage)
-		user.visible_message(SPAN_DANGER("[user] smashes [src]!"))
+		user.visible_message(SPAN_DANGER("[user] smashes [src]!"), visible_message_flags = GHOST_MESSAGE)
 		shatter()
 	else
-		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"))
+		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"), visible_message_flags = GHOST_MESSAGE)
 	return 1
 
 /obj/effect/reflection

@@ -1541,8 +1541,8 @@
 	attacking_item.play_tool_sound(get_turf(src), 50)
 	user.visible_message( \
 		"[user] fastens the [src].", \
-		SPAN_NOTICE("You have fastened the [src]."), \
-		"You hear ratchet.")
+		self_message = SPAN_NOTICE("You have fastened the [src]."), \
+		blind_message = "You hear ratchet.", visible_message_flags = GHOST_MESSAGE)
 	qdel(src)	// remove the pipe item
 
 	return TRUE

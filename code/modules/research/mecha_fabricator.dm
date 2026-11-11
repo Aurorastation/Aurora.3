@@ -84,7 +84,7 @@
 		return
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/on_product_completed(obj/new_item, datum/design/design_to_build, datum/research_fabrication_job/job)
-	visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.", intent_message = PING_SOUND)
+	visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", blind_message = "You hear a ping.", intent_message = PING_SOUND)
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/carbon/human/target = dropped
@@ -107,13 +107,13 @@
 		if(hair_style.length < 4)
 			return
 
-		user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into \the [src]!"), SPAN_WARNING("You start feeding [target]'s hair into \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into \the [src]!"), self_message = SPAN_WARNING("You start feeding [target]'s hair into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, 5 SECONDS, target, DO_UNIQUE))
 			return
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), SPAN_ALERT("You turn the [src] on!"))
+			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), self_message = SPAN_ALERT("You turn the [src] on!"), visible_message_flags = GHOST_MESSAGE)
 			do_hair_pull(target)
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>"
 			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
@@ -125,10 +125,10 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(SPAN_ALERT("[user] starts tugging on [target]'s head as the [src] keeps running!"), SPAN_ALERT("You start tugging on [target]'s head!"))
+			user.visible_message(SPAN_ALERT("[user] starts tugging on [target]'s head as the [src] keeps running!"), self_message = SPAN_ALERT("You start tugging on [target]'s head!"), visible_message_flags = GHOST_MESSAGE)
 			do_hair_pull(target)
 			spawn(10)
-			user.visible_message(SPAN_ALERT("[user] stops the [src] and leaves [target] resting as they are."), SPAN_ALERT("You turn the [src] off and let go of [target]."))
+			user.visible_message(SPAN_ALERT("[user] stops the [src] and leaves [target] resting as they are."), self_message = SPAN_ALERT("You turn the [src] off and let go of [target]."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
 	switch(emagged)

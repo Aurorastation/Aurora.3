@@ -30,7 +30,7 @@
 			C.pixel_x = 0
 			C.pixel_y = 0
 			C.pixel_z = 0
-			user.visible_message("<b>[user]</b> puts \the [C] on \the [src].", SPAN_NOTICE("You place \the [C] on \the [src]."))
+			user.visible_message("<b>[user]</b> puts \the [C] on \the [src].", self_message = SPAN_NOTICE("You place \the [C] on \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))

@@ -53,7 +53,7 @@
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "loosen" : "tighten"] \the [src]..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
-			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))
+			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", self_message = SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), blind_message = SPAN_NOTICE("You hear a ratchet."), visible_message_flags = GHOST_MESSAGE)
 			anchored = !anchored
 		return TRUE
 
@@ -100,7 +100,7 @@
 	if(blank)
 		// It's basically a giant etch-a-sketch.
 		icon = blank
-		user.visible_message("<b>[user]</b> cleans the canvas.", SPAN_NOTICE("You clean the canvas."))
+		user.visible_message("<b>[user]</b> cleans the canvas.", self_message = SPAN_NOTICE("You clean the canvas."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/canvas/afterattack(turf/A, mob/user, flag, params)
 	if(!istype(A))

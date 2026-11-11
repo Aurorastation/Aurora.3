@@ -117,7 +117,7 @@
 	update_icon()
 
 /obj/structure/machinery/appliance/cooker/proc/activation_message(var/mob/user)
-	user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", "You turn [use_power ? "on" : "off"] [src].")
+	user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", self_message = "You turn [use_power ? "on" : "off"] [src].", visible_message_flags = GHOST_MESSAGE)
 
 /obj/structure/machinery/appliance/cooker/update_icon()
 	overlays.Cut()

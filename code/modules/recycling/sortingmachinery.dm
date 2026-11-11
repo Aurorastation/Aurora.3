@@ -62,8 +62,8 @@
 					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
-				"You hear someone scribbling a note.")
+				self_message = SPAN_NOTICE("You title \the [src]: \"[str]\""),\
+				blind_message = "You hear someone scribbling a note.", visible_message_flags = GHOST_MESSAGE)
 				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
@@ -82,8 +82,8 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
-				"You hear someone scribbling a note.")
+				self_message = SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
+				blind_message = "You hear someone scribbling a note.", visible_message_flags = GHOST_MESSAGE)
 				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 
@@ -177,8 +177,8 @@
 					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
-				"You hear someone scribbling a note.")
+				self_message = SPAN_NOTICE("You title \the [src]: \"[str]\""),\
+				blind_message = "You hear someone scribbling a note.", visible_message_flags = GHOST_MESSAGE)
 				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
@@ -198,8 +198,8 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
-				"You hear someone scribbling a note.")
+				self_message = SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
+				blind_message = "You hear someone scribbling a note.", visible_message_flags = GHOST_MESSAGE)
 				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 

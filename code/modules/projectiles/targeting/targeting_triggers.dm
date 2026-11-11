@@ -41,7 +41,8 @@
 	owner.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
 	owner.visible_message(
 		SPAN_DANGER("\The [owner] pulls the trigger reflexively!"),
-		SPAN_DANGER("You pull the trigger reflexively!")
+		self_message = SPAN_DANGER("You pull the trigger reflexively!"),
+		visible_message_flags = GHOST_MESSAGE
 	)
 
 	G.Fire(aiming_at, owner)

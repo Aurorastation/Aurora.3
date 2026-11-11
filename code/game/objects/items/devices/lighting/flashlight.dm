@@ -223,7 +223,8 @@
 
 			user.visible_message(
 				SPAN_NOTICE("\The [user] directs [src] to [H]'s eyes."),
-				SPAN_NOTICE("You direct [src] to [H]'s eyes.")
+				self_message = SPAN_NOTICE("You direct [src] to [H]'s eyes."),
+				visible_message_flags = GHOST_MESSAGE
 			)
 
 			inspect_vision(vision, user)

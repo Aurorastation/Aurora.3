@@ -140,7 +140,7 @@
 		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations
 		qdel(attacking_item)
-		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."))
+		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."), visible_message_flags = GHOST_MESSAGE)
 
 	do_hair_pull(user)
 
@@ -175,12 +175,12 @@
 		to_chat(user, SPAN_DANGER("[victim] may not have abiotic items on."))
 		return FALSE
 
-	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
+	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"), visible_message_flags = GHOST_MESSAGE)
 	add_fingerprint(user)
 	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
 		return
 
-	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
+	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE

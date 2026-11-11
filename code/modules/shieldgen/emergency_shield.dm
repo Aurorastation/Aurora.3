@@ -95,7 +95,7 @@
 /obj/structure/machinery/shieldgen/process()
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		if(active)
-			visible_message(SPAN_WARNING("\The [src] shuts down."), SPAN_NOTICE("You hear a heavy droning fade out."))
+			visible_message(SPAN_WARNING("\The [src] shuts down."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."))
 			shields_down()
 		check_delay = initial(check_delay)
 		return
@@ -185,14 +185,14 @@
 
 	if(active)
 		user.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [user] deactivates the shield generator."), \
-			SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You deactivate the shield generator."), \
-			"You hear heavy droning fade out.")
+			self_message = SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You deactivate the shield generator."), \
+			blind_message = "You hear heavy droning fade out.", visible_message_flags = GHOST_MESSAGE)
 		shields_down()
 
 	else
 		user.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [user] activate the shield generator."), \
-			SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You activate the shield generator."), \
-			"You hear heavy droning.")
+			self_message = SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You activate the shield generator."), \
+			blind_message = "You hear heavy droning.", visible_message_flags = GHOST_MESSAGE)
 		shields_up()
 	return
 
@@ -236,7 +236,7 @@
 				shields_down()
 			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
 			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-			user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
+			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
 			update_icon()
 			return
 

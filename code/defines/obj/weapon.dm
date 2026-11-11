@@ -104,7 +104,7 @@
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", self_message = "<span class='[class]'>You flip [src], preparing a disarm...</span>", visible_message_flags = GHOST_MESSAGE)
 				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
@@ -120,21 +120,21 @@
 							if (prob(chancemod*0.5) && target_mob.r_hand && target_mob.r_hand != src)
 								shoulddisarm += 2
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", self_message = "<span class='[class]'>You flip [src] back to its original position.</span>", visible_message_flags = GHOST_MESSAGE)
 					return 0
 			damageamount *= 0.25
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", self_message = "<span class='[class]'>You flip [src], preparing a grab...</span>", visible_message_flags = GHOST_MESSAGE)
 				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						user.start_pulling(target_mob)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", self_message = "<span class='[class]'>You flip [src] back to its original position.</span>", visible_message_flags = GHOST_MESSAGE)
 					return 0
 			else
 				soundname = "punch"
@@ -214,7 +214,7 @@
 	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
 		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
 
-	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", "<span class='[class]'>[endmessage1st][punct]</span>")
+	user.visible_message("<span class='[class]'>[endmessage3rd][punct]</span>", self_message = "<span class='[class]'>[endmessage1st][punct]</span>", visible_message_flags = GHOST_MESSAGE)
 	user.do_attack_animation(target_mob, used_item = src)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
@@ -234,7 +234,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!"), "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!"), self_message = "You unsheathe \the [concealed_blade] from \the [src].", visible_message_flags = GHOST_MESSAGE)
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -250,7 +250,7 @@
 /obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/canesword/attacking_canesword = attacking_item
 	if(!src.concealed_blade && istype(attacking_canesword))
-		user.visible_message(SPAN_WARNING("[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!"), "You sheathe \the [attacking_canesword] into \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!"), self_message = "You sheathe \the [attacking_canesword] into \the [src].", visible_message_flags = GHOST_MESSAGE)
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(attacking_canesword)
 		attacking_canesword.forceMove(src)
@@ -310,7 +310,7 @@
 /obj/item/cane/telecane/attack_self(mob/user)
 	on = !on
 	if(on)
-		user.visible_message(SPAN_NOTICE("With a flick of their wrist, [user] extends their [src.name]"), SPAN_NOTICE("You extend the [src.name]."), SPAN_NOTICE("You hear a click."))
+		user.visible_message(SPAN_NOTICE("With a flick of their wrist, [user] extends their [src.name]"), self_message = SPAN_NOTICE("You extend the [src.name]."), blind_message = SPAN_NOTICE("You hear a click."), visible_message_flags = GHOST_MESSAGE)
 		icon_state = extended_icon_state
 		item_state = extended_item_state
 		w_class = WEIGHT_CLASS_BULKY
@@ -319,7 +319,7 @@
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their [src.name]."), SPAN_NOTICE("You collapse the [src.name]."), SPAN_NOTICE("You hear a click."))
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their [src.name]."), self_message = SPAN_NOTICE("You collapse the [src.name]."), blind_message = SPAN_NOTICE("You hear a click."), visible_message_flags = GHOST_MESSAGE)
 		icon_state = retracted_icon_state
 		item_state = retracted_item_state
 		w_class = WEIGHT_CLASS_SMALL

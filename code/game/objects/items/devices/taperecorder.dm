@@ -55,7 +55,7 @@
 		timestamp += time_recorded
 		stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] [strip_html_properly(text)]"
 
-/obj/item/taperecorder/show_message(msg, type, alt, alt_type)
+/obj/item/taperecorder/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	var/recordedtext
 	if(msg && type == 2) //must be hearable
 		recordedtext = msg
@@ -93,7 +93,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
@@ -121,7 +121,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
@@ -145,7 +145,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
@@ -219,7 +219,7 @@
 
 	if(use_check_and_message(usr))
 		return
-	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 	if(emagged)
 		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 		return
@@ -280,7 +280,7 @@
 	if(!recording && !playing)
 		if(use_check_and_message(usr))
 			return
-		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 		if(emagged)
 			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
 			return
@@ -303,7 +303,7 @@
 	else
 		if(use_check_and_message(usr))
 			return
-		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
+		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].", visible_message_flags = GHOST_MESSAGE)
 		if(recording)
 			recording = FALSE
 			timestamp += time_recorded

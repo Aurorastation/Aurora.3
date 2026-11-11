@@ -191,7 +191,7 @@
 	if (prob(probablity))
 		vampire.status |= VAMP_FRENZIED
 		visible_message(SPAN_DANGER("A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like."),
-						SPAN_DANGER("You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal."))
+						self_message = SPAN_DANGER("You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal."), visible_message_flags = GHOST_MESSAGE)
 
 		overlay_fullscreen("frenzy", /atom/movable/screen/fullscreen/frenzy)
 		mutations |= HULK
@@ -224,7 +224,7 @@
 		sight &= ~SEE_MOBS
 
 		visible_message(SPAN_DANGER("[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's."),
-						SPAN_DANGER("The beast within you retreats. You gain control over your body once more."))
+						self_message = SPAN_DANGER("The beast within you retreats. You gain control over your body once more."), visible_message_flags = GHOST_MESSAGE)
 
 		remove_verb(src, /mob/living/carbon/human/proc/grapple)
 		regenerate_icons()

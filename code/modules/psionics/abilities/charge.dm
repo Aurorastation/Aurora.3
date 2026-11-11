@@ -26,7 +26,7 @@
 	. = ..()
 	if(!.)
 		return
-	user.visible_message(SPAN_NOTICE("[user] lays [get_pronoun("his")] hand on \the [C]..."), SPAN_NOTICE("You lay your hand on \the [C]..."),)
+	user.visible_message(SPAN_NOTICE("[user] lays [get_pronoun("his")] hand on \the [C]..."), self_message = SPAN_NOTICE("You lay your hand on \the [C]..."), visible_message_flags = GHOST_MESSAGE,)
 	if(do_after(user, 1 SECOND))
 		to_chat(user, SPAN_WARNING("You restore some power to \the [C]."))
 		C.give(C.maxcharge * 0.1)

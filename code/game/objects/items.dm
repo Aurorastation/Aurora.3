@@ -452,7 +452,7 @@
 	if(!user)
 		return FALSE
 	var/pickup_delay = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
-	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), SPAN_NOTICE("You start lifting \the [src]..."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), self_message = SPAN_NOTICE("You start lifting \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 	return do_after(user, pickup_delay, src, DO_UNIQUE)
 
 /obj/item/attack_ai(mob/user as mob)
@@ -877,13 +877,15 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 		if(H != user)
 			M.visible_message(
-				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
-				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
+				SPAN_DANGER("[user] stabs \the [M] in the [eyes.singular_name] with \the [src]!"),
+				self_message = SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with \the [src]!"),
+				visible_message_flags = GHOST_MESSAGE
 			)
 		else
 			user.visible_message( \
-				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
-				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with \the [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with \the [src]!"), \
+				visible_message_flags = GHOST_MESSAGE
 			)
 
 		eyes.take_damage(rand(3,4))
@@ -1046,7 +1048,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_y = 0
 
 		if(show_zoom_message)
-			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
+			M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].", visible_message_flags = GHOST_MESSAGE)
 
 	else
 		M.client.view = world.view
@@ -1059,9 +1061,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		if(!cannotzoom && show_zoom_message)
 			if(!zoom_out_message)
-				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+				M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].", visible_message_flags = GHOST_MESSAGE)
 			else
-				M.visible_message("[zoomdevicename ? "<b>[M]</b>[zoom_out_message] \the [src.name]." : "<b>[M]</b>[zoom_out_message]"]")
+				M.visible_message("[zoomdevicename ? "<b>[M]</b>[zoom_out_message] \the [src.name]." : "<b>[M]</b>[zoom_out_message]"]", visible_message_flags = GHOST_MESSAGE)
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M

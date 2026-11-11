@@ -236,9 +236,9 @@
 	if (istype(I, /obj/item/card/id))
 		var/obj/item/card/id/C = I
 		if(I==ID_container || ID_container == null)
-			usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
+			usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>", visible_message_flags = GHOST_MESSAGE)
 		else
-			usr.visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+			usr.visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>", visible_message_flags = GHOST_MESSAGE)
 		if(transaction_locked && !transaction_paid)
 			if(linked_account)
 				var/message = SSeconomy.transfer_money(C.associated_account_number, linked_account.account_number, transaction_purpose, machine_id, transaction_amount, null, usr)
@@ -258,7 +258,7 @@
 				transaction_locked = 0
 				transaction_paid = 0
 			else
-				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
+				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>", visible_message_flags = GHOST_MESSAGE)
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
 				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 				transaction_paid = 1

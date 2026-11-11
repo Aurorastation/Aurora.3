@@ -1377,14 +1377,14 @@ var/global/enabled_spooking = 0
 	if(check_rights(R_ADMIN|R_MOD, user))
 		if (target.paralysis == 0)
 			msg = "has paralyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
+			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", self_message = SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"), visible_message_flags = GHOST_MESSAGE)
 			target.paralysis = 8000
 		else
 			if (tgui_alert(user, "The player is currently winded. Do you want to unwind the player?", "Unwind player?", list("Yes", "No")) == "No")
 				return
 			target.paralysis = 0
 			msg = "has unparalyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
+			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", self_message = SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"), visible_message_flags = GHOST_MESSAGE)
 		log_and_message_admins(msg, user)
 		feedback_add_details("admin_verb", "WIND")
 

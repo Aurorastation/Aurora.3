@@ -76,7 +76,7 @@
 		if (prob(3))
 			to_chat(src, SPAN_WARNING(pick("You feel the room spinning...", "It's hard to think...", "You can't see straight...", "You feel absolutely hammered!")))
 		if (life_tick % 4 == 1 && !lying && !buckled_to && prob(fallchance))
-			src.visible_message(SPAN_WARNING("[src] loses balance and falls to the ground!"),SPAN_WARNING("You lose balance and fall to the ground!"))
+			src.visible_message(SPAN_WARNING("[src] loses balance and falls to the ground!"),self_message = SPAN_WARNING("You lose balance and fall to the ground!"), visible_message_flags = GHOST_MESSAGE)
 			Paralyse(3 SECONDS)
 			if(prob(33) && stat == CONSCIOUS && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine))
 				slurring = max(slurring, 70)
@@ -88,14 +88,14 @@
 		if (prob(3) && bac < INTOX_BLACKOUT*SR)
 			to_chat(src, SPAN_GOOD(pick("You feel very drunk!", "You feel invincible!", "You don't have a care in the world!", "You feel amazing!")))
 		if (life_tick % 4 == 1 && prob(5) && stat == CONSCIOUS)
-			src.visible_message(SPAN_DANGER("[src] blacks out!"),SPAN_DANGER("You black out!"))
+			src.visible_message(SPAN_DANGER("[src] blacks out!"),self_message = SPAN_DANGER("You black out!"), visible_message_flags = GHOST_MESSAGE)
 			paralysis = max(paralysis, 6 SECONDS)
 			sleeping  = max(sleeping, 6 SECONDS)
 			adjustBrainLoss(3,10)
 
 	if(bac > INTOX_CONSCIOUS*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine)) //Life threatening alcohol poisoning causing coma and possible loss of breathing.
 		if (stat == CONSCIOUS)//Put them into a coma
-			src.visible_message(SPAN_DANGER("[src] loses consciousness!"),SPAN_DANGER("You lose consciousness!"))
+			src.visible_message(SPAN_DANGER("[src] loses consciousness!"),self_message = SPAN_DANGER("You lose consciousness!"), visible_message_flags = GHOST_MESSAGE)
 			paralysis = max(paralysis, 60 SECONDS)
 			sleeping  = max(sleeping, 60 SECONDS)
 			adjustBrainLoss(5,30)
@@ -103,12 +103,12 @@
 			losebreath++
 		if(prob(1) && life_tick % 10 == 1 && stat == UNCONSCIOUS && bac < INTOX_DEATH*SR)//2.5% chance every minute, roughly, to stop breathing while unconscious.
 			if (!losebreath)//To prevent this message from being spammed.
-				src.visible_message(SPAN_DANGER("[src] stops breathing!"),SPAN_DANGER("You stop breathing!"))
+				src.visible_message(SPAN_DANGER("[src] stops breathing!"),self_message = SPAN_DANGER("You stop breathing!"), visible_message_flags = GHOST_MESSAGE)
 			losebreath += 15
 
 	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine)) //Fatal alcohol poisoning. Central nervous system no longer able to promote unconscious breathing
 		if (!losebreath)//To prevent this message from being spammed.
-			src.visible_message(SPAN_DANGER("[src] stops breathing!"),SPAN_DANGER("You stop breathing!"))
+			src.visible_message(SPAN_DANGER("[src] stops breathing!"),self_message = SPAN_DANGER("You stop breathing!"), visible_message_flags = GHOST_MESSAGE)
 		if(losebreath < 15)//Stop breathing
 			losebreath++
 

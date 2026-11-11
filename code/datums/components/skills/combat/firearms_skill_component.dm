@@ -60,4 +60,5 @@
 	*cancelled = TRUE
 	shooter.visible_message(
 		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety!"),
-		SPAN_DANGER("You fumble with \the [shoota]'s safety!"))
+		self_message = SPAN_DANGER("You fumble with \the [shoota]'s safety!"),
+		visible_message_flags = GHOST_MESSAGE)

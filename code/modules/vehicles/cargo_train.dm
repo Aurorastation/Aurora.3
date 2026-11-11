@@ -228,7 +228,7 @@
 	if(open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		passenger_allowed = !passenger_allowed
 		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),
-								SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
+								self_message = SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."), visible_message_flags = GHOST_MESSAGE)
 	else
 		..()
 

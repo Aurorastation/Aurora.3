@@ -61,7 +61,7 @@
 			admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
 			user.visible_message(SPAN_NOTICE("[user] accidentally sticks the [src] in [H]'s eyes!"),
-									SPAN_NOTICE("You accidentally stick the [src] in [H]'s eyes!"))
+									self_message = SPAN_NOTICE("You accidentally stick the [src] in [H]'s eyes!"), visible_message_flags = GHOST_MESSAGE)
 
 			to_chat(user,SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 			spent = TRUE
@@ -84,18 +84,18 @@
 
 	if(user == H)
 		user.visible_message(SPAN_NOTICE("\The [user] injects themselves with \the [src]"),
-								SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."))
+								self_message = SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."), visible_message_flags = GHOST_MESSAGE)
 
 	else
 		user.visible_message(SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [H]..."),
-								SPAN_NOTICE("You attempt to administer \the [src] to \the [H]..."))
+								self_message = SPAN_NOTICE("You attempt to administer \the [src] to \the [H]..."), visible_message_flags = GHOST_MESSAGE)
 
 		if (!do_after(user, 1 SECONDS, H))
 			to_chat(user,SPAN_NOTICE("You and the target need to be standing still in order to inject \the [src]."))
 			return
 
 		user.visible_message(SPAN_NOTICE("\The [user] injects \the [H] with \a [src]."),
-								SPAN_NOTICE("You stick \the [src] in \the [H]'s mouth and press the injection button."))
+								self_message = SPAN_NOTICE("You stick \the [src] in \the [H]'s mouth and press the injection button."), visible_message_flags = GHOST_MESSAGE)
 
 	if(H.reagents)
 		var/contained = reagentlist()

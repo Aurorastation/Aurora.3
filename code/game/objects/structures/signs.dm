@@ -24,13 +24,13 @@
 
 /obj/structure/sign/attackby(obj/item/attacking_item, mob/user) // Deconstruction.
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !istype(src, /obj/structure/sign/double))
-		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), SPAN_NOTICE("You start to unfasten \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] starts to unfasten \the [src]."), self_message = SPAN_NOTICE("You start to unfasten \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 0, volume = 50))
 			unfasten(user)
 	else ..()
 
 /obj/structure/sign/proc/unfasten(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You unfasten \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), self_message = SPAN_NOTICE("You unfasten \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	var/obj/item/sign/S = new sign_type(get_turf(src))
 	S.name = name
 	S.desc = desc

@@ -54,14 +54,14 @@
 /obj/item/melee/telebaton/attack_self(mob/user)
 	on = !on
 	if(on)
-		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic baton."), SPAN_WARNING("You extend the baton."), SPAN_WARNING("You hear an ominous click."))
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic baton."), self_message = SPAN_WARNING("You extend the baton."), blind_message = SPAN_WARNING("You hear an ominous click."), visible_message_flags = GHOST_MESSAGE)
 		icon_state = state_extended
 		item_state = state_extended
 		w_class = WEIGHT_CLASS_NORMAL
 		force = 22 //quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic baton."), SPAN_NOTICE("You collapse the baton."), SPAN_NOTICE("You hear a click."))
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic baton."), self_message = SPAN_NOTICE("You collapse the baton."), blind_message = SPAN_NOTICE("You hear a click."), visible_message_flags = GHOST_MESSAGE)
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
 		w_class = WEIGHT_CLASS_SMALL

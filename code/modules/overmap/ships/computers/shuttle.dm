@@ -11,13 +11,13 @@
 	if(electrical_level > SKILL_LEVEL_UNFAMILIAR && (emergency_power_window || stat & NOPOWER) && istype(attacking_item, /obj/item/cell))
 		var/obj/item/cell/battery = attacking_item
 		var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
-		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."))
+		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", self_message = SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."), visible_message_flags = GHOST_MESSAGE)
 		emergency_power_window = world.time
 		if(pilot_level == SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
 				to_chat(user, SPAN_NOTICE("Although unfamiliar with spacecraft to find it fast, your electrical intuition knows there's a port somewhere..."))
 			else
-				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."))
+				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", self_message = SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."), visible_message_flags = GHOST_MESSAGE)
 				return
 		while(battery.percent() > 0 && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
@@ -26,7 +26,7 @@
 					emergency_power_window += bypass_value/((100 - pilot_level * 3)/electrical_level) SECONDS // should be 10m for high-caps
 					playsound(src.loc, 'sound/machines/click.ogg', 30)
 					battery.charge -= bypass_value
-					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."))
+					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", self_message = SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."), visible_message_flags = GHOST_MESSAGE)
 					stat &= ~NOPOWER
 					update_icon()
 		return

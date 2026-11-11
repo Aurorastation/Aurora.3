@@ -356,7 +356,7 @@
 	target.regenerate_icons()
 
 	N.nymph_in(new_nymph_limb, src)
-	target.visible_message(SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to \the [target]'s body!"), SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to your body!"))
+	target.visible_message(SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to \the [target]'s body!"), self_message = SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to your body!"), visible_message_flags = GHOST_MESSAGE)
 
 /datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
 	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph

@@ -52,8 +52,8 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts shaking \the [src]."),
-							SPAN_NOTICE("You start shaking \the [src]."),
-							"You hear shaking and sloshing.")
+							self_message = SPAN_NOTICE("You start shaking \the [src]."),
+							blind_message = "You hear shaking and sloshing.", visible_message_flags = GHOST_MESSAGE)
 
 	shaking = TRUE
 

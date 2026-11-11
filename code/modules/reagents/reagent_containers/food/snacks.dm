@@ -89,11 +89,11 @@
 			shake_animation()
 			playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 			if (amount_eaten >= m_bitesize)
-				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				if (!istype(target.loc, /turf))//held mobs don't see visible messages
 					to_chat(target, SPAN_NOTICE("\The [user] feeds you \the [src]."))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] a tiny bit of \the [src]. <b>It looks full.</b>"))
+				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] a tiny bit of \the [src]. <b>It looks full.</b>"), visible_message_flags = GHOST_MESSAGE)
 				if (!istype(target.loc, /turf))
 					to_chat(target, SPAN_NOTICE("\The [user] feeds you a tiny bit of \the [src]. <b>You feel pretty full!</b>"))
 			return 1
@@ -236,10 +236,10 @@
 
 			var/slices_lost = 0
 			if(attacking_item.w_class > 3)
-				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [attacking_item]!"), SPAN_NOTICE("You crudely slice \the [src] with your [attacking_item]!"))
+				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [attacking_item]!"), self_message = SPAN_NOTICE("You crudely slice \the [src] with your [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), SPAN_NOTICE("You slice \the [src]!"))
+				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), self_message = SPAN_NOTICE("You slice \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
@@ -331,7 +331,7 @@
 	AddOverlays(J)
 
 	if (user)
-		user.visible_message(SPAN_NOTICE("[user] dips [src] into \the [applied_coating_reagent.name]"), SPAN_NOTICE("You dip [src] into \the [applied_coating_reagent.name]"))
+		user.visible_message(SPAN_NOTICE("[user] dips [src] into \the [applied_coating_reagent.name]"), self_message = SPAN_NOTICE("You dip [src] into \the [applied_coating_reagent.name]"), visible_message_flags = GHOST_MESSAGE)
 
 	return TRUE
 

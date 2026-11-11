@@ -56,7 +56,7 @@
 	if(!charged_item)
 		return 0
 	else
-		charged_item.visible_message(SPAN_NOTICE("[charged_item] suddenly sparks with energy!"))
+		charged_item.visible_message(SPAN_NOTICE("[charged_item] suddenly sparks with energy!"), visible_message_flags = (ismob(charged_item) ? GHOST_MESSAGE : NONE))
 		return 1
 
 

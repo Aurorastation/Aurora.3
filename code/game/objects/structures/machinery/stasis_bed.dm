@@ -102,8 +102,8 @@
 		playsound(src, 'sound/machines/click.ogg', 60, TRUE)
 		balloon_alert_to_viewers("turned [stasis_enabled ? "on" : "off"]", vision_distance = 3)
 		user.visible_message(SPAN_NOTICE("\The [src] [stasis_enabled ? "powers on" : "shuts down"]."), \
-					SPAN_NOTICE("You [stasis_enabled ? "power on" : "shut down"] \the [src]."), \
-					SPAN_NOTICE("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."))
+					self_message = SPAN_NOTICE("You [stasis_enabled ? "power on" : "shut down"] \the [src]."), \
+					blind_message = SPAN_NOTICE("You hear a nearby machine [stasis_enabled ? "power on" : "shut down"]."), visible_message_flags = GHOST_MESSAGE)
 		play_power_sound()
 		update_icon()
 

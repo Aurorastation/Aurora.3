@@ -140,7 +140,7 @@
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		open = !open
 
-		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
+		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", self_message = "You [open ? "open" : "close"] the beacon's cover.", visible_message_flags = GHOST_MESSAGE)
 
 		update_icon()
 		return TRUE

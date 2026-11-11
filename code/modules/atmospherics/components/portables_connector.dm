@@ -173,8 +173,8 @@
 	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
-			SPAN_NOTICE("You have unfastened \the [src]."), \
-			"You hear a ratchet.")
+			self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
+			blind_message = "You hear a ratchet.", visible_message_flags = GHOST_MESSAGE)
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE

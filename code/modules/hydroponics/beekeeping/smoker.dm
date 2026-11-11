@@ -40,7 +40,7 @@
 			return TRUE
 		if(!use(1, user))
 			return TRUE
-		user.visible_message(SPAN_NOTICE("\The [user] smokes the bees in \the [B]."), SPAN_NOTICE("You smoke the bees in \the [B], which seems to calm them down."))
+		user.visible_message(SPAN_NOTICE("\The [user] smokes the bees in \the [B]."), self_message = SPAN_NOTICE("You smoke the bees in \the [B], which seems to calm them down."), visible_message_flags = GHOST_MESSAGE)
 		B.smoked = 30
 		B.update_icon()
 		return TRUE

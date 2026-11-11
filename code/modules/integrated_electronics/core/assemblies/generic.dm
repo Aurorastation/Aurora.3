@@ -304,8 +304,9 @@
 
 	user.visible_message(
 		"\The [user] attaches \the [src] to the wall.",
-		SPAN_NOTICE("You attach \the [src] to the wall."),
-		"<span class='italics'>You hear clicking.</span>"
+		self_message = SPAN_NOTICE("You attach \the [src] to the wall."),
+		blind_message = "<span class='italics'>You hear clicking.</span>",
+		visible_message_flags = GHOST_MESSAGE
 	)
 
 	if(isrobot(user)) // Robots cannot unequip/drop items, for safety reasons.

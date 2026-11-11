@@ -76,7 +76,8 @@
 		if(!stat)
 			visible_message(
 				SPAN_NOTICE("[user] baps [src] on the nose with the rolled up [attacking_item.name]."),
-				SPAN_ALERT("[user] baps you on the nose with the rolled up [attacking_item.name]!")
+				self_message = SPAN_ALERT("[user] baps you on the nose with the rolled up [attacking_item.name]!"),
+				visible_message_flags = GHOST_MESSAGE
 			)
 			scan_interval = max_scan_interval
 			lostMovementTarget()

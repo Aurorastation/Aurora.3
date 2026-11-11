@@ -103,8 +103,6 @@
 			params[1] = AM.filters[index]
 			animate(arglist(monkeypatched_params))
 
-// Filter constructors synchronized from TG:
-// https://github.com/tgstation/tgstation/blob/12131504f3b/code/__HELPERS/filters.dm
 //Helpers to generate lists for filter helpers
 //This is the only practical way of writing these that actually produces sane lists
 /proc/alpha_mask_filter(x, y, icon/icon, render_source, flags)

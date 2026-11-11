@@ -199,12 +199,12 @@
 		return FALSE
 
 	if(zoom)
-		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses retract.", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses retract.", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 	else
-		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, 1.5 SECONDS))
 			return
-		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 
 	zoom(owner, 6, 7, FALSE, FALSE)
 
@@ -312,7 +312,7 @@
 		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
 		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),
-								SPAN_NOTICE("You deploy \the [M]!"))
+								self_message = SPAN_NOTICE("You deploy \the [M]!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/combitool/robotic
 	name = "robotic combitool"
@@ -448,7 +448,7 @@
 		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
 		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),
-								SPAN_NOTICE("You deploy \the [M]!"))
+								self_message = SPAN_NOTICE("You deploy \the [M]!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/melee/baton/autakh
 	name = "integrated stun baton"

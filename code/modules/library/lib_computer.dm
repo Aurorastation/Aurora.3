@@ -162,7 +162,8 @@
 				to_chat(usr, SPAN_WARNING("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it."))
 				usr.visible_message(
 					SPAN_NOTICE("\The [usr] stares at the blank screen for a few moments, [usr.get_pronoun("his")] expression frozen in fear. When [usr.get_pronoun("he")] finally awakens from it, [usr.get_pronoun("he")] looks a lot older."),
-					range = 2)
+					vision_distance = 2,
+					visible_message_flags = GHOST_MESSAGE)
 				bible_on_cooldown = TRUE
 				addtimer(CALLBACK(src, PROC_REF(end_bible_cooldown)), 6 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 			. = TRUE

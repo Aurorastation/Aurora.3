@@ -38,7 +38,7 @@
 	if(actual_charges > 0)
 		addtimer(CALLBACK(src, PROC_REF(disarm)), recharge_time MINUTES)
 	if(is_broken())
-		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
+		owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 		tesla_zap(owner, 7, 1500)
 
@@ -117,7 +117,7 @@
 	if(!.)
 		return FALSE
 
-	owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
+	owner.visible_message(SPAN_DANGER("\The [owner] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(owner, 7, 1500)
 

@@ -58,9 +58,9 @@
 			return ..()
 		var/time_to_die = tgui_alert(user, "Are you sure?", "Begin Antibody Creation", list("Yes", "No"))
 		if(time_to_die == "Yes")
-			user.visible_message(SPAN_WARNING("[user] starts fiddling with \the [src]'s controls..."))
+			user.visible_message(SPAN_WARNING("[user] starts fiddling with \the [src]'s controls..."), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 5 SECONDS, src))
-				user.visible_message(SPAN_WARNING(FONT_HUGE("[user] activates \the [src] as it begins rumbling!")))
+				user.visible_message(SPAN_WARNING(FONT_HUGE("[user] activates \the [src] as it begins rumbling!")), visible_message_flags = GHOST_MESSAGE)
 				working = TRUE
 				stage = 1
 				log_and_message_admins("has begun antibody extraction", usr, get_turf(src))

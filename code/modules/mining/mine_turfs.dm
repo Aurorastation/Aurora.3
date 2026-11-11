@@ -278,7 +278,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	if(istype(attacking_item, /obj/item/measuring_tape))
 		var/obj/item/measuring_tape/P = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , SPAN_NOTICE("You extend \the [P] towards \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , self_message = SPAN_NOTICE("You extend \the [P] towards \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
 				return

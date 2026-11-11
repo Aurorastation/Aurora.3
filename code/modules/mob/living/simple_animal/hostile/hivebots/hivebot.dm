@@ -119,7 +119,7 @@
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 50)
-	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -305,8 +305,8 @@
 	set desc = "Assemble a hivebot."
 	set category = "Hivebot"
 
-	src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
+	src.visible_message("\The [src] begins to construct a hivebot.", self_message = "You begin to construct a hivebot.", blind_message = "You hear the sounds of fabrication...", visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
+	src.visible_message("\The [src] constructs a hivebot!", self_message = "You construct a hivebot!", visible_message_flags = GHOST_MESSAGE)
 	new /mob/living/simple_animal/hostile/hivebot(get_turf(src))

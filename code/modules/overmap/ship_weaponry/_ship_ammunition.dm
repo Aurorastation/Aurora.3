@@ -80,7 +80,7 @@
 			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
 			if(friendly_message)
 				written_message = friendly_message
-			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), SPAN_NOTICE("You leave a nice message on \the [src]!"))
+			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), blind_message = SPAN_NOTICE("You leave a nice message on \the [src]!"))
 			return
 	return ..()
 

@@ -42,14 +42,14 @@
 		switch(stage)
 			if(1)
 				to_chat(src, SPAN_NOTICE("This creature is compatible. We must hold still.."))
-				src.visible_message(SPAN_WARNING("[src]'s skin begins to shift and squirm!"))
+				src.visible_message(SPAN_WARNING("[src]'s skin begins to shift and squirm!"), visible_message_flags = GHOST_MESSAGE)
 			if(2)
 				to_chat(src, SPAN_NOTICE("We extend a proboscis."))
-				src.visible_message(SPAN_WARNING("[src] extends a proboscis!"))
+				src.visible_message(SPAN_WARNING("[src] extends a proboscis!"), visible_message_flags = GHOST_MESSAGE)
 				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
 				to_chat(src, SPAN_NOTICE("We stab [T] with the proboscis."))
-				src.visible_message(SPAN_DANGER("[src] stabs [T] with the proboscis!"))
+				src.visible_message(SPAN_DANGER("[src] stabs [T] with the proboscis!"), visible_message_flags = GHOST_MESSAGE)
 				to_chat(T, SPAN_DANGER("You feel a sharp stabbing pain!"))
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
@@ -63,7 +63,7 @@
 			return
 
 	to_chat(src, SPAN_NOTICE("We have absorbed [T]!"))
-	src.visible_message(SPAN_DANGER("[src] sucks the fluids from [T]!"))
+	src.visible_message(SPAN_DANGER("[src] sucks the fluids from [T]!"), visible_message_flags = GHOST_MESSAGE)
 	to_chat(T, SPAN_DANGER("You have been absorbed by the changeling!"))
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 

@@ -28,7 +28,7 @@
 			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
-			holder.visible_message("<b>[holder]</b> winces.")
+			holder.visible_message("<b>[holder]</b> winces.", visible_message_flags = (ismob(holder) ? GHOST_MESSAGE : NONE))
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
@@ -80,7 +80,7 @@
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
 		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun("his")] hands to [usr.get_pronoun("his")] head and mumbles incoherently as they stare, unblinking, at \the [target].",
-						SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
+						self_message = SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"), visible_message_flags = GHOST_MESSAGE)
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))
 
@@ -115,7 +115,7 @@
 			holder.flash_act(ignore_inherent = TRUE)
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
-			holder.visible_message("<b>[holder]</b> winces.")
+			holder.visible_message("<b>[holder]</b> winces.", visible_message_flags = (ismob(holder) ? GHOST_MESSAGE : NONE))
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
@@ -171,6 +171,6 @@
 
 	if(do_after(usr, 30))
 		usr.visible_message("<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>",
-					SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
+					self_message = SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"), visible_message_flags = GHOST_MESSAGE)
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your efforts!"))

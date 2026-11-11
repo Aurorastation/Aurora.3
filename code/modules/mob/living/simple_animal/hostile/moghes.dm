@@ -46,7 +46,7 @@
 	if(istype(L))
 		if(prob(25))
 			L.Weaken(3)
-			L.visible_message(SPAN_DANGER("\The [src] knocks down \the [L]!"))
+			L.visible_message(SPAN_DANGER("\The [src] knocks down \the [L]!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/hostile/biglizard/death(gibbed)
 	..()
@@ -109,7 +109,7 @@
 		to_chat(src, SPAN_WARNING("You must wait a little while before we can use this ability again!"))
 		return
 
-	visible_message(SPAN_WARNING("\The [src] begins ripping apart and feasting on [target]!"))
+	visible_message(SPAN_WARNING("\The [src] begins ripping apart and feasting on [target]!"), visible_message_flags = GHOST_MESSAGE)
 	is_devouring = TRUE
 
 	target.adjustBruteLoss(35)
@@ -119,7 +119,7 @@
 		src.is_devouring = FALSE
 		return FALSE
 
-	visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"))
+	visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"), visible_message_flags = GHOST_MESSAGE)
 
 	target.adjustBruteLoss(35)
 
@@ -129,7 +129,7 @@
 		return FALSE
 
 	visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
-						SPAN_WARNING("You completely devour \the [target]!"))
+						self_message = SPAN_WARNING("You completely devour \the [target]!"), visible_message_flags = GHOST_MESSAGE)
 	target.gib()
 	rejuvenate()
 	updatehealth()
@@ -178,7 +178,7 @@
 	if(shriek_time > world.time)
 		return
 	else
-		visible_message(SPAN_DANGER("\The [src] emits an ear-splitting shriek!"))
+		visible_message(SPAN_DANGER("\The [src] emits an ear-splitting shriek!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(get_turf(src), 'sound/effects/creatures/siro_shriek.ogg', 50, 1)
 		var/shriek_intensity = 1 - (9 * get_dist(T, M) / 70)
 		M.noise_act(intensity = EAR_PROTECTION_MAJOR, damage_pwr = 10 * shriek_intensity, deafen_pwr = 15 * (1 - shriek_intensity))

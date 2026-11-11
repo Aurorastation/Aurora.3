@@ -303,7 +303,7 @@
 		to_chat(user, SPAN_NOTICE("You begin to disassemble \the [src]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			new /obj/item/stack/material/steel(get_turf(src), steel_sheet_cost)
-			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), self_message = SPAN_NOTICE("You disassemble \the [src]."), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
 			qdel(src)
 		return TRUE
 	if(attacking_item.tool_behaviour == TOOL_WELDER)

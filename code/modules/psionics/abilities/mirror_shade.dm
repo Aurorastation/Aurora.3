@@ -81,5 +81,5 @@
 
 /mob/living/simple_animal/hostile/mirror_shade/Destroy()
 	owner = null
-	visible_message(SPAN_WARNING("[src] dissipates into nothingness, as if it were air all along!"))
+	visible_message(SPAN_WARNING("[src] dissipates into nothingness, as if it were air all along!"), visible_message_flags = GHOST_MESSAGE)
 	return ..()

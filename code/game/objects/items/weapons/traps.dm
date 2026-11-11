@@ -62,11 +62,11 @@
 			anchored = TRUE
 
 /obj/item/trap/proc/deploy(mob/user)
-	user.visible_message("[SPAN_BOLD("[user]")] starts deploying \the [src]...", SPAN_NOTICE("You begin deploying \the [src]!"), SPAN_WARNING("You hear the slow creaking of a spring."))
+	user.visible_message("[SPAN_BOLD("[user]")] starts deploying \the [src]...", self_message = SPAN_NOTICE("You begin deploying \the [src]!"), blind_message = SPAN_WARNING("You hear the slow creaking of a spring."), visible_message_flags = GHOST_MESSAGE)
 
 	if(do_after(user, 5 SECONDS))
 		playsound(src, 'sound/items/crank.ogg', 50, TRUE)
-		user.visible_message("[SPAN_BOLD("[user]")] deploys \the [src].", SPAN_WARNING("You deploy \the [src]!"), SPAN_WARNING("You hear a latch click loudly."))
+		user.visible_message("[SPAN_BOLD("[user]")] deploys \the [src].", self_message = SPAN_WARNING("You deploy \the [src]!"), blind_message = SPAN_WARNING("You hear a latch click loudly."), visible_message_flags = GHOST_MESSAGE)
 		deployed = TRUE
 		update_icon()
 		return TRUE
@@ -77,10 +77,10 @@
 	if(!buckled || !can_use(user))
 		return
 
-	user.visible_message("[SPAN_BOLD("[user]")] begins freeing \the [buckled] from \the [src]...", SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."), SPAN_NOTICE("You hear metal creaking."))
+	user.visible_message("[SPAN_BOLD("[user]")] begins freeing \the [buckled] from \the [src]...", self_message = SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."), blind_message = SPAN_NOTICE("You hear metal creaking."), visible_message_flags = GHOST_MESSAGE)
 
 	if(do_after(user, time_to_escape))
-		user.visible_message("[SPAN_BOLD("[user]")] frees \the [buckled] from \the [src].", SPAN_NOTICE("You free \the [buckled] from \the [src]."))
+		user.visible_message("[SPAN_BOLD("[user]")] frees \the [buckled] from \the [src].", self_message = SPAN_NOTICE("You free \the [buckled] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		unbuckle()
 		anchored = FALSE
 
@@ -95,9 +95,9 @@
 	..()
 
 /obj/item/trap/proc/disarm_trap(var/mob/user)
-	user.visible_message("[SPAN_BOLD("[user]")] starts disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	user.visible_message("[SPAN_BOLD("[user]")] starts disarming \the [src]...", self_message = SPAN_NOTICE("You begin disarming \the [src]..."), blind_message = SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 6 SECONDS))
-		user.visible_message("[SPAN_BOLD("[user]")] disarms \the [src]!", SPAN_NOTICE("You disarm \the [src]!"))
+		user.visible_message("[SPAN_BOLD("[user]")] disarms \the [src]!", self_message = SPAN_NOTICE("You disarm \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		deployed = FALSE
 		if(unsecure_on_disarm)
 			anchored = FALSE
@@ -110,7 +110,7 @@
 	if(!success)
 		return FALSE
 
-	L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"), FONT_LARGE(SPAN_DANGER("You step on \the [src]!")), SPAN_WARNING("<b>You hear a loud metallic snap!</b>"))
+	L.visible_message(SPAN_DANGER("\The [L] steps on \the [src]!"), self_message = FONT_LARGE(SPAN_DANGER("You step on \the [src]!")), blind_message = SPAN_WARNING("<b>You hear a loud metallic snap!</b>"), visible_message_flags = GHOST_MESSAGE)
 
 	var/did_trap = TRUE
 	if(ishuman(L))
@@ -200,17 +200,17 @@
 	underlays = list(I)
 
 /obj/item/trap/tripwire/deploy(mob/user)
-	user.visible_message(SPAN_WARNING("\The [user] starts to deploy \the [src]."), SPAN_WARNING("You begin deploying \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] starts to deploy \the [src]."), self_message = SPAN_WARNING("You begin deploying \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 5 SECONDS))
 		playsound(src, 'sound/items/crank.ogg', 50, TRUE)
-		user.visible_message(SPAN_WARNING("\The [user] deploys \the [src]."), SPAN_WARNING("You deploy \the [src]!"))
+		user.visible_message(SPAN_WARNING("\The [user] deploys \the [src]."), self_message = SPAN_WARNING("You deploy \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		deployed = TRUE
 		update_icon()
 		return TRUE
 	return FALSE
 
 /obj/item/trap/tripwire/disarm_trap(var/mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), SPAN_NOTICE("You begin taking \the [src] down..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), self_message = SPAN_NOTICE("You begin taking \the [src] down..."), blind_message = SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 6 SECONDS))
 		deployed = FALSE
 		if(unsecure_on_disarm)
@@ -226,7 +226,7 @@
 		return
 
 	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
-		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
+		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), self_message = FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")), visible_message_flags = GHOST_MESSAGE)
 		L.Weaken(3)
 
 /**
@@ -278,7 +278,7 @@
 
 		//Give a simple message and return if it's not a human
 		if(!ishuman(L))
-			L.visible_message(SPAN_DANGER("[L] steps on \the [src]!"))
+			L.visible_message(SPAN_DANGER("[L] steps on \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			return
 
 		var/mob/living/carbon/human/human = L
@@ -290,8 +290,8 @@
 			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
 
 		human.visible_message(SPAN_DANGER("\The [human] steps on \the [src]!"),
-								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
-								SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [organ.name]!</b>"))
+								self_message = SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel your body fall, and something sharp penetrate your [organ.name]!"))),
+								blind_message = SPAN_WARNING("<b>You feel your body fall, and something sharp penetrate your [organ.name]!</b>"), visible_message_flags = GHOST_MESSAGE)
 
 		//If it's a human and not an IPC, apply an infection
 		//We are returning early before this step in case something isn't a human, so this should be fine not to catch borgs/bot/exosuits/whatever
@@ -316,7 +316,7 @@
 	if(!(src in oview(world.view, victim)))
 		return
 
-	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message))
+	victim.visible_message(SPAN_ALERT("You notice something written on a plate inside the trap: <br>")+SPAN_BAD(message), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/trap/punji/verb/hide_under()
 	set src in oview(1)
@@ -391,7 +391,7 @@
 
 		//Give a simple message and return if it's not a human
 		if(!ishuman(L))
-			L.visible_message(SPAN_DANGER("[L] slams into \the [src]!"))
+			L.visible_message(SPAN_DANGER("[L] slams into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			return
 
 		var/mob/living/carbon/human/human = L
@@ -403,8 +403,8 @@
 			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
 
 		human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
-								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You crash on \the [src], feel your body crumble, and something sharp penetrate your [organ.name]!"))),
-								SPAN_WARNING("<b>You feel your body crumble, and something sharp penetrate your [organ.name]!</b>"))
+								self_message = SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You crash on \the [src], feel your body crumble, and something sharp penetrate your [organ.name]!"))),
+								blind_message = SPAN_WARNING("<b>You feel your body crumble, and something sharp penetrate your [organ.name]!</b>"), visible_message_flags = GHOST_MESSAGE)
 
 /**
  * # Animal trap
@@ -512,7 +512,7 @@
 		return
 
 	if(msg)
-		capturing_mob.visible_message(SPAN_DANGER("[capturing_mob] enters \the [src], and it snaps shut with a clatter!"), SPAN_DANGER("You enter \the [src], and it snaps shut with a clatter!"), SPAN_DANGER("You hear a loud metallic snap!"))
+		capturing_mob.visible_message(SPAN_DANGER("[capturing_mob] enters \the [src], and it snaps shut with a clatter!"), self_message = SPAN_DANGER("You enter \the [src], and it snaps shut with a clatter!"), blind_message = SPAN_DANGER("You hear a loud metallic snap!"), visible_message_flags = GHOST_MESSAGE)
 
 	if(capturing_mob.loc != loc)
 		capturing_mob.forceMove(loc)
@@ -709,7 +709,7 @@
 			to_chat(user, SPAN_NOTICE("You need a better grip on \the [capturing_mob]!"))
 			return
 
-		user.visible_message("[SPAN_BOLD("[user]")] starts putting \the [capturing_mob] into \the [src].", SPAN_NOTICE("You start putting \the [capturing_mob] into \the [src]."))
+		user.visible_message("[SPAN_BOLD("[user]")] starts putting \the [capturing_mob] into \the [src].", self_message = SPAN_NOTICE("You start putting \the [capturing_mob] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 		if(capturing_mob.mob_size > max_mob_size)
 			to_chat(user, SPAN_WARNING("\The [capturing_mob] won't fit in there!"))
@@ -726,11 +726,11 @@
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] is trying to slice \the [src] open!"), SPAN_NOTICE("You are trying to slice \the [src] open!"))
+		user.visible_message(SPAN_NOTICE("[user] is trying to slice \the [src] open!"), self_message = SPAN_NOTICE("You are trying to slice \the [src] open!"), visible_message_flags = GHOST_MESSAGE)
 
 		if(WT.use_tool(src, user, 6 SECONDS, volume = 50))
 			if(WT.use(2, user))
-				user.visible_message(SPAN_NOTICE("[user] slices \the [src] open!"), SPAN_NOTICE("You slice \the [src] open!"))
+				user.visible_message(SPAN_NOTICE("[user] slices \the [src] open!"), self_message = SPAN_NOTICE("You slice \the [src] open!"), visible_message_flags = GHOST_MESSAGE)
 				for(var/resource_path in resources)
 					new resource_path(loc, resources[resource_path])
 				release(user)
@@ -742,14 +742,14 @@
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
 			return
 
-		user.visible_message("[SPAN_BOLD("[user]")] starts [anchored ? "un" : "" ]securing \the [src]...", SPAN_NOTICE("You start [anchored ? "un" : "" ]securing \the [src]..."))
+		user.visible_message("[SPAN_BOLD("[user]")] starts [anchored ? "un" : "" ]securing \the [src]...", self_message = SPAN_NOTICE("You start [anchored ? "un" : "" ]securing \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 
 		if(attacking_item.use_tool(src, user, 3 SECONDS, volume = 50))
 			density = !density
 			anchored = !anchored
 			if(!anchored)
 				deployed = FALSE
-			user.visible_message("[SPAN_BOLD("[user]")] [anchored ? "" : "un" ]secures \the [src]!", SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
+			user.visible_message("[SPAN_BOLD("[user]")] [anchored ? "" : "un" ]secures \the [src]!", self_message = SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			update_icon()
 
 	else
@@ -805,15 +805,15 @@
 		..()
 
 /obj/item/trap/animal/proc/pass_without_trace(var/mob/user, var/chance_to_trigger = 0)
-	user.visible_message("[SPAN_BOLD("[user]")] tries moving around \the [src] without triggering it.", SPAN_NOTICE("You try to carefully move around \the [src] without triggering it."))
+	user.visible_message("[SPAN_BOLD("[user]")] tries moving around \the [src] without triggering it.", self_message = SPAN_NOTICE("You try to carefully move around \the [src] without triggering it."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 2 SECONDS, src))
 		if(chance_to_trigger && prob(chance_to_trigger))
 			user.forceMove(loc)
-			user.visible_message(SPAN_WARNING("[user] accidentally triggers \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] accidentally triggers \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			capture(user)
 		else
 			user.forceMove(loc)
-			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
+			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", self_message = SPAN_NOTICE("You successfully move around \the [src] without triggering it."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/trap/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(over != user)
@@ -852,7 +852,7 @@
 		if(capturing_mob.mob_size > max_mob_size)
 			to_chat(user, SPAN_WARNING("\The [capturing_mob] doesn't fit in \the [src]!"))
 			return
-		user.visible_message(SPAN_WARNING("[user] traps \the [capturing_mob] inside of \the [src]."), SPAN_WARNING("You trap [capturing_mob] inside of the \the [src]!"), SPAN_DANGER("You hear a loud metallic snap!"))
+		user.visible_message(SPAN_WARNING("[user] traps \the [capturing_mob] inside of \the [src]."), self_message = SPAN_WARNING("You trap [capturing_mob] inside of the \the [src]!"), blind_message = SPAN_DANGER("You hear a loud metallic snap!"), visible_message_flags = GHOST_MESSAGE)
 		capture(capturing_mob, FALSE)
 	else
 		..()
@@ -928,12 +928,12 @@
 			return
 
 		user.visible_message(SPAN_NOTICE("[user] begins [anchored ? "un" : "" ]securing \the [src]!"),
-								SPAN_NOTICE("You begin [anchored ? "un" : "" ]securing \the [src]!"))
+								self_message = SPAN_NOTICE("You begin [anchored ? "un" : "" ]securing \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
 			user.visible_message(SPAN_NOTICE("[user] [anchored ? "" : "un" ]secures \the [src]!"),
-								SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
+								self_message = SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		// Unlike smaller traps, screwdriver shouldn't work on this.
@@ -990,14 +990,14 @@
 	if(istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/O = attacking_item
 		if(O.get_amount() >= 12)
-			user.visible_message("[SPAN_BOLD("[user]")] starts adding metal bars to \the [src]...", SPAN_NOTICE("You start adding metal bars to \the [src]..."))
+			user.visible_message("[SPAN_BOLD("[user]")] starts adding metal bars to \the [src]...", self_message = SPAN_NOTICE("You start adding metal bars to \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			O.use(12)
 
 			var/obj/item/trap/animal/large/new_trap = new /obj/item/trap/animal/large(src.loc)
-			user.visible_message("[SPAN_BOLD("[user]")] finishes constructing \the [new_trap].", SPAN_NOTICE("You finish constructing \the [new_trap]."))
+			user.visible_message("[SPAN_BOLD("[user]")] finishes constructing \the [new_trap].", self_message = SPAN_NOTICE("You finish constructing \the [new_trap]."), visible_message_flags = GHOST_MESSAGE)
 
 			qdel(src)
 			return

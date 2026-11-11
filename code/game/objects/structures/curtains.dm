@@ -44,12 +44,12 @@
 		if(manipulating)	return
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
-					SPAN_NOTICE("You begin cutting down \the [src]."))
+					blind_message = SPAN_NOTICE("You begin cutting down \the [src]."))
 		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
-					SPAN_NOTICE("You cut down \the [src]."))
+					blind_message = SPAN_NOTICE("You cut down \the [src]."))
 		dismantle()
 
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //You can anchor/unanchor curtains

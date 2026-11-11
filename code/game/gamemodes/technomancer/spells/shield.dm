@@ -53,7 +53,7 @@
 	//block as long as they are not directly behind us
 	var/bad_arc = REVERSE_DIR(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
-		user.visible_message(SPAN_DANGER("\The [user]'s [src] blocks [attack_text]!"))
+		user.visible_message(SPAN_DANGER("\The [user]'s [src] blocks [attack_text]!"), visible_message_flags = GHOST_MESSAGE)
 		spark(src, 3, GLOB.cardinals)
 		playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 		adjust_instability(2)

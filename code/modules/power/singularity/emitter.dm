@@ -219,15 +219,15 @@
 				state = EMITTER_BOLTED
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
-					SPAN_WARNING("You hear a ratcheting noise."))
+					self_message = SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
+					blind_message = SPAN_WARNING("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
-					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
-					SPAN_WARNING("You hear a ratcheting noise."))
+					self_message = SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
+					blind_message = SPAN_WARNING("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
 				anchored = FALSE
 			if(EMITTER_WELDED)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be unwelded from the floor."))
@@ -246,8 +246,8 @@
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
-						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
-						SPAN_WARNING("You hear the sound of metal being welded."))
+						self_message = SPAN_NOTICE("You start to weld \the [src] to the floor."), \
+						blind_message = SPAN_WARNING("You hear the sound of metal being welded."), visible_message_flags = GHOST_MESSAGE)
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return FALSE
@@ -262,8 +262,8 @@
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
-						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
-						SPAN_WARNING("You hear the sound of metal being welded."))
+						self_message = SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
+						blind_message = SPAN_WARNING("You hear the sound of metal being welded."), visible_message_flags = GHOST_MESSAGE)
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return FALSE

@@ -17,13 +17,13 @@
 		eat_speed *= 3 //We want our bites to take a lot so as to not spam the chat.
 		do_gradual_devour(victim, eat_speed)
 		return
-	src.visible_message(SPAN_DANGER("\The [src] is attempting to devour \the [victim] whole!"))
+	src.visible_message(SPAN_DANGER("\The [src] is attempting to devour \the [victim] whole!"), visible_message_flags = GHOST_MESSAGE)
 	var/mob/target = victim
 	if(isobj(victim))
 		target = src
 	if(!do_mob(src,target,eat_speed))
 		return FALSE
-	src.visible_message(SPAN_DANGER("\The [src] devours \the [victim] whole!"))
+	src.visible_message(SPAN_DANGER("\The [src] devours \the [victim] whole!"), visible_message_flags = GHOST_MESSAGE)
 	if(ismob(victim))
 		admin_attack_log(src, victim, "Devoured.", "Was devoured by.", "devoured")
 	else
@@ -73,8 +73,8 @@
 		time_needed_string = "[time_needed_seconds] seconds"
 
 	src.visible_message(SPAN_DANGER("[src] starts to devour [victim]!"), \
-						SPAN_DANGER("You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, \
-						but you can interrupt feeding anytime and leave with what you've already eaten."))
+						self_message = SPAN_DANGER("You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, \
+						but you can interrupt feeding anytime and leave with what you've already eaten."), visible_message_flags = GHOST_MESSAGE)
 
 	for (var/i = 0 to num_bites_needed)
 		if(do_mob(src, victim, bite_delay * 10, extra_checks = CALLBACK(src, PROC_REF(devouring_equals), victim)))
@@ -84,11 +84,11 @@
 			if(S)
 				S.ingested.add_reagent(victim.composition_reagent, (victim.composition_reagent_quantity * 0.5) * PEPB)
 			visible_message(SPAN_DANGER("[src] bites a chunk out of [victim]!"),
-							SPAN_DANGER("[bitemessage(victim)]"))
+							self_message = SPAN_DANGER("[bitemessage(victim)]"), visible_message_flags = GHOST_MESSAGE)
 			if(messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim)
 			if(victim.getBruteLoss() >= victim_maxhealth)
-				visible_message(SPAN_DANGER("[src] finishes devouring [victim]."),SPAN_WARNING("You finish devouring [victim]."))
+				visible_message(SPAN_DANGER("[src] finishes devouring [victim]."),self_message = SPAN_WARNING("You finish devouring [victim]."), visible_message_flags = GHOST_MESSAGE)
 				handle_devour_mess(src, victim, TRUE)
 				qdel(victim)
 		else

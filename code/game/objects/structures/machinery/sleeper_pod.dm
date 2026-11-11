@@ -248,7 +248,7 @@
 			beaker = attacking_item
 			user.drop_from_inventory(attacking_item, src)
 			user.visible_message(SPAN_NOTICE("\The [user] adds \a [attacking_item] to \the [src]."),
-									SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
+									self_message = SPAN_NOTICE("You add \a [attacking_item] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
@@ -267,7 +267,7 @@
 
 		if(display_loading_message)
 			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
-									SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
+									self_message = SPAN_NOTICE("You start putting [G.affecting] into [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)

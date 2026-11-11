@@ -39,7 +39,7 @@
 		if(istype(attacking_item, /obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/C = attacking_item
 			if(C.powered)
-				user.visible_message(SPAN_NOTICE("\The [user] begins cutting down \the [src]..."), SPAN_NOTICE("You start cutting down \the [src]..."))
+				user.visible_message(SPAN_NOTICE("\The [user] begins cutting down \the [src]..."), self_message = SPAN_NOTICE("You start cutting down \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 				playsound(get_turf(user), 'sound/weapons/saw/chainsawhit.ogg', 60, 1)
 				shake_animation()
 				if(do_after(user, 50))
@@ -55,7 +55,7 @@
 			chop_health -= attacking_item.force
 			update_desc()
 			if(prob(20))
-				user.visible_message(SPAN_NOTICE("\The [user] chops at \the [src]."), SPAN_NOTICE("You chop at \the [src]."), SPAN_NOTICE("You hear someone chopping wood."))
+				user.visible_message(SPAN_NOTICE("\The [user] chops at \the [src]."), self_message = SPAN_NOTICE("You chop at \the [src]."), blind_message = SPAN_NOTICE("You hear someone chopping wood."), visible_message_flags = GHOST_MESSAGE)
 			if(prob(attacking_item.force/3))
 				var/list/valid_turfs = list()
 				for(var/turf/T in circle_range(src, 1))
@@ -150,13 +150,13 @@
 		cutting = TRUE
 		var/chopsound = istype(attacking_item, /obj/item/material/twohanded/chainsaw) ? 'sound/weapons/saw/chainsawhit.ogg' : 'sound/effects/woodcutting.ogg'
 		playsound(get_turf(user), chopsound, 50, 1)
-		user.visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into log sections."), SPAN_NOTICE("You begin chopping \the [src] into log sections."))
+		user.visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into log sections."), self_message = SPAN_NOTICE("You begin chopping \the [src] into log sections."), visible_message_flags = GHOST_MESSAGE)
 		var/chopspeed = 1
 		if(istype(attacking_item, /obj/item/material/twohanded))
 			var/obj/item/material/twohanded/W = attacking_item
 			chopspeed = W.wielded ? 2 : 1
 		if(do_after(user, 100 / chopspeed))
-			user.visible_message(SPAN_NOTICE("\The [user] chops \the [src] into log sections."), SPAN_NOTICE("You chop \the [src] into log sections."))
+			user.visible_message(SPAN_NOTICE("\The [user] chops \the [src] into log sections."), self_message = SPAN_NOTICE("You chop \the [src] into log sections."), visible_message_flags = GHOST_MESSAGE)
 			var/obj/item/stack/material/wood/log/L = new(get_turf(src))
 			L.amount = rand(5, 8)
 			qdel(src)

@@ -62,7 +62,7 @@
 		if(do_after(owner, 0.5 SECONDS, do_flags = DO_USER_CAN_MOVE | DO_USER_CAN_TURN) && owner.change_eye_color(r_eyes, g_eyes, b_eyes))
 			owner.update_eyes()
 			owner.visible_message(SPAN_NOTICE("[owner] shifts, their eye color changing."),
-									SPAN_NOTICE("You shift, your eye color changing."))
+									self_message = SPAN_NOTICE("You shift, your eye color changing."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()

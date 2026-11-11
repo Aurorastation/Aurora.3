@@ -29,7 +29,7 @@
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
-				owner.visible_message(SPAN_NOTICE("\The [user] carefully grabs \the [chosen_obj] from \the [src]."))
+				owner.visible_message(SPAN_NOTICE("\The [user] carefully grabs \the [chosen_obj] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				carrying -= chosen_obj
 	. = ..()
 
@@ -109,11 +109,11 @@
 				return
 
 
-			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
+			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND, visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 2 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), O, O.loc)))
 				O.forceMove(src)
 				carrying += O
-				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
+				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."), visible_message_flags = GHOST_MESSAGE)
 
 				//attacking - Cannot be carrying something, cause then your clamp would be full
 		else if(istype(target,/mob/living))
@@ -122,16 +122,16 @@
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
 				if(prob(15))
-					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
+					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"), visible_message_flags = GHOST_MESSAGE)
 					return
 				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage / 2 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
 				to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
-				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
+				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."), visible_message_flags = GHOST_MESSAGE)
 			else
 				step_away(M, owner)
 				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
-				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
+				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/mecha_equipment/clamp/proc/break_door(var/obj/structure/machinery/door/airlock/Airlock)
 	if(Airlock.bolt_cut_state == 2)
@@ -162,7 +162,7 @@
 		chosen_obj = tgui_input_list(user, "Choose an object to set down.", "Clamp Claw", carrying)
 	if(!chosen_obj)
 		return
-	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
+	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."), visible_message_flags = GHOST_MESSAGE)
 	chosen_obj.forceMove(get_turf(src))
 	carrying -= chosen_obj
 
@@ -461,7 +461,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message(SPAN_WARNING("[owner] revs the [drill_head], menacingly."))
+			owner.visible_message(SPAN_WARNING("[owner] revs the [drill_head], menacingly."), visible_message_flags = GHOST_MESSAGE)
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -479,13 +479,13 @@
 		if(istype(target,/obj/item/material/drill_head))
 			var/obj/item/material/drill_head/DH = target
 			if(drill_head)
-				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
+				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."), visible_message_flags = GHOST_MESSAGE)
 				drill_head.forceMove(owner.loc)
 				drill_head.mounted_drill = null
 			DH.forceMove(src)
 			drill_head = DH
 			drill_head.mounted_drill = src
-			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."))
+			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."), visible_message_flags = GHOST_MESSAGE)
 			return
 
 		if(drill_head == null)
@@ -493,7 +493,7 @@
 			return
 
 		owner.use_cell_power(active_power_use * CELLRATE)
-		owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), SPAN_WARNING("You hear a large drill."))
+		owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), self_message = SPAN_WARNING("You hear a large drill."), visible_message_flags = GHOST_MESSAGE)
 
 		var/T = target.loc
 
@@ -685,7 +685,7 @@
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
 	if(is_type_in_list(target, list(/obj/item/stack/material/steel, /obj/item/stack/material/glass, /obj/item/stack/material/aluminium, /obj/item/stack/material/lead, /obj/item/stack/material/plastic)))
-		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
+		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/attacking_item, mob/user)

@@ -69,13 +69,13 @@
 
 	switch(light_color)
 		if(LIGHT_COLOR_GREEN)
-			user.visible_message(SPAN_NOTICE("[user] quickly waves the marshalling [wand_invariant] forward, giving the craft the lift-off signal!"), SPAN_NOTICE("You wave the marshalling [wand_invariant] forward quickly, directing the craft to take off."))
+			user.visible_message(SPAN_NOTICE("[user] quickly waves the marshalling [wand_invariant] forward, giving the craft the lift-off signal!"), self_message = SPAN_NOTICE("You wave the marshalling [wand_invariant] forward quickly, directing the craft to take off."), visible_message_flags = GHOST_MESSAGE)
 		if(LIGHT_COLOR_BLUE)
-			user.visible_message(SPAN_NOTICE("[user] holds the marshalling [wand_invariant] close to themselves, deck is idle, don't do any unexpected things!"), SPAN_NOTICE("You hold the marshalling [wand_invariant] close to yourself, signaling an idle stance..."))
+			user.visible_message(SPAN_NOTICE("[user] holds the marshalling [wand_invariant] close to themselves, deck is idle, don't do any unexpected things!"), self_message = SPAN_NOTICE("You hold the marshalling [wand_invariant] close to yourself, signaling an idle stance..."), visible_message_flags = GHOST_MESSAGE)
 		if(LIGHT_COLOR_YELLOW)
-			user.visible_message(SPAN_WARNING("[user] holds the marshalling [wand_invariant] out to the sides, indicating that the craft is being checked before lift off, prepare for lift off!"), SPAN_WARNING("You hold the marshalling [wand_invariant] out to your sides, indicating that the craft is being prepared for lift off."))
+			user.visible_message(SPAN_WARNING("[user] holds the marshalling [wand_invariant] out to the sides, indicating that the craft is being checked before lift off, prepare for lift off!"), self_message = SPAN_WARNING("You hold the marshalling [wand_invariant] out to your sides, indicating that the craft is being prepared for lift off."), visible_message_flags = GHOST_MESSAGE)
 		if(LIGHT_COLOR_RED)
-			user.visible_message(SPAN_WARNING("[user] steadily holds the marshalling [wand_invariant] above their head in a cross! Hold all movement!"), SPAN_WARNING("You hold the marshalling [wand_invariant] in a cross above your head, signaling full stop."))
+			user.visible_message(SPAN_WARNING("[user] steadily holds the marshalling [wand_invariant] above their head in a cross! Hold all movement!"), self_message = SPAN_WARNING("You hold the marshalling [wand_invariant] in a cross above your head, signaling full stop."), visible_message_flags = GHOST_MESSAGE)
 
 	update_icon()
 	mirror_held_wands(src)

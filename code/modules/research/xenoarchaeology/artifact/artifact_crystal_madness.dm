@@ -178,34 +178,40 @@
 	if(stage < 1)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
+			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 	else if(stage < 3)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
+			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 	else if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You reach out and touch \the [src]. It is very hot."),
+			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is very hot."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
+			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 
 /obj/structure/crystal_madness/attackby(obj/item/attacking_item, mob/user)
 	if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
+			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
+			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
+			visible_message_flags = GHOST_MESSAGE,
 			)
 
 

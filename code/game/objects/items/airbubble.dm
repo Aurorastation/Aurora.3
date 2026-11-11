@@ -23,13 +23,15 @@
 
 	user.visible_message(
 		SPAN_WARNING("[user] begins deploying \the [src]."),
-		SPAN_NOTICE("You begin deplyoing \the [src].")
+		self_message = SPAN_NOTICE("You begin deplyoing \the [src]."),
+		visible_message_flags = GHOST_MESSAGE
 	)
 	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		SPAN_WARNING("[user] deployed \the [src].") ,
-		SPAN_NOTICE("You deploy \the [src].")
+		self_message = SPAN_NOTICE("You deploy \the [src]."),
+		visible_message_flags = GHOST_MESSAGE
 	)
 	var/obj/structure/closet/airbubble/R
 	if(syndie)
@@ -195,13 +197,15 @@
 			return
 		user.visible_message(
 		SPAN_WARNING("[user] begins folding up the [src.name]."),
-		SPAN_NOTICE("You begin folding up the [src.name].")
+		self_message = SPAN_NOTICE("You begin folding up the [src.name]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if (!do_after(user, 0.45 SECONDS))
 			return
 		user.visible_message(
 		SPAN_WARNING("[user] folds up the [src.name].") ,
-		SPAN_NOTICE("You fold up the [src.name].")
+		self_message = SPAN_NOTICE("You fold up the [src.name]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		var/obj/item/airbubble/bag
 		if(syndie)
@@ -315,13 +319,15 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is setting [src] internals."),
-		SPAN_NOTICE("You are settting [src] internals.")
+		self_message = SPAN_NOTICE("You are settting [src] internals."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has set [src] internals.") ,
-		SPAN_NOTICE("You set [src] internals.")
+		self_message = SPAN_NOTICE("You set [src] internals."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if(use_internal_tank)
 			STOP_PROCESSING(SSfast_process, src)
@@ -348,13 +354,15 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [internal_tank] from [src]."),
-		SPAN_NOTICE("You are removing [internal_tank] from [src].")
+		self_message = SPAN_NOTICE("You are removing [internal_tank] from [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [internal_tank] from [src]."),
-		SPAN_NOTICE("You removed [internal_tank] from [src].")
+		self_message = SPAN_NOTICE("You removed [internal_tank] from [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		for(var/obj/I in src)
 			I.forceMove(usr.loc)
@@ -381,13 +389,15 @@
 	if(!isnull(cell))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [cell] from [src]."),
-		SPAN_NOTICE("You are removing [cell] from [src].")
+		self_message = SPAN_NOTICE("You are removing [cell] from [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [cell] from [src]."),
-		SPAN_NOTICE("You removed [cell] from [src].")
+		self_message = SPAN_NOTICE("You removed [cell] from [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		cell.forceMove(usr.loc)
 		cell = null
@@ -402,13 +412,15 @@
 		if(!isnull(use_internal_tank))
 			user.visible_message(
 			SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-			SPAN_NOTICE("You are attaching [attacking_item] to [src].")
+			self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src]."),
+			visible_message_flags = GHOST_MESSAGE
 			)
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
 			SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-			SPAN_NOTICE("You attached [attacking_item] to [src].")
+			self_message = SPAN_NOTICE("You attached [attacking_item] to [src]."),
+			visible_message_flags = GHOST_MESSAGE
 			)
 			internal_tank = attacking_item
 			user.drop_from_inventory(attacking_item, src)
@@ -432,7 +444,8 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins putting cable restrains on zipper of [src]."),
-		SPAN_NOTICE("You begin putting cable restrains on zipper of [src].")
+		self_message = SPAN_NOTICE("You begin putting cable restrains on zipper of [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -441,7 +454,8 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src]'s zipper have been zipped by [user]."),
-		SPAN_NOTICE("You put restrains on [src]'s zipper.")
+		self_message = SPAN_NOTICE("You put restrains on [src]'s zipper."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 
 		qdel(attacking_item)
@@ -454,7 +468,8 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins cutting cable restrains on zipper of [src]."),
-		SPAN_NOTICE("You begin cutting cable restrains on zipper of [src].")
+		self_message = SPAN_NOTICE("You begin cutting cable restrains on zipper of [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -463,7 +478,8 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src] zipper's cable restrains has been cut by [user]."),
-		SPAN_NOTICE("You cut cable restrains on [src]'s zipper.")
+		self_message = SPAN_NOTICE("You cut cable restrains on [src]'s zipper."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
@@ -475,13 +491,15 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-		SPAN_NOTICE("You are attaching [attacking_item] to [src].")
+		self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-		SPAN_NOTICE("You attached [attacking_item] to [src].")
+		self_message = SPAN_NOTICE("You attached [attacking_item] to [src]."),
+		visible_message_flags = GHOST_MESSAGE
 		)
 		cell = attacking_item
 		cooling = TRUE

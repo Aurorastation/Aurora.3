@@ -144,7 +144,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		user.visible_message(SPAN_DANGER("[user] smashes against [src]."),
-								SPAN_DANGER("You smash against [src]!"))
+								self_message = SPAN_DANGER("You smash against [src]!"), visible_message_flags = GHOST_MESSAGE)
 		add_damage(25)
 		return
 	else
@@ -176,7 +176,7 @@
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (emagged == 1 && attacking_item.tool_behaviour == TOOL_CROWBAR)
-		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
+		user.visible_message("[user] dismantles the windoor.", self_message = "You start to dismantle the windoor.", visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 60, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
 			new /obj/item/trash/broken_electronics(loc)

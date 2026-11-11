@@ -66,8 +66,9 @@
 	if(istype(user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] activates the flare."),
-			SPAN_NOTICE("You twist the cap off the flare, activating it!"),
-			SPAN_NOTICE("You hear a flare sparking to life.")
+			self_message = SPAN_NOTICE("You twist the cap off the flare, activating it!"),
+			blind_message = SPAN_NOTICE("You hear a flare sparking to life."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 
 /obj/item/flashlight/flare/proc/turn_off()
@@ -109,7 +110,7 @@
 	if (on)
 		turn_off()
 		update_damage()
-		user.visible_message("<b>[user]</b> extinguishes \the [src].", SPAN_NOTICE("You extinguish \the [src]."))
+		user.visible_message("<b>[user]</b> extinguishes \the [src].", self_message = SPAN_NOTICE("You extinguish \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	return
 
 /obj/item/flashlight/flare/torch/update_icon()
@@ -121,7 +122,7 @@
 		H.update_inv_r_hand()
 
 /obj/item/flashlight/flare/torch/proc/light(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	SPAN_NOTICE("You light \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	self_message = SPAN_NOTICE("You light \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	force = on_damage
 	damtype = "fire"
 	on = TRUE

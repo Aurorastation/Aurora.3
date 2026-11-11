@@ -102,7 +102,7 @@
 /obj/item/memorywiper/process()
 	if(attached)
 		if(!attached.Adjacent(src))
-			attached.visible_message(SPAN_WARNING("The cable rips out of [attached]'s maintenace port."), SPAN_DANGER("\The [src]'s cable rips out of your maintenace port."))
+			attached.visible_message(SPAN_WARNING("The cable rips out of [attached]'s maintenace port."), self_message = SPAN_DANGER("\The [src]'s cable rips out of your maintenace port."), visible_message_flags = GHOST_MESSAGE)
 			unplug()
 			return
 

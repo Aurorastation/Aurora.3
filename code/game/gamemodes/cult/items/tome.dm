@@ -94,7 +94,7 @@
 	if(use_check_and_message(scribe))
 		return
 
-	scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
+	scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."), visible_message_flags = GHOST_MESSAGE)
 	playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
 	scribe.drip(4)
 

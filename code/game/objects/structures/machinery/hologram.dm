@@ -106,7 +106,7 @@ Possible to do for anyone motivated enough:
 
 /obj/structure/machinery/hologram/holopad/attack_hand(var/mob/user)
 	if(user.Adjacent(src))
-		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
+		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", self_message = SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."), visible_message_flags = GHOST_MESSAGE)
 	if(incoming_connection)
 		audible_message("The pad hums quietly as it establishes a connection.")
 		take_call()
@@ -345,22 +345,23 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		connected_pad.audible_message(message)
 		connected_pad.last_message = message
 
-/obj/structure/machinery/hologram/holopad/see_emote(mob/living/M, text)
+/obj/structure/machinery/hologram/holopad/see_emote(mob/living/M, text, emote_type = AUDIBLE_MESSAGE)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
-		master.show_message(rendered, 2)
+		master.show_message(rendered, emote_type, null, emote_type == VISIBLE_MESSAGE ? AUDIBLE_MESSAGE : VISIBLE_MESSAGE)
 	if(has_established_connection())
-		connected_pad.visible_message("<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>")
+		var/relayed = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+		connected_pad.visible_message(relayed)
 
-/obj/structure/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
+/obj/structure/machinery/hologram/holopad/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
-		master.show_message(rendered, type)
+		master.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 	if(findtext(msg, "Holopad received,"))
 		return
 	for(var/mob/living/carbon/master in active_holograms)
 		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
-		master.show_message(rendered, type)
+		master.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 
 /obj/structure/machinery/hologram/holopad/proc/create_holos()
 	for(var/mob/living/M in viewers(world.view, connected_pad))

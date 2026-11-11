@@ -273,7 +273,7 @@ Frequency:
 
 /obj/item/hand_tele/proc/pad_destroyed()
 	linked_pad = null
-	audible_message("\The [src] beeps, \"Connected pad destroyed, resetting to no-pad.\"", null, 3)
+	audible_message("\The [src] beeps, \"Connected pad destroyed, resetting to no-pad.\"", deaf_message = null, hearing_distance = 3)
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	LAZYREMOVE(active_teleporters, P)
@@ -324,7 +324,7 @@ Frequency:
 		if(user.client)
 			user.client.eye = user.client.mob
 			user.client.perspective = MOB_PERSPECTIVE
-		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), self_message = SPAN_NOTICE("You teleport into the linked closet, stepping out of it."), visible_message_flags = GHOST_MESSAGE)
 		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
 		if(user.client)

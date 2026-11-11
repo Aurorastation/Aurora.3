@@ -309,7 +309,7 @@
 	if(M.chem_doses[type] >= agony_dose && prob(5))
 		to_chat(M, discomfort_message)
 
-		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]")
+		M.visible_message("<b>[M]</b> [pick("dry heaves!", "coughs!", "splutters!")]", visible_message_flags = GHOST_MESSAGE)
 		M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 
 	if(istype(M, /mob/living/carbon/slime))
@@ -387,7 +387,7 @@
 	else if(!no_pain)
 		message = SPAN_DANGER("Your face and throat burn!")
 		if(prob(25))
-			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
+			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]", visible_message_flags = GHOST_MESSAGE)
 		M.apply_effect(30, DAMAGE_PAIN)
 
 /singleton/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -398,7 +398,7 @@
 	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
 		M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"),
-							SPAN_DANGER("You feel like your insides are burning!"))
+							self_message = SPAN_DANGER("You feel like your insides are burning!"), visible_message_flags = GHOST_MESSAGE)
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent(/singleton/reagent/frostoil, 5)

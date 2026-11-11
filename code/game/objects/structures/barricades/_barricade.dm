@@ -173,7 +173,7 @@
 		var/obj/item/stack/barbed_wire/B = attacking_item
 		if(can_wire)
 			user.visible_message(SPAN_NOTICE("[user] starts setting up [attacking_item.name] on [src]."),
-			SPAN_NOTICE("You start setting up [attacking_item.name] on [src]."))
+			self_message = SPAN_NOTICE("You start setting up [attacking_item.name] on [src]."), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT) && can_wire)
 				// Make sure there's still enough wire in the stack
 				if(!B.use(1))
@@ -181,7 +181,7 @@
 
 				playsound(src.loc, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] sets up [attacking_item.name] on [src]."),
-				SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
+				self_message = SPAN_NOTICE("You set up [attacking_item.name] on [src]."), visible_message_flags = GHOST_MESSAGE)
 
 				set_maxhealth(maxhealth + 50)
 				add_health(50)
@@ -194,13 +194,13 @@
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
-			SPAN_NOTICE("You begin removing the barbed wire on [src]."))
+			self_message = SPAN_NOTICE("You begin removing the barbed wire on [src]."), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT))
 				if(!is_wired)
 					return
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] removes the barbed wire on [src]."),
-				SPAN_NOTICE("You remove the barbed wire on [src]."))
+				self_message = SPAN_NOTICE("You remove the barbed wire on [src]."), visible_message_flags = GHOST_MESSAGE)
 				set_maxhealth(maxhealth - 50)
 				add_damage(50)
 				can_wire = TRUE
@@ -297,11 +297,11 @@
 		return FALSE
 
 	user.visible_message(SPAN_NOTICE("[user] begins repairing damage to [src]."),
-	SPAN_NOTICE("You begin repairing the damage to [src]."))
+	self_message = SPAN_NOTICE("You begin repairing the damage to [src]."), visible_message_flags = GHOST_MESSAGE)
 
 	if(WT.use_tool(src, user, 7 SECONDS, volume = 40))
 		user.visible_message(SPAN_NOTICE("[user] repairs some damage on [src]."),
-		SPAN_NOTICE("You repair \the [src]."))
+		self_message = SPAN_NOTICE("You repair \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		add_health(200)
 
 	return TRUE

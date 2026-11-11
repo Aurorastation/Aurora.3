@@ -321,7 +321,8 @@
 	if(!seal_target && !suit_is_deployed())
 		wearer.visible_message(
 			SPAN_DANGER("[wearer]'s suit flashes an error light."),
-			SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed.")
+			self_message = SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
@@ -339,7 +340,7 @@
 	if(!failed_to_seal)
 		if(!instant)
 			wearer.visible_message(SPAN_NOTICE("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."),
-									SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."))
+									self_message = SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."), visible_message_flags = GHOST_MESSAGE)
 
 			if(seal_delay && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 				if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
@@ -868,14 +869,14 @@
 /obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
 	if(istype(M) && slot == slot_back)
 		if(!assisted_equip && seal_delay > 0)
-			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
+			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), self_message = SPAN_NOTICE("You start putting on \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 			if(!do_after(M, seal_delay))
 				return FALSE
 
 		if(wearer && wearer != M)
 			unregister_wearer_signals(wearer)
 
-		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
+		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), self_message = SPAN_NOTICE("<b>You struggle into \the [src].</b>"), visible_message_flags = GHOST_MESSAGE)
 		wearer = M
 		wearer.wearing_rig = src
 		register_wearer_signals(wearer)

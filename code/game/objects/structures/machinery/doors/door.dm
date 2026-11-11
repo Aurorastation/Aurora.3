@@ -383,9 +383,9 @@
 		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."))
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."), visible_message_flags = GHOST_MESSAGE)
 			else
-				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"), visible_message_flags = GHOST_MESSAGE)
 				playsound(src.loc, hitsound, W.get_clamped_volume(), TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 				add_damage(W.force, W.damage_flags(), W.damtype, W.armor_penetration, W)
 		return TRUE

@@ -42,7 +42,8 @@
 		if (prob(broken_limb_fail_chance))
 			visible_message(
 				SPAN_WARNING("\The [src]'s [limb.name] buckles beneath them as they land!"),
-				SPAN_DANGER("Your [limb.name] buckles beneath you as you land!")
+				self_message = SPAN_DANGER("Your [limb.name] buckles beneath you as you land!"),
+				visible_message_flags = GHOST_MESSAGE
 			)
 			apply_effect(1, WEAKEN)
 			limb.add_pain(30)

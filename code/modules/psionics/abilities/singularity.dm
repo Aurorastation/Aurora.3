@@ -32,7 +32,7 @@
 	singularity = S
 	playsound(get_turf(user), 'sound/effects/fingersnap.ogg', 40)
 	user.visible_message(SPAN_DANGER(FONT_HUGE("[user] snaps [user.get_pronoun("his")] fingers and generates a hole of psionic energy!")),
-						SPAN_DANGER("You snap your fingers and generate a vortex of psionic energy."))
+						self_message = SPAN_DANGER("You snap your fingers and generate a vortex of psionic energy."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/effect/singularity
 	name = "psionic singularity"

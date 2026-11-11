@@ -28,8 +28,9 @@
 			if(!stat && eggsleft < 8)
 				user.visible_message(
 					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It whistles happily."),
-					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It whistles happily."),
-					"You hear a cluck.")
+					self_message = SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It whistles happily."),
+					blind_message = "You hear a cluck.",
+					visible_message_flags = GHOST_MESSAGE)
 				user.drop_from_inventory(attacking_item,get_turf(src))
 				qdel(attacking_item)
 				eggsleft += rand(1, 4)
@@ -45,7 +46,7 @@
 	if(!.)
 		return
 	if(!stat && prob(3) && eggsleft > 0 && (gender = FEMALE))
-		visible_message("[src] lays an egg.")
+		visible_message("[src] lays an egg.", visible_message_flags = GHOST_MESSAGE)
 		eggsleft--
 		var/obj/item/reagent_containers/food/snacks/egg/ice_tunnelers/egg = new /obj/item/reagent_containers/food/snacks/egg/ice_tunnelers(get_turf(src))
 		egg.fertilize()
@@ -215,7 +216,7 @@
 	anchored = TRUE
 	name = "rock"
 	desc = "A rock."
-	visible_message(SPAN_NOTICE("\The [src] burrows into the ground!"))
+	visible_message(SPAN_NOTICE("\The [src] burrows into the ground!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/ice_catcher/Move()
 	if(burrowed)
@@ -230,7 +231,7 @@
 	anchored = FALSE
 	name = "ice catcher"
 	desc = "An animal often mistaken for a rock due its shell. Its main body is made up of large tentacles."
-	visible_message(SPAN_NOTICE("\The [src] emerges from the ground!"))
+	visible_message(SPAN_NOTICE("\The [src] emerges from the ground!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/ice_catcher/attack_hand(mob/living/carbon/human/M as mob)
 	if(burrowed && (stat != DEAD))

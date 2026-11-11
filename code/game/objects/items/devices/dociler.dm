@@ -33,7 +33,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] isn't loaded!"))
 		return
 
-	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!")
+	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!", visible_message_flags = GHOST_MESSAGE)
 
 	if(mode == "somewhat")
 		L.faction = user.faction

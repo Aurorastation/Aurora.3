@@ -34,7 +34,7 @@
 /obj/item/t_scanner/emp_act(severity)
 	. = ..()
 
-	audible_message(src, SPAN_NOTICE("\The [src] buzzes oddly."))
+	audible_message(src, deaf_message = SPAN_NOTICE("\The [src] buzzes oddly."))
 	set_active(FALSE)
 
 /obj/item/t_scanner/attack_self(mob/user)
