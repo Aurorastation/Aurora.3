@@ -8,6 +8,9 @@
 	icon = 'icons/obj/guns/faction/caisc/pattern_5.dmi'
 	icon_state = "colt"
 	item_state = "colt"
+	chamber_locks_open = TRUE
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	caliber = ".45"
 	accuracy = 1
 	offhand_accuracy = 1
@@ -20,10 +23,7 @@
 
 /obj/item/gun/projectile/colt/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "colt"
-	else
-		icon_state = "colt-e"
+	icon_state = chamber_locked_open ? "colt-e" : "colt"
 
 /obj/item/gun/projectile/colt/detective
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
@@ -56,13 +56,11 @@
 	icon = 'icons/obj/guns/faction/caisc/ornamental_pattern_5.dmi'
 	icon_state = "coltsuper"
 	item_state = "coltsuper"
+	chamber_locks_open = FALSE
 
 /obj/item/gun/projectile/colt/super/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "coltsuper"
-	else
-		icon_state = "coltsuper-e"
+	icon_state = chamber_locked_open ? "coltsuper" : "coltsuper-e"
 
 /obj/item/gun/projectile/automatic/lebman
 	name = "automatic Pattern 5 pistol"
@@ -88,10 +86,7 @@
 
 /obj/item/gun/projectile/automatic/lebman/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "coltauto"
-	else
-		icon_state = "coltauto-e"
+	icon_state = ammo_magazine ? "coltauto" : "coltauto-e"
 
 /obj/item/gun/projectile/sec
 	name = "\improper Mk58 pistol"
@@ -100,6 +95,9 @@
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
+	chamber_locks_open = TRUE
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
@@ -114,10 +112,7 @@
 
 /obj/item/gun/projectile/sec/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "secgun"
-	else
-		icon_state = "secgun-e"
+	icon_state = chamber_locked_open ? "secgun-e" : "secgun"
 
 /obj/item/gun/projectile/sec/unloaded
 	magazine_type = null
@@ -139,10 +134,7 @@
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "secgunwood"
-	else
-		icon_state = "secgunwood-e"
+	icon_state = chamber_locked_open ? "secgunwood-e" : "secgunwood"
 
 /obj/item/gun/projectile/sec/wood/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
@@ -156,6 +148,8 @@
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
@@ -175,10 +169,7 @@
 
 /obj/item/gun/projectile/automatic/x9/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "secgunauto"
-	else
-		icon_state = "secgunauto-e"
+	icon_state = ammo_magazine ? "secgunauto" : "secgunauto-e"
 
 /obj/item/gun/projectile/tanto
 	name = "\improper Mk1-A Tanto machine pistol"
@@ -222,6 +213,8 @@
 	icon = 'icons/obj/guns/faction/dpra/mrrazhakulii_suppressed_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
@@ -250,6 +243,8 @@
 	icon = 'icons/obj/guns/faction/antique/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	force = 15
 	accuracy = 1
 	caliber = ".50"
@@ -314,6 +309,9 @@
 	icon = 'icons/obj/guns/faction/zavodskoi_interstellar/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
+	chamber_locks_open = TRUE
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	w_class = WEIGHT_CLASS_SMALL
 	accuracy = 1
 	offhand_accuracy = 2
@@ -346,10 +344,7 @@
 
 /obj/item/gun/projectile/pistol/detective/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "detgun"
-	else
-		icon_state = "detgunempty"
+	icon_state = chamber_locked_open ? "detgunempty" : "detgun"
 
 /obj/item/gun/projectile/pistol/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -366,10 +361,7 @@
 
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "[initial(icon_state)]-e"
-	else
-		icon_state = "[initial(icon_state)]"
+	icon_state = chamber_locked_open ? "[initial(icon_state)]-e" : initial(icon_state)
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -409,6 +401,8 @@
 	icon = 'icons/obj/guns/faction/nanotrasen_corporation/everyman.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
+	chamber_from_internal_feed = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	caliber = "10mm"
 	w_class = WEIGHT_CLASS_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
@@ -423,7 +417,7 @@
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()
-	if(loaded.len)
+	if(get_ammo())
 		icon_state = "leyon"
 	else
 		icon_state = "leyon-e"
@@ -434,6 +428,7 @@
 	icon = 'icons/obj/guns/faction/sol_alliance/sol_pistol.dmi'
 	icon_state = "m8"
 	item_state = "m8"
+	chamber_locks_open = FALSE
 	can_suppress = TRUE
 	suppressor_x_offset = 3
 	suppressor_y_offset = -2
@@ -487,10 +482,7 @@
 
 /obj/item/gun/projectile/pistol/adhomai/update_icon()
 	..()
-	if(ammo_magazine)
-		icon_state = "adhomian_pistol"
-	else
-		icon_state = "adhomian_pistol-e"
+	icon_state = chamber_locked_open ? "adhomian_pistol-e" : "adhomian_pistol"
 
 /obj/item/gun/projectile/pistol/super_heavy
 	name = "\improper Kumar Arms 2557 super-heavy pistol"
@@ -502,6 +494,7 @@
 	icon = 'icons/obj/item/gun/projectile/pistol/k_arms.dmi'
 	icon_state = "k2557-loaded"
 	item_state = "k2557-loaded"
+	chamber_locks_open = FALSE
 	contained_sprite = TRUE
 	can_suppress = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -568,6 +561,9 @@
 	icon = 'icons/obj/guns/faction/dna_defense/xanu_pistol.dmi'
 	icon_state = "xanu_pistol"
 	item_state = "xanu_pistol"
+	chamber_locks_open = TRUE
+	block_empty_magazine_rack = TRUE
+	chamber_rack_sound = SFX_RELOAD_METAL_SLIDE
 	caliber = "4.6mm"
 	accuracy = 1
 	offhand_accuracy = 1
@@ -584,13 +580,10 @@
 
 /obj/item/gun/projectile/xanupistol/update_icon()
 	..()
-	if(ammo_magazine)
-		if(ammo_magazine.stored_ammo.len)
-			icon_state = "xanu_pistol"
-		else
-			icon_state = "xanu_pistol-em"
-	else
-		icon_state = "xanu_pistol-e"
+	// The two alternate sprites both depict an open slide.
+	icon_state = "xanu_pistol"
+	if(chamber_locked_open)
+		icon_state = ammo_magazine ? "xanu_pistol-em" : "xanu_pistol-e"
 
 /obj/item/gun/projectile/pistol/dominia
 	name = "\improper MPP-50 pistol"
@@ -609,10 +602,7 @@
 
 /obj/item/gun/projectile/pistol/dominia/update_icon()
 	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "dom_pistol"
-	else
-		icon_state = "dom_pistol-e"
+	icon_state = chamber_locked_open ? "dom_pistol-e" : "dom_pistol"
 
 /obj/item/gun/projectile/pistol/spitter
 	name = "\improper Relzi-5 Spitter pistol"
@@ -631,7 +621,4 @@
 
 /obj/item/gun/projectile/pistol/spitter/update_icon()
 	..()
-	if(length(ammo_magazine?.stored_ammo))
-		icon_state = "spitterpistol"
-	else
-		icon_state = "spitterpistol-empty"
+	icon_state = chamber_locked_open ? "spitterpistol-empty" : "spitterpistol"

@@ -66,7 +66,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/rack_sound = SFX_PUMP_SHOTGUN
-	var/rack_verb = "pump"
+	var/cycle_cue = "*pump*"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
 	has_unique_gun_action = TRUE
@@ -87,13 +87,13 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 
 /obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
 	if(jam_num)
-		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
+		balloon_alert(user, "jammed!")
 		return
 	pump(user)
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	playsound(M, rack_sound, 60, FALSE)
-	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
+	balloon_alert_to_viewers(cycle_cue)
 	if(cycle_anim)
 		flick("[icon_state]-cycling", src)
 
@@ -300,6 +300,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	desc = "A polaroid camera"
 	icon = 'icons/obj/guns/cameragun.dmi'
 	icon_state = "cameragun"
+	persistent_chamber = FALSE // The action button deploys the disguised gun.
 	item_state = "cameragun"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL

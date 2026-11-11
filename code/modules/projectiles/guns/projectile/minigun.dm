@@ -118,6 +118,7 @@
 	icon = 'icons/obj/minigun.dmi'
 	icon_state = "minigun"
 	item_state = "minigun"
+	persistent_chamber = FALSE // The magazine belongs to the backpack feed.
 	contained_sprite = 1
 	caliber = "a762"
 	magazine_type = null
