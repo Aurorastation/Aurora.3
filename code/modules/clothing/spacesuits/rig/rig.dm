@@ -1080,7 +1080,7 @@
 		user.throw_mode_off()
 		return COMSIG_MOB_CANCEL_CLICKON
 
-	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/handle_post_fire
+	if(ismob(target)) //This doesn't prevent guns firing at turfs, that is handled in /obj/item/gun/proc/post_fire
 		if(target != user)
 			attack_disrupt_check()
 

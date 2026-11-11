@@ -91,8 +91,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/fire_sound_volume = 50
 	///Sound of the gun firing when empty (dryfiring).
 	var/empty_sound = SFX_OUT_OF_AMMO
-	///Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast.
-	var/fire_sound_text = "gunshot"
 	/// The firing sound to play when suppressed = TRUE.
 	var/suppressed_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	/// The volume of the suppressed sound.
@@ -342,7 +340,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		var/obj/P = consume_next_projectile()
 		if(P)
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
-				handle_post_fire(user, user)
+				post_fire(user, user)
 				user.visible_message(
 					SPAN_DANGER("\The [user] shoots [user.get_pronoun("himself")] in the foot with \the [src]!"),
 					SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
@@ -361,8 +359,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			return FALSE
 	else
 		if(needspin)
-			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
-			balloon_alert(user, "trigger locked, firing pin needed!")
+			balloon_alert(user, "firing pin missing!")
 			return FALSE
 		else
 			return TRUE
@@ -377,7 +374,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		PreFire(A,user,params) //They're using the new gun system, locate what they're aiming at.
 		return
 	else
-		Fire(A,user,params) //Otherwise, fire normally.
+		fire_gun(A,user,params) //Otherwise, fire normally.
 
 /obj/item/gun/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if (target_mob == user && user.zone_sel.selecting == BP_MOUTH && !mouthshoot)
@@ -386,9 +383,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if (user.aiming.aiming_at != target_mob)
 			PreFire(target_mob, user)
 		else
-			Fire(target_mob, user, pointblank=1)
+			fire_gun(target_mob, user, pointblank=1)
 	else if(user.a_intent == I_HURT) //point blank shooting
-		Fire(target_mob, user, pointblank=1)
+		fire_gun(target_mob, user, pointblank=1)
 	else if(bayonet)
 		bayonet.attack(target_mob, user, target_zone)
 	else
@@ -408,9 +405,17 @@ ABSTRACT_TYPE(/obj/item/gun)
  * * Fire time checks to avoid spam, as well as handling shoot delay.
  * * Makes the user face their target (duh).
  */
-/obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!user || !target)
+/obj/item/gun/proc/pre_fire(atom/target, mob/living/user, clickparams, pointblank=FALSE, reflex=FALSE, atom/controller)
+	if(QDELETED(target))
 		return FALSE
+
+	if(!user)
+		// Automated controllers must explicitly own and authorize this gun. Preserve their
+		// existing policy: no mob safety, firing-pin, clumsiness or reliability checks.
+		if(QDELETED(controller) || !controller.can_operate_gun(src) || world.time < next_fire_time)
+			return FALSE
+		next_fire_time = world.time + get_appropriate_delay()
+		return TRUE
 
 	add_fingerprint(user)
 
@@ -419,7 +424,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			toggle_safety(user)
 		else
 			var/safety_cooldown = 5 // Half a second
-			handle_click_empty(user)
+			handle_click_empty(user, "safety on!")
 			user.setClickCooldown(safety_cooldown)
 			return FALSE
 
@@ -428,7 +433,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	if(world.time < next_fire_time)
 		if(world.time % 3 && !can_autofire) //to prevent spam
-			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
+			balloon_alert(user, "not ready!")
 		return FALSE
 
 	var/shoot_time = get_appropriate_delay()
@@ -444,24 +449,34 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	return TRUE
 
-/obj/item/gun/proc/Fire(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, var/accuracy_decrease = 0, is_offhand = 0)
-	if(!fire_checks(target,user,clickparams,pointblank,reflex))
+/// Actually fires the weapon, if we're able to.
+/obj/item/gun/proc/fire_gun(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, accuracy_decrease = 0, is_offhand = FALSE, atom/controller)
+	if(!pre_fire(target, user, clickparams, pointblank, reflex, controller))
 		return FALSE
+	return process_fire(target, user, clickparams, pointblank, reflex, accuracy_decrease, is_offhand, controller)
 
-	if(!is_offhand && user.a_intent == I_HURT) // no recursion
+/// Shared execution path for handheld and automated weapons. Call fire_gun() to initiate fire.
+/obj/item/gun/proc/process_fire(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, accuracy_decrease = 0, is_offhand = FALSE, atom/controller)
+	if(user && !is_offhand && user.a_intent == I_HURT) // no recursion
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG) && SG.w_class <= w_class)
 			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
-			addtimer(CALLBACK(SG, PROC_REF(Fire), target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 1)
+			addtimer(CALLBACK(SG, PROC_REF(fire_gun), target, user, clickparams, pointblank, FALSE, decreased_accuracy, TRUE), 1)
 
 	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
 	var/dispersion_increase = 0
 	var/mob/living/accuracy_user = accuracy_user_override ? accuracy_user_override : user
-	SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+	if(!QDELETED(accuracy_user))
+		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
+	var/fired = FALSE
 	for(var/i in 1 to burst)
+		if(QDELETED(src) || (user && QDELETED(user)))
+			break
+		if(!user && (QDELETED(controller) || !controller.can_operate_gun(src)))
+			break
 		var/obj/projectile = consume_next_projectile(user)
 		if(!projectile)
 			handle_click_empty(user)
@@ -474,12 +489,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
-		if(process_projectile(projectile, user, target, selected_zone, clickparams))
-			var/show_emote = TRUE
-			if(i > 1 && burst_delay < 3 && burst < 5)
-				show_emote = FALSE
-			handle_post_fire(user, target, pointblank, reflex, show_emote)
+		var/selected_zone = user?.zone_sel ? user.zone_sel.selecting : BP_CHEST
+		if(process_projectile(projectile, user, target, selected_zone, clickparams, pointblank, reflex))
+			post_fire(user, target, pointblank, reflex && !fired)
+			fired = TRUE
 			update_icon()
 
 		if(i < burst)
@@ -489,67 +502,26 @@ ABSTRACT_TYPE(/obj/item/gun)
 			target = targloc
 			pointblank = 0
 
+	if(QDELETED(src))
+		return FALSE
 	update_held_icon()
+	finish_fire(user)
+	return fired
 
+/// Complete a trigger request, keeping controller-specific cooldown behavior out of the shot loop.
+/obj/item/gun/proc/finish_fire(mob/living/user)
+	if(!user)
+		next_fire_time = world.time + get_appropriate_delay()
+		return
 	// Custom formula here because otherwise you can fire bursts within the burst.
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
 	if (burst > 1 && burst_delay == 0) //Prevents guns with no burst delay (laser shotguns) from firing as fast as you can click.
 		shoot_time = fire_delay
 	user.setClickCooldown(shoot_time)
 
-/// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
-/obj/item/gun/proc/Fire_userless(atom/target)
-	if(!target)
-		return FALSE
-
-	if(world.time < next_fire_time)
-		return FALSE
-
-	var/shoot_time = get_appropriate_delay()
-	next_fire_time = world.time + shoot_time
-
-	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
-	for(var/i in 1 to burst)
-		var/obj/projectile = consume_next_projectile()
-		if(!projectile)
-			handle_click_empty()
-			break
-
-		if(isprojectile(projectile))
-			var/obj/projectile/P = projectile
-
-			var/acc = burst_accuracy[min(i, burst_accuracy.len)]
-			var/disp = dispersion[min(i, dispersion.len)]
-
-			P.accuracy = accuracy + acc
-			P.spread += disp
-
-			P.suppressed =  suppressed
-
-			if(!P.preparePixelProjectile(target, get_turf(src)))
-				return FALSE
-			P.fired_from = src
-			P.fire()
-
-			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
-
-			var/prev_light = light_range
-			if (muzzle_flash)
-				set_light_range(muzzle_flash)
-				set_light_on(TRUE)
-				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
-			update_icon()
-
-		if(i < burst)
-			sleep(burst_delay)
-
-		if(!target?.loc)
-			target = targloc
-
-	//update timing
-	next_fire_time = world.time + shoot_time
-
-	accuracy = initial(accuracy)	//Reset the gun's accuracy
+/// Equipment controllers opt in and verify that the weapon is still installed.
+/atom/proc/can_operate_gun(obj/item/gun/gun)
+	return FALSE
 
 /// called by a timer to remove the light range from muzzle flash
 /obj/item/gun/proc/reset_light_range(lightrange)
@@ -569,30 +541,26 @@ ABSTRACT_TYPE(/obj/item/gun)
 	//on the other side of a window if it makes a difference. Or if they run behind a window, too bad.
 	return (target in check_trajectory(target, user))
 
-//called if there was no projectile to shoot
-/obj/item/gun/proc/handle_click_empty(mob/user)
-	balloon_alert_to_viewers("*click*")
+/// Give a dry-fire cue and, when available, tell the operator why the shot was blocked.
+/obj/item/gun/proc/handle_click_empty(mob/user, reason)
+	if(user && reason)
+		balloon_alert_to_viewers("*click*", ignored_mobs = list(user))
+		balloon_alert(user, reason)
+	else
+		balloon_alert_to_viewers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
 	if(user)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
 
-//called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
+/// Called after successfully firing
+/obj/item/gun/proc/post_fire(mob/user, atom/target, pointblank = FALSE, announce_reflex = FALSE)
 	play_fire_sound()
 	if(!suppressed)
-		if(playemote)
-			if(reflex)
-				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					"You hear a [fire_sound_text]!"
-				)
-			else
-				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					"You hear a [fire_sound_text]!"
-				)
+		if(user && announce_reflex)
+			user.visible_message(
+				SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
+				SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!")
+			)
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -601,7 +569,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 				set_light_on(TRUE)
 				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
-	if(recoil)
+	if(user && recoil)
 		shake_camera(user, recoil + 1, recoil)
 
 	if(ishuman(user))
@@ -648,6 +616,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
 	P.spread += dispersion
+	if(!user)
+		return // Automated fire keeps its existing accuracy, without mob aiming/handling bonuses.
 
 	//Increasing accuracy across the board, ever so slightly
 	P.accuracy += 1
@@ -673,7 +643,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		P.spread -= one_hand_fa_penalty * 0.5
 
 //does the actual launching of the projectile
-/obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
+/obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params, pointblank = FALSE, reflex = FALSE)
 	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return FALSE //default behaviour only applies to true projectiles
@@ -692,6 +662,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 	P.firer = user
 	P.fired_from = src
 	P.def_zone = target_zone
+	if(!user)
+		P.suppressed = suppressed
 
 	return !P.fire()
 
@@ -740,7 +712,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			user.apply_damage(in_chamber.damage * 20, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAMAGE_FLAG_SHARP)
 			user.death()
 
-		handle_post_fire(user, user, FALSE, FALSE, FALSE)
+		post_fire(user, user)
 		mouthshoot = FALSE
 		return
 	else
@@ -1026,7 +998,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	return ..()
 
 /**
- * This proc is only called when a weapon has already hit a failure chance, based on prob(100-reliability) during the fire_checks proc.
+ * This proc is only called when a weapon has already hit a failure chance, based on prob(100-reliability) during the pre_fire proc.
  * Based on the weapon's relability value, this proc checks if the severity of the failure exceeds the default (1). It then executes
  * either small_*, medium_*, or critical_fail procs. These are empty returns by default, and must be coded for each weapon/component.
  *

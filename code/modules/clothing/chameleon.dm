@@ -551,7 +551,6 @@
 
 	flags_inv = copy.flags_inv
 	fire_sound = copy.fire_sound
-	fire_sound_text = copy.fire_sound_text
 
 	var/obj/item/gun/energy/E = copy
 	if(istype(E))

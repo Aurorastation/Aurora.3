@@ -49,7 +49,6 @@
 	icon_state = "dartgun-empty"
 	caliber = "dart"
 	fire_sound = 'sound/weapons/click.ogg'
-	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
 	suppressed = TRUE

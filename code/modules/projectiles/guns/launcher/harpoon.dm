@@ -13,7 +13,6 @@
 	is_wieldable = TRUE
 
 	fire_sound = 'sound/weapons/crossbow.ogg'
-	fire_sound_text = "a metallic thunk"
 	recoil = 1
 
 	desc_extended = "Adapted from fishing tools, Frozen Sea Harpoon Guns were found to be useful weapons in the hands of the Royal Navy and Army. Their ammunition can be equipped \

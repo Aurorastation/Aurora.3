@@ -8,7 +8,6 @@
 	force = 15
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	throw_distance = 7
 	release_force = 5
@@ -107,7 +106,7 @@
 		return grenade.process_launcher_projectile(src, user, target, target_zone, params)
 	return ..()
 
-/obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
+/obj/item/gun/launcher/grenade/post_fire(mob/user)
 	if(chambered.notify_admins_on_launcher_fire)
 		message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
 	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")

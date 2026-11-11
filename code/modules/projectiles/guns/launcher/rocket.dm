@@ -47,7 +47,7 @@
 		return M
 	return null
 
-/obj/item/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/launcher/rocket/post_fire(mob/user, atom/target)
 	message_admins("[key_name_admin(user)] fired a rocket from a rocket launcher ([src.name]) at [target].")
 	log_game("[key_name(user)] used a rocket launcher ([src.name]) at [target].")
 	..()

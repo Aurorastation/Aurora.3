@@ -81,7 +81,7 @@
 	. += ..()
 	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 
-/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
+/obj/item/gun/projectile/revolver/mateba/captain/post_fire(mob/user)
 	..()
 	if(wielded)
 		return

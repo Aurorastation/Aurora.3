@@ -18,7 +18,6 @@
 	burst_delay = 2	//delay between shots, if firing in bursts
 	move_delay = 1
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
-	fire_sound_text = "blast"
 	recoil = 0
 	suppressed = FALSE
 	muzzle_flash = 3
@@ -114,13 +113,16 @@
 	is_emped = TRUE
 	return TRUE
 
-/obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+/obj/item/gun/custom_ka/pre_fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, atom/controller)
+
+	if(!user)
+		return ..()
 
 	if(require_wield && !wielded)
 		to_chat(user,SPAN_WARNING("\The [src] is too heavy to fire with one hand!"))
 		return
 
-	if(!fire_checks(target,user,clickparams,pointblank,reflex))
+	if(!..())
 		return
 
 	//Custom fire checks
@@ -192,34 +194,15 @@
 				explosion(get_turf(src.loc), 0, 1, 2, 4)
 				qdel(src)
 
-	//actually attempt to shoot
-	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
-	for(var/i in 1 to burst)
-		var/obj/projectile = consume_next_projectile(user)
-		if(!projectile)
-			handle_click_empty(user)
-			break
+	return !QDELETED(src)
 
-		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
-		var/disp = dispersion[min(i, dispersion.len)]
-		process_accuracy(projectile, user, target, acc, disp)
+// Keep the accelerator's existing single-gun handling while sharing the shot loop.
+/obj/item/gun/custom_ka/process_fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=FALSE, atom/controller)
+	return ..(target, user, clickparams, pointblank, reflex, 0, TRUE, controller)
 
-		if(pointblank)
-			process_point_blank(projectile, user, target)
-
-		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, i == burst)
-			update_icon()
-
-		if(i < burst)
-			sleep(burst_delay)
-
-		if(!(target && target.loc))
-			target = targloc
-			pointblank = 0
-
-	update_held_icon()
-	//update timing
+/obj/item/gun/custom_ka/finish_fire(mob/living/user)
+	if(!user)
+		return ..()
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.setMoveCooldown(move_delay)
 	next_fire_time = world.time + fire_delay

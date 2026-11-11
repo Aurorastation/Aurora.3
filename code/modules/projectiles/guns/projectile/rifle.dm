@@ -132,7 +132,7 @@
 		return
 	return ..()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/post_fire(mob/user)
 	. = ..()
 	jam_chance = min(jam_chance + 5, 100)
 
@@ -319,11 +319,11 @@
 		return
 	..()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(open_bolt)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/pre_fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, atom/controller)
+	if(user && open_bolt)
 		to_chat(user, SPAN_WARNING("The bolt is open on \the [src]!"))
 		return
-	..()
+	return ..()
 
 /obj/item/gun/projectile/gauss
 	name = "\improper NGS-01 gauss thumper"

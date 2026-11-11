@@ -1,0 +1,7 @@
+author: GeneralCamo
+delete-after: True
+changes:
+  - refactor: "Handheld guns and guns operated by integrated circuits now share the same firing logic."
+  - bugfix: "Removing a gun from its firing circuit stops the rest of its burst."
+  - rscdel: "Routine gunshots no longer print firing messages in chat."
+  - qol: "Gun safeties, cooldowns, missing firing pins, and jams give short alerts near the weapon."

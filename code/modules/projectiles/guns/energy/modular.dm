@@ -219,7 +219,7 @@
 	else
 		to_chat(user, "There is nothing to repair on the gun!")
 
-/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/energy/laser/prototype/post_fire(mob/user, atom/target)
 	return ..()
 
 /obj/item/gun/energy/laser/prototype/update_icon()

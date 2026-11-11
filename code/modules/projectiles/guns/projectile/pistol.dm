@@ -538,7 +538,7 @@
 	else
 		icon_state = "k2557"
 
-/obj/item/gun/projectile/pistol/super_heavy/handle_post_fire(mob/user)
+/obj/item/gun/projectile/pistol/super_heavy/post_fire(mob/user)
 	..()
 	if(wielded)
 		return
