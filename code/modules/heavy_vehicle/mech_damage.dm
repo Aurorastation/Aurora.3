@@ -5,8 +5,17 @@
 
 	// Environmental effects cannot be avoided by twisting the torso.
 	if(attack_source && !incapacitated() && !lockdown && !maintenance_protocols)
-		var/mob/living/pilot = pick(pilots)
-		if(SEND_SIGNAL(pilot, COMSIG_MECH_AVOID_PILOT_HIT, src) & COMPONENT_MECH_AVOID_PILOT_HIT)
+		var/cancelled = FALSE
+		// First check any signal registers on the mech in case components wish to interrupt the pilot injury.
+		// Such as a hypothetical "Hardened cockpit" module, or some cockpit energy shielding.
+		SEND_SIGNAL(src, COMSIG_MECH_AVOID_PILOT_HIT, &cancelled)
+
+		// Relay to the mech's pilots to check for piloting skill or other factors like cybernetic wired reflexes.
+		// Yes this does intentionally mean the rare few dual-cockpit mechs have two piloting skill rolls. You have two people who can reactively torso twist after all.
+		if (length(pilots))
+			for(var/mob/living/pilot in pilots)
+				SEND_SIGNAL(pilot, COMSIG_MECH_AVOID_PILOT_HIT_RELAYED, src, &cancelled)
+		if(cancelled)
 			return FALSE
 
 	return TRUE

@@ -133,12 +133,18 @@
 
 			var/resolved
 
-			var/mob/ruser = src
-			if(!system_moved || istype(temp_system, /obj/item/gun)) // Guns use the pilot so firing signals reach their skill components.
-				ruser = user
-			if(adj) resolved = temp_system.resolve_attackby(A, istype(temp_system, /obj/item/gun) ? user : src, params)
+			if(adj) resolved = temp_system.resolve_attackby(A, src, params)
 			if(!resolved && A && temp_system)
+				var/mob/ruser = src
+				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
+					ruser = user
+				var/obj/item/gun/mounted_gun
+				if(system_moved && istype(temp_system, /obj/item/gun))
+					mounted_gun = temp_system
+					mounted_gun.accuracy_user_override = user
 				temp_system.afterattack(A,ruser,adj,params)
+				if(mounted_gun)
+					mounted_gun.accuracy_user_override = null
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
 				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays

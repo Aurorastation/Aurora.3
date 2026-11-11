@@ -1,10 +1,6 @@
 /datum/component/skill/pilot_mechs
 	/// Percentage chance per rank above Unfamiliar to divert a pilot hit onto the mech.
 	var/pilot_hit_avoidance_per_rank = 10
-	/// Mounted gun accuracy bonus per rank above Unfamiliar.
-	var/accuracy_per_rank = 0.2
-	/// Mounted gun dispersion arc reduction in degrees per rank above Unfamiliar.
-	var/dispersion_per_rank = 10
 	/// Fractional melee damage bonus per rank above Unfamiliar.
 	var/melee_damage_per_rank = 0.1
 	/// Fractional melee attack delay reduction per rank above Unfamiliar.
@@ -24,8 +20,7 @@
 	RegisterSignal(parent, COMSIG_MECH_MOVE_WASD, PROC_REF(handle_user_move), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_MOVE_STRAFE, PROC_REF(handle_user_strafe), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_TOGGLE_POWER, PROC_REF(handle_toggle_power), override = TRUE)
-	RegisterSignal(parent, COMSIG_MECH_AVOID_PILOT_HIT, PROC_REF(handle_avoid_pilot_hit), override = TRUE)
-	RegisterSignal(parent, COMSIG_BEFORE_GUN_FIRE, PROC_REF(handle_accuracy), override = TRUE)
+	RegisterSignal(parent, COMSIG_MECH_AVOID_PILOT_HIT_RELAYED, PROC_REF(handle_avoid_pilot_hit), override = TRUE)
 	RegisterSignal(parent, COMSIG_MECH_MELEE_ATTACK, PROC_REF(handle_melee_attack), override = TRUE)
 
 /datum/component/skill/pilot_mechs/Destroy(force)
@@ -35,20 +30,9 @@
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_WASD)
 	UnregisterSignal(parent, COMSIG_MECH_MOVE_STRAFE)
 	UnregisterSignal(parent, COMSIG_MECH_TOGGLE_POWER)
-	UnregisterSignal(parent, COMSIG_MECH_AVOID_PILOT_HIT)
-	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
+	UnregisterSignal(parent, COMSIG_MECH_AVOID_PILOT_HIT_RELAYED)
 	UnregisterSignal(parent, COMSIG_MECH_MELEE_ATTACK)
 	return ..()
-
-/datum/component/skill/pilot_mechs/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase)
-	SIGNAL_HANDLER
-	var/mob/living/heavy_vehicle/mech = shooter.loc
-	if(parent != shooter || !istype(mech) || !(shooter in mech.pilots))
-		return
-
-	var/skill_ranks = SKILL_LEVEL_PROFESSIONAL - SKILL_LEVEL_UNFAMILIAR
-	*accuracy_decrease = *accuracy_decrease - accuracy_per_rank * skill_ranks
-	*dispersion_increase = *dispersion_increase - dispersion_per_rank * skill_ranks
 
 /datum/component/skill/pilot_mechs/proc/handle_melee_attack(mob/user, mob/living/heavy_vehicle/mech, melee_damage, attack_delay)
 	SIGNAL_HANDLER
@@ -96,9 +80,9 @@
 	to_chat(user, SPAN_NOTICE("You struggle with searching all these buttons for the power switch."))
 	playsound(user.loc, SFX_KEYBOARD, 30, TRUE)
 
-/datum/component/skill/pilot_mechs/proc/handle_avoid_pilot_hit(mob/living/user, mob/living/heavy_vehicle/mech)
+/datum/component/skill/pilot_mechs/proc/handle_avoid_pilot_hit(mob/living/user, mob/living/heavy_vehicle/mech, cancelled)
 	SIGNAL_HANDLER
-	if(parent != user || user.incapacitated())
+	if(cancelled || parent != user || user.incapacitated())
 		return
 
 	var/avoidance_chance = (skill_level - SKILL_LEVEL_UNFAMILIAR) * pilot_hit_avoidance_per_rank
@@ -107,4 +91,4 @@
 
 	mech.visible_message(SPAN_NOTICE("\The [mech] sharply twists its torso, turning its armor into the incoming attack and shielding the cockpit!"))
 	to_chat(user, SPAN_NOTICE("You instinctively execute a torso twist, shielding yourself from the incoming attack with \the [mech]'s armor!"))
-	return COMPONENT_MECH_AVOID_PILOT_HIT
+	*cancelled = TRUE

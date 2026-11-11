@@ -95,7 +95,6 @@
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
-/// Sent to the shooter before firing: (&accuracy_decrease, &dispersion_increase).
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
 
 // Mech signals
@@ -106,12 +105,29 @@
 
 #define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"
 
-/// Sent to the attacking pilot: (mob/living/heavy_vehicle/mech, &melee_damage, &attack_delay).
+/**
+ * Relayed to a mech's pilots when making melee attacks.
+ * PARAMS:
+ * mob/living/heavy_vehicle/mech -- Reference to the mech being piloted.
+ * &melee_damage -- float Pointer, defaulted to the original unmodified melee damage.
+ * &attack_delay -- float Pointer, defaulted to the click delay (in ticks) for a mech's limbs. Cannot go below 1, and defaults to 15.
+ **/
 #define COMSIG_MECH_MELEE_ATTACK "mech_melee_attack"
 
-/// Sent to a pilot when an incoming attack would hit the cockpit: (mob/living/heavy_vehicle/mech)
+/**
+ * Sent to a mech when an incoming attack would hit the cockpit, useful for checking if mech components want to roll to prevent the pilot's injury.
+ * PARAMS:
+ * &cancelled -- Boolean Pointer, set to true via signal registree to prevent a pilot hit.
+ **/
 #define COMSIG_MECH_AVOID_PILOT_HIT "mech_avoid_pilot_hit"
-	#define COMPONENT_MECH_AVOID_PILOT_HIT (1<<0)
+
+/**
+ * Relayed to a mech's pilots when an incoming attack would hit the cockpit, useful for checking if pilot skills or equipment want to roll to prevent the pilot's injury.
+ * PARAMS:
+ * mob/living/heavy_vehicle/mech -- Reference to the mech being piloted.
+ * &cancelled -- Boolean Pointer, set to true via signal registree to prevent a pilot hit.
+ **/
+#define COMSIG_MECH_AVOID_PILOT_HIT_RELAYED "mech_avoid_pilot_hit_relayed"
 
 // Unarmed Combat Signals
 
