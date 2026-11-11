@@ -17,6 +17,11 @@
 	/// So that stage cannot be advanced too quickly.
 	var/last_stage_advancement = 0
 
+/obj/structure/crystal_madness/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL)
+		. += SPAN_WARNING("Psionic resonance stage: <b>[stage]/9</b>.")
+
 /obj/structure/crystal_madness/proc/advance_stage()
 	// immediate effects
 	if(prob(50))

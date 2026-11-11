@@ -261,21 +261,29 @@
 		var/mob/living/carbon/human/H = bumped_atom
 
 		if(!istype(H.gloves, /obj/item/clothing/gloves))
+			var/arch_skill = GET_SKILL_LEVEL(H, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+			var/touch_chance = 50
+			if(arch_skill >= SKILL_LEVEL_TRAINED)
+				touch_chance = 0
+			else if(arch_skill == SKILL_LEVEL_FAMILIAR)
+				touch_chance = 25
+
 			var/warn = 0
 
-			if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
-				my_effect.ToggleActivate()
-				warn = 1
-			if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(50))
-				secondary_effect.ToggleActivate()
-				warn = 1
+			if(touch_chance > 0)
+				if (my_effect.trigger == TRIGGER_TOUCH && prob(touch_chance))
+					my_effect.ToggleActivate()
+					warn = 1
+				if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(touch_chance))
+					secondary_effect.ToggleActivate()
+					warn = 1
 
-			if (my_effect.effect == EFFECT_TOUCH && prob(50))
-				my_effect.DoEffectTouch(H)
-				warn = 1
-			if(secondary_effect?.effect == EFFECT_TOUCH && prob(50))
-				secondary_effect.DoEffectTouch(H)
-				warn = 1
+				if (my_effect.effect == EFFECT_TOUCH && prob(touch_chance))
+					my_effect.DoEffectTouch(H)
+					warn = 1
+				if(secondary_effect?.effect == EFFECT_TOUCH && prob(touch_chance))
+					secondary_effect.DoEffectTouch(H)
+					warn = 1
 
 			if(warn)
 				to_chat(H, "<b>You accidentally touch [src].</b>")

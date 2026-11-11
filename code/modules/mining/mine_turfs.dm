@@ -126,6 +126,12 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 			. += SPAN_INFO("It is crumbling!")
 		if(3)
 			. += SPAN_INFO("It looks ready to collapse at any moment!")
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT)
+	if(arch_skill >= SKILL_LEVEL_FAMILIAR)
+		if(length(finds) || artifact_find)
+			. += SPAN_NOTICE("Your xenoarchaeological knowledge reveals unusual strata in the rock—something appears to be buried within.")
+		if(arch_skill >= SKILL_LEVEL_PROFESSIONAL && excavation_level > 0)
+			. += SPAN_NOTICE("You estimate it has been excavated to a depth of <b>[2 * excavation_level]cm</b>.")
 
 /turf/simulated/mineral/ex_act(severity)
 	switch(severity)
@@ -279,7 +285,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(istype(attacking_item, /obj/item/measuring_tape))
 		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , SPAN_NOTICE("You extend \the [P] towards \the [src]."))
-		if(do_after(user,25))
+		if(do_after(user, 25 * get_xenoarch_dig_multiplier(user)))
 			if(!istype(src, /turf/simulated/mineral))
 				return
 			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
@@ -290,37 +296,42 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		if(!(istype(T, /turf)))
 			return
 		var/obj/item/pickaxe/P = attacking_item
-		if(last_act + P.digspeed > world.time)//prevents message spam
+		var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+		var/effective_digspeed = P.digspeed * get_xenoarch_dig_multiplier(user)
+		if(last_act + effective_digspeed > world.time)//prevents message spam
 			return
 		if(P.drilling)
 			return
-
-		last_act = world.time
-
-		playsound(user, P.drill_sound, 20, TRUE)
-		P.drilling = TRUE
 
 		//handle any archaeological finds we might uncover
 		var/fail_message
 		if(finds?.len)
 			var/datum/find/F = finds[1]
 			if(excavation_level + P.excavation_amount > F.excavation_required)
+				if(arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
+					to_chat(user, SPAN_WARNING("You stop before striking \the [src]—your training tells you \the [attacking_item] would dig too deep and damage the buried find!"))
+					return
 				//Chance to destroy / extract any finds here
 				fail_message = ". <b>[pick("There is a crunching noise","[attacking_item] collides with some different rock","Part of the rock face crumbles away",\
 								"Something breaks under [attacking_item]")]</b>"
+
+		last_act = world.time
+
+		playsound(user, P.drill_sound, 20, TRUE)
+		P.drilling = TRUE
 
 		if(fail_message)
 			to_chat(user, SPAN_WARNING("You start [P.drill_verb][fail_message ? fail_message : ""]."))
 
 		if(fail_message && prob(90))
 			if(prob(25))
-				excavate_find(5, finds[1])
+				excavate_find(5, finds[1], user)
 			else if(prob(50))
 				finds.Remove(finds[1])
 				if(prob(50))
 					artifact_debris()
 
-		if(do_after(user,P.digspeed))
+		if(do_after(user, effective_digspeed))
 			if(!istype(src, /turf/simulated/mineral))
 				return
 
@@ -342,19 +353,20 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 					//Chance to extract any items here perfectly, otherwise just pull them out along with the rock surrounding them
 					if(excavation_level + P.excavation_amount > F.excavation_required)
 						//if you can get slightly over, perfect extraction
-						excavate_find(100, F)
+						excavate_find(100, F, user)
 					else
-						excavate_find(80, F)
+						excavate_find(80, F, user)
 
 				else if(excavation_level + P.excavation_amount > F.excavation_required - F.clearance_range)
 					//just pull the surrounding rock out
-					excavate_find(0, F)
+					excavate_find(0, F, user)
 
 			if(excavation_level + P.excavation_amount >= 100)
 				//if players have been excavating this turf, leave some rocky debris behind
 				var/obj/structure/boulder/B
+				var/boulder_preserve_chance = 15 + 25 * max(arch_skill - SKILL_LEVEL_UNFAMILIAR, 0)
 				if(artifact_find)
-					if(excavation_level > 0 || prob(15))
+					if(excavation_level > 0 || prob(boulder_preserve_chance))
 						//boulder with an artifact inside
 						B = new(src, "#9c9378") // if we ever get natural walls, edit this
 						if(artifact_find)
@@ -366,12 +378,14 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 					B = new(src, "#9c9378") // if we ever get natural walls, edit this
 
 				if(B)
-					GetDrilled(0)
+					GetDrilled(0, user)
 				else
-					GetDrilled(1)
+					GetDrilled(1, user)
 				return
 
 			excavation_level += P.excavation_amount
+			if(arch_skill >= SKILL_LEVEL_PROFESSIONAL && P.excavation_amount <= 15)
+				to_chat(user, SPAN_NOTICE("You estimate \the [src] has now been excavated to a depth of <b>[2 * excavation_level]cm</b>."))
 
 		else
 			to_chat(user, SPAN_NOTICE("You stop [P.drill_verb] \the [src]."))
@@ -439,11 +453,16 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		O.geologic_data = get_geodata()
 	return O
 
-/turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0)
+/turf/simulated/mineral/proc/GetDrilled(var/artifact_fail = 0, mob/user = null)
 	if(mineral?.result_amount)
 		//if the turf has already been excavated, some of it's ore has been removed
 		for(var/i = 1 to mineral.result_amount - mined_ore)
 			DropMineral()
+		if(user)
+			var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT)
+			if(arch_skill > SKILL_LEVEL_UNFAMILIAR && prob(15 * (arch_skill - SKILL_LEVEL_UNFAMILIAR)))
+				DropMineral()
+				to_chat(user, SPAN_NOTICE("Your knowledge of geological strata lets you extract an extra piece of ore along a fracture line."))
 
 	//Add some rubble, you did just clear out a big chunk of rock.
 
@@ -478,7 +497,11 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	return new_turf
 
-/turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F)
+/turf/simulated/mineral/proc/excavate_find(var/prob_clean = 0, var/datum/find/F, mob/user = null)
+	var/arch_skill = user ? (GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR) : SKILL_LEVEL_UNFAMILIAR
+	if(arch_skill >= SKILL_LEVEL_PROFESSIONAL)
+		prob_clean = 100
+
 	//with skill and luck, players can cleanly extract finds
 	//otherwise, they come out inside a chunk of rock
 	var/obj/item/X
@@ -498,7 +521,16 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		display_name = X.name
 
 	//many finds are ancient and thus very delicate - luckily there is a specialised energy suspension field which protects them when they're being extracted
-	if(prob(F.prob_delicate))
+	var/delicate_chance = F.prob_delicate
+	switch(arch_skill)
+		if(SKILL_LEVEL_FAMILIAR)
+			delicate_chance = max(0, delicate_chance - 15)
+		if(SKILL_LEVEL_TRAINED)
+			delicate_chance = max(0, delicate_chance - 40)
+		if(SKILL_LEVEL_PROFESSIONAL)
+			delicate_chance = max(0, delicate_chance - 65)
+
+	if(prob(delicate_chance))
 		var/obj/effect/suspension_field/S = locate() in src
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
@@ -885,7 +917,7 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 			digging = TRUE
-			if(!attacking_item.use_tool(src, user, 60, volume = 50))
+			if(!attacking_item.use_tool(src, user, 60 * get_xenoarch_dig_multiplier(user), volume = 50))
 				if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 					digging = FALSE
 				return
@@ -934,7 +966,7 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 		playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
 
 		digging = TRUE
-		if(!do_after(user, 40))
+		if(!do_after(user, 40 * get_xenoarch_dig_multiplier(user)))
 			if(istype(src, /turf/simulated/floor/exoplanet/asteroid))
 				digging = FALSE
 			return

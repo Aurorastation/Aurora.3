@@ -14,6 +14,37 @@
 	var/scan_duration = 120
 	var/obj/scanned_object
 	var/report_num = 0
+	var/last_operator_skill = SKILL_LEVEL_UNFAMILIAR
+
+/proc/get_exact_artifact_trigger_desc(trigger_type)
+	switch(trigger_type)
+		if(TRIGGER_TOUCH)
+			return "direct tactile contact"
+		if(TRIGGER_WATER)
+			return "exposure to water or hydrazine"
+		if(TRIGGER_ACID)
+			return "exposure to acidic reagents"
+		if(TRIGGER_VOLATILE)
+			return "exposure to volatile reagents (phoron or thermite)"
+		if(TRIGGER_TOXIN)
+			return "exposure to toxic compounds"
+		if(TRIGGER_FORCE)
+			return "kinetic impact or concussive force"
+		if(TRIGGER_ENERGY)
+			return "electrical or directed-energy discharge"
+		if(TRIGGER_HEAT)
+			return "elevated thermal conditions (>375K or open flame)"
+		if(TRIGGER_COLD)
+			return "cryogenic thermal conditions (<225K)"
+		if(TRIGGER_PHORON)
+			return "atmospheric phoron concentration"
+		if(TRIGGER_OXY)
+			return "atmospheric oxygen concentration"
+		if(TRIGGER_CO2)
+			return "atmospheric carbon dioxide concentration"
+		if(TRIGGER_NITRO)
+			return "atmospheric nitrogen concentration"
+	return "unknown stimulus"
 
 /obj/structure/machinery/artifact_analyser/Initialize()
 	. = ..()
@@ -116,7 +147,13 @@
 				else
 					scanned_object = O
 					scan_in_progress = 1
-					scan_completion_time = world.time + scan_duration
+					last_operator_skill = GET_SKILL_LEVEL(usr, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+					var/duration_mult = 1
+					if(last_operator_skill >= SKILL_LEVEL_PROFESSIONAL)
+						duration_mult = 0.5
+					else if(last_operator_skill >= SKILL_LEVEL_TRAINED)
+						duration_mult = 0.75
+					scan_completion_time = world.time + scan_duration * duration_mult
 					src.visible_message("<b>[name]</b> states, \"Scanning begun.\"")
 				break
 			if(!scanned_object)
@@ -202,10 +239,14 @@
 				else
 					out += " Unable to determine any data about activation trigger."
 
+				if(last_operator_skill >= SKILL_LEVEL_PROFESSIONAL)
+					out += " High-resolution calibration narrows primary activation stimulus to <b>[get_exact_artifact_trigger_desc(A.my_effect.trigger)]</b>."
+
 			//secondary:
-			if(A.secondary_effect && A.secondary_effect.activated)
+			if(A.secondary_effect && (A.secondary_effect.activated || last_operator_skill >= SKILL_LEVEL_PROFESSIONAL))
 				//sciencey words go!
-				out += "<br><br>Warning, internal scans indicate ongoing [pick("subluminous","subcutaneous","superstructural")] activity operating \
+				var/activity_state = A.secondary_effect.activated ? "ongoing" : "dormant"
+				out += "<br><br>Warning, internal scans indicate [activity_state] [pick("subluminous","subcutaneous","superstructural")] activity operating \
 				independantly from primary systems. Auxiliary activity involves "
 
 				//what kind of effect the artifact has
@@ -247,6 +288,9 @@
 					anomalous interference with standard attempts at triggering."
 				else
 					out += " Unable to determine any data about activation trigger."
+
+				if(last_operator_skill >= SKILL_LEVEL_PROFESSIONAL)
+					out += " High-resolution calibration narrows auxiliary activation stimulus to <b>[get_exact_artifact_trigger_desc(A.secondary_effect.trigger)]</b>."
 			return out
 		else
 			//it was an ordinary item

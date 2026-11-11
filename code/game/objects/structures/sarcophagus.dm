@@ -6,11 +6,14 @@
 	density = 1
 	anchored = 0
 	var/open = FALSE
+	var/booby_trapped = FALSE
 
 /obj/structure/sarcophagus/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(!open)
 		. += "\The [src]'s lid is closed shut."
+		if(booby_trapped && GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+			. += SPAN_WARNING("Your knowledge of xenoarchaeology reveals a hidden explosive mechanism rigged to the lid!")
 	else
 		. += "\The [src]'s lid is open."
 
@@ -18,6 +21,8 @@
 	. = ..()
 	if(prob(25))
 		desc = "Don't open it."
+	if(prob(25))
+		booby_trapped = TRUE
 
 /obj/structure/sarcophagus/update_icon()
 	if(open)
@@ -41,7 +46,10 @@
 	if(open)
 		return
 	if(istype(attacking_item, /obj/item/sarcophagus_key))
-		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] inside an opening in \the [src]."))
+		to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] inside an opening in \the [src]."))
+		if(booby_trapped && GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_TRAINED)
+			booby_trapped = FALSE
+			to_chat(user, SPAN_NOTICE("Your training allows you to carefully bypass the ancient explosive mechanism as you turn \the [attacking_item]."))
 		open()
 
 /obj/structure/sarcophagus/proc/open()
@@ -49,7 +57,7 @@
 	open = TRUE
 	update_icon()
 
-	if(prob(25))
+	if(booby_trapped)
 		explosion(get_turf(src), 2, 3, 4, 4)
 		qdel(src)
 		return

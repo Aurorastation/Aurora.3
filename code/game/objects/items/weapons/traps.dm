@@ -79,7 +79,7 @@
 
 	user.visible_message("[SPAN_BOLD("[user]")] begins freeing \the [buckled] from \the [src]...", SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."), SPAN_NOTICE("You hear metal creaking."))
 
-	if(do_after(user, time_to_escape))
+	if(do_after(user, round(time_to_escape * get_xenoarch_dig_multiplier(user))))
 		user.visible_message("[SPAN_BOLD("[user]")] frees \the [buckled] from \the [src].", SPAN_NOTICE("You free \the [buckled] from \the [src]."))
 		unbuckle()
 		anchored = FALSE
@@ -96,7 +96,7 @@
 
 /obj/item/trap/proc/disarm_trap(var/mob/user)
 	user.visible_message("[SPAN_BOLD("[user]")] starts disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
-	if(do_after(user, 6 SECONDS))
+	if(do_after(user, round((6 SECONDS) * get_xenoarch_dig_multiplier(user))))
 		user.visible_message("[SPAN_BOLD("[user]")] disarms \the [src]!", SPAN_NOTICE("You disarm \the [src]!"))
 		deployed = FALSE
 		if(unsecure_on_disarm)
@@ -146,6 +146,8 @@
 	if(deployed && isliving(arrived))
 		var/mob/living/L = arrived
 		if(L.pass_flags & PASSTABLE)
+			return
+		if(!istype(src, /obj/item/trap/tripwire) && try_xenoarch_trap_evasion(L, src))
 			return
 		INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 		update_icon()
@@ -211,7 +213,7 @@
 
 /obj/item/trap/tripwire/disarm_trap(var/mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), SPAN_NOTICE("You begin taking \the [src] down..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
-	if(do_after(user, 6 SECONDS))
+	if(do_after(user, round((6 SECONDS) * get_xenoarch_dig_multiplier(user))))
 		deployed = FALSE
 		if(unsecure_on_disarm)
 			anchored = FALSE
@@ -224,6 +226,13 @@
 	var/mob/living/carbon/human/H = L
 	if(!H.organs_by_name[BP_L_LEG] && !H.organs_by_name[BP_R_LEG]) // tripwires are triggered by shin, so if you don't have legs, assume you fly or crawl
 		return
+
+	var/arch_skill = GET_SKILL_LEVEL(L, ARCHAOLOGY_SKILL_COMPONENT)
+	if(!L.lying && arch_skill >= SKILL_LEVEL_FAMILIAR)
+		var/step_over_chance = (L.m_intent == M_WALK) ? 100 : (arch_skill == SKILL_LEVEL_PROFESSIONAL ? 100 : (arch_skill == SKILL_LEVEL_TRAINED ? 70 : 35))
+		if(prob(step_over_chance))
+			to_chat(L, SPAN_NOTICE("You spot \the [src] in time and deftly step over it."))
+			return
 
 	if(!L.lying && (L.m_intent == M_RUN) || prob(5))
 		L.visible_message(SPAN_DANGER("\The [L] trips over \the [src]!"), FONT_LARGE(SPAN_DANGER("You trip over \the [src]!")))
@@ -250,6 +259,8 @@
 /obj/item/trap/punji/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(deployed && isliving(arrived))
 		var/mob/living/L = arrived
+		if(try_xenoarch_trap_evasion(L, src, reveal_trap = TRUE))
+			return
 		attack_mob(L)
 		update_icon()
 
@@ -366,9 +377,28 @@
 	anchored = TRUE
 	invisibility = 0
 
+/obj/item/trap/jagged_rock/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_WARNING("Your geological training warns you that \the [src] is razor-sharp and unstable — stepping on it will impale you, though it can be broken apart with a pickaxe or shovel.")
+
+/obj/item/trap/jagged_rock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pickaxe) || istype(attacking_item, /obj/item/shovel))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts breaking apart \the [src] with \the [attacking_item]."),
+			SPAN_NOTICE("You start breaking apart the hazardous outcropping of \the [src] with \the [attacking_item].")
+		)
+		if(do_after(user, round((4 SECONDS) * get_xenoarch_dig_multiplier(user)), src))
+			to_chat(user, SPAN_NOTICE("You shatter the treacherous spines of \the [src], clearing the hazard."))
+			qdel(src)
+		return
+	return ..()
+
 /obj/item/trap/jagged_rock/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(isliving(arrived))
 		var/mob/living/L = arrived
+		if(try_xenoarch_trap_evasion(L, src))
+			return
 		attack_mob(L)
 		update_icon()
 
