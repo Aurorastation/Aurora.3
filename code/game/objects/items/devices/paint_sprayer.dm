@@ -130,7 +130,7 @@
 /obj/item/paint_sprayer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use a paint sprayer on yourself to configure it."
-	. += "Paint sprayers can be used on the following targets: floors, walls, windows, window frames, windoors, tables, chairs, beds, computers, vending machines, smartfridges, grilles, lattices, catwalks and grates, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
+	. += "Paint sprayers can be used on the following targets: floors, walls, windows, window frames, windoors, blast shutters, security cameras, tables, chairs, beds, computers, vending machines, smartfridges, grilles, lattices, catwalks and grates, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
 	. += "CTRL-click a turf or airlock with the paint sprayer to copy the color(s) used on it."
 	. += "SHIFT-click a turf with the paint sprayer to clear all decals from it, or to strip the paint from a wall."
 
@@ -370,6 +370,16 @@
 		return
 	. = ..()
 
+/obj/structure/machinery/door/blast/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/machinery/camera/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
 /obj/structure/machinery/door/window/Click(location, control, params)
 	if(paint_sprayer_shift_click(src, usr, params))
 		return
@@ -501,7 +511,7 @@
 		B.painted_colour = null
 		B.update_icon()
 		. = TRUE
-	else if (istype(A, /obj/structure/window) || istype(A, /obj/structure/window_frame) || istype(A, /obj/structure/machinery/computer) || istype(A, /obj/item/modular_computer) || istype(A, /obj/structure/machinery/vending) || istype(A, /obj/structure/machinery/smartfridge) || istype(A, /obj/structure/grille) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/machinery/door/window))
+	else if (istype(A, /obj/structure/window) || istype(A, /obj/structure/window_frame) || istype(A, /obj/structure/machinery/computer) || istype(A, /obj/item/modular_computer) || istype(A, /obj/structure/machinery/vending) || istype(A, /obj/structure/machinery/smartfridge) || istype(A, /obj/structure/grille) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/machinery/door/window) || istype(A, /obj/structure/machinery/door/blast) || istype(A, /obj/structure/machinery/camera))
 		var/obj/O = A
 		O.color = initial(O.color)
 		O.update_icon()
