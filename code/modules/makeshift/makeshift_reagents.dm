@@ -71,7 +71,7 @@
 	else
 		joules = 500 // we're assuming it's some kind of novelty toy like lunea's gloves, etc; not exactly a match but it still works
 	reagents.add_thermal_energy(joules)
-	user.visible_message(SPAN_WARNING("[user] holds \the [W] up to \the [src]!"), SPAN_NOTICE("You use \the [W] to heat \the [src]'s contents."), SPAN_NOTICE("You hear something sizzle."))
+	user.visible_message(SPAN_WARNING("[user] holds \the [W] up to \the [src]!"), self_message = SPAN_NOTICE("You use \the [W] to heat \the [src]'s contents."), blind_message = SPAN_NOTICE("You hear something sizzle."), visible_message_flags = GHOST_MESSAGE)
 	user.setClickCooldown(joules/5000) // two seconds for welder, 1/5 second for matches but they run out
 
 /obj/structure/chemkit/proc/trans_item(obj/item/I, mob/user)

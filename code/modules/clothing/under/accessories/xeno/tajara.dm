@@ -383,11 +383,11 @@
 /obj/item/clothing/accessory/tajaran/charm/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(user.a_intent != I_HURT && target_mob != user)
 		if(target_zone == BP_HEAD | target_mob.lying)
-			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] above <b>\the [target_mob]</b>", visible_message_flags = GHOST_MESSAGE)
 		else if(target_zone == BP_CHEST)
-			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] out in front of <b>\the [target_mob]</b>", visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>")
+			user.visible_message("<b>\The [user]</b> holds \the [src] up near <b>\the [target_mob]</b>", visible_message_flags = GHOST_MESSAGE)
 	else
 		return ..()
 
@@ -396,7 +396,7 @@
 		return
 	if(!ishuman(M))
 		return
-	user.visible_message("<b>\The [user]</b> points \the [src] at <b>\the [M]</b>")
+	user.visible_message("<b>\The [user]</b> points \the [src] at <b>\the [M]</b>", visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/accessory/tajaran/charm/stone
 	name = "stone charm"

@@ -67,7 +67,7 @@
 		if(!do_after(user, 2 SECONDS))
 			return
 
-	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), SPAN_NOTICE("You retrieve your universal access cable from your neck."))
+	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), self_message = SPAN_NOTICE("You retrieve your universal access cable from your neck."), visible_message_flags = GHOST_MESSAGE)
 	synth.put_in_active_hand(access_cable)
 
 /**
@@ -286,10 +286,10 @@
 				if(human.client && !human.incapacitated(INCAPACITATION_FORCELYING|INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_BUCKLED_PARTIALLY))
 					var/request = tgui_alert(human, "[user] would like to connect to your [connection_socket]. Allow them?", "Cybernetic Access", list("Yes", "No"))
 					if(request != "Yes")
-						human.visible_message(SPAN_NOTICE("[human] pushes away [user]'s [src]."))
+						human.visible_message(SPAN_NOTICE("[human] pushes away [user]'s [src]."), visible_message_flags = GHOST_MESSAGE)
 						return
 
-				user.visible_message(SPAN_WARNING("[user] tries to connect \the [src] to [human]'s [connection_socket]..."))
+				user.visible_message(SPAN_WARNING("[user] tries to connect \the [src] to [human]'s [connection_socket]..."), visible_message_flags = GHOST_MESSAGE)
 				if(!do_mob(user, human, 2 SECONDS))
 					return
 
@@ -306,9 +306,9 @@
 					to_chat(user, SPAN_WARNING("[fresh_socket] now has another access cable connected."))
 					return
 				connection_socket = fresh_socket
-				user.visible_message(SPAN_WARNING("[user] connects \the [src] to [human]'s [connection_socket]."))
+				user.visible_message(SPAN_WARNING("[user] connects \the [src] to [human]'s [connection_socket]."), visible_message_flags = GHOST_MESSAGE)
 			else
-				user.visible_message(SPAN_WARNING("[user] connects \the [src] to their [connection_socket]."), SPAN_WARNING("You connect \the [src] to your [connection_socket]."))
+				user.visible_message(SPAN_WARNING("[user] connects \the [src] to their [connection_socket]."), self_message = SPAN_WARNING("You connect \the [src] to your [connection_socket]."), visible_message_flags = GHOST_MESSAGE)
 
 			connection_socket.insert_cable(src, user)
 			create_cable(human)
@@ -335,10 +335,10 @@
 			if(human.client && !human.incapacitated(INCAPACITATION_FORCELYING|INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_BUCKLED_PARTIALLY))
 				var/request = tgui_alert(human, "[user] would like to access your access port. Allow them?", "Access Port", list("Yes", "No"))
 				if(request != "Yes")
-					human.visible_message(SPAN_NOTICE("[human] pushes away [user]'s [src]."))
+					human.visible_message(SPAN_NOTICE("[human] pushes away [user]'s [src]."), visible_message_flags = GHOST_MESSAGE)
 					return
 
-			user.visible_message(SPAN_WARNING("[user] tries to jack \the [src] into [human]'s access port..."))
+			user.visible_message(SPAN_WARNING("[user] tries to jack \the [src] into [human]'s access port..."), visible_message_flags = GHOST_MESSAGE)
 			if(!do_mob(user, human, 2 SECONDS))
 				return
 			// Re-check after the delay: port state may have changed during consent/wait window
@@ -350,10 +350,10 @@
 				to_chat(user, SPAN_WARNING("The access port is now occupied by [fresh_port.internal_port]!"))
 				return
 			access_port = fresh_port
-			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into [human]'s access port!"))
+			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into [human]'s access port!"), visible_message_flags = GHOST_MESSAGE)
 
 		else
-			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
+			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), self_message = SPAN_WARNING("You jack \the [src] into your access port!"), visible_message_flags = GHOST_MESSAGE)
 
 		user.drop_from_inventory(src, get_turf(user))
 		access_port.insert_cable(src, user)
@@ -381,11 +381,11 @@
 			return ..()
 
 		if(access_port.get_integrity() <= IPC_INTEGRITY_THRESHOLD_MEDIUM)
-			synth.visible_message(SPAN_WARNING("[synth] tries to jam [synth.get_pronoun("his")] access cable back into their access port..."), SPAN_WARNING("You try to jam your access cable back into your access port..."))
+			synth.visible_message(SPAN_WARNING("[synth] tries to jam [synth.get_pronoun("his")] access cable back into their access port..."), self_message = SPAN_WARNING("You try to jam your access cable back into your access port..."), visible_message_flags = GHOST_MESSAGE)
 			if(!do_after(synth, 3 SECONDS))
 				return ..()
 
-		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), SPAN_NOTICE("You retract your access cable back into your access port."))
+		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), self_message = SPAN_NOTICE("You retract your access cable back into your access port."), visible_message_flags = GHOST_MESSAGE)
 		synth.drop_from_inventory(src, get_turf(src))
 		forceMove(access_port)
 		clear_cable_full()

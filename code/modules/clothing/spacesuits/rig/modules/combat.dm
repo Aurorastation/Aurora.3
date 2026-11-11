@@ -84,7 +84,7 @@
 
 	charge.charges--
 	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(holder.wearer))
-	holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [new_grenade]!"))
+	holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [new_grenade]!"), visible_message_flags = GHOST_MESSAGE)
 	new_grenade.activate(user)
 	new_grenade.throw_at(target, fire_force, fire_distance)
 	return TRUE
@@ -417,7 +417,7 @@
 
 	if(target && target != H)
 		var/obj/item/firing = new fabrication_type(get_turf(src))
-		holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [firing]!"))
+		holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [firing]!"), visible_message_flags = GHOST_MESSAGE)
 		firing.throw_at(target, fire_force, fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
@@ -461,7 +461,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H.visible_message(SPAN_DANGER("\The [H] crackles with energy!"))
+	H.visible_message(SPAN_DANGER("\The [H] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(H, 5, 5000)
 	return TRUE

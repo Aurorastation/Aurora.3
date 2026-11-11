@@ -21,10 +21,10 @@
 		if(WIRE_FLUSH)
 			if(!mend)
 				D.can_flush = FALSE
-				D.visible_message(SPAN_WARNING("\The [D] whines loudly."), range = 3)
+				D.visible_message(SPAN_WARNING("\The [D] whines loudly."), vision_distance = 3)
 			else
 				D.can_flush = TRUE
-				D.visible_message(SPAN_NOTICE("\The [D] hums soothingly."), range = 3)
+				D.visible_message(SPAN_NOTICE("\The [D] hums soothingly."), vision_distance = 3)
 
 /datum/wires/disposal/on_pulse(wire)
 	var/obj/structure/machinery/disposal/D = holder

@@ -25,7 +25,7 @@
 			if(H.head && (H.head.body_parts_covered & FACE))
 				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
-			user.visible_message(SPAN_DANGER("\The [user] begins taping over \the [H]'s eyes!"))
+			user.visible_message(SPAN_DANGER("\The [user] begins taping over \the [H]'s eyes!"), visible_message_flags = GHOST_MESSAGE)
 
 			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
@@ -35,7 +35,7 @@
 				return
 
 			playsound(src, SFX_RIP, 25)
-			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"))
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"), visible_message_flags = GHOST_MESSAGE)
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
@@ -54,7 +54,7 @@
 				return
 
 			playsound(src, SFX_RIP, 25)
-			user.visible_message(SPAN_DANGER("\The [user] begins taping up \the [H]'s mouth!"))
+			user.visible_message(SPAN_DANGER("\The [user] begins taping up \the [H]'s mouth!"), visible_message_flags = GHOST_MESSAGE)
 
 			if(!do_after(user, 3 SECONDS, H, DO_UNIQUE))
 				return
@@ -64,7 +64,7 @@
 				return
 
 			playsound(src, SFX_RIP,25)
-			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"))
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"), visible_message_flags = GHOST_MESSAGE)
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 

@@ -78,9 +78,9 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
 		if (istype(attacking_item, /obj/item/powerdrill))
-			user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), SPAN_NOTICE("You hear the whirr of an impact drill..."))
+			user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", self_message = SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), blind_message = SPAN_NOTICE("You hear the whirr of an impact drill..."), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("[SPAN_BOLD("[user]")] starts manually [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start manually [panel_open ? "closing" : "opening"] \the [src]..."))
+			user.visible_message("[SPAN_BOLD("[user]")] starts manually [panel_open ? "closing" : "opening"] \the [src]...", self_message = SPAN_NOTICE("You start manually [panel_open ? "closing" : "opening"] \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.usesound)
 			playsound(get_turf(src), attacking_item.usesound, 30, TRUE)
 		if (istype(attacking_item, /obj/item/powerdrill))
@@ -89,7 +89,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		else
 			if(!do_after(user, rand(5, 7) SECONDS, src))
 				return
-		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
+		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", self_message = SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		panel_open = !panel_open
 		update_icon()
 		playsound(get_turf(src), panel_open ? SFX_HATCH_OPEN : SFX_HATCH_CLOSE, 30, TRUE)
@@ -196,7 +196,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	self_message_start = replacetext(self_message_start, "%TOOL%", tool.name)
 	self_message_start = replacetext(self_message_start, "%TARGET%", target.name)
 
-	user.visible_message(message_start, SPAN_NOTICE(self_message_start))
+	user.visible_message(message_start, self_message = SPAN_NOTICE(self_message_start), visible_message_flags = GHOST_MESSAGE)
 
 	if(usage_sound)
 		playsound(get_turf(target), usage_sound, 30, TRUE)
@@ -215,7 +215,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	self_message_end = replacetext(self_message_end, "%TOOL%", tool.name)
 	self_message_end = replacetext(self_message_end, "%TARGET%", target.name)
 
-	user.visible_message(message_end, SPAN_NOTICE(self_message_end))
+	user.visible_message(message_end, self_message = SPAN_NOTICE(self_message_end), visible_message_flags = GHOST_MESSAGE)
 
 	if(finish_sound)
 		playsound(get_turf(target), finish_sound, 30, TRUE)

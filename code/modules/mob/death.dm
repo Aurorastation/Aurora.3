@@ -61,7 +61,7 @@
 	GLOB.move_manager.stop_looping(src)
 
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
-		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
+		src.visible_message("<b>\The [src.name]</b> [deathmessage]", vision_distance = messagerange, visible_message_flags = GHOST_MESSAGE)
 
 	exit_vr()
 

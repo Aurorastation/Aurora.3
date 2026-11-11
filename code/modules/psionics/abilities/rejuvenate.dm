@@ -33,7 +33,7 @@
 	if(!.)
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] lays both palms on [target]..."), SPAN_NOTICE("You lay your palms on [target] and get to work."))
+	user.visible_message(SPAN_NOTICE("[user] lays both palms on [target]..."), self_message = SPAN_NOTICE("You lay your palms on [target] and get to work."), visible_message_flags = GHOST_MESSAGE)
 	if(do_mob(user, target, 10 SECONDS))
 		target.restore_blood()
-	user.visible_message(SPAN_NOTICE("[user] removes their palms from [target]."), SPAN_NOTICE("You remove your palms from [target], having restored their blood."))
+	user.visible_message(SPAN_NOTICE("[user] removes their palms from [target]."), self_message = SPAN_NOTICE("You remove your palms from [target], having restored their blood."), visible_message_flags = GHOST_MESSAGE)

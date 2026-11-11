@@ -24,7 +24,7 @@
 		return
 	var/mob/living/L = user
 	L.visible_message(SPAN_NOTICE("[L] puts two fingers to [L.get_pronoun("his")] forehead and focuses..."),
-					SPAN_NOTICE("You put two fingers to your temple and focus on locating Nlom signatures..."))
+					self_message = SPAN_NOTICE("You put two fingers to your temple and focus on locating Nlom signatures..."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(L, 3 SECONDS))
 		var/list/level_humans = list()
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)

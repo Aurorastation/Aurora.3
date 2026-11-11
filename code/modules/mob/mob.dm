@@ -190,86 +190,24 @@
 		stat = new_stat
 		remove_all_indicators()
 
-/mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
-
-	if(!client)	return
-
-	if (type)
-		if(type & 1 && (sdisabilities & BLIND || blinded || paralysis) )//Vision related
-			if (!( alt ))
-				return
-			else
-				msg = alt
-				type = alt_type
-		if (type & 2 && isdeaf(src))//Hearing related
-			if (!( alt ))
-				return
-			else
-				msg = alt
-				type = alt_type
-				if ((type & 1 && sdisabilities & BLIND))
-					return
-	// Added voice muffling for Issue 41.
+/// Message, primary sense, alternative message/sense, and optional highlight suppression.
+/mob/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
+	if(!client)
+		return
+	if((type & VISIBLE_MESSAGE && (is_blind() || paralysis)) || (type & AUDIBLE_MESSAGE && isdeaf(src)))
+		msg = alt
+		type = alt_type
+		if(!msg || (type & VISIBLE_MESSAGE && (is_blind() || paralysis)) || (type & AUDIBLE_MESSAGE && isdeaf(src)))
+			return
+	if(!msg)
+		return
 	if(stat == UNCONSCIOUS || sleeping > 0)
-		to_chat(src, "<I>... You can almost hear someone talking ...</I>")
-	else
-		to_chat(src, msg)
-	return
+		msg = "<I>... You can almost hear someone talking ...</I>"
+		type = 0
+	to_chat(src, msg, avoid_highlighting = avoid_highlighting)
+	// Aurora's overhead renderer needs the perceived sense to avoid revealing the primary text.
+	return list(msg, type)
 
-
-/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
-	var/list/messageturfs = list() //List of turfs we broadcast to.
-	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
-	var/list/messageobjs = list() //list of objs nearby who can see it
-	for (var/turf in view(range, get_turf(src)))
-		messageturfs += turf
-
-	for(var/A in GLOB.player_list)
-		var/mob/M = A
-		if (QDELETED(M))
-			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			GLOB.player_list -= M
-			continue
-		if (!M.client || istype(M, /mob/abstract/new_player))
-			continue
-		if((get_turf(M) in messageturfs) || (show_observers && isghost(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
-			messagemobs += M
-
-	for(var/o in GLOB.listening_objects)
-		var/obj/O = o
-		var/turf/O_turf = get_turf(O)
-		if(O && (O_turf in messageturfs))
-			messageobjs += O
-
-	for(var/A in messagemobs)
-		var/mob/M = A
-		if(isghost(M))
-			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
-			continue
-		if(self_message && M == src)
-			M.show_message(self_message, 1, blind_message, 2)
-		else if(is_invisible_to(M))  // Cannot view the invisible, but you can hear it.
-			if(blind_message)
-				M.show_message(blind_message, 2)
-		else
-			M.show_message(message, 1, blind_message, 2)
-
-	for(var/o in messageobjs)
-		var/obj/O = o
-		O.see_emote(src, message)
-
-	var/list/hear_clients = list()
-	for(var/mob/M in messagemobs)
-		if(M.client)
-			hear_clients += M.client
-
-
-	if(intent_message)
-		intent_message(intent_message, intent_range, messagemobs + src)
-
-	//Multiz, have shadow do same
-	if(bound_overlay)
-		bound_overlay.visible_message(message, blind_message, range)
 
 // Designed for mobs contained inside things, where a normal visible message wont actually be visible
 // Useful for visible actions by pAIs, and held mobs
@@ -299,25 +237,6 @@
 // Not sure where to define this, so it can sit here for the rest of time.
 /atom/proc/drain_power(var/drain_check, var/surge, var/amount = 0)
 	return -1
-
-// Show a message to all mobs and objects in earshot of this one
-// This would be for audible actions by the src mob
-// message is the message output to anyone who can hear.
-// self_message (optional) is what the src mob hears.
-// deaf_message (optional) is what deaf people will see.
-// hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message, var/ghost_hearing = GHOSTS_ALL_HEAR)
-	if(!hearing_distance)
-		hearing_distance = world.view
-
-	var/list/hearers = get_hearers_in_view(hearing_distance, src)
-
-	for (var/atom/movable/AM as anything in hearers)
-		if(self_message && AM == src)
-			AM.show_message("[get_accent_icon(null, src)] [self_message]", 2, deaf_message, 1)
-			continue
-
-		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
 	for(var/mob/M in GLOB.mob_list)
@@ -873,9 +792,9 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.lying) // If they're on the ground we're probably dragging their arms to move them
-			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
+			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."), visible_message_flags = GHOST_MESSAGE)
 		else //Otherwise we're probably just holding their arm to lead them somewhere
-			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
+			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."), visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, SFX_GRAB, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
@@ -1214,11 +1133,11 @@
 
 	if(self)
 		visible_message(SPAN_WARNING("<b>[src] rips [selection] out of their body!</b>"),
-						SPAN_WARNING("<b>You rip [selection] out of your body!</b>"))
+						SPAN_WARNING("<b>You rip [selection] out of your body!</b>"), visible_message_flags = GHOST_MESSAGE)
 
 	else
 		visible_message(SPAN_WARNING("<b>[usr] rips [selection] out of [src]'s body!</b>"),
-						SPAN_WARNING("<b>[usr] rips [selection] out of your body!</b>"))
+						SPAN_WARNING("<b>[usr] rips [selection] out of your body!</b>"), visible_message_flags = GHOST_MESSAGE)
 
 	valid_objects = get_visible_implants(0)
 
@@ -1420,7 +1339,7 @@
 		return
 
 	SetWeakened(200)
-	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"), visible_message_flags = GHOST_MESSAGE)
 	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
@@ -1436,7 +1355,7 @@
 		return
 
 	SetWeakened(0)
-	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"), visible_message_flags = GHOST_MESSAGE)
 	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 

@@ -46,7 +46,7 @@
 		return BULLET_ACT_HIT
 
 	if(prob(get_block_chance(user, damage, damage_source, attacker)))
-		user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT
 
@@ -88,7 +88,7 @@
 /obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"))
+			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 	else
@@ -246,10 +246,10 @@
 
 				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 			else
-				user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
+				user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 				return BULLET_ACT_BLOCK
 		else
-			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
+			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			return BULLET_ACT_BLOCK
 	else
 		return BULLET_ACT_HIT

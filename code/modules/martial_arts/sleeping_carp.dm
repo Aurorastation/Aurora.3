@@ -38,7 +38,7 @@
 /datum/martial_art/the_sleeping_carp/proc/wristWrench(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(!D.stat && !D.stunned && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
-		D.visible_message(SPAN_WARNING("[A] grabs [D]'s wrist and wrenches it sideways!"))
+		D.visible_message(SPAN_WARNING("[A] grabs [D]'s wrist and wrenches it sideways!"), visible_message_flags = GHOST_MESSAGE)
 		playsound(get_turf(A), 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		D.drop_item()
 		D.apply_damage(5, DAMAGE_BRUTE, pick(BP_L_ARM, BP_R_ARM))
@@ -49,7 +49,7 @@
 /datum/martial_art/the_sleeping_carp/proc/backKick(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(A.dir == D.dir && !D.stat && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
-		D.visible_message(SPAN_WARNING("[A] kicks [D] in the back!"))
+		D.visible_message(SPAN_WARNING("[A] kicks [D] in the back!"), visible_message_flags = GHOST_MESSAGE)
 		step_to(D,get_step(D,D.dir),1)
 		D.Weaken(4)
 		playsound(get_turf(D), "punch", 50, 1, -1)
@@ -61,8 +61,8 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] knees [D] in the stomach!"), \
-							SPAN_DANGER("[A] winds you with a knee in the stomach!"))
-		D.audible_message("<b>[D]</b> gags!")
+							self_message = SPAN_DANGER("[A] winds you with a knee in the stomach!"), visible_message_flags = GHOST_MESSAGE)
+		D.audible_message("<b>[D]</b> gags!", audible_message_flags = GHOST_MESSAGE)
 		if (!(D.species.flags & NO_BREATHE))
 			D.losebreath += 3
 		D.Stun(2)
@@ -75,7 +75,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] kicks [D] in the head!"), \
-							SPAN_DANGER("[A] kicks you in the jaw!"))
+							self_message = SPAN_DANGER("[A] kicks you in the jaw!"), visible_message_flags = GHOST_MESSAGE)
 		D.apply_damage(20, DAMAGE_BRUTE, BP_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), "punch", 50, 1, -1)
@@ -87,7 +87,7 @@
 /datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
-		D.visible_message(SPAN_DANGER("[A] elbow drops [D]!"))
+		D.visible_message(SPAN_DANGER("[A] elbow drops [D]!"), visible_message_flags = GHOST_MESSAGE)
 		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, DAMAGE_BRUTE, BP_CHEST)

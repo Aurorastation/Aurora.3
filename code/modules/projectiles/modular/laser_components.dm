@@ -69,15 +69,15 @@
 	..()
 
 /obj/item/laser_components/capacitor/reinforced/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] mostly contains the sparks as it overloads!"), range = 3)
+	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] mostly contains the sparks as it overloads!"), vision_distance = 3)
 	..()
 
 /obj/item/laser_components/capacitor/reinforced/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical but contains the worst of the sparks!"), range = 4)
+	visible_message(SPAN_DANGER("\The [src] powering \the [prototype] goes critical but contains the worst of the sparks!"), vision_distance = 4)
 	..()
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks and briefly glows a sickly yellow."), range = 4)
+	visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks and briefly glows a sickly yellow."), vision_distance = 4)
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(0, T))
 		to_chat(M, SPAN_WARNING("You feel a warm sensation."))
@@ -85,7 +85,7 @@
 	..()
 
 /obj/item/laser_components/capacitor/nuclear/medium_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	visible_message(SPAN_DANGER("\The [src] in \the [prototype] glows ominously as it overloads!"), range = 6)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] glows ominously as it overloads!"), vision_distance = 6)
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(round(max(prototype.criticality, 1)),T))
 		to_chat(M, SPAN_WARNING("You feel a warm sensation."))
@@ -93,7 +93,7 @@
 	..()
 
 /obj/item/laser_components/capacitor/nuclear/critical_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
-	visible_message(SPAN_DANGER("\The [src] in \the [prototype] goes critical and explodes in a burst of radiation!"), range = 6)
+	visible_message(SPAN_DANGER("\The [src] in \the [prototype] goes critical and explodes in a burst of radiation!"), vision_distance = 6)
 	var/turf/T = get_turf(src)
 	for (var/mob/living/M in range(rand(2,6)*max(prototype.criticality, 1),T))
 		to_chat(M, SPAN_WARNING("You feel a wave of heat wash over you."))
@@ -136,10 +136,10 @@
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/living/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	if (user)
-		visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks in \the [user]'s hand and briefly glows a sickly yellow."), range = 4)
+		visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks in \the [user]'s hand and briefly glows a sickly yellow."), vision_distance = 4)
 		user.apply_damage(rand(50,100)*max(prototype.criticality, 1), DAMAGE_RADIATION)
 	else
-		visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks and briefly glows a sickly yellow."), range = 4)
+		visible_message(SPAN_WARNING("\The [src] powering \the [prototype] sparks and briefly glows a sickly yellow."), vision_distance = 4)
 		SSradiation.radiate(src, 10*max(prototype.criticality, 1))
 	..()
 

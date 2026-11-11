@@ -113,7 +113,7 @@
 	// Removing components.
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(is_reinforced == FRAME_REINFORCED)
-			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			new /obj/item/stack/material/steel(loc, 15)
 			is_reinforced = 0
 			return
@@ -191,7 +191,7 @@
 			to_chat(user, SPAN_WARNING("You need at least ten units of cable to complete the exosuit."))
 			return
 
-		user.visible_message("\The [user] begins wiring \the [src]...")
+		user.visible_message("\The [user] begins wiring \the [src]...", visible_message_flags = GHOST_MESSAGE)
 
 		if(!do_after(user, 30))
 			return
@@ -200,7 +200,7 @@
 			return
 
 		CC.use(10)
-		user.visible_message("\The [user] installs wiring in \the [src].")
+		user.visible_message("\The [user] installs wiring in \the [src].", visible_message_flags = GHOST_MESSAGE)
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		is_wired = FRAME_WIRED
 	// Securing wiring.
@@ -314,7 +314,7 @@
 	if(!istype(component) || (component.loc != src) || !istype(user))
 		return FALSE
 
-	user.visible_message("\The [user] crowbars \the [component] off \the [src].")
+	user.visible_message("\The [user] crowbars \the [component] off \the [src].", visible_message_flags = GHOST_MESSAGE)
 	component.forceMove(get_turf(src))
 	user.put_in_hands(component)
 	playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)

@@ -14,7 +14,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"), visible_message_flags = GHOST_MESSAGE)
 			if(H.health / H.maxhealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -22,9 +22,9 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom], but they do not respond... Maybe they have S.S.D?"))
+			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom], but they do not respond... Maybe they have S.S.D?"), visible_message_flags = GHOST_MESSAGE)
 	else if(client && willfully_sleeping)
-		visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"), visible_message_flags = GHOST_MESSAGE)
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -50,7 +50,7 @@
 		if(H && H.species.show_ssd && !client && !teleop)
 			if(H.bg)
 				if(!hitting_projectile.do_not_log)
-					visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"))
+					visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"), visible_message_flags = GHOST_MESSAGE)
 
 				if(H.health / H.maxhealth < 0.5)
 					H.bg.awaken_impl(TRUE)
@@ -62,11 +62,11 @@
 
 			else if(!vr_mob)
 				if(!hitting_projectile.do_not_log)
-					visible_message(SPAN_DANGER("[hitting_projectile] hit [src], but they do not respond... Maybe they have S.S.D?"))
+					visible_message(SPAN_DANGER("[hitting_projectile] hit [src], but they do not respond... Maybe they have S.S.D?"), visible_message_flags = GHOST_MESSAGE)
 
 		else if(client && willfully_sleeping)
 			if(!hitting_projectile.do_not_log)
-				visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"))
+				visible_message(SPAN_DANGER("[hitting_projectile] hit [src] waking [get_pronoun("him")] up!"), visible_message_flags = GHOST_MESSAGE)
 
 			sleeping = 0
 			willfully_sleeping = FALSE
@@ -87,10 +87,10 @@
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
 			user.visible_message(SPAN_DANGER("[user] attacks [src] with [I] waking [get_pronoun("him")] up!"), \
-									SPAN_DANGER("You attack [src] with [I], but they do not respond... Maybe they have S.S.D?"))
+									self_message = SPAN_DANGER("You attack [src] with [I], but they do not respond... Maybe they have S.S.D?"), visible_message_flags = GHOST_MESSAGE)
 	else if(client && willfully_sleeping)
 		user.visible_message(SPAN_DANGER("[user] attacked [src] with [I] waking [get_pronoun("him")] up!"), \
-							SPAN_DANGER("You attack [src] with [I], waking [get_pronoun("him")] up!"))
+							self_message = SPAN_DANGER("You attack [src] with [I], waking [get_pronoun("him")] up!"), visible_message_flags = GHOST_MESSAGE)
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -139,7 +139,7 @@
 	if(!(damage_flags & (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)) || W.damtype != DAMAGE_BRUTE)
 		return FALSE //unsuitable weapon
 
-	user.visible_message(SPAN_DANGER("\The [user] begins to slit [src]'s throat with \the [W]!"))
+	user.visible_message(SPAN_DANGER("\The [user] begins to slit [src]'s throat with \the [W]!"), visible_message_flags = GHOST_MESSAGE)
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
 	if(!W.use_tool(src, user, 20, volume = 50))
@@ -173,9 +173,9 @@
 			W.add_blood(H)
 
 		if(getOxyLoss() >= 40)
-			user.visible_message(SPAN_DANGER("\The [user] slices [src]'s throat open with \the [W]!"))
+			user.visible_message(SPAN_DANGER("\The [user] slices [src]'s throat open with \the [W]!"), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_DANGER("\The [user] cuts [src]'s neck open with \the [W]!"))
+			user.visible_message(SPAN_DANGER("\The [user] cuts [src]'s neck open with \the [W]!"), visible_message_flags = GHOST_MESSAGE)
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, W.get_clamped_volume(), 1, -1)

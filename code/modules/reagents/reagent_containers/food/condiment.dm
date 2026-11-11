@@ -24,10 +24,10 @@
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
 		if(reagents.total_volume > 0)
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src]."), SPAN_NOTICE("[user] gives [src] a good shake.")), SPAN_NOTICE("You give [src] a good shake."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src]."), SPAN_NOTICE("[user] gives [src] a good shake.")), self_message = SPAN_NOTICE("You give [src] a good shake."), visible_message_flags = GHOST_MESSAGE)
 			playsound(get_turf(src),'sound/items/condiment_shaking.ogg', rand(10,50), 1)
 		else
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src], but it makes no noise."), SPAN_NOTICE("[user] gives [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give [src] a good shake, but it makes no noise."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src], but it makes no noise."), SPAN_NOTICE("[user] gives [src] a good shake, but it makes no noise.")), self_message = SPAN_NOTICE("You give [src] a good shake, but it makes no noise."), visible_message_flags = GHOST_MESSAGE)
 		next_shake = world.time + 30
 
 /obj/item/reagent_containers/food/condiment/feed_sound(var/mob/user)

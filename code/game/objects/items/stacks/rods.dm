@@ -98,7 +98,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 		new_splint.add_fingerprint(user)
 
 		user.visible_message(SPAN_NOTICE("\The [user] constructs \a [new_splint] out of a [singular_name]."), \
-				SPAN_NOTICE("You use make \a [new_splint] out of a [singular_name]."))
+				self_message = SPAN_NOTICE("You use make \a [new_splint] out of a [singular_name]."), visible_message_flags = GHOST_MESSAGE)
 		use(1)
 		return
 
@@ -153,7 +153,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] starts assembling a liquidbag barricade."),
-	SPAN_NOTICE("You start assembling a liquidbag barricade."))
+	self_message = SPAN_NOTICE("You start assembling a liquidbag barricade."), visible_message_flags = GHOST_MESSAGE)
 
 	if(!do_after(user, 3 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 		return
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 
 	var/obj/structure/barricade/liquid/SB = new(user.loc, user, user.dir, build_stack)
 	user.visible_message(SPAN_NOTICE("[user] assembles a liquidbag barricade."),
-	SPAN_NOTICE("You assemble a liquidbag barricade."))
+	self_message = SPAN_NOTICE("You assemble a liquidbag barricade."), visible_message_flags = GHOST_MESSAGE)
 	SB.set_dir(user.dir)
 	SB.add_fingerprint(user)
 	use(build_stack)

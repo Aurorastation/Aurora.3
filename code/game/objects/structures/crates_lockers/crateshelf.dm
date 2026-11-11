@@ -82,25 +82,25 @@
 		return
 	manipulating = TRUE
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
-						SPAN_NOTICE("You begin dismantling \the [src]."))
+						self_message = SPAN_NOTICE("You begin dismantling \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	if(!W.use_tool(src, user, 2 SECONDS, volume = 50))
 		manipulating = FALSE
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
-						SPAN_NOTICE("You dismantle \the [src]."))
+						self_message = SPAN_NOTICE("You dismantle \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	new dismantle_mat(src.loc, 10)
 	qdel(src)
 
 /obj/structure/crate_shelf/proc/relay_container_resist_act(mob/living/user, obj/structure/closet/crate)
 	to_chat(user, SPAN_NOTICE("You begin attempting to knock [crate] out of [src]."))
-	visible_message(SPAN_DANGER("\The [crate] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
+	visible_message(SPAN_DANGER("\The [crate] begins to shake violently!"), blind_message = SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
 	crate.shake_animation()
 
 	if(do_after(user, 20 SECONDS, target = crate))
 		if(!user || user.stat != CONSCIOUS || user.loc != crate || crate.loc != src)
 			return // If the user is in a strange condition, return early.
 		crate.shake_animation()
-		visible_message(SPAN_WARNING("\The [crate] falls off the [src]!"), SPAN_NOTICE("You hear a thud."), intent_message = THUNK_SOUND)
+		visible_message(SPAN_WARNING("\The [crate] falls off the [src]!"), blind_message = SPAN_NOTICE("You hear a thud."), intent_message = THUNK_SOUND)
 		crate.forceMove(loc) // Drop the crate onto the shelf,
 		step_rand(crate, 1) // Then try to push it somewhere.
 		crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
@@ -114,7 +114,8 @@
 	user.forceMove(get_turf(src))
 	user.visible_message(
 		SPAN_NOTICE("\The [user] climbs down from \the [src]."),
-		SPAN_NOTICE("You climb down from \the [src].")
+		self_message = SPAN_NOTICE("You climb down from \the [src]."),
+		visible_message_flags = GHOST_MESSAGE
 	)
 	return TRUE
 

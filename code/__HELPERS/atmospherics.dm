@@ -1,6 +1,6 @@
 /obj/proc/analyze_gases(var/atom/A, var/mob/user)
 	if(src != A)
-		user.visible_message(SPAN_NOTICE("\The [user] has used \an [src] on \the [A]"))
+		user.visible_message(SPAN_NOTICE("\The [user] has used \an [src] on \the [A]"), visible_message_flags = GHOST_MESSAGE)
 
 	if(istype(A))
 		A.add_fingerprint(user)

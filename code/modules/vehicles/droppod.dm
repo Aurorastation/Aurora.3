@@ -293,7 +293,7 @@
 	for(var/mob/T in A)
 		if(T.simulated)
 			T.gib()
-			T.visible_message(SPAN_DANGER("[T] is squished by the drop pod!"))
+			T.visible_message(SPAN_DANGER("[T] is squished by the drop pod!"), visible_message_flags = GHOST_MESSAGE)
 	for(var/obj/B in A)
 		if(B.simulated && B.density)
 			qdel(B)

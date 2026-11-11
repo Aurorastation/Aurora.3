@@ -103,12 +103,12 @@
 			class = "rose>"
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
-		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
+		self_message = "<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>", visible_message_flags = GHOST_MESSAGE)
 
 		spawn(20)
 			if(get_dist(src, user) < 2 && user.get_active_hand() == P && P.lit)
 				user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-				"<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
+				self_message = "<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", visible_message_flags = GHOST_MESSAGE)
 				new /obj/effect/decal/cleanable/ash(src.loc)
 				qdel(src)
 

@@ -273,7 +273,7 @@
 
 	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
@@ -429,7 +429,7 @@
 
 		else
 			var/turf/T = get_turf(user)
-			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
 			var/obj/projectile/beam/tesla/LE = new (T)
 
 			LE.preparePixelProjectile(A, user)

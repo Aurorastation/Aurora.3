@@ -29,9 +29,9 @@
 	var/slot = target.get_inventory_slot(src)
 	if(!reagents.total_volume)
 		if(bitecount==1)
-			target.visible_message("<b>[target]</b> [is_liquid ? "drinks" : "eats"] \the [src].", SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] \the [src]."))
+			target.visible_message("<b>[target]</b> [is_liquid ? "drinks" : "eats"] \the [src].", self_message = SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		else
-			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].", SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].", self_message = SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(trash)
 			// get or create the trash item
 			var/obj/item/trash_item = trash

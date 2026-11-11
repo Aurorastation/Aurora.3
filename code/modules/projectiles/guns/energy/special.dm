@@ -322,8 +322,9 @@
 	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 90, 1)
 	user.visible_message(
 					SPAN_DANGER("\The [user] begins spinning [src]'s barrels!"),
-					SPAN_DANGER("You begin spinning [src]'s barrels!"),
-					SPAN_DANGER("You hear the spin of a rotary gun!")
+					self_message = SPAN_DANGER("You begin spinning [src]'s barrels!"),
+					blind_message = SPAN_DANGER("You hear the spin of a rotary gun!"),
+					visible_message_flags = GHOST_MESSAGE
 					)
 	is_charging = 1
 	if(!do_after(user, 30))
@@ -410,8 +411,9 @@
 		return 0
 	user.visible_message(
 					SPAN_DANGER("\The [user] begins charging the [src]!"),
-					SPAN_DANGER("You begin charging the [src]!"),
-					SPAN_DANGER("You hear a low pulsing roar!")
+					self_message = SPAN_DANGER("You begin charging the [src]!"),
+					blind_message = SPAN_DANGER("You hear a low pulsing roar!"),
+					visible_message_flags = GHOST_MESSAGE
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
@@ -497,7 +499,7 @@
 		return FALSE
 	if(can_autofire)
 		return ..()
-	user.visible_message(SPAN_DANGER("\The [user] begins charging \the [src]!"), SPAN_DANGER("You begin charging \the [src]!"), SPAN_DANGER("You hear a low pulsing roar!"))
+	user.visible_message(SPAN_DANGER("\The [user] begins charging \the [src]!"), self_message = SPAN_DANGER("You begin charging \the [src]!"), blind_message = SPAN_DANGER("You hear a low pulsing roar!"), visible_message_flags = GHOST_MESSAGE)
 	is_charging = TRUE
 	if(!do_after(user, 4 SECONDS))
 		is_charging = FALSE

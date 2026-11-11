@@ -75,7 +75,7 @@
 			if(attacking_item.tool_behaviour == TOOL_WELDER && !anchored)
 				var/obj/item/weldingtool/WT = attacking_item
 				if (WT.use(0,user))
-					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
+					user.visible_message("[user] dissassembles the windoor assembly.", self_message = "You start to dissassemble the windoor assembly.", visible_message_flags = GHOST_MESSAGE)
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 
 					if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -91,7 +91,7 @@
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
 			if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored)
-				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
+				user.visible_message("[user] secures the windoor assembly to the floor.", self_message = "You start to secure the windoor assembly to the floor.", visible_message_flags = GHOST_MESSAGE)
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
@@ -104,7 +104,7 @@
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
 			else if(attacking_item.tool_behaviour == TOOL_WRENCH && anchored)
-				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
+				user.visible_message("[user] unsecures the windoor assembly to the floor.", self_message = "You start to unsecure the windoor assembly to the floor.", visible_message_flags = GHOST_MESSAGE)
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
@@ -134,7 +134,7 @@
 
 			//Adding cable to the assembly. Step 5 complete.
 			else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && anchored)
-				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
+				user.visible_message("[user] wires the windoor assembly.", self_message = "You start to wire the windoor assembly.", visible_message_flags = GHOST_MESSAGE)
 
 				var/obj/item/stack/cable_coil/CC = attacking_item
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -153,7 +153,7 @@
 			//Removing wire from the assembly. Step 5 undone.
 			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && !src.electronics)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
+				user.visible_message("[user] cuts the wires from the airlock assembly.", self_message = "You start to cut the wires from airlock assembly.", visible_message_flags = GHOST_MESSAGE)
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
@@ -171,7 +171,7 @@
 				var/obj/item/airlock_electronics/EL = attacking_item
 				if(!EL.is_installed)
 					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
+					user.visible_message("[user] installs the electronics into the airlock assembly.", self_message = "You start to install electronics into the airlock assembly.", visible_message_flags = GHOST_MESSAGE)
 					EL.is_installed = 1
 					if(do_after(user, 40))
 						EL.is_installed = 0
@@ -185,7 +185,7 @@
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && src.electronics)
-				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
+				user.visible_message("[user] removes the electronics from the airlock assembly.", self_message = "You start to uninstall electronics from the airlock assembly.", visible_message_flags = GHOST_MESSAGE)
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !src.electronics) return
@@ -204,7 +204,7 @@
 					to_chat(usr, SPAN_WARNING("The assembly is missing electronics."))
 					return
 				usr << browse(null, "window=windoor_access")
-				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
+				user.visible_message("[user] pries the windoor into the frame.", self_message = "You start prying the windoor into the frame.", visible_message_flags = GHOST_MESSAGE)
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 

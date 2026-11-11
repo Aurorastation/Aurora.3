@@ -164,7 +164,7 @@
 		if(tipped)
 			return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
-			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
+			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), blind_message = SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
 
 /obj/structure/machinery/iv_drip/update_icon()
@@ -436,7 +436,7 @@
 			if(!beaker)
 				to_chat(user, SPAN_NOTICE("There is no reagent container to remove."))
 				return
-			user.visible_message(SPAN_NOTICE("[user] removes \the [beaker] from \the [src]."), SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [beaker] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [beaker] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			beaker.forceMove(user.loc)
 			user.put_in_hands(beaker)
 			beaker = null
@@ -451,7 +451,7 @@
 			if(!is_loose)
 				to_chat(user, SPAN_NOTICE("You must loosen the nuts securing \the [tank] into place to remove it!"))
 				return
-			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), SPAN_NOTICE("You remove \the [tank] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [tank] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			tank.forceMove(user.loc)
 			user.put_in_hands(tank)
 			tank = null
@@ -463,7 +463,7 @@
 			if(breather)
 				to_chat(user, SPAN_NOTICE("You cannot remove \the [breath_mask] if someone's wearing it!"))
 				return
-			user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), SPAN_NOTICE("You remove \the [breath_mask] from the \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [breath_mask] from the \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			breath_mask.forceMove(user.loc)
 			user.put_in_hands(breath_mask)
 			breath_mask = null
@@ -479,7 +479,7 @@
 			return TRUE
 		user.drop_from_inventory(attacking_item, src)
 		beaker = attacking_item
-		user.visible_message(SPAN_NOTICE("[user] attaches \the [attacking_item] to \the [src]."), SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] attaches \the [attacking_item] to \the [src]."), self_message = SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		update_icon()
 		return TRUE
 	if(istype(attacking_item, /obj/item/clothing/mask/breath))
@@ -491,7 +491,7 @@
 			return TRUE
 		user.drop_from_inventory(attacking_item, src)
 		breath_mask = attacking_item
-		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		update_icon()
 		return TRUE
 	if(istype(attacking_item, /obj/item/tank))
@@ -507,7 +507,7 @@
 				return TRUE
 		user.drop_from_inventory(attacking_item, src)
 		tank = attacking_item
-		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		update_icon()
 		return TRUE
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -519,7 +519,8 @@
 			return TRUE
 		user.visible_message(
 			SPAN_NOTICE("[user] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
-			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
+			self_message = SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."),
+			visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, 'sound/items/wrench.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		is_loose = !is_loose
 		return TRUE
@@ -540,14 +541,14 @@
 	if(isDrone(user))
 		return
 	if(tipped)
-		user.visible_message("<b>[user]</b> pulls \the [src] upright.", "You pull \the [src] upright.")
+		user.visible_message("<b>[user]</b> pulls \the [src] upright.", self_message = "You pull \the [src] upright.", visible_message_flags = GHOST_MESSAGE)
 		icon_state = "iv_stand"
 		tipped = FALSE
 		animate(src, time = 3, transform = transform.Turn(-90), easing = SINE_EASING)
 		update_icon()
 		return
 	if(user.a_intent == I_HURT)
-		user.visible_message("<b>[user]</b> knocks \the [src] down!", "You knock \the [src] down!")
+		user.visible_message("<b>[user]</b> knocks \the [src] down!", self_message = "You knock \the [src] down!", visible_message_flags = GHOST_MESSAGE)
 		do_crash()
 		return
 	var/list/options = list(
@@ -590,7 +591,7 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), blind_message = SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"))
 			breath_mask_rip()
 	if(beaker)
 		beaker.forceMove(dropspot)
@@ -617,7 +618,7 @@
 			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
 
 /obj/structure/machinery/iv_drip/proc/iv_rip()
-	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
+	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), self_message = SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."), visible_message_flags = GHOST_MESSAGE)
 	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 	clear_attached()
 
@@ -674,7 +675,7 @@
 	if(use_check_and_message(usr))
 		return
 	mode = !mode
-	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
+	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", self_message = SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."), visible_message_flags = GHOST_MESSAGE)
 	playsound(usr, 'sound/machines/buttonbeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 
@@ -686,7 +687,7 @@
 	if(use_check_and_message(usr))
 		return
 	toggle_stop = !toggle_stop
-	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
+	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", self_message = SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."), visible_message_flags = GHOST_MESSAGE)
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/structure/machinery/iv_drip/verb/toggle_valve()
@@ -704,7 +705,7 @@
 		return
 
 	if(!valve_open)
-		usr.visible_message("<b>[usr]</b> opens \the [tank]'s valve.", SPAN_NOTICE("You open \the [tank]'s valve."))
+		usr.visible_message("<b>[usr]</b> opens \the [tank]'s valve.", self_message = SPAN_NOTICE("You open \the [tank]'s valve."), visible_message_flags = GHOST_MESSAGE)
 		tank_on()
 		return
 	if(valve_open)
@@ -713,7 +714,7 @@
 			if(response == "No")
 				return
 			epp_active = FALSE
-		usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", SPAN_NOTICE("You close \the [tank]'s valve."))
+		usr.visible_message("<b>[usr]</b> closes \the [tank]'s valve.", self_message = SPAN_NOTICE("You close \the [tank]'s valve."), visible_message_flags = GHOST_MESSAGE)
 		tank_off()
 		return
 
@@ -731,7 +732,7 @@
 		epp_active = FALSE
 		update_icon()
 	epp = !epp
-	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."))
+	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", self_message = SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."), visible_message_flags = GHOST_MESSAGE)
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/structure/machinery/iv_drip/verb/transfer_rate()

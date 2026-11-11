@@ -264,11 +264,11 @@
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return
 		if(!anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
+			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start dismantling \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				if(anchored)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You dismantle \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				dismantle()
 				qdel(src)
 			return
@@ -276,10 +276,10 @@
 		else
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(density)
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), SPAN_NOTICE("You wrench \the [src] open."))
+				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), self_message = SPAN_NOTICE("You wrench \the [src] open."), visible_message_flags = GHOST_MESSAGE)
 				density = FALSE
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] closed."), SPAN_NOTICE("You wrench \the [src] closed."))
+				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] closed."), self_message = SPAN_NOTICE("You wrench \the [src] closed."), visible_message_flags = GHOST_MESSAGE)
 				density = TRUE
 			update_icon()
 			return
@@ -294,7 +294,7 @@
 			if(do_after(user, 20, src))
 				if(health >= maxhealth)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), SPAN_NOTICE("You repair some damage to \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), self_message = SPAN_NOTICE("You repair some damage to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				add_health(maxhealth * 0.5)
 			return
 
@@ -306,7 +306,7 @@
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
-		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src].") )
+		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src]."), visible_message_flags = GHOST_MESSAGE )
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(do_after(user, 10, src) && density)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have unfastened \the [src] from the floor.") : SPAN_NOTICE("You have fastened \the [src] to the floor.")))
@@ -342,7 +342,7 @@
 	return TRUE
 
 /obj/structure/railing/do_climb(mob/living/user)
-	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] starts climbing over \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	LAZYADD(climbers, user)
 
 	if(!do_after(user, user.get_conditioning_action_delay(2 SECONDS)))
@@ -355,7 +355,7 @@
 
 	var/turf/destination_turf = get_destination_turf(user)
 	user.forceMove(destination_turf)
-	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	LAZYREMOVE(climbers, user)
 
 	if(!anchored || material.is_brittle())

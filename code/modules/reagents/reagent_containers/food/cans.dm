@@ -30,9 +30,9 @@
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(target_mob == user)
-			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), self_message = SPAN_NOTICE("You crush the can of [src.name] on your forehead."), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [target_mob]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [target_mob]'s forehead."))
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [target_mob]'s forehead!"), self_message = SPAN_NOTICE("You crush the can of [src.name] on [target_mob]'s forehead."), visible_message_flags = GHOST_MESSAGE)
 		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // ouch.
 		playsound(target_mob,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
 		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(target_mob.loc)
@@ -67,7 +67,7 @@
 			if(fuselength)
 				desc += " It has some steel wool stuffed into the opening."
 			user.visible_message(SPAN_NOTICE("[user] slots \the [grenade_casing] over \the [name]."),
-									SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."))
+									self_message = SPAN_NOTICE("You slot \the [grenade_casing] over \the [name]."), visible_message_flags = GHOST_MESSAGE)
 			desc = "A grenade casing with \a [name] slotted into it."
 			qdel(grenade_casing)
 			update_icon()
@@ -77,7 +77,7 @@
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
 			user.visible_message(SPAN_NOTICE("[user] tightens the grenade casing around \the [name]."),
-									SPAN_NOTICE("You tighten the grenade casing around \the [name]."))
+									self_message = SPAN_NOTICE("You tighten the grenade casing around \the [name]."), visible_message_flags = GHOST_MESSAGE)
 		else if(bombcasing == BOMBCASING_SECURE)
 			bombcasing = BOMBCASING_EMPTY
 			shrapnelcount = initial(shrapnelcount)
@@ -85,7 +85,7 @@
 			if(fuselength)
 				desc += " It has some steel wool stuffed into the opening."
 			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."),
-									SPAN_NOTICE("You remove \the [name] from the grenade casing."))
+									self_message = SPAN_NOTICE("You remove \the [name] from the grenade casing."), visible_message_flags = GHOST_MESSAGE)
 			new /obj/item/grenade/chem_grenade/large(get_turf(src))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		update_icon()
@@ -95,7 +95,7 @@
 			switch(fuselength)
 				if(-INFINITY to FUSELENGTH_MAX)
 					user.visible_message("<b>[user]</b> stuffs some steel wool into \the [name].",
-											SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."))
+											self_message = SPAN_NOTICE("You feed steel wool into \the [name], ruining it in the process. It will last approximately 10 seconds."), visible_message_flags = GHOST_MESSAGE)
 					fuselength = FUSELENGTH_MAX
 					update_icon()
 					desc += " It has some steel wool stuffed into the opening."
@@ -111,7 +111,7 @@
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",
-										SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
+										self_message = SPAN_NOTICE("You remove the steel wool fuse from \the [name]."), visible_message_flags = GHOST_MESSAGE)
 				FuseRemove()
 			if(4 to FUSELENGTH_MAX)
 				var/fchoice = tgui_input_list(user, "Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", list("Shorten", "Remove", "Cancel"), "Cancel")
@@ -124,7 +124,7 @@
 								FuseRemove(fuselength - short)
 							else if(!short && !isnull(short))
 								user.visible_message("<b>[user]</b> removes the steel wool from \the [name]",
-														SPAN_NOTICE("You remove the steel wool fuse from \the [name]."))
+														self_message = SPAN_NOTICE("You remove the steel wool fuse from \the [name]."), visible_message_flags = GHOST_MESSAGE)
 								FuseRemove()
 							else if(short == fuselength || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
@@ -136,7 +136,7 @@
 								return
 					if("Remove")
 						if(!use_check_and_message(user))
-							user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", "You remove the steel wool fuse from \the [name].")
+							user.visible_message("<b>[user]</b> removes the steel wool from \the [name].", self_message = "You remove the steel wool fuse from \the [name].", visible_message_flags = GHOST_MESSAGE)
 							FuseRemove()
 					if("Cancel")
 						return
@@ -154,16 +154,16 @@
 		if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
 			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
-				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
+				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"), visible_message_flags = GHOST_MESSAGE)
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check
 		if(fuselength < FUSELENGTH_MIN)
-			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
+			user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the fuse on \the [name] but it was too short!"), self_message = SPAN_DANGER("You try to light the fuse but it was too short!"), visible_message_flags = GHOST_MESSAGE)
 			detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 		else
 			if(premature)
-				user.visible_message(SPAN_WARNING("<b>[user]</b> prematurely starts \the [name]'s fuse!"), SPAN_WARNING("You prematurely start \the [name]'s fuse!"))
+				user.visible_message(SPAN_WARNING("<b>[user]</b> prematurely starts \the [name]'s fuse!"), self_message = SPAN_WARNING("You prematurely start \the [name]'s fuse!"), visible_message_flags = GHOST_MESSAGE)
 			else
-				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"), SPAN_WARNING("You light the steel wool on \the [name] with the [W]!"))
+				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the steel wool on \the [name] with \the [W]!"), self_message = SPAN_WARNING("You light the steel wool on \the [name] with the [W]!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 			detonate(FALSE)
 
@@ -621,9 +621,9 @@
 /obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/target_mob, mob/living/user, target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(target_mob == user)
-			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), self_message = SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [target_mob]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [target_mob]'s forehead."))
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [target_mob]'s forehead!"), self_message = SPAN_NOTICE("You whack the bottle of [src.name] on [target_mob]'s forehead."), visible_message_flags = GHOST_MESSAGE)
 		target_mob.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
 		return TRUE
 	. = ..()

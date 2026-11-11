@@ -267,7 +267,7 @@
 	if(istype(W) && !W.lit)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", range = 3)
+			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 			W.light()
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
@@ -358,10 +358,10 @@
 			if(!use_check(target_mob))
 				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), self_message = SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."), visible_message_flags = GHOST_MESSAGE)
 			var/response = tgui_alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", list("Accept", "Decline"))
 			if(response != "Accept")
-				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
+				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."), visible_message_flags = GHOST_MESSAGE)
 				return
 			if(!target_mob.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
@@ -369,11 +369,11 @@
 				return
 		remove_from_storage(cig, get_turf(target_mob))
 		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
-		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), self_message = SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		update_icon()
 		return
 	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), self_message = SPAN_NOTICE("You tap \the [src] against your palm."), visible_message_flags = GHOST_MESSAGE)
 	else
 		..()
 

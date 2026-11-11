@@ -27,8 +27,9 @@
 		anchored = !anchored
 		user.visible_message(
 			SPAN_NOTICE("[anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."]"),
-			SPAN_NOTICE("[anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."]"),
-			"You hear a ratchet."
+			self_message = SPAN_NOTICE("[anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."]"),
+			blind_message = "You hear a ratchet.",
+			visible_message_flags = GHOST_MESSAGE
 		)
 		return
 
@@ -158,13 +159,13 @@
 			class = "rose"
 
 		user.visible_message(span("[class]", "[user] holds \the [P] up to \the [src], trying to burn it!"), \
-		span("[class]", "You hold \the [P] up to \the [src], burning it slowly."))
+		self_message = span("[class]", "You hold \the [P] up to \the [src], burning it slowly."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		flick("shredp_onfire", src)
 
 		if (do_after(user, 2 SECONDS, src, DO_UNIQUE | DO_USER_CAN_MOVE))
 			user.visible_message(span("[class]", "[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."), \
-			span("[class]", "You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."))
+			self_message = span("[class]", "You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap."), visible_message_flags = GHOST_MESSAGE)
 			new /obj/effect/decal/cleanable/ash(src.loc)
 			qdel(src)
 

@@ -12,11 +12,11 @@
 	deploy_path = /obj/structure/machinery/power/supply_beacon/supermatter
 
 /obj/item/supply_beacon/attack_self(var/mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] begins setting up \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] begins setting up \the [src]."), visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(user, deploy_time, src, DO_REPAIR_CONSTRUCT))
 		return
 	var/obj/S = new deploy_path(get_turf(user))
-	user.visible_message(SPAN_NOTICE("\The [user] deploys \the [S]."))
+	user.visible_message(SPAN_NOTICE("\The [user] deploys \the [S]."), visible_message_flags = GHOST_MESSAGE)
 	user.unEquip(src)
 	qdel(src)
 
@@ -49,7 +49,7 @@
 			to_chat(user, SPAN_WARNING("This device must be placed over an exposed cable."))
 			return TRUE
 		anchored = !anchored
-		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "secures" : "unsecures"] \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "secures" : "unsecures"] \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 	return ..()

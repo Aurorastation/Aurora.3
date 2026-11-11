@@ -210,7 +210,7 @@
 	set_flee_target(throwingdatum?.thrower?.resolve() ? throwingdatum.thrower.resolve() : src.loc)
 
 /mob/living/simple_animal/cat/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))
+	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"), visible_message_flags = GHOST_MESSAGE)
 	return FALSE
 
 //Basic friend AI

@@ -75,10 +75,10 @@
 		return
 
 	C.use(1000)
-	user.visible_message("<b>[user]</b> blinks into nothingness!", SPAN_NOTICE("You jump into the nothing."))
+	user.visible_message("<b>[user]</b> blinks into nothingness!", self_message = SPAN_NOTICE("You jump into the nothing."), visible_message_flags = GHOST_MESSAGE)
 	user.forceMove(T)
 	spark(user, 3, GLOB.alldirs)
-	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
+	user.visible_message("<b>[user]</b> appears out of thin air!", self_message = SPAN_NOTICE("You successfully step into your destination."), visible_message_flags = GHOST_MESSAGE)
 	use()
 
 /obj/item/robot_teleporter/use()

@@ -155,21 +155,21 @@
 				// The ungrateful bastard doesn't want to eat any crayon.
 				if(crayon_eater_response == "Not that hungry.")
 					target_mob.visible_message(SPAN_NOTICE("[target_mob] pushes away the crayon [user] held out for them to eat."),
-					SPAN_NOTICE("[target_mob] doesn't want seem to eat any crayon right now."))
+					self_message = SPAN_NOTICE("[target_mob] doesn't want seem to eat any crayon right now."), visible_message_flags = GHOST_MESSAGE)
 					return TRUE
 				// Yum yum! This message is handled separately to make it Very Clear to observers that someone is hand-feeding someone else a crayon.
 				else
 					target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of the crayon held out by [user] and swallows it."),
-								SPAN_NOTICE("You take a bite of crayon and swallow it."))
+								self_message = SPAN_NOTICE("You take a bite of crayon and swallow it."), visible_message_flags = GHOST_MESSAGE)
 
 			else
 				target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of crayon and swallows it."),
-									SPAN_NOTICE("You take a bite of crayon and swallow it."))
+									self_message = SPAN_NOTICE("You take a bite of crayon and swallow it."), visible_message_flags = GHOST_MESSAGE)
 
 			target_mob.adjustNutritionLoss(-1)
 			reagents.trans_to_mob(target_mob, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), self_message = SPAN_WARNING("You ate your crayon!"), visible_message_flags = GHOST_MESSAGE)
 				qdel(src)
 				return TRUE
 	else

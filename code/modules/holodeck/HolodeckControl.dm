@@ -389,7 +389,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 /obj/structure/machinery/computer/holodeck_control/proc/togglelock(var/mob/user)
 	if(allowed(user))
 		locked = !locked
-		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), range = 3)
+		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), vision_distance = 3)
 		return FALSE
 	else
 		to_chat(user, SPAN_WARNING("Access denied."))

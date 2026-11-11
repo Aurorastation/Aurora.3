@@ -342,7 +342,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), self_message = SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."), visible_message_flags = GHOST_MESSAGE)
 	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(A), src.build_delay, src.mode)
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
@@ -818,7 +818,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [target_turf]."), SPAN_NOTICE("You start laying down a pipe..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [target_turf]."), self_message = SPAN_NOTICE("You start laying down a pipe..."), visible_message_flags = GHOST_MESSAGE)
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)

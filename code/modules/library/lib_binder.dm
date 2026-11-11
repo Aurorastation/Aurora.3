@@ -23,7 +23,8 @@
 		user.drop_from_inventory(paper, src)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] loads some paper into \the [src]."),
-			SPAN_NOTICE("You load some paper into \the [src]."))
+			self_message = SPAN_NOTICE("You load some paper into \the [src]."),
+			visible_message_flags = GHOST_MESSAGE)
 		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
 		playsound(work_turf, 'sound/items/bureaucracy/binder.ogg', 75, 1)
 		binding = TRUE
@@ -48,11 +49,13 @@
 		if(anchored)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
-				SPAN_NOTICE("You unsecure \the [src] from the floor."),
-				SPAN_WARNING("You hear a ratcheting noise."))
+				self_message = SPAN_NOTICE("You unsecure \the [src] from the floor."),
+				blind_message = SPAN_WARNING("You hear a ratcheting noise."),
+				visible_message_flags = GHOST_MESSAGE)
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] secures \the [src] to the floor."),
-				SPAN_NOTICE("You secure \the [src] to the floor."),
-				SPAN_WARNING("You hear a ratcheting noise."))
+				self_message = SPAN_NOTICE("You secure \the [src] to the floor."),
+				blind_message = SPAN_WARNING("You hear a ratcheting noise."),
+				visible_message_flags = GHOST_MESSAGE)
 		anchored = !anchored

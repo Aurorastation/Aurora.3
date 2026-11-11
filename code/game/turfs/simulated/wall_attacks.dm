@@ -23,7 +23,7 @@
 			dismantle_wall()
 			return TRUE
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), self_message = SPAN_NOTICE("You start feeling around and pushing on \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 
 	if(!do_after(user, 30, src, DO_DEPLOY))
 		return
@@ -107,9 +107,9 @@
 					qdel(WR)
 				return
 		else if(attacking_item.sharp)
-			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [attacking_item].", SPAN_NOTICE("You start scraping the rot away with \the [attacking_item]."))
+			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping the rot away with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 			if(attacking_item.use_tool(src, user, rand(3 SECONDS, 5 SECONDS), volume = 50))
-				user.visible_message("<b>[user]</b> scrapes away the rot with \the [attacking_item].", SPAN_NOTICE("You start scraping away the rot with \the [attacking_item]."))
+				user.visible_message("<b>[user]</b> scrapes away the rot with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping away the rot with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 				playsound(src, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					WR.scrape(user)
@@ -236,7 +236,7 @@
 				playsound(src, dismantle_sound, 100, 1)
 			attacking_item.use_resource(user, 1)
 			dismantle_wall()
-			user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), SPAN_NOTICE("You remove the outer plating."))
+			user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), self_message = SPAN_NOTICE("You remove the outer plating."), visible_message_flags = GHOST_MESSAGE)
 			return
 
 	//Reinforced dismantling.

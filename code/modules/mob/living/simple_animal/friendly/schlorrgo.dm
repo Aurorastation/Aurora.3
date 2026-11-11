@@ -78,13 +78,13 @@
 		return FALSE
 	// If colossal, high chance for egg to be crushed under weight.....
 	if(current_size >= COLOSSAL_SCHLORRGO && prob(75))
-		visible_message("[src] attempts to lift up high enough to lay an egg, but fails, crushing the egg!")
+		visible_message("[src] attempts to lift up high enough to lay an egg, but fails, crushing the egg!", visible_message_flags = GHOST_MESSAGE)
 		audible_emote("cries out in agony!",0)
 		make_noise()
 		eggs_left--
 		new /obj/effect/decal/cleanable/egg_smudge(get_turf(src))
 		return
-	visible_message("[src] lays an egg.")
+	visible_message("[src] lays an egg.", visible_message_flags = GHOST_MESSAGE)
 	eggs_left--
 	var/obj/item/reagent_containers/food/snacks/egg/schlorrgo/egg = new /obj/item/reagent_containers/food/snacks/egg/schlorrgo(get_turf(src))
 	egg.fertilize()
@@ -100,7 +100,7 @@
 		make_noise()
 		audible_emote("[pick(emote_hear)].")
 		if(current_size >= WIDE_SCHLORRGO)
-			user.visible_message(SPAN_WARNING("[user] kicks \the [src], but it doesn't move an inch!"), SPAN_DANGER("Your kick is suddenly stopped by \the [src]'s sheer fat!"))
+			user.visible_message(SPAN_WARNING("[user] kicks \the [src], but it doesn't move an inch!"), self_message = SPAN_DANGER("Your kick is suddenly stopped by \the [src]'s sheer fat!"), visible_message_flags = GHOST_MESSAGE)
 			var/obj/item/organ/external/leg = pick(right_leg, left_leg)
 			if(leg)
 				if(current_size >= COLOSSAL_SCHLORRGO) //break leg
@@ -108,18 +108,18 @@
 					leg.take_damage(10)
 				leg.take_damage(5)
 		else
-			user.visible_message(SPAN_WARNING("[user] punts \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] punts \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			throw_at(get_edge_target_turf(user, get_dir(user, src)), 4, 1)
 			poke(TRUE)
 	else
 		..()
 
 /mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, speed = THROWFORCE_SPEED_DIVISOR, sound_to_play = 'sound/effects/bangtaper.ogg')
-	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
+	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(T, sound_to_play, 50, 1, 1)
 
 /mob/living/simple_animal/schlorrgo/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
+	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(src, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	audible_emote("[pick(emote_hear)].",0)
 	make_noise()
@@ -314,7 +314,7 @@
 /mob/living/simple_animal/schlorrgo/cybernetic/death(gibbed)
 	..(null, "dies!")
 	if(!gibbed && prob(25))
-		visible_message(SPAN_DANGER("\The [src] detonates!"))
+		visible_message(SPAN_DANGER("\The [src] detonates!"), visible_message_flags = GHOST_MESSAGE)
 		var/T = get_turf(src)
 		new /obj/effect/gibspawner/generic(T)
 		explosion(T, -1, 0, 2)
@@ -373,7 +373,7 @@
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/death(gibbed)
 	..(null, "dies!")
 	if(!gibbed && prob(25))
-		visible_message(SPAN_DANGER("\The [src] detonates!"))
+		visible_message(SPAN_DANGER("\The [src] detonates!"), visible_message_flags = GHOST_MESSAGE)
 		var/T = get_turf(src)
 		new /obj/effect/gibspawner/generic(T)
 		explosion(T, -1, 0, 2)

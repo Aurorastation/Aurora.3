@@ -176,7 +176,7 @@
 		return
 	O.forceMove(src.loc)
 	if(user != O)
-		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), self_message = SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 	add_fingerprint(user)
 	return
 /*
@@ -236,7 +236,7 @@
 	locked = TRUE
 
 	if(contents.len <= 0)
-		src.audible_message(SPAN_WARNING("You hear a hollow crackle."), 1)
+		src.audible_message(SPAN_WARNING("You hear a hollow crackle."), deaf_message = 1)
 		flick("crema_empty", src)
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 		sleep(4)
@@ -251,7 +251,7 @@
 			locked = initial(locked)
 			update_icon()
 			return
-		src.audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."), 1)
+		src.audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."), deaf_message = 1)
 		flick("crema_start", src)
 		update_icon()
 		var/desperation = 0
@@ -313,9 +313,9 @@
 
 				admin_attack_log(A, M, "Cremated their victim.", "Was cremated.", "cremated")
 				if(desperation)
-					M.audible_message("<b>[M]'s</b> screams cease, as does any movement within \the [src]. All that remains is a dull, empty silence.")
+					M.audible_message("<b>[M]'s</b> screams cease, as does any movement within \the [src]. All that remains is a dull, empty silence.", audible_message_flags = GHOST_MESSAGE)
 				else
-					M.audible_message("\The [src] quietly shuts off. All that remains is a dull, empty silence.")
+					M.audible_message("\The [src] quietly shuts off. All that remains is a dull, empty silence.", audible_message_flags = GHOST_MESSAGE)
 				M.dust()
 
 		for(var/obj/O in contents) //obj instead of obj/item so that bodybags and ashes get destroyed. We dont want tons and tons of ash piling up

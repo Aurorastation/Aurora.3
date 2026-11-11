@@ -42,13 +42,13 @@
 	if(user.check_psi_sensitivity() - target_sensitivity < PSI_RANK_HARMONIOUS)
 		safe_mode = TRUE
 
-	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))
+	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."), visible_message_flags = GHOST_MESSAGE)
 	var/question
 	if(!safe_mode)
 		question = tgui_input_text(user, "Ask your question.", "Read Mind", timeout = 1 MINUTE)
 	if((!safe_mode && !question) || user.incapacitated())
 		to_chat(user, SPAN_WARNING("<b>Your focus slips, and the mental connection dissolves.</b>"))
-		user.visible_message(SPAN_WARNING("[user] falters, their concentration broken."))
+		user.visible_message(SPAN_WARNING("[user] falters, their concentration broken."), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 
 	to_chat(user, SPAN_NOTICE(\

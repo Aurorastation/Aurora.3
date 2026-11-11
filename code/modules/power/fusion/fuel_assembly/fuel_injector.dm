@@ -64,9 +64,9 @@
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Welder.ogg', 75, 1)
 		if(anchored)
-			user.visible_message("\The [user] secures \the [src] to the floor.")
+			user.visible_message("\The [user] secures \the [src] to the floor.", visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("\The [user] unsecures \the [src] from the floor.")
+			user.visible_message("\The [user] unsecures \the [src] from the floor.", visible_message_flags = GHOST_MESSAGE)
 		return
 
 	return ..()

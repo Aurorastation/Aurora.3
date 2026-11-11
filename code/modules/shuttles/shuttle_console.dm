@@ -80,7 +80,7 @@
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return
 		// Begin hotwire
-		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src] and starts snipping wires...", self_message = SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 		while(hotwire_progress > 0)
 			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 				hotwire_progress--
@@ -231,9 +231,9 @@
 		return FALSE
 	emagged = TRUE
 	if(hotwired)
-		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"), visible_message_flags = GHOST_MESSAGE)
 	else
-		user.visible_message(SPAN_WARNING("\The [src] sparks!"),SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"), visible_message_flags = GHOST_MESSAGE)
 	spark(src, 2, 0)
 	hotwire_progress = 0
 	return TRUE

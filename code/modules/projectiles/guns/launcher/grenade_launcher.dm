@@ -60,7 +60,7 @@
 	user.remove_from_mob(G)
 	G.forceMove(src)
 	grenades.Insert(1, G) //add to the head of the list, so that it is loaded on the next pump
-	user.visible_message("[user] inserts \a [G] into [src].", SPAN_NOTICE("You insert \a [G] into [src]."))
+	user.visible_message("[user] inserts \a [G] into [src].", self_message = SPAN_NOTICE("You insert \a [G] into [src]."), visible_message_flags = GHOST_MESSAGE)
 	update_maptext()
 
 /obj/item/gun/launcher/grenade/proc/unload(mob/user, drop_to_ground = FALSE)
@@ -70,8 +70,8 @@
 		if(drop_to_ground)
 			G.forceMove(get_turf(src))
 		else
-			user.put_in_hands(G)
-		user.visible_message("[user] removes \a [G] from [src].", SPAN_NOTICE("You remove \a [G] from [src]."))
+		user.put_in_hands(G)
+		user.visible_message("[user] removes \a [G] from [src].", self_message = SPAN_NOTICE("You remove \a [G] from [src]."), visible_message_flags = GHOST_MESSAGE)
 	else if(drop_to_ground && chambered)
 		var/obj/item/grenade/ejected = chambered
 		chambered = null
@@ -189,14 +189,14 @@
 	user.remove_from_mob(G)
 	G.forceMove(src)
 	chambered = G
-	user.visible_message("[user] load \a [G] into [src].", SPAN_NOTICE("You load \a [G] into [src]."))
+	user.visible_message("[user] load \a [G] into [src].", self_message = SPAN_NOTICE("You load \a [G] into [src]."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/gun/launcher/grenade/underslung/unload(mob/user, drop_to_ground = FALSE)
 	if(drop_to_ground)
 		return ..()
 	if(chambered)
 		user.put_in_hands(chambered)
-		user.visible_message("[user] removes \a [chambered] from [src].", SPAN_NOTICE("You remove \a [chambered] from [src]."))
+		user.visible_message("[user] removes \a [chambered] from [src].", self_message = SPAN_NOTICE("You remove \a [chambered] from [src]."), visible_message_flags = GHOST_MESSAGE)
 		chambered = null
 	else
 		to_chat(user, SPAN_WARNING("[src] is empty."))

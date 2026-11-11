@@ -340,10 +340,10 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
-								SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
+								self_message = SPAN_NOTICE("You start unsecuring \the [src] from the floor."), visible_message_flags = GHOST_MESSAGE)
 		else
 			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
-								SPAN_NOTICE("You start securing \the [src] to the floor."))
+								self_message = SPAN_NOTICE("You start securing \the [src] to the floor."), visible_message_flags = GHOST_MESSAGE)
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src)
 				return

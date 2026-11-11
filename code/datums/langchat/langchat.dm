@@ -117,12 +117,12 @@
 	return target?.client?.prefs?.should_show_floating_message(src, is_emote)
 
 /// Floats flat text to listeners whose presentation preferences allow it.
-/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"), check_hearing = TRUE)
 	langchat_drop_images()
 
 	var/list/mob/shown = list()
 	for(var/mob/listener in listeners)
-		if(!runechat_prefs_check(listener, "emote" in additional_styles) || listener.ear_deaf)
+		if(!runechat_prefs_check(listener, "emote" in additional_styles) || (check_hearing && listener.ear_deaf))
 			continue
 		shown += listener
 	if(!length(shown))

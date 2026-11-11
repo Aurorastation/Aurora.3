@@ -22,19 +22,19 @@
 
 	if(prob(10) && (owner.can_feel_pain()))
 		to_chat(owner, SPAN_WARNING("You feel a stinging pain in your abdomen!"))
-		owner.visible_message("<b>[owner]</b> winces slightly.")
+		owner.visible_message("<b>[owner]</b> winces slightly.", visible_message_flags = GHOST_MESSAGE)
 		owner.adjustHalLoss(5)
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
 		owner.emote("cough")
 
 	else if(prob(10) && !(owner.species.flags & NO_BREATHE))
-		owner.visible_message("<b>[owner]</b> coughs up blood!")
+		owner.visible_message("<b>[owner]</b> coughs up blood!", visible_message_flags = GHOST_MESSAGE)
 		owner.drip(10)
 
 	if(stage >= 2)
 		if(prob(10) && !(owner.species.flags & NO_BREATHE))
-			owner.visible_message("<b>[owner]</b> gasps for air!")
+			owner.visible_message("<b>[owner]</b> gasps for air!", visible_message_flags = GHOST_MESSAGE)
 			owner.losebreath += 5
 
 	if(stage >= 3)

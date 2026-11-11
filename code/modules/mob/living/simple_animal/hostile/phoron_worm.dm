@@ -72,12 +72,12 @@
 	if(istype(A, /obj/item/stack/material))
 		var/obj/item/stack/material/P = A
 		if(P.material.type == MATERIAL_PHORON)
-			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
+			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), self_message = SPAN_NOTICE("You start consuming \the [P]."), visible_message_flags = GHOST_MESSAGE)
 			if(!do_after(src, 1 SECOND, P))
 				return
 			var/self_msg = "You consume \the [P][health < maxhealth ? ", healing yourself" : ""]."
 			adjustBruteLoss(-5 * P.amount)
-			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), SPAN_NOTICE(self_msg))
+			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), self_message = SPAN_NOTICE(self_msg), visible_message_flags = GHOST_MESSAGE)
 			P.amount /= 2
 			if(P.amount < 1)
 				qdel(P)
@@ -125,7 +125,7 @@
 	pass_flags = PASSTABLE | PASSMOB
 	layer = TURF_DETAIL_LAYER
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
-	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
+	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
 	if(!burrowing)
@@ -137,7 +137,7 @@
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
 	REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WORM_BURROW)
-	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
+	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"), visible_message_flags = GHOST_MESSAGE)
 	if(mob_size > 15)
 		for(var/mob/living/M in orange(1,src))
 			if(M != src)

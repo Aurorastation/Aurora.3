@@ -52,7 +52,7 @@
 	//If successfully applied, give the message
 			if(success)
 				if(!ishuman(L))
-					L.visible_message(SPAN_DANGER("[L] falls into \the [src]!"))
+					L.visible_message(SPAN_DANGER("[L] falls into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 					return
 
 				var/mob/living/carbon/human/human = L
@@ -64,8 +64,8 @@
 					playsound(src, 'sound/effects/meatsizzle.ogg', 100, TRUE)
 
 				human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
-										SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel instant pain, and the skin on your [organ.name] begins to burn away!"))),
-										SPAN_WARNING("<b>You instant pain, and the skin on your [organ.name] begins to burn away!</b>"))
+										self_message = SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel instant pain, and the skin on your [organ.name] begins to burn away!"))),
+										blind_message = SPAN_WARNING("<b>You instant pain, and the skin on your [organ.name] begins to burn away!</b>"), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 	..()
 

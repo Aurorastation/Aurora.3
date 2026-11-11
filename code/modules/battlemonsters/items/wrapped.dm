@@ -31,7 +31,8 @@
 
 	user.visible_message(\
 		SPAN_NOTICE("\The [user] unwraps \the [src]."),\
-		SPAN_NOTICE("You unwrap \the [src].")\
+		self_message = SPAN_NOTICE("You unwrap \the [src]."), \
+		visible_message_flags = GHOST_MESSAGE \
 	)
 	var/obj/item/battle_monsters/deck/generated_deck = new(get_turf(src))
 	GenerateCards(user,generated_deck)

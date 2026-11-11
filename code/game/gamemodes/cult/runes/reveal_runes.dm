@@ -19,5 +19,5 @@
 	if(did_reveal)
 		if(iscultist(user))
 			user.say("Nikt'o barada kla'atu!")
-		A.visible_message(message)
+		A.visible_message(message, visible_message_flags = (ismob(A) ? GHOST_MESSAGE : NONE))
 	qdel(A)

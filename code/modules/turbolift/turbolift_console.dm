@@ -24,9 +24,9 @@
 /obj/structure/lift/proc/pressed(var/mob/user)
 	if(!istype(user, /mob/living/silicon))
 		if(user.a_intent == I_HURT)
-			user.visible_message(SPAN_DANGER("\The [user] hammers on the lift button!"))
+			user.visible_message(SPAN_DANGER("\The [user] hammers on the lift button!"), visible_message_flags = GHOST_MESSAGE)
 		else
-			user.visible_message("<b>\The [user]</b> presses the lift button.")
+			user.visible_message("<b>\The [user]</b> presses the lift button.", visible_message_flags = GHOST_MESSAGE)
 
 
 /obj/structure/lift/Initialize(mapload, datum/turbolift/_lift)

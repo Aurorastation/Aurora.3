@@ -23,18 +23,18 @@
 		if(WIRE_POWER)
 			if(!mend)
 				S.powered = FALSE
-				S.visible_message(SPAN_WARNING("\The [S] whines loudly."), range = 3)
+				S.visible_message(SPAN_WARNING("\The [S] whines loudly."), vision_distance = 3)
 			else
 				S.powered = TRUE
-				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), range = 3)
+				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), vision_distance = 3)
 
 		if(WIRE_HACK)
 			if(!mend)
 				S.hacked = TRUE
-				S.visible_message(SPAN_WARNING("\The [S] starts beeping incessantly."), range = 3)
+				S.visible_message(SPAN_WARNING("\The [S] starts beeping incessantly."), vision_distance = 3)
 			else
 				S.hacked = FALSE
-				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), range = 3)
+				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), vision_distance = 3)
 
 
 /datum/wires/tag_scanner/on_pulse(wire)

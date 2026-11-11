@@ -136,7 +136,7 @@
 			return
 		if(can_tamper && user.a_intent == I_HURT)
 			user.visible_message(SPAN_WARNING("\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"]."),
-									SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"))
+									self_message = SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"), visible_message_flags = GHOST_MESSAGE)
 			is_leaking = !is_leaking
 			if (is_leaking)
 				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
@@ -146,10 +146,10 @@
 		else if(accept_any_reagent)
 			if(atom_flags & ATOM_FLAG_OPEN_CONTAINER)
 				user.visible_message(SPAN_NOTICE("[user] wrenches the inlet cap on \the [src] shut."),
-										SPAN_NOTICE("You wrench the inlet cap back on \the [src]."))
+										self_message = SPAN_NOTICE("You wrench the inlet cap back on \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			else
 				user.visible_message(SPAN_NOTICE("[user] unwrenches the inlet cap from \the [src]."),
-										SPAN_NOTICE("You unwrench the inlet cap from \the [src]."))
+										self_message = SPAN_NOTICE("You unwrench the inlet cap from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 			return
 
@@ -225,10 +225,10 @@
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
-		user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
+		user.visible_message("[user] begins to detach [rig] from \the [src].", self_message = "You begin to detach [rig] from \the [src]", visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 20))
 			user.visible_message(SPAN_NOTICE("[user] detaches [rig] from \the [src]."),
-									SPAN_NOTICE("You detach [rig] from \the [src]"))
+									self_message = SPAN_NOTICE("You detach [rig] from \the [src]"), visible_message_flags = GHOST_MESSAGE)
 
 			rig.forceMove(get_turf(user))
 			rig.detached()
@@ -239,7 +239,7 @@
 	src.add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/wirecutters/bomb) && rig)
 		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
-							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
+							self_message = SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		rig.forceMove(get_turf(user))
 		rig.detached()
 		user.put_in_hands(rig)
@@ -253,10 +253,10 @@
 		if(!H.secured)
 			to_chat(user, SPAN_WARNING("The assembly must be secured with a screwdriver."))
 			return TRUE
-		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
+		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", self_message = "You begin rigging [attacking_item] to \the [src]", visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 20))
 			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
-									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
+									self_message = SPAN_NOTICE("You rig [attacking_item] to \the [src]"), visible_message_flags = GHOST_MESSAGE)
 
 			if (istype(H.a_left,/obj/item/assembly/igniter) || istype(H.a_right,/obj/item/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
@@ -407,7 +407,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
 	if(cups > 0)
 		var/visible_messages = DispenserMessages(user)
-		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
+		visible_message(SPAN_NOTICE(visible_messages[1]), blind_message = SPAN_NOTICE(visible_messages[2]))
 		var/cup = new cup_type(loc)
 		user.put_in_active_hand(cup)
 		cups--
@@ -430,10 +430,10 @@
 				if (0)
 					anchored = 1
 					user.visible_message("\The [user] tightens the screws securing \the [src] to the floor.",
-											"You tighten the screws securing \the [src] to the floor.")
+											self_message = "You tighten the screws securing \the [src] to the floor.", visible_message_flags = GHOST_MESSAGE)
 				if (1)
 					user.visible_message("\The [user] unfastens the screws securing \the [src] to the floor.",
-											"You unfasten the screws securing \the [src] to the floor.")
+											self_message = "You unfasten the screws securing \the [src] to the floor.", visible_message_flags = GHOST_MESSAGE)
 					anchored = 0
 		return
 	else

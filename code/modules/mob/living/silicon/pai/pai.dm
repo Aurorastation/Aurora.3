@@ -122,17 +122,17 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"), visible_message_flags = GHOST_MESSAGE)
 			computer.toggle_service("flashlight", src)
 
 		if(I_DISARM)
-			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"), visible_message_flags = GHOST_MESSAGE)
 			M.do_attack_animation(src)
 			close_up()
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
+			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"), visible_message_flags = GHOST_MESSAGE)
 			M.do_attack_animation(src)
 			updatehealth()
 
@@ -337,7 +337,7 @@
 					affecting.take_damage(rand(30,50))
 					affecting.implants -= card
 					if(loud)
-						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
+						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"), visible_message_flags = GHOST_MESSAGE)
 					break
 		holder.drop_from_inventory(card)
 
@@ -443,21 +443,21 @@
 				adjustFireLoss(-50)
 				updatehealth()
 				N.use(1)
-				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."))
+				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", self_message = SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."), visible_message_flags = GHOST_MESSAGE)
 		else
 			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
 		return
 
 	if(attacking_item.force)
-		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"))
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 		src.adjustBruteLoss(attacking_item.force)
 		src.updatehealth()
 	else
-		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."))
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
-	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."))
+	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."), visible_message_flags = GHOST_MESSAGE)
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.

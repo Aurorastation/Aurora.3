@@ -216,7 +216,7 @@
 					to_chat(H, SPAN_WARNING("\The [src] saps some of your energy!"))
 					C.use(C.maxcharge / 15)
 			if(istype(limb) && (limb.status & ORGAN_ROBOT|ORGAN_ADV_ROBOT))
-				H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [limb.name]!"), SPAN_WARNING("\The [src] bites down onto your [limb.name]!"))
+				H.visible_message(SPAN_WARNING("\The [src] bites down onto \the [H]'s [limb.name]!"), self_message = SPAN_WARNING("\The [src] bites down onto your [limb.name]!"), visible_message_flags = GHOST_MESSAGE)
 				limb.emp_act(EMP_LIGHT)
 
 /mob/living/simple_animal/hostile/giant_spider/think()
@@ -255,7 +255,7 @@
 				//second, spin a sticky spiderweb on this tile if there isn't already a spiderweb there
 				if(!locate(/obj/effect/spider/stickyweb) in src.loc)
 					busy = SPINNING_WEB
-					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."), visible_message_flags = GHOST_MESSAGE)
 					stop_automated_movement = 1
 					addtimer(CALLBACK(src, PROC_REF(finalize_web)), 40, TIMER_UNIQUE)
 				else
@@ -263,7 +263,7 @@
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."))
+						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."), visible_message_flags = GHOST_MESSAGE)
 						stop_automated_movement = 1
 						addtimer(CALLBACK(src, PROC_REF(finalize_eggs)), 50, TIMER_UNIQUE)
 					else
@@ -283,7 +283,7 @@
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."))
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."), visible_message_flags = GHOST_MESSAGE)
 					stop_automated_movement = 1
 					GLOB.move_manager.stop_looping(src)
 					addtimer(CALLBACK(src, PROC_REF(finalize_cocoon)), 50, TIMER_UNIQUE)
@@ -328,7 +328,7 @@
 						continue
 					large_cocoon = 1
 					fed++
-					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."))
+					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."), visible_message_flags = GHOST_MESSAGE)
 					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 					M.forceMove(C)
 					C.pixel_x = M.pixel_x
@@ -353,7 +353,7 @@
 	set category = "Greimorian"
 
 	if(!locate(/obj/effect/spider/stickyweb) in src.loc)
-		src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
+		src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(src, 20) || locate(/obj/effect/spider/stickyweb) in src.loc) // Additional check so you can't queue it multiple times at once to stack webs.
 			return
 		new /obj/effect/spider/stickyweb(get_turf(src))
@@ -374,7 +374,7 @@
 			available_mobs += A
 	var/mob/P = tgui_input_list(usr, "Choose a mob to cocoon.", "Cocoon", available_mobs)
 	if(get_dist(src, P) <= 1)
-		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
+		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].", visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(src, 80))
 			return
 
@@ -388,7 +388,7 @@
 					continue
 				large_cocoon = TRUE
 				fed++
-				src.visible_message("\The [src] sticks a proboscis into \the [P] and sucks a viscous substance out.")
+				src.visible_message("\The [src] sticks a proboscis into \the [P] and sucks a viscous substance out.", visible_message_flags = GHOST_MESSAGE)
 				P.forceMove(C)
 				C.pixel_x = P.pixel_x
 				C.pixel_y = P.pixel_y
@@ -408,7 +408,7 @@
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
-		src.visible_message("\The [src] begins to lay a cluster of eggs.")
+		src.visible_message("\The [src] begins to lay a cluster of eggs.", visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(src, 50))
 			return
 		E = locate() in get_turf(src)
@@ -427,7 +427,7 @@
 
 	var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 	if(!E && fed > 0)
-		src.visible_message("\The [src] begins to lay a servant.")
+		src.visible_message("\The [src] begins to lay a servant.", visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(src, 120))
 			return
 		E = locate() in get_turf(src)

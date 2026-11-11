@@ -26,7 +26,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 		if(object.tool_behaviour == TOOL_WELDER)
 			var/obj/item/welder = object
 			welder.play_tool_sound(get_turf(src), 50)
-		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
+		user.visible_message("<b>[user]</b> starts taking apart the [src]...", self_message = SPAN_NOTICE("You start disassembling the [src]..."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return
 

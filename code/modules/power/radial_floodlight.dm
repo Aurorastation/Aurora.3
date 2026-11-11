@@ -43,8 +43,8 @@
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "" : "un"]secures \the [src] [anchored ? "to" : "from"] the floor."),
-							SPAN_NOTICE("You [anchored ? "" : "un"]secure \the [src] [anchored ? "to" : "from"] the floor."),
-							SPAN_WARNING("You hear a ratcheting noise."))
+							self_message = SPAN_NOTICE("You [anchored ? "" : "un"]secure \the [src] [anchored ? "to" : "from"] the floor."),
+							blind_message = SPAN_WARNING("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
 		if(!anchored)
 			toggle_active(FALSE)
 		else

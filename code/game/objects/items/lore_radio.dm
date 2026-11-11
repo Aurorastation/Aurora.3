@@ -48,7 +48,7 @@
 /obj/item/lore_radio/CtrlClick(mob/user)
 	if(Adjacent(user))
 		low_volume = !low_volume
-		user.visible_message("<b>[user]</b> turns \the [src]'s volume [low_volume ? "down" : "up"].", SPAN_NOTICE("You turn \the [src]'s volume [low_volume ? "down" : "up"]."), range = 3)
+		user.visible_message("<b>[user]</b> turns \the [src]'s volume [low_volume ? "down" : "up"].", self_message = SPAN_NOTICE("You turn \the [src]'s volume [low_volume ? "down" : "up"]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		return
 
 /obj/item/lore_radio/format_spoken_chat_message(var/message)
@@ -64,12 +64,12 @@
 	if(!receiving)
 		receiving = TRUE
 		if(user)
-			user.visible_message("<b>[user]</b> flicks \the [src] on.", SPAN_NOTICE("You flick \the [src] on."), range = 3)
+			user.visible_message("<b>[user]</b> flicks \the [src] on.", self_message = SPAN_NOTICE("You flick \the [src] on."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		RegisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_BROADCAST, PROC_REF(relay_weather_broadcast))
 	else
 		receiving = FALSE
 		if(user)
-			user.visible_message("<b>[user]</b> flicks \the [src] off.", SPAN_NOTICE("You flick \the [src] off."), range = 3)
+			user.visible_message("<b>[user]</b> flicks \the [src] off.", self_message = SPAN_NOTICE("You flick \the [src] off."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		UnregisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_BROADCAST, PROC_REF(relay_weather_broadcast))
 
 /obj/item/lore_radio/proc/relay_lore_radio(var/datum/source, var/radio_station, var/radio_message, var/datum/language/language)

@@ -252,7 +252,7 @@
 				walk_to(sacrifice, 0) //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
-	sacrifice.visible_message(SPAN_DANGER("\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
+	sacrifice.visible_message(SPAN_DANGER("\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"), visible_message_flags = GHOST_MESSAGE)
 	if(istype(sacrifice.loc, /obj/item/holder))
 		var/obj/item/holder/H = sacrifice.loc
 		H.release_to_floor()
@@ -463,7 +463,7 @@
 	start_process()
 
 /obj/structure/cult/pylon/proc/shatter()
-	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
+	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), blind_message = SPAN_WARNING("You hear a tinkle of crystal shards."))
 	playsound(get_turf(src), SFX_BREAK_GLASS, 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)

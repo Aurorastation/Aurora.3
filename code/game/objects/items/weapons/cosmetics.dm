@@ -125,15 +125,15 @@
 			return
 		if(H == user)
 			user.visible_message(SPAN_NOTICE("[user] does their lips with \the [src]."), \
-									SPAN_NOTICE("You take a moment to apply \the [src]. Perfect!"))
+									self_message = SPAN_NOTICE("You take a moment to apply \the [src]. Perfect!"), visible_message_flags = GHOST_MESSAGE)
 			H.lipstick_color = lipstick_color
 			H.update_body()
 		else
 			user.visible_message(SPAN_WARNING("[user] begins to do [H]'s lips with \the [src]."), \
-									SPAN_NOTICE("You begin to apply \the [src]."))
+									self_message = SPAN_NOTICE("You begin to apply \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, 4 SECONDS, H, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS & ~DO_BOTH_CAN_TURN))
 				user.visible_message(SPAN_NOTICE("[user] does [H]'s lips with \the [src]."), \
-										SPAN_NOTICE("You apply \the [src]."))
+										self_message = SPAN_NOTICE("You apply \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				H.lipstick_color = lipstick_color
 				H.update_body()
 	else
@@ -156,7 +156,7 @@
 	color = get_random_colour(lower = 150)
 
 /obj/item/haircomb/attack_self(mob/user)
-	user.visible_message(SPAN_NOTICE("[user] uses [src] to comb their hair with incredible style and sophistication. What a [user.gender == FEMALE ? "lady" : "guy"]."))
+	user.visible_message(SPAN_NOTICE("[user] uses [src] to comb their hair with incredible style and sophistication. What a [user.gender == FEMALE ? "lady" : "guy"]."), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/razor
 	name = "electric razor"
@@ -201,20 +201,20 @@
 
 		if(H == user) //shaving yourself
 			user.visible_message("\The [user] starts to shave [user.get_pronoun("his")] head with \the [src].", \
-									SPAN_NOTICE("You start to shave your head with \the [src]."))
+									self_message = SPAN_NOTICE("You start to shave your head with \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			if(do_mob(user, user, 20))
 				user.visible_message("\The [user] shaves [user.get_pronoun("his")] head with \the [src].", \
-										SPAN_NOTICE("You finish shaving with \the [src]."))
+										self_message = SPAN_NOTICE("You finish shaving with \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				shave(H, target_zone)
 
 			return TRUE
 
 		else
 			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s head with \the [src]!"), \
-									SPAN_NOTICE("You start shaving [H]'s head."))
+									self_message = SPAN_NOTICE("You start shaving [H]'s head."), visible_message_flags = GHOST_MESSAGE)
 			if(do_mob(user, H, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves \the [H]'s head bald with \the [src]!"), \
-										SPAN_NOTICE("You shave \the [H]'s head bald."))
+										self_message = SPAN_NOTICE("You shave \the [H]'s head bald."), visible_message_flags = GHOST_MESSAGE)
 				shave(H, target_zone)
 
 				return TRUE
@@ -235,20 +235,20 @@
 
 		if(H == user) //shaving yourself
 			user.visible_message(SPAN_WARNING("\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src]."), \
-									SPAN_NOTICE("You take a moment to shave your facial hair with \the [src]."))
+									self_message = SPAN_NOTICE("You take a moment to shave your facial hair with \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			if(do_mob(user, user, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src]."), \
-										SPAN_NOTICE("You finish shaving with \the [src]."))
+										self_message = SPAN_NOTICE("You finish shaving with \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				shave(H, target_zone)
 
 			return TRUE
 
 		else
 			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s facial hair with \the [src]."), \
-									SPAN_NOTICE("You start shaving [H]'s facial hair."))
+									self_message = SPAN_NOTICE("You start shaving [H]'s facial hair."), visible_message_flags = GHOST_MESSAGE)
 			if(do_mob(user, H, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves off \the [H]'s facial hair with \the [src]."), \
-										SPAN_NOTICE("You shave [H]'s facial hair clean off."))
+										self_message = SPAN_NOTICE("You shave [H]'s facial hair clean off."), visible_message_flags = GHOST_MESSAGE)
 				shave(H, target_zone)
 
 				return TRUE

@@ -127,7 +127,7 @@
 	if (slot == slot_wear_suit)
 		var/mob/living/carbon/human/H = user
 		H.visible_message(SPAN_NOTICE("[H] starts putting on \the [src]..."),
-							SPAN_NOTICE("You start putting on \the [src]..."))
+							self_message = SPAN_NOTICE("You start putting on \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)

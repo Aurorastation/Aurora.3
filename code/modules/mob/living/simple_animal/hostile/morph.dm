@@ -122,9 +122,9 @@
 		return FALSE
 	if(A?.loc == src)
 		return FALSE
-	visible_message(SPAN_WARNING("\The [src] begins swallowing \the [A] whole!"), SPAN_NOTICE("You begin swallowing \the [A] whole."))
+	visible_message(SPAN_WARNING("\The [src] begins swallowing \the [A] whole!"), self_message = SPAN_NOTICE("You begin swallowing \the [A] whole."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(src, delay, A))
-		visible_message(SPAN_WARNING("\The [src] swallows \the [A] whole!"), SPAN_NOTICE("You swallow \the [A] whole."))
+		visible_message(SPAN_WARNING("\The [src] swallows \the [A] whole!"), self_message = SPAN_NOTICE("You swallow \the [A] whole."), visible_message_flags = GHOST_MESSAGE)
 		A.forceMove(src)
 		return TRUE
 
@@ -140,7 +140,7 @@
 /mob/living/simple_animal/hostile/morph/proc/assume(atom/movable/target)
 	morphed = TRUE
 	form = target
-	visible_message(SPAN_WARNING("\The [src] suddenly twists and changes shape, becoming a copy of \the [target]!"), SPAN_NOTICE("You twist your body and assume the form of \the [target]."))
+	visible_message(SPAN_WARNING("\The [src] suddenly twists and changes shape, becoming a copy of \the [target]!"), self_message = SPAN_NOTICE("You twist your body and assume the form of \the [target]."), visible_message_flags = GHOST_MESSAGE)
 	appearance = target.appearance
 	alpha = max(alpha, 150)	//fucking chameleons
 	transform = initial(transform)
@@ -165,7 +165,7 @@
 	animate_movement = SLIDE_STEPS
 	maptext = null
 
-	visible_message(SPAN_WARNING("\The [src] suddenly collapses in on itself, dissolving into a pile of green flesh!"), SPAN_NOTICE("You reform to your normal body."))
+	visible_message(SPAN_WARNING("\The [src] suddenly collapses in on itself, dissolving into a pile of green flesh!"), self_message = SPAN_NOTICE("You reform to your normal body."), visible_message_flags = GHOST_MESSAGE)
 	name = initial(name)
 	icon = initial(icon)
 	icon_state = initial(icon_state)
@@ -180,7 +180,7 @@
 
 /mob/living/simple_animal/hostile/morph/death(gibbed)
 	if(morphed)
-		visible_message(SPAN_WARNING("\The [src] twists and dissolves into a pile of green flesh!"), SPAN_DANGER("Your skin ruptures! Your flesh breaks apart! No disguise can ward off de--"))
+		visible_message(SPAN_WARNING("\The [src] twists and dissolves into a pile of green flesh!"), self_message = SPAN_DANGER("Your skin ruptures! Your flesh breaks apart! No disguise can ward off de--"), visible_message_flags = GHOST_MESSAGE)
 		restore()
 	barf_contents()
 	..()

@@ -69,18 +69,18 @@
 			if (attacking_item.damtype == DAMAGE_PAIN)
 				damage = 0
 			health -= damage
-			visible_message(SPAN_DANGER("[src] has been attacked with the [attacking_item] by [user]."))
+			visible_message(SPAN_DANGER("[src] has been attacked with the [attacking_item] by [user]."), visible_message_flags = GHOST_MESSAGE)
 		else
-			visible_message(SPAN_DANGER("[src] blocks the [attacking_item] with its shield!"))
+			visible_message(SPAN_DANGER("[src] blocks the [attacking_item] with its shield!"), visible_message_flags = GHOST_MESSAGE)
 		//user.do_attack_animation(src)
 	else
 		to_chat(usr, SPAN_WARNING("This weapon is ineffective, it does no damage."))
-		visible_message(SPAN_WARNING("[user] gently taps [src] with the [attacking_item]."))
+		visible_message(SPAN_WARNING("[user] gently taps [src] with the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	if(prob(35))
-		visible_message(SPAN_DANGER("[src] blocks [hitting_projectile] with its shield!"))
+		visible_message(SPAN_DANGER("[src] blocks [hitting_projectile] with its shield!"), visible_message_flags = GHOST_MESSAGE)
 		return BULLET_ACT_BLOCK
 
 	. = ..()

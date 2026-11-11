@@ -104,7 +104,7 @@
 			user.do_attack_animation(src)
 			if ((health-damage) <= 0)
 				L.visible_message(SPAN_DANGER("[L] tears open the [src], spilling its contents everywhere!"),
-									SPAN_DANGER("You tear open the [src], spilling its contents everywhere!"))
+									self_message = SPAN_DANGER("You tear open the [src], spilling its contents everywhere!"), visible_message_flags = GHOST_MESSAGE)
 
 				spill()
 			else
@@ -140,7 +140,7 @@
 			if(!contents.len)
 				to_chat(user, SPAN_NOTICE("You crumple up \the [src]."))
 			else
-				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"))
+				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), self_message = SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"), visible_message_flags = GHOST_MESSAGE)
 				spill()
 			playsound(src.loc, 'sound/items/pickup/wrapper.ogg', 30, 1)
 			var/obj/item/trash = new src.trash()

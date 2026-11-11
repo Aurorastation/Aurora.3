@@ -38,7 +38,7 @@
 	apparition = new /mob/living/carbon/human/apparition(get_turf(A))
 	user.visible_message(SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
 	SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
-	SPAN_WARNING("You hear liquid flowing."))
+	SPAN_WARNING("You hear liquid flowing."), visible_message_flags = GHOST_MESSAGE)
 
 	var/chose_name = FALSE
 	for(var/obj/item/paper/P in get_turf(A))
@@ -71,6 +71,6 @@
 	if(apparition)
 		apparition.visible_message(FONT_LARGE(SPAN_WARNING("\The [apparition] slowly dissipates into dust and bones.")), \
 		FONT_LARGE(SPAN_WARNING("You feel pain, as bonds formed between your soul and this homunculus break.")), \
-		SPAN_WARNING("You hear a faint rustling."))
+		SPAN_WARNING("You hear a faint rustling."), visible_message_flags = GHOST_MESSAGE)
 		apparition.dust()
 		apparition = null

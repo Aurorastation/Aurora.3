@@ -180,7 +180,7 @@
 			nopain = 1
 
 	var/part = E ? "'s [E.name]" : ""
-	user.visible_message(SPAN_DANGER("[user] shoves [victim][part] into [src]!"))
+	user.visible_message(SPAN_DANGER("[user] shoves [victim][part] into [src]!"), visible_message_flags = GHOST_MESSAGE)
 	if (damage > 0)
 		if(E)
 
@@ -214,7 +214,7 @@
 		if (attacking_item.reagents.total_volume <= 0 && oil)
 			//Its empty, handle scooping some hot oil out of the fryer
 			oil.trans_to(attacking_item, attacking_item.reagents.maximum_volume)
-			user.visible_message("[user] scoops some oil out of [src].", SPAN_NOTICE("You scoop some oil out of [src]."))
+			user.visible_message("[user] scoops some oil out of [src].", self_message = SPAN_NOTICE("You scoop some oil out of [src]."), visible_message_flags = GHOST_MESSAGE)
 			return TRUE
 	//It contains stuff, handle pouring any oil into the fryer
 	//Possibly in future allow pouring non-oil reagents in, in  order to sabotage it and poison food.
@@ -229,7 +229,7 @@
 				attacking_item.reagents.remove_reagent(_R, delta)
 				amount += delta
 		if (amount > 0)
-			user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))
+			user.visible_message("[user] pours some oil into [src].", self_message = SPAN_NOTICE("You pour [amount]u of oil into [src]."), blind_message = SPAN_NOTICE("You hear something viscous being poured into a metal container."), visible_message_flags = GHOST_MESSAGE)
 			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()

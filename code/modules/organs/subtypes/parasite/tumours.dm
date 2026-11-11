@@ -123,7 +123,7 @@
 			if(BP_GROIN)
 				if(SPT_PROB(3, seconds_per_tick))
 					to_chat(owner, SPAN_WARNING(pick("You feel a sharp pain in your gut.", "You feel a little bloated.")))
-					owner.visible_message("<b>[owner]</b> winces slightly.")
+					owner.visible_message("<b>[owner]</b> winces slightly.", visible_message_flags = GHOST_MESSAGE)
 					owner.delayed_vomit()
 			else
 				if(SPT_PROB(stage*2, seconds_per_tick))

@@ -147,16 +147,16 @@
 				to_chat(usr, SPAN_NOTICE("[H]'s ribs are already punctured!"))
 				return
 			last_jab = world.time
-			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
+			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", self_message = SPAN_NOTICE("You aim \the [src] between [SM] ribs!"), visible_message_flags = GHOST_MESSAGE)
 			if(!do_mob(user, target, 1.5 SECONDS))
 				last_jab = 0 //Resets to try again immediately
-				user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
+				user.visible_message("<b>[user]</b> fumbles with \the [src]!", self_message = SPAN_NOTICE("You fumble with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 				return
 			var/blocked = H.get_blocked_ratio(BP_CHEST, DAMAGE_BRUTE, DAMAGE_FLAG_SHARP, damage = 5)
 			if(blocked > 20)
-				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
+				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", self_message = SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"), visible_message_flags = GHOST_MESSAGE)
 				return
-			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
+			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", self_message = SPAN_NOTICE("You jab \the [src] between [SM] ribs!"), visible_message_flags = GHOST_MESSAGE)
 			H.apply_damage(3, DAMAGE_BRUTE, BP_CHEST)
 			H.custom_pain("The pain in your chest is living hell!", 50, affecting = H.organs_by_name[BP_CHEST])
 			L.oxygen_deprivation = 0
@@ -259,9 +259,9 @@
 
 				if(!do_mob(user, target, inject_time))
 					last_jab = 0
-					user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
+					user.visible_message("<b>[user]</b> fumbles with \the [src]!", self_message = SPAN_NOTICE("You fumble with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 					return
-				user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"))
+				user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			var/trans
 			if(ismob(target))
 				var/contained = reagentlist()
@@ -270,7 +270,7 @@
 				admin_inject_log(user, target, src, contained, reagents.get_temperature(), trans)
 			else
 				trans = reagents.trans_to(target, amount_per_transfer_from_this)
-			user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"),SPAN_NOTICE("You inject [trans] units of the solution. \The [src] now contains [src.reagents.total_volume] units."),2)
+			user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"),self_message = SPAN_NOTICE("You inject [trans] units of the solution. \The [src] now contains [src.reagents.total_volume] units."),blind_message = 2, visible_message_flags = GHOST_MESSAGE)
 			if (reagents.total_volume <= 0 && mode == SYRINGE_INJECT)
 				mode = SYRINGE_DRAW
 				update_icon()
@@ -328,7 +328,7 @@
 
 		var/armor = H.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP, damage = 5)*100
 		if (target != user && armor > 50)
-			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"))
+			user.visible_message(SPAN_DANGER("[user] tries to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), self_message = SPAN_WARNING("You try to stab \the [target] in the [hit_area] with \the [src], but the attack is deflected by [target.get_pronoun("his")] armor!"), visible_message_flags = GHOST_MESSAGE)
 			user.remove_from_mob(src)
 			qdel(src)
 
@@ -338,13 +338,13 @@
 
 			return
 
-		user.visible_message(SPAN_DANGER("[user] stabs [target] in \the [hit_area] with [src.name]!"))
+		user.visible_message(SPAN_DANGER("[user] stabs [target] in \the [hit_area] with [src.name]!"), visible_message_flags = GHOST_MESSAGE)
 
 		if(affecting.take_damage(3))
 			H.UpdateDamageIcon()
 
 	else
-		user.visible_message(SPAN_DANGER("[user] stabs [target] with [src.name]!"))
+		user.visible_message(SPAN_DANGER("[user] stabs [target] with [src.name]!"), visible_message_flags = GHOST_MESSAGE)
 		target.take_organ_damage(3)// 7 is the same as crowbar punch
 
 	var/syringestab_amount_transferred = rand(0, (reagents.total_volume / 2)) //nerfed by popular demand

@@ -443,7 +443,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."), visible_message_flags = GHOST_MESSAGE)
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		return
 
@@ -471,7 +471,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src]'s pages..."))
+	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src]'s pages..."), visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 25))
 		to_chat(user, SPAN_NOTICE("You pick out a song in the folder and read the lyrics: [pick(lyrics)]"))
 
@@ -591,10 +591,10 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
 		return ..()
 
 	if(weight_roll)
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."), visible_message_flags = GHOST_MESSAGE)
 		weight_roll = 0
 	else
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."), visible_message_flags = GHOST_MESSAGE)
 		weight_roll = initial(weight_roll)
 
 /obj/item/stack/dice/fluff/suraya_dice/alt
@@ -691,7 +691,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 		if(isnull(selected_paper))
 			return
 
-		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), range = 5)
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), self_message = SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5, visible_message_flags = GHOST_MESSAGE)
 		if(selected_paper.can_change_icon_state)
 			selected_paper.icon = icon
 			selected_paper.base_state = "torn"
@@ -705,7 +705,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 /obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
 	if(open && Adjacent(user))
 		open_state = next_in_list(icon_state, open_states)
-		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), range = 3)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", self_message = SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
 		update_icon()
 		return
@@ -1107,7 +1107,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 		return
 	*canceled = TRUE
 	user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
-		SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
+		self_message = SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"), visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
@@ -1115,7 +1115,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 		owner.Weaken(weaken_strength)
 		last_drop = world.time
 		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
-		owner.visible_message("<b>[owner]</b> collapses!")
+		owner.visible_message("<b>[owner]</b> collapses!", visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
 	name = "handsewn Idris cloak"
@@ -1170,7 +1170,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 	if(!K)
 		return
 
-	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
+	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."), visible_message_flags = GHOST_MESSAGE)
 	K.changed = !K.changed
 	K.update_icon()
 	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
@@ -1262,11 +1262,11 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 		to_chat(user, SPAN_WARNING("You are unable to sacrifice blood."))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(user, 4 SECOND, src))
-		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
+		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."), visible_message_flags = GHOST_MESSAGE)
 		return
-	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	affected.status |= ORGAN_BLEEDING
 
@@ -1330,15 +1330,15 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 	if(!target_turf)
 		target_turf = get_turf(user)
 
-	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"))
+	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(user, 4 SECOND, src))
-		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."))
+		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."), visible_message_flags = GHOST_MESSAGE)
 		return
 
 	// Crates a cleanable rune that looks like a cult rune to people who are neither cultists or raskariim
 	var/obj/effect/decal/cleanable/fluff/rune/R = new(target_turf)
 	user.visible_message(SPAN_CULT("[user] finishes drawing \the [R] on the floor!"),
-		SPAN_CULT("You finish drawing the markings of the King of Maggots."))
+		self_message = SPAN_CULT("You finish drawing the markings of the King of Maggots."), visible_message_flags = GHOST_MESSAGE)
 
 	R.blood_DNA = list()
 	R.blood_DNA = src.blood_DNA

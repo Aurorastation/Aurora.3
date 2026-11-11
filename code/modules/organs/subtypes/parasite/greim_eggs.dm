@@ -70,7 +70,8 @@
 				last_crawling_msg = world.time
 				owner.visible_message(
 					SPAN_WARNING("You think you see something moving around in \the [owner.name]'s [affecting_organ.name]."),
-					SPAN_WARNING("You [prob(25) ? "see" : "feel"] something large move around in your [affecting_organ.name]!"))
+					self_message = SPAN_WARNING("You [prob(25) ? "see" : "feel"] something large move around in your [affecting_organ.name]!"),
+					visible_message_flags = GHOST_MESSAGE)
 		if(prob(1))
 			owner.seizure(0.4)
 
@@ -97,7 +98,8 @@
 			src.owner.emote("scream")
 			owner.visible_message(
 				SPAN_DANGER("You can see the flesh of [owner.name]'s [affecting_organ.name] begin rippling violently!"),
-				SPAN_DANGER("An <b>extreme</b>, nauseating pain erupts from your [affecting_organ.name]; you feel something burst inside it. The flesh begins to ripple violently!"))
+				self_message = SPAN_DANGER("An <b>extreme</b>, nauseating pain erupts from your [affecting_organ.name]; you feel something burst inside it. The flesh begins to ripple violently!"),
+				visible_message_flags = GHOST_MESSAGE)
 			addtimer(CALLBACK(src, PROC_REF(rupture)), rand(2 SECONDS, 4 SECONDS))
 
 /obj/item/organ/internal/parasite/greimorian_eggcluster/Destroy()
@@ -118,7 +120,8 @@
 	if(src.owner)
 		src.owner.visible_message(
 			SPAN_DANGER("A group of [src] burst out of [owner]'s [victim_external_organ.name]!"),
-			SPAN_DANGER("A group of [src] burst out of your [victim_external_organ.name]!"))
+			self_message = SPAN_DANGER("A group of [src] burst out of your [victim_external_organ.name]!"),
+			visible_message_flags = GHOST_MESSAGE)
 		src.owner.emote("scream")
 
 	var/target_loc = src.owner ? src.owner.loc : src.loc

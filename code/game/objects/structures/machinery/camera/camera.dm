@@ -200,7 +200,7 @@
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
-		SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
+		self_message = SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."), visible_message_flags = GHOST_MESSAGE)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 
@@ -271,7 +271,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (attacking_item.force >= src.toughness)
 			user.do_attack_animation(src)
-			user.visible_message(SPAN_DANGER("[user] has [LAZYPICK(attacking_item.attack_verb,"attacked")] [src] with [attacking_item]!"))
+			user.visible_message(SPAN_DANGER("[user] has [LAZYPICK(attacking_item.attack_verb,"attacked")] [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 			if (istype(attacking_item, /obj/item)) //is it even possible to get into attackby() with non-items?
 				var/obj/item/I = attacking_item
 				if (I.hitsound)

@@ -214,7 +214,7 @@
 /obj/item/hand/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/hand))
 		var/obj/item/hand/H = attacking_item
-		user.visible_message("<b>\The [user]</b> adds \the [H] to their hand.", SPAN_NOTICE("You add \the [H] to your hand."))
+		user.visible_message("<b>\The [user]</b> adds \the [H] to their hand.", self_message = SPAN_NOTICE("You add \the [H] to your hand."), visible_message_flags = GHOST_MESSAGE)
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
 		H.concealed = src.concealed
@@ -265,7 +265,7 @@
 	var/list/cards = list()
 
 /obj/item/pack/attack_self(var/mob/user as mob)
-	user.visible_message("<b>\The [user]</b> rips open \the [src]!")
+	user.visible_message("<b>\The [user]</b> rips open \the [src]!", visible_message_flags = GHOST_MESSAGE)
 	var/obj/item/hand/H = new()
 
 	H.cards += cards
@@ -459,7 +459,7 @@
 		return
 
 	D.cards = cards
-	user.visible_message(SPAN_NOTICE("<b>\The [user]</b> turns his hand into a deck."), SPAN_NOTICE("You turn your hand into a deck."))
+	user.visible_message(SPAN_NOTICE("<b>\The [user]</b> turns his hand into a deck."), self_message = SPAN_NOTICE("You turn your hand into a deck."), visible_message_flags = GHOST_MESSAGE)
 	qdel(src)
 	user.put_in_hands(D)
 

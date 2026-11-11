@@ -53,14 +53,14 @@
 		return
 
 	if(!body_scan_mode)
-		user.visible_message(SPAN_NOTICE("[user] passes [user.get_pronoun("his")] hand over [target]."), SPAN_NOTICE("You pass your hand over [target]."))
+		user.visible_message(SPAN_NOTICE("[user] passes [user.get_pronoun("his")] hand over [target]."), self_message = SPAN_NOTICE("You pass your hand over [target]."), visible_message_flags = GHOST_MESSAGE)
 		var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 		if(!h_analyzer)
 			return
 		h_analyzer.health_scan_mob(target, user, TRUE, FALSE)
 	else
 		user.visible_message(SPAN_NOTICE("[user] slowly passes [user.get_pronoun("his")] hand over [target]..."),
-							SPAN_NOTICE("You slowly pass your hand over [target]..."))
+							self_message = SPAN_NOTICE("You slowly pass your hand over [target]..."), visible_message_flags = GHOST_MESSAGE)
 		if(do_mob(user, target, 10 SECONDS))
 			for(var/obj/item/organ/internal/I in target.internal_organs)
 				if(I.is_bruised())

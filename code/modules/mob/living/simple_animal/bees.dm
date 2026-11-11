@@ -47,13 +47,13 @@
 		strength -= 1
 		if (strength <= 0)
 			if (prob(25))//probability to reduce spam
-				src.visible_message(SPAN_WARNING("The bee swarm completely dissipates."))
+				src.visible_message(SPAN_WARNING("The bee swarm completely dissipates."), visible_message_flags = GHOST_MESSAGE)
 			qdel(src)
 			return
 		else
 			health = maxhealth
 			if (prob(25))//probability to reduce spam
-				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
+				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."), visible_message_flags = GHOST_MESSAGE)
 
 		update_icon()
 	else
@@ -141,7 +141,7 @@
 
 	//make some noise
 	if(prob(2))
-		src.audible_message("[SPAN_BOLD("\The [src]")] [pick("buzz", "hum")].")
+		src.audible_message("[SPAN_BOLD("\The [src]")] [pick("buzz", "hum")].", audible_message_flags = GHOST_MESSAGE)
 		playsound(src, pick('sound/effects/Buzz1.ogg', 'sound/effects/Buzz2.ogg'), 10, TRUE, -4)
 
 	if (feral && isturf(loc))
@@ -156,7 +156,7 @@
 
 		if(range_in_typecache(src, 2, calmers))
 			if(feral > 0)
-				src.visible_message(SPAN_NOTICE("The bees calm down!"))
+				src.visible_message(SPAN_NOTICE("The bees calm down!"), visible_message_flags = GHOST_MESSAGE)
 			feral = -15
 			target_mob = null
 			target_turf = null
@@ -216,7 +216,7 @@
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
 			if(prob(10))
-				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
+				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"), visible_message_flags = GHOST_MESSAGE)
 		if(get_turf(src) == target_turf)
 			target_turf = null
 			wander = TRUE

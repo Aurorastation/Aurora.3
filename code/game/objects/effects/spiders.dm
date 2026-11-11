@@ -201,7 +201,7 @@
 									return
 
 								if(prob(50))
-									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
+									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), vision_distance = 2)
 								sleep(travel_time)
 								// It's possible for the grem to get qdel'd during the sleep above this line.
 								if(QDELETED(src))

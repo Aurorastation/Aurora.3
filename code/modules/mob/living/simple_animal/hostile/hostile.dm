@@ -114,7 +114,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		set_last_found_target(T)
 		FoundTarget()
 		if(isliving(T))
-			visible_message(SPAN_WARNING("\The [src] [attack_emote] [T]."))
+			visible_message(SPAN_WARNING("\The [src] [attack_emote] [T]."), visible_message_flags = GHOST_MESSAGE)
 			if(istype(T, /mob/living/simple_animal/hostile))
 				var/mob/living/simple_animal/hostile/H = T
 				H.being_targeted(src)
@@ -129,7 +129,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	set_last_found_target(H)
 	FoundTarget()
 	change_stance(HOSTILE_STANCE_ATTACKING)
-	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
+	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/hostile/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -250,7 +250,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	for(var/grab in grabbed_by)
 		var/obj/item/grab/G = grab
 		if(G.state >= GRAB_NECK)
-			visible_message(SPAN_WARNING("\The [G.assailant] restrains \the [src] from attacking!"))
+			visible_message(SPAN_WARNING("\The [G.assailant] restrains \the [src] from attacking!"), visible_message_flags = GHOST_MESSAGE)
 			resist_grab()
 			return
 	var/atom/target
@@ -271,7 +271,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		face_atom(T)
 		src.do_attack_animation(T)
 		T.add_damage(max(melee_damage_lower, melee_damage_upper) / 2, armor_penetration = armor_penetration)
-		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
+		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"), visible_message_flags = GHOST_MESSAGE)
 		return T // no need to take a step back here
 	if(loc && attack_sound)
 		playsound(loc, attack_sound, 50, 1, 1)
@@ -385,7 +385,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		return
 	if(ON_ATTACK_COOLDOWN(src))
 		return
-	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
+	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"), visible_message_flags = GHOST_MESSAGE)
 	hostile_last_attack = world.time
 
 	if(rapid)
@@ -450,7 +450,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			if(found_obj && !found_obj.invisibility && found_obj.density)
 				var/obj/effect/energy_field/e = found_obj
 				e.damage_field(rand(0.5, 1.5))
-				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
+				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"), visible_message_flags = GHOST_MESSAGE)
 				src.do_attack_animation(e)
 				set_last_found_target(e)
 				change_stance(HOSTILE_STANCE_ATTACKING)

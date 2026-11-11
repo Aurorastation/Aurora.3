@@ -124,7 +124,7 @@
 			to_chat(user, SPAN_WARNING("\The [I] is no longer in storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), range = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), vision_distance = 3)
 
 		I.forceMove(get_turf(src))
 		if(Adjacent(user))
@@ -140,7 +140,7 @@
 			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), range = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), vision_distance = 3)
 
 		for(var/obj/item/I in frozen_items)
 			I.forceMove(get_turf(src))
@@ -461,7 +461,7 @@
 	if(!willing)
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), range = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), self_message = SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE

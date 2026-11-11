@@ -1536,7 +1536,7 @@
 /obj/item/book/manual/wiki/tcaf_pamphlet/attack_self(var/mob/user as mob)
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
-		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")
+		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.", visible_message_flags = GHOST_MESSAGE)
 		playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		onclose(user, "book")
 		onclose(playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, 1))

@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(persistent_chamber)
 		QDEL_NULL(chambered)
 	else
-		chambered = null
+	chambered = null
 	QDEL_NULL(ammo_magazine)
 	QDEL_LIST(loaded)
 	. = ..()
@@ -195,9 +195,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 			update_icon()
 	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && (!persistent_chamber || !chambered))
 		if(ishuman(user))
-			var/mob/living/carbon/human/H = user
-			if(H.check_weapon_affinity(src))
-				unload_ammo(user, TRUE, TRUE)
+		var/mob/living/carbon/human/H = user
+		if(H.check_weapon_affinity(src))
+			unload_ammo(user, TRUE, TRUE)
 		if(persistent_chamber && auto_eject && ammo_magazine)
 			eject_empty_magazine(user)
 	update_maptext()
@@ -289,7 +289,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 				user.remove_from_mob(AM)
 				AM.forceMove(src)
 				ammo_magazine = AM
-				user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
+				user.visible_message("[user] inserts [AM] into [src].", self_message = SPAN_NOTICE("You insert [AM] into [src]."), visible_message_flags = GHOST_MESSAGE)
 				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= internal_capacity)
@@ -305,7 +305,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."))
+					user.visible_message("[user] reloads [src].", self_message = SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."), visible_message_flags = GHOST_MESSAGE)
 					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
@@ -323,7 +323,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
+		user.visible_message("[user] inserts \a [C] into [src].", self_message = SPAN_NOTICE("You insert \a [C] into [src]."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()
@@ -364,7 +364,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 			if(drop_mag)
 				C.forceMove(get_turf(src))
 			else
-				user.put_in_hands(C)
+			user.put_in_hands(C)
 			balloon_alert_to_viewers("casing ejected!")
 	else
 		balloon_alert(user, "already empty!")
@@ -492,6 +492,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		user.visible_message(
 			"[ejected_magazine] falls out and clatters on the floor!",
 			SPAN_NOTICE("[ejected_magazine] falls out and clatters on the floor!")
+			visible_message_flags = GHOST_MESSAGE
 			)
 	playsound(user || src, ejected_magazine.eject_sound, 40, FALSE)
 	ejected_magazine.update_icon()

@@ -148,8 +148,8 @@
 	if(attacking_item.use_tool(src, user, 40, volume = 50))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
-			SPAN_NOTICE("You have unfastened \the [src]."), \
-			"You hear ratchet.")
+			self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
+			blind_message = "You hear ratchet.", visible_message_flags = GHOST_MESSAGE)
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)
 

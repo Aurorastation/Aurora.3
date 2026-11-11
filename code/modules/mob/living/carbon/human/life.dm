@@ -690,7 +690,7 @@
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
 				if(prob(5))
-					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
+					visible_message("<b>[src]</b> trembles uncontrollably.", self_message = SPAN_WARNING("You tremble uncontrollably."), visible_message_flags = GHOST_MESSAGE)
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
 				if(prob(5))
@@ -829,7 +829,7 @@
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
 				to_chat(src, SPAN_WARNING("[species.halloss_message_self]"))
-				src.visible_message("<B>[src]</B> [species.halloss_message]")
+				src.visible_message("<B>[src]</B> [species.halloss_message]", visible_message_flags = GHOST_MESSAGE)
 			Paralyse(10)
 
 		if(paralysis || sleeping || InStasis())
@@ -845,7 +845,7 @@
 			if (species.tail)
 				animate_tail_reset()
 			if(prob(2) && is_asystole() && isSynthetic())
-				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].")
+				visible_message("<b>[src]</b> [pick("emits low pitched whirr","beeps urgently")].", visible_message_flags = GHOST_MESSAGE)
 
 		if(paralysis)
 			AdjustParalysis(-1)
@@ -1319,7 +1319,7 @@
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
-			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.")
+			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.", visible_message_flags = GHOST_MESSAGE)
 		if(prob(30))
 			eye_blurry = max(2, eye_blurry)
 			stuttering = max(stuttering, 5)
@@ -1329,7 +1329,7 @@
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
+			visible_message("<b>[src]</b>'s body becomes limp.", self_message = SPAN_DANGER("Your body becomes limp."), visible_message_flags = GHOST_MESSAGE)
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1345,7 +1345,7 @@
 			Paralyse(5)
 
 	if(shock_stage == 150)
-		visible_message("<b>[src]</b> can no longer stand, collapsing!")
+		visible_message("<b>[src]</b> can no longer stand, collapsing!", visible_message_flags = GHOST_MESSAGE)
 		Weaken(20)
 
 	if(shock_stage >= 150)
@@ -1367,7 +1367,7 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 	to_chat(src, SPAN_DANGER("Your heart has stopped!"))
-	visible_message("<b>[src]</b> suddenly collapses, clutching at [get_pronoun("his")] chest!")
+	visible_message("<b>[src]</b> suddenly collapses, clutching at [get_pronoun("his")] chest!", visible_message_flags = GHOST_MESSAGE)
 	Paralyse(15)
 	return TRUE
 

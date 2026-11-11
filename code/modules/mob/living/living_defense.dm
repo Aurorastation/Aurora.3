@@ -105,7 +105,7 @@
 		if(istype(signaler))
 			if(signaler.deadman && prob(80))
 				log_and_message_admins("has triggered a signaler deadman's switch")
-				src.visible_message(SPAN_WARNING("[src] triggers their deadman's switch!"))
+				src.visible_message(SPAN_WARNING("[src] triggers their deadman's switch!"), visible_message_flags = GHOST_MESSAGE)
 				signaler.signal()
 
 		/*### END Other effects of being hit and damaged ###*/
@@ -118,7 +118,7 @@
 
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)
-			src.visible_message(SPAN_NOTICE("\The [hitting_projectile] misses [src] narrowly!"))
+			src.visible_message(SPAN_NOTICE("\The [hitting_projectile] misses [src] narrowly!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(src, SFX_BULLET_MISS, 50, 1)
 
 		//Otherwise it hit
@@ -132,7 +132,7 @@
 			else
 				//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 				src.visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile] in the [impacted_organ]!"),
-									SPAN_DANGER(FONT_LARGE("You are hit by \a [hitting_projectile] in the [impacted_organ]!")))
+									self_message = SPAN_DANGER(FONT_LARGE("You are hit by \a [hitting_projectile] in the [impacted_organ]!")), visible_message_flags = GHOST_MESSAGE)
 
 
 	if(blocked < 100)
@@ -263,7 +263,7 @@
 
 //Called when the mob is hit with an item in combat. Returns the blocked result
 /mob/living/proc/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone, var/ground_zero)
-	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb,"attacked")] with [I] by [user]!"))
+	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb,"attacked")] with [I] by [user]!"), visible_message_flags = GHOST_MESSAGE)
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
@@ -300,11 +300,11 @@
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
-			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
-		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."))
+		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."), visible_message_flags = GHOST_MESSAGE)
 		apply_damage(throw_damage, dtype, null, damage_flags = O.damage_flags(), used_weapon = O)
 
 		O.throwing?.finalize(hit = TRUE, target = src)		//it hit, so stop moving
@@ -329,7 +329,7 @@
 			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
-							SPAN_WARNING("You stagger under the impact!"))
+							self_message = SPAN_WARNING("You stagger under the impact!"), visible_message_flags = GHOST_MESSAGE)
 
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
@@ -345,7 +345,7 @@
 				if(T)
 					src.forceMove(T)
 					visible_message(SPAN_WARNING("[src] is pinned to the wall by [O]!"),
-									SPAN_WARNING("You are pinned to the wall by [O]!"))
+									self_message = SPAN_WARNING("You are pinned to the wall by [O]!"), visible_message_flags = GHOST_MESSAGE)
 
 					src.anchored = 1
 					src.pinned += O
@@ -357,7 +357,7 @@
 
 ///This is called when the mob is thrown into a dense turf
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
-	visible_message(SPAN_DANGER("[src] slams into \the [T]!"))
+	visible_message(SPAN_DANGER("[src] slams into \the [T]!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
 	apply_damage(speed*5, DAMAGE_BRUTE)
 
@@ -384,7 +384,7 @@
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>"
 	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
 	if (attack_message)
-		src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
+		src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"), visible_message_flags = GHOST_MESSAGE)
 	user.do_attack_animation(src)
 
 	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)

@@ -308,45 +308,45 @@
 		if(vampire)
 			if(vampire.status & VAMP_ISTHRALL)
 				if(do_after(user, 1.5 SECONDS))
-					K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+					K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), self_message = SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"), visible_message_flags = GHOST_MESSAGE)
 				var/choice = tgui_alert(K, "Do you want to give into the light and be freed from your vampiric master?", "Become cleansed", list("Resist", "Give in"))
 				switch(choice)
 					if("Resist")
-						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"))
+						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), self_message = SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"), visible_message_flags = GHOST_MESSAGE)
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
-						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
+						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."), visible_message_flags = GHOST_MESSAGE)
 						K.take_overall_damage(10, 20)
 						GLOB.thralls.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else if (vampire.status & VAMP_FRENZIED)
-				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
+				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), self_message = SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"), visible_message_flags = GHOST_MESSAGE)
 				K.adjust_fire_stacks(10)
 				K.IgniteMob()
 		else if(GLOB.cult && (K.mind in GLOB.cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
-				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), self_message = SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"), visible_message_flags = GHOST_MESSAGE)
 				var/choice = tgui_alert(K, "Do you want to give up your goal?", "Become cleansed", list("Resist", "Give in"))
 				switch(choice)
 					if("Resist")
-						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to the Geometer!"))
+						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), self_message = SPAN_NOTICE("You turn away from the light, remaining true to the Geometer!"), visible_message_flags = GHOST_MESSAGE)
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 						admin_attack_log(user, target_mob, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
-						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
+						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."), visible_message_flags = GHOST_MESSAGE)
 						K.take_overall_damage(10, 20)
 						GLOB.cult.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
-				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
+				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), self_message = SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"), visible_message_flags = GHOST_MESSAGE)
 				return
 
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
-			target_mob.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [target_mob]'s head."))
+			target_mob.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [target_mob]'s head."), visible_message_flags = GHOST_MESSAGE)
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
 		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))
@@ -359,7 +359,7 @@
 		return
 	if(istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
 		cooldown = world.time
-		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."), visible_message_flags = GHOST_MESSAGE)
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		var/rune_found = FALSE
 		for(var/obj/effect/rune/R in orange(2, get_turf(src)))
@@ -409,7 +409,7 @@
 		if(contents.len)
 			to_chat(user, SPAN_WARNING("\The [src] is already full!"))
 			return
-		user.visible_message("[user] scoops \the [A] into \the [src], securing the lid.", "You scoop \the [A] into \the [src], securing the lid.")
+		user.visible_message("[user] scoops \the [A] into \the [src], securing the lid.", self_message = "You scoop \the [A] into \the [src], securing the lid.", visible_message_flags = GHOST_MESSAGE)
 		desc = "A vase used to store the ashes of the deceased. It contains some ashes."
 		desc_extended = "To store ashes in an urn, click on the ash pile with the urn in your active hand. To empty an urn, use the urn in your active hand. Make sure you've labeled the urn so you know who's ashes are inside!"
 		A.forceMove(src)
@@ -421,7 +421,7 @@
 	else
 		for(var/obj/effect/decal/cleanable/ash/A in contents)
 			A.dropInto(loc)
-			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
+			user.visible_message("[user] pours \the [A] out from \the [src].", self_message = "You pour \the [A] out from \the [src].", visible_message_flags = GHOST_MESSAGE)
 			desc = "A vase used to store the ashes of the deceased."
 			desc_extended = "To store ashes in an urn, click on the ash pile with the urn in your active hand. To empty an urn, use the urn in your active hand. Make sure you've labeled the urn so you know who's ashes are inside!"
 
@@ -449,7 +449,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
-	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
+	visible_message(SPAN_WARNING("\The [src] shatters!"), blind_message = SPAN_WARNING("You hear a small glass object shatter!"))
 	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 	new /obj/item/material/shard(get_turf(src))
 	qdel(src)

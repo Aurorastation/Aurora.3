@@ -107,7 +107,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] buzzes!"))
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message(SPAN_DANGER("\The [user] slams \the [target_mob] away with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [target_mob] away with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		step_away(target_mob,user,15)
@@ -164,7 +164,7 @@
 			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 				if (target_mob.r_hand && target_mob.r_hand != src)
 					target_mob.drop_r_hand()
-			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"))
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		return
 
 /obj/item/melee/ceremonial_sword
@@ -232,6 +232,6 @@
 
 	// Visible messages for either result.
 	if(drop_result)
-		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 	else
-		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)

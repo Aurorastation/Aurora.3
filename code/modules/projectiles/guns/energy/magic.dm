@@ -24,7 +24,7 @@
 
 /obj/item/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)
-		user.visible_message("*fizzle*", SPAN_DANGER("*fizzle*"))
+		user.visible_message("*fizzle*", self_message = SPAN_DANGER("*fizzle*"), visible_message_flags = GHOST_MESSAGE)
 	else
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)

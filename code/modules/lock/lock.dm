@@ -66,7 +66,7 @@
 	var/unlock_power = I.lock_picking_level
 	if(!unlock_power)
 		return 0
-	user.visible_message("\The [user] takes out \the [I], picking \the [holder]'s lock.")
+	user.visible_message("\The [user] takes out \the [I], picking \the [holder]'s lock.", visible_message_flags = GHOST_MESSAGE)
 	if(!do_after(user, 2 SECONDS, holder))
 		return 0
 	if(prob(20*(unlock_power/getComplexity())))

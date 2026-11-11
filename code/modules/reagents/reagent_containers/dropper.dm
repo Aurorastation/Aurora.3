@@ -43,7 +43,7 @@
 
 		if(ismob(target))
 			var/time = 20 //2/3rds the time of a syringe
-			user.visible_message(SPAN_WARNING("[user] is trying to squirt something into [target]'s eyes!"))
+			user.visible_message(SPAN_WARNING("[user] is trying to squirt something into [target]'s eyes!"), visible_message_flags = GHOST_MESSAGE)
 
 			if(!do_mob(user, target, time))
 				return
@@ -67,14 +67,14 @@
 
 				if(safe_thing)
 					trans = reagents.trans_to_obj(safe_thing, amount_per_transfer_from_this)
-					user.visible_message(SPAN_WARNING("[user] tries to squirt something into [target]'s eyes, but fails!"), SPAN_WARNING("You try to squirt something into [target]'s eyes, but fail!"))
+					user.visible_message(SPAN_WARNING("[user] tries to squirt something into [target]'s eyes, but fails!"), self_message = SPAN_WARNING("You try to squirt something into [target]'s eyes, but fail!"), visible_message_flags = GHOST_MESSAGE)
 					return
 
 			var/mob/living/M = target
 			var/contained = reagentlist()
 			trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
 			admin_inject_log(user, M, src, contained, reagents.get_temperature(), trans)
-			user.visible_message(SPAN_WARNING("[user] squirts something into [target]'s eyes!"), SPAN_NOTICE("You transfer [trans] units of the solution. [reagents.total_volume] units remaining in \the [src]."))
+			user.visible_message(SPAN_WARNING("[user] squirts something into [target]'s eyes!"), self_message = SPAN_NOTICE("You transfer [trans] units of the solution. [reagents.total_volume] units remaining in \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			return
 
 		else

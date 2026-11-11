@@ -363,7 +363,7 @@
 	var/mob/living/L = target
 
 	if(isanimal(target))
-		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.")
+		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.", visible_message_flags = (ismob(target) ? GHOST_MESSAGE : NONE))
 		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
 
 		//Determine in how long the mob will be put to rest, depending on its size

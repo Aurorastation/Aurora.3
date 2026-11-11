@@ -109,7 +109,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 
 		var/pays_horizon_account = package.pays_horizon_account
 
-		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."))
+		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", self_message = SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 			user.drop_from_inventory(attacking_item, src)
 			pay_account(user, attacking_item)

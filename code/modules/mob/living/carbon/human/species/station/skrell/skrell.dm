@@ -130,7 +130,7 @@
 			if(!H.organs_by_name[BP_HEAD] || istype(H.organs_by_name[BP_HEAD], /obj/item/organ/external/stump))
 				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head!"))
 				return
-			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"))
+			user.visible_message(SPAN_WARNING("\The [user] is trying to remove something from \the [H]'s headtails!"), visible_message_flags = GHOST_MESSAGE)
 			if(do_after(user, HUMAN_STRIP_DELAY, do_flags = DO_EQUIP))
 				var/obj/item/storage/internal/skrell/S = locate() in H.organs_by_name[BP_HEAD]
 				var/obj/item/I = locate() in S

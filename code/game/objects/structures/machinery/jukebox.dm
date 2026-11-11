@@ -126,7 +126,7 @@
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(music_player?.playing)
 			StopPlaying()
-		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), self_message = "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].", visible_message_flags = GHOST_MESSAGE)
 		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()

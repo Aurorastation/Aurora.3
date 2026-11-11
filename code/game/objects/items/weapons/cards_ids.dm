@@ -108,7 +108,7 @@
 		log_and_message_admins("emagged \an [A].")
 
 	if(uses<1)
-		user.visible_message(SPAN_WARNING("\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent."))
+		user.visible_message(SPAN_WARNING("\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent."), visible_message_flags = GHOST_MESSAGE)
 		var/obj/item/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		user.drop_from_inventory(src,get_turf(junk))
@@ -295,7 +295,7 @@
 		message += " [add_text]"
 	if(blind_add_text != "")
 		blind_message += " [blind_add_text]"
-	user.visible_message(message, blind_message)
+	user.visible_message(message, self_message = blind_message, visible_message_flags = GHOST_MESSAGE)
 
 /obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
@@ -315,11 +315,11 @@
 					to_chat(user, SPAN_WARNING("\The [target_human] is wearing gloves."))
 					return FALSE
 
-				user.visible_message("[user] tries to take \the [target_human]'s prints to scan their biometric data to the card.")
+				user.visible_message("[user] tries to take \the [target_human]'s prints to scan their biometric data to the card.", visible_message_flags = GHOST_MESSAGE)
 
 				if(user != target_human && do_after(user, 5 SECOND) && !target_human.lying)
 					if(target_human.a_intent != "help" || target_human.restrained())
-						user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [target_human], but they move away."))
+						user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [target_human], but they move away."), visible_message_flags = GHOST_MESSAGE)
 						return FALSE
 
 				var/has_hand
@@ -334,7 +334,7 @@
 					to_chat(user, SPAN_WARNING("They don't have any hands."))
 					return TRUE
 
-				user.visible_message("[user] imprints [src] with \the [target_human]'s biometrics.")
+				user.visible_message("[user] imprints [src] with \the [target_human]'s biometrics.", visible_message_flags = GHOST_MESSAGE)
 
 				mob_id = WEAKREF(target_human)
 				blood_type = target_human.dna.b_type

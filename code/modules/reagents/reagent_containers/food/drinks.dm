@@ -65,7 +65,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
-			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
+			user.visible_message("[user] shakes \the [src]!", self_message = "You shake \the [src]!", visible_message_flags = GHOST_MESSAGE)
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
@@ -78,13 +78,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
-	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop.")
+	user.visible_message("<b>[user]</b> opens \the [src].", self_message = SPAN_NOTICE("You open \the [src] with an audible pop!"), blind_message = "You can hear a pop.", visible_message_flags = GHOST_MESSAGE)
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
-							SPAN_DANGER("\The [src] explodes all over you as you open it!"),
-							"You can hear a soda can explode.")
+							self_message = SPAN_DANGER("\The [src] explodes all over you as you open it!"),
+							blind_message = "You can hear a soda can explode.", visible_message_flags = GHOST_MESSAGE)
 
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()

@@ -9,7 +9,7 @@
 	if(.)
 		var/old_pass_flags = user.pass_flags
 		user.pass_flags |= PASSTABLE
-		user.visible_message(SPAN_DANGER("\The [user] takes a flying leap!"))
+		user.visible_message(SPAN_DANGER("\The [user] takes a flying leap!"), visible_message_flags = GHOST_MESSAGE)
 		strength = max(2, strength * user.get_jump_distance())
 		if(reflexively)
 			strength *= reflexive_modifier
@@ -46,7 +46,7 @@
 	user.post_maneuver()
 
 /singleton/maneuver/leap/show_initial_message(var/mob/living/user, var/atom/target)
-	user.visible_message(SPAN_WARNING("\The [user] crouches, preparing for a leap!"))
+	user.visible_message(SPAN_WARNING("\The [user] crouches, preparing for a leap!"), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/maneuver/leap/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
 	. = ..()
@@ -70,7 +70,7 @@
 	stamina_cost = 0
 
 /singleton/maneuver/leap/spider/show_initial_message(var/mob/living/user, var/atom/target)
-	user.visible_message(SPAN_WARNING("\The [user] reels back and prepares to launch itself at \the [target]!"))
+	user.visible_message(SPAN_WARNING("\The [user] reels back and prepares to launch itself at \the [target]!"), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/maneuver/leap/grab/end_leap(mob/living/user, atom/target, pass_flag)
 	. = ..()

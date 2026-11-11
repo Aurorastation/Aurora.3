@@ -16,7 +16,7 @@
 
 /// Create balloon alerts (text that floats up) to everything within range.
 /// Will only display to people who can see.
-/atom/proc/balloon_alert_to_viewers(message, self_message, vision_distance = 7, list/ignored_mobs)
+/atom/proc/balloon_alert_to_viewers(message, self_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	// This has to be unlinted because the linter thinks that oranges ears will add reagents and call send_asset
@@ -32,7 +32,7 @@
 
 /// Create balloon alerts (text that floats up) to everything within range.
 /// Will only display to people who can hear.
-/atom/proc/balloon_alert_to_hearers(message, self_message, hearing_distance = 7, list/ignored_mobs)
+/atom/proc/balloon_alert_to_hearers(message, self_message, hearing_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	var/list/hearers = UNLINT(get_hearers_in_view(hearing_distance, src))

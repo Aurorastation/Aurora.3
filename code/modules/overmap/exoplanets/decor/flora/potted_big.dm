@@ -33,7 +33,7 @@
 		return
 	if(istype(attacking_item, /obj/item/holder))
 		return //no hiding mobs in there
-	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [attacking_item].")
+	user.visible_message("[user] begins digging around inside of \the [src].", self_message = "You begin digging around in \the [src], trying to hide \the [attacking_item].", visible_message_flags = GHOST_MESSAGE)
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 20, src))
 		if(!stored_item)
@@ -51,7 +51,7 @@
 	return ..()
 
 /obj/structure/flora/pottedplant/attack_hand(mob/user)
-	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], searching it.")
+	user.visible_message("[user] begins digging around inside of \the [src].", self_message = "You begin digging around in \the [src], searching it.", visible_message_flags = GHOST_MESSAGE)
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 40, src))
 		if(!stored_item)

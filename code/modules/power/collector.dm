@@ -105,7 +105,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 	if(!src.locked)
 		toggle_power()
 		user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
-		"You turn the [src.name] [active? "on":"off"].")
+		self_message = "You turn the [src.name] [active? "on":"off"].", visible_message_flags = GHOST_MESSAGE)
 		investigate_log("turned [active ? SPAN_COLOR("green", "on") : SPAN_COLOR("red", "off")] by [user.key]. [loaded_tank ? "Fuel: [round(loaded_tank.air_contents.gas[GAS_PHORON]/0.29)]%" : SPAN_COLOR("red", "It is empty")].","singulo")
 	else
 		USE_FEEDBACK_FAILURE("The controls are locked!")
@@ -144,8 +144,8 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
-			"You [anchored? "secure":"undo"] the external bolts.", \
-			"You hear a ratchet")
+			self_message = "You [anchored? "secure":"undo"] the external bolts.", \
+			blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
 		if(anchored && !(stat & BROKEN))
 			connect_to_network()
 		else

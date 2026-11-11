@@ -81,7 +81,7 @@
 /turf/unsimulated/wall/supermatter/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
 		"<span class=\"danger\">You reach out and touch \the [src]. Everything immediately goes quiet. Your last thought is \"That was not a wise decision.\"</span>",\
-		"<span class=\"warning\">You hear an unearthly noise.</span>")
+		"<span class=\"warning\">You hear an unearthly noise.</span>", visible_message_flags = GHOST_MESSAGE)
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
@@ -90,7 +90,7 @@
 /turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/user)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
-		"<span class=\"warning\">Everything suddenly goes silent.</span>")
+		"<span class=\"warning\">Everything suddenly goes silent.</span>", visible_message_flags = GHOST_MESSAGE)
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
@@ -106,7 +106,7 @@
 	if(istype(bumped_atom, /mob/living))
 		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] slams into \the [src] inducing a resonance... [bumped_atom.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
-		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
+		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>", visible_message_flags = GHOST_MESSAGE)
 	else
 		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash.</span>",\
 		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")

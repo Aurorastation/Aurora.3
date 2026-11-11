@@ -84,18 +84,18 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/access_hub/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts opening the interface hub where [target_possessive(user, target)] [affected.name] meets [target_possessive(user, target)] body with \the [tool]."), \
-		SPAN_NOTICE("You start opening the interface hub where [target_possessive(user, target, TRUE)] [affected.name] meets [target_possessive(user, target, TRUE)] body with \the [tool]."))
+		self_message = SPAN_NOTICE("You start opening the interface hub where [target_possessive(user, target, TRUE)] [affected.name] meets [target_possessive(user, target, TRUE)] body with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/access_hub/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_HUB_OPEN
 	user.visible_message(SPAN_NOTICE("[user] opens the interface hub for [target_possessive(user, target)] [affected.name]."), \
-		SPAN_NOTICE("You open [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, exposing its power and neural connections."))
+		self_message = SPAN_NOTICE("You open [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, exposing its power and neural connections."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/access_hub/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips while opening [target_possessive(user, target)] prosthetic interface hub."), \
-		SPAN_WARNING("Your [tool.name] slips while opening [target_possessive(user, target, TRUE)] prosthetic interface hub."))
+		self_message = SPAN_WARNING("Your [tool.name] slips while opening [target_possessive(user, target, TRUE)] prosthetic interface hub."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disable_connection
 	name = "Disable Prosthetic Power and Neural Connection"
@@ -114,18 +114,18 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts disabling the power feed and neural connection to [target_possessive(user, target)] [affected.name] with \the [tool]."), \
-		SPAN_NOTICE("You start disabling the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start disabling the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
 	user.visible_message(SPAN_NOTICE("[user] disables the power feed and neural connection to [target_possessive(user, target)] [affected.name]."), \
-		SPAN_NOTICE("You disable the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name]."))
+		self_message = SPAN_NOTICE("You disable the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disable_connection/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user] fails to disable [target_possessive(user, target)] prosthetic's connections."), \
-		SPAN_WARNING("You fail to disable [target_possessive(user, target, TRUE)] prosthetic's connections."))
+		self_message = SPAN_WARNING("You fail to disable [target_possessive(user, target, TRUE)] prosthetic's connections."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties
 	name = "Disengage Prosthetic Safety Locks"
@@ -141,18 +141,18 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts mechanically disengaging [target_possessive(user, target)] [affected.name]'s safety locks with \the [tool]."), \
-		SPAN_NOTICE("You start mechanically disengaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."))
+		self_message = SPAN_NOTICE("You start mechanically disengaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
 	user.visible_message(SPAN_NOTICE("[user] disengages [target_possessive(user, target)] [affected.name]'s safety locks."), \
-		SPAN_NOTICE("You disengage [target_possessive(user, target, TRUE)] [affected.name]'s safety locks."))
+		self_message = SPAN_NOTICE("You disengage [target_possessive(user, target, TRUE)] [affected.name]'s safety locks."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/disengage_safeties/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips off [target_possessive(user, target)] prosthetic's safety locks."), \
-		SPAN_WARNING("Your [tool.name] slips off [target_possessive(user, target, TRUE)] prosthetic's safety locks."))
+		self_message = SPAN_WARNING("Your [tool.name] slips off [target_possessive(user, target, TRUE)] prosthetic's safety locks."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/release_anchors
 	name = "Release Prosthetic Retention Anchors"
@@ -171,18 +171,18 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts releasing [target_possessive(user, target)] [affected.name]'s retention anchors with \the [tool]."), \
-		SPAN_NOTICE("You start releasing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."))
+		self_message = SPAN_NOTICE("You start releasing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_ANCHORS_RELEASED
 	user.visible_message(SPAN_NOTICE("[user] releases [target_possessive(user, target)] [affected.name]'s retention anchors."), \
-		SPAN_NOTICE("You release [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors. It can now be removed by hand."))
+		self_message = SPAN_NOTICE("You release [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors. It can now be removed by hand."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user] fails to release [target_possessive(user, target)] prosthetic's retention anchors."), \
-		SPAN_WARNING("You fail to release [target_possessive(user, target, TRUE)] prosthetic's retention anchors."))
+		self_message = SPAN_WARNING("You fail to release [target_possessive(user, target, TRUE)] prosthetic's retention anchors."), visible_message_flags = GHOST_MESSAGE)
 
 //////////////////////////////////////////////////////////////////
 //                 PROSTHETIC DETACHMENT REVERSAL               //
@@ -205,7 +205,7 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts securing [target_possessive(user, target)] [affected.name]'s retention anchors with \the [tool]."), \
-		SPAN_NOTICE("You start securing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."))
+		self_message = SPAN_NOTICE("You start securing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -214,7 +214,7 @@
 		return
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
 	user.visible_message(SPAN_NOTICE("[user] secures [target_possessive(user, target)] [affected.name]'s retention anchors."), \
-		SPAN_NOTICE("You secure [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors."))
+		self_message = SPAN_NOTICE("You secure [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties
 	name = "Engage Prosthetic Safety Locks"
@@ -230,7 +230,7 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts engaging [target_possessive(user, target)] [affected.name]'s safety locks with \the [tool]."), \
-		SPAN_NOTICE("You start engaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."))
+		self_message = SPAN_NOTICE("You start engaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -256,7 +256,7 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts restoring the power feed and neural connection to [target_possessive(user, target)] [affected.name] with \the [tool]."), \
-		SPAN_NOTICE("You start restoring the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start restoring the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -282,7 +282,7 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/close_hub/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] starts closing [target_possessive(user, target)] [affected.name]'s interface hub with \the [tool]."), \
-		SPAN_NOTICE("You start closing [target_possessive(user, target, TRUE)] [affected.name]'s interface hub with \the [tool]."))
+		self_message = SPAN_NOTICE("You start closing [target_possessive(user, target, TRUE)] [affected.name]'s interface hub with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/prosthetic_detachment/close_hub/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -291,7 +291,7 @@
 		return
 	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
 	user.visible_message(SPAN_NOTICE("[user] closes [target_possessive(user, target)] [affected.name]'s interface hub, returning it to normal operation."), \
-		SPAN_NOTICE("You close [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, returning it to normal operation."))
+		self_message = SPAN_NOTICE("You close [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, returning it to normal operation."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/unscrew_hatch
 	name = "Unscrew Hatch"
@@ -320,19 +320,19 @@
 /singleton/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to unscrew the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You start to unscrew the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start to unscrew the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/unscrew_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has opened the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You have opened the maintenance hatch on [target]'s [affected.name] with \the [tool]."),)
+		self_message = SPAN_NOTICE("You have opened the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE,)
 	affected.open = ORGAN_OPEN_INCISION
 
 /singleton/surgery_step/robotics/unscrew_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to unscrew [target]'s [affected.name]."), \
-		SPAN_WARNING("Your [tool] slips, failing to unscrew [target]'s [affected.name]."))
+		self_message = SPAN_WARNING("Your [tool] slips, failing to unscrew [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/screw_hatch
 	name = "Screw Hatch"
@@ -361,19 +361,19 @@
 /singleton/surgery_step/robotics/screw_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to screw the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You start to screw the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start to screw the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/screw_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has closed the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You have closed the maintenance hatch on [target]'s [affected.name] with \the [tool]."),)
+		self_message = SPAN_NOTICE("You have closed the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE,)
 	affected.open = ORGAN_CLOSED
 
 /singleton/surgery_step/robotics/screw_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to screw [target]'s [affected.name]."), \
-		SPAN_WARNING("Your [tool] slips, failing to screw [target]'s [affected.name]."))
+		self_message = SPAN_WARNING("Your [tool] slips, failing to screw [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/open_hatch
 	name = "Open Hatch"
@@ -398,19 +398,19 @@
 /singleton/surgery_step/robotics/open_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts to pry open the maintenance hatch on [target]'s [affected.name] with \the [tool].",
-		SPAN_NOTICE("You start to pry open the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start to pry open the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/open_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] opens the maintenance hatch on [target]'s [affected.name] with \the [tool]."), \
-		SPAN_NOTICE("You open the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You open the maintenance hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	affected.open = ORGAN_ENCASED_RETRACTED
 
 /singleton/surgery_step/robotics/open_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to open the hatch on [target]'s [affected.name]."),
-		SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."))
+		self_message = SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/close_hatch
 	name = "Close Hatch"
@@ -438,20 +438,20 @@
 /singleton/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> begins to close the hatch on [target]'s [affected.name] with \the [tool]." , \
-		SPAN_NOTICE("You begin to close the hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You begin to close the hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/close_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> closes the hatch on [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You close the hatch on [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You close the hatch on [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	affected.open = ORGAN_OPEN_INCISION
 	affected.germ_level = 0
 
 /singleton/surgery_step/robotics/close_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."),
-		SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."))
+		self_message = SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/repair_brute
 	name = "Repair Damage"
@@ -477,7 +477,7 @@
 /singleton/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> begins to patch damage to [target]'s [affected.name]'s support structure with \the [tool]." , \
-		SPAN_NOTICE("You begin to patch damage to [target]'s [affected.name]'s support structure with \the [tool]."))
+		self_message = SPAN_NOTICE("You begin to patch damage to [target]'s [affected.name]'s support structure with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -485,17 +485,17 @@
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(2, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
-			SPAN_WARNING("Your [tool] is shut off!"))
+			self_message = SPAN_WARNING("Your [tool] is shut off!"), visible_message_flags = GHOST_MESSAGE)
 			return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> finishes patching damage to [target]'s [affected.name] with \the [tool].", \
-		SPAN_NOTICE("You finish patching damage to [target]'s [affected.name] with \the [tool]."))
+		self_message = SPAN_NOTICE("You finish patching damage to [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	affected.heal_damage(rand(30,50),0,1,1)
 
 /singleton/surgery_step/robotics/repair_brute/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."),
-		SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."))
+		self_message = SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/repair_burn
@@ -526,19 +526,19 @@
 /singleton/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> begins to splice new cabling into [target]'s [affected.name]." , \
-		SPAN_NOTICE("You begin to splice new cabling into [target]'s [affected.name]."))
+		self_message = SPAN_NOTICE("You begin to splice new cabling into [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/repair_burn/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> finishes splicing cable into [target]'s [affected.name]", \
-		SPAN_NOTICE("You finishes splicing new cable into [target]'s [affected.name]."))
+		self_message = SPAN_NOTICE("You finishes splicing new cable into [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 	affected.heal_damage(0,rand(30,50),1,1)
 
 /singleton/surgery_step/robotics/repair_burn/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user] causes a short circuit in [target]'s [affected.name]!"),
-		SPAN_WARNING("You cause a short circuit in [target]'s [affected.name]!"))
+		self_message = SPAN_WARNING("You cause a short circuit in [target]'s [affected.name]!"), visible_message_flags = GHOST_MESSAGE)
 	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/detach_organ_robotic
@@ -575,12 +575,12 @@
 
 /singleton/surgery_step/robotics/detach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to decouple [target]'s [target.op_stage.current_organ] with \the [tool].", \
-		SPAN_NOTICE("You start to decouple [target]'s [target.op_stage.current_organ] with \the [tool]." ))
+		self_message = SPAN_NOTICE("You start to decouple [target]'s [target.op_stage.current_organ] with \the [tool]." ), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/detach_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has decoupled [target]'s [target.op_stage.current_organ] with \the [tool]." , \
-		SPAN_NOTICE("You have decoupled [target]'s [target.op_stage.current_organ] with \the [tool]."))
+		self_message = SPAN_NOTICE("You have decoupled [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 
 	var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 	if(I && istype(I))
@@ -588,7 +588,7 @@
 
 /singleton/surgery_step/robotics/detach_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, disconnecting \the [tool]."), \
-	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
+	self_message = SPAN_WARNING("Your hand slips, disconnecting \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/attach_organ_robotic
 	name = "Attach Robotic Organ"
@@ -624,12 +624,12 @@
 
 /singleton/surgery_step/robotics/attach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
-		SPAN_NOTICE("You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool]."))
+		self_message = SPAN_NOTICE("You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/attach_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has reattached [target]'s [target.op_stage.current_organ] with \the [tool]." , \
-		SPAN_NOTICE("You have reattached [target]'s [target.op_stage.current_organ] with \the [tool]."))
+		self_message = SPAN_NOTICE("You have reattached [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 
 	var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 	if(I && istype(I))
@@ -637,7 +637,7 @@
 
 /singleton/surgery_step/robotics/attach_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, disconnecting \the [tool]."), \
-		SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
+		self_message = SPAN_WARNING("Your hand slips, disconnecting \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/install_mmi
 	name = "Install MMI"
@@ -691,13 +691,13 @@
 /singleton/surgery_step/robotics/install_mmi/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts installing \the [tool] into [target]'s [affected.name].", \
-		SPAN_NOTICE("You start installing \the [tool] into [target]'s [affected.name]."))
+		self_message = SPAN_NOTICE("You start installing \the [tool] into [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/install_mmi/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has installed \the [tool] into [target]'s [affected.name].", \
-		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
+		self_message = SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
 
 	var/obj/item/mmi/M = tool
 	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
@@ -711,7 +711,7 @@
 
 /singleton/surgery_step/robotics/install_mmi/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips."), \
-		SPAN_WARNING("Your hand slips."))
+		self_message = SPAN_WARNING("Your hand slips."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/internal/fix_internal_wiring
 	name = "Repair Internal Wiring"
@@ -750,7 +750,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.wiring.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins splitting and connecting new wiring in [target]'s [I]..."))
+			user.visible_message(SPAN_NOTICE("[user] begins splitting and connecting new wiring in [target]'s [I]..."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/fix_internal_wiring/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -759,7 +759,7 @@
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.wiring.get_status() < 100))
 			var/needed_wires = I.wiring.max_wires - I.wiring.wires
-			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
+			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."), visible_message_flags = GHOST_MESSAGE)
 			I.wiring.heal_damage(needed_wires)
 
 /singleton/surgery_step/internal/fix_internal_electronics
@@ -791,7 +791,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.electronics.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins replacing the electronics in [target]'s [I] and reconfiguring them..."))
+			user.visible_message(SPAN_NOTICE("[user] begins replacing the electronics in [target]'s [I] and reconfiguring them..."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/fix_internal_electronics/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -799,7 +799,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.electronics.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."))
+			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."), visible_message_flags = GHOST_MESSAGE)
 			I.electronics.heal_damage(I.electronics.max_integrity)
 
 /singleton/surgery_step/internal/fix_internal_plating
@@ -842,7 +842,7 @@
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
 			var/damage_type = pick("damage", "kinks", "gashes", "holes")
-			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [damage_type] on the plating around [target]'s [I]..."), "You begin melding steel to the [damage_type] on the plating around [target]'s [I]...")
+			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [damage_type] on the plating around [target]'s [I]..."), self_message = "You begin melding steel to the [damage_type] on the plating around [target]'s [I]...", visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -850,7 +850,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."), SPAN_NOTICE("You mend the plating around [target]'s [affected]."))
+			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."), self_message = SPAN_NOTICE("You mend the plating around [target]'s [affected]."), visible_message_flags = GHOST_MESSAGE)
 			I.plating.heal_damage(I.plating.max_health)
 
 /singleton/surgery_step/internal/replace_internal_plating
@@ -882,7 +882,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating around [target]'s [I] and replacing it with new plates..."))
+			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating around [target]'s [I] and replacing it with new plates..."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/replace_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -890,7 +890,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() <= 0))
-			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
+			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."), visible_message_flags = GHOST_MESSAGE)
 			user.remove_from_mob(tool)
 			qdel(tool)
 			I.plating.heal_damage(I.plating.max_health)
@@ -925,12 +925,12 @@
 /singleton/surgery_step/internal/replace_external_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
-	user.visible_message(SPAN_NOTICE("[user] begins stripping [target]'s old armour plating and replacing it with new plates."), SPAN_NOTICE("You begin stripping off [target]'s old armour plating and replacing it with new plates."))
+	user.visible_message(SPAN_NOTICE("[user] begins stripping [target]'s old armour plating and replacing it with new plates."), self_message = SPAN_NOTICE("You begin stripping off [target]'s old armour plating and replacing it with new plates."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/replace_external_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	. = ..()
-	user.visible_message(SPAN_NOTICE("[user] finished replacing [target]'s old armour plating with new plates."), SPAN_NOTICE("You finish replacing [target]'s old armour plating with new plates."))
+	user.visible_message(SPAN_NOTICE("[user] finished replacing [target]'s old armour plating with new plates."), self_message = SPAN_NOTICE("You finish replacing [target]'s old armour plating with new plates."), visible_message_flags = GHOST_MESSAGE)
 	var/datum/component/armor/synthetic/synth_armor = target.GetComponent(/datum/component/armor/synthetic)
 	if(istype(synth_armor))
 		for(var/key in synth_armor.armor_values)
@@ -973,7 +973,7 @@
 /singleton/surgery_step/internal/degunk/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
-	user.visible_message(SPAN_NOTICE("[user] begins draining the refuse inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the refuse inside of [target]'s biological reactor."))
+	user.visible_message(SPAN_NOTICE("[user] begins draining the refuse inside of [target]'s biological reactor..."), self_message = SPAN_NOTICE("You begin draining the refuse inside of [target]'s biological reactor."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/internal/degunk/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -984,7 +984,7 @@
 		if(!ispath(reagent_type, /singleton/reagent/nutriment))
 			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
 	playsound(target, 'sound/effects/drain_blood.ogg', 50)
-	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."))
+	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), self_message = SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."), visible_message_flags = GHOST_MESSAGE)
 
 /singleton/surgery_step/robotics/repair_endoskeleton
 	name = "Repair Endoskeleton"
@@ -1013,7 +1013,7 @@
 
 /singleton/surgery_step/robotics/repair_endoskeleton/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins to repair the support structures of [target]'s endoskeleton with \the [tool]." , \
-		SPAN_NOTICE("You begin to repair the support structures of [target]'s endoskeleton  with \the [tool]."))
+		self_message = SPAN_NOTICE("You begin to repair the support structures of [target]'s endoskeleton  with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	..()
 
 /singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -1021,14 +1021,14 @@
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(5, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
-			SPAN_WARNING("Your [tool] is shut off!"))
+			self_message = SPAN_WARNING("Your [tool] is shut off!"), visible_message_flags = GHOST_MESSAGE)
 			return
 	user.visible_message("<b>[user]</b> finishes repairing some damage to [target]'s endoskeleton with \the [tool].", \
-		SPAN_NOTICE("You finish repairing some damage to [target]'s endoskeleton with \the [tool]."))
+		self_message = SPAN_NOTICE("You finish repairing some damage to [target]'s endoskeleton with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
 	SEND_SIGNAL(target, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(30, 50))
 
 /singleton/surgery_step/robotics/repair_endoskeleton/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"),
-		SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"))
+		self_message = SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"), visible_message_flags = GHOST_MESSAGE)
 	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)

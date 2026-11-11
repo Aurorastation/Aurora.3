@@ -310,7 +310,7 @@
 		if(istype(I))
 			if(!(user.l_hand && user.r_hand))
 				user.put_in_hands(I)
-		user.visible_message(SPAN_DANGER("\The [user] rips \the [I] out of \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] rips \the [I] out of \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 		return //no eating the limb until everything's been removed
 	return ..()
 
@@ -332,7 +332,7 @@
 			if(locate(/obj/item/access_cable) in src)
 				to_chat(user, SPAN_WARNING("\The [src] already has an access cable connected."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] connects \the [access_cable] to \the [src]'s service interface."))
+			user.visible_message(SPAN_NOTICE("[user] connects \the [access_cable] to \the [src]'s service interface."), visible_message_flags = GHOST_MESSAGE)
 			insert_cable(access_cable, user)
 			access_cable.create_cable(src)
 			return TRUE
@@ -343,12 +343,12 @@
 	switch(stage)
 		if(0)
 			if(istype(attacking_item, /obj/item/surgery/scalpel))
-				user.visible_message(SPAN_DANGER("<b>[user]</b> cuts [src] open with [attacking_item]!"))
+				user.visible_message(SPAN_DANGER("<b>[user]</b> cuts [src] open with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 				stage++
 				return
 		if(1)
 			if(istype(attacking_item, /obj/item/surgery/retractor))
-				user.visible_message(SPAN_DANGER("<b>[user]</b> cracks [src] open like an egg with [attacking_item]!"))
+				user.visible_message(SPAN_DANGER("<b>[user]</b> cracks [src] open like an egg with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 				stage++
 				return
 		if(2)
@@ -367,9 +367,9 @@
 
 					if(!(user.l_hand && user.r_hand))
 						user.put_in_hands(removing)
-					user.visible_message(SPAN_DANGER("<b>[user]</b> extracts [removing] from [src] with [attacking_item]!"))
+					user.visible_message(SPAN_DANGER("<b>[user]</b> extracts [removing] from [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 				else
-					user.visible_message(SPAN_DANGER("<b>[user]</b> fishes around fruitlessly in [src] with [attacking_item]."))
+					user.visible_message(SPAN_DANGER("<b>[user]</b> fishes around fruitlessly in [src] with [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
 				return
 	..()
 
@@ -389,13 +389,13 @@
 		if(!welder.isOn() || welder.get_fuel() < 2)
 			to_chat(user, SPAN_WARNING("You need a lit welding tool with enough fuel to repair \the [src]."))
 			return TRUE
-		user.visible_message(SPAN_NOTICE("[user] begins repairing the structure of \the [src] with \the [welder]."))
+		user.visible_message(SPAN_NOTICE("[user] begins repairing the structure of \the [src] with \the [welder]."), visible_message_flags = GHOST_MESSAGE)
 		if(!welder.use_tool(src, user, 4 SECONDS, volume = 15))
 			return TRUE
 		if(owner || !welder.isOn() || !welder.use(2, user))
 			return TRUE
 		brute_part.heal_damage(brute = 15, internal = TRUE, robo_repair = TRUE)
-		user.visible_message(SPAN_NOTICE("[user] repairs some of the structural damage on \the [brute_part]."))
+		user.visible_message(SPAN_NOTICE("[user] repairs some of the structural damage on \the [brute_part]."), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 
 	if(istype(repair_tool, /obj/item/stack/cable_coil))
@@ -411,11 +411,11 @@
 		if(!cable_coil.can_use(2, user))
 			to_chat(user, SPAN_WARNING("You need at least two lengths of cable to repair \the [src]."))
 			return TRUE
-		user.visible_message(SPAN_NOTICE("[user] begins replacing damaged wiring in \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] begins replacing damaged wiring in \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, 4 SECONDS, src) || owner || !cable_coil.use(2))
 			return TRUE
 		burn_part.heal_damage(burn = 15, internal = TRUE, robo_repair = TRUE)
-		user.visible_message(SPAN_NOTICE("[user] replaces some of the damaged wiring in \the [burn_part]."))
+		user.visible_message(SPAN_NOTICE("[user] replaces some of the damaged wiring in \the [burn_part]."), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 
 	if(istype(repair_tool, /obj/item/stack/nanopaste))
@@ -430,11 +430,11 @@
 			return TRUE
 		if(!nanopaste.can_use(1, user))
 			return TRUE
-		user.visible_message(SPAN_NOTICE("[user] begins applying \the [nanopaste] to \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] begins applying \the [nanopaste] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(!do_after(user, nanopaste.time_to_apply, src) || owner || !nanopaste.use(1))
 			return TRUE
 		nanopaste_part.heal_damage(brute = 15, burn = 15, robo_repair = TRUE)
-		user.visible_message(SPAN_NOTICE("[user] finishes applying \the [nanopaste] to \the [nanopaste_part]."))
+		user.visible_message(SPAN_NOTICE("[user] finishes applying \the [nanopaste] to \the [nanopaste_part]."), visible_message_flags = GHOST_MESSAGE)
 		return TRUE
 
 	return FALSE
@@ -839,19 +839,19 @@ This function completely restores a damaged organ to perfect condition.
 				W.open_wound(damage)
 
 				if(bandage_level)
-					owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+					owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), self_message = SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), visible_message_flags = GHOST_MESSAGE)
 					bandage_level = BANDAGE_LEVEL_NONE
 					owner.update_bandages()
 
 				if(prob(25))
 					if(status & ORGAN_ROBOT)
 						owner.visible_message(SPAN_WARNING("The damage to [owner.name]'s [name] worsens."),\
-						SPAN_WARNING("The damage to your [name] worsens."),\
-						"You hear the screech of abused metal.")
+						self_message = SPAN_WARNING("The damage to your [name] worsens."),\
+						blind_message = "You hear the screech of abused metal.", visible_message_flags = GHOST_MESSAGE)
 					else
 						owner.visible_message(SPAN_WARNING("The wound on [owner.name]'s [name] widens with a nasty ripping noise."),\
-						SPAN_WARNING("The wound on your [name] widens with a nasty ripping noise."),\
-						"You hear a nasty ripping noise, as if flesh is being torn apart.")
+						self_message = SPAN_WARNING("The wound on your [name] widens with a nasty ripping noise."),\
+						blind_message = "You hear a nasty ripping noise, as if flesh is being torn apart.", visible_message_flags = GHOST_MESSAGE)
 
 				return W
 
@@ -873,7 +873,7 @@ This function completely restores a damaged organ to perfect condition.
 				LAZYADD(wounds, W)
 
 			if(bandage_level)
-				owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+				owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), self_message = SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), visible_message_flags = GHOST_MESSAGE)
 				bandage_level = BANDAGE_LEVEL_NONE
 				owner.update_bandages()
 		return W
@@ -1255,21 +1255,24 @@ Note that amputating the affected organ does in fact remove the infection from t
 				var/gore_sound = "[(status & ORGAN_ROBOT) ? "tortured metal" : "ripping tendons and flesh"]"
 				owner.visible_message(
 					SPAN_DANGER("\The [owner]'s [src.name] flies off in an arc!"),\
-					"<span class='moderate'><b><font size=5>Your [src.name] goes flying off!</font></b></span>",\
-					SPAN_DANGER("You hear the terrible sound of [gore_sound]."))
+					self_message = "<span class='moderate'><b><font size=5>Your [src.name] goes flying off!</font></b></span>",\
+					blind_message = SPAN_DANGER("You hear the terrible sound of [gore_sound]."),
+					visible_message_flags = GHOST_MESSAGE)
 		if(DROPLIMB_BURN)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
 				SPAN_DANGER("\The [owner]'s [src.name] flashes away into ashes!"),\
-				"<span class='moderate'><b><font size=5>Your [src.name] flashes away into ashes!</font></b></span>",\
-				SPAN_DANGER("You hear the crackling sound[gore]."))
+				self_message = "<span class='moderate'><b><font size=5>Your [src.name] flashes away into ashes!</font></b></span>",\
+				blind_message = SPAN_DANGER("You hear the crackling sound[gore]."),
+				visible_message_flags = GHOST_MESSAGE)
 		if(DROPLIMB_BLUNT)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " in a shower of gore"]"
 			var/gore_sound = "[(status & ORGAN_ROBOT) ? "rending sound of tortured metal" : "sickening splatter of gore"]"
 			owner.visible_message(
 				SPAN_DANGER("\The [owner]'s [src.name] explodes[gore]!"),\
-				"<span class='moderate'><b><font size=5>Your [src.name] explodes[gore]!</font></b></span>",\
-				SPAN_DANGER("You hear the [gore_sound]."))
+				self_message = "<span class='moderate'><b><font size=5>Your [src.name] explodes[gore]!</font></b></span>",\
+				blind_message = SPAN_DANGER("You hear the [gore_sound]."),
+				visible_message_flags = GHOST_MESSAGE)
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/original_parent = parent
@@ -1353,12 +1356,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (holder.handcuffed && (body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)))
 		holder.visible_message(\
 			"\The [holder.handcuffed.name] falls off of [holder.name].",\
-			"\The [holder.handcuffed.name] falls off you.")
+			self_message = "\The [holder.handcuffed.name] falls off you.", visible_message_flags = GHOST_MESSAGE)
 		holder.drop_from_inventory(holder.handcuffed)
 	if (holder.legcuffed && (body_part in list(FOOT_LEFT, FOOT_RIGHT, LEG_LEFT, LEG_RIGHT)))
 		holder.visible_message(\
 			"\The [holder.legcuffed.name] falls off of [holder.name].",\
-			"\The [holder.legcuffed.name] falls off you.")
+			self_message = "\The [holder.legcuffed.name] falls off you.", visible_message_flags = GHOST_MESSAGE)
 		holder.drop_from_inventory(holder.legcuffed)
 
 // checks if all wounds on the organ are bandaged
@@ -1427,8 +1430,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		var/message = pick("broke in half", "shattered")
 		owner.visible_message(\
 			SPAN_WARNING("<font size=4>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-			SPAN_DANGER("<font size=5>Something feels like it [message] in your [name]!</font>"),\
-			"You hear a sickening crack!")
+			self_message = SPAN_DANGER("<font size=5>Something feels like it [message] in your [name]!</font>"),\
+			blind_message = "You hear a sickening crack!", visible_message_flags = GHOST_MESSAGE)
 		if(owner.species && owner.can_feel_pain())
 			owner.emote("scream")
 			owner.flash_strong_pain()
@@ -1578,10 +1581,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if(!silent)
 		if(supplied_message)
-			owner.visible_message(SPAN_DANGER("[supplied_message]"))
+			owner.visible_message(SPAN_DANGER("[supplied_message]"), visible_message_flags = GHOST_MESSAGE)
 		else
 			owner.visible_message(SPAN_DANGER("\The [W] sticks in [owner]'s wound!"),
-									SPAN_DANGER("\The [W] sticks in your wound!"))
+									self_message = SPAN_DANGER("\The [W] sticks in your wound!"), visible_message_flags = GHOST_MESSAGE)
 
 	//Did we not get a supplied wound? Start by finding an existing wound that fits.
 	if(!supplied_wound)
@@ -1662,8 +1665,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(is_robotic && sabotaged)
 		victim.visible_message(
 			SPAN_DANGER("\The [victim]'s [src.name] explodes violently!"),\
-			SPAN_DANGER("Your [src.name] explodes!"),\
-			SPAN_DANGER("You hear an explosion!"))
+			self_message = SPAN_DANGER("Your [src.name] explodes!"),\
+			blind_message = SPAN_DANGER("You hear an explosion!"),
+			visible_message_flags = GHOST_MESSAGE)
 		explosion(get_turf(owner),-1,-1,2,3)
 		spark(victim, 5)
 		qdel(src)
@@ -1674,12 +1678,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(owner)
 		if(type == "brute")
 			owner.visible_message(SPAN_WARNING("You hear a sickening cracking sound coming from \the [owner]'s [name]."),	\
-			SPAN_DANGER("Your [name] becomes a mangled mess!"),	\
-			SPAN_WARNING("You hear a sickening crack."))
+			self_message = SPAN_DANGER("Your [name] becomes a mangled mess!"),	\
+			blind_message = SPAN_WARNING("You hear a sickening crack."), visible_message_flags = GHOST_MESSAGE)
 		else
 			owner.visible_message(SPAN_WARNING("\The [owner]'s [name] melts away, turning into a mangled mess!"),	\
-			SPAN_DANGER("Your [name] melts away!"),	\
-			SPAN_WARNING("You hear a sickening sizzle."))
+			self_message = SPAN_DANGER("Your [name] melts away!"),	\
+			blind_message = SPAN_WARNING("You hear a sickening sizzle."), visible_message_flags = GHOST_MESSAGE)
 	START_PROCESSING(SSprocessing, src)
 	disfigured = 1
 

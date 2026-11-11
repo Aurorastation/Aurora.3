@@ -68,10 +68,10 @@
 	user.say("Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
 	corpse_to_raise.visible_message(SPAN_WARNING("[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again."), \
 	SPAN_WARNING("Life... I'm alive again..."), \
-	SPAN_WARNING("You hear a faint, slightly familiar whisper."))
+	SPAN_WARNING("You hear a faint, slightly familiar whisper."), visible_message_flags = GHOST_MESSAGE)
 	body_to_maim.visible_message(SPAN_DANGER("[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!"), \
 	SPAN_DANGER("You feel as your blood boils, tearing you apart."), \
-	SPAN_DANGER("You hear a thousand voices, all crying in pain."))
+	SPAN_DANGER("You hear a thousand voices, all crying in pain."), visible_message_flags = GHOST_MESSAGE)
 
 	var/list/obj/item/organ/external/possible_limbs = list()
 	var/limbs_to_drop = round(rand(1, 3))

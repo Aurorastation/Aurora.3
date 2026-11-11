@@ -91,12 +91,12 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			if(I.default_type in burnable_materials)
 				I.use(1)
 				fuel = min(fuel + burnable_materials[I.default_type], max_fuel)
-				user.visible_message(SPAN_NOTICE("\The [user] adds some of \the [I] to \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] adds some of \the [I] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				return
 		if(is_type_in_list(attacking_item, burnable_other))
 			var/fuel_add = burnable_other[attacking_item]
 			fuel = min(fuel + fuel_add, max_fuel)
-			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [attacking_item] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [attacking_item] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			user.drop_from_inventory(attacking_item)
 			qdel(attacking_item)
 			return
@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			if(M.material.type in burnable_materials)
 				var/fuel_add = burnable_materials[M.material] * (M.w_class / 5) //if you crafted a small item, it's not worth as much fuel
 				fuel = min(fuel + fuel_add, max_fuel)
-				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				user.drop_from_inventory(attacking_item)
 				attacking_item.forceMove(get_turf(src))
 				qdel(attacking_item)

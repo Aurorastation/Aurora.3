@@ -318,7 +318,8 @@
 	*cancelled = TRUE
 	shooter.visible_message(
 		SPAN_DANGER("\The [shooter] fumbles with \the [shoota]'s safety in a blind panic!"),
-		SPAN_DANGER("You fumble with \the [shoota]'s safety in a blind panic!"))
+		self_message = SPAN_DANGER("You fumble with \the [shoota]'s safety in a blind panic!"),
+		visible_message_flags = GHOST_MESSAGE)
 
 /// Positive morale slightly improves unarmed hit/block chances. Psi-panic from negative morale reduces it instead.
 /datum/component/morale/proc/handle_harm_attack(mob/attacker, mob/defender, attacker_skill_level, miss_chance, rand_damage, block_chance)
@@ -357,7 +358,8 @@
 	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
-			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
+			self_message = SPAN_DANGER("You fumble with your mech's controls in a blind panic!"),
+			visible_message_flags = GHOST_MESSAGE)
 		*direction = pick(GLOB.cardinals)
 
 	if (direction == NORTH)
@@ -380,7 +382,8 @@
 	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
-			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
+			self_message = SPAN_DANGER("You fumble with your mech's controls in a blind panic!"),
+			visible_message_flags = GHOST_MESSAGE)
 		*direction = angle2dir(dir2angle(direction) + 180)
 
 	var/effective_morale = morale_ratio

@@ -61,7 +61,7 @@
 		if(health < maxhealth)
 			if(open)
 				add_health(10)
-				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
+				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),self_message = SPAN_NOTICE("You repair [src]!"), visible_message_flags = GHOST_MESSAGE)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
 				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))

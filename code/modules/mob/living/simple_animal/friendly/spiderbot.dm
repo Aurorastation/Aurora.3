@@ -127,7 +127,7 @@
 				if(health > maxhealth)
 					health = maxhealth
 				add_fingerprint(user)
-				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
+				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			else
 				to_chat(user, SPAN_WARNING("\The [src] is undamaged!"))
 		else
@@ -191,7 +191,7 @@
 	src.voice_name = src.name
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
-	src.visible_message(SPAN_DANGER("\The [src] makes an odd warbling noise, fizzles, and explodes!"))
+	src.visible_message(SPAN_DANGER("\The [src] makes an odd warbling noise, fizzles, and explodes!"), visible_message_flags = GHOST_MESSAGE)
 	explosion(get_turf(loc), -1, -1, 3, 5)
 	eject_brain()
 	death()
@@ -257,8 +257,8 @@
 
 	if(istype(held_item, /obj/item/grenade))
 		visible_message(SPAN_DANGER("\The [src] launches \the [held_item]!"), \
-			SPAN_DANGER("You launch \the [held_item]!"), \
-			"You hear a skittering noise and a thump!")
+			self_message = SPAN_DANGER("You launch \the [held_item]!"), \
+			blind_message = "You hear a skittering noise and a thump!", visible_message_flags = GHOST_MESSAGE)
 		var/obj/item/grenade/G = held_item
 		G.forceMove(src.loc)
 		G.prime()
@@ -266,8 +266,8 @@
 		return 1
 
 	visible_message(SPAN_NOTICE("\The [src] drops \the [held_item]."), \
-		SPAN_NOTICE("You drop \the [held_item]."), \
-		"You hear a skittering noise and a soft thump.")
+		self_message = SPAN_NOTICE("You drop \the [held_item]."), \
+		blind_message = "You hear a skittering noise and a soft thump.", visible_message_flags = GHOST_MESSAGE)
 
 	held_item.forceMove(src.loc)
 	held_item = null
@@ -298,8 +298,8 @@
 				held_item = selection
 				selection.forceMove(src)
 				visible_message(SPAN_NOTICE("\The [src] scoops up \the [held_item]."), \
-					SPAN_NOTICE("You grab \the [held_item]."), \
-					"You hear a skittering noise and a clink.")
+					self_message = SPAN_NOTICE("You grab \the [held_item]."), \
+					blind_message = "You hear a skittering noise and a clink.", visible_message_flags = GHOST_MESSAGE)
 				return held_item
 		to_chat(src, SPAN_WARNING("\The [selection] is too far away."))
 		return 0

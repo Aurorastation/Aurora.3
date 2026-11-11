@@ -88,7 +88,7 @@
 
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
-	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -118,9 +118,9 @@
 				if(I.matter)
 					busy = 1
 					update_icon()
-					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."), visible_message_flags = GHOST_MESSAGE)
 					if(do_after(src, 32))
-						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."))
+						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."), visible_message_flags = GHOST_MESSAGE)
 						qdel(I)
 					busy = 0
 					update_icon()
@@ -128,11 +128,11 @@
 
 				if(istype(O, /obj/item/storage))
 					var/obj/item/storage/S = O
-					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."), visible_message_flags = GHOST_MESSAGE)
 					busy = 2
 					update_icon()
 					if(do_after(src, 32))
-						src.visible_message(SPAN_WARNING("[src] rips \the [S] apart."))
+						src.visible_message(SPAN_WARNING("[src] rips \the [S] apart."), visible_message_flags = GHOST_MESSAGE)
 						S.spill(3, src.loc)
 						qdel(S)
 					busy = 0
@@ -141,11 +141,11 @@
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
-			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."), visible_message_flags = GHOST_MESSAGE)
 			busy = 2
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(SPAN_WARNING("[src] dismantles \the [TB]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [TB]."), visible_message_flags = GHOST_MESSAGE)
 				TB.break_to_parts(1)
 			busy = 0
 			update_icon()
@@ -154,11 +154,11 @@
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
-				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."))
+				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."), visible_message_flags = GHOST_MESSAGE)
 				busy = 2
 				update_icon()
 				if(do_after(src, 48))
-					src.visible_message(SPAN_WARNING("[src] dismantles \the [B]."))
+					src.visible_message(SPAN_WARNING("[src] dismantles \the [B]."), visible_message_flags = GHOST_MESSAGE)
 					B.dismantle()
 					qdel(B)
 				busy = 0
@@ -167,22 +167,22 @@
 
 		if(istype(O, /obj/structure/bed/stool))
 			var/obj/structure/bed/stool/S = O
-			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."), visible_message_flags = GHOST_MESSAGE)
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(SPAN_WARNING("[src] dismantles \the [S]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [S]."), visible_message_flags = GHOST_MESSAGE)
 				S.dismantle()
 			busy = 0
 			update_icon()
 			return
 
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
-			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."), visible_message_flags = GHOST_MESSAGE)
 			busy = 1
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(SPAN_WARNING("[src] recycles \the [O]."))
+				src.visible_message(SPAN_WARNING("[src] recycles \the [O]."), visible_message_flags = GHOST_MESSAGE)
 				qdel(O)
 			busy = 0
 			update_icon()
@@ -192,11 +192,11 @@
 			var/turf/simulated/floor/T = src.loc
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
-				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."))
+				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."), visible_message_flags = GHOST_MESSAGE)
 				busy = 2
 				update_icon()
 				if(do_after(src, 32))
-					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
+					src.visible_message(SPAN_WARNING("[src] rips \the [C]."), visible_message_flags = GHOST_MESSAGE)
 					if(C.powernet && C.powernet.avail)
 						spark(src, 3, GLOB.alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
@@ -208,11 +208,11 @@
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
-			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."))
+			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."), visible_message_flags = GHOST_MESSAGE)
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
+				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."), visible_message_flags = GHOST_MESSAGE)
 				playsound(src.loc, SFX_CROWBAR, 100, 1)
 				T.make_plating(1)
 			busy = 0
@@ -266,11 +266,11 @@
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
-			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."))
+			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."), visible_message_flags = GHOST_MESSAGE)
 			busy = 1
 			if(do_after(src, 32))
 				src.do_attack_animation(G)
-				src.visible_message(SPAN_WARNING("[src] tears \the [O] apart!"))
+				src.visible_message(SPAN_WARNING("[src] tears \the [O] apart!"), visible_message_flags = GHOST_MESSAGE)
 				G.dismantle()
 			busy = 0
 			continue
@@ -278,10 +278,10 @@
 		if((istype(O, /obj/structure/machinery/door/firedoor) && O.density) || (istype(O, /obj/structure/machinery/door/airlock) && O.density) || istype(O, /obj/structure/machinery/door/blast) && O.density)
 			var/obj/structure/machinery/door/D = O
 			if(D.stat & BROKEN)
-				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
+				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."), visible_message_flags = GHOST_MESSAGE)
 				busy = 1
 				if(do_after(src, 48))
-					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"))
+					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"), visible_message_flags = GHOST_MESSAGE)
 					src.do_attack_animation(D)
 					new /obj/item/stack/material/steel(get_turf(D))
 					new /obj/item/stack/material/steel(get_turf(D))
@@ -321,12 +321,12 @@
 
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
-			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."))
+			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."), visible_message_flags = GHOST_MESSAGE)
 			busy = 1
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)
 				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
-				src.visible_message(SPAN_DANGER("[RD] gets torn open, spreading its contents all over the area!"))
+				src.visible_message(SPAN_DANGER("[RD] gets torn open, spreading its contents all over the area!"), visible_message_flags = GHOST_MESSAGE)
 				new /obj/item/stack/material/steel(get_turf(RD))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				qdel(RD)

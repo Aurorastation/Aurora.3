@@ -396,9 +396,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has a linked teleporter!"))
 			return
 		var/obj/item/closet_teleporter/CT = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
+		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), self_message = SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
-			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), self_message = SPAN_NOTICE("You attach \the [CT] to \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 			linked_teleporter = CT
 			CT.attached_closet = src
 			user.drop_from_inventory(CT, src)
@@ -410,9 +410,9 @@
 			return 0
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
-				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
+				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), self_message = SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
-					user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
+					user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), self_message = SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 					linked_teleporter.attached_closet = null
 					user.put_in_hands(linked_teleporter)
 					linked_teleporter = null
@@ -422,8 +422,9 @@
 			if(WT.isOn())
 				user.visible_message(
 					SPAN_WARNING("[user] begins cutting [src] apart."),
-					SPAN_NOTICE("You begin cutting [src] apart."),
-					"You hear a welding torch on metal."
+					self_message = SPAN_NOTICE("You begin cutting [src] apart."),
+					blind_message = "You hear a welding torch on metal.",
+					visible_message_flags = GHOST_MESSAGE
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
@@ -434,7 +435,8 @@
 				else
 					user.visible_message(
 						SPAN_NOTICE("[src] has been cut apart by [user] with [WT]."),
-						SPAN_NOTICE("You cut apart [src] with [WT].")
+						self_message = SPAN_NOTICE("You cut apart [src] with [WT]."),
+						visible_message_flags = GHOST_MESSAGE
 					)
 					if(linked_teleporter)
 						linked_teleporter.forceMove(get_turf(src))
@@ -448,8 +450,9 @@
 				LB.remove_from_storage(I, T)
 			user.visible_message(
 				SPAN_NOTICE("[user] empties \the [LB] into \the [src]."),
-				SPAN_NOTICE("You empty \the [LB] into \the [src]."),
-				SPAN_NOTICE("You hear rustling of clothes.")
+				self_message = SPAN_NOTICE("You empty \the [LB] into \the [src]."),
+				blind_message = SPAN_NOTICE("You hear rustling of clothes."),
+				visible_message_flags = GHOST_MESSAGE
 			)
 			return
 		if(!attacking_item.dropsafety())
@@ -479,8 +482,9 @@
 		if(WT.isOn())
 			user.visible_message(
 				SPAN_WARNING("[user] begins welding [src] [welded ? "open" : "shut"]."),
-				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
-				"You hear a welding torch on metal."
+				self_message = SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
+				blind_message = "You hear a welding torch on metal.",
+				visible_message_flags = GHOST_MESSAGE
 			)
 			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(!attacking_item.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -492,7 +496,8 @@
 			update_icon()
 			user.visible_message(
 				SPAN_WARNING("[src] has been [welded ? "welded shut" : "unwelded"] by [user]."),
-				SPAN_NOTICE("You weld [src] [!welded ? "open" : "shut"].")
+				self_message = SPAN_NOTICE("You weld [src] [!welded ? "open" : "shut"]."),
+				visible_message_flags = GHOST_MESSAGE
 			)
 		else
 			attack_hand(user)
@@ -546,14 +551,16 @@
 			ChainSawVar.cutting = 1
 			user.visible_message(\
 				SPAN_DANGER("[user.name] starts cutting \the [src] with the [attacking_item]!"),\
-				SPAN_WARNING("You start cutting the [src]..."),\
-				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
+				self_message = SPAN_WARNING("You start cutting the [src]..."),\
+				blind_message = SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal..."), \
+				visible_message_flags = GHOST_MESSAGE \
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, user, DO_REPAIR_CONSTRUCT))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting open \the [src] with the [attacking_item]."),\
-					SPAN_WARNING("You finish cutting open the [src]."),\
-					SPAN_NOTICE("You hear a metal clank and some sparks.")\
+					self_message = SPAN_WARNING("You finish cutting open the [src]."),\
+					blind_message = SPAN_NOTICE("You hear a metal clank and some sparks."), \
+					visible_message_flags = GHOST_MESSAGE \
 				)
 				emag_act(INFINITY, user, SPAN_DANGER("\The [src] has been sliced open by [user] with \an [attacking_item]!"), SPAN_DANGER("You hear metal being sliced and sparks flying."))
 			ChainSawVar.cutting = 0
@@ -603,7 +610,7 @@
 		var/turf/T = get_turf(src)
 		if(ismob(O))
 			if(large)
-				user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+				user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), self_message = SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
 				O.forceMove(T)
 				close()
 			else
@@ -816,7 +823,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start pushing the door open. (This will take about [breakout_time] minutes.)"))
-	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), blind_message = SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
 
 	var/time = 6 * breakout_time * 2
 

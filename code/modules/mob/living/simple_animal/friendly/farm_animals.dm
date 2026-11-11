@@ -54,7 +54,7 @@
 	if(enemies.len && prob(10))
 		enemies = list()
 		LoseTarget()
-		src.visible_message(SPAN_NOTICE("[src] calms down."))
+		src.visible_message(SPAN_NOTICE("[src] calms down."), visible_message_flags = GHOST_MESSAGE)
 
 	if(!pulledby)
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
@@ -65,7 +65,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/handle_attack_by(mob/M)
 	..()
 	if(stat == CONSCIOUS)
-		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."))
+		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."), visible_message_flags = GHOST_MESSAGE)
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	. = ..()
@@ -106,7 +106,7 @@
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
 		M.visible_message(SPAN_WARNING("[M] tips over [src]."),
-							SPAN_NOTICE("You tip over [src]."))
+							self_message = SPAN_NOTICE("You tip over [src]."), visible_message_flags = GHOST_MESSAGE)
 
 		Weaken(30)
 		icon_state = icon_dead
@@ -259,8 +259,9 @@
 			if(!stat && eggsleft < 8)
 				user.visible_message(
 					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It clucks happily."),
-					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
-					"You hear a cluck.")
+					self_message = SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
+					blind_message = "You hear a cluck.",
+					visible_message_flags = GHOST_MESSAGE)
 				user.drop_from_inventory(attacking_item,get_turf(src))
 				qdel(attacking_item)
 				eggsleft += rand(1, 4)
@@ -276,7 +277,7 @@
 	if(!.)
 		return
 	if(!stat && prob(3) && eggsleft > 0 && chicken_count < MAX_CHICKENS)
-		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]")
+		visible_message("[src] [pick("lays an egg.","squats down and croons.","begins making a huge racket.","begins clucking raucously.")]", visible_message_flags = GHOST_MESSAGE)
 		eggsleft--
 		var/obj/item/reagent_containers/food/snacks/egg/E = new(get_turf(src))
 		E.fertilize()

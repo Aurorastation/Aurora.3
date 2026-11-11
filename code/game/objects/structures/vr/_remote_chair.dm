@@ -27,9 +27,9 @@
 
 /obj/structure/bed/stool/chair/remote/attackby(obj/item/attacking_item, mob/user)
 	if(portable_type && attacking_item.tool_behaviour == TOOL_WRENCH)
-		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
+		user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start dismantling \the [src]..."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 20 SECONDS, src, DO_REPAIR_CONSTRUCT))
-			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You dismantle \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			var/obj/kit = new portable_type(get_turf(src))
 			user.put_in_hands(kit)
 			qdel(src)

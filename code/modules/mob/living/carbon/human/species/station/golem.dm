@@ -397,7 +397,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
-							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
+							self_message = SPAN_DANGER("The [P.name] gets reflected by [H]!"), visible_message_flags = GHOST_MESSAGE)
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -603,7 +603,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
-							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
+							self_message = SPAN_DANGER("The [P.name] gets reflected by [H]!"), visible_message_flags = GHOST_MESSAGE)
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -696,7 +696,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		return
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
-	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"))
+	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"), visible_message_flags = GHOST_MESSAGE)
 	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic

@@ -97,9 +97,10 @@
 		if (feeder)
 			feeder.visible_message(
 				SPAN_ITALIC("\The [feeder] tears open \a [src], destroying the self-heating packaging."),
-				SPAN_ITALIC("You tear open \the [src], destroying the self-heating packaging."),
-				SPAN_ITALIC("You hear plastic packaging crinkling."),
-				range = 3
+				self_message = SPAN_ITALIC("You tear open \the [src], destroying the self-heating packaging."),
+				blind_message = SPAN_ITALIC("You hear plastic packaging crinkling."),
+				vision_distance = 3,
+				visible_message_flags = GHOST_MESSAGE
 			)
 		can_self_heat = FALSE
 	..()
@@ -146,7 +147,7 @@
 		return
 	is_hot = FALSE
 	name = initial(name)
-	visible_message(SPAN_ITALIC("\The [src] cools down."), range = 1)
+	visible_message(SPAN_ITALIC("\The [src] cools down."), vision_distance = 1)
 	for (var/reagent in hot_reagents)
 		reagents.del_reagent(reagent)
 

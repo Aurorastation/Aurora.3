@@ -54,7 +54,7 @@
 			G.add_fingerprint(user)
 			attacking_item.add_fingerprint(user)
 			src.add_fingerprint(user)
-			user.visible_message("\The [user] wraps \the [attacking_item] into \a [G].", SPAN_NOTICE("You wrap \the [attacking_item] into \a [G], leaving [amount] of \the [src] remaining."))
+			user.visible_message("\The [user] wraps \the [attacking_item] into \a [G].", self_message = SPAN_NOTICE("You wrap \the [attacking_item] into \a [G], leaving [amount] of \the [src] remaining."), visible_message_flags = GHOST_MESSAGE)
 			update_icon()
 		if(src.amount <= 0)
 			new /obj/item/c_tube(src.loc)
@@ -153,8 +153,8 @@
 			src.add_fingerprint(usr)
 			src.amount -= 1
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
-			"You hear someone taping paper around a small object.")
+			self_message = SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
+			blind_message = "You hear someone taping paper around a small object.", visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 			update_icon()
 	else if(istype(target, /obj/structure/closet/crate))
@@ -167,8 +167,8 @@
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
-			"You hear someone taping paper around a large object.")
+			self_message = SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
+			blind_message = "You hear someone taping paper around a large object.", visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 			update_icon()
 		else if(src.amount < 3)
@@ -183,8 +183,8 @@
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
-			"You hear someone taping paper around a large object.")
+			self_message = SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
+			blind_message = "You hear someone taping paper around a large object.", visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 			update_icon()
 		else if(src.amount < 3)

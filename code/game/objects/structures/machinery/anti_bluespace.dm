@@ -135,4 +135,4 @@ GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/structure/machinery/anti_blues
 		var/turf/target = A.random_space()
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
-		AM.visible_message("\The [AM] phases in!")
+		AM.visible_message("\The [AM] phases in!", visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))

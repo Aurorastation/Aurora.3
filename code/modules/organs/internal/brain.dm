@@ -312,7 +312,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] cannot be prepared!"))
 			return
 		if(!prepared)
-			user.visible_message(SPAN_DANGER("[user] deftly uses \the [attacking_item] to drill into \the [src]!"))
+			user.visible_message(SPAN_DANGER("[user] deftly uses \the [attacking_item] to drill into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 			prepared = TRUE
 		else
 			to_chat(user, SPAN_WARNING("The brain has already been prepared!"))

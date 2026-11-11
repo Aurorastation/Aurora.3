@@ -130,7 +130,7 @@
 				addtimer(CALLBACK(src, PROC_REF(remove_summon), L), 1)
 
 /obj/item/technomancer_core/proc/remove_summon(var/mob/living/L)
-	L.visible_message(SPAN_NOTICE("\The [L] begins to fade away..."))
+	L.visible_message(SPAN_NOTICE("\The [L] begins to fade away..."), visible_message_flags = GHOST_MESSAGE)
 	animate(L, alpha = 255, alpha = 0, time = 30) // Makes them fade into nothingness.
 	sleep(30)
 	qdel(L)

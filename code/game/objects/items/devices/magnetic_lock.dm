@@ -132,7 +132,7 @@
 				var/msg = "[attacking_item] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
-				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
+				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), self_message = SPAN_NOTICE("[addtext(fp_adj, msg)]"), visible_message_flags = GHOST_MESSAGE)
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
@@ -145,7 +145,7 @@
 	if (istype(attacking_item, /obj/item) && user.a_intent == "harm")
 		if (attacking_item.force >= 18)
 			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"),
-							SPAN_DANGER("You strike [src] with [attacking_item], damaging it!"))
+							self_message = SPAN_DANGER("You strike [src] with [attacking_item], damaging it!"), visible_message_flags = GHOST_MESSAGE)
 
 			takedamage(attacking_item.force)
 			var/sound_to_play = pick(list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
@@ -153,7 +153,7 @@
 			sound_to_play = pick(list('sound/effects/sparks1.ogg', 'sound/effects/sparks2.ogg', 'sound/effects/sparks3.ogg', 'sound/effects/sparks4.ogg'))
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, sound_to_play, 30, 1), 3, TIMER_CLIENT_TIME)
 		else
-			user.visible_message(SPAN_DANGER("[user] hits [src] with [attacking_item] but fails to damage it."), SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"))
+			user.visible_message(SPAN_DANGER("[user] hits [src] with [attacking_item] but fails to damage it."), self_message = SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"), visible_message_flags = GHOST_MESSAGE)
 			playsound(loc, 'sound/weapons/Genhit.ogg', attacking_item.force*2.5, 1)
 		return TRUE
 
@@ -165,7 +165,7 @@
 				var/obj/item/card/emag/emagcard = attacking_item
 				emagcard.uses--
 				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"),
-								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
+								blind_message = SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
 
 
 				status = STATUS_BROKEN
@@ -177,7 +177,7 @@
 			if (attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if (WT.use(2, user))
-					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
+					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), self_message = SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."), visible_message_flags = GHOST_MESSAGE)
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					AddOverlays("overlay_welding")
 					if(WT.use_tool(src, user, 25, volume = 50))
@@ -294,7 +294,7 @@
 	if (!check_target(newtarget, user)) return
 
 	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
-							SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
+							self_message = SPAN_NOTICE("You begin mounting [src] onto [newtarget]."), visible_message_flags = GHOST_MESSAGE)
 
 	if (do_after(user, 3.5 SECONDS))
 
@@ -337,7 +337,7 @@
 		status = STATUS_ACTIVE
 		attach(newtarget)
 		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."),
-								SPAN_NOTICE("You attached [src] onto [newtarget] and switched on the magnetic lock."))
+								self_message = SPAN_NOTICE("You attached [src] onto [newtarget] and switched on the magnetic lock."), visible_message_flags = GHOST_MESSAGE)
 		return
 
 
@@ -503,7 +503,7 @@
 				var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[usr.name] presses "
 				var/fp_adj = "You press "
-				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
+				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), self_message = SPAN_NOTICE("[addtext(fp_adj, msg)]"), visible_message_flags = GHOST_MESSAGE)
 				update_icon()
 				. = TRUE
 			else

@@ -96,14 +96,14 @@
 			return
 		//visible message on mobs is defined as visible_message(var/message, var/self_message, var/blind_message)
 		user.visible_message(SPAN_NOTICE("\The [user] starts slicing the [hide_type] from \the [src]."),
-				SPAN_NOTICE("You start slicing the [hide_type] from \the [src]"),
-				SPAN_NOTICE("You hear the sound of a knife scraping against flesh."))
+				self_message = SPAN_NOTICE("You start slicing the [hide_type] from \the [src]"),
+				blind_message = SPAN_NOTICE("You hear the sound of a knife scraping against flesh."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 5 SECONDS, src))
 			if(amount <= 0) //Ensures we don't get multiple products from queuing clicks.
 				return
 			use(1)
 			user.visible_message(SPAN_NOTICE("[user] removes \the [hide_type] from \the [singular_name]."),
-								SPAN_NOTICE("You remove \the [hide_type] from \the [singular_name]!"))
+								self_message = SPAN_NOTICE("You remove \the [hide_type] from \the [singular_name]!"), visible_message_flags = GHOST_MESSAGE)
 			playsound(get_turf(src), drop_sound, 50, 1)
 
 			//Try locating an exisitng stack on the tile and add to there if possible
@@ -137,7 +137,7 @@
 			if(being_dried)
 				to_chat(user, SPAN_WARNING("\The [src] are already being dried"))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), SPAN_NOTICE("You start drying the wet leather with \the [WT]..."))
+			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [src] with \the [WT]."), self_message = SPAN_NOTICE("You start drying the wet leather with \the [WT]..."), visible_message_flags = GHOST_MESSAGE)
 			being_dried = TRUE
 			while(do_after(user, 2 SECONDS, src) && wetness > 0)
 				if(!WT.use(1) || !WT.isOn())

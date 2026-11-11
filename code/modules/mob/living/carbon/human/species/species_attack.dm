@@ -37,7 +37,7 @@
 	attack_damage = clamp(attack_damage, 1, 5)
 
 	if(target == user)
-		user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [user.get_pronoun("himself")] in the [affecting.name]!"))
+		user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [user.get_pronoun("himself")] in the [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
 		return 0
 
 	switch(zone)
@@ -45,20 +45,20 @@
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2)
-					user.visible_message(SPAN_DANGER("[user] scratched [target] across [target.get_pronoun("his")] cheek!"))
+					user.visible_message(SPAN_DANGER("[user] scratched [target] across [target.get_pronoun("his")] cheek!"), visible_message_flags = GHOST_MESSAGE)
 				if(3 to 4)
-					user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!")) //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
+					user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!"), visible_message_flags = GHOST_MESSAGE) //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
 				if(5)
 					user.visible_message(pick(
 						SPAN_DANGER("[user] rakes [user.get_pronoun("his")] [pick(attack_noun)] across [target]'s face!"),
 						SPAN_DANGER("[user] tears [user.get_pronoun("his")] [pick(attack_noun)] into [target]'s face!"),
-						))
+						), visible_message_flags = GHOST_MESSAGE)
 		else
 			// ----- BODY ----- //
 			switch(attack_damage)
-				if(1 to 2)	user.visible_message(SPAN_DANGER("[user] scratched [target]'s [affecting.name]!"))
-				if(3 to 4)	user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!"))
-				if(5)		user.visible_message(SPAN_DANGER("[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!"))
+				if(1 to 2)	user.visible_message(SPAN_DANGER("[user] scratched [target]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
+				if(3 to 4)	user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
+				if(5)		user.visible_message(SPAN_DANGER("[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
 
 /datum/unarmed_attack/claws/unathi
 	sparring_variant_type = /datum/unarmed_attack/pain_strike/heavy // unathi have heavier pain hits in this mode
@@ -116,7 +116,7 @@
 
 /datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
-	user.visible_message(SPAN_WARNING("[user] jumped up and down on \the [target]'s [affecting.name]!"))
+	user.visible_message(SPAN_WARNING("[user] jumped up and down on \the [target]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/punch/ipc
@@ -160,7 +160,7 @@
 	..()
 	if(prob(25) && target.mob_size <= 30)
 		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-		user.visible_message(SPAN_DANGER("[user] shoves hard, sending [target] flying!"))
+		user.visible_message(SPAN_DANGER("[user] shoves hard, sending [target] flying!"), visible_message_flags = GHOST_MESSAGE)
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
@@ -288,7 +288,7 @@
 	if(target.species.mob_size < user.species.mob_size)
 		if(prob(25))
 			playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-			user.visible_message(SPAN_DANGER("[user] sends \the [target] flying with the impact!"))
+			user.visible_message(SPAN_DANGER("[user] sends \the [target] flying with the impact!"), visible_message_flags = GHOST_MESSAGE)
 			var/turf/target_turf = get_ranged_target_turf(target, user.dir, 4)
 			target.throw_at(target_turf, 4, 1, user)
 			target.apply_effect(4, WEAKEN, armor)
@@ -311,7 +311,7 @@
 
 /datum/unarmed_attack/tesla_body/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
-	user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
+	user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
 	if(iscarbon(target))
 		var/mob/living/carbon/L = target
 		L.electrocute_act(20,user, 1, user.zone_sel.selecting)

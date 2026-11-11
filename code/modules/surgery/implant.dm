@@ -37,7 +37,7 @@
 /singleton/surgery_step/cavity/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"), \
-		SPAN_WARNING("Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"))
+		self_message = SPAN_WARNING("Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/cavity/make_space
@@ -59,7 +59,7 @@
 /singleton/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
-		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
+		self_message = "You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", visible_message_flags = GHOST_MESSAGE )
 	target.custom_pain("The pain in your chest is living hell!", 1, affecting = affected)
 	affected.cavity = CAVITY_OPEN
 	..()
@@ -67,7 +67,7 @@
 /singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> pushes apart some organs inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
-		SPAN_NOTICE("You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].") )
+		self_message = SPAN_NOTICE("You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]."), visible_message_flags = GHOST_MESSAGE )
 
 /singleton/surgery_step/cavity/close_space
 	name = "Close Cavity"
@@ -90,7 +90,7 @@
 /singleton/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
-		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
+		self_message = "You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", visible_message_flags = GHOST_MESSAGE )
 	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
 	affected.cavity = CAVITY_CLOSED
 	..()
@@ -98,7 +98,7 @@
 /singleton/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> mends [target]'s [get_cavity(affected)] cavity walls with \the [tool].", \
-		SPAN_NOTICE("You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool].") )
+		self_message = SPAN_NOTICE("You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool]."), visible_message_flags = GHOST_MESSAGE )
 
 /singleton/surgery_step/cavity/place_item
 	name = "Place Item in Cavity"
@@ -124,7 +124,7 @@
 /singleton/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> starts putting \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
-		SPAN_NOTICE("You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." ))
+		self_message = SPAN_NOTICE("You start putting \the [tool] inside [target]'s [get_cavity(affected)] cavity." ), visible_message_flags = GHOST_MESSAGE)
 	target.custom_pain("The pain in your chest is living hell!", 75, affecting = affected)
 	playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	..()
@@ -133,7 +133,7 @@
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 
 	user.visible_message("<b>[user]</b> puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
-		SPAN_NOTICE("You put \the [tool] inside [target]'s [get_cavity(affected)] cavity.") )
+		self_message = SPAN_NOTICE("You put \the [tool] inside [target]'s [get_cavity(affected)] cavity."), visible_message_flags = GHOST_MESSAGE )
 	if(tool.w_class > get_max_wclass(affected)/2 && prob(50) && !BP_IS_ROBOTIC(affected))
 		to_chat(user, SPAN_WARNING("You tear \the [affected.artery_name] trying to fit an object so big!"))
 		affected.sever_artery()
@@ -177,7 +177,7 @@
 /singleton/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts poking around inside [target]'s [affected.name] with \the [tool].", \
-		"You start poking around inside [target]'s [affected.name] with \the [tool]." )
+		self_message = "You start poking around inside [target]'s [affected.name] with \the [tool].", visible_message_flags = GHOST_MESSAGE )
 	target.custom_pain("The pain in your [affected.name] is living hell!", 50, affecting = affected)
 	..()
 
@@ -200,7 +200,7 @@
 			if(do_mob(user, target, 0.5 SECONDS))
 
 				user.visible_message("<b>[user]</b> takes [I] out of incision on [target]'s [affected.name] with \the [tool].", \
-					SPAN_NOTICE("You take [I] out of incision on [target]'s [affected.name]s with \the [tool].") )
+					self_message = SPAN_NOTICE("You take [I] out of incision on [target]'s [affected.name]s with \the [tool]."), visible_message_flags = GHOST_MESSAGE )
 				target.remove_implant(I, TRUE, affected)
 
 				BITSET(target.hud_updateflag, IMPLOYAL_HUD)
@@ -216,11 +216,11 @@
 				playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
 	else
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
-			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )
+			self_message = SPAN_NOTICE("You could not find anything inside [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE )
 
 /singleton/surgery_step/cavity/implant_removal/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	..()
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"))
+	user.visible_message(SPAN_WARNING("[user] loses their grip and stabs [target] with \the [tool]!"), self_message = SPAN_WARNING("You lose your grip on \the [tool] and stab [target]!"), visible_message_flags = GHOST_MESSAGE)
 	affected.sever_artery()
 	target.apply_damage(25, DAMAGE_BRUTE, target_zone)

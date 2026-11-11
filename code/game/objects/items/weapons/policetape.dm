@@ -202,11 +202,11 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 			GLOB.tape_roll_applications[F] = 0
 
 		if(GLOB.tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
-			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
+			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", self_message = "You use the adhesive of \the [src] to remove area markings from \the [F].", visible_message_flags = GHOST_MESSAGE)
 			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			GLOB.tape_roll_applications[F] &= ~direction
 		else
-			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
+			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", self_message = "You apply \the [src] on \the [F] to create area markings.", visible_message_flags = GHOST_MESSAGE)
 			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			GLOB.tape_roll_applications[F] |= direction
 		return
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
 		lifted = !lifted
-		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
+		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", self_message = SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."), visible_message_flags = GHOST_MESSAGE)
 		var/shake_time = shake_animation()
 		sleep(shake_time)
 		if(!allowed(user))
@@ -256,7 +256,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	if(user.a_intent == I_HELP && ((!W.can_puncture() && src.allowed(user))))
 		to_chat(user, SPAN_NOTICE("You can't break \the [src] with that!"))
 		return
-	user.visible_message(SPAN_NOTICE("[user] breaks \the [src]!"))
+	user.visible_message(SPAN_NOTICE("[user] breaks \the [src]!"), visible_message_flags = GHOST_MESSAGE)
 
 	var/dir[2]
 	var/icon_dir = src.icon_state

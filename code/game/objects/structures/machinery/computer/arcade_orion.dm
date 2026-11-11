@@ -444,7 +444,7 @@
 			if(istype(usr,/mob/living/carbon) && prob(75))
 				var/mob/living/carbon/M = usr
 				M.Weaken(3)
-				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", "You hear a large fwooshing sound, followed by a bang.")
+				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", blind_message = "You hear a large fwooshing sound, followed by a bang.")
 				M.take_organ_damage(10)
 			else
 				to_chat(usr, SPAN_WARNING("A violent gale blows past you, and you barely manage to stay standing!"))
@@ -458,13 +458,13 @@
 			if(prob(90) && !supplies["2"])
 				var/turf/simulated/floor/F = src.loc
 				F.ChangeTurf(/turf/space)
-				src.visible_message(SPAN_DANGER("Something slams into the floor around \the [src], exposing it to space!"), "You hear something crack and break.")
+				src.visible_message(SPAN_DANGER("Something slams into the floor around \the [src], exposing it to space!"), blind_message = "You hear something crack and break.")
 			else
-				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", "You hear something crack.")
+				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", blind_message = "You hear something crack.")
 		if(ORION_TRAIL_GAMEOVER)
 			to_chat(usr, SPAN_DANGER("<font size=4>You're never going to make it to Orion...</font>"))
 			var/mob/living/M = usr
-			M.visible_message("\The [M] starts rapidly deteriorating.")
+			M.visible_message("\The [M] starts rapidly deteriorating.", visible_message_flags = GHOST_MESSAGE)
 			show_browser(M, null, "window=arcade")
 			for(var/i=0;i<10;i++)
 				sleep(10)

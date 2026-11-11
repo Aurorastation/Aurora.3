@@ -121,7 +121,7 @@
 		if(body && LAZYLEN(pilots))
 			var/mob/living/pilot = pick(pilots)
 			if(prob(body.cockpit_hatch_size))
-				visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"))
+				visible_message(SPAN_DANGER("\The [used_weapon] pierces the mangled cockpit of \the [src], striking the pilot inside!"), visible_message_flags = GHOST_MESSAGE)
 				pilot.apply_damage(damage * body.cockpit_pilot_damage_multiplier, damagetype, def_zone, used_weapon, damage_flags, armor_pen * body.cockpit_pilot_armour_piercing_multiplier, silent = FALSE)
 
 	//Only 2 types of damage concern mechs and vehicles
@@ -163,7 +163,7 @@
 			var/percent_power_used = 0
 			if(C && C.maxcharge)
 				percent_power_used = round((power_used / C.maxcharge) * 100)
-			visible_message(SPAN_NOTICE("\The [src]'s active EM defenses flash brightly, negating the EMP!"))
+			visible_message(SPAN_NOTICE("\The [src]'s active EM defenses flash brightly, negating the EMP!"), visible_message_flags = GHOST_MESSAGE)
 			for(var/pilot in pilots)
 				if(ismob(pilot))
 					to_chat(pilot, SPAN_NOTICE("Your mech reports that negating the EMP cost [(percent_power_used)]% charge."))
@@ -183,7 +183,7 @@
 	if(isspace(loc) || (area && !area.has_gravity()))
 		return FALSE
 
-	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
+	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), self_message = "", blind_message = SPAN_DANGER("You hear a thud!"), visible_message_flags = GHOST_MESSAGE)
 
 	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
 	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)

@@ -201,7 +201,7 @@
 			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
 			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> secretes a trickle of green liquid, refilling [src]."),
-												SPAN_NOTICE("You secrete a trickle of green liquid, refilling [src]."))
+												self_message = SPAN_NOTICE("You secrete a trickle of green liquid, refilling [src]."), visible_message_flags = GHOST_MESSAGE)
 		return//Nymphs cant open and close lids
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
@@ -236,12 +236,12 @@
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
 			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily."),
-												SPAN_NOTICE("You root through [src], ripping out weeds and eating them noisily."))
+												self_message = SPAN_NOTICE("You root through [src], ripping out weeds and eating them noisily."), visible_message_flags = GHOST_MESSAGE)
 			return
 		if (dead)//Let nymphs eat dead plants
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, 1)
 			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rips out the dead plants from [src], and loudly munches them."),
-												SPAN_NOTICE("You root out the dead plants in [src], eating them with loud chewing sounds."))
+												self_message = SPAN_NOTICE("You root out the dead plants in [src], eating them with loud chewing sounds."), visible_message_flags = GHOST_MESSAGE)
 			remove_dead(user)
 			return
 		if (harvest)
@@ -249,7 +249,7 @@
 			return
 		else
 			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rolls around in [src] for a bit."),
-												SPAN_NOTICE("You roll around in [src] for a bit."))
+												self_message = SPAN_NOTICE("You roll around in [src] for a bit."), visible_message_flags = GHOST_MESSAGE)
 		return
 
 /obj/structure/machinery/portable_atmospherics/hydroponics/New()
@@ -475,7 +475,7 @@
 	if(new_light)
 		tray_light = new_light
 		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
-		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
+		self_message = SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."), visible_message_flags = GHOST_MESSAGE)
 		playsound(src, SFX_BUTTON, 50, TRUE)
 
 /obj/structure/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
@@ -534,7 +534,7 @@
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
-					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
+					user.visible_message("<b>[user]</b> transfers some water to the tray.", self_message = "You transfer about [amountToRemove] units of water to the tray.", visible_message_flags = GHOST_MESSAGE)
 					playsound(src, SFX_POUR, 25, 1)
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
@@ -557,7 +557,7 @@
 			return
 
 		// Create a sample. Takes a moment.
-		user.visible_message(SPAN_WARNING("\The [user] begins to sample \the [src]."), SPAN_NOTICE("You begin sampling \the [src]."))
+		user.visible_message(SPAN_WARNING("\The [user] begins to sample \the [src]."), self_message = SPAN_NOTICE("You begin sampling \the [src]."), visible_message_flags = GHOST_MESSAGE)
 		if(do_after(user, 1 SECOND))
 			playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
 			seed.harvest(user,yield_mod,1)
@@ -624,12 +624,12 @@
 	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 		if(weedlevel > 0)
 			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds from \the [src]."),
-									SPAN_DANGER("You begin to remove the weeds from \the [src]."))
+									self_message = SPAN_DANGER("You begin to remove the weeds from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 			if(do_after(user, 1 SECOND))
 				playsound(src, SFX_SHOVEL, 25, 1)
 				user.visible_message(SPAN_DANGER("[user] uproots the weeds from \the [src]."),
-					SPAN_DANGER("You successfully remove the weeds from \the [src]."))
+					self_message = SPAN_DANGER("You successfully remove the weeds from \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				weedlevel = 0
 				update_icon()
 		else
@@ -639,12 +639,12 @@
 	else if (istype(attacking_item, /obj/item/material/hatchet) && !closed_system)
 		if(plant_health > 0)
 			user.visible_message(SPAN_DANGER("[user] begins uprooting the contents of \the [src]."),
-				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
+				self_message = SPAN_DANGER("You begin to uproot the contents of \the [src]."), visible_message_flags = GHOST_MESSAGE)
 
 			if(do_after(user, 2 SECOND))
 				playsound(src, SFX_SHOVEL, 25, 1)
 				user.visible_message(SPAN_DANGER("[user] uproots the contents of \the [src]!"),
-					SPAN_DANGER("You successfully uproot the contents of \the [src]."))
+					self_message = SPAN_DANGER("You successfully uproot the contents of \the [src]."), visible_message_flags = GHOST_MESSAGE)
 				plant_health = 0
 				check_health()
 		else
@@ -682,7 +682,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		playsound(loc, SFX_SWING_HIT, 25, TRUE)
-		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
+		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
 		if(!dead)
 			var/total_damage = attacking_item.force
 			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
@@ -707,11 +707,11 @@
 		if(stat & (NOPOWER|BROKEN))
 			to_chat(user, SPAN_NOTICE("You flick the stasis mode switch, but nothing happens."))
 		else if(stasis)
-			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), SPAN_NOTICE("You disengage stasis on \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] disengages \the [src]'s stasis mode."), self_message = SPAN_NOTICE("You disengage stasis on \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			update_use_power(POWER_USE_IDLE)
 			stasis = FALSE
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), SPAN_NOTICE("You engage stasis on \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] engages \the [src]'s stasis mode."), self_message = SPAN_NOTICE("You engage stasis on \the [src]."), visible_message_flags = GHOST_MESSAGE)
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 

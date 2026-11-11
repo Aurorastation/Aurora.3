@@ -57,15 +57,15 @@
 			to_chat(user, SPAN_WARNING("[H] needs to be holding a glass to perform a toast."))
 			return
 		else
-			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
+			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].", visible_message_flags = GHOST_MESSAGE)
 			if(tgui_alert(H, "[user] wants to do a toast with you. Will you accept it?", , list("Yes", "No")) == "No")
-				H.visible_message("<b>[H]</b> pushes [user]'s hand away.")
+				H.visible_message("<b>[H]</b> pushes [user]'s hand away.", visible_message_flags = GHOST_MESSAGE)
 				return
 			if(!user.Adjacent(H))
 				to_chat(user, SPAN_WARNING("You need to remain next to [H]!"))
 				to_chat(H, SPAN_WARNING("You need to remain next to [user]!"))
 				return
-			user.visible_message("<b>[user]</b> clinks \the [src] with [H]'s [glass.name].")
+			user.visible_message("<b>[user]</b> clinks \the [src] with [H]'s [glass.name].", visible_message_flags = GHOST_MESSAGE)
 			playsound(user.loc, pick('sound/items/glass_clink_1.ogg', 'sound/items/glass_clink_2.ogg', 'sound/items/glass_clink_3.ogg'), 50, 0, vary = FALSE)
 			return
 	..()

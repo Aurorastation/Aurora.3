@@ -27,7 +27,8 @@
 	if(!stat && M.a_intent == I_HELP && icon_state != icon_dead)
 		M.visible_message(
 			SPAN_WARNING("\The [M] pets \the [src]."),
-			SPAN_NOTICE("You eagerly pet \the [src].")
+			self_message = SPAN_NOTICE("You eagerly pet \the [src]."),
+			visible_message_flags = GHOST_MESSAGE
 		)
 		addtimer(CALLBACK(src, PROC_REF(pet_response)), rand(2 SECONDS, 5 SECONDS))
 	..()
