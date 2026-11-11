@@ -195,8 +195,12 @@
 		P.color = GLOB.pipe_colors[mode]
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 
+/// Walls can be painted from diagonal tiles too, otherwise walls boxed in by other walls (e.g. the centre of a + shape) can't be reached.
+/obj/item/paint_sprayer/proc/can_reach_wall(mob/user, turf/simulated/wall/W)
+	return isturf(user.loc) && user.z == W.z && get_dist(user, W) <= 1
+
 /obj/item/paint_sprayer/proc/paint_wall(turf/simulated/wall/W, mob/user)
-	if(!user.Adjacent(W) || user.incapacitated())
+	if(!can_reach_wall(user, W) || user.incapacitated())
 		return FALSE
 	if(!W.material)
 		to_chat(user, SPAN_WARNING("\The [src] cannot paint this wall."))
@@ -321,6 +325,13 @@
 		var/mob/living/L = usr
 		var/list/modifiers = params2list(params)
 		var/obj/item/paint_sprayer/paint_sprayer = L.get_active_hand()
+		if(istype(paint_sprayer) && !modifiers["shift"] && !modifiers["ctrl"] && !modifiers["alt"] && get_dist(L, src) == 1 && !L.Adjacent(src))
+			// Diagonal wall: normal clicking can't reach it, so paint it directly.
+			if(!istype(L.buckled_to))
+				L.face_atom(src)
+			L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			paint_sprayer.paint_wall(src, L)
+			return
 		if(istype(paint_sprayer) && modifiers["shift"])
 			if(!istype(L.buckled_to))
 				L.face_atom(src)
@@ -468,7 +479,10 @@
 	return choice
 
 /obj/item/paint_sprayer/proc/remove_paint(atom/A, mob/user)
-	if(!user.Adjacent(A) || user.incapacitated())
+	if(istype(A, /turf/simulated/wall))
+		if(!can_reach_wall(user, A) || user.incapacitated())
+			return FALSE
+	else if(!user.Adjacent(A) || user.incapacitated())
 		return FALSE
 	if (istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
