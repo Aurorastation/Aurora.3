@@ -602,9 +602,9 @@
 
 		if(!prevent_warning)
 			if(W?.w_class >= WEIGHT_CLASS_NORMAL)
-				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), self_message = SPAN_NOTICE("You put [W] into [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You put [W] into [src]."))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), self_message = SPAN_NOTICE("You slip [W] into [src]."), blind_message = null, vision_distance = 2)
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You slip [W] into [src]."), null, 2)
 
 		orient2hud(user)
 		if(user.s_active)
@@ -805,7 +805,7 @@
 		return
 
 	if(empty_delay)
-		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", self_message = SPAN_NOTICE("You start emptying the contents of \the [src]..."))
+		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", SPAN_NOTICE("You start emptying the contents of \the [src]..."))
 
 	if(!do_after(usr, contents.len * empty_delay))
 		return
@@ -818,7 +818,7 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
-	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", self_message = SPAN_NOTICE("You empty the contents of \the [src]."))
+	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", SPAN_NOTICE("You empty the contents of \the [src]."))
 
 // Override this to fill the storage object with stuff.
 /obj/item/storage/proc/fill()

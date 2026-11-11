@@ -38,7 +38,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message("[user] begins to cut through [target]'s [affected.encased] with \the [tool].", \
-		self_message = "You begin to cut through [target]'s [affected.encased] with \the [tool].")
+		"You begin to cut through [target]'s [affected.encased] with \the [tool].")
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -48,7 +48,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message("<b>[user]</b> has cut [target]'s [affected.encased] open with \the [tool].",		\
-		self_message = SPAN_NOTICE("You have cut [target]'s [affected.encased] open with \the [tool]."))
+		SPAN_NOTICE("You have cut [target]'s [affected.encased] open with \the [tool]."))
 	affected.open = ORGAN_ENCASED_OPEN
 
 /singleton/surgery_step/open_encased/saw/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -57,7 +57,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!") )
+		SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!") )
 
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
@@ -85,7 +85,7 @@
 
 	var/msg = "[user] starts to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
 	var/self_msg = "You start to force open the [affected.encased] in [target]'s [affected.name] with \the [tool]."
-	user.visible_message(msg, self_message = self_msg)
+	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -96,7 +96,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/msg = "<b>[user]</b> forces open [target]'s [affected.encased] with \the [tool]."
 	var/self_msg = "You force open [target]'s [affected.encased] with \the [tool]."
-	user.visible_message(msg, self_message = SPAN_NOTICE(self_msg))
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	..()
 
 	affected.open = ORGAN_ENCASED_RETRACTED
@@ -111,7 +111,7 @@
 
 	var/msg = SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased]!")
 	var/self_msg = SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased]!")
-	user.visible_message(msg, self_message = self_msg)
+	user.visible_message(msg, self_msg)
 
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
@@ -138,7 +138,7 @@
 
 	var/msg = "[user] starts bending [target]'s [affected.encased] back into place with \the [tool]."
 	var/self_msg = "You start bending [target]'s [affected.encased] back into place with \the [tool]."
-	user.visible_message(msg, self_message = self_msg)
+	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -149,7 +149,7 @@
 
 	var/msg = "<b>[user]</b> bends [target]'s [affected.encased] back into place with \the [tool]."
 	var/self_msg = "You bend [target]'s [affected.encased] back into place with \the [tool]."
-	user.visible_message(msg, self_message = SPAN_NOTICE(self_msg))
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -162,7 +162,7 @@
 
 	var/msg = SPAN_WARNING("[user]'s hand slips, bending [target]'s [affected.encased] the wrong way!")
 	var/self_msg = SPAN_WARNING("Your hand slips, bending [target]'s [affected.encased] the wrong way!")
-	user.visible_message(msg, self_message = self_msg)
+	user.visible_message(msg, self_msg)
 
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
@@ -195,7 +195,7 @@
 
 	var/msg = "[user] starts applying \the [tool] to [target]'s [affected.encased]."
 	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
-	user.visible_message(msg, self_message = self_msg)
+	user.visible_message(msg, self_msg)
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -206,7 +206,7 @@
 
 	var/msg = "<b>[user]</b> applies some of \the [tool] to [target]'s [affected.encased]."
 	var/self_msg = "You apply some of \the [tool] to [target]'s [affected.encased]."
-	user.visible_message(msg, self_message = SPAN_NOTICE(self_msg))
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 

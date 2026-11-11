@@ -182,34 +182,34 @@
 	if(stage < 1)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
+			SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
 			)
 	else if(stage < 3)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
+			SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
 			)
 	else if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is very hot."),
+			SPAN_DANGER("You reach out and touch \the [src]. It is very hot."),
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
+			SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
 			)
 
 /obj/structure/crystal_madness/attackby(obj/item/attacking_item, mob/user)
 	if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
+			SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
+			SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
 			)
 
 

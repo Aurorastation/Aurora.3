@@ -28,8 +28,8 @@
 			if(!stat && eggsleft < 8)
 				user.visible_message(
 					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It whistles happily."),
-					self_message = SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It whistles happily."),
-					blind_message = "You hear a cluck.")
+					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It whistles happily."),
+					"You hear a cluck.")
 				user.drop_from_inventory(attacking_item,get_turf(src))
 				qdel(attacking_item)
 				eggsleft += rand(1, 4)

@@ -20,7 +20,7 @@
 	if(over == user && Adjacent(user))
 		if(!held_item || use_check_and_message(user) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
-		user.visible_message(SPAN_NOTICE("[user] [withdraw_verb]s \the [src.name]."), self_message = SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
+		user.visible_message(SPAN_NOTICE("[user] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
 		var/obj/item/material/stool/S = new held_item(src.loc, material.type, padding_material?.type, painted_colour) // Handles all the material code so you don't have to.
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
@@ -226,7 +226,7 @@
 		var/blocked = target.get_blocked_ratio(hit_zone, DAMAGE_BRUTE)
 		target.Weaken(force * BLOCKED_MULT(blocked))
 		target.apply_damage(force * 2, DAMAGE_BRUTE, hit_zone, blocked, src)
-		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), self_message = SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
+		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
 		use_material_shatter = FALSE
 		shatter()
 
@@ -239,7 +239,7 @@
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 
-	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), self_message = SPAN_NOTICE("You [deploy_verb] \the [name]."))
+	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
 	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.type, padding_material?.type, painted_colour) // Fuck me.

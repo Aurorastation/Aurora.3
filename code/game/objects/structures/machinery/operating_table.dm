@@ -271,7 +271,7 @@
 		return FALSE
 
 	if(patient == giver) //Putting yourself on the table
-		giver.visible_message("\The [giver] climbs on \the [src].", self_message = "You climb on \the [src].")
+		giver.visible_message("\The [giver] climbs on \the [src].", "You climb on \the [src].")
 	else //Putting someone else on the table, or noone
 		visible_message(SPAN_NOTICE("\The [patient] has been laid on \the [src] by \the [giver]."), visible_message_flags = LOCAL_MESSAGE)
 
@@ -321,9 +321,9 @@
 			return
 
 		if(patient == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), self_message = SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), self_message = SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), vision_distance = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), vision_distance = 3)
 
 		//Move the patient on the table after a short delay and buckle him
 		if(do_mob(user, patient, 1 SECOND, needhand = FALSE))
@@ -350,9 +350,9 @@
 			return TRUE
 
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), self_message = SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), self_message = SPAN_NOTICE("You start putting \the [L] onto \the [src]."), vision_distance = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), vision_distance = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			take_occupant(G.affecting,usr)
 			qdel(attacking_item)

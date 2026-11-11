@@ -129,7 +129,7 @@
 		return 0
 
 	src.visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
-						self_message = SPAN_DANGER("You completely devour \the [target]!"))
+						SPAN_DANGER("You completely devour \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()

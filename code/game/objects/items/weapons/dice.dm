@@ -27,9 +27,9 @@
 
 /obj/item/stack/dice/attack_self(mob/user)
 	if(amount > 1)
-		user.visible_message("<b>[user]</b> shakes the die in their hand...", self_message = SPAN_NOTICE("You shake the die in your hands..."))
+		user.visible_message("<b>[user]</b> shakes the die in their hand...", SPAN_NOTICE("You shake the die in your hands..."))
 	else
-		user.visible_message("<b>[user]</b> raises the dice to their mouth and blows on it...", self_message = SPAN_NOTICE("You raise the dice to your mouth and blow on it..."))
+		user.visible_message("<b>[user]</b> raises the dice to their mouth and blows on it...", SPAN_NOTICE("You raise the dice to your mouth and blow on it..."))
 
 /obj/item/stack/dice/throw_impact(atom/hit_atom)
 	..()

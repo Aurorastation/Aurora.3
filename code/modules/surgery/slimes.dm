@@ -24,17 +24,17 @@
 
 /singleton/surgery_step/slime/cut_flesh/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting through [target]'s flesh with \the [tool].", \
-		self_message = "You start cutting through [target]'s flesh with \the [tool].")
+		"You start cutting through [target]'s flesh with \the [tool].")
 	..()
 
 /singleton/surgery_step/slime/cut_flesh/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_NOTICE("[user] cuts through [target]'s flesh with \the [tool]."),	\
-		self_message = SPAN_NOTICE("You cut through [target]'s flesh with \the [tool], revealing its silky innards."))
+		SPAN_NOTICE("You cut through [target]'s flesh with \the [tool], revealing its silky innards."))
 	target.core_removal_stage = ORGAN_OPEN_INCISION
 
 /singleton/surgery_step/slime/cut_flesh/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s flesh with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, tearing [target]'s flesh with \the [tool]!"))
+		SPAN_WARNING("Your hand slips, tearing [target]'s flesh with \the [tool]!"))
 
 /singleton/surgery_step/slime/cut_innards
 	name = "Cut Innards"
@@ -51,17 +51,17 @@
 
 /singleton/surgery_step/slime/cut_innards/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting [target]'s silky innards apart with \the [tool].", \
-		self_message = "You start cutting [target]'s silky innards apart with \the [tool].")
+		"You start cutting [target]'s silky innards apart with \the [tool].")
 	..()
 
 /singleton/surgery_step/slime/cut_innards/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_NOTICE("[user] cuts [target]'s innards apart with \the [tool], exposing the cores."),	\
-		self_message = SPAN_NOTICE("You cut [target]'s innards apart with \the [tool], exposing the cores."))
+		SPAN_NOTICE("You cut [target]'s innards apart with \the [tool], exposing the cores."))
 	target.core_removal_stage = ORGAN_OPEN_RETRACTED
 
 /singleton/surgery_step/slime/cut_innards/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
+		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
 
 /singleton/surgery_step/slime/saw_core
 	name = "Detach Core"
@@ -77,13 +77,13 @@
 
 /singleton/surgery_step/slime/saw_core/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting out one of [target]'s cores with \the [tool].", \
-		self_message = "You start cutting out one of [target]'s cores with \the [tool].")
+		"You start cutting out one of [target]'s cores with \the [tool].")
 	..()
 
 /singleton/surgery_step/slime/saw_core/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	target.cores--
 	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),	\
-		self_message = SPAN_NOTICE("You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left."))
+		SPAN_NOTICE("You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left."))
 
 	if(target.cores >= 0)
 		new target.coretype(target.loc)
@@ -93,4 +93,4 @@
 
 /singleton/surgery_step/slime/saw_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, causing [user.get_pronoun("him")] to miss the core!"), \
-		self_message = SPAN_WARNING("Your hand slips, causing you to miss the core!"))
+		SPAN_WARNING("Your hand slips, causing you to miss the core!"))

@@ -139,7 +139,7 @@
 					add_health(10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 					user.visible_message(SPAN_WARNING("[user] repairs [src]!"),
-											self_message = SPAN_NOTICE("<span class='notice'>You repair [src]!"))
+											SPAN_NOTICE("<span class='notice'>You repair [src]!"))
 				else
 					to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
 			else
@@ -310,20 +310,20 @@
 			if(repair_material.get_amount() < VEHICLE_REPAIR_STEEL_COST)
 				to_chat(user, SPAN_WARNING("You need [VEHICLE_REPAIR_STEEL_COST] steel sheets to repair \the [src]."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] begins fitting new plating to \the [src]."), self_message = SPAN_NOTICE("You begin fitting new plating to \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] begins fitting new plating to \the [src]."), SPAN_NOTICE("You begin fitting new plating to \the [src]."))
 			if(do_after(user, 2 SECONDS, src) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_STEEL && repair_material.use(VEHICLE_REPAIR_STEEL_COST))
 				repair_stage = VEHICLE_REPAIR_NEEDS_HAMMER
-				user.visible_message(SPAN_NOTICE("[user] fits new plating to \the [src]."), self_message = SPAN_NOTICE("You fit new plating to \the [src]. It needs to be hammered into shape."))
+				user.visible_message(SPAN_NOTICE("[user] fits new plating to \the [src]."), SPAN_NOTICE("You fit new plating to \the [src]. It needs to be hammered into shape."))
 			return TRUE
 
 		if(VEHICLE_REPAIR_NEEDS_HAMMER)
 			if(!is_hammer)
 				to_chat(user, SPAN_WARNING("\The [src]'s new plating needs to be hammered into shape."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] begins hammering \the [src]'s new plating into shape."), self_message = SPAN_NOTICE("You begin hammering \the [src]'s new plating into shape."))
+			user.visible_message(SPAN_NOTICE("[user] begins hammering \the [src]'s new plating into shape."), SPAN_NOTICE("You begin hammering \the [src]'s new plating into shape."))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_HAMMER)
 				repair_stage = VEHICLE_REPAIR_NEEDS_WELDER
-				user.visible_message(SPAN_NOTICE("[user] finishes shaping \the [src]'s new plating."), self_message = SPAN_NOTICE("You finish shaping \the [src]'s new plating. It needs to be welded in place."))
+				user.visible_message(SPAN_NOTICE("[user] finishes shaping \the [src]'s new plating."), SPAN_NOTICE("You finish shaping \the [src]'s new plating. It needs to be welded in place."))
 			return TRUE
 
 		if(VEHICLE_REPAIR_NEEDS_WELDER)
@@ -334,13 +334,13 @@
 			if(!welder.welding)
 				to_chat(user, SPAN_WARNING("You need to light \the [welder] first."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] begins welding \the [src]'s new plating into place."), self_message = SPAN_NOTICE("You begin welding \the [src]'s new plating into place."))
+			user.visible_message(SPAN_NOTICE("[user] begins welding \the [src]'s new plating into place."), SPAN_NOTICE("You begin welding \the [src]'s new plating into place."))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50) && (stat & BROKEN) && repair_stage == VEHICLE_REPAIR_NEEDS_WELDER)
 				set_health(maxhealth * 0.25)
 				stat &= ~BROKEN
 				repair_stage = VEHICLE_REPAIR_NONE
 				update_icon()
-				user.visible_message(SPAN_NOTICE("[user] restores \the [src] to working order."), self_message = SPAN_NOTICE("You restore \the [src] to working order. It could still use further repairs."))
+				user.visible_message(SPAN_NOTICE("[user] restores \the [src] to working order."), SPAN_NOTICE("You restore \the [src] to working order. It could still use further repairs."))
 			return TRUE
 
 	return FALSE
@@ -445,7 +445,7 @@
 	SIGNAL_HANDLER
 	if(rider != load)
 		return
-	rider.visible_message(SPAN_WARNING("\The [rider] falls off \the [src]!"), self_message = SPAN_WARNING("You fall off \the [src]!"))
+	rider.visible_message(SPAN_WARNING("\The [rider] falls off \the [src]!"), SPAN_WARNING("You fall off \the [src]!"))
 	unload(rider)
 
 /obj/vehicle/buckle(atom/movable/buckling_atom, mob/user)

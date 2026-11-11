@@ -596,7 +596,7 @@
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	activate_pin(1)
-	user.visible_message(SPAN_NOTICE("[user] waves [assembly] around [A]."), self_message = SPAN_NOTICE("You scan [A] with [assembly]."))
+	user.visible_message(SPAN_NOTICE("[user] waves [assembly] around [A]."), SPAN_NOTICE("You scan [A] with [assembly]."))
 	return TRUE
 
 /obj/item/integrated_circuit/input/atmo_scanner
@@ -1218,7 +1218,7 @@
 			return FALSE
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
-	user.visible_message(SPAN_NOTICE("[user] points [assembly] at [A]."), self_message = SPAN_NOTICE("You scan [A] with [assembly]."))
+	user.visible_message(SPAN_NOTICE("[user] points [assembly] at [A]."), SPAN_NOTICE("You scan [A] with [assembly]."))
 	activate_pin(1)
 	return TRUE
 

@@ -79,9 +79,9 @@
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
-		user.visible_message(SPAN_NOTICE("\The [user] starts loading \the [slimey] into \the [src]..."), self_message = SPAN_NOTICE("You start loading \the [slimey] into \the [src]..."))
+		user.visible_message(SPAN_NOTICE("\The [user] starts loading \the [slimey] into \the [src]..."), SPAN_NOTICE("You start loading \the [slimey] into \the [src]..."))
 		if(do_after(user, 20))
-			user.visible_message(SPAN_NOTICE("\The user loads \the [slimey] into \the [src]."), self_message = SPAN_NOTICE("You load \the [slimey] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The user loads \the [slimey] into \the [src]."), SPAN_NOTICE("You load \the [slimey] into \the [src]."))
 			slimey.forceMove(src)
 			extract_slimes[slimey] = slimey
 			addtimer(CALLBACK(src, PROC_REF(extraction_process), slimey), extraction_speed)

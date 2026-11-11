@@ -380,11 +380,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit)
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), self_message = SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> calmly drops and treads on the lit [src], putting it out instantly."), SPAN_NOTICE("You calmly drop and tread on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(TRUE, TRUE)
 	else // Cigarette packing. For compulsive smokers.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), self_message = SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
 
 
@@ -632,7 +632,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
 	if(lit == TRUE)
-		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), self_message = SPAN_NOTICE("You put out [src]."))
+		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), SPAN_NOTICE("You put out [src]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		lit = 0
 		icon_state = icon_off
@@ -640,7 +640,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		STOP_PROCESSING(SSprocessing, src)
 	else if (burn_rate)
 		var/turf/location = get_turf(user)
-		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), self_message = SPAN_NOTICE("You empty out [src]."))
+		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), SPAN_NOTICE("You empty out [src]."))
 		new /obj/effect/decal/cleanable/ash(location)
 		burn_rate = 0
 		reagents.clear_reagents()
@@ -1006,7 +1006,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			cig.attackby(src, user)
 		else
 			var/response = ""
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), self_message = SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
 			response = tgui_alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", list("Accept", "Decline"))
 			if(response != "Accept")
 				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
@@ -1155,7 +1155,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			to_chat(user, SPAN_WARNING("\The [src] is lit already!"))
 			return
 		if(user.unEquip(attacking_item))
-			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), self_message = SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] sticks a cigarette filter into \the [src]."), SPAN_NOTICE("You stick a cigarette filter into \the [src]."))
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
 			filter = TRUE
 			name = "filtered [name]"

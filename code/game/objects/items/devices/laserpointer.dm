@@ -115,9 +115,9 @@
 	I.pixel_y = target.pixel_y + rand(-5,5)
 
 	if(selfmsg)
-		user.visible_message(othermsg, self_message = selfmsg)
+		user.visible_message(othermsg, selfmsg)
 	else
-		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", self_message = SPAN_NOTICE("You point \the [src] at \the [target]."))
+		user.visible_message("<b>[user]</b> points \the [src] at \the [target].", SPAN_NOTICE("You point \the [src] at \the [target]."))
 
 
 	flick_overlay(I, showto, 15)

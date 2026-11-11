@@ -345,7 +345,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 				handle_post_fire(user, user)
 				user.visible_message(
 					SPAN_DANGER("\The [user] shoots [user.get_pronoun("himself")] in the foot with \the [src]!"),
-					self_message = SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
+					SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
 					)
 				M.drop_item()
 		else
@@ -584,14 +584,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 			if(reflex)
 				user.visible_message(
 					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
-					self_message = SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					blind_message = "You hear a [fire_sound_text]!"
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
+					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
 					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					self_message = SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					blind_message = "You hear a [fire_sound_text]!"
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
+					"You hear a [fire_sound_text]!"
 				)
 
 		if(muzzle_flash)
@@ -1133,14 +1133,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 			else
 				user.visible_message(
 				SPAN_WARNING("\The [user] breaks some electronics free from \the [src] with a crack."),
-				self_message = SPAN_ALERT("You apply a bit too much force to \the [pin], and it breaks in two. Oops."),
-				blind_message = "You hear a metallic crack.")
+				SPAN_ALERT("You apply a bit too much force to \the [pin], and it breaks in two. Oops."),
+				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
 		return TRUE
 
 	if(is_sharp(attacking_item))
-		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", self_message = SPAN_NOTICE("You carve a notched mark into \the [src]."))
+		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", SPAN_NOTICE("You carve a notched mark into \the [src]."))
 		markings++
 		return TRUE
 

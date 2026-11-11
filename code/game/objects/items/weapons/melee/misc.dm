@@ -232,6 +232,6 @@
 
 	// Visible messages for either result.
 	if(drop_result)
-		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] disarms \the [target_mob] with \the [src]!"), SPAN_NOTICE("You successfully disarm \the [target_mob] with \the [src]!"))
 	else
-		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"))
+		user.visible_message(SPAN_DANGER("\The [user] fail to disarm \the [target_mob] with \the [src]!"), SPAN_NOTICE("You fail to disarm \the [target_mob] with \the [src]!"))

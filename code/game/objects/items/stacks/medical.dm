@@ -59,12 +59,12 @@ Contains:
 
 			user.visible_message( \
 					SPAN_NOTICE("[user] starts applying \the [src] to \the [target_mob]."), \
-					self_message = SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
+					SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
 				)
 			if (do_mob(user, target_mob, 30))
 				user.visible_message( \
 					SPAN_NOTICE("[target_mob] has been applied with \the [src] by [user]."), \
-					self_message = SPAN_NOTICE("You apply \the [src] to [target_mob].")
+					SPAN_NOTICE("You apply \the [src] to [target_mob].")
 				)
 				use(1)
 			return 1
@@ -78,13 +78,13 @@ Contains:
 
 		user.visible_message( \
 				SPAN_NOTICE("\The [user] starts applying \the [src] to \the [target_mob]."), \
-				self_message = SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
+				SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
 			)
 		if (do_mob(user, target_mob, 30))
 			target_mob.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 			user.visible_message( \
 				SPAN_NOTICE("\The [target_mob] has been applied with \the [src] by \the [user]."), \
-				self_message = SPAN_NOTICE("You apply \the [src] to \the [target_mob].")
+				SPAN_NOTICE("You apply \the [src] to \the [target_mob].")
 			)
 			use(1)
 
@@ -146,7 +146,7 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts treating [target_mob]'s [affecting.name]."), \
-										self_message = SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
+										SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
 				var/used = 0
 				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
 				for (var/datum/wound/W in affecting.wounds)
@@ -159,14 +159,14 @@ Contains:
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [target_mob]'s [affecting.name]."), \
-															self_message = SPAN_NOTICE("You bandage \a [W.desc] on [target_mob]'s [affecting.name]."))
+															SPAN_NOTICE("You bandage \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == INJURY_TYPE_BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
-															self_message = SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
+															SPAN_NOTICE("You place a bruise patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
 						user.visible_message(SPAN_NOTICE("\The [user] places a bandaid over \a [W.desc] on [target_mob]'s [affecting.name]."), \
-															self_message = SPAN_NOTICE("You place a bandaid over \a [W.desc] on [target_mob]'s [affecting.name]."))
+															SPAN_NOTICE("You place a bandaid over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					W.bandage()
 					playsound(src, apply_sounds, 25)
 					used++
@@ -223,14 +223,14 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
-										self_message = SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
+										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
 				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
 				if(!do_mob(user, target_mob, 10 + (medicine_skill ? 5 * (SKILL_LEVEL_TRAINED - medicine_skill) : 0)))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] salved wounds on [target_mob]'s [affecting.name]."), \
-										self_message = SPAN_NOTICE("You salved wounds on [target_mob]'s [affecting.name]."))
+										SPAN_NOTICE("You salved wounds on [target_mob]'s [affecting.name]."))
 				use(1)
 				affecting.salve()
 		else
@@ -275,7 +275,7 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts treating [target_mob]'s [affecting.name]."), \
-										self_message = SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
+										SPAN_NOTICE("You start treating [target_mob]'s [affecting.name]."))
 				var/used = 0
 				for (var/datum/wound/W in affecting.wounds)
 					if (W.bandaged && W.disinfected)
@@ -288,14 +288,14 @@ Contains:
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
 						user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [target_mob]'s [affecting.name] and seals the edges with bioglue."), \
-												self_message = SPAN_NOTICE("You clean and seal \a [W.desc] on [target_mob]'s [affecting.name]."))
+												SPAN_NOTICE("You clean and seal \a [W.desc] on [target_mob]'s [affecting.name]."))
 						//H.add_side_effect("Itch")
 					else if (W.damage_type == INJURY_TYPE_BRUISE)
 						user.visible_message(SPAN_NOTICE("\The [user] places a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."), \
-												self_message = SPAN_NOTICE("You place a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
+												SPAN_NOTICE("You place a medical patch over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					else
 						user.visible_message(SPAN_NOTICE("\The [user] smears some bioglue over \a [W.desc] on [target_mob]'s [affecting.name]."), \
-												self_message = SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [target_mob]'s [affecting.name]."))
+												SPAN_NOTICE("You smear some bioglue over \a [W.desc] on [target_mob]'s [affecting.name]."))
 					playsound(src, pick(apply_sounds), 25)
 					W.bandage()
 					W.disinfect()
@@ -349,14 +349,14 @@ Contains:
 			else
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [target_mob]'s [affecting.name]."), \
-										self_message = SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
+										SPAN_NOTICE("You start salving the wounds on [target_mob]'s [affecting.name]."))
 				playsound(src, pick(apply_sounds), 25)
 				var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
 				if(!do_mob(user, target_mob, 10 + (medicine_skill ? 5 * (SKILL_LEVEL_TRAINED - medicine_skill) : 0)))
 					to_chat(user, SPAN_NOTICE("You must stand still to salve wounds."))
 					return 1
 				user.visible_message(SPAN_NOTICE("[user] covers wounds on [target_mob]'s [affecting.name] with regenerative membrane."), \
-										self_message = SPAN_NOTICE("You cover wounds on [target_mob]'s [affecting.name] with regenerative membrane."))
+										SPAN_NOTICE("You cover wounds on [target_mob]'s [affecting.name] with regenerative membrane."))
 				affecting.heal_damage(0,heal_burn)
 				use(1)
 				affecting.salve()
@@ -401,21 +401,21 @@ Contains:
 			to_chat(user, SPAN_DANGER("[target_mob]'s [limb] is already splinted!"))
 			return
 		if (target_mob != user)
-			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [target_mob]'s [limb]."), self_message = SPAN_DANGER("You start to apply \the [src] to [target_mob]'s [limb]."), blind_message = SPAN_DANGER("You hear something being wrapped."))
+			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You start to apply \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		else
 			if((!user.hand && affecting.limb_name == BP_R_ARM) || (user.hand && affecting.limb_name == BP_L_ARM))
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
 				return
-			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), self_message = SPAN_DANGER("You start to apply \the [src] to your [limb]."), blind_message = SPAN_DANGER("You hear something being wrapped."))
+			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		var/medicine_skill = user.GetComponent(MEDICINE_SKILL_COMPONENT)?.skill_level
 		if(do_after(user, 5 SECONDS + 25 * (medicine_skill ? SKILL_LEVEL_TRAINED - medicine_skill : 0), target_mob))
 			if (target_mob != user)
-				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [target_mob]'s [limb]."), self_message = SPAN_DANGER("You finish applying \the [src] to [target_mob]'s [limb]."), blind_message = SPAN_DANGER("You hear something being wrapped."))
+				user.visible_message(SPAN_DANGER("[user] finishes applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [target_mob]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 			else
 				if(prob(25))
-					user.visible_message(SPAN_DANGER("[user] successfully applies \the [src] to their [limb]."), self_message = SPAN_DANGER("You successfully apply \the [src] to your [limb]."), blind_message = SPAN_DANGER("You hear something being wrapped."))
+					user.visible_message(SPAN_DANGER("[user] successfully applies \the [src] to their [limb]."), SPAN_DANGER("You successfully apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
 				else
-					user.visible_message(SPAN_DANGER("[user] fumbles \the [src]."), self_message = SPAN_DANGER("You fumble \the [src]."), blind_message = SPAN_DANGER("You hear something being wrapped."))
+					user.visible_message(SPAN_DANGER("[user] fumbles \the [src]."), SPAN_DANGER("You fumble \the [src]."), SPAN_DANGER("You hear something being wrapped."))
 					return
 			affecting.status |= ORGAN_SPLINTED
 			use(1)

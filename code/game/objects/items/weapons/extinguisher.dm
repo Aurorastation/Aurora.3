@@ -54,7 +54,7 @@
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
 			reagents.trans_to(E, src.reagents.total_volume)
 			user.visible_message(SPAN_NOTICE("[user] fills \the [E] with the [src]."),
-									self_message = SPAN_NOTICE("You fill \the [E] with the [src]."))
+									SPAN_NOTICE("You fill \the [E] with the [src]."))
 
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
@@ -160,7 +160,7 @@
 		else if (src.reagents.total_volume < src.reagents.maximum_volume)
 			ER.reagents.trans_to(src, ER.reagents.total_volume)
 			user.visible_message(SPAN_NOTICE("[user] fills \the [src] with the [ER]."),
-									self_message = SPAN_NOTICE("You fill \the [src] with the [ER]."))
+									SPAN_NOTICE("You fill \the [src] with the [ER]."))
 
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else

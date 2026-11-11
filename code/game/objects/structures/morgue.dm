@@ -176,7 +176,7 @@
 		return
 	O.forceMove(src.loc)
 	if(user != O)
-		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), self_message = SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3)
+		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3)
 	add_fingerprint(user)
 	return
 /*

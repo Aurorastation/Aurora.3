@@ -22,7 +22,7 @@
 	src.verbs -= PROC_REF(remove_label)
 
 	H.visible_message(SPAN_NOTICE("\The [H] removes the label from \the [src]."),
-		self_message = SPAN_NOTICE("You remove the label from \the [src]."))
+		SPAN_NOTICE("You remove the label from \the [src]."))
 
 	return TRUE
 
@@ -82,7 +82,7 @@
 			tray.update_icon()
 
 	user.visible_message("<b>[user]</b> labels [A] as <i>[label]</i>.", \
-							self_message = SPAN_NOTICE("You label [A] as <i>[label]</i>."))
+							SPAN_NOTICE("You label [A] as <i>[label]</i>."))
 
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)

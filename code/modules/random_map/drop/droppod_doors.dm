@@ -36,8 +36,8 @@
 		if(WT.isOn())
 			user.visible_message(
 				SPAN_NOTICE("[user] begins cutting \the [src]'s safety bolts."),
-				self_message = SPAN_NOTICE("You begin welding \the [src]'s safety bolts."),
-				blind_message = SPAN_NOTICE("You hear a welding torch on metal.")
+				SPAN_NOTICE("You begin welding \the [src]'s safety bolts."),
+				SPAN_NOTICE("You hear a welding torch on metal.")
 			)
 			if(!WT.use_tool(src, user, 50, volume = 50))
 				return
@@ -46,7 +46,7 @@
 				return
 			user.visible_message(
 				SPAN_NOTICE("[user] cuts \the [src]'s safety bolts and removes the plating."),
-				self_message = SPAN_NOTICE("You cut \the [src]'s safety bolts and remove the plating.")
+				SPAN_NOTICE("You cut \the [src]'s safety bolts and remove the plating.")
 			)
 			new /obj/item/stack/material/steel(get_turf(src), 5)
 			qdel(src)

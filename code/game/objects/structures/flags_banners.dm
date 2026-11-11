@@ -169,7 +169,7 @@
 		continue
 
 	if(isfloor(user.loc))
-		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), self_message = SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
+		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
 		user.drop_from_inventory(src)
 		var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
 		F.name = src.name
@@ -195,7 +195,7 @@
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), self_message = SPAN_NOTICE("You fasten \the [src] to \the [A]."))
+	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
 	var/obj/structure/sign/flag/F = new flag_structure(user.loc, user.dir, deploy = TRUE, item_flag_path = flag_path)
 	F.name = src.name
@@ -228,15 +228,15 @@
 		return
 	if(!ripped)
 		if(banner_icon)
-			user.visible_message(SPAN_NOTICE("\The [user] collapses \the [src] and folds it back up."), self_message = SPAN_NOTICE("You collapse \the [src] and fold it back up."))
+			user.visible_message(SPAN_NOTICE("\The [user] collapses \the [src] and folds it back up."), SPAN_NOTICE("You collapse \the [src] and fold it back up."))
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), self_message = SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
+			user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src] and folds it back up."), SPAN_NOTICE("You unfasten \the [src] and fold it back up."))
 		var/obj/item/flag/F = new flag_item(get_turf(user))
 		F.name = src.name
 		F.desc = src.desc
 		user.put_in_hands(F)
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), self_message = SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] unfastens the tattered remnants of \the [src]."), SPAN_NOTICE("You unfasten the tattered remains of \the [src]."))
 	if(linked_flag)
 		qdel(linked_flag) // Otherwise you're going to get weird duping nonsense.
 	qdel(src)
@@ -250,23 +250,23 @@
 				to_chat(user, SPAN_WARNING("You are already folding up \the [src]."))
 				return
 			currently_folding = TRUE
-			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), self_message = SPAN_NOTICE("You begin to carefully fold up \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
 				unfasten(user)
 			else
 				currently_folding = FALSE
 		if(I_GRAB)
-			user.visible_message(SPAN_NOTICE("\The [user] salutes \the [src]."), self_message = SPAN_NOTICE("You salute \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] salutes \the [src]."), SPAN_NOTICE("You salute \the [src]."))
 		if(I_HURT)
 			if(unmovable || ripped)
 				return
 			if(tgui_alert(usr, "Do you want to rip \the [src] from its place?", "You think...", list("Yes", "No")) == "Yes")
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
-				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), self_message = SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
+				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
 				if(!do_after(user, 5 SECONDS, src))
 					return FALSE
-				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), self_message = SPAN_WARNING("You rip \the [src] in a single, decisive motion!"))
+				user.visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), SPAN_WARNING("You rip \the [src] in a single, decisive motion!"))
 				playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 				add_fingerprint(user)
 				rip(user)

@@ -106,9 +106,9 @@
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)
-			user.visible_message(SPAN_WARNING("[user] has disabled the [src]!"), self_message = SPAN_WARNING("You disable the connection to the [src]."))
+			user.visible_message(SPAN_WARNING("[user] has disabled the [src]!"), SPAN_WARNING("You disable the connection to the [src]."))
 		else if(!disable)
-			user.visible_message(SPAN_WARNING("[user] has reconnected the [src]!"), self_message = SPAN_WARNING("You fix the connection to the [src]."))
+			user.visible_message(SPAN_WARNING("[user] has reconnected the [src]!"), SPAN_WARNING("You fix the connection to the [src]."))
 		update_icon()
 		return TRUE
 

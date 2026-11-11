@@ -56,15 +56,15 @@
 		if(prob(2))
 			owner.visible_message(
 				"<B>\The [owner]</B> coughs up blood!",
-				self_message = SPAN_WARNING("You cough up blood!"),
-				blind_message = "You hear someone coughing!",
+				SPAN_WARNING("You cough up blood!"),
+				"You hear someone coughing!",
 				)
 			owner.drip(10)
 		if(prob(4))
 			owner.visible_message(
 				"<B>\The [owner]</B> gasps for air!",
-				self_message = SPAN_DANGER("You can't breathe!"),
-				blind_message = "You hear someone gasp for air!",
+				SPAN_DANGER("You can't breathe!"),
+				"You hear someone gasp for air!",
 			)
 			owner.losebreath = max(round(damage / 2), owner.losebreath)
 

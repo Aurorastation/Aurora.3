@@ -119,7 +119,7 @@
 /obj/item/grenade/proc/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_organ)
 	SHOULD_CALL_PARENT(TRUE)
 	if(exploded_organ)
-		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), self_message = SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
+		victim.visible_message(SPAN_DANGER("\The [src] goes off in \the [victim]'s hands!"), SPAN_HIGHDANGER("\The [src] goes off in your hand!"))
 	else
 		to_chat(victim, SPAN_HIGHDANGER("\The [src] goes off on you!"))
 

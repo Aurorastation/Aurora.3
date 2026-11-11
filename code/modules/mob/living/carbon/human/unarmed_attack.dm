@@ -76,7 +76,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 				// Induce blurriness
 				if(pain_message)
 					target.visible_message(SPAN_DANGER("[target] looks momentarily disoriented."),
-											self_message = SPAN_DANGER("You see stars."))
+											SPAN_DANGER("You see stars."))
 
 				target.apply_effect(attack_damage*2, EYE_BLUR, armor)
 			if(BP_L_ARM, BP_L_HAND)
@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 			if(BP_GROIN)
 				if(pain_message)
 					target.visible_message(SPAN_WARNING("[target] looks like [target.get_pronoun("he")] [target.get_pronoun("is")] in pain!"),
-											self_message = SPAN_WARNING("[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, that REALLY hurt!"]"))
+											SPAN_WARNING("[(target.gender=="female") ? "Oh god that hurt!" : "Oh no, that REALLY hurt!"]"))
 
 				target.apply_effects(stutter = attack_damage * 2, agony = attack_damage* 3, blocked = (armor * 100))
 			if(BP_L_LEG, BP_L_FOOT, BP_R_LEG, BP_R_FOOT)

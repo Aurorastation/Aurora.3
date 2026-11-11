@@ -11,7 +11,7 @@
 /obj/item/beehive_assembly/attack_self(var/mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, 30))
-		user.visible_message(SPAN_NOTICE("\The [user] constructs a beehive."), self_message = SPAN_NOTICE("You construct a beehive."))
+		user.visible_message(SPAN_NOTICE("\The [user] constructs a beehive."), SPAN_NOTICE("You construct a beehive."))
 		new /obj/structure/machinery/beehive(get_turf(user))
 		qdel(src)
 	return
@@ -83,12 +83,12 @@
 /obj/structure/machinery/beehive/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		closed = !closed
-		user.visible_message(SPAN_NOTICE("\The [user] [closed ? "closes" : "opens"] \the [src]."), self_message = SPAN_NOTICE("You [closed ? "close" : "open"] \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] [closed ? "closes" : "opens"] \the [src]."), SPAN_NOTICE("You [closed ? "close" : "open"] \the [src]."))
 		update_icon()
 		return
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
-		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "wrenches" : "unwrenches"] \the [src]."), self_message = SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "wrenches" : "unwrenches"] \the [src]."), SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 		if(!smoked && !anchored && (bee_count > 10))
 			visible_message(SPAN_WARNING("The bees don't like their home being moved!"), visible_message_flags = LOCAL_MESSAGE)
 			release_bees(0.1, 5)
@@ -105,7 +105,7 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is full with beeswax and honey, empty it into the extractor first."))
 			return
 		frames++
-		user.visible_message(SPAN_NOTICE("\The [user] loads \the [attacking_item] into \the [src]."), self_message = SPAN_NOTICE("You load \the [attacking_item] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] loads \the [attacking_item] into \the [src]."), SPAN_NOTICE("You load \the [attacking_item] into \the [src]."))
 		update_icon()
 		qdel(attacking_item)
 		return
@@ -124,11 +124,11 @@
 			to_chat(user, SPAN_WARNING("You need to open \the [src] with a crowbar before moving the bees."))
 			return
 		if(B.full)
-			user.visible_message(SPAN_NOTICE("\The [user] puts the queen and the bees from \the [B] into \the [src]."), self_message = SPAN_NOTICE("You put the queen and the bees from \the [B] into \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] puts the queen and the bees from \the [B] into \the [src]."), SPAN_NOTICE("You put the queen and the bees from \the [B] into \the [src]."))
 			bee_count = 20
 			B.empty()
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] puts bees and larvae from \the [src] into \the [B]."), self_message = SPAN_NOTICE("You put puts bees and larvae from \the [src] into \the [B]."))
+			user.visible_message(SPAN_NOTICE("\The [user] puts bees and larvae from \the [src] into \the [B]."), SPAN_NOTICE("You put puts bees and larvae from \the [src] into \the [B]."))
 			bee_count /= 2
 			B.fill()
 		update_icon()
@@ -148,7 +148,7 @@
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You start dismantling \the [src]. This will take a while..."))
 		if(attacking_item.use_tool(src, user, 150, volume = 50))
-			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You dismantle \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			if(bee_count)
 				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"), visible_message_flags = LOCAL_MESSAGE)
 				release_bees(1, 30)
@@ -164,7 +164,7 @@
 		if(!smoked && bee_count > 5)
 			visible_message(SPAN_WARNING("The bees don't like their honey being taken!"), visible_message_flags = LOCAL_MESSAGE)
 			release_bees(0.2, 5)
-		user.visible_message(SPAN_NOTICE("\The [user] starts taking the honeycombs out of \the [src]."), self_message = SPAN_NOTICE("You start taking the honeycombs out of \the [src]..."))
+		user.visible_message(SPAN_NOTICE("\The [user] starts taking the honeycombs out of \the [src]."), SPAN_NOTICE("You start taking the honeycombs out of \the [src]..."))
 		while(honeycombs >= 100 && do_after(user, 30))
 			new /obj/item/honey_frame/filled(get_turf(src))
 			honeycombs -= 100

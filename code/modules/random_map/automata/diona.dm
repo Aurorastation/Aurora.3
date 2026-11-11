@@ -25,19 +25,19 @@
 			return
 		else if (WT.use(0,user))
 			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].",
-									self_message = SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
+									SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
 			if(!attacking_item.use_tool(src, user, 20, volume = 50))
 				return
 			if(QDELETED(src) || !WT.isOn())
 				return
 			user.visible_message("<b>[user]</b> slices through the skin of \the [src].",
-									self_message = SPAN_NOTICE("You slice through \the [src]."))
+									SPAN_NOTICE("You slice through \the [src]."))
 		qdel(src)
 	else
 		user.do_attack_animation(src)
 		if(attacking_item.force)
 			user.visible_message(SPAN_DANGER("\The [user] [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"),
-									self_message = SPAN_NOTICE("You [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"))
+									SPAN_NOTICE("You [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"))
 			playsound(loc, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
 			playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 			health -= attacking_item.force

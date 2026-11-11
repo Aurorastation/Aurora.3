@@ -46,7 +46,7 @@
 
 /obj/structure/reagent_crystal/attack_hand(mob/user)
 	if((user.mutations & HULK))
-		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), self_message = SPAN_WARNING("You smash \the [src] apart!"))
+		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src] apart!"), SPAN_WARNING("You smash \the [src] apart!"))
 		add_damage(health)
 		return
 	return ..()

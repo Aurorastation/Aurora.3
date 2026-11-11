@@ -27,7 +27,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded."))
 		return
 	on = !on
-	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", self_message = SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
+	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 	return
 
 /obj/structure/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)

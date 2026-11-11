@@ -25,7 +25,7 @@
 
 	var/mob/living/L = user
 	L.visible_message(SPAN_NOTICE("[user] puts [user.get_pronoun("his")] hands together and focuses..."),
-					self_message = SPAN_NOTICE("You put your hands together and begin focusing on recovering your psionic energy..."))
+					SPAN_NOTICE("You put your hands together and begin focusing on recovering your psionic energy..."))
 	psi_recovery(user)
 
 /obj/item/spell/psi_recovery/proc/psi_recovery(mob/user)

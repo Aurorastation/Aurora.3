@@ -312,7 +312,7 @@
 		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
 		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),
-								self_message = SPAN_NOTICE("You deploy \the [M]!"))
+								SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/combitool/robotic
 	name = "robotic combitool"
@@ -448,7 +448,7 @@
 		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
 		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),
-								self_message = SPAN_NOTICE("You deploy \the [M]!"))
+								SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/melee/baton/autakh
 	name = "integrated stun baton"

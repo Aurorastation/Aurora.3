@@ -154,7 +154,7 @@
 			sample_message = additional_evidence["sample_message"]
 
 	if(sample_type)
-		user.visible_message("\The [user] swabs \the [A] for a sample.", self_message = sample_message || "You swab \the [A] for a sample.")
+		user.visible_message("\The [user] swabs \the [A] for a sample.", sample_message || "You swab \the [A] for a sample.")
 		set_used(sample_type, A)
 
 /obj/item/forensics/swab/proc/set_used(var/sample_str, var/atom/source)

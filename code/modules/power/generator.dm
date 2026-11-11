@@ -180,8 +180,8 @@
 		anchored = !anchored
 		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
-					self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					blind_message = "You hear a ratchet")
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
 		update_use_power(anchored ? POWER_USE_IDLE : POWER_USE_OFF)
 		if(anchored) // Powernet connection stuff.
 			connect_to_network()

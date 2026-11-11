@@ -119,7 +119,7 @@
 	if (!use_power)
 		to_chat(usr, SPAN_WARNING("\The [src] is unpowered."))
 		return
-	user.visible_message(SPAN_NOTICE("[user] has stuffed \the [thing] into \the [src]."), self_message = SPAN_NOTICE("You have stuffed \the [thing] into \the [src]."))
+	user.visible_message(SPAN_NOTICE("[user] has stuffed \the [thing] into \the [src]."), SPAN_NOTICE("You have stuffed \the [thing] into \the [src]."))
 	set_contained(thing)
 	update_use_power(POWER_USE_ACTIVE)
 
@@ -154,28 +154,28 @@
 			if (use_power)
 				to_chat(user, SPAN_NOTICE("\The [src] is still powered shut."))
 				return TRUE
-			user.visible_message(SPAN_DANGER("\The [user] begins to pry open \the [src] with the crowbar!"), self_message = SPAN_DANGER("You being to pry open \the [src] with the crowbar."))
+			user.visible_message(SPAN_DANGER("\The [user] begins to pry open \the [src] with the crowbar!"), SPAN_DANGER("You being to pry open \the [src] with the crowbar."))
 			playsound(loc, 'sound/machines/airlock_open_force.ogg', 40)
 			if (!do_after(user, 7 SECONDS, src))
 				return TRUE
 			if (prob(20))
-				user.visible_message(SPAN_DANGER("\The [user] jams open \the [src]'s lid, damaging it in the process!"), self_message = SPAN_DANGER("You successfully manage to jam open \the [src]'s lid, damaging it in the process."))
+				user.visible_message(SPAN_DANGER("\The [user] jams open \the [src]'s lid, damaging it in the process!"), SPAN_DANGER("You successfully manage to jam open \the [src]'s lid, damaging it in the process."))
 				release()
 				broken = TRUE
 				update_icon()
 				return TRUE
-			user.visible_message(SPAN_DANGER("\The [user] jams open \the [src]'s lid!") ,self_message = SPAN_DANGER("You successfully manage to jam open \the [src]'s lid."))
+			user.visible_message(SPAN_DANGER("\The [user] jams open \the [src]'s lid!") ,SPAN_DANGER("You successfully manage to jam open \the [src]'s lid."))
 			release()
 			return TRUE
 
 	// Wrench - Repair lid
 	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if (broken)
-			user.visible_message(SPAN_NOTICE("\The [user] begins to clamp \the [src]'s lid back into position."), self_message = SPAN_NOTICE("You begin to clamp \the [src]'s lid back into position."))
+			user.visible_message(SPAN_NOTICE("\The [user] begins to clamp \the [src]'s lid back into position."), SPAN_NOTICE("You begin to clamp \the [src]'s lid back into position."))
 			playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
 			if (!do_after(user, 5 SECONDS, src))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("\The [user] successfully repairs \the [src]'s lid!"), self_message = SPAN_NOTICE("You successfully repair \the [src]'s lid!"))
+			user.visible_message(SPAN_NOTICE("\The [user] successfully repairs \the [src]'s lid!"), SPAN_NOTICE("You successfully repair \the [src]'s lid!"))
 			broken = FALSE
 			update_icon()
 			return TRUE
@@ -251,7 +251,7 @@
 	if (!target.stat && !target.captured)
 		to_chat(user, SPAN_NOTICE("It's going to be difficult to convince \the [target] to move into \the [src] without capturing it in a net."))
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] begins stuffing \the [target] into \the [src]."), self_message = SPAN_NOTICE("You begin stuffing \the [target] into \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] begins stuffing \the [target] into \the [src]."), SPAN_NOTICE("You begin stuffing \the [target] into \the [src]."))
 	playsound(src, 'sound/machines/AirlockClose.ogg', 100)
 	add_fingerprint(user)
 	if (do_after(user, 2 SECONDS, src))

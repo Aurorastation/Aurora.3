@@ -237,7 +237,7 @@
 
 		beaker =  attacking_item
 		user.drop_from_inventory(attacking_item,src)
-		user.visible_message("[user] adds \a [attacking_item] to \the [src]!", self_message = "You add \a [attacking_item] to \the [src]!")
+		user.visible_message("[user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/grab = attacking_item
 		var/mob/living/L = grab.affecting
@@ -250,7 +250,7 @@
 			return TRUE
 
 		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."),
-								self_message = SPAN_NOTICE("You start putting [L] into [src]."), vision_distance = 3)
+								SPAN_NOTICE("You start putting [L] into [src]."), vision_distance = 3)
 
 		if(do_mob(user, L, 30, needhand = 0))
 			for(var/mob/living/carbon/slime/M in range(1, L))
@@ -259,7 +259,7 @@
 					return TRUE
 			if(put_mob(L))
 				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
-										self_message = SPAN_NOTICE("You put [L] into [src]."), vision_distance = 3)
+										SPAN_NOTICE("You put [L] into [src]."), vision_distance = 3)
 				qdel(attacking_item)
 				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
@@ -289,11 +289,11 @@
 
 	if(L == user)
 		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."),
-								self_message = SPAN_NOTICE("<span class='notice'>You start climbing into [src]."), vision_distance = 3)
+								SPAN_NOTICE("<span class='notice'>You start climbing into [src]."), vision_distance = 3)
 
 	else
 		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into the cryopod."),
-								self_message = SPAN_NOTICE("<span class='notice'>You start putting [L] into [src]."), vision_distance = 3)
+								SPAN_NOTICE("<span class='notice'>You start putting [L] into [src]."), vision_distance = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -302,11 +302,11 @@
 		if(put_mob(L))
 			if(L == user)
 				user.visible_message(SPAN_NOTICE("[user] climbs into [src]."),
-										self_message = SPAN_NOTICE("<span class='notice'>You climb into [src]."), vision_distance = 3)
+										SPAN_NOTICE("<span class='notice'>You climb into [src]."), vision_distance = 3)
 
 			else
 				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
-										self_message = SPAN_NOTICE("<span class='notice'>You put [L] into [src]."), vision_distance = 3)
+										SPAN_NOTICE("<span class='notice'>You put [L] into [src]."), vision_distance = 3)
 
 				if(user.pulling == L)
 					user.pulling = null
@@ -457,7 +457,7 @@
 	if (usr.stat != 0)
 		return
 	usr.visible_message(SPAN_NOTICE("[usr] climbs into [src]."),
-						self_message = SPAN_NOTICE("You climb into [src]."), vision_distance = 3)
+						SPAN_NOTICE("You climb into [src]."), vision_distance = 3)
 
 	put_mob(usr)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)

@@ -452,7 +452,7 @@
 	if(!user)
 		return FALSE
 	var/pickup_delay = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
-	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), self_message = SPAN_NOTICE("You start lifting \the [src]..."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts lifting \the [src]..."), SPAN_NOTICE("You start lifting \the [src]..."))
 	return do_after(user, pickup_delay, src, DO_UNIQUE)
 
 /obj/item/attack_ai(mob/user as mob)
@@ -878,7 +878,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 		if(H != user)
 			M.visible_message(
 				SPAN_DANGER("[user] stabs \the [M] in the [eyes.singular_name] with \the [src]!"),
-				self_message = SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with \the [src]!")
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with \the [src]!")
 			)
 		else
 			user.visible_message( \

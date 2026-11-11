@@ -190,7 +190,7 @@
 	. = ..()
 	if(occupant && (user != occupant))
 		if(do_after(user, 1 SECOND, src))
-			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), self_message = SPAN_NOTICE("You lower the manual release lever on \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
 			go_out()
 
 /obj/structure/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
@@ -332,7 +332,7 @@
 
 /obj/structure/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
 	var/mob/living/R = M
-	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), self_message = SPAN_NOTICE("You start putting [R] into [src]."), vision_distance = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), SPAN_NOTICE("You start putting [R] into [src]."), vision_distance = 3)
 	if(do_mob(usr, R, 5 SECONDS))
 		if(go_in(R))
 			usr.visible_message(SPAN_NOTICE("After some effort, [usr] manages to get [R] into the recharging unit!"))
@@ -351,7 +351,7 @@
 			return
 		user.face_atom(src)
 		user.visible_message(SPAN_DANGER("[user] starts hauling [dropped] into the recharging unit!"),
-							self_message = SPAN_DANGER("You start hauling and pushing [dropped] into the recharger. This might take a while..."), blind_message = "You hear heaving and straining")
+							SPAN_DANGER("You start hauling and pushing [dropped] into the recharger. This might take a while..."), "You hear heaving and straining")
 
 		if (do_mob(user, R, R.mob_size*10, needhand = 1))
 			if (go_in(R))

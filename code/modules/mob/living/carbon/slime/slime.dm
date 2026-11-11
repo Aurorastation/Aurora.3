@@ -383,7 +383,7 @@
 
 				playsound(loc, SFX_PUNCH, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
-						self_message = SPAN_DANGER("[M] has punched [src]!"))
+						SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()

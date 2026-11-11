@@ -979,7 +979,7 @@ pixel_x = 10;
 				return TRUE
 
 			if (panel_open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), self_message = "You cut the wires inside \the [src].")
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1

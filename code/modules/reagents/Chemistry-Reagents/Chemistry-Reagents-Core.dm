@@ -204,7 +204,7 @@
 				S.target = null
 				++S.discipline
 		if(S.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), self_message = SPAN_DANGER("Your flesh burns in the water!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
 /singleton/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)

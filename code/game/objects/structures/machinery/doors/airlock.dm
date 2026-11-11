@@ -1427,7 +1427,7 @@ About the new airlock wires panel:
 				if(!density)
 					return
 
-				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", self_message = SPAN_NOTICE("You begin to pry open \the [src]!"), blind_message = SPAN_WARNING("You hear the sound of an airlock being forced open."))
+				H.visible_message("<b>[H]</b> begins to pry open \the [src]!", SPAN_NOTICE("You begin to pry open \the [src]!"), SPAN_WARNING("You hear the sound of an airlock being forced open."))
 
 				if(!do_after(H, 12 SECONDS, src, DO_UNIQUE))
 					return
@@ -1437,7 +1437,7 @@ About the new airlock wires panel:
 				if(shredding)
 					src.do_animate("spark")
 					src.stat |= BROKEN
-					H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", self_message = SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), blind_message = SPAN_WARNING("You hear something sparking."))
+					H.visible_message("<b>[H]</b> slices \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!", SPAN_NOTICE("You slice \the [src]'s controls, [check ? "ripping it open" : "breaking it"]!"), SPAN_WARNING("You hear something sparking."))
 				return
 			if(H.default_attack?.attack_door && !(stat & (BROKEN|NOPOWER)))
 				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with their [H.default_attack.attack_name]!"))
@@ -1455,7 +1455,7 @@ About the new airlock wires panel:
 	if((ishuman(user) || istype(usr, /mob/living/silicon)) && src.density && (stat & NOPOWER) && user.Adjacent(src))
 		user.visible_message(
 			SPAN_NOTICE("<b>[user]</b> attempts to open \the [src]."),
-			self_message = SPAN_ITALIC("It seems like the door isn't opening. You try to locate and unlock the manual override...")
+			SPAN_ITALIC("It seems like the door isn't opening. You try to locate and unlock the manual override...")
 		)
 
 		if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
@@ -1467,8 +1467,8 @@ About the new airlock wires panel:
 				return
 			user.visible_message(
 				SPAN_WARNING("<b>[user]</b> begins to crank the manual override handle of \the [src]!"),
-				self_message = SPAN_NOTICE("You start to crank the manual override lever of \the [src]! This might take a moment..."),
-				blind_message = SPAN_WARNING("You hear the sound of a ratchet being used!")
+				SPAN_NOTICE("You start to crank the manual override lever of \the [src]! This might take a moment..."),
+				SPAN_WARNING("You hear the sound of a ratchet being used!")
 			)
 			powerless_manual_override_procedure(user)
 			return
@@ -1543,8 +1543,8 @@ About the new airlock wires panel:
 	else if(istype(tool, /obj/item/crowbar/hydraulic_rescue_tool))
 		if(bolt_cut_state == BOLTS_FINE)
 			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolt cover!"),
-				self_message = SPAN_WARNING("You start applying pressure on the airlock's bolt cover using the [tool]..."),
-				blind_message = SPAN_NOTICE("You hear metal cracking and deforming...") \
+				SPAN_WARNING("You start applying pressure on the airlock's bolt cover using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")\
 			)
 			if (do_after(user, 1 SECONDS))
 				to_chat(user, SPAN_WARNING("You force the bolt cover open!"))
@@ -1552,8 +1552,8 @@ About the new airlock wires panel:
 				bolt_cut_state = BOLTS_EXPOSED
 		else if(bolt_cut_state != BOLTS_FINE)
 			user.visible_message(SPAN_DANGER("[user] starts using the [tool] on the airlock's bolts!"),
-				self_message = SPAN_WARNING("You start applying pressure on the airlock's bolts using the [tool]..."),
-				blind_message = SPAN_NOTICE("You hear metal cracking and deforming...")
+				SPAN_WARNING("You start applying pressure on the airlock's bolts using the [tool]..."),
+				SPAN_NOTICE("You hear metal cracking and deforming...")
 			)
 			cut_verb = "smashing"
 			cut_sound = 'sound/weapons/smash.ogg'
@@ -1771,8 +1771,8 @@ About the new airlock wires panel:
 		if(WT.isOn())
 			user.visible_message(
 				SPAN_WARNING("[user] begins welding [src] [welded ? "open" : "shut"]."),
-				self_message = SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
-				blind_message = "You hear a welding torch on metal."
+				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
+				"You hear a welding torch on metal."
 			)
 			playsound(src, 'sound/items/Welder.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
@@ -1820,9 +1820,9 @@ About the new airlock wires panel:
 			if(locked)
 				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
-			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", self_message = SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
+			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", self_message = SPAN_NOTICE("You remove the electronics from the airlock assembly."))
+				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", SPAN_NOTICE("You remove the electronics from the airlock assembly."))
 				CreateAssembly()
 				return
 		else if(arePowerSystemsOn() && !istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
@@ -1836,8 +1836,8 @@ About the new airlock wires panel:
 			if(density)
 				if(arePowerSystemsOn() && istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 					user.visible_message(SPAN_DANGER("[user] starts using the [attacking_item] on the airlock!"),
-						self_message = SPAN_WARNING("You start applying pressure on the airlock using the [attacking_item]..."),
-						blind_message = SPAN_NOTICE("You hear metal cracking and deforming...")
+						SPAN_WARNING("You start applying pressure on the airlock using the [attacking_item]..."),
+						SPAN_NOTICE("You hear metal cracking and deforming...")
 					)
 					if (do_after(user, 5 SECONDS))
 						playsound(src, 'sound/weapons/smash.ogg', 100, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
@@ -1886,14 +1886,14 @@ About the new airlock wires panel:
 			ChainSawVar.cutting = 1
 			user.visible_message(\
 				SPAN_DANGER("[user.name] starts cutting the control pannel of the airlock with the [attacking_item]!"),\
-				self_message = SPAN_WARNING("You start cutting the airlock control panel..."),\
-				blind_message = SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...") \
+				SPAN_WARNING("You start cutting the airlock control panel..."),\
+				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [attacking_item]."),\
-					self_message = SPAN_WARNING("You finish cutting the airlock control panel."),\
-					blind_message = SPAN_NOTICE("You hear a metal clank and some sparks.") \
+					SPAN_WARNING("You finish cutting the airlock control panel."),\
+					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
 				set_broken()
 				sleep(1 SECONDS)
@@ -1904,14 +1904,14 @@ About the new airlock wires panel:
 			ChainSawVar.cutting = 1
 			user.visible_message(\
 				SPAN_DANGER("[user.name] starts cutting below the airlock with the [attacking_item]!"),\
-				self_message = SPAN_WARNING("You start cutting below the airlock..."),\
-				blind_message = SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...") \
+				SPAN_WARNING("You start cutting below the airlock..."),\
+				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [attacking_item]."),\
-					self_message = SPAN_NOTICE("You finish cutting below the airlock."),\
-					blind_message = SPAN_NOTICE("You hear a metal clank and some sparks.") \
+					SPAN_NOTICE("You finish cutting below the airlock."),\
+					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
 				unlock(1)
 			ChainSawVar.cutting = 0
@@ -1920,14 +1920,14 @@ About the new airlock wires panel:
 			ChainSawVar.cutting = 1
 			user.visible_message(\
 				SPAN_DANGER("[user.name] starts cutting between the airlock with the [attacking_item]!"),\
-				self_message = SPAN_WARNING("You start cutting between the airlock..."),\
-				blind_message = SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...") \
+				SPAN_WARNING("You start cutting between the airlock..."),\
+				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
 					SPAN_WARNING("[user.name] finishes cutting between the airlock."),\
-					self_message = SPAN_WARNING("You finish cutting between the airlock."),\
-					blind_message = SPAN_NOTICE("You hear a metal clank and some sparks.") \
+					SPAN_WARNING("You finish cutting between the airlock."),\
+					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
 				open(1)
 				add_damage(50)
@@ -2040,7 +2040,7 @@ About the new airlock wires panel:
 
 	SetStunned(5)
 	SetWeakened(5)
-	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), self_message = SPAN_DANGER("You are crushed in the airlock!"), blind_message = SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
+	visible_message(SPAN_DANGER("[src] is crushed in the airlock!"), SPAN_DANGER("You are crushed in the airlock!"), SPAN_NOTICE("You hear airlock actuators momentarily struggle."))
 
 	var/turf/T = loc
 	if(istype(T))

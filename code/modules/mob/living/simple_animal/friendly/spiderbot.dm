@@ -257,8 +257,8 @@
 
 	if(istype(held_item, /obj/item/grenade))
 		visible_message(SPAN_DANGER("\The [src] launches \the [held_item]!"), \
-			self_message = SPAN_DANGER("You launch \the [held_item]!"), \
-			blind_message = "You hear a skittering noise and a thump!")
+			SPAN_DANGER("You launch \the [held_item]!"), \
+			"You hear a skittering noise and a thump!")
 		var/obj/item/grenade/G = held_item
 		G.forceMove(src.loc)
 		G.prime()
@@ -266,8 +266,8 @@
 		return 1
 
 	visible_message(SPAN_NOTICE("\The [src] drops \the [held_item]."), \
-		self_message = SPAN_NOTICE("You drop \the [held_item]."), \
-		blind_message = "You hear a skittering noise and a soft thump.")
+		SPAN_NOTICE("You drop \the [held_item]."), \
+		"You hear a skittering noise and a soft thump.")
 
 	held_item.forceMove(src.loc)
 	held_item = null
@@ -298,8 +298,8 @@
 				held_item = selection
 				selection.forceMove(src)
 				visible_message(SPAN_NOTICE("\The [src] scoops up \the [held_item]."), \
-					self_message = SPAN_NOTICE("You grab \the [held_item]."), \
-					blind_message = "You hear a skittering noise and a clink.")
+					SPAN_NOTICE("You grab \the [held_item]."), \
+					"You hear a skittering noise and a clink.")
 				return held_item
 		to_chat(src, SPAN_WARNING("\The [selection] is too far away."))
 		return 0

@@ -58,7 +58,7 @@
 
 /datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.visible_message(SPAN_DANGER("[A] has hit [D] with plasma punch!"), \
-								self_message = SPAN_DANGER("[A] has hit [D] with plasma punch!"))
+								SPAN_DANGER("[A] has hit [D] with plasma punch!"))
 	playsound(D.loc, "punch", 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
@@ -71,7 +71,7 @@
 	playsound(D.loc, 'sound/magic/Disintegrate.ogg', 50, 1, -1)
 	A.say("PLASMA FIST!")
 	D.visible_message(SPAN_DANGER("[A] has hit [D] with the plasma fist technique!"), \
-								self_message = SPAN_DANGER("[A] has hit [D] with the plasma fist technique!"))
+								SPAN_DANGER("[A] has hit [D] with the plasma fist technique!"))
 	D.gib()
 	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist)")
 	return

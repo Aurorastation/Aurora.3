@@ -165,7 +165,7 @@
 	status_flags |= LEAPING
 
 	visible_message(SPAN_DANGER("[src] leaps at [T]!"),
-					self_message = SPAN_DANGER("You leap at [T]!"))
+					SPAN_DANGER("You leap at [T]!"))
 
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, spin = FALSE)
 
@@ -186,7 +186,7 @@
 			return TRUE
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
-					self_message = SPAN_WARNING("You aggressively seize [T]!"))
+					SPAN_WARNING("You aggressively seize [T]!"))
 
 	var/obj/item/grab/G = new /obj/item/grab(src, src, T)
 
@@ -536,7 +536,7 @@
 
 	src.visible_message(
 	SPAN_DANGER("\The [src] begins to beep ominously!"),
-	self_message = SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!")
+	SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!")
 	)
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
@@ -622,7 +622,7 @@
 
 	if(tgui_alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", list("Yes", "No")) == "No")
 		return
-	visible_message(SPAN_DANGER("[src] dissolves!"), self_message = SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
+	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
 	death()
 
 /mob/living/carbon/human/proc/shatter_light()
@@ -736,7 +736,7 @@
 	last_special = world.time + 100
 
 	src.visible_message(SPAN_WARNING("\The [src] takes a step backwards and rears up."),
-			self_message = SPAN_NOTICE("You take a step backwards and then..."))
+			SPAN_NOTICE("You take a step backwards and then..."))
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 		src.visible_message(SPAN_DANGER("\The [src] charges!"))
@@ -829,8 +829,8 @@
 	last_special = world.time + 100
 
 	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
-			self_message = SPAN_DANGER("You let out an ear-shattering shriek!"),
-			blind_message = SPAN_DANGER("You hear a painfully loud shriek!"))
+			SPAN_DANGER("You let out an ear-shattering shriek!"),
+			SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
@@ -881,8 +881,8 @@
 	last_special = world.time + 100
 	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	visible_message(SPAN_DANGER("\The [src] unleashes a torrent of raging flame!"),
-			self_message = SPAN_DANGER("You unleash a gust of fire!"),
-			blind_message = SPAN_DANGER("You hear the roar of an inferno!"))
+			SPAN_DANGER("You unleash a gust of fire!"),
+			SPAN_DANGER("You hear the roar of an inferno!"))
 
 	var/turf/T  = get_step(get_step(src, dir), dir)
 	var/turf/T1 = get_step(T, dir)
@@ -1041,7 +1041,7 @@
 	if(detachment_delay)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] starts disconnecting [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]."),
-			self_message = SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb].")
+			SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb].")
 		)
 		if(!do_after(user, detachment_delay, src))
 			return FALSE
@@ -1080,7 +1080,7 @@
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] detaches [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]!"),
-		self_message = SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!")
+		SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!")
 	)
 	return TRUE
 
@@ -1117,7 +1117,7 @@
 	if(attachment_delay)
 		visible_message(
 			SPAN_NOTICE("\The [src] starts connecting [get_pronoun("his")] [limb]."),
-			self_message = SPAN_NOTICE("You start connecting your [limb].")
+			SPAN_NOTICE("You start connecting your [limb].")
 		)
 		if(!do_after(src, attachment_delay, src))
 			return FALSE
@@ -1139,7 +1139,7 @@
 
 	visible_message(
 		SPAN_NOTICE("\The [src] attaches [get_pronoun("his")] [limb] to its socket!"),
-		self_message = SPAN_NOTICE("You attach your [limb] to its socket!")
+		SPAN_NOTICE("You attach your [limb] to its socket!")
 	)
 	return TRUE
 
@@ -1185,7 +1185,7 @@
 		UpdateDamageIcon()
 
 		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
-				self_message = SPAN_NOTICE("You attach \the [O] to your body!"))
+				SPAN_NOTICE("You attach \the [O] to your body!"))
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
@@ -2261,10 +2261,10 @@
 			return
 
 		src.visible_message(SPAN_DANGER("[src] leans towards [H], exhaling a cloud of black spores into their face."), \
-		self_message = SPAN_GOOD("You lean towards [H], placing your face close to theirs, and exhale. They will become Us, soon."))
+		SPAN_GOOD("You lean towards [H], placing your face close to theirs, and exhale. They will become Us, soon."))
 		if(!do_after(src, 2 SECONDS))
 			src.visible_message(SPAN_DANGER("[src] is interrupted before their target can breathe in the spores!"), \
-			self_message = SPAN_WARNING("You are interrupted, unable to deliver [H] to Our embrace!"))
+			SPAN_WARNING("You are interrupted, unable to deliver [H] to Our embrace!"))
 		var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 		var/obj/item/organ/internal/parasite/blackkois/infest = new()
 		infest.replaced(H, affected)

@@ -372,7 +372,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
 	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),
-							self_message = SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
+							SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
@@ -382,7 +382,7 @@ BREATH ANALYZER
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] takes a breath sample from [H]."),
-							self_message = SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
+							SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
@@ -469,7 +469,7 @@ BREATH ANALYZER
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", self_message = SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
 	flick("[icon_state]-scan", src)
 	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
 		print_scan(target_mob, user)

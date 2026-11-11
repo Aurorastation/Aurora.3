@@ -47,10 +47,10 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(attacking_item.force < 10)
 		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [attacking_item]."),
-								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
+								SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
 	else
 		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [attacking_item]."),
-								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item]."))
+								SPAN_WARNING("You attack \the [src] with \the [attacking_item]."))
 		damage_field(attacking_item.force / 10)
 
 /obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
@@ -58,7 +58,7 @@
 		if(H.species.can_shred(H))
 			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			H.do_attack_animation(src)
-			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), self_message = SPAN_WARNING("You shred \the [src]!"))
+			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), SPAN_WARNING("You shred \the [src]!"))
 			damage_field(1)
 			return
 	to_chat(H, SPAN_WARNING("You touch \the [src], and it repulses your hand."))

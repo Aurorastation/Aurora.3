@@ -25,8 +25,8 @@
 
 	chamber_offset = 0
 	usr.visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"),
-						self_message = SPAN_WARNING("You spin the cylinder of \the [src]!"),
-						blind_message = SPAN_NOTICE("You hear something metallic spin and click."))
+						SPAN_WARNING("You spin the cylinder of \the [src]!"),
+						SPAN_NOTICE("You hear something metallic spin and click."))
 
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
@@ -89,7 +89,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.mob_size <10)
-				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 2, 2)
 

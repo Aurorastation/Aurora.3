@@ -45,20 +45,20 @@
 				if(buckled != user)
 					buckled.visible_message(\
 						SPAN_NOTICE("[user.name] frees [buckled.name] from \the [src]."),\
-						self_message = SPAN_NOTICE("[user.name] frees you from \the [src]."),\
-						blind_message = SPAN_WARNING("You hear shredding and ripping."))
+						SPAN_NOTICE("[user.name] frees you from \the [src]."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 				else
 					buckled.visible_message(\
 						SPAN_NOTICE("[buckled.name] struggles free of \the [src]."),\
-						self_message = SPAN_NOTICE("You untangle \the [src] from around yourself."),\
-						blind_message = SPAN_WARNING("You hear shredding and ripping."))
+						SPAN_NOTICE("You untangle \the [src] from around yourself."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 			unbuckle()
 		else
 			var/text = pick("rip","tear","pull")
 			user.visible_message(\
 				SPAN_NOTICE("[user.name] [text]s at \the [src]."),\
-				self_message = SPAN_NOTICE("You [text] at \the [src]."),\
-				blind_message = SPAN_WARNING("You hear shredding and ripping."))
+				SPAN_NOTICE("You [text] at \the [src]."),\
+				SPAN_WARNING("You hear shredding and ripping."))
 	return
 
 /obj/effect/plant/proc/entangle(var/mob/living/victim)

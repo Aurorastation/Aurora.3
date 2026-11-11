@@ -325,7 +325,7 @@
 /obj/item/book/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You open up the book and show it to [target_mob]. "), \
-			self_message = SPAN_NOTICE(" [user] opens up a book and shows it to [target_mob]. "))
+			SPAN_NOTICE(" [user] opens up a book and shows it to [target_mob]. "))
 		target_mob << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 

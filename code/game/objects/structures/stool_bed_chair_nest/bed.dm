@@ -226,8 +226,8 @@
 				if(buckle(affecting, user))
 					affecting.visible_message(\
 						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
-						self_message = SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
-						blind_message = SPAN_NOTICE("You hear metal clanking."))
+						SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+						SPAN_NOTICE("You hear metal clanking."))
 			qdel(attacking_item)
 
 	else if(istype(attacking_item, /obj/item/gripper) && buckled)
@@ -260,9 +260,9 @@
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
 	if(user)
-		user.visible_message("<b>[user]</b> begins dismantling \the [src].", self_message = SPAN_NOTICE("You begin dismantling \the [src]."))
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(W.use_tool(src, user, 20, volume = 50))
-			user.visible_message("\The [user] dismantles \the [src].", self_message = SPAN_NOTICE("You dismantle \the [src]."))
+			user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
 		else
 			return FALSE
 	if(padding_material)
@@ -509,7 +509,7 @@
 	if(buckled)
 		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
 		return
-	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), self_message = SPAN_NOTICE("You collapse \the [src]"))
+	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
 
@@ -549,13 +549,13 @@
 	if(!beaker)
 		return
 	if(do_mob(user, target, 1 SECOND))
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), self_message = SPAN_NOTICE("You attach the IV to \the [target]."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), SPAN_NOTICE("You attach the IV to \the [target]."))
 		iv_attached = TRUE
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/human/target, mob/user)
-	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), self_message = SPAN_NOTICE("You take the IV off \the [target]."))
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
 	iv_attached = FALSE
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)

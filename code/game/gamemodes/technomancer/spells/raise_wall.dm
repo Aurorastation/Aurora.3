@@ -30,4 +30,4 @@
 	if(check_for_scepter())
 		force_wall.opacity = TRUE
 	QDEL_IN(force_wall, 10 SECONDS * core.spell_power_modifier)
-	user.visible_message("<b>[user]</b> raises their fist towards \the [target_turf], and a solid wall of force rises out of it!", self_message = SPAN_NOTICE("You raise your fist towards \the [target_turf], and a solid wall of force rises out of it."))
+	user.visible_message("<b>[user]</b> raises their fist towards \the [target_turf], and a solid wall of force rises out of it!", SPAN_NOTICE("You raise your fist towards \the [target_turf], and a solid wall of force rises out of it."))

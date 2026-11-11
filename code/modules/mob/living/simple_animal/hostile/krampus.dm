@@ -73,7 +73,7 @@
 		return
 
 	src.visible_message(SPAN_DANGER("\The [src] starts stuffing \the [target] inside his bag!"), \
-						self_message = SPAN_DANGER("You begin to drag \the [target] to the depths of hell!"))
+						SPAN_DANGER("You begin to drag \the [target] to the depths of hell!"))
 	src.is_punishing = TRUE
 
 	if(!do_mob(src, target, 60))

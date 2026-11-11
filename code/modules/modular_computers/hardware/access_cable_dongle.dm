@@ -39,6 +39,6 @@
 		to_chat(H, SPAN_WARNING("The access cable is already elsewhere!"))
 		return
 
-	H.visible_message(SPAN_NOTICE("[H] retrieves \the [access_cable] from \the [src]."), self_message = SPAN_NOTICE("You retrieve \the [access_cable] from \the [src]."))
+	H.visible_message(SPAN_NOTICE("[H] retrieves \the [access_cable] from \the [src]."), SPAN_NOTICE("You retrieve \the [access_cable] from \the [src]."))
 	access_cable.create_cable(H)
 	H.put_in_active_hand(access_cable)

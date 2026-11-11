@@ -232,7 +232,7 @@
 
 /obj/item/spaceflare/attack_self(var/mob/user)
 	if(activate(user))
-		user.visible_message(SPAN_NOTICE("\The [user] pulls the cord, activating \the [src]."), self_message = SPAN_NOTICE("You pull the cord, activating \the [src]."), blind_message = SPAN_ITALIC("You hear the sound of something being struck and ignited."))
+		user.visible_message(SPAN_NOTICE("\The [user] pulls the cord, activating \the [src]."), SPAN_NOTICE("You pull the cord, activating \the [src]."), SPAN_ITALIC("You hear the sound of something being struck and ignited."))
 
 /obj/item/spaceflare/proc/activate(mob/user)
 	if(active)
@@ -283,7 +283,7 @@
 	if(active)
 		var/choice = tgui_alert(user, "Do you want to deactivate \the [src]?", "Bluespace Flare", list("Yes","No"))
 		if(choice == "Yes")
-			user.visible_message(SPAN_NOTICE("\The [user] presses a button, deactivating \the [src]'s signal"), self_message = SPAN_NOTICE("You press a button on the side of \the [src], shutting down its signal."), blind_message = SPAN_ITALIC("You hear the sound of a flare fizzling out."))
+			user.visible_message(SPAN_NOTICE("\The [user] presses a button, deactivating \the [src]'s signal"), SPAN_NOTICE("You press a button on the side of \the [src], shutting down its signal."), SPAN_ITALIC("You hear the sound of a flare fizzling out."))
 			deactivate()
 	else
 		..()

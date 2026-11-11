@@ -443,7 +443,7 @@
 				adjustFireLoss(-50)
 				updatehealth()
 				N.use(1)
-				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", self_message = SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."))
+				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
 		return

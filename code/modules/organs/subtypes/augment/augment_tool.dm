@@ -21,7 +21,7 @@
 		qdel(slot_item)
 		owner.visible_message(
 			SPAN_NOTICE("\The [slot_item] slides back into \the [owner]'s [owner.organs_by_name[parent_organ]]."),
-			self_message = SPAN_NOTICE("You retract \the [slot_item]!")
+			SPAN_NOTICE("You retract \the [slot_item]!")
 		)
 		return
 
@@ -48,5 +48,5 @@
 	if(O)
 		owner.visible_message(
 			SPAN_NOTICE("\The [M] slides out of \the [owner]'s [O.name]."),
-			self_message = SPAN_NOTICE("You deploy \the [M]!")
+			SPAN_NOTICE("You deploy \the [M]!")
 		)

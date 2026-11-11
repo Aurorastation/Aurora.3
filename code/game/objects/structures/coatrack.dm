@@ -45,13 +45,13 @@
 	return
 
 /obj/structure/coatrack/proc/remove_coat(mob/user as mob)
-	user.visible_message("[user] takes [coat] off \the [src].", self_message = SPAN_NOTICE("You take [coat] off the \the [src]."))
+	user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
 	user.put_in_hands(coat)
 	coat = null
 	update_icon()
 
 /obj/structure/coatrack/proc/remove_hat(mob/user as mob)
-	user.visible_message("[user] takes [hat] off \the [src].", self_message = SPAN_NOTICE("You take [hat] off the \the [src]."))
+	user.visible_message("[user] takes [hat] off \the [src].", SPAN_NOTICE("You take [hat] off the \the [src]."))
 	user.put_in_hands(hat)
 	hat = null
 	update_icon()
@@ -60,13 +60,13 @@
 	if(use_check_and_message(user))
 		return
 	if(!coat && (istype(attacking_item, /obj/item/clothing/suit/storage/toggle) || istype(attacking_item, /obj/item/clothing/accessory/poncho)))
-		user.visible_message("[user] hangs [attacking_item] on \the [src].", self_message = SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
 		coat = attacking_item
 		user.drop_from_inventory(coat, src)
 		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
 	else if(!hat && istype(attacking_item, /obj/item/clothing/head) && !istype(attacking_item, /obj/item/clothing/head/helmet))
-		user.visible_message("[user] hangs [attacking_item] on \the [src].", self_message = SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
 		hat = attacking_item
 		user.drop_from_inventory(hat, src)
 		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)

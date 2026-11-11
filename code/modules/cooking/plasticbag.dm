@@ -5,8 +5,8 @@
 /obj/item/evidencebag/plasticbag/attack_self(mob/user)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("<b>[user]</b> takes \the [I] out of \the [src].", self_message = SPAN_NOTICE("You take \the [I] out of \the [src]."),\
-		blind_message = "You hear someone rustle around in a plastic bag, and remove something.")
+		user.visible_message("<b>[user]</b> takes \the [I] out of \the [src].", SPAN_NOTICE("You take \the [I] out of \the [src]."),\
+		"You hear someone rustle around in a plastic bag, and remove something.")
 		ClearOverlays()	//remove the overlays
 
 		user.put_in_hands(I)

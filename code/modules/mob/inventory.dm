@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 				I.on_give(src, target)
 				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 					H.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
-					visible_message("<b>[src]</b> hands \the [H] \a [I].", self_message = SPAN_NOTICE("You give \the [target] \a [I]."))
+					visible_message("<b>[src]</b> hands \the [H] \a [I].", SPAN_NOTICE("You give \the [target] \a [I]."))
 			else
 				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
 				do_give(H)

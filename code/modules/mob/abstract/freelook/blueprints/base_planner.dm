@@ -217,7 +217,7 @@ ABSTRACT_TYPE(/obj/structure/blueprint)
 /obj/structure/blueprint/attack_hand(mob/user)
 	. = ..()
 	if(user.a_intent == I_HURT)
-		user.visible_message(SPAN_NOTICE("[user] removes \the [src]."), self_message = SPAN_NOTICE("You remove \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] removes \the [src]."), SPAN_NOTICE("You remove \the [src]."))
 		qdel(src)
 
 /obj/structure/blueprint/girder

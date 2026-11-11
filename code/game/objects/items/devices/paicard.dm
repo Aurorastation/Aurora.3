@@ -64,7 +64,7 @@
 		if(added_channels)
 			installed_encryptionkeys += EK
 			user.drop_from_inventory(EK, src)
-			user.visible_message("<b>[user]</b> slides \the [EK] into \the [src]'s encryption key slot.", self_message = SPAN_NOTICE("You slide \the [EK] into \the [src]'s encryption key slot, granting it access to the radio channels."))
+			user.visible_message("<b>[user]</b> slides \the [EK] into \the [src]'s encryption key slot.", SPAN_NOTICE("You slide \the [EK] into \the [src]'s encryption key slot, granting it access to the radio channels."))
 			recalculateChannels()
 			if(pai)
 				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
@@ -75,7 +75,7 @@
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
 			return
-		user.visible_message("<b>[user]</b> uses \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", self_message = SPAN_NOTICE("You use \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
+		user.visible_message("<b>[user]</b> uses \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
 		for(var/key in installed_encryptionkeys)
 			var/obj/item/encryptionkey/EK = key
 			EK.forceMove(get_turf(src))

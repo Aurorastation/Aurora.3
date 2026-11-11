@@ -20,7 +20,7 @@
 /obj/structure/toilet/attack_hand(mob/living/user as mob)
 	if(swirlie)
 		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		usr.visible_message(SPAN_DANGER("[user] slams the toilet seat onto [swirlie.name]'s head!"), self_message = SPAN_NOTICE("You slam the toilet seat onto [swirlie.name]'s head!"), blind_message = "You hear reverberating porcelain.")
+		usr.visible_message(SPAN_DANGER("[user] slams the toilet seat onto [swirlie.name]'s head!"), SPAN_NOTICE("You slam the toilet seat onto [swirlie.name]'s head!"), "You hear reverberating porcelain.")
 		swirlie.adjustBruteLoss(8)
 		return
 
@@ -49,7 +49,7 @@
 		to_chat(user, SPAN_NOTICE("You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(attacking_item.use_tool(src, user, 30, volume = 0))
-			user.visible_message(SPAN_NOTICE("[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), self_message = SPAN_NOTICE("You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), blind_message = "You hear grinding porcelain.")
+			user.visible_message(SPAN_NOTICE("[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), SPAN_NOTICE("You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), "You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
 			return
@@ -66,16 +66,16 @@
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the toilet."))
 					return
 				if(open && !swirlie)
-					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), self_message = SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
+					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
 					swirlie = GM
 					if(do_after(user, 30, GM, do_flags = DO_UNIQUE))
-						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), self_message = SPAN_NOTICE("You give [GM.name] a swirlie!"), blind_message = "You hear a toilet flushing.")
+						user.visible_message(SPAN_DANGER("[user] gives [GM.name] a swirlie!"), SPAN_NOTICE("You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
 						SSstatistics.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
-					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), self_message = SPAN_NOTICE("You slam [GM.name] into the [src]!"))
+					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
 					GM.adjustBruteLoss(8)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
@@ -118,7 +118,7 @@
 				if(!GM.loc == get_turf(src))
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
-				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), self_message = SPAN_NOTICE("You slam [GM.name] into the [src]!"))
+				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
 				GM.apply_damage(8, def_zone = BP_HEAD, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
 			else
@@ -199,7 +199,7 @@
 		to_chat(user, SPAN_NOTICE("You begin to adjust the temperature valve with \the [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			watertemp = newtemp
-			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [attacking_item]."), self_message = SPAN_NOTICE("You adjust the shower with \the [attacking_item]."))
+			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [attacking_item]."), SPAN_NOTICE("You adjust the shower with \the [attacking_item]."))
 			add_fingerprint(user)
 
 /obj/structure/machinery/shower/update_icon()	//this is terribly unreadable, but basically it makes the shower mist up
@@ -378,7 +378,7 @@
 	user.clean_blood()
 	user.visible_message( \
 		SPAN_NOTICE("[user] washes their hands using \the [src]."), \
-		self_message = SPAN_NOTICE("You wash your hands using \the [src]."))
+		SPAN_NOTICE("You wash your hands using \the [src]."))
 
 /obj/structure/sink/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
@@ -403,7 +403,7 @@
 				return
 
 			RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", self_message = SPAN_NOTICE("You fill \a [RG] using \the [src]."))
+			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 			playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			return
 		if(user.a_intent == I_DISARM)
@@ -441,7 +441,7 @@
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent(/singleton/reagent/water, trans)
-				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."), self_message = SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."), SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, SPAN_WARNING("\The [S] is already empty."))
@@ -449,7 +449,7 @@
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."), self_message = SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."), SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(attacking_item, /obj/item/melee/baton))
@@ -504,7 +504,7 @@
 	I.clean_blood()
 	user.visible_message( \
 		SPAN_NOTICE("[user] washes \a [I] using \the [src]."), \
-		self_message = SPAN_NOTICE("You wash \a [I] using \the [src]."))
+		SPAN_NOTICE("You wash \a [I] using \the [src]."))
 
 /obj/structure/sink/kitchen
 	name = "kitchen sink"

@@ -131,7 +131,7 @@
 	if (!O) return
 
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")
-	H.visible_message(s, self_message = SPAN_WARNING("You chew on your [O.name]!"))
+	H.visible_message(s, SPAN_WARNING("You chew on your [O.name]!"))
 	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += "\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>"
 	log_attack("[s] ([H.ckey])")
@@ -217,7 +217,7 @@
 			qdel(src)
 			update_icon(user)
 	else if(can_be_cut && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message("[user] cuts the [src].", self_message = SPAN_NOTICE("You cut the [src]."))
+		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)
 		qdel(src)

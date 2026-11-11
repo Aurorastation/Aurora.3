@@ -38,10 +38,10 @@
 	stunned = 10 // No more moving or talking for now
 	playsound(src.loc, 'sound/species/diona/gestalt_grow.ogg', 100, 1)
 	visible_message(SPAN_WARNING("[src] begins to shift and quiver."),
-	self_message = SPAN_WARNING("You begin to shift and quiver, feeling your awareness splinter."))
+	SPAN_WARNING("You begin to shift and quiver, feeling your awareness splinter."))
 	sleep(52)
 	visible_message(SPAN_WARNING("[src] erupts in a shower of shed bark as it splits into a tangle of new gestalt."),
-	self_message = SPAN_WARNING("All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
+	SPAN_WARNING("All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
 
 	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
 	show_evolution_blurb()

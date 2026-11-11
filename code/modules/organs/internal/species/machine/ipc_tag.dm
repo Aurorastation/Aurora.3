@@ -43,7 +43,7 @@
 		if(!S.hacked)
 			examinate(user, src)
 		else
-			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), self_message = SPAN_NOTICE("You start fiddling with \the [src]..."))
+			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
 			if(do_after(user, 30, src))
 				if(src.loc != user)
 					to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))

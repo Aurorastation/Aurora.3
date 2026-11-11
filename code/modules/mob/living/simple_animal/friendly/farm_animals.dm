@@ -106,7 +106,7 @@
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
 		M.visible_message(SPAN_WARNING("[M] tips over [src]."),
-							self_message = SPAN_NOTICE("You tip over [src]."))
+							SPAN_NOTICE("You tip over [src]."))
 
 		Weaken(30)
 		icon_state = icon_dead
@@ -259,8 +259,8 @@
 			if(!stat && eggsleft < 8)
 				user.visible_message(
 					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It clucks happily."),
-					self_message = SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
-					blind_message = "You hear a cluck.")
+					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
+					"You hear a cluck.")
 				user.drop_from_inventory(attacking_item,get_turf(src))
 				qdel(attacking_item)
 				eggsleft += rand(1, 4)

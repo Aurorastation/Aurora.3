@@ -102,7 +102,7 @@
 				user.unEquip(attacking_item)
 				attacking_item.forceMove(src)
 				stored_paper = attacking_item
-				user.visible_message(SPAN_ALERT("\The [user] sucks up \the [attacking_item] into \the [src]."), self_message = SPAN_ALERT("You suck up \the [attacking_item] into \the [src]."))
+				user.visible_message(SPAN_ALERT("\The [user] sucks up \the [attacking_item] into \the [src]."), SPAN_ALERT("You suck up \the [attacking_item] into \the [src]."))
 				src.update_icon()
 		else
 			to_chat(user, SPAN_ALERT("\The [src] already has a paper in it."))
@@ -200,7 +200,7 @@
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
 			src.machine = attacking_item
-			user.visible_message(SPAN_ALERT("[user] places \the [attacking_item] into \the [src]."), self_message = SPAN_ALERT ("You store \the [attacking_item] in \the [src]."))
+			user.visible_message(SPAN_ALERT("[user] places \the [attacking_item] into \the [src]."), SPAN_ALERT ("You store \the [attacking_item] in \the [src]."))
 			src.update_icon()
 		else
 			to_chat(user, SPAN_ALERT("\The [src] already has a typewriter in it!"))

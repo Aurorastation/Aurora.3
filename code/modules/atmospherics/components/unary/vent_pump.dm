@@ -393,8 +393,8 @@
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-										self_message = SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-										blind_message = "You hear welding.")
+										SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+										"You hear welding.")
 			else
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
@@ -406,7 +406,7 @@
 		if(!welded)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded air vents!"))
 			return TRUE
-		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), self_message = SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
 		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
@@ -414,7 +414,7 @@
 			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
 			user.do_attack_animation(src, used_item = attacking_item)
-			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), self_message = SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
@@ -447,8 +447,8 @@
 
 					if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 						user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
-												self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
-												blind_message = "You hear a ratchet.")
+												SPAN_NOTICE("You have unfastened \the [src]."), \
+												"You hear a ratchet.")
 						new /obj/item/pipe(loc, make_from=src)
 						qdel(src)
 

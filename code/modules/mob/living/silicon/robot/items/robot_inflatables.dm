@@ -66,7 +66,7 @@
 			newtype = /obj/structure/inflatable/wall
 
 	deploying = 1
-	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", self_message = SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
+	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
 	if(do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		new newtype(T)

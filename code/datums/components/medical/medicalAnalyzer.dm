@@ -130,8 +130,8 @@
 	if(!just_scan)
 		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.",
-									self_message = SPAN_NOTICE("You run the scanner over the floor."),
-									blind_message = SPAN_NOTICE("You hear metal repeatedly clunking against the floor."))
+									SPAN_NOTICE("You run the scanner over the floor."),
+									SPAN_NOTICE("You hear metal repeatedly clunking against the floor."))
 
 			to_chat(user, SPAN_NOTICE("<b>Scan results for the ERROR:</b>"))
 			if(sound_scan)
@@ -142,7 +142,7 @@
 			to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
-		user.visible_message("<b>[user]</b> runs a scanner over [M].",self_message = SPAN_NOTICE("You run the scanner over [M]."))
+		user.visible_message("<b>[user]</b> runs a scanner over [M].",SPAN_NOTICE("You run the scanner over [M]."))
 
 	if(!istype(M, /mob/living/carbon/human))
 		scan_title = "Scan failed"

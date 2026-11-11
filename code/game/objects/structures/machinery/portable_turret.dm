@@ -395,7 +395,7 @@
 
 		user.visible_message( \
 				SPAN_WARNING("[user] begins [anchored ? "un" : ""]securing the turret."), \
-				self_message = SPAN_NOTICE("You begin [anchored ? "un" : ""]securing the turret.") \
+				SPAN_NOTICE("You begin [anchored ? "un" : ""]securing the turret.") \
 			)
 
 		wrenching = 1

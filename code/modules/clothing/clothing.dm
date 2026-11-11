@@ -919,10 +919,10 @@
 		item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", self_message = SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
 
 /obj/item/clothing/mask/proc/raise_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] up to cover your face."))
+	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(adjustable)
@@ -1339,20 +1339,20 @@
 	if (src.loc == user)
 		switch(sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "You disable your suit's remote sensing equipment.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "You disable your suit's remote sensing equipment.")
 			if(SUIT_SENSOR_BINARY)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse.")
 			if(SUIT_SENSOR_VITAL)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse and vital lifesigns.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse and vital lifesigns.")
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse, vital lifesigns, and your coordinate position.")
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", "Your suit will now report your pulse, vital lifesigns, and your coordinate position.")
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
-			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), self_message = "You disable [src.loc]'s remote sensing equipment.")
+			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), "You disable [src.loc]'s remote sensing equipment.")
 		else
-			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", self_message = "You adjust [src.loc]'s sensors.")
+			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", "You adjust [src.loc]'s sensors.")
 	else
-		user.visible_message("[user] adjusts the tracking sensor on [src]", self_message = "You adjust the sensor on [src].")
+		user.visible_message("[user] adjusts the tracking sensor on [src]", "You adjust the sensor on [src].")
 
 /obj/item/clothing/under/emp_act(severity)
 	..()

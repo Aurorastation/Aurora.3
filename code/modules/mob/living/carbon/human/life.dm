@@ -690,7 +690,7 @@
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
 				if(prob(5))
-					visible_message("<b>[src]</b> trembles uncontrollably.", self_message = SPAN_WARNING("You tremble uncontrollably."))
+					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
 				if(prob(5))
@@ -1329,7 +1329,7 @@
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("<b>[src]</b>'s body becomes limp.", self_message = SPAN_DANGER("Your body becomes limp."))
+			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)

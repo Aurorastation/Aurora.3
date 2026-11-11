@@ -22,7 +22,7 @@
 
 /datum/martial_art/revenant/proc/bash_slash(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
-	D.visible_message(SPAN_DANGER("[A] bashes [D] away!"), self_message = SPAN_DANGER("[A] bashes you away!"))
+	D.visible_message(SPAN_DANGER("[A] bashes [D] away!"), SPAN_DANGER("[A] bashes you away!"))
 	D.apply_damage(rand(5, 10), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 	var/throw_range = rand(1, 2)
 	D.throw_at(get_step_away(D, A, throw_range), throw_range, THROWNOBJ_KNOCKBACK_SPEED / 3, A, FALSE)

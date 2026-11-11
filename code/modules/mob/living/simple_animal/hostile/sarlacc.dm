@@ -36,8 +36,8 @@
 			var/mob/living/L = arrived
 			L.visible_message(
 				SPAN_DANGER("[L] steps into \the [src]."),
-				self_message = SPAN_DANGER("You step into \the [src]!"),
-				blind_message = "<b>You hear a loud organic snap!</b>"
+				SPAN_DANGER("You step into \the [src]!"),
+				"<b>You hear a loud organic snap!</b>"
 				)
 			INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 			originator.eating = 1
@@ -58,8 +58,8 @@
 		var/mob/living/carbon/human/H = L
 		H.visible_message(
 			SPAN_DANGER("\The [src] snaps tight across [H]'s upper body, swallowing it in three grisly gulps."),
-			self_message = SPAN_DANGER("You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!"),
-			blind_message = "<b>You hear a sick crunch!</b>"
+			SPAN_DANGER("You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!"),
+			"<b>You hear a sick crunch!</b>"
 			)
 		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
 		G.droplimb(0,DROPLIMB_EDGE)
@@ -73,15 +73,15 @@
 		var/mob/living/silicon/robot/R = L
 		L.visible_message(
 			SPAN_DANGER("\The [src] spits [R] out with a frustrated screech after failing to swallow."),
-			self_message = SPAN_DANGER("\The [src] scrapes and gnashes against your exoskeleton before spitting you out!"),
-			blind_message = "<b>You hear several metallic scrapes!</b>"
+			SPAN_DANGER("\The [src] scrapes and gnashes against your exoskeleton before spitting you out!"),
+			"<b>You hear several metallic scrapes!</b>"
 			)
 		R.apply_damage(60,DAMAGE_BRUTE)
 	else
 		L.visible_message(
 			SPAN_DANGER("\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!"),
-			self_message = SPAN_DANGER("\The [src] turns you into a slightly viscuous and very bloody paste."),
-			blind_message = "<b>You hear a grisly splat!</b>"
+			SPAN_DANGER("\The [src] turns you into a slightly viscuous and very bloody paste."),
+			"<b>You hear a grisly splat!</b>"
 			)
 		L.gib()
 		originator.sated += L.mob_size*2
@@ -154,8 +154,8 @@
 		icon_state = "sarlacc"
 		visible_message(
 			SPAN_DANGER("\The [src] awakens!"),
-			self_message = SPAN_DANGER("You awaken! You're so HUNGRY!"),
-			blind_message = "<b>You hear a deep, rumbling roar in the earth!</b>"
+			SPAN_DANGER("You awaken! You're so HUNGRY!"),
+			"<b>You hear a deep, rumbling roar in the earth!</b>"
 			)
 		sarlacc.deployed = 1
 	if(sated >= 200)
@@ -187,8 +187,8 @@
 						L.apply_damage(rand(3,10),DAMAGE_BRUTE)
 						L.visible_message(
 							SPAN_DANGER("\The [src] tears at [L]'s flesh with its gruesome jaws."),
-							self_message = SPAN_DANGER("You feel a searing pain as \the [src] tears at your flesh!"),
-							blind_message = "<b>You hear a sick tear!</b>"
+							SPAN_DANGER("You feel a searing pain as \the [src] tears at your flesh!"),
+							"<b>You hear a sick tear!</b>"
 							)
 
 

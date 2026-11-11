@@ -105,8 +105,8 @@
 		blind_message = "You hear a sickening snap!")
 	else
 		parent.owner.visible_message(SPAN_WARNING("You hear a loud snapping sound coming from [parent.owner]!"),\
-		self_message = SPAN_DANGER("Something feels like it [pick(messages)] in your [parent.name]!"),\
-		blind_message = "You hear a sickening snap!")
+		SPAN_DANGER("Something feels like it [pick(messages)] in your [parent.name]!"),\
+		"You hear a sickening snap!")
 
 	if(istype(parent, /obj/item/organ/external/hand))
 		parent.owner.update_hud_hands()

@@ -89,9 +89,9 @@
 		var/mob/M = user
 		var/message_flags = EMOTE_MESSAGE | ALWAYS_SHOW_SELF_MESSAGE | BLOCK_SELF_HIGHLIGHT_MESSAGE
 		if(message_type == AUDIBLE_MESSAGE)
-			M.audible_message(use_3p, self_message = use_1p, deaf_message = emote_message_impaired, hearing_distance = use_range, audible_message_flags = message_flags | (M.client ? NONE : LOCAL_MESSAGE), emote_message = use_3p)
+			M.audible_message(use_3p, use_1p, deaf_message = emote_message_impaired, hearing_distance = use_range, audible_message_flags = message_flags | (M.client ? NONE : LOCAL_MESSAGE), emote_message = use_3p)
 		else
-			M.visible_message(use_3p, self_message = use_1p, blind_message = emote_message_impaired, vision_distance = use_range, visible_message_flags = message_flags | LOCAL_MESSAGE, emote_message = use_3p)
+			M.visible_message(use_3p, use_1p, blind_message = emote_message_impaired, vision_distance = use_range, visible_message_flags = message_flags | LOCAL_MESSAGE, emote_message = use_3p)
 
 	do_extra(user, target)
 

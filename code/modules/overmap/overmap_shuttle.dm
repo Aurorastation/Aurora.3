@@ -220,14 +220,14 @@
 			if(FUEL_PORT_BOLTED)
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the wall."), \
-					self_message = SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
-					blind_message = SPAN_WARNING("You hear a ratcheting noise."))
+					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
+					SPAN_WARNING("You hear a ratcheting noise."))
 				state = FUEL_PORT_UNSECURED
 			if(FUEL_PORT_UNSECURED)
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the wall."), \
-					self_message = SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts."), \
-					blind_message = SPAN_WARNING("You hear a ratcheting noise."))
+					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts."), \
+					SPAN_WARNING("You hear a ratcheting noise."))
 				state = FUEL_PORT_BOLTED
 	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
@@ -239,8 +239,8 @@
 				if(WT.use(5, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the wall."), \
-						self_message = SPAN_NOTICE("You start to weld \the [src] to the wall."), \
-						blind_message = SPAN_WARNING("You hear the sound of metal being welded."))
+						SPAN_NOTICE("You start to weld \the [src] to the wall."), \
+						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
@@ -255,8 +255,8 @@
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the wall."), \
-						self_message = SPAN_NOTICE("You start to cut \the [src] free from the wall."), \
-						blind_message = SPAN_WARNING("You hear the sound of metal being welded."))
+						SPAN_NOTICE("You start to cut \the [src] free from the wall."), \
+						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
 							return
@@ -317,7 +317,7 @@
 		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), self_message = SPAN_NOTICE("You fasten \the [src] to \the [A]."))
+	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
 	user.drop_from_inventory(src)
 	new port_path(user.loc, placement_dir, TRUE)
 	qdel(src)

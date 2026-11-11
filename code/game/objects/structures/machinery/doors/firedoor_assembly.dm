@@ -21,14 +21,14 @@
 		if (cable.get_amount() < 1)
 			to_chat(user, SPAN_WARNING("You need one length of coil to wire \the [src]."))
 			return TRUE
-		user.visible_message("[user] wires \the [src].", self_message = "You start to wire \the [src].")
+		user.visible_message("[user] wires \the [src].", "You start to wire \the [src].")
 		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
 				to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && wired )
-		user.visible_message("[user] cuts the wires from \the [src].", self_message = "You start to cut the wires from \the [src].")
+		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
@@ -40,7 +40,7 @@
 		if(anchored)
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			user.visible_message(SPAN_WARNING("[user] has inserted a circuit into \the [src]!"),
-									self_message = "You have inserted the circuit into \the [src]!")
+									"You have inserted the circuit into \the [src]!")
 			new /obj/structure/machinery/door/firedoor(src.loc)
 			qdel(attacking_item)
 			qdel(src)
@@ -51,18 +51,18 @@
 		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.visible_message(SPAN_WARNING("[user] has [anchored ? "" : "un" ]secured \the [src]!"),
-								self_message = "You have [anchored ? "" : "un" ]secured \the [src]!")
+								"You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()
 		return TRUE
 	else if(!anchored && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			user.visible_message(SPAN_WARNING("[user] dissassembles \the [src]."),
-			self_message = "You start to dissassemble \the [src].")
+			"You start to dissassemble \the [src].")
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
 				if(!src || !WT.isOn()) return
 				user.visible_message(SPAN_WARNING("[user] has dissassembled \the [src]."),
-									self_message = "You have dissassembled \the [src].")
+									"You have dissassembled \the [src].")
 				new /obj/item/stack/material/steel(src.loc, 2)
 				qdel(src)
 		else

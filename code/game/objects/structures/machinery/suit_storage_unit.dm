@@ -449,7 +449,7 @@
 		to_chat(usr, SPAN_WARNING("It's too cluttered inside for you to fit in!"))
 		return
 	usr.visible_message(SPAN_NOTICE("[usr] starts squeezing into [src]!"),
-						self_message = SPAN_NOTICE("You start squeezing into [src]!"), vision_distance = 3)
+						SPAN_NOTICE("You start squeezing into [src]!"), vision_distance = 3)
 
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
@@ -492,7 +492,7 @@
 			to_chat(user, SPAN_WARNING("The unit's storage area is too cluttered."))
 			return TRUE
 		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
-								self_message = SPAN_NOTICE("You start putting [G.affecting] into [src]."),
+								SPAN_NOTICE("You start putting [G.affecting] into [src]."),
 								vision_distance = 3)
 
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))

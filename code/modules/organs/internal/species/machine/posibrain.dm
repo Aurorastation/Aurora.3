@@ -476,12 +476,12 @@
 
 	self_preservation_activated = state
 	if(!self_preservation_activated)
-		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), self_message = SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."))
+		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."))
 		if(!is_broken())
 			playsound(owner, 'sound/species/synthetic/synthetic_restart.ogg', 100)
 		self_preservation_activated = FALSE
 	else
-		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), self_message = FONT_LARGE(SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!")))
+		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), FONT_LARGE(SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!")))
 		if(!is_broken())
 			playsound(owner, 'sound/species/synthetic/synthetic_stun.ogg', 100)
 		self_preservation_activated = TRUE

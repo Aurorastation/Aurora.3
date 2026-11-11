@@ -202,11 +202,11 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 			GLOB.tape_roll_applications[F] = 0
 
 		if(GLOB.tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
-			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", self_message = "You use the adhesive of \the [src] to remove area markings from \the [F].")
+			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
 			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			GLOB.tape_roll_applications[F] &= ~direction
 		else
-			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", self_message = "You apply \the [src] on \the [F] to create area markings.")
+			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
 			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			GLOB.tape_roll_applications[F] |= direction
 		return
@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
 		lifted = !lifted
-		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", self_message = SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
+		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))
 		var/shake_time = shake_animation()
 		sleep(shake_time)
 		if(!allowed(user))

@@ -397,7 +397,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
-							self_message = SPAN_DANGER("The [P.name] gets reflected by [H]!"))
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -603,7 +603,7 @@ GLOBAL_LIST_INIT(golem_types, list(
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
 			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
-							self_message = SPAN_DANGER("The [P.name] gets reflected by [H]!"))
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)

@@ -415,8 +415,8 @@
 	else //you dun goofed
 		user.visible_message(
 			SPAN_DANGER("[user] fumbles the sabrage and cuts [src] in half, spilling it over themselves!"), \
-			self_message = SPAN_DANGER("You fail your stunt and cut [src] in half, spilling it over you!"), \
-			blind_message = "You hear spilling."
+			SPAN_DANGER("You fail your stunt and cut [src] in half, spilling it over you!"), \
+			"You hear spilling."
 			)
 		return smash(src.loc, user, break_top = TRUE)
 
@@ -433,13 +433,13 @@
 /obj/item/reagent_containers/food/drinks/bottle/champagne/open(mob/user, var/sabrage, var/froth_severity)
 	if(!sabrage)
 		user.visible_message(SPAN_DANGER("[user] loosens the cork of [src] causing it to pop out of the bottle with great force."), \
-								self_message = SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
-								blind_message = "You can hear a pop.")
+								SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
+								"You can hear a pop.")
 	else
 		sabraged = TRUE
 		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
-								self_message = SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
-								blind_message = "You can hear a pop.")
+								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
+								"You can hear a pop.")
 
 		var/moodlet_value = 5
 		if (!moodlet_value)

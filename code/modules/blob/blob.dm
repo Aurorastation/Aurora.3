@@ -173,7 +173,7 @@
 		B.pulse(forceLeft - 1, dirs - get_dir(B, src))
 
 /obj/effect/blob/proc/attack_msg(atom/source)
-	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), self_message = SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
+	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
 
 /obj/effect/blob/proc/attack_door(var/obj/structure/machinery/door/D)

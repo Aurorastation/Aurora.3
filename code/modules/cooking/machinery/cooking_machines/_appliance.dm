@@ -136,7 +136,7 @@
 	stat ^= POWEROFF // Toggles power
 	update_use_power(stat & POWEROFF ? POWER_USE_OFF : POWER_USE_ACTIVE)
 	if(user)
-		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", self_message = "You turn [use_power ? "on" : "off"] [src].")
+		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 

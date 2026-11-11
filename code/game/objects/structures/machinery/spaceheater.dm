@@ -114,7 +114,7 @@
 	if(panel_open)
 		if(cell)
 			user.visible_message(SPAN_NOTICE("\The [user] removes a power cell from \the [src]."),
-				self_message = SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+				SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)
 			cell.add_fingerprint(user)

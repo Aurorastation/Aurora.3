@@ -247,7 +247,7 @@
 						apply_damage(instability, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 					if(1)
 						visible_message(SPAN_WARNING("\The [src] suddenly collapses!"),
-						self_message = SPAN_DANGER("You suddenly feel very light-headed, and faint!"))
+						SPAN_DANGER("You suddenly feel very light-headed, and faint!"))
 						Paralyse(instability * 0.1)
 					if(2)
 						if(can_feel_pain())

@@ -43,7 +43,7 @@
 
 /obj/structure/bed/stool/chair/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(dropped == user && user.loc != loc && (REVERSE_DIR(dir) & angle2dir(get_angle(src, user))))
-		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", self_message = SPAN_NOTICE("You start climbing over the back of \the [src]..."))
+		user.visible_message("<b>[user]</b> starts climbing over the back of \the [src]...", SPAN_NOTICE("You start climbing over the back of \the [src]..."))
 		if(do_after(user, 2 SECONDS, do_flags = DO_UNIQUE))
 			user.forceMove(loc)
 		return

@@ -125,9 +125,9 @@
 			return
 
 		if((key.key_data != registration_plate))
-			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", self_message = "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], but it lets out a sharp buzz.")
 		else
-			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", self_message = "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
+			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
 			turn_on()
 			src.visible_message("\The [src] rumbles to life.", blind_message = "You hear something rumble deeply.", visible_message_flags = LOCAL_MESSAGE)
 			playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
@@ -146,7 +146,7 @@
 		return
 
 	if(kickstand)
-		user.visible_message("\The [user] puts up \the [src]'s kickstand.", self_message = "You put up \the [src]'s kickstand.", blind_message = "You hear a thunk.")
+		user.visible_message("\The [user] puts up \the [src]'s kickstand.", "You put up \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/machines/vehicles/bike_stand_up.ogg', 50, 1)
 	else
 		if(isturf(loc))
@@ -154,7 +154,7 @@
 			if (T.is_hole)
 				to_chat(user, SPAN_WARNING("You don't think kickstands work here."))
 				return
-		user.visible_message("\The [user] puts down \the [src]'s kickstand.", self_message = "You put down \the [src]'s kickstand.", blind_message = "You hear a thunk.")
+		user.visible_message("\The [user] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 
 		playsound(src, 'sound/machines/vehicles/bike_stand_down.ogg', 50, 1)
 		if(ismob(pulledby))

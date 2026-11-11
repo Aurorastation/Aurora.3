@@ -25,7 +25,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	else
 		self_message = SPAN_NOTICE("You lift your hand for a [emote_description]!")
 
-	parent.visible_message(others_message, self_message = self_message)
+	parent.visible_message(others_message, self_message)
 
 /singleton/overhead_emote/proc/reciprocate_emote(var/mob/reciprocator, var/mob/original, var/reciprocating_emote_path)
 	var/datum/component/overhead_emote/original_emote_component = original.GetComponent(/datum/component/overhead_emote)
@@ -37,7 +37,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 
 	var/others_message = "<b>[reciprocator]</b> lifts their to meet [original]'s, delivering a stunning [emote_description]!"
 	var/self_message = SPAN_NOTICE("You lift your hand to meet [original]'s, delivering a stunning [emote_description]!")
-	reciprocator.visible_message(others_message, self_message = self_message)
+	reciprocator.visible_message(others_message, self_message)
 
 	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original)
 	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator)
@@ -52,7 +52,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 
 	var/others_message = "<b>[reciprocator]</b> lifts their to meet [original]'s, who was expecting a [original_emote.emote_description], but received a [fail_emote.emote_description] instead."
 	var/self_message = SPAN_NOTICE("You lift your hand to meet [original]'s, who was expecting a [original_emote.emote_description], but received a [fail_emote.emote_description] instead.")
-	reciprocator.visible_message(others_message, self_message = self_message)
+	reciprocator.visible_message(others_message, self_message)
 
 	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original)
 	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator)

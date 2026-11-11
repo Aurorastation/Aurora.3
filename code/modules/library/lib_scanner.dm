@@ -22,13 +22,13 @@
 		if(anchored)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
-				self_message = SPAN_NOTICE("You unsecure \the [src] from the floor."),
-				blind_message = SPAN_WARNING("You hear a ratcheting noise."))
+				SPAN_NOTICE("You unsecure \the [src] from the floor."),
+				SPAN_WARNING("You hear a ratcheting noise."))
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] secures \the [src] to the floor."),
-				self_message = SPAN_NOTICE("You secure \the [src] to the floor."),
-				blind_message = SPAN_WARNING("You hear a ratcheting noise."))
+				SPAN_NOTICE("You secure \the [src] to the floor."),
+				SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
 
 /obj/structure/machinery/libraryscanner/attack_hand(var/mob/user)

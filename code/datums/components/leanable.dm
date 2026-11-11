@@ -34,7 +34,7 @@
 /datum/component/leanable/proc/stop_leaning_leaners(fall)
 	for (var/mob/living/leaner as anything in leaning_mobs)
 		if(fall)
-			leaner.visible_message(SPAN_WARNING("[leaner] loses their balance!"), self_message = SPAN_DANGER("You lose balance!"))
+			leaner.visible_message(SPAN_WARNING("[leaner] loses their balance!"), SPAN_DANGER("You lose balance!"))
 			leaner.Weaken(rand(3,5))
 		leaner.stop_leaning()
 	LAZYCLEARLIST(leaning_mobs)
@@ -105,7 +105,7 @@
 	ADD_TRAIT(src, TRAIT_LEANING, TRAIT_SOURCE_WALL_LEANING)
 	visible_message(
 		SPAN_NOTICE("[src] leans against [lean_target]."),
-		self_message = SPAN_NOTICE("You lean against [lean_target]."),
+		SPAN_NOTICE("You lean against [lean_target]."),
 	)
 	RegisterSignals(src, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_RESISTED, COMSIG_MOB_LYING_DOWN), PROC_REF(stop_leaning), src)
 

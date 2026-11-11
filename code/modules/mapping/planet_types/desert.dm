@@ -122,14 +122,14 @@
 			delay *=2
 			user.visible_message(
 				SPAN_NOTICE("\The [user] tries to climb out of \the [src]."),
-				self_message = SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
-				blind_message = SPAN_NOTICE("You hear water sloushing.")
+				SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] begins pulling \the [buckled] out of \the [src]."),
-				self_message = SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
-				blind_message = SPAN_NOTICE("You hear water sloushing.")
+				SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		busy = 1
 		if(do_after(user, delay, src))

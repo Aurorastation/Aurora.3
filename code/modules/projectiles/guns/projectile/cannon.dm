@@ -168,7 +168,7 @@
 		return
 
 	if(!skip_delay)
-		user.visible_message("[user] starts loading \a [C] into [src].", self_message = SPAN_NOTICE("You start loading \a [C] into [src]..."))
+		user.visible_message("[user] starts loading \a [C] into [src].", SPAN_NOTICE("You start loading \a [C] into [src]..."))
 		if(!do_after(user, 5 SECONDS, target = src))
 			to_chat(user, SPAN_WARNING("You stop loading \the [src]."))
 			return

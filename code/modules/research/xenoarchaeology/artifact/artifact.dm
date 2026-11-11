@@ -66,7 +66,7 @@
 	if (istype(attacking_item, /obj/item/measuring_tape))
 		var/obj/item/measuring_tape/P = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
-								self_message = SPAN_NOTICE("You extend [P] towards [src]."))
+								SPAN_NOTICE("You extend [P] towards [src]."))
 
 		if(do_after(user,40))
 			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm."))
@@ -92,7 +92,7 @@
 		if(excavation_level > 100)
 			//failure
 			user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
-			self_message = SPAN_WARNING("[src] has disintegrated under your onslaught, any secrets it was holding are long gone."))
+			SPAN_WARNING("[src] has disintegrated under your onslaught, any secrets it was holding are long gone."))
 			qdel(src)
 			return
 
@@ -108,7 +108,7 @@
 				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
-				self_message = SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
+				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
 			qdel(src)
 
 /obj/structure/boulder/CollidedWith(atom/bumped_atom)

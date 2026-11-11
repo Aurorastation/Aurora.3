@@ -33,7 +33,7 @@
 		if(has_lattice())	// Should be safe to walk upon.
 			return TRUE
 		if(!L.CanAvoidGravity())
-			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), self_message = SPAN_DANGER("You plummet down into \the [src]!"))
+			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), SPAN_DANGER("You plummet down into \the [src]!"))
 			L.death()
 			if(L)
 				L.loc = null

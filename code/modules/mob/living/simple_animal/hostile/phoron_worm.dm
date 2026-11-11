@@ -72,12 +72,12 @@
 	if(istype(A, /obj/item/stack/material))
 		var/obj/item/stack/material/P = A
 		if(P.material.type == MATERIAL_PHORON)
-			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), self_message = SPAN_NOTICE("You start consuming \the [P]."))
+			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
 			if(!do_after(src, 1 SECOND, P))
 				return
 			var/self_msg = "You consume \the [P][health < maxhealth ? ", healing yourself" : ""]."
 			adjustBruteLoss(-5 * P.amount)
-			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), self_message = SPAN_NOTICE(self_msg))
+			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), SPAN_NOTICE(self_msg))
 			P.amount /= 2
 			if(P.amount < 1)
 				qdel(P)

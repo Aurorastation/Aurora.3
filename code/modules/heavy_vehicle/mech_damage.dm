@@ -183,7 +183,7 @@
 	if(isspace(loc) || (area && !area.has_gravity()))
 		return FALSE
 
-	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), self_message = "", blind_message = SPAN_DANGER("You hear a thud!"))
+	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
 
 	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
 	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)

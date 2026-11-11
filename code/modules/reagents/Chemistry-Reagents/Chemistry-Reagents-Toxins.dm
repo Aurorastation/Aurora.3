@@ -437,7 +437,7 @@
 				S.target = null
 				++S.discipline
 		if(S.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), self_message = SPAN_DANGER("Your flesh burns in the foam!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
 /singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/bonfire))
@@ -839,7 +839,7 @@
 				if(prob(10))
 					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
 					E.status &= ~ORGAN_BROKEN
-					M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain!"))
+					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))

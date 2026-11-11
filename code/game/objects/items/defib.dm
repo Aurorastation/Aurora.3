@@ -379,10 +379,10 @@
 		to_chat(find_dead_player(H.ckey, 1), SPAN_NOTICE("Someone is attempting to resuscitate you. Re-enter your body if you want to be revived!"))
 
 	//beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
-	user.visible_message(SPAN_WARNING("\The [user] begins to place [src] on [H]'s chest."), self_message = SPAN_WARNING("You begin to place [src] on [H]'s chest..."))
+	user.visible_message(SPAN_WARNING("\The [user] begins to place [src] on [H]'s chest."), SPAN_WARNING("You begin to place [src] on [H]'s chest..."))
 	if(!do_after(user, 3 SECONDS, H, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] places [src] on [H]'s chest."), self_message = SPAN_WARNING("You place [src] on [H]'s chest."))
+	user.visible_message(SPAN_NOTICE("\The [user] places [src] on [H]'s chest."), SPAN_WARNING("You place [src] on [H]'s chest."))
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
 
 	var/error = can_defib(H)
@@ -431,13 +431,13 @@
 	if(prob(60))
 		playsound(get_turf(src), 'sound/machines/defib_zap.ogg', 100, 1, -1)
 		H.electrocute_act(burn_damage_amt*4, src, def_zone = BP_CHEST)
-		user.visible_message(SPAN_WARNING("<i>The paddles were misaligned! \The [user] shocks [H] with \the [src]!</i>"), self_message = SPAN_WARNING("The paddles were misaligned! You shock [H] with \the [src]!"))
+		user.visible_message(SPAN_WARNING("<i>The paddles were misaligned! \The [user] shocks [H] with \the [src]!</i>"), SPAN_WARNING("The paddles were misaligned! You shock [H] with \the [src]!"))
 		return 0
 	if(prob(50))
 		playsound(get_turf(src), 'sound/machines/defib_zap.ogg', 100, 1, -1)
 		user.electrocute_act(burn_damage_amt*2, src, def_zone = BP_L_HAND)
 		user.electrocute_act(burn_damage_amt*2, src, def_zone = BP_R_HAND)
-		user.visible_message(SPAN_WARNING("<i>\The [user] shocks themselves with \the [src]!</i>"), self_message = SPAN_WARNING("You forget to move your hands away and shock yourself with \the [src]!"))
+		user.visible_message(SPAN_WARNING("<i>\The [user] shocks themselves with \the [src]!</i>"), SPAN_WARNING("You forget to move your hands away and shock yourself with \the [src]!"))
 		return 0
 	return 1
 
@@ -452,7 +452,7 @@
 		return
 
 	//no need to spend time carefully placing the paddles, we're just trying to shock them
-	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]."), self_message = SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]."))
+	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]."), SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]."))
 
 
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
@@ -467,7 +467,7 @@
 		playsound(get_turf(src), 'sound/machines/defib_failed.ogg', 50, 0)
 		return
 
-	user.visible_message(SPAN_DANGER("<i>\The [user] shocks [H] with \the [src]!</i>"), self_message = SPAN_WARNING("You shock [H] with \the [src]!"))
+	user.visible_message(SPAN_DANGER("<i>\The [user] shocks [H] with \the [src]!</i>"), SPAN_WARNING("You shock [H] with \the [src]!"))
 	playsound(get_turf(src), 'sound/machines/defib_zap.ogg', 100, 1, -1)
 	playsound(loc, 'sound/weapons/Egloves.ogg', 100, 1, -1)
 	set_cooldown(cooldowntime)

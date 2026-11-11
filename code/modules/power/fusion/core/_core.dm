@@ -118,12 +118,12 @@
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.", \
-				self_message = "You secure the [src.name] to the floor.", \
-				blind_message = "You hear a ratchet")
+				"You secure the [src.name] to the floor.", \
+				"You hear a ratchet")
 		else
 			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
-				self_message = "You unsecure the [src.name] from the floor.", \
-				blind_message = "You hear a ratchet")
+				"You unsecure the [src.name] from the floor.", \
+				"You hear a ratchet")
 		return
 
 	return ..()

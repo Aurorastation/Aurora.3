@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 			for (var/obj/item/assembly/mousetrap/S in location.loc)
 				if (prob(25))
 					visible_message(SPAN_DANGER("[src] gets caught in the mousetrap while trying to crawl into the vent!"),
-									self_message = SPAN_DANGER("You get caught in the mousetrap while trying to crawl into the vent!"))
+									SPAN_DANGER("You get caught in the mousetrap while trying to crawl into the vent!"))
 
 					S.Crossed(src) // Triggers mousetrap
 					forceMove(location.loc)
@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
 
 					visible_message(SPAN_WARNING("[src] begins to climb into the ventilation system!"),
-									self_message = SPAN_NOTICE("You begin climbing into the ventilation system..."))
+									SPAN_NOTICE("You begin climbing into the ventilation system..."))
 					if(vent_found.air_contents && !issilicon(src))
 
 						switch(vent_found.air_contents.temperature)
@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 					if(!ventcrawl_carry())
 						return
 
-					visible_message("<B>[src] scrambles into the ventilation ducts!</B>", self_message = "You climb into the ventilation system.")
+					visible_message("<B>[src] scrambles into the ventilation ducts!</B>", "You climb into the ventilation system.")
 
 					forceMove(vent_found)
 					add_ventcrawl(vent_found.node)

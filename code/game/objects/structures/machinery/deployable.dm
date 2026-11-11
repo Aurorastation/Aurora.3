@@ -64,7 +64,7 @@ Deployable Kits
 				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 					return TRUE
-				user.visible_message("<b>[user]</b> begins to repair \the [src].", self_message = SPAN_NOTICE("You begin to repair \the [src]."))
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
 						set_health(maxhealth)
@@ -345,7 +345,7 @@ Deployable Kits
 		assembly_message = "The parts in \the [src] look rather complicated. You study the instructions carefully; this might take a moment."
 	else if(deployment_duration < deployment_time)
 		assembly_message = "You recognize the parts in \the [src] and quickly start fitting them together."
-	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), self_message = SPAN_NOTICE(assembly_message))
+	user.visible_message(SPAN_NOTICE("[user] begins setting up \the [src]."), SPAN_NOTICE(assembly_message))
 	if(!do_after(user, deployment_duration, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT | DO_PLACE_PROGRESSBAR_ON_USER, looping_sound_type = deployment_looping_sound, looping_sound_source = deployment_turf))
 		return
 	if(!user || QDELETED(user))
@@ -393,7 +393,7 @@ Deployable Kits
 		deployed_machine = new machine_type(deployment_turf)
 		deployed_machine.set_dir(user.dir)
 
-	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \the [src]."), self_message = SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
+	user.visible_message(SPAN_NOTICE("[user] deploys \a [deployed_machine] from \the [src]."), SPAN_NOTICE("You deploy \a [deployed_machine] from \the [src]."))
 	playsound(deployment_turf, 'sound/items/Deconstruct.ogg', 50, TRUE)
 	deployed_machine.add_fingerprint(user)
 	qdel(src)
@@ -407,7 +407,7 @@ Deployable Kits
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), self_message = SPAN_NOTICE("You assemble \a [A]."))
+	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier

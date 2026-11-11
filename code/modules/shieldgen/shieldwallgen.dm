@@ -62,11 +62,11 @@
 
 	if(power_state >= POWER_STARTING)
 		power_state = POWER_INACTIVE
-		user.visible_message("<b>[user]</b> turns \the [src] off.", self_message = SPAN_NOTICE("You turn off \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."))
+		user.visible_message("<b>[user]</b> turns \the [src] off.", SPAN_NOTICE("You turn off \the [src]."), SPAN_NOTICE("You hear a heavy droning fade out."))
 		alldir_cleanup()
 	else
 		power_state = POWER_STARTING
-		user.visible_message("<b>[user]</b> turns \the [src] on.", self_message = SPAN_NOTICE("You turn on \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning start up."))
+		user.visible_message("<b>[user]</b> turns \the [src] on.", SPAN_NOTICE("You turn on \the [src]."), SPAN_NOTICE("You hear a heavy droning start up."))
 	update_icon()
 	add_fingerprint(user)
 
@@ -171,7 +171,7 @@
 			add_fingerprint(user)
 			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
 			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."))
+			user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
 			update_icon()
 			return
 	return ..()

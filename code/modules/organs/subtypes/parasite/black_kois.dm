@@ -136,27 +136,27 @@
 	switch(stage)
 		if(1)
 			target.visible_message(SPAN_WARNING("As the black k'ois is cut from [target.name], [target.get_pronoun("he")] spasm[target.get_pronoun("end")] briefly, the black k'ois pulsing in [target.get_pronoun("his")] brain. You can see the scars it has left - it was not a clean surgery, but the damage is minor. [target.get_pronoun("He")] will likely fully recover, given time."),\
-			self_message = SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head aches - but your mind is still intact."))
+			SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head aches - but your mind is still intact."))
 			to_chat(target, SPAN_CULT("A shiver passes over your mind, an odd sense of loneliness. But it lasts only a moment, and then it is gone."))
 			B.max_damage = B.max_damage*0.95 //you got it early, good job
 		if(2)
 			target.visible_message(SPAN_WARNING("As the black k'ois is cut from [target.name], [target.get_pronoun("he")] spasm[target.get_pronoun("end")] wildly, the black k'ois embedded in [target.get_pronoun("his")] brain. You can see the scars it has left - though it was not a clean surgery, the damage is not too great. [target.get_pronoun("He")] may well fully recover."),\
-			self_message = SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head hurts, and you find some things hard to recall - but you remember who you are, and you are free from a truly terrible fate. Perhaps that is some comfort."))
+			SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head hurts, and you find some things hard to recall - but you remember who you are, and you are free from a truly terrible fate. Perhaps that is some comfort."))
 			to_chat(target, SPAN_CULT("Something lingers on you. You are free of the mycosis before it could kill you - and why does that fact make you feel almost sad?"))
 			B.max_damage = B.max_damage*0.75 //bit more scarring but still ok
 		if(3)
 			target.visible_message(SPAN_WARNING("As the black k'ois is cut from [target.name], [target.get_pronoun("he")] spasm[target.get_pronoun("end")] wildly, the black k'ois deeply embedded in [target.get_pronoun("his")] brain. You can see the scars it has left - it was not a clean surgery, and [target.get_pronoun("he")] may not fully recover - but [target.get_pronoun("he")] will live, at least."),\
-			self_message = SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head hurts, and you find some things hard to recall - but you remember who you are, and you are free from a truly terrible fate. Perhaps that is some comfort."))
+			SPAN_WARNING("They cut at your mind, removing the growth that infests it. Your head hurts, and you find some things hard to recall - but you remember who you are, and you are free from a truly terrible fate. Perhaps that is some comfort."))
 			to_chat(target, SPAN_CULT("A part of you misses the feeling of it, pulsing inside your skull like a friend, a constant companion. You have survived - but you cannot help but feel empty."))
 			B.max_damage = B.max_damage*0.65 //ok, now you have permanent brain damage
 		if(4)
 			target.visible_message(SPAN_WARNING("As the black k'ois is cut from [target.name], [target.get_pronoun("he")] spasm[target.get_pronoun("end")] wildly, the black k'ois deeply embedded in [target.get_pronoun("his")] brain. You can see the scars it has left - it was not a clean surgery, and [target.get_pronoun("he")] will never fully recover - but [target.get_pronoun("he")] will live, at least."),\
-			self_message = SPAN_WARNING("They cut at your mind, removing the growth that infests it. It's hard to remember what you are, without it. Perhaps, if you think hard enough, you can remember your name."))
+			SPAN_WARNING("They cut at your mind, removing the growth that infests it. It's hard to remember what you are, without it. Perhaps, if you think hard enough, you can remember your name."))
 			to_chat(target, SPAN_CULT("You have failed Us. We will find another way. Releasing control."))
 			B.max_damage = B.max_damage*0.45 //yeah your brain is severely messed up man
 		if(5)
 			target.visible_message(SPAN_WARNING("As the black k'ois is cut from [target.name], [target.get_pronoun("he")] spasm[target.get_pronoun("end")] wildly, [target.get_pronoun("his")] brain too damaged to function. A horrible choking sound emerges from [target.get_pronoun("his")] mouth, before it is mercifully silenced as [target.get_pronoun("he")] falls still."),\
-			self_message = SPAN_DANGER("You feel the cold of the knife cutting and cutting, but it is too late. There is nothing left of you but the Lii'dra's will, now. A final cut - and then you are granted the only escape that still remains to you."))
+			SPAN_DANGER("You feel the cold of the knife cutting and cutting, but it is too late. There is nothing left of you but the Lii'dra's will, now. A final cut - and then you are granted the only escape that still remains to you."))
 			to_chat(target, SPAN_GOOD("Your function is fulfilled. We have no further need of you. Releasing control."))
 			target.death(FALSE) //too late, there is no brain left to save
 	if((GLOB.all_languages[LANGUAGE_VAURCA] in target.languages) && stage >= 3 && !isvaurca(target))

@@ -514,7 +514,7 @@
 			return TRUE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", self_message = SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
+		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src) return
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))

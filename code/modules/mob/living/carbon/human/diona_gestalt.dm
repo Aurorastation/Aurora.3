@@ -404,7 +404,7 @@ Slows you down while being used, and will be automatically retracted if both fee
 	RegisterSignal(src, COMSIG_LIMB_LOSS, PROC_REF(check_roots))
 
 	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
-	, self_message = SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
+	, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
 	ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 	add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, extrarange = SILENCED_SOUND_EXTRARANGE)
@@ -414,7 +414,7 @@ Slows you down while being used, and will be automatically retracted if both fee
 	UnregisterSignal(src, COMSIG_LIMB_LOSS)
 
 	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their body.")
-	, self_message = SPAN_NOTICE("You retract your roots back into your body."))
+	, SPAN_NOTICE("You retract your roots back into your body."))
 	REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
 	remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
 	playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)

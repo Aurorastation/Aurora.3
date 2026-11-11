@@ -100,7 +100,7 @@
 		make_noise()
 		audible_emote("[pick(emote_hear)].")
 		if(current_size >= WIDE_SCHLORRGO)
-			user.visible_message(SPAN_WARNING("[user] kicks \the [src], but it doesn't move an inch!"), self_message = SPAN_DANGER("Your kick is suddenly stopped by \the [src]'s sheer fat!"))
+			user.visible_message(SPAN_WARNING("[user] kicks \the [src], but it doesn't move an inch!"), SPAN_DANGER("Your kick is suddenly stopped by \the [src]'s sheer fat!"))
 			var/obj/item/organ/external/leg = pick(right_leg, left_leg)
 			if(leg)
 				if(current_size >= COLOSSAL_SCHLORRGO) //break leg

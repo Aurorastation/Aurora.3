@@ -546,7 +546,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.mob_size <10)
-				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"))
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 4, 4)
 
