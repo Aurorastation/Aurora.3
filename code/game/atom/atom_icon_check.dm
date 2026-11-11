@@ -40,6 +40,7 @@
 
 		/obj/random,
 		/obj/structure/sign/flag,
+		/obj/item/clothing,
 	)
 
 	// These types (and their subtypes) are ignored
