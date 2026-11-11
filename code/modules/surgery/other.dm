@@ -30,14 +30,14 @@
 /singleton/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts patching the damaged vein in [target]'s [affected.name] with \the [tool]." , \
-		self_message = "You start patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].")
+		"You start patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
 	..()
 
 /singleton/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]."), \
-		self_message = SPAN_NOTICE("You have patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]."))
+		SPAN_NOTICE("You have patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]."))
 
 	affected.status &= ~ORGAN_ARTERY_CUT
 	affected.update_damages()
@@ -48,7 +48,7 @@
 /singleton/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-		self_message = SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	affected.take_damage(5, 0)
 
 /singleton/surgery_step/internal/fix_dead_tissue //Debridement
@@ -92,7 +92,7 @@
 			organ = I
 			break
 	user.visible_message("[user] starts cutting away necrotic tissue from [target]'s [organ.name] with \the [tool]." , \
-	self_message = "You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some of it has to be cut away permanently." : ""]")
+	"You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some of it has to be cut away permanently." : ""]")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 75)
 	..()
 
@@ -104,14 +104,14 @@
 			dead_organs |= I
 	var/obj/item/organ/internal/organ_to_fix = dead_organs[1]
 	user.visible_message(SPAN_NOTICE("[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool]."), \
-		self_message = SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
+		SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
 	organ_to_fix.status &= ~ORGAN_DEAD
 	organ_to_fix.heal_damage(10) //so that they don't insta-die again
 
 /singleton/surgery_step/internal/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
+		SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
 	affected.sever_artery()
 
 /singleton/surgery_step/treat_necrosis
@@ -150,7 +150,7 @@
 /singleton/surgery_step/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [affected.name] with \the [tool]." , \
-	self_message = "You start applying medication to the affected tissue in [target]'s [affected.name] with \the [tool].")
+	"You start applying medication to the affected tissue in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!", 75)
 	..()
 
@@ -168,7 +168,7 @@
 			affected.owner.update_body(1)
 
 		user.visible_message(SPAN_NOTICE("[user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]"), \
-			self_message = SPAN_NOTICE("You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool]."))
+			SPAN_NOTICE("You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool]."))
 
 /singleton/surgery_step/treat_necrosis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -179,7 +179,7 @@
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!"))
+		SPAN_WARNING("Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!"))
 
 	//no damage or anything, just wastes medicine
 
@@ -206,21 +206,21 @@
 /singleton/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]." , \
-		self_message = "You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
+		"You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
 	..()
 
 /singleton/surgery_step/fix_tendon/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
-		self_message = SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
+		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
 	affected.tendon.rejuvenate()
 	affected.update_damages()
 
 /singleton/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-		self_message = SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	target.apply_damage(15, DAMAGE_PAIN)
 
 /singleton/surgery_step/hardsuit
@@ -250,7 +250,7 @@
 
 /singleton/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
-		self_message = "You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
+		"You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
 	..()
 
 /singleton/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -259,7 +259,7 @@
 		return
 	rig.reset()
 	user.visible_message(SPAN_NOTICE("[user] has cut through the support systems of [target]'s [rig] with \the [tool]."), \
-		self_message = SPAN_NOTICE("You have cut through the support systems of [target]'s [rig] with \the [tool]."))
+		SPAN_NOTICE("You have cut through the support systems of [target]'s [rig] with \the [tool]."))
 
 /singleton/surgery_step/amputate
 	name = "Amputate Limb"
@@ -301,14 +301,14 @@
 /singleton/surgery_step/amputate/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_DANGER("[user] is beginning to amputate [target]'s [affected.name] with \the [tool].") , \
-		self_message = SPAN_DANGER("You begin to cut through [target]'s [affected.amputation_point] with \the [tool]."))
+		SPAN_DANGER("You begin to cut through [target]'s [affected.amputation_point] with \the [tool]."))
 	target.custom_pain("Your [affected.amputation_point] is being ripped apart!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_DANGER("[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool]."), \
-		self_message = SPAN_DANGER("You amputate [target]'s [affected.name] with \the [tool]."))
+		SPAN_DANGER("You amputate [target]'s [affected.name] with \the [tool]."))
 
 	var/clean = TRUE
 	if(istype(tool, /obj/item/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
@@ -328,6 +328,6 @@
 /singleton/surgery_step/amputate/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!"))
+		SPAN_WARNING("Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(30, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()

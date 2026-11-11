@@ -105,7 +105,7 @@
 		if(credit >= price_guess)
 			spawn_money(price_guess, owner.loc, user)
 			credit = max(0, credit - price_guess)
-		user.visible_message("\The [user] remove some credits from \the [owner].", self_message = "You hear a drawer being opened and the clinking of coins, followed by a drawer being closed." )
+		user.visible_message("\The [user] remove some credits from \the [owner].", "You hear a drawer being opened and the clinking of coins, followed by a drawer being closed." )
 
 /// Print out a relevant receipt
 /datum/component/quikpay_shop/proc/print_receipt()

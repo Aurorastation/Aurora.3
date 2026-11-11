@@ -74,7 +74,7 @@
 			var/self_action = game_actions[picked_action]
 			picked_action = replacetext(picked_action, "%NAME%", name)
 			self_action = replacetext(self_action, "%NAME%", name)
-			loc.visible_message("<b>[loc]</b> [picked_action]!", self_message = SPAN_NOTICE("You [self_action]!"), vision_distance = 3)
+			loc.visible_message("<b>[loc]</b> [picked_action]!", SPAN_NOTICE("You [self_action]!"), vision_distance = 3)
 	else
 		if(!muted)
 			playsound(loc, SFX_COMPUTER_BEEP, 20)
@@ -88,9 +88,9 @@
 	open = !open
 	update_icon()
 	if(open)
-		user.visible_message("<b>[user]</b> flips open \the [src] with a satisfying snap!", self_message = SPAN_NOTICE("You flip open \the [src] with a satisfying snap!"), vision_distance = 3)
+		user.visible_message("<b>[user]</b> flips open \the [src] with a satisfying snap!", SPAN_NOTICE("You flip open \the [src] with a satisfying snap!"), vision_distance = 3)
 	else
-		user.visible_message("<b>[user]</b> flips \the [src] shut with a satisfying snap!", self_message = SPAN_NOTICE("You flip \the [src] shut with a satisfying snap!"), vision_distance = 3)
+		user.visible_message("<b>[user]</b> flips \the [src] shut with a satisfying snap!", SPAN_NOTICE("You flip \the [src] shut with a satisfying snap!"), vision_distance = 3)
 		set_game(null)
 	playsound(user, 'sound/weapons/blade_open.ogg', 30)
 
@@ -107,7 +107,7 @@
 	if(open)
 		var/choice = tgui_input_list(user, "What do you want to play?", "Game Helm", game_type_to_state)
 		if(choice == "turn off the system")
-			user.visible_message("<b>[user]</b> hits the power button on \the [src] and it quickly shuts down.", self_message = SPAN_NOTICE("You hit the power button on \the [src] and it quickly shuts down."), vision_distance = 3)
+			user.visible_message("<b>[user]</b> hits the power button on \the [src] and it quickly shuts down.", SPAN_NOTICE("You hit the power button on \the [src] and it quickly shuts down."), vision_distance = 3)
 			if(!muted)
 				playsound(loc, 'sound/machines/softbeep.ogg', 20)
 			set_game(null)
@@ -119,9 +119,9 @@
 				playsound(loc, 'sound/machines/softbeep.ogg', 20)
 			return
 		if(current_screen_state)
-			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] swaps to a different application!", self_message = SPAN_NOTICE("You tap on a few buttons and \the [src] swaps to a different application!"), vision_distance = 3)
+			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] swaps to a different application!", SPAN_NOTICE("You tap on a few buttons and \the [src] swaps to a different application!"), vision_distance = 3)
 		else
-			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] springs to life!", self_message = SPAN_NOTICE("You tap on a few buttons and \the [src] springs to life!"), vision_distance = 3)
+			user.visible_message("<b>[user]</b> taps on a few buttons and \the [src] springs to life!", SPAN_NOTICE("You tap on a few buttons and \the [src] springs to life!"), vision_distance = 3)
 		if(!muted)
 			playsound(loc, SFX_COMPUTER_BOOP, 25)
 		set_game(game_type_to_state[choice])

@@ -145,12 +145,12 @@
 	set category = "Hivebot"
 
 	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot beacon."),
-		self_message = SPAN_CULT("You begin to construct a hivebot beacon."),
-		blind_message = SPAN_CULT("You hear the sounds of fabrication..."))
+		SPAN_CULT("You begin to construct a hivebot beacon."),
+		SPAN_CULT("You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
 	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot beacon!"),
-		self_message = SPAN_CULT("You construct a hivebot beacon!"))
+		SPAN_CULT("You construct a hivebot beacon!"))
 	new /mob/living/simple_animal/hostile/hivebotbeacon(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/build_destroyer()
@@ -159,12 +159,12 @@
 	set category = "Hivebot"
 
 	src.visible_message(SPAN_CULT("\The [src] begins to construct a hivebot destroyer."),
-		self_message = SPAN_CULT("You begin to construct a hivebot destroyer."),
-		blind_message = SPAN_CULT("You hear the sounds of fabrication..."))
+		SPAN_CULT("You begin to construct a hivebot destroyer."),
+		SPAN_CULT("You hear the sounds of fabrication..."))
 	if(!do_after(src, 12 SECONDS))
 		return
 	src.visible_message(SPAN_CULT("\The [src] constructs a hivebot destroyer!"),
-		self_message = SPAN_CULT("You construct a hivebot destroyer!"))
+		SPAN_CULT("You construct a hivebot destroyer!"))
 	new /mob/living/simple_animal/hostile/hivebot/playable(get_turf(src))
 
 /mob/living/simple_animal/hostile/hivebot_stickbug/verb/toggle_signal()
@@ -174,11 +174,11 @@
 
 	if(!active_signal)
 		src.visible_message(SPAN_CULT("\The [src] begins to emit a low, humming sound..."),
-			self_message = SPAN_CULT("You begin to transmit an invasive signal, subverting nearby synthetics."),
-			blind_message = SPAN_CULT("You hear a low humming..."))
+			SPAN_CULT("You begin to transmit an invasive signal, subverting nearby synthetics."),
+			SPAN_CULT("You hear a low humming..."))
 		active_signal = TRUE
 	else
 		src.visible_message(SPAN_CULT("\The [src] abruptly ceases to emit a low, humming sound..."),
-			self_message = SPAN_CULT("You cease transmitting the signal."),
-			blind_message = SPAN_CULT("A low humming noise abruptly cuts out!"))
+			SPAN_CULT("You cease transmitting the signal."),
+			SPAN_CULT("A low humming noise abruptly cuts out!"))
 		active_signal = FALSE

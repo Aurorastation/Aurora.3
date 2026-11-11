@@ -97,8 +97,8 @@
 		if (feeder)
 			feeder.visible_message(
 				SPAN_ITALIC("\The [feeder] tears open \a [src], destroying the self-heating packaging."),
-				self_message = SPAN_ITALIC("You tear open \the [src], destroying the self-heating packaging."),
-				blind_message = SPAN_ITALIC("You hear plastic packaging crinkling."),
+				SPAN_ITALIC("You tear open \the [src], destroying the self-heating packaging."),
+				SPAN_ITALIC("You hear plastic packaging crinkling."),
 				vision_distance = 3
 			)
 		can_self_heat = FALSE

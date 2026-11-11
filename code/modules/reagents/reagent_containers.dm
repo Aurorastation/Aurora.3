@@ -167,7 +167,7 @@
 		return
 
 	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
-							self_message = SPAN_WARNING("You splash the solution onto \the [target]."))
+							SPAN_WARNING("You splash the solution onto \the [target]."))
 
 	reagents.splash(target, reagents.total_volume)
 	return
@@ -196,7 +196,7 @@
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
-							self_message = SPAN_WARNING("You splash the solution onto \the [target]."))
+							SPAN_WARNING("You splash the solution onto \the [target]."))
 
 	reagents.splash(target, min(120,reagents.total_volume) ) //Splash Limit
 
@@ -207,13 +207,13 @@
 	return 1
 
 /obj/item/reagent_containers/proc/self_feed_message(var/mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] drinks from \the [src]."), self_message = SPAN_NOTICE("You drink from \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] drinks from \the [src]."), SPAN_NOTICE("You drink from \the [src]."))
 
 /obj/item/reagent_containers/proc/other_feed_message_start(var/mob/user, var/mob/target)
-	user.visible_message(SPAN_WARNING("\The [user] is trying to feed \the [target] \the [src]!"), self_message = SPAN_WARNING("You start trying to feed \the [target] \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] is trying to feed \the [target] \the [src]!"), SPAN_WARNING("You start trying to feed \the [target] \the [src]!"))
 
 /obj/item/reagent_containers/proc/other_feed_message_finish(var/mob/user, var/mob/target)
-	user.visible_message(SPAN_WARNING("\The [user] has fed \the [target] \the [src]!"), self_message = SPAN_WARNING("You have fed \the [target] \the [src]."))
+	user.visible_message(SPAN_WARNING("\The [user] has fed \the [target] \the [src]!"), SPAN_WARNING("You have fed \the [target] \the [src]."))
 
 /obj/item/reagent_containers/proc/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
@@ -320,7 +320,7 @@
 				break
 		if(chugs > 3)
 			if(!(H.species.flags & NO_BREATHE))
-				H.visible_message(SPAN_NOTICE("[H] finishes chugging, exhausted..."), self_message = SPAN_NOTICE("You finish chugging, exhausted..."))
+				H.visible_message(SPAN_NOTICE("[H] finishes chugging, exhausted..."), SPAN_NOTICE("You finish chugging, exhausted..."))
 				H.emote("gasp")
 		return
 

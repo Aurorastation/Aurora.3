@@ -190,7 +190,7 @@
 		C.add_fingerprint(user)
 		cell = C
 		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and inserts [C]."),
-								self_message = SPAN_NOTICE("You open the panel on [src] and insert [C]."))
+								SPAN_NOTICE("You open the panel on [src] and insert [C]."))
 
 		power_change()
 		SStgui.update_uis(src)
@@ -202,7 +202,7 @@
 			return TRUE
 
 		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and removes [cell]."),
-								self_message = SPAN_NOTICE("You open the panel on [src] and remove [cell]."))
+								SPAN_NOTICE("You open the panel on [src] and remove [cell]."))
 
 		cell.add_fingerprint(user)
 		cell.forceMove(src.loc)

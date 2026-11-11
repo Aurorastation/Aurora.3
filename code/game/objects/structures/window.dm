@@ -189,13 +189,13 @@
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 90, 1)
 		user.do_attack_animation(src)
 		user.visible_message(SPAN_DANGER("\The [user] bangs against \the [src]!"),
-							self_message = SPAN_DANGER("You bang against \the [src]!"),
-							blind_message = "You hear a banging sound.")
+							SPAN_DANGER("You bang against \the [src]!"),
+							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
 		user.visible_message("<b>[user]</b> knocks on \the [src.name].",
-							self_message = "You knock on \the [src.name].",
-							blind_message = "You hear a knocking sound.")
+							"You knock on \the [src.name].",
+							"You hear a knocking sound.")
 	return
 
 /obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)

@@ -113,7 +113,7 @@
 	var/response = tgui_alert(H, "Do you believe in hypnosis?", "Willpower", list("Yes", "No"))
 
 	if(response == "Yes")
-		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), self_message = SPAN_DANGER("You fall into a deep slumber!"))
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)

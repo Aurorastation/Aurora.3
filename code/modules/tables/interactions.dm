@@ -128,7 +128,7 @@
 
 	user.visible_message(
 		SPAN_WARNING("[user] reaches beneath \the [src] and pulls [target] out from under it!"),
-		self_message = SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
+		SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
 	)
 	target.forceMove(get_turf(user))
 	var/obj/item/grab/grab = new /obj/item/grab(user, user, target)
@@ -157,7 +157,7 @@
 	if (user && anything_moved)
 		user.visible_message(
 		SPAN_NOTICE("[user] kicks everything off [src]."),
-		self_message = SPAN_NOTICE("You kick everything off [src].")
+		SPAN_NOTICE("You kick everything off [src].")
 		)
 
 
@@ -172,7 +172,7 @@
 
 	user.visible_message(
 	SPAN_WARNING("[user] starts climbing onto \the [src]!"),
-	self_message = SPAN_WARNING("You start climbing onto \the [src]!")
+	SPAN_WARNING("You start climbing onto \the [src]!")
 	)
 	LAZYADD(climbers, user)
 
@@ -189,7 +189,7 @@
 	if (get_turf(user) == get_turf(src))
 		user.visible_message(
 		SPAN_WARNING("[user] climbs onto \the [src]!"),
-		self_message = SPAN_WARNING("You climb onto \the [src]!")
+		SPAN_WARNING("You climb onto \the [src]!")
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -296,7 +296,7 @@
 					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
 							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
-												self_message = SPAN_DANGER("\The [S] slices your face messily!"))
+												SPAN_DANGER("\The [S] slices your face messily!"))
 							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
@@ -322,7 +322,7 @@
 
 	if(carpeted && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
-								self_message = SPAN_NOTICE("You remove the carpet from \the [src]."))
+								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
 		queue_icon_update()
@@ -332,7 +332,7 @@
 		var/obj/item/stack/tile/carpet/C = attacking_item
 		if(C.use(1))
 			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
-									self_message = SPAN_NOTICE("You add \the [C] to \the [src]."))
+									SPAN_NOTICE("You add \the [C] to \the [src]."))
 			carpeted = 1
 			queue_icon_update()
 			return 1
@@ -361,7 +361,7 @@
 			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
-									self_message = SPAN_NOTICE("You repair some damage to \the [src]."))
+									SPAN_NOTICE("You repair some damage to \the [src]."))
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
 
@@ -404,7 +404,7 @@
 				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 					return
-				user.visible_message("<b>[user]</b> begins to repair \the [src].", self_message = SPAN_NOTICE("You begin to repair \the [src]."))
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", SPAN_NOTICE("You begin to repair \the [src]."))
 				if(do_after(user, 2 SECONDS) && health < maxhealth)
 					if(D.use(1))
 						health = maxhealth

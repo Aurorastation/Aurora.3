@@ -57,7 +57,7 @@
 					return
 				new /obj/item/stack/material/steel(get_turf(src), sheets_refunded)
 				user.visible_message(SPAN_NOTICE("\The [user] takes \the [src] apart."),
-										self_message = SPAN_WARNING("You take \the [src] apart."))
+										SPAN_WARNING("You take \the [src] apart."))
 				if(cell)
 					cell.forceMove(get_turf(src))
 					cell = null
@@ -86,8 +86,8 @@
 				icon_state = "floortube-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src), 1, "red")
 		user.visible_message(SPAN_NOTICE("\The [user] removes the wiring from \the [src]."),
-								self_message = SPAN_NOTICE("You remove the wiring from [src]."),
-								blind_message = SPAN_WARNING("You hear something being cut."))
+								SPAN_NOTICE("You remove the wiring from [src]."),
+								SPAN_WARNING("You hear something being cut."))
 		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
 		return
 
@@ -109,7 +109,7 @@
 					icon_state = "floortube-construct-stage2"
 			stage = 2
 			user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."),
-									self_message = SPAN_NOTICE("You add wires to \the [src]."))
+									SPAN_NOTICE("You add wires to \the [src]."))
 		return
 
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -127,8 +127,8 @@
 					icon_state = "floortube_empty"
 			stage = 3
 			user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s casing."),
-									self_message = SPAN_NOTICE("You close \the [src]'s casing."),
-									blind_message = SPAN_WARNING("You hear something being screwed in."))
+									SPAN_NOTICE("You close \the [src]'s casing."),
+									SPAN_WARNING("You hear something being screwed in."))
 			attacking_item.play_tool_sound(get_turf(src), 75)
 
 			switch(fixture_type)
@@ -161,13 +161,13 @@
 			return
 		if(cell)
 			user.visible_message(SPAN_NOTICE("\The [user] swaps \the [attacking_item] out for \the [src]'s cell."),
-									self_message = SPAN_NOTICE("You swap out \the [src]'s cell out for \the [attacking_item]."))
+									SPAN_NOTICE("You swap out \the [src]'s cell out for \the [attacking_item]."))
 			user.drop_from_inventory(attacking_item, src)
 			cell.forceMove(get_turf(src))
 			user.put_in_hands(cell)
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."),
-									self_message = SPAN_NOTICE("You hook up \the [attacking_item] to \the [src]'s cell terminals."))
+									SPAN_NOTICE("You hook up \the [attacking_item] to \the [src]'s cell terminals."))
 			user.drop_from_inventory(attacking_item, src)
 		cell = attacking_item
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)

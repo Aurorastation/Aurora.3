@@ -82,8 +82,8 @@
 		spill()
 		user.visible_message(
 			"<b>[user]</b> tries to stack two trays and spills their contents everywhere!",
-			self_message = SPAN_WARNING("You spill both the trays' contents!"),
-			blind_message = SPAN_WARNING("You hear the sound of metal crashing!")
+			SPAN_WARNING("You spill both the trays' contents!"),
+			SPAN_WARNING("You hear the sound of metal crashing!")
 		)
 		return
 	var/remaining = max_carry - current_weight
@@ -92,8 +92,8 @@
 		if (messages)
 			user.visible_message(
 				"<b>[user]</b> places [I] on the tray.",
-				self_message = SPAN_NOTICE("You place [I] on the tray."),
-				blind_message = SPAN_NOTICE("You hear something being placed on a tray.")
+				SPAN_NOTICE("You place [I] on the tray."),
+				SPAN_NOTICE("You hear something being placed on a tray.")
 			)
 		return TRUE
 	if (messages)
@@ -165,7 +165,7 @@
 
 	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-	user.visible_message("<b>[user]</b> unloads the tray.", self_message = SPAN_NOTICE("You unload the tray."))
+	user.visible_message("<b>[user]</b> unloads the tray.", SPAN_NOTICE("You unload the tray."))
 
 
 /obj/item/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)
@@ -182,7 +182,7 @@
 		unload_item(I, dropspot)
 		I.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(0, 2), 10)
 	if (user)
-		user.visible_message("<b>[user]</b> spills their tray all over the floor.", self_message = SPAN_WARNING("You spill the tray!"))
+		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(dropspot, SFX_TRAY_HIT, 50, 1)

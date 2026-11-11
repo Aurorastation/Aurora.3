@@ -104,8 +104,8 @@
 		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts welding \the [src] apart!"),
-			self_message = SPAN_NOTICE("You start welding \the [src] apart..."),
-			blind_message = "You hear deconstruction."
+			SPAN_NOTICE("You start welding \the [src] apart..."),
+			"You hear deconstruction."
 		)
 		if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 			if(!src || !WT.isOn())

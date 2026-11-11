@@ -70,22 +70,22 @@
 		if(badge_string)
 			if(stored_name)
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name], [badge_string]."),
-										self_message = SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name], [badge_string]."))
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name], [badge_string]."))
 			else
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [badge_string]."),
-										self_message = SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
+										SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
 		else
 			if(stored_name)
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name]."),
-										self_message = SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name]."))
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name]."))
 			else
 				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
-										self_message = SPAN_NOTICE("You display your [src.name]."))
+										SPAN_NOTICE("You display your [src.name]."))
 
 /obj/item/clothing/accessory/badge/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isliving(user))
 		user.visible_message(SPAN_DANGER("[user] invades [target_mob]'s personal space, thrusting [src] into their face insistently."),
-								self_message = SPAN_DANGER("You invade [target_mob]'s personal space, thrusting [src] into their face insistently."))
+								SPAN_DANGER("You invade [target_mob]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
 	set category = "Object.Equipped"

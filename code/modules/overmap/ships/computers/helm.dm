@@ -271,7 +271,7 @@
 					if(connected.pilot_class != PILOTING_CLASS_TWO && prob(70))
 						connected.forceMove(get_step(connected, ndir))
 						to_chat(H, SPAN_WARNING("You don't need to be an expert to realize you fumbled that."))
-					H.visible_message(SPAN_DANGER("[H]'s grip slips!"), self_message = SPAN_DANGER("Your handling slips and the vessel teeters off trajectory!"))
+					H.visible_message(SPAN_DANGER("[H]'s grip slips!"), SPAN_DANGER("Your handling slips and the vessel teeters off trajectory!"))
 		if(issilicon(usr))
 			var/mob/living/silicon/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
@@ -313,7 +313,7 @@
 							acceleration *= 2
 							to_chat(H, SPAN_DANGER("Too fast!"))
 						connected.adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
-						H.visible_message(SPAN_WARNING("[H] motions strongly at \the [src]"), self_message = SPAN_WARNING("The speed picks up faster than anticipated."))
+						H.visible_message(SPAN_WARNING("[H] motions strongly at \the [src]"), SPAN_WARNING("The speed picks up faster than anticipated."))
 				else
 					return
 			if(prob(H.confused * 5))
@@ -338,7 +338,7 @@
 							if(connected.pilot_class == PILOTING_CLASS_MAX && prob(70))
 								connected.turn_ship(ndir)
 								to_chat(H, SPAN_DANGER("Too far!"))
-							H.visible_message(SPAN_WARNING("[H] swerves inaccurately on \the [src]"), self_message = SPAN_WARNING("You're imprecise and make a wider turn."))
+							H.visible_message(SPAN_WARNING("[H] swerves inaccurately on \the [src]"), SPAN_WARNING("You're imprecise and make a wider turn."))
 						addtimer(CALLBACK(src, PROC_REF(refresh_ui)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
 
 					else // When moving/interrupted mid-action, always get worse result
@@ -347,7 +347,7 @@
 						if(prob(70))
 							connected.turn_ship(ndir)
 							to_chat(H, SPAN_DANGER("Damn it!"))
-						H.visible_message(SPAN_WARNING("[H] swerves loosely on \the [src]."), self_message = SPAN_WARNING("Your negligence overshoots the turning."))
+						H.visible_message(SPAN_WARNING("[H] swerves loosely on \the [src]."), SPAN_WARNING("Your negligence overshoots the turning."))
 						addtimer(CALLBACK(src, PROC_REF(refresh_ui)), min(connected.vessel_mass / 10, 1) SECONDS + 1)
 
 				else if(connected.can_turn()) // Normal, w/o penalty

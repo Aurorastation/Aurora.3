@@ -125,7 +125,7 @@
 		if(!jam_chance || jam_chance == initial(jam_chance))
 			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
 			return
-		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You start cleaning \the [src] with \the [attacking_item]."))
+		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [attacking_item].", SPAN_NOTICE("You start cleaning \the [src] with \the [attacking_item]."))
 		if(do_after(user, jam_chance * 5))
 			to_chat(user, SPAN_WARNING("You completely clean \the [src]."))
 			jam_chance = initial(jam_chance)

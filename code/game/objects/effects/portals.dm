@@ -80,7 +80,7 @@
 
 /obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
-		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
+		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
 		qdel(src)
 		return TRUE
 	return ..()

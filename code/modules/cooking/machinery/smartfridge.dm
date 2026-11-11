@@ -332,14 +332,14 @@
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].",
-							self_message = "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
+							"You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		update_icon()
 		return
 
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.",
-								self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
+								"You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
 		return
@@ -392,7 +392,7 @@
 		item_quants[attacking_item.name]++
 		if(item_quants[attacking_item.name] == 1)
 			update_static_data_for_all_viewers()
-		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", self_message = SPAN_NOTICE("You add [attacking_item] to [src]."))
+		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
 		return TRUE
 
@@ -410,7 +410,7 @@
 					update_static_data = TRUE
 				plants_loaded++
 		if(plants_loaded)
-			user.visible_message("<b>[user]</b> loads [src] with [P].", self_message = SPAN_NOTICE("You load [src] with [P]."))
+			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 			update_overlays()
@@ -546,7 +546,7 @@
 						if(visible_takeout)
 							user.visible_message(
 								"[SPAN_BOLD("[user]")] takes \a [O] from \the [src].",
-								self_message = SPAN_NOTICE("You take \a [O] from \the [src]."))
+								SPAN_NOTICE("You take \a [O] from \the [src]."))
 					else
 						O.forceMove(loc)
 					i--

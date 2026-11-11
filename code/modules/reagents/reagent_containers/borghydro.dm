@@ -93,7 +93,7 @@
 		to_chat(user, SPAN_WARNING("The injector is empty."))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), self_message = SPAN_NOTICE("You inject [M] with your hypospray!"), blind_message = SPAN_NOTICE("You hear a hissing noise."))
+	user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
 	to_chat(M, SPAN_NOTICE("You feel a tiny prick!"))
 	playsound(src, 'sound/items/hypospray.ogg',25)
 

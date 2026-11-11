@@ -91,7 +91,7 @@
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
 		M.apply_damage(45, DAMAGE_PAIN)
 		M.visible_message(SPAN_DANGER("[user]'s hand catches in the [src]!"),
-							self_message = SPAN_DANGER("Your hand gets caught in the [src]!"))
+							SPAN_DANGER("Your hand gets caught in the [src]!"))
 
 		M.say("*scream")
 		return TRUE

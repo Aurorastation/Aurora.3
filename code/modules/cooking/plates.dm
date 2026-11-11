@@ -47,7 +47,7 @@ Plates that can hold your cooking stuff
 
 				user.visible_message(
 					"\The [user] scoops up some of \the [src]'s contents with \the [U]!",
-					self_message = SPAN_NOTICE("You scoop up some of \the [src]'s contents with \the [U]!")
+					SPAN_NOTICE("You scoop up some of \the [src]'s contents with \the [U]!")
 				)
 
 				U.ClearOverlays()
@@ -81,13 +81,13 @@ Plates that can hold your cooking stuff
 	if(grease && !reagents.total_volume && (target_mob == user))
 		user.visible_message(
 			SPAN_NOTICE("[user] starts to lick \the [src] clean."),
-			self_message = SPAN_NOTICE("You start to lick \the [src] clean.")
+			SPAN_NOTICE("You start to lick \the [src] clean.")
 		)
 		if(do_after(user, 5))
 			grease = FALSE
 			user.visible_message(
 				SPAN_NOTICE("[user] licks everything off \the [src]."),
-				self_message = SPAN_NOTICE("You lick everything off \the [src].")
+				SPAN_NOTICE("You lick everything off \the [src].")
 			)
 	else
 		return ..()
@@ -178,10 +178,10 @@ Plates that can hold your cooking stuff
 		var/obj/item/reagent_containers/food/snacks/S = holding
 		S.standard_feed_mob(user, target_mob)
 	else if(grease && !holding && (target_mob == user))
-		user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), self_message = SPAN_NOTICE("You start to lick \the [src] clean."))
+		user.visible_message(SPAN_NOTICE("[user] starts to lick \the [src] clean."), SPAN_NOTICE("You start to lick \the [src] clean."))
 		if(do_after(user, 5))
 			grease = FALSE
-			user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), self_message = SPAN_NOTICE("You lick everything off \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] licks everything off \the [src]."), SPAN_NOTICE("You lick everything off \the [src]."))
 	update_icon()
 	return
 
@@ -226,7 +226,7 @@ Plates that can hold your cooking stuff
 		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
 		user.visible_message(
 			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
-			self_message = SPAN_NOTICE("You transfer [trans] units of the solution.")
+			SPAN_NOTICE("You transfer [trans] units of the solution.")
 		)
 		playsound(get_turf(user), SFX_POUR, 10, TRUE)
 	return TRUE
@@ -295,7 +295,7 @@ Plates that can hold your cooking stuff
 			to_chat(user, SPAN_WARNING("There isn't enough room in \the [src] for \the [food]."))
 			return
 
-		user.visible_message("\The [user] puts \the [food] into \the [src].", self_message = SPAN_NOTICE("You put \the [food] into \the [src]."))
+		user.visible_message("\The [user] puts \the [food] into \the [src].", SPAN_NOTICE("You put \the [food] into \the [src]."))
 
 		has_been_used = TRUE
 		food.reagents.trans_to(src, food.reagents.total_volume)

@@ -280,51 +280,51 @@
 	switch(index)
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> adds wiring to \the [holder].", self_message = SPAN_NOTICE("You add wiring to \the [holder]."))
+				user.visible_message("<b>[user]</b> adds wiring to \the [holder].", SPAN_NOTICE("You add wiring to \the [holder]."))
 				r.icon_state = r.icon_base + "2"
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> adjusts the wiring of \the [holder].", self_message = SPAN_NOTICE("You adjust the wiring of \the [holder]."))
+				user.visible_message("<b>[user]</b> adjusts the wiring of \the [holder].", SPAN_NOTICE("You adjust the wiring of \the [holder]."))
 			else
-				user.visible_message("<b>[user]</b> removes the wiring from \the [holder].", self_message = SPAN_NOTICE("You remove the wiring from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the wiring from \the [holder].", SPAN_NOTICE("You remove the wiring from \the [holder]."))
 				var/obj/item/stack/cable_coil/coil = new /obj/item/stack/cable_coil(get_turf(holder))
 				coil.amount = 4
 				r.icon_state = r.icon_base + "1"
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs the central control module into \the [holder].", self_message = SPAN_NOTICE("You install the central control module into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs the central control module into \the [holder].", SPAN_NOTICE("You install the central control module into \the [holder]."))
 				qdel(used_atom)
 				r.icon_state = r.icon_base + "3"
 			else
-				user.visible_message("<b>[user]</b> disconnects the wiring of \the [holder].", self_message = SPAN_NOTICE("You disconnect the wiring of \the [holder]."))
+				user.visible_message("<b>[user]</b> disconnects the wiring of \the [holder].", SPAN_NOTICE("You disconnect the wiring of \the [holder]."))
 				r.icon_state = r.icon_base + "2"
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the central control module.", self_message = SPAN_NOTICE("You secure the central control module."))
+				user.visible_message("<b>[user]</b> secures the central control module.", SPAN_NOTICE("You secure the central control module."))
 			else
-				user.visible_message("<b>[user]</b> removes the central control module from \the [holder].", self_message = SPAN_NOTICE("You remove the central control module from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the central control module from \the [holder].", SPAN_NOTICE("You remove the central control module from \the [holder]."))
 				new board_type(get_turf(holder))
 				r.icon_state = r.icon_base + "2"
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs an external armor layer into \the [holder].", self_message = SPAN_NOTICE("You install an external reinforced armor layer into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs an external armor layer into \the [holder].", SPAN_NOTICE("You install an external reinforced armor layer into \the [holder]."))
 				r.icon_state = r.icon_base + "4"
 			else
-				user.visible_message("<b>[user]</b> cuts the external armor layer from \the [holder].", self_message = SPAN_NOTICE("You cut the external armor layer from \the [holder]."))
+				user.visible_message("<b>[user]</b> cuts the external armor layer from \the [holder].", SPAN_NOTICE("You cut the external armor layer from \the [holder]."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the external armor layer.", self_message = SPAN_NOTICE("You secure the external reinforced armor layer."))
+				user.visible_message("<b>[user]</b> secures the external armor layer.", SPAN_NOTICE("You secure the external reinforced armor layer."))
 			else
-				user.visible_message("<b>[user]</b> pries the external armor layer from \the [holder].", self_message = SPAN_NOTICE("You pry the external armor layer from \the [holder]."))
+				user.visible_message("<b>[user]</b> pries the external armor layer from \the [holder].", SPAN_NOTICE("You pry the external armor layer from \the [holder]."))
 				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "3"
 		if(1)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> welds the external armor layer of \the [holder] into position.", self_message = SPAN_NOTICE("You weld the external armor layer of \the [holder] into position."))
+				user.visible_message("<b>[user]</b> welds the external armor layer of \the [holder] into position.", SPAN_NOTICE("You weld the external armor layer of \the [holder] into position."))
 				r.icon_state = r.icon_base + "5"
 			else
-				user.visible_message("<b>[user]</b> unfastens the external armor layer.", self_message = SPAN_NOTICE("You unfasten the external armor layer."))
+				user.visible_message("<b>[user]</b> unfastens the external armor layer.", SPAN_NOTICE("You unfasten the external armor layer."))
 				r.icon_state = r.icon_base + "4"
 	return 1
 
@@ -402,91 +402,91 @@
 
 		if(14)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> adds wiring to \the [holder].", self_message = SPAN_NOTICE("You add wiring to \the [holder]."))
+				user.visible_message("<b>[user]</b> adds wiring to \the [holder].", SPAN_NOTICE("You add wiring to \the [holder]."))
 				r.icon_state = r.icon_base + "2"
 		if(13)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> adjusts the wiring of \the [holder].", self_message = SPAN_NOTICE("You adjust the wiring of \the [holder]."))
+				user.visible_message("<b>[user]</b> adjusts the wiring of \the [holder].", SPAN_NOTICE("You adjust the wiring of \the [holder]."))
 			else
-				user.visible_message("<b>[user]</b> removes the wiring from \the [holder].", self_message = SPAN_NOTICE("You remove the wiring from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the wiring from \the [holder].", SPAN_NOTICE("You remove the wiring from \the [holder]."))
 				new /obj/item/stack/cable_coil(get_turf(holder), 4)
 				r.icon_state = r.icon_base + "1"
 		if(12)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs the central control module into \the [holder].", self_message = SPAN_NOTICE("You install the central control module into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs the central control module into \the [holder].", SPAN_NOTICE("You install the central control module into \the [holder]."))
 				qdel(used_atom)
 				r.icon_state = r.icon_base + "3"
 			else
-				user.visible_message("<b>[user]</b> disconnects the wiring of \the [holder].", self_message = SPAN_NOTICE("You disconnect the wiring of [holder]."))
+				user.visible_message("<b>[user]</b> disconnects the wiring of \the [holder].", SPAN_NOTICE("You disconnect the wiring of [holder]."))
 				r.icon_state = r.icon_base + "1"
 		if(11)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the central control module.", self_message = SPAN_NOTICE("You secure the central control module."))
+				user.visible_message("<b>[user]</b> secures the central control module.", SPAN_NOTICE("You secure the central control module."))
 			else
-				user.visible_message("<b>[user]</b> removes the central control module from \the [holder].", self_message = SPAN_NOTICE("You remove the central control module from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the central control module from \the [holder].", SPAN_NOTICE("You remove the central control module from \the [holder]."))
 				new board_type(get_turf(holder))
 				r.icon_state = r.icon_base + "2"
 		if(10)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs the targeting control module into \the [holder].", self_message = SPAN_NOTICE("You install the targeting control module into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs the targeting control module into \the [holder].", SPAN_NOTICE("You install the targeting control module into \the [holder]."))
 				qdel(used_atom)
 				r.icon_state = r.icon_base + "4"
 			else
-				user.visible_message("<b>[user]</b> unfastens the central control module.", self_message = SPAN_NOTICE("You unfasten the central control module."))
+				user.visible_message("<b>[user]</b> unfastens the central control module.", SPAN_NOTICE("You unfasten the central control module."))
 				r.icon_state = r.icon_base + "3"
 		if(9)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the targeting control module.", self_message = SPAN_NOTICE("You secure the targeting control module."))
+				user.visible_message("<b>[user]</b> secures the targeting control module.", SPAN_NOTICE("You secure the targeting control module."))
 			else
-				user.visible_message("<b>[user]</b> removes the targeting control module from \the [holder].", self_message = SPAN_NOTICE("You remove the targeting control module from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the targeting control module from \the [holder].", SPAN_NOTICE("You remove the targeting control module from \the [holder]."))
 				new target_board_type(get_turf(holder))
 				r.icon_state = r.icon_base + "3"
 		if(8)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs the advanced scanner module into \the [holder].", self_message = SPAN_NOTICE("You install the advanced scanner module into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs the advanced scanner module into \the [holder].", SPAN_NOTICE("You install the advanced scanner module into \the [holder]."))
 				qdel(used_atom)
 			else
-				user.visible_message("<b>[user]</b> unfastens the targeting control module.", self_message = SPAN_NOTICE("You unfasten the targeting control module."))
+				user.visible_message("<b>[user]</b> unfastens the targeting control module.", SPAN_NOTICE("You unfasten the targeting control module."))
 		if(7)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the advanced scanner module.", self_message = SPAN_NOTICE("You secure the advanced scanner module."))
+				user.visible_message("<b>[user]</b> secures the advanced scanner module.", SPAN_NOTICE("You secure the advanced scanner module."))
 			else
-				user.visible_message("<b>[user]</b> removes the advanced scanner module from \the [holder].", self_message = SPAN_NOTICE("You remove the advanced scanner module from \the [holder]."))
+				user.visible_message("<b>[user]</b> removes the advanced scanner module from \the [holder].", SPAN_NOTICE("You remove the advanced scanner module from \the [holder]."))
 				new /obj/item/stock_parts/scanning_module/adv(get_turf(holder))
 		if(6)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs an internal armor layer into \the [holder].", self_message = SPAN_WARNING("You install an internal armor layer into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs an internal armor layer into \the [holder].", SPAN_WARNING("You install an internal armor layer into \the [holder]."))
 				r.icon_state = r.icon_base + "5"
 			else
-				user.visible_message("<b>[user]</b> unfastens the advanced scanner module.", self_message = SPAN_NOTICE("You unfasten the advanced scanner module."))
+				user.visible_message("<b>[user]</b> unfastens the advanced scanner module.", SPAN_NOTICE("You unfasten the advanced scanner module."))
 		if(5)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the internal armor layer.", self_message = SPAN_NOTICE("You secure the internal armor layer."))
+				user.visible_message("<b>[user]</b> secures the internal armor layer.", SPAN_NOTICE("You secure the internal armor layer."))
 			else
-				user.visible_message("<b>[user]</b> pries the internal armor layer from \the [holder].", self_message = SPAN_NOTICE("You pry the internal armor layer from \the [holder]."))
+				user.visible_message("<b>[user]</b> pries the internal armor layer from \the [holder].", SPAN_NOTICE("You pry the internal armor layer from \the [holder]."))
 				new /obj/item/stack/material/steel(get_turf(holder), 5)
 				r.icon_state = r.icon_base + "4"
 		if(4)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> welds the internal armor layer of \the [holder] into position.", self_message = SPAN_NOTICE("You weld the internal armor layer of \the [holder] into position."))
+				user.visible_message("<b>[user]</b> welds the internal armor layer of \the [holder] into position.", SPAN_NOTICE("You weld the internal armor layer of \the [holder] into position."))
 			else
-				user.visible_message("<b>[user]</b> unfastens the internal armor layer.", self_message = SPAN_NOTICE("You unfasten the internal armor layer."))
+				user.visible_message("<b>[user]</b> unfastens the internal armor layer.", SPAN_NOTICE("You unfasten the internal armor layer."))
 		if(3)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> installs an external reinforced armor layer into \the [holder].", self_message = SPAN_NOTICE("You install an external reinforced armor layer into \the [holder]."))
+				user.visible_message("<b>[user]</b> installs an external reinforced armor layer into \the [holder].", SPAN_NOTICE("You install an external reinforced armor layer into \the [holder]."))
 				r.icon_state = r.icon_base + "5"
 			else
-				user.visible_message("<b>[user]</b> cuts the internal armor layer from \the [holder].", self_message = SPAN_NOTICE("You cut the internal armor layer from \the [holder]."))
+				user.visible_message("<b>[user]</b> cuts the internal armor layer from \the [holder].", SPAN_NOTICE("You cut the internal armor layer from \the [holder]."))
 		if(2)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> secures the external armor layer.", self_message = SPAN_NOTICE("You secure the external armor layer."))
+				user.visible_message("<b>[user]</b> secures the external armor layer.", SPAN_NOTICE("You secure the external armor layer."))
 			else
-				user.visible_message("<b>[user]</b> pries the external armor layer from \the [holder].", self_message = SPAN_NOTICE("You pry the external armor layer from \the [holder]."))
+				user.visible_message("<b>[user]</b> pries the external armor layer from \the [holder].", SPAN_NOTICE("You pry the external armor layer from \the [holder]."))
 				new /obj/item/stack/material/plasteel(get_turf(holder), 5)
 				r.icon_state = r.icon_base + "4"
 		if(1)
 			if(diff==FORWARD)
-				user.visible_message("<b>[user]</b> welds the external armor layer of \the [holder] into position.", self_message = SPAN_NOTICE("You weld the external armor layer of \the [holder] into position."))
+				user.visible_message("<b>[user]</b> welds the external armor layer of \the [holder] into position.", SPAN_NOTICE("You weld the external armor layer of \the [holder] into position."))
 			else
-				user.visible_message("<b>[user]</b> unfastens the external armor layer.", self_message = SPAN_NOTICE("You unfasten the external armor layer."))
+				user.visible_message("<b>[user]</b> unfastens the external armor layer.", SPAN_NOTICE("You unfasten the external armor layer."))
 	return 1

@@ -30,7 +30,7 @@
 		M.captured = TRUE
 		M.update_canmove()
 		net.affecting = M
-		M.visible_message(SPAN_DANGER("\The [M] was caught in \the [net]!"), self_message = SPAN_DANGER("You get caught in \the [net]!"))
+		M.visible_message(SPAN_DANGER("\The [M] was caught in \the [net]!"), SPAN_DANGER("You get caught in \the [net]!"))
 		qdel(src)
 
 /obj/effect/energy_net
@@ -105,7 +105,7 @@
 	else
 		health -= rand(5, 8)
 
-	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), self_message = SPAN_WARNING("You claw at \the [src]!"))
+	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), SPAN_WARNING("You claw at \the [src]!"))
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)

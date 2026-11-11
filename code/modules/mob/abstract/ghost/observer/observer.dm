@@ -460,13 +460,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(src.invisibility != 0)
 		user.visible_message( \
 			SPAN_WARNING("\The [user] drags ghost, [src], to our plane of reality!"), \
-			self_message = SPAN_WARNING("You drag [src] to our plane of reality!") \
+			SPAN_WARNING("You drag [src] to our plane of reality!") \
 		)
 		toggle_visibility(1)
 	else
 		user.visible_message( \
 			SPAN_WARNING("\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective."), \
-			self_message = SPAN_WARNING("You get the feeling that the ghost can't become any more visible.") \
+			SPAN_WARNING("You get the feeling that the ghost can't become any more visible.") \
 		)
 
 
@@ -500,7 +500,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(invisibility == 0)
 		toggled_invisible = world.time
-		visible_message("<span class='emote'>It fades from sight...</span>", self_message = "<span class='info'>You are now invisible.</span>")
+		visible_message("<span class='emote'>It fades from sight...</span>", "<span class='info'>You are now invisible.</span>")
 	else
 		to_chat(src, "<span class='info'>You are now visible!</span>")
 

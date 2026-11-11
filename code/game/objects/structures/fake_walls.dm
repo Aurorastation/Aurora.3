@@ -72,7 +72,7 @@
 		toggle_fake_wall(user)
 
 /obj/structure/fake_wall/proc/toggle_fake_wall(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), self_message = SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
 	if(!do_after(user, 30, src, DO_DEPLOY))
 		return
 
@@ -238,7 +238,7 @@
 			playsound(src, dismantle_sound, 100, 1)
 		attacking_item.use_resource(user, 1)
 		dismantle_wall()
-		user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), self_message = SPAN_NOTICE("You remove the outer plating."))
+		user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), SPAN_NOTICE("You remove the outer plating."))
 		return
 
 	return ..()

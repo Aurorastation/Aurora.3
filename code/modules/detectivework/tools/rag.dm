@@ -39,7 +39,7 @@
 
 /obj/item/reagent_containers/glass/rag/attack_self(mob/user)
 	if(on_fire)
-		user.visible_message(SPAN_WARNING("\The [user] stamps out \the [src]."), self_message = SPAN_WARNING("You stamp out \the [src]."))
+		user.visible_message(SPAN_WARNING("\The [user] stamps out \the [src]."), SPAN_WARNING("You stamp out \the [src]."))
 		user.unEquip(src)
 		extinguish()
 	else
@@ -88,14 +88,14 @@
 
 	if(reagents.total_volume)
 		var/target_text = trans_dest? "\the [trans_dest]" : "\the [user.loc]"
-		user.visible_message(SPAN_DANGER("\The [user] begins to wring out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You begin to wring out \the [src] over \the [target_text]."))
+		user.visible_message(SPAN_DANGER("\The [user] begins to wring out \the [src] over \the [target_text]."), SPAN_NOTICE("You begin to wring out \the [src] over \the [target_text]."))
 
 		if(do_after(user, reagents.total_volume*5)) //50 for a fully soaked rag
 			if(trans_dest)
 				reagents.trans_to(trans_dest, reagents.total_volume)
 			else
 				reagents.splash(user.loc, reagents.total_volume)
-			user.visible_message(SPAN_DANGER("\The [user] wrings out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You finish wringing out \the [src]."))
+			user.visible_message(SPAN_DANGER("\The [user] wrings out \the [src] over \the [target_text]."), SPAN_NOTICE("You finish wringing out \the [src]."))
 			update_name()
 			update_icon()
 
@@ -148,7 +148,7 @@
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
 					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
-											self_message = SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
+											SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
@@ -157,8 +157,8 @@
 					user.do_attack_animation(src)
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target_mob] with [src]!"),
-						self_message = SPAN_WARNING("You smother [target_mob] with [src]!"),
-						blind_message = "You hear some struggling and muffled cries of surprise."
+						SPAN_WARNING("You smother [target_mob] with [src]!"),
+						"You hear some struggling and muffled cries of surprise."
 						)
 
 					//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
@@ -186,7 +186,7 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message(SPAN_NOTICE("\The [user] soaks \the [src] using \the [A]."), self_message = SPAN_NOTICE("You soak \the [src] using \the [A]."))
+			user.visible_message(SPAN_NOTICE("\The [user] soaks \the [src] using \the [A]."), SPAN_NOTICE("You soak \the [src] using \the [A]."))
 			update_name()
 			update_icon()
 		return

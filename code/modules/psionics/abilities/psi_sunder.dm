@@ -28,7 +28,7 @@
 	if(!.)
 		return
 
-	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), self_message = SPAN_DANGER("You grab [L]'s head..."))
+	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), SPAN_DANGER("You grab [L]'s head..."))
 	if(do_mob(user, L, 5 SECONDS))
 		if(L.psi)
 			QDEL_NULL(L.psi)
@@ -38,7 +38,7 @@
 		L.stuttering += 20
 		playsound(get_turf(L), 'sound/effects/psi/power_feedback.ogg', 100)
 		user.visible_message(SPAN_DANGER("[user] unleashes a psionic shock through [L]'s head!"),
-							self_message = SPAN_DANGER("You unleash a psionic shock through [L]'s head, targeting their Zona Bovinae and destroying it."))
+							SPAN_DANGER("You unleash a psionic shock through [L]'s head, targeting their Zona Bovinae and destroying it."))
 		to_chat(L, SPAN_HIGHDANGER("A large, painful shock courses through your head. Part of your brain feels like it's gone."))
 		if(isskrell(L))
 			to_chat(L, SPAN_CULT("You feel absolutely empty..."))

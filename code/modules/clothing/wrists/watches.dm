@@ -93,14 +93,14 @@
 		item_state = "[initial(icon_state)]_closed"
 		update_held_icon()
 		update_worn_icon()
-		user.visible_message(SPAN_NOTICE("[user] clasps \the [name] shut."), self_message = SPAN_NOTICE("You clasp \the [name] shut."))
+		user.visible_message(SPAN_NOTICE("[user] clasps \the [name] shut."), SPAN_NOTICE("You clasp \the [name] shut."))
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	else
 		icon_state = "[initial(icon_state)]"
 		item_state = "[initial(icon_state)]"
 		update_held_icon()
 		update_worn_icon()
-		user.visible_message(SPAN_NOTICE("[user] flips \the [name] open."), self_message = SPAN_NOTICE("You flip \the [name] open."))
+		user.visible_message(SPAN_NOTICE("[user] flips \the [name] open."), SPAN_NOTICE("You flip \the [name] open."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
 
@@ -121,9 +121,9 @@
 
 /obj/item/clothing/wrists/watch/pocketwatch/pointatwatch()
 	if(closed)
-		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), self_message = SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), self_message = SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/wrists/watch/verb/checktime()
 	set category = "Object.Equipped"
@@ -145,16 +145,16 @@
 	set src in usr
 
 	if(wired && screwed)
-		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes"), self_message = SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
+		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes"), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 	else if(wired && !screwed)
-		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), self_message = SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
+		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 	else
-		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), self_message = SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
+		usr.visible_message(SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 
 /obj/item/clothing/wrists/watch/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."),
-							self_message = SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
+							SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		screwed = !screwed
 		return

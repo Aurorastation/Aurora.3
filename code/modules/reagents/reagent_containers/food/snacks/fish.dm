@@ -114,14 +114,14 @@
 
 /obj/item/mollusc/attack_self(mob/user)
 	if(isvaurca(user) || isipc(user) || isunathi(user))
-		user.visible_message("<b>[user]</b> cracks open \the [src] with their hands.", self_message = SPAN_NOTICE("You crack open \the [src] with your hands."))
+		user.visible_message("<b>[user]</b> cracks open \the [src] with their hands.", SPAN_NOTICE("You crack open \the [src] with your hands."))
 		crack_shell(user)
 		return
 	return ..()
 
 /obj/item/mollusc/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.sharp || attacking_item.edge)
-		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You crack open \the [src] with \the [attacking_item]."))
+		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [attacking_item].", SPAN_NOTICE("You crack open \the [src] with \the [attacking_item]."))
 		crack_shell(user)
 		return
 	return ..()

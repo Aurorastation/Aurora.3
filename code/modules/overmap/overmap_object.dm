@@ -208,7 +208,7 @@
 
 /obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/structure/machinery/computer/ship/C)
 	C.targeting = TRUE
-	usr.visible_message(SPAN_WARNING("[usr] starts calibrating the targeting systems, swiping around the holographic screen..."), self_message = SPAN_WARNING("You start calibrating the targeting systems, swiping around the screen as you focus..."))
+	usr.visible_message(SPAN_WARNING("[usr] starts calibrating the targeting systems, swiping around the holographic screen..."), SPAN_WARNING("You start calibrating the targeting systems, swiping around the screen as you focus..."))
 	if(do_after(usr, 5 SECONDS))
 		C.targeting = FALSE
 		targeting = O

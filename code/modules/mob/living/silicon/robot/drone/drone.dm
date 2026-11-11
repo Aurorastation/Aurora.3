@@ -369,7 +369,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] is already rebooting!"))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."),
-								self_message = SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+								SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else
@@ -377,7 +377,7 @@
 				return
 			if(allowed(user))
 				user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."),
-									self_message = SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
+									SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 				shut_down()
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))

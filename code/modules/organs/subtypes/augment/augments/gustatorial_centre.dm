@@ -21,7 +21,7 @@
 		if(!F.is_open_container())
 			to_chat(user, SPAN_WARNING("\The [F] is closed!"))
 			return
-		user.visible_message("<b>[user]</b> [action_verb] \the [F].", self_message = SPAN_NOTICE("You [self_action_verb] \the [F]."))
+		user.visible_message("<b>[user]</b> [action_verb] \the [F].", SPAN_NOTICE("You [self_action_verb] \the [F]."))
 		to_chat(user, SPAN_NOTICE("\The [src] reports that \the [F] tastes like: [F.reagents.generate_taste_message(user, taste_sensitivity)]"))
 	else
 		var/list/tastes = list("Hypersensitive" = TASTE_HYPERSENSITIVE, "Sensitive" = TASTE_SENSITIVE, "Normal" = TASTE_NORMAL, "Dull" = TASTE_DULL, "Numb" = TASTE_NUMB)

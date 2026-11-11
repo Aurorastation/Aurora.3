@@ -200,7 +200,7 @@
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
-		self_message = SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
+		SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 

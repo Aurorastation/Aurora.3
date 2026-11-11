@@ -475,8 +475,8 @@
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque arm blades!"),
-								self_message = SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
-								blind_message = SPAN_DANGER("You hear cloth ripping and tearing!"))
+								SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
+								SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -485,8 +485,8 @@
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 	src.visible_message(SPAN_DANGER("A grotesque blade forms around [M]\'s arm!"),
-							self_message = SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
-							blind_message = SPAN_DANGER("You hear organic matter ripping and tearing!"))
+							SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
+							SPAN_DANGER("You hear organic matter ripping and tearing!"))
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -513,8 +513,8 @@
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque shield!"),
-							self_message = SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
-							blind_message = SPAN_DANGER("You hear cloth ripping and tearing!"))
+							SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
+							SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -523,8 +523,8 @@
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	src.visible_message(SPAN_DANGER("The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!"),
-							self_message = SPAN_WARNING("We inflate our hand into a robust shield."),
-							blind_message = SPAN_WARNING("You hear organic matter ripping and tearing!"))
+							SPAN_WARNING("We inflate our hand into a robust shield."),
+							SPAN_WARNING("You hear organic matter ripping and tearing!"))
 
 /mob/proc/horror_form()
 	set category = "Changeling"
@@ -597,7 +597,7 @@
 	if(!changeling)
 		return FALSE
 
-	visible_message(SPAN_DANGER("<font size=4>[src] lets out an ear piercing shriek!</font>"), self_message = SPAN_DANGER("<font size=4>You let out an ear-shattering shriek!</font>"), blind_message = SPAN_DANGER("You hear a painfully loud shriek!"))
+	visible_message(SPAN_DANGER("<font size=4>[src] lets out an ear piercing shriek!</font>"), SPAN_DANGER("<font size=4>You let out an ear-shattering shriek!</font>"), SPAN_DANGER("You hear a painfully loud shriek!"))
 	changeling.use_charges(30)
 
 	var/list/victims = list()

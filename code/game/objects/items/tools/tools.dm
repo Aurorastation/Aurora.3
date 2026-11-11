@@ -192,8 +192,8 @@
 
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
-		self_message = SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
-		blind_message = SPAN_NOTICE("You hear cable being cut."))
+		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
+		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
 		C.handcuff_update()
 		return
@@ -344,7 +344,7 @@
 			user.apply_damage(rand(5, 10), DAMAGE_BURN, burn_zone, src)
 			user.visible_message(
 				SPAN_DANGER("[user] jerks back after burning themselves with \the [src]!"),
-				self_message = SPAN_DANGER("Your blind welding slips, burning your hand!")
+				SPAN_DANGER("Your blind welding slips, burning your hand!")
 			)
 		return FALSE
 
@@ -489,7 +489,7 @@
 		if(tank.armed)
 			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), self_message = SPAN_WARNING("You start to heat \the [O]!"))
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(tgui_alert(usr, "Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", list("No", "Yes")))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -497,7 +497,7 @@
 				tank.armed = 1
 				if(do_after(user, 10 SECONDS, O, DO_UNIQUE))
 					if(tank.defuse)
-						user.visible_message("[user] melts some of the framework on the [O]!", self_message = "You melt some of the framework!")
+						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
 						tank.defuse = 0
 						tank.armed = 0
 						return
@@ -936,7 +936,7 @@
 	else
 		lit = TRUE
 		if(user)
-			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), self_message = SPAN_NOTICE("You ignite the steel wool with \the [L]"), blind_message = SPAN_NOTICE("You hear a gentle flame crackling."))
+			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
 		playsound(get_turf(src), 'sound/items/flare.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"

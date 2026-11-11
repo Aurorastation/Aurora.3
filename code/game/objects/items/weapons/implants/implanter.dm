@@ -96,7 +96,7 @@
 		to_chat(user, SPAN_WARNING("\The [H] is already tagged!"))
 		return
 
-	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), vision_distance = 3)
+	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), vision_distance = 3)
 
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>"

@@ -62,8 +62,8 @@
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
-					self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					blind_message = "You hear a ratchet")
+					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
+					"You hear a ratchet")
 
 		anchor_helper()
 

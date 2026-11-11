@@ -121,18 +121,18 @@
 /obj/item/toy/balloon/attack_self(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(user.a_intent == I_HELP)
-		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes [src]!"), self_message = SPAN_NOTICE("You poke [src]!"))
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes [src]!"), SPAN_NOTICE("You poke [src]!"))
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), self_message = SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
 		if(prob(66))
-			user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to pop [src]!"), self_message = SPAN_WARNING("You attempt to pop [src]!"))
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to pop [src]!"), SPAN_WARNING("You attempt to pop [src]!"))
 		else
-			user.visible_message(SPAN_WARNING("<b>\The [user]</b> pops [src]!"), self_message = SPAN_WARNING("You pop [src]!"))
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> pops [src]!"), SPAN_WARNING("You pop [src]!"))
 			burst()
 	else
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> lightly bats the [src]."),
-								self_message = SPAN_NOTICE("You lightly bat the [src]."))
+								SPAN_NOTICE("You lightly bat the [src]."))
 
 /obj/item/toy/balloon/update_icon()
 	switch(status)
@@ -667,7 +667,7 @@
 
 /obj/item/toy/snappop/attack_self(mob/user)
 	user.drop_from_inventory(src)
-	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), self_message = SPAN_NOTICE("You throw \the [src] at your feet."))
+	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), SPAN_NOTICE("You throw \the [src] at your feet."))
 	do_pop()
 
 /obj/item/toy/snappop/throw_impact(atom/hit_atom)
@@ -1043,15 +1043,15 @@
 	poke_cooldown = world.time + 2 SECONDS
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> hugs [src]!"),
-								self_message = SPAN_NOTICE("You hug [src]!"))
+								SPAN_NOTICE("You hug [src]!"))
 
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), self_message = SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"), self_message = SPAN_WARNING("You attempt to strangle [src]!"))
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"), SPAN_WARNING("You attempt to strangle [src]!"))
 	else
 		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes the [src]."),
-								self_message = SPAN_NOTICE("You poke the [src]."))
+								SPAN_NOTICE("You poke the [src]."))
 
 		playsound(src, poke_sound, 25, 0)
 		visible_message("[src] says, \"[phrase]\"", visible_message_flags = LOCAL_MESSAGE)
@@ -1317,22 +1317,22 @@
 	if(user.a_intent == I_HELP)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> pets \the [src]."),
-			self_message = SPAN_NOTICE("You pet \the [src].")
+			SPAN_NOTICE("You pet \the [src].")
 		)
 	else if(user.a_intent == I_DISARM)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> squeezes \the [src]."),
-			self_message = SPAN_NOTICE("You squeeze \the [src].")
+			SPAN_NOTICE("You squeeze \the [src].")
 		)
 	else if(user.a_intent == I_GRAB)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> hugs \the [src]."),
-			self_message = SPAN_NOTICE("You hug \the [src].")
+			SPAN_NOTICE("You hug \the [src].")
 		)
 	else if(user.a_intent == I_HURT)
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> pokes \the [src]."),
-			self_message = SPAN_NOTICE("You poke \the [src].")
+			SPAN_NOTICE("You poke \the [src].")
 		)
 		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
 		visible_message("<b>\The [src]</b> says, \"[phrase]\"", visible_message_flags = LOCAL_MESSAGE)
@@ -1342,7 +1342,7 @@
 		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> extends \the [src]'s legs."),
-			self_message = SPAN_NOTICE("You extend \the [src]'s legs.")
+			SPAN_NOTICE("You extend \the [src]'s legs.")
 		)
 		icon_state = "herring_gull"
 		item_state = "herring_gull"
@@ -1350,7 +1350,7 @@
 		lying = !lying
 		user.visible_message(
 			SPAN_NOTICE("<b>\The [user]</b> tucks in \the [src]'s legs."),
-			self_message = SPAN_NOTICE("You tuck in \the [src]'s legs.")
+			SPAN_NOTICE("You tuck in \the [src]'s legs.")
 		)
 		icon_state = "herring_gull_lying"
 		item_state = "herring_gull_lying"
@@ -1418,13 +1418,13 @@
 /obj/item/toy/ringbell/attack_hand(mob/user)
 	switch(user.a_intent)
 		if (I_HELP)
-			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), self_message = SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))
 			playsound(user.loc, 'sound/items/oneding.ogg', 60, 1)
 		if (I_DISARM)
-			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), self_message = SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
+			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src] three times, signalling the end of the contest!")), SPAN_NOTICE("You ring \the [src] to signal the end of the contest!"))
 			playsound(user.loc, 'sound/items/threedings.ogg', 60, 1)
 		if (I_HURT)
-			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), self_message = SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
+			user.visible_message(FONT_LARGE(SPAN_WARNING("[user] rings \the [src] repeatedly, signalling a disqualification!")), SPAN_WARNING("You ring \the [src] to signal a disqualification!"))
 			playsound(user.loc, 'sound/items/manydings.ogg', 60, 1)
 
 //baystation desk toys
@@ -1487,7 +1487,7 @@
 /obj/item/toy/partypopper/attack_self(mob/user)
 	if(icon_state == "partypopper")
 		spark(src, 1, user.dir)
-		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), self_message = SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
+		user.visible_message(SPAN_NOTICE("[user] pulls on the string, releasing a burst of confetti!"), SPAN_NOTICE("You pull on the string, releasing a burst of confetti!"))
 		playsound(src, 'sound/effects/snap.ogg', 50, TRUE)
 		icon_state = "partypopper_e"
 		var/turf/T = get_step(src, user.dir)
@@ -1588,15 +1588,15 @@
 	var/volume = 0
 	switch(user.a_intent)
 		if(I_HELP)
-			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), self_message = SPAN_NOTICE("You play with \the [src]!"))
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
 		if(I_DISARM)
-			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), self_message = SPAN_NOTICE("You squeeze \the [src]!"))
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
 			volume = 30
 		if(I_GRAB)
-			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), self_message = SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
 			volume = 40
 		if(I_HURT)
-			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), self_message = SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
 			volume = 50
 	if(volume)
 		playsound(src.loc, squeeze_sound, volume, TRUE)

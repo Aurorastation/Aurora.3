@@ -183,8 +183,8 @@
 			part.createwound(INJURY_TYPE_BRUISE, 70)
 			part.add_pain(50)
 			imp_in.visible_message(SPAN_WARNING("\The [imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
-									self_message = SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
-									blind_message = SPAN_WARNING("You hear a horrible ripping noise."))
+									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
+									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_EDGE)
 		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)

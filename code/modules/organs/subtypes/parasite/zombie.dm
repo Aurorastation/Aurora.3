@@ -98,11 +98,11 @@
 				var/healed = FALSE
 				if(O.status & ORGAN_ARTERY_CUT)
 					O.status &= ~ORGAN_ARTERY_CUT
-					owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
+					owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
 					healed = TRUE
 				else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
 					O.tendon.rejuvenate()
-					owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
+					owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
 					healed = TRUE
 				else if(O.status & ORGAN_BROKEN)
 					var/list/brute_wounds = list()
@@ -114,7 +114,7 @@
 						var/datum/wound/W = wound
 						W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
 					O.status &= ~ORGAN_BROKEN
-					owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), self_message = SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
+					owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
 					healed = TRUE
 				if(healed)
 					last_heal = world.time

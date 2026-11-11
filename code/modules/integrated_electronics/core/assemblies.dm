@@ -293,7 +293,7 @@
 			on_anchored()
 		else
 			on_unanchored()
-		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", self_message = "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", blind_message = "You hear the sound of a ratcheting wrench turning.")
+		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You hear the sound of a ratcheting wrench turning.")
 		return TRUE
 
 	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)

@@ -124,7 +124,7 @@
 		return
 
 	if(attacking_item.can_puncture())
-		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), self_message = SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"))
+		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"))
 		deflate(TRUE)
 	else if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 		hit(attacking_item.force)

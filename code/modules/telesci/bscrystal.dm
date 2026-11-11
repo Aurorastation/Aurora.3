@@ -19,7 +19,7 @@
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message(SPAN_WARNING("[user] crushes [src]!"),
-							self_message = SPAN_DANGER("You crush [src]!"))
+							SPAN_DANGER("You crush [src]!"))
 	single_spark(loc)
 	playsound(src.loc, SFX_SPARKS, 50, 1)
 	blink_mob(user)

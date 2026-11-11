@@ -591,10 +591,10 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
 		return ..()
 
 	if(weight_roll)
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
 		weight_roll = 0
 	else
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
 		weight_roll = initial(weight_roll)
 
 /obj/item/stack/dice/fluff/suraya_dice/alt
@@ -691,7 +691,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 		if(isnull(selected_paper))
 			return
 
-		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), self_message = SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5)
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5)
 		if(selected_paper.can_change_icon_state)
 			selected_paper.icon = icon
 			selected_paper.base_state = "torn"
@@ -705,7 +705,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 /obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
 	if(open && Adjacent(user))
 		open_state = next_in_list(icon_state, open_states)
-		user.visible_message("<b>[user]</b> flips a page in \the [src].", self_message = SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3)
 		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
 		update_icon()
 		return
@@ -1107,7 +1107,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 		return
 	*canceled = TRUE
 	user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
-		self_message = SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
+		SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
@@ -1338,7 +1338,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 	// Crates a cleanable rune that looks like a cult rune to people who are neither cultists or raskariim
 	var/obj/effect/decal/cleanable/fluff/rune/R = new(target_turf)
 	user.visible_message(SPAN_CULT("[user] finishes drawing \the [R] on the floor!"),
-		self_message = SPAN_CULT("You finish drawing the markings of the King of Maggots."))
+		SPAN_CULT("You finish drawing the markings of the King of Maggots."))
 
 	R.blood_DNA = list()
 	R.blood_DNA = src.blood_DNA

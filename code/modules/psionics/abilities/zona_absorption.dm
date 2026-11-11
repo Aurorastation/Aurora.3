@@ -28,13 +28,13 @@
 	if(!.)
 		return
 
-	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), self_message = SPAN_DANGER("You grab [L]'s head..."))
+	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), SPAN_DANGER("You grab [L]'s head..."))
 	if(do_mob(user, L, 5 SECONDS))
 		L.flash_pain(20)
 		L.adjustHalLoss(20)
 		playsound(get_turf(L), 'sound/effects/psi/power_feedback.ogg', 100)
 		user.visible_message(SPAN_DANGER("[user] absorbs tendrils of psionic energy from [L]!"),
-							self_message = SPAN_DANGER("You absorb psionic energy from [L], granting you an extra Psionic Point Shop point."))
+							SPAN_DANGER("You absorb psionic energy from [L], granting you an extra Psionic Point Shop point."))
 		var/mob/living/M = user
 		M.psi.psi_points++
 		to_chat(L, SPAN_DANGER("A splitting headache courses through your mind! Your head feels a bit lighter..."))

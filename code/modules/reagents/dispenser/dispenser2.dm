@@ -99,8 +99,8 @@
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
 				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
-				self_message = SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
-				blind_message = "You hear a ratchet.")
+				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
+				"You hear a ratchet.")
 			anchored = !anchored
 		else
 			to_chat(user, SPAN_NOTICE("You decide not to [anchored ? "un" : ""]fasten [src]."))

@@ -369,7 +369,7 @@
 				S.target = null
 				++S.discipline
 		if(M.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), self_message = SPAN_DANGER("Your flesh burns in the space cleaner!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
 
 /singleton/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
@@ -487,7 +487,7 @@
 /singleton/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
-			H.visible_message("<b>[H]</b> splutters.", self_message = "You cough up a bunch of silicate.")
+			H.visible_message("<b>[H]</b> splutters.", "You cough up a bunch of silicate.")
 			remove_self(5, holder)
 		else
 			H.adjustOxyLoss(2)
@@ -639,8 +639,8 @@
 	if(stored_value >= 1)
 		M.visible_message(\
 			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
-			self_message = SPAN_DANGER("Your body shifts and contorts!"),\
-			blind_message = SPAN_NOTICE("You hear strange flesh-like noises.") \
+			SPAN_DANGER("Your body shifts and contorts!"),\
+			SPAN_NOTICE("You hear strange flesh-like noises.")\
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(25)

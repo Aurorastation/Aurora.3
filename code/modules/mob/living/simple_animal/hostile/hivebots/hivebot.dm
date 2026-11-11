@@ -305,8 +305,8 @@
 	set desc = "Assemble a hivebot."
 	set category = "Hivebot"
 
-	src.visible_message("\The [src] begins to construct a hivebot.", self_message = "You begin to construct a hivebot.", blind_message = "You hear the sounds of fabrication...")
+	src.visible_message("\The [src] begins to construct a hivebot.", "You begin to construct a hivebot.", "You hear the sounds of fabrication...")
 	if(!do_after(src, 12 SECONDS))
 		return
-	src.visible_message("\The [src] constructs a hivebot!", self_message = "You construct a hivebot!")
+	src.visible_message("\The [src] constructs a hivebot!", "You construct a hivebot!")
 	new /mob/living/simple_animal/hostile/hivebot(get_turf(src))

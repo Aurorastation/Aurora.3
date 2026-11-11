@@ -48,7 +48,7 @@
 	if(active)
 		if ((user.is_clumsy()) && prob(50))
 			user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
-			self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."))
+			SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 			user.take_organ_damage(5,5)
 		deactivate(user)
 	else
@@ -424,7 +424,7 @@
 	..()
 	if(prob(30))
 		user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
-		self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."))
+		SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(5,5)
 /*
  *Energy Blade

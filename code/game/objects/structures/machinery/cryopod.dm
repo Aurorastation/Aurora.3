@@ -461,7 +461,7 @@
 	if(!willing)
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), self_message = SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3)
 	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE

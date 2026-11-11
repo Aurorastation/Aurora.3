@@ -398,7 +398,7 @@
 	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
 		M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"),
-							self_message = SPAN_DANGER("You feel like your insides are burning!"))
+							SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent(/singleton/reagent/frostoil, 5)

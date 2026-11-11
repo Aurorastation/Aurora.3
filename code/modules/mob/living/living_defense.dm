@@ -132,7 +132,7 @@
 			else
 				//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 				src.visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile] in the [impacted_organ]!"),
-									self_message = SPAN_DANGER(FONT_LARGE("You are hit by \a [hitting_projectile] in the [impacted_organ]!")))
+									SPAN_DANGER(FONT_LARGE("You are hit by \a [hitting_projectile] in the [impacted_organ]!")))
 
 
 	if(blocked < 100)
@@ -329,7 +329,7 @@
 			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
-							self_message = SPAN_WARNING("You stagger under the impact!"))
+							SPAN_WARNING("You stagger under the impact!"))
 
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
@@ -345,7 +345,7 @@
 				if(T)
 					src.forceMove(T)
 					visible_message(SPAN_WARNING("[src] is pinned to the wall by [O]!"),
-									self_message = SPAN_WARNING("You are pinned to the wall by [O]!"))
+									SPAN_WARNING("You are pinned to the wall by [O]!"))
 
 					src.anchored = 1
 					src.pinned += O

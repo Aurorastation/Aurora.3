@@ -80,7 +80,7 @@
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
 		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun("his")] hands to [usr.get_pronoun("his")] head and mumbles incoherently as they stare, unblinking, at \the [target].",
-						self_message = SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
+						SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))
 
@@ -171,6 +171,6 @@
 
 	if(do_after(usr, 30))
 		usr.visible_message("<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>",
-					self_message = SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
+					SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your efforts!"))

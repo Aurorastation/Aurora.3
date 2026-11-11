@@ -206,7 +206,7 @@
 				to_chat(user, SPAN_WARNING("You must unequip \the [src] before doing that!"))
 				return TRUE
 		panel_open = !panel_open
-		user.visible_message(SPAN_NOTICE("[user] screws \the [src]'s panel [panel_open ? "open" : "closed"]."), self_message = SPAN_NOTICE("You screw \the [src]'s panel [panel_open ? "open" : "closed"]."))
+		user.visible_message(SPAN_NOTICE("[user] screws \the [src]'s panel [panel_open ? "open" : "closed"]."), SPAN_NOTICE("You screw \the [src]'s panel [panel_open ? "open" : "closed"]."))
 		update_icon()
 		return TRUE
 
@@ -215,7 +215,7 @@
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [tank] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), SPAN_NOTICE("You remove \the [tank] from \the [src]."))
 			tank.forceMove(user.loc)
 			user.put_in_hands(tank)
 			tank = null
@@ -225,7 +225,7 @@
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] removes \the [battery] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [battery] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] removes \the [battery] from \the [src]."), SPAN_NOTICE("You remove \the [battery] from \the [src]."))
 			battery.forceMove(user.loc)
 			user.put_in_hands(battery)
 			battery = null
@@ -237,7 +237,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			battery = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 		if(istype(attacking_item, /obj/item/clothing/mask/breath))
@@ -249,7 +249,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			breath_mask = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 		if(istype(attacking_item, /obj/item/tank/emergency_oxygen))
@@ -258,7 +258,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			tank = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 
@@ -267,7 +267,7 @@
 		if(!breath_mask)
 			to_chat(user, "There isn't an installed mask to remove!")
 			return
-		user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [breath_mask] from \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), SPAN_NOTICE("You remove \the [breath_mask] from \the [src]."))
 		breath_mask.forceMove(user.loc)
 		user.put_in_hands(breath_mask)
 		breath_mask = null

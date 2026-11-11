@@ -11,7 +11,7 @@
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),self_message = SPAN_WARNING("You cut the fingertips off of \the [src]."))
+		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),SPAN_WARNING("You cut the fingertips off of \the [src]."))
 
 		clipped = 1
 		siemens_coefficient += 0.25

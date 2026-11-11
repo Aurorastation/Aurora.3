@@ -289,7 +289,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 				user.remove_from_mob(AM)
 				AM.forceMove(src)
 				ammo_magazine = AM
-				user.visible_message("[user] inserts [AM] into [src].", self_message = SPAN_NOTICE("You insert [AM] into [src]."))
+				user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
 				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= internal_capacity)
@@ -305,7 +305,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", self_message = SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."))
+					user.visible_message("[user] reloads [src].", SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."))
 					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
@@ -323,7 +323,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into [src].", self_message = SPAN_NOTICE("You insert \a [C] into [src]."))
+		user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
 		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()

@@ -33,7 +33,7 @@
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data?.flags & ANTAG_IMPLANT_IMMUNE)
-		H.visible_message("[H] seems to resist the implant!", self_message = "You feel rage overtake your body, but you manage to fend it off by sheer will!")
+		H.visible_message("[H] seems to resist the implant!", "You feel rage overtake your body, but you manage to fend it off by sheer will!")
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not affected.", H)
 	else if(antag_data?.id == MODE_LOYALIST)
 		clear_antag_roles(H.mind, 1)

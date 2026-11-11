@@ -75,12 +75,12 @@
 		if(broken == SCREWDRIVER_BROKEN && O.tool_behaviour == TOOL_SCREWDRIVER)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
-				self_message = SPAN_NOTICE("You start to fix part of \the [src].") \
+				SPAN_NOTICE("You start to fix part of \the [src].") \
 			)
 			if (O.use_tool(src, user, 2 SECONDS, volume = 50))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] fixes part of \the [src]."), \
-					self_message = SPAN_NOTICE("You have fixed part of \the [src].") \
+					SPAN_NOTICE("You have fixed part of \the [src].") \
 				)
 				broken = WRENCH_BROKEN // Fix it a bit
 			return TRUE
@@ -89,12 +89,12 @@
 		if (broken == WRENCH_BROKEN && O.tool_behaviour == TOOL_WRENCH)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
-				self_message = SPAN_NOTICE("You start to fix part of \the [src].") \
+				SPAN_NOTICE("You start to fix part of \the [src].") \
 			)
 			if (O.use_tool(src, user, 2 SECONDS, volume = 50))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] fixes \the [src]."), \
-					self_message = SPAN_NOTICE("You have fixed \the [src].") \
+					SPAN_NOTICE("You have fixed \the [src].") \
 				)
 				broken = NOT_BROKEN // Fix it!
 				update_icon()
@@ -112,12 +112,12 @@
 		if (has_rag || has_cleaner)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to clean \the [src]."), \
-				self_message = SPAN_NOTICE("You start to clean \the [src].") \
+				SPAN_NOTICE("You start to clean \the [src].") \
 			)
 			if (do_after(user, 2 SECONDS, src, DO_UNIQUE))
 				user.visible_message( \
 					SPAN_NOTICE("\The [user] has cleaned \the [src]."), \
-					self_message = SPAN_NOTICE("You clean out \the [src].") \
+					SPAN_NOTICE("You clean out \the [src].") \
 				)
 
 				// You can use a rag to wipe down the inside of the microwave

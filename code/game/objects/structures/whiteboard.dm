@@ -85,8 +85,8 @@ GLOBAL_LIST_EMPTY(whiteboard_overlay_cache)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user] [anchored ? "locks" : "unlocks"] [src]'s wheels.", \
-					self_message = "You [anchored ? "locked" : "unlocked"] [src]'s wheels.", \
-					blind_message = "You hear a click.")
+					"You [anchored ? "locked" : "unlocked"] [src]'s wheels.", \
+					"You hear a click.")
 
 	else
 		to_chat(user, SPAN_WARNING("This is the wrong tool to manifest your inland empire, maybe a pen would be more fitting?"))

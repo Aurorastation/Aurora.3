@@ -358,7 +358,7 @@
 			if(!use_check(target_mob))
 				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), self_message = SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
 			var/response = tgui_alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", list("Accept", "Decline"))
 			if(response != "Accept")
 				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
@@ -369,11 +369,11 @@
 				return
 		remove_from_storage(cig, get_turf(target_mob))
 		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
-		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), self_message = SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), vision_distance = 3)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), vision_distance = 3)
 		update_icon()
 		return
 	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), self_message = SPAN_NOTICE("You tap \the [src] against your palm."))
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against [user.get_pronoun("his")] palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	else
 		..()
 

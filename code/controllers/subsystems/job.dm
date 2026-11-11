@@ -462,7 +462,7 @@ SUBSYSTEM_DEF(jobs)
 		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSatlas.current_map.dock_name] Cryogenic Oversight")
 
 		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs."),
-							self_message = SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart."), vision_distance = 3)
+							SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart."), vision_distance = 3)
 
 		DespawnMob(H)
 	else
@@ -470,7 +470,7 @@ SUBSYSTEM_DEF(jobs)
 			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSatlas.current_map.dock_name] Robotic Oversight")
 
 			H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs."),
-								self_message = SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart."), vision_distance = 3)
+								SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart."), vision_distance = 3)
 
 		DespawnMob(H)
 

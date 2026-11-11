@@ -36,7 +36,7 @@
 	var/victim_psi_sensitivity = H.check_psi_sensitivity()  //Faster healing for psi-sensitive people, slower for psi-resistant people.
 	var/effect_multiplier = 2 ** victim_psi_sensitivity // -1 = 0.5x speed, 0 = 1x speed, 1 = 2x speed, 2 = 4x speed, etc.
 
-	user.visible_message(SPAN_NOTICE("[user] lays a palm on [H]..."), self_message = SPAN_NOTICE("You lay your palm on [H] and get to work."))
+	user.visible_message(SPAN_NOTICE("[user] lays a palm on [H]..."), SPAN_NOTICE("You lay your palm on [H] and get to work."))
 	for(var/obj/item/organ/O in H.internal_organs)
 		if(O.get_damage() > 0) // Fix internal damage
 			to_chat(user, SPAN_NOTICE("You flow your regenerative psionic energy through their [O.name]..."))
@@ -106,4 +106,4 @@
 			if(LAZYLEN(W.embedded_objects))
 				to_chat(user, SPAN_WARNING("You heal what you can, but the unyielding metal shrapnel in their [external_organ.name] prevents you from completing your work."))
 
-	user.visible_message(SPAN_NOTICE("[user] raises their palm from [H]."), self_message = SPAN_NOTICE("You raise your palm, having finished your work."))
+	user.visible_message(SPAN_NOTICE("[user] raises their palm from [H]."), SPAN_NOTICE("You raise your palm, having finished your work."))

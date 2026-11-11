@@ -626,7 +626,7 @@
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
-	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), self_message = SPAN_WARNING("You [response_harm] \the [src]!"))
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src)
 	poke(TRUE)
 
@@ -996,7 +996,7 @@
 	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	spark(loc, 5, GLOB.alldirs)
-	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), self_message = SPAN_WARNING("You are shocked by \the [source]!"), blind_message = SPAN_WARNING("You hear an electrical crack!"))
+	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 
 /mob/living/simple_animal/can_fall()

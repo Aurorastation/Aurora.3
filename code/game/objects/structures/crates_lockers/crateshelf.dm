@@ -82,12 +82,12 @@
 		return
 	manipulating = TRUE
 	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
-						self_message = SPAN_NOTICE("You begin dismantling \the [src]."))
+						SPAN_NOTICE("You begin dismantling \the [src]."))
 	if(!W.use_tool(src, user, 2 SECONDS, volume = 50))
 		manipulating = FALSE
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
-						self_message = SPAN_NOTICE("You dismantle \the [src]."))
+						SPAN_NOTICE("You dismantle \the [src]."))
 	new dismantle_mat(src.loc, 10)
 	qdel(src)
 
@@ -114,7 +114,7 @@
 	user.forceMove(get_turf(src))
 	user.visible_message(
 		SPAN_NOTICE("\The [user] climbs down from \the [src]."),
-		self_message = SPAN_NOTICE("You climb down from \the [src].")
+		SPAN_NOTICE("You climb down from \the [src].")
 	)
 	return TRUE
 

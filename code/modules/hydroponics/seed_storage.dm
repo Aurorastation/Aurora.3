@@ -212,7 +212,7 @@
 /obj/structure/machinery/seed_storage/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/seeds))
 		add(attacking_item)
-		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), self_message = SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] puts \the [attacking_item.name] into \the [src]."), SPAN_NOTICE("You put \the [attacking_item] into \the [src]."))
 
 	else if(istype(attacking_item, /obj/item/storage/bag/plants))
 		var/obj/item/storage/P = attacking_item
@@ -222,7 +222,7 @@
 			add(G)
 		if(loaded)
 			user.visible_message(SPAN_NOTICE("[user] puts the seeds from \the [attacking_item.name] into \the [src]."),
-								self_message = SPAN_NOTICE("You put the seeds from \the [attacking_item.name] into \the [src]."))
+								SPAN_NOTICE("You put the seeds from \the [attacking_item.name] into \the [src]."))
 		else
 			to_chat(user, SPAN_WARNING("There are no seeds in \the [attacking_item.name]."))
 

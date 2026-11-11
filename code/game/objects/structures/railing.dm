@@ -264,11 +264,11 @@
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return
 		if(!anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start dismantling \the [src]..."))
+			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				if(anchored)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You dismantle \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 				dismantle()
 				qdel(src)
 			return
@@ -276,10 +276,10 @@
 		else
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(density)
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), self_message = SPAN_NOTICE("You wrench \the [src] open."))
+				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), SPAN_NOTICE("You wrench \the [src] open."))
 				density = FALSE
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] closed."), self_message = SPAN_NOTICE("You wrench \the [src] closed."))
+				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] closed."), SPAN_NOTICE("You wrench \the [src] closed."))
 				density = TRUE
 			update_icon()
 			return
@@ -294,7 +294,7 @@
 			if(do_after(user, 20, src))
 				if(health >= maxhealth)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), self_message = SPAN_NOTICE("You repair some damage to \the [src]."))
+				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), SPAN_NOTICE("You repair some damage to \the [src]."))
 				add_health(maxhealth * 0.5)
 			return
 

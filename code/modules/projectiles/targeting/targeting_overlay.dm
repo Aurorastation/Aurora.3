@@ -255,7 +255,7 @@
 	if(!no_message)
 		owner.visible_message(
 			SPAN_NOTICE("\The [owner] lowers \the [aiming_with]."),
-			self_message = SPAN_NOTICE("You lower \the [aiming_with].")
+			SPAN_NOTICE("You lower \the [aiming_with].")
 		)
 
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)

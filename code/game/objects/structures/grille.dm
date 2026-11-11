@@ -208,7 +208,7 @@
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			anchored = !anchored
 			user.visible_message(SPAN_NOTICE("[user] [anchored ? "fastens" : "unfastens"] the grille."), \
-								self_message = SPAN_NOTICE("You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor."))
+								SPAN_NOTICE("You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor."))
 		return
 	else if(istype(attacking_item,/obj/item/stack/rods) && destroyed == 1)
 		if(!shock(user, 90))
@@ -219,7 +219,7 @@
 			icon_state = "grille"
 			ROD.use(1)
 			user.visible_message(SPAN_NOTICE("[user] repairs the grille."), \
-								self_message = SPAN_NOTICE("You have repaired the grille."))
+								SPAN_NOTICE("You have repaired the grille."))
 			return
 
 //window placing begin //TODO CONVERT PROPERLY TO MATERIAL DATUM

@@ -87,7 +87,7 @@
 		if(!user.hand)
 			which_hand = BP_R_HAND
 		triggered(user, which_hand)
-		user.visible_message(SPAN_WARNING("[user] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"))
+		user.visible_message(SPAN_WARNING("[user] accidentally sets off \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
 		return TRUE
 	return FALSE
 
@@ -99,16 +99,16 @@
 			var/mob/living/carbon/human/H = arrived
 			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
-				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."))
+				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
 		else if(isliving(arrived))
 			var/mob/living/L = arrived
 			triggered(L)
-			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."))
+			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
 
 
 /obj/item/assembly/mousetrap/on_found(mob/finder)
 	if(armed)
-		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"))
+		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), SPAN_WARNING("You accidentally trigger \the [src]!"))
 		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 		return TRUE
 	return FALSE

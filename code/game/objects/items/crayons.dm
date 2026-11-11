@@ -155,21 +155,21 @@
 				// The ungrateful bastard doesn't want to eat any crayon.
 				if(crayon_eater_response == "Not that hungry.")
 					target_mob.visible_message(SPAN_NOTICE("[target_mob] pushes away the crayon [user] held out for them to eat."),
-					self_message = SPAN_NOTICE("[target_mob] doesn't want seem to eat any crayon right now."))
+					SPAN_NOTICE("[target_mob] doesn't want seem to eat any crayon right now."))
 					return TRUE
 				// Yum yum! This message is handled separately to make it Very Clear to observers that someone is hand-feeding someone else a crayon.
 				else
 					target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of the crayon held out by [user] and swallows it."),
-								self_message = SPAN_NOTICE("You take a bite of crayon and swallow it."))
+								SPAN_NOTICE("You take a bite of crayon and swallow it."))
 
 			else
 				target_mob.visible_message(SPAN_NOTICE("[target_mob] takes a bite of crayon and swallows it."),
-									self_message = SPAN_NOTICE("You take a bite of crayon and swallow it."))
+									SPAN_NOTICE("You take a bite of crayon and swallow it."))
 
 			target_mob.adjustNutritionLoss(-1)
 			reagents.trans_to_mob(target_mob, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), self_message = SPAN_WARNING("You ate your crayon!"))
+				target_mob.visible_message(SPAN_NOTICE("[target_mob] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else

@@ -148,9 +148,9 @@
 	new /obj/effect/overlay/teleport_pulse(user.loc)
 
 	user.last_special = world.time
-	user.visible_message("<b>[user]</b> disappears with a flash!", self_message = SPAN_NOTICE("You jump into the nothing."))
+	user.visible_message("<b>[user]</b> disappears with a flash!", SPAN_NOTICE("You jump into the nothing."))
 	user.forceMove(target)
-	user.visible_message("<b>[user]</b> appears out of thin air!", self_message = SPAN_NOTICE("You successfully step into your destination."))
+	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
 
 	user.overlay_fullscreen("teleport", /atom/movable/screen/fullscreen/teleport)
 	user.clear_fullscreen("teleport", 5 SECONDS)

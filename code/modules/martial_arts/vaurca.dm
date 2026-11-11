@@ -48,7 +48,7 @@
 	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
 	D.visible_message(SPAN_DANGER("[A] [atk_verb] [D]!"), \
-						self_message = SPAN_DANGER("[A] [atk_verb] you!"))
+						SPAN_DANGER("[A] [atk_verb] you!"))
 	D.apply_damage(rand(5,15), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 	playsound(get_turf(D), 'sound/weapons/slash.ogg', 25, 1, -1)
 

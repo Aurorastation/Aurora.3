@@ -67,7 +67,7 @@
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message(SPAN_DANGER("[src] bites \the [T]'s neck!"), self_message = SPAN_DANGER("You bite \the [T]'s neck and begin to drain their blood."), blind_message = SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
+	visible_message(SPAN_DANGER("[src] bites \the [T]'s neck!"), SPAN_DANGER("You bite \the [T]'s neck and begin to drain their blood."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
 	if(T.mind?.assigned_role == "Chaplain" && !(vampire.status & VAMP_FULLPOWER))
 		to_chat(src, SPAN_DANGER("\The [T]'s blood burns like venom in your throat! Your stomach churns with sickness, and you fall to the ground, retching in disgust!"))
 		to_chat(T, SPAN_DANGER("[src] sinks [src.get_pronoun("his")] fangs into your neck, and you feel your blood draining - before [src.get_pronoun("he")] collapses, gagging and choking!"))
@@ -153,7 +153,7 @@
 	var/endsuckmsg = "You extract your fangs from \the [T]'s neck and stop draining them of blood."
 	if(vampire.stealth)
 		endsuckmsg += " They will only remember about this encounter by what you tell them now. If you don't tell them anything, then they will forget the previous few minutes entirely, provided they survived."
-	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), self_message = SPAN_NOTICE(endsuckmsg))
+	visible_message(SPAN_DANGER("[src] stops biting \the [T]'s neck!"), SPAN_NOTICE(endsuckmsg))
 	if(target_aware)
 		T.paralysis = 0
 		T.stunned = 0
@@ -351,7 +351,7 @@
 	if(!vampire)
 		return
 
-	visible_message(SPAN_DANGER("[src] lets out an ear piercing shriek!"), self_message = SPAN_DANGER("You let out an ear-shattering shriek!"), blind_message = SPAN_DANGER("You hear a painfully loud shriek!"))
+	visible_message(SPAN_DANGER("[src] lets out an ear piercing shriek!"), SPAN_DANGER("You let out an ear-shattering shriek!"), SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	var/list/victims = list()
 	for(var/mob/living/carbon/human/T in hearers(4, src) - src)
@@ -698,7 +698,7 @@
 									"Your body crackles, skin and bone shifting back into place.")
 
 		if(prob(20))
-			visible_message(SPAN_DANGER("[pick(emotes_lookers)]"), self_message = SPAN_NOTICE("[pick(emotes_self)]"))
+			visible_message(SPAN_DANGER("[pick(emotes_lookers)]"), SPAN_NOTICE("[pick(emotes_self)]"))
 
 		if(vampire.blood_usable <= blood_used)
 			vampire.blood_usable = 0
@@ -753,11 +753,11 @@
 		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
-	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), self_message = SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
+	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
 	to_chat(T, SPAN_WARNING("You feel an irresistible desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
 	if(!do_mob(src, T, 20 SECONDS))
-		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), self_message = SPAN_DANGER("You are interrupted!"))
+		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
 		return
 
 	to_chat(T, SPAN_DANGER("Your mind blanks as you finish feeding from [src]'s wrist."))
@@ -924,7 +924,7 @@
 
 	vampire.status |= VAMP_DRAINING
 
-	visible_message(SPAN_DANGER("[src] bites [T]'s neck!"), self_message = SPAN_DANGER("You bite [T]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them."), blind_message = SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
+	visible_message(SPAN_DANGER("[src] bites [T]'s neck!"), SPAN_DANGER("You bite [T]'s neck and begin to drain their blood, as the first step of introducing the corruption of the Veil to them."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
 
 	to_chat(T, SPAN_NOTICE("<br>You are currently being turned into a vampire. You will die in the course of this, but you will be revived by the end. Please do not ghost out of your body until the process is complete."))
 

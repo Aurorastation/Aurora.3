@@ -28,6 +28,6 @@
 		return
 
 	var/mob/living/carbon/human/H = user
-	H.visible_message(SPAN_NOTICE("A protective bubble forms around [H]."), self_message = SPAN_NOTICE("You form a protective bubble around yourself."))
+	H.visible_message(SPAN_NOTICE("A protective bubble forms around [H]."), SPAN_NOTICE("You form a protective bubble around yourself."))
 	ADD_TRAIT(H, TRAIT_NO_BREATHE, TRAIT_SOURCE_PSIONICS)
 	ADD_TRAIT(H, TRAIT_PRESSURE_IMMUNITY, TRAIT_SOURCE_PSIONICS)

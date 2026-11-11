@@ -336,10 +336,10 @@
 	if(!(status == LIGHT_OK || status == LIGHT_BURNED))
 		return
 	if(status == LIGHT_BROKEN)
-		user.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), self_message = SPAN_WARNING("You completely shatter \the [src]!"))
+		user.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You completely shatter \the [src]!"))
 		shatter()
 	else
-		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), self_message = SPAN_WARNING("You smash \the [src]!"))
+		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"))
 		broken()
 	user.do_attack_animation(src)
 	return TRUE
@@ -403,7 +403,7 @@
 	else if(status == LIGHT_EMPTY)
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //If it's a screwdriver open it.
 			attacking_item.play_tool_sound(get_turf(src), 75)
-			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), self_message = SPAN_NOTICE("You open \the [src]'s casing."), blind_message = SPAN_NOTICE("You hear a noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/structure/machinery/light_construct/newlight = null
 			switch(fitting)
 				if("tube")
@@ -437,7 +437,7 @@
 
 /obj/structure/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
 	if(prob(1 + O.force * 5))
-		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), self_message = SPAN_WARNING("You hit \the [src], and it [self_text]!"), blind_message = SPAN_WARNING("You hear a tinkle of breaking glass!"))
+		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), SPAN_WARNING("You hit \the [src], and it [self_text]!"), SPAN_WARNING("You hear a tinkle of breaking glass!"))
 		if(!stat && (O.obj_flags & OBJ_FLAG_CONDUCTABLE))
 			if(prob(12))
 				electrocute_mob(user, get_area(src), src, 0.3)
@@ -446,7 +446,7 @@
 		else
 			shatter()
 	else
-		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), self_message = SPAN_WARNING("You hit \the [src], but it doesn't break."), blind_message = SPAN_WARNING("You hear something hitting against glass."))
+		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
 /obj/structure/machinery/light/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -509,11 +509,11 @@
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == I_HURT && H.species.can_shred(H))
 			if(status != LIGHT_BROKEN || status != LIGHT_EMPTY)
-				H.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), self_message = SPAN_WARNING("You smash \the [src]!"), blind_message = SPAN_WARNING("You hear the tinkle of breaking glass."))
+				H.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
 				broken()
 				return
 			else if(status == LIGHT_BROKEN)
-				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), self_message = SPAN_WARNING("You shatter \the [src] completely!"), blind_message = SPAN_WARNING("You hear the tinkle of breaking glass."))
+				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You shatter \the [src] completely!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
 				shatter()
 				return
 

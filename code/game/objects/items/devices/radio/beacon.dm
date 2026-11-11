@@ -36,7 +36,7 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 /obj/item/radio/beacon/attackby(obj/item/attacking_item, mob/user)
 	if(isturf(loc) && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		anchored = !anchored
-		user.visible_message("<b>[user]</b> [anchored ? "" : "un"]fastens \the [src] [anchored ? "to" : "from"] the floor.", self_message = "You [anchored ? "" : "un"]fasten \the [src] [anchored ? "to" : "from"] the floor.")
+		user.visible_message("<b>[user]</b> [anchored ? "" : "un"]fastens \the [src] [anchored ? "to" : "from"] the floor.", "You [anchored ? "" : "un"]fasten \the [src] [anchored ? "to" : "from"] the floor.")
 		return
 	return ..()
 

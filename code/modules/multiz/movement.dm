@@ -6,7 +6,7 @@
 	set category = "IC.Maneuver"
 
 	if(zMove(UP))
-		visible_message(SPAN_NOTICE("[src] has moved upwards."), self_message = SPAN_NOTICE("You move upwards."))
+		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
 
 /**
  * Verb for the mob to move down a z-level if possible.
@@ -16,7 +16,7 @@
 	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
-		visible_message(SPAN_NOTICE("[src] has moved downwards."), self_message = SPAN_NOTICE("You move downwards."))
+		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))
 
 /**
  * Used to check if a mob can move up or down a Z-level and to then actually do the move.
@@ -177,7 +177,7 @@
 			return
 
 	visible_message(SPAN_NOTICE("The [src] begins to climb [(direction == UP) ? "upwards" : "downwards"]."),
-		self_message = SPAN_NOTICE("You begin to climb [(direction == UP) ? "upwards" : "downwards"]."))
+		SPAN_NOTICE("You begin to climb [(direction == UP) ? "upwards" : "downwards"]."))
 	var/climb_chance = 50
 	var/climb_speed = 45 SECONDS
 	var/will_succeed = FALSE
@@ -209,12 +209,12 @@
 	if(do_after(src, climb_speed))
 		if(will_succeed)
 			visible_message(SPAN_NOTICE("\The [src] climbs [(direction == UP) ? "upwards" : "downwards"]."),
-				self_message = SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
+				SPAN_NOTICE("You climb [(direction == UP) ? "upwards" : "downwards"]."))
 			forceMove(destination)
 			return
 		else
 			visible_message(SPAN_WARNING("\The [src] slips and falls as they climb [(direction == UP) ? "upwards" : "downwards"]!"),
-				self_message = SPAN_DANGER("You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!"))
+				SPAN_DANGER("You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!"))
 			if(direction == DOWN)
 				Move(destination)
 			fall_impact(1, damage_mod = min(1, max(0.2, ((100-climb_chance)/100) - 0.2)))
@@ -224,7 +224,7 @@
 		last_special = world.time + speed/10
 		if(prob(100 - climb_chance)) //The worse you are the sooner you'll fail.
 			visible_message(SPAN_WARNING("\The [src] slips and falls as they climb [(direction == UP) ? "upwards" : "downwards"]!"),
-				self_message = SPAN_DANGER("You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!"))
+				SPAN_DANGER("You slip and fall as you climb [(direction == UP) ? "upwards" : "downwards"]!"))
 			if(direction == DOWN)
 				Move(destination)
 			fall_impact(1, damage_mod = min(1, max(0.2, ((100-climb_chance)/100) - 0.2)))
@@ -417,7 +417,7 @@
 
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
-		self_message = "You fall through \the [loc]!", blind_message = "You hear a whoosh of displaced air.")
+		"You fall through \the [loc]!", "You hear a whoosh of displaced air.")
 
 /mob/living/heavy_vehicle/fall_through()
 	var/obj/structure/lattice/L = locate() in loc
@@ -466,7 +466,7 @@
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
-		self_message = "With a loud thud, you land on \the [loc]!", blind_message = "You hear a thud!")
+		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	var/z_velocity = 5*(levels_fallen**2)
 
@@ -501,7 +501,7 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig.name]."), self_message = SPAN_NOTICE("You land flawlessly with your [rig.name]."), blind_message = SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after a loud slam!"))
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig.name]."), SPAN_NOTICE("You land flawlessly with your [rig.name]."), SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after a loud slam!"))
 				return FALSE
 
 	if(status_flags & GODMODE) // Godmode
@@ -515,7 +515,7 @@
 		if(!sleeping)
 			combat_roll = 0.6 //Combat roll!
 			visible_message(SPAN_NOTICE("\The [src] tucks into a roll as they hit \the [loc]!"),
-				self_message = SPAN_NOTICE("You tuck into a roll as you hit \the [loc], minimizing damage!"))
+				SPAN_NOTICE("You tuck into a roll as you hit \the [loc], minimizing damage!"))
 
 	var/aug_mod = 1
 	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
@@ -546,7 +546,7 @@
 			apply_damage(groin_damage, DAMAGE_BRUTE, BP_GROIN)
 
 		visible_message(SPAN_WARNING("\The [src] falls and lands directly on their legs!"),
-			self_message = SPAN_DANGER("You land on your feet, and the impact brings you to your knees."))
+			SPAN_DANGER("You land on your feet, and the impact brings you to your knees."))
 
 		if(prob(20))
 			var/obj/item/organ/external/l_foot = get_organ(BP_L_FOOT)
@@ -589,7 +589,7 @@
 		limb_damage = left_damage + right_damage + lefth_damage + righth_damage
 
 		visible_message(SPAN_WARNING("\The [src] falls and lands arms first!"),
-			self_message = SPAN_DANGER("You brace your fall with your arms, hitting \the [loc] with a loud thud."), blind_message = "You hear a thud!")
+			SPAN_DANGER("You brace your fall with your arms, hitting \the [loc] with a loud thud."), "You hear a thud!")
 
 		if(prob(20))
 			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
@@ -615,7 +615,7 @@
 	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
 		visible_message(SPAN_WARNING("\The [src] falls and lands on their face!"),
-			self_message = SPAN_DANGER("With a loud thud, you land on your head. Hard."), blind_message = "You hear a thud!")
+			SPAN_DANGER("With a loud thud, you land on your head. Hard."), "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
 		if(prob(20) && head && LIMB_GET_DISLOCATED(head) != -1)
@@ -626,7 +626,7 @@
 		limb_damage = 0
 		if(combat_roll >= 0.5)
 			visible_message("\The [src] falls and lands on \the [loc]!",
-				self_message = "With a loud thud, you land on \the [loc]!", blind_message = "You hear a thud!")
+				"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
 	if(!limb_damage)
 		apply_damage(damage, DAMAGE_BRUTE, BP_CHEST)
@@ -657,7 +657,7 @@
 
 /mob/living/carbon/human/proc/fall_message(var/location, var/descriptor)
 	visible_message(SPAN_WARNING("There's a sickening popping noise as [src]'s [location] [descriptor]!"),
-		self_message = SPAN_DANGER("Grueling pain shoots through your mind as your [location] [descriptor]!"))
+		SPAN_DANGER("Grueling pain shoots through your mind as your [location] [descriptor]!"))
 
 /mob/living/carbon/human/proc/post_fall_death_check()
 	if (stat == DEAD)
@@ -744,7 +744,7 @@
 		L.apply_damage(damage, DAMAGE_BRUTE)
 
 	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
-		self_message = SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
+		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
 
 	if(istype(src, /mob/living/heavy_vehicle))
 		var/mob/living/heavy_vehicle/HV = src

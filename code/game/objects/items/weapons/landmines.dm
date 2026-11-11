@@ -44,13 +44,13 @@
 	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 			SPAN_DANGER("[user] starts to deploy \the [src]."),
-			self_message = SPAN_DANGER("You begin deploying \the [src]!")
+			SPAN_DANGER("You begin deploying \the [src]!")
 			)
 
 		if (do_after(user, 6 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 			user.visible_message(
 				SPAN_DANGER("[user] has deployed \the [src]."),
-				self_message = SPAN_DANGER("You have deployed \the [src]!")
+				SPAN_DANGER("You have deployed \the [src]!")
 				)
 
 			deploy(user)
@@ -99,8 +99,8 @@
 			if(L.mob_size >= 5)
 				L.visible_message(
 					SPAN_DANGER("[L] steps on \the [src]."),
-					self_message = SPAN_DANGER("You step on \the [src]!"),
-					blind_message = SPAN_DANGER("You hear a mechanical click!")
+					SPAN_DANGER("You step on \the [src]!"),
+					SPAN_DANGER("You hear a mechanical click!")
 					)
 				ASYNC // Caller requires no-sleep
 					trigger(L)
@@ -119,8 +119,8 @@
 /obj/item/landmine/proc/attack_hand_trigger(mob/user)
 	user.visible_message(
 			SPAN_DANGER("[user] triggers \the [src]."),
-			self_message = SPAN_DANGER("You trigger \the [src]!"),
-			blind_message = SPAN_DANGER("You hear a mechanical click!")
+			SPAN_DANGER("You trigger \the [src]!"),
+			SPAN_DANGER("You hear a mechanical click!")
 			)
 	trigger(user)
 
@@ -164,7 +164,7 @@
 	else if(deployed && istype(attacking_item, /obj/item/wirecutters))
 		var/obj/item/wirecutters/W = attacking_item
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
-							self_message = SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
+							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
 		if(attacking_item.use_tool(src, user, 150, volume = 50))
 			if(prob(W.bomb_defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))

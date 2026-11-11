@@ -61,7 +61,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] knees [D] in the stomach!"), \
-							self_message = SPAN_DANGER("[A] winds you with a knee in the stomach!"))
+							SPAN_DANGER("[A] winds you with a knee in the stomach!"))
 		D.audible_message("<b>[D]</b> gags!")
 		if (!(D.species.flags & NO_BREATHE))
 			D.losebreath += 3
@@ -75,7 +75,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D, ATTACK_EFFECT_KICK)
 		D.visible_message(SPAN_WARNING("[A] kicks [D] in the head!"), \
-							self_message = SPAN_DANGER("[A] kicks you in the jaw!"))
+							SPAN_DANGER("[A] kicks you in the jaw!"))
 		D.apply_damage(20, DAMAGE_BRUTE, BP_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), "punch", 50, 1, -1)

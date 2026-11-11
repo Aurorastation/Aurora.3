@@ -50,7 +50,7 @@
 	return (temperature / optimal_temp) * 100
 
 /obj/structure/machinery/appliance/cooker/grill/activation_message(var/mob/user)
-	user.visible_message("<b>[user]</b> [stat ? "turns off" : "fires up"] \the [src].", self_message = "You [stat ? "turn off" : "fire up"] \the [src].")
+	user.visible_message("<b>[user]</b> [stat ? "turns off" : "fires up"] \the [src].", "You [stat ? "turn off" : "fire up"] \the [src].")
 
 /obj/structure/machinery/appliance/cooker/grill/has_space(var/obj/item/I)
 	if(istype(I, /obj/item/reagent_containers/cooking_container))

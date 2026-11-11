@@ -98,11 +98,11 @@
 		if(beaker)
 			beaker.forceMove(get_turf(src))
 			user.visible_message(SPAN_NOTICE("\The [user] removes \the [beaker] from \the [src]."),
-									self_message = SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+									SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
 
 		beaker = attacking_item
 		user.visible_message(SPAN_NOTICE("\The [user] adds \a [attacking_item] to \the [src]."),
-								self_message = SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
+								SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
 
 		return TRUE
 
@@ -378,7 +378,7 @@
 			h_analyzer.health_scan_mob(target_mob, pilot, FALSE, TRUE)
 	else
 		user_vehicle.visible_message("<b>[user_vehicle]</b> starts scanning \the [target_mob] with \the [src].",
-								self_message = SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+								SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
 		for(var/mob/pilot in user_vehicle.pilots)
 			if(!do_after(pilot, 7 SECONDS, target_mob, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT | DO_FAIL_FEEDBACK)) // Pilots must not move while scanning
 				return FALSE

@@ -67,7 +67,7 @@
 		if(!do_after(user, 2 SECONDS))
 			return
 
-	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), self_message = SPAN_NOTICE("You retrieve your universal access cable from your neck."))
+	synth.visible_message(SPAN_NOTICE("[synth] extends their universal access cable from their neck."), SPAN_NOTICE("You retrieve your universal access cable from your neck."))
 	synth.put_in_active_hand(access_cable)
 
 /**
@@ -308,7 +308,7 @@
 				connection_socket = fresh_socket
 				user.visible_message(SPAN_WARNING("[user] connects \the [src] to [human]'s [connection_socket]."))
 			else
-				user.visible_message(SPAN_WARNING("[user] connects \the [src] to their [connection_socket]."), self_message = SPAN_WARNING("You connect \the [src] to your [connection_socket]."))
+				user.visible_message(SPAN_WARNING("[user] connects \the [src] to their [connection_socket]."), SPAN_WARNING("You connect \the [src] to your [connection_socket]."))
 
 			connection_socket.insert_cable(src, user)
 			create_cable(human)
@@ -353,7 +353,7 @@
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into [human]'s access port!"))
 
 		else
-			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), self_message = SPAN_WARNING("You jack \the [src] into your access port!"))
+			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
 
 		user.drop_from_inventory(src, get_turf(user))
 		access_port.insert_cable(src, user)
@@ -381,11 +381,11 @@
 			return ..()
 
 		if(access_port.get_integrity() <= IPC_INTEGRITY_THRESHOLD_MEDIUM)
-			synth.visible_message(SPAN_WARNING("[synth] tries to jam [synth.get_pronoun("his")] access cable back into their access port..."), self_message = SPAN_WARNING("You try to jam your access cable back into your access port..."))
+			synth.visible_message(SPAN_WARNING("[synth] tries to jam [synth.get_pronoun("his")] access cable back into their access port..."), SPAN_WARNING("You try to jam your access cable back into your access port..."))
 			if(!do_after(synth, 3 SECONDS))
 				return ..()
 
-		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), self_message = SPAN_NOTICE("You retract your access cable back into your access port."))
+		synth.visible_message(SPAN_NOTICE("[synth] retracts [synth.get_pronoun("his")] access cable back into their access port."), SPAN_NOTICE("You retract your access cable back into your access port."))
 		synth.drop_from_inventory(src, get_turf(src))
 		forceMove(access_port)
 		clear_cable_full()

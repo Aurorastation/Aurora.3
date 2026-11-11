@@ -1243,7 +1243,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 			busy_sculpting = FALSE
 			return
 
-		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), self_message = SPAN_NOTICE("You begin sculpting."))
+		user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."), SPAN_NOTICE("You begin sculpting."))
 
 		if(prob(25))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
@@ -1264,7 +1264,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		if(!successfully_sculpted)
 			return
 
-		user.visible_message(SPAN_NOTICE("\The [user] finishes sculpting their magnum opus!"), self_message = SPAN_NOTICE("You finish sculpting a masterpiece."))
+		user.visible_message(SPAN_NOTICE("\The [user] finishes sculpting their magnum opus!"), SPAN_NOTICE("You finish sculpting a masterpiece."))
 		sculpted = finish_sculpture(choice, user)
 		if(sculpted == TRUE_QDEL)
 			qdel(src)
@@ -1502,7 +1502,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	var/lift_height = strain <= 1 ? 8 : 3
 
 	being_lifted = TRUE
-	user.visible_message(SPAN_NOTICE("\The [user] starts a repetition with \the [src]."), self_message = SPAN_NOTICE("You start lifting \the [src]."))
+	user.visible_message(SPAN_NOTICE("\The [user] starts a repetition with \the [src]."), SPAN_NOTICE("You start lifting \the [src]."))
 
 	if(!do_after(user, half_rep_time, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT) || !set_lift_height(user, lift_height))
 		finish_lift(user)
@@ -1514,7 +1514,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 
 	finish_lift(user)
 	if(strain > 1)
-		user.visible_message(SPAN_WARNING("\The [user] only manages a partial repetition with \the [src]."), self_message = SPAN_WARNING("The weight is beyond your lifting capacity; you only manage a partial repetition."))
+		user.visible_message(SPAN_WARNING("\The [user] only manages a partial repetition with \the [src]."), SPAN_WARNING("The weight is beyond your lifting capacity; you only manage a partial repetition."))
 		return
 
 	if(!synth)
@@ -1531,7 +1531,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		effort_message = "without much trouble"
 	else
 		effort_message = "with ease"
-	user.visible_message(SPAN_NOTICE("\The [user] completes a repetition with \the [src] [effort_message]."), self_message = SPAN_NOTICE("You complete the repetition [effort_message]."))
+	user.visible_message(SPAN_NOTICE("\The [user] completes a repetition with \the [src] [effort_message]."), SPAN_NOTICE("You complete the repetition [effort_message]."))
 
 /// Moves the dumbbell's held overlay without moving the user or their other equipment.
 /obj/item/gym_dumbbell/proc/set_lift_height(mob/living/carbon/human/user, height)
@@ -1616,7 +1616,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 
 	weight = new_weight
 
-	usr.visible_message(SPAN_NOTICE("\The [usr] adjusts \the [src]'s weight level."), self_message = SPAN_NOTICE("You set \the [src] to [weight * weight_per_level] kg."))
+	usr.visible_message(SPAN_NOTICE("\The [usr] adjusts \the [src]'s weight level."), SPAN_NOTICE("You set \the [src] to [weight * weight_per_level] kg."))
 
 	playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 	return TRUE
@@ -1656,7 +1656,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 				else
 					var/failure_index = clamp(1 + round(shortfall / weight_per_level), 1, length(fail_message))
 					message = fail_message[failure_index]
-				user.visible_message(SPAN_NOTICE("\The [user] fails to lift the weights[message]."), self_message = SPAN_NOTICE("You fail to lift the weights[message]."))
+				user.visible_message(SPAN_NOTICE("\The [user] fails to lift the weights[message]."), SPAN_NOTICE("You fail to lift the weights[message]."))
 			else
 				if(!synth)
 					var/adj_weight = weight * 5
@@ -1664,7 +1664,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 					user.adjustHydrationLoss(adj_weight * THIRST_FACTOR)
 				var/success_index = clamp(1 + round((lift_capacity - selected_mass) / weight_per_level), 1, length(success_message))
 				message = success_message[success_index]
-				user.visible_message(SPAN_NOTICE("\The [user] lift\s the weights [message]."), self_message = SPAN_NOTICE("You lift the weights [message]."))
+				user.visible_message(SPAN_NOTICE("\The [user] lift\s the weights [message]."), SPAN_NOTICE("You lift the weights [message]."))
 		being_used = FALSE
 
 /******************************Seismic Charge*******************************/

@@ -57,7 +57,7 @@
 			if(I_HELP)
 				M.visible_message(
 					SPAN_NOTICE("\The [M] tap [src] to get their attention!"), \
-					self_message = SPAN_NOTICE("You tap [src] to get their attention!")
+					SPAN_NOTICE("You tap [src] to get their attention!")
 					) // slightly redundant as at the moment most mobs still use the normal gender var, but it works and future-proofs it
 				playsound(src, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 

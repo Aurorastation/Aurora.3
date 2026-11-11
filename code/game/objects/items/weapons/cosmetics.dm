@@ -125,15 +125,15 @@
 			return
 		if(H == user)
 			user.visible_message(SPAN_NOTICE("[user] does their lips with \the [src]."), \
-									self_message = SPAN_NOTICE("You take a moment to apply \the [src]. Perfect!"))
+									SPAN_NOTICE("You take a moment to apply \the [src]. Perfect!"))
 			H.lipstick_color = lipstick_color
 			H.update_body()
 		else
 			user.visible_message(SPAN_WARNING("[user] begins to do [H]'s lips with \the [src]."), \
-									self_message = SPAN_NOTICE("You begin to apply \the [src]."))
+									SPAN_NOTICE("You begin to apply \the [src]."))
 			if(do_after(user, 4 SECONDS, H, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS & ~DO_BOTH_CAN_TURN))
 				user.visible_message(SPAN_NOTICE("[user] does [H]'s lips with \the [src]."), \
-										self_message = SPAN_NOTICE("You apply \the [src]."))
+										SPAN_NOTICE("You apply \the [src]."))
 				H.lipstick_color = lipstick_color
 				H.update_body()
 	else
@@ -201,20 +201,20 @@
 
 		if(H == user) //shaving yourself
 			user.visible_message("\The [user] starts to shave [user.get_pronoun("his")] head with \the [src].", \
-									self_message = SPAN_NOTICE("You start to shave your head with \the [src]."))
+									SPAN_NOTICE("You start to shave your head with \the [src]."))
 			if(do_mob(user, user, 20))
 				user.visible_message("\The [user] shaves [user.get_pronoun("his")] head with \the [src].", \
-										self_message = SPAN_NOTICE("You finish shaving with \the [src]."))
+										SPAN_NOTICE("You finish shaving with \the [src]."))
 				shave(H, target_zone)
 
 			return TRUE
 
 		else
 			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s head with \the [src]!"), \
-									self_message = SPAN_NOTICE("You start shaving [H]'s head."))
+									SPAN_NOTICE("You start shaving [H]'s head."))
 			if(do_mob(user, H, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves \the [H]'s head bald with \the [src]!"), \
-										self_message = SPAN_NOTICE("You shave \the [H]'s head bald."))
+										SPAN_NOTICE("You shave \the [H]'s head bald."))
 				shave(H, target_zone)
 
 				return TRUE
@@ -235,20 +235,20 @@
 
 		if(H == user) //shaving yourself
 			user.visible_message(SPAN_WARNING("\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src]."), \
-									self_message = SPAN_NOTICE("You take a moment to shave your facial hair with \the [src]."))
+									SPAN_NOTICE("You take a moment to shave your facial hair with \the [src]."))
 			if(do_mob(user, user, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src]."), \
-										self_message = SPAN_NOTICE("You finish shaving with \the [src]."))
+										SPAN_NOTICE("You finish shaving with \the [src]."))
 				shave(H, target_zone)
 
 			return TRUE
 
 		else
 			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s facial hair with \the [src]."), \
-									self_message = SPAN_NOTICE("You start shaving [H]'s facial hair."))
+									SPAN_NOTICE("You start shaving [H]'s facial hair."))
 			if(do_mob(user, H, 20))
 				user.visible_message(SPAN_WARNING("\The [user] shaves off \the [H]'s facial hair with \the [src]."), \
-										self_message = SPAN_NOTICE("You shave [H]'s facial hair clean off."))
+										SPAN_NOTICE("You shave [H]'s facial hair clean off."))
 				shave(H, target_zone)
 
 				return TRUE

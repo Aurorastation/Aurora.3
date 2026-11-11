@@ -203,7 +203,7 @@
 	if(REALTIMEOFDAY >= next_tremor_time && REALTIMEOFDAY >= next_message)
 		owner.visible_message(
 			SPAN_NOTICE("[owner]'s hand shakes..."),
-			self_message = SPAN_NOTICE("Your hand shakes...")
+			SPAN_NOTICE("Your hand shakes...")
 		)
 		next_tremor_time = REALTIMEOFDAY + rand(min_tremor_time, max_tremor_time)
 		next_message = REALTIMEOFDAY + message_delay

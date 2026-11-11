@@ -29,7 +29,7 @@
 		if(LAZYISIN(C.memorized_runes, R.rune.name))
 			to_chat(H, SPAN_WARNING("This rune is already memorized!"))
 			return
-		H.visible_message("<b>[H]</b> bends over and runs their hands across \the [src].", self_message = SPAN_NOTICE("You bend over and run your hands across the patterns of the rune, slowly memorizing it."))
+		H.visible_message("<b>[H]</b> bends over and runs their hands across \the [src].", SPAN_NOTICE("You bend over and run your hands across the patterns of the rune, slowly memorizing it."))
 		if(!do_after(H, 10 SECONDS))
 			return
 		LAZYSET(C.memorized_runes, R.rune.name, R.rune.type)

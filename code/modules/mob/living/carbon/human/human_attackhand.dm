@@ -62,8 +62,8 @@
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 							M.visible_message(SPAN_WARNING("The power source on [M]'s stun gloves overloads in a terrific fashion!"),
-												self_message = SPAN_WARNING("Your jury rigged stun gloves malfunction!"),
-												blind_message = SPAN_WARNING("You hear a loud sparking."))
+												SPAN_WARNING("Your jury rigged stun gloves malfunction!"),
+												SPAN_WARNING("You hear a loud sparking."))
 
 							if(prob(50))
 								M.apply_damage(rand(1,5), DAMAGE_BURN)
@@ -396,7 +396,7 @@
 						if(istype(W, /obj/item/grab))
 							var/obj/item/grab/G = W
 							if(G.affecting && G.affecting != M)
-								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), self_message = SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"))
+								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"))
 								G.attack_hand(M)
 							return
 						if(istype(W, /obj/item/gun))
@@ -428,14 +428,14 @@
 						break
 				if(problem_railing)
 					if(!problem_railing.turf_is_crowded(TRUE))
-						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), self_message = SPAN_DANGER("[H] shoves you over the railing!"))
+						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), SPAN_DANGER("[H] shoves you over the railing!"))
 						apply_effect(5, WEAKEN)
 						forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
 						return
 					else
 						to_chat(H, SPAN_NOTICE("It's too crowded, you can't push [src] off the railing!")) //No return is intentional - it'll continue with a normal shove.
 				else
-					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), self_message = SPAN_DANGER("[H] pushes you forward!"))
+					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), SPAN_DANGER("[H] pushes you forward!"))
 					apply_effect(5, WEAKEN)
 					var/turf/current_turf = get_turf(z_eye)
 					forceMove(GET_TURF_ABOVE(current_turf)) //We use GET_TURF_ABOVE so people can't cheese it by turning their sprite.
@@ -695,10 +695,10 @@
 
 	if(user == src)
 		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!"),
-								self_message = SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
+								SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"),
-								self_message = SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
+								SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
 
@@ -709,10 +709,10 @@
 
 		if(user == src)
 			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!"),
-									self_message = SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
+									SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"),
-									self_message = SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
+									SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1
 

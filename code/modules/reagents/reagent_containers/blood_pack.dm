@@ -78,7 +78,7 @@
 			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
 			return
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
-			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), self_message = SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."))
+			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."))
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
@@ -97,7 +97,7 @@
 
 				if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) < 1)
 					break
-			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), self_message = SPAN_NOTICE("You lick your fangs clean of the tasteless blood."))
+			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), SPAN_NOTICE("You lick your fangs clean of the tasteless blood."))
 			being_feed = FALSE
 	else
 		..()
@@ -155,7 +155,7 @@
 				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			else
 				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
-				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), self_message = SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
+				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
 				affecting.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)

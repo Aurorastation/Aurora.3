@@ -64,7 +64,7 @@
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] opens \the [src] and modifies \the [O]."),
-		self_message = SPAN_NOTICE("You open \the [src] and modify \the [O].")
+		SPAN_NOTICE("You open \the [src] and modify \the [O].")
 	)
 
 	if(I.contained_sprite)

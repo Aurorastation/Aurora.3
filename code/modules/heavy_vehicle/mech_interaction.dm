@@ -574,7 +574,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [attacking_item] into \the [src]..."), self_message = SPAN_NOTICE("You begin installing the [attacking_item] into \the [src]..."))
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [attacking_item] into \the [src]..."), SPAN_NOTICE("You begin installing the [attacking_item] into \the [src]..."))
 				if(do_after(user, 30, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
@@ -583,7 +583,7 @@
 						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 						return
 					var/obj/item/remote_mecha/RM = attacking_item
-					user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."), self_message = SPAN_NOTICE("You install the [attacking_item] into \the [src]."))
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."), SPAN_NOTICE("You install the [attacking_item] into \the [src]."))
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
@@ -615,7 +615,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start disassembling \the [src]..."))
+				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
 				if(do_after(user, 30, src))
 					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
@@ -623,7 +623,7 @@
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
-					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You disassemble \the [src]."))
+					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
 					if(remote)
 						for(var/mob/pilot in pilots)
 							if(pilot.client)
@@ -692,7 +692,7 @@
 					body.cell = attacking_item
 					RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), self_message = SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/robotanalyzer))
 				var/obj/item/robotanalyzer/analyzer_item = attacking_item

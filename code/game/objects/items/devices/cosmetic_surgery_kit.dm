@@ -25,7 +25,7 @@
 		return
 	user.visible_message(
 		SPAN_WARNING("\The [user] places \the [src] up to [user.get_pronoun("his")] face."),
-		self_message = SPAN_WARNING("You place \the [src] up to your face."),
+		SPAN_WARNING("You place \the [src] up to your face."),
 		vision_distance = 3
 	)
 	if(!do_after(user, 2 SECONDS))
@@ -34,7 +34,7 @@
 	playsound(user, 'sound/items/crank.ogg', 50, TRUE)
 	user.visible_message(
 		SPAN_DANGER("\The [src]'s armatures begin chipping away at \the [user]'s face!"),
-		self_message = SPAN_DANGER("\The [src]'s armatures begin chipping away at your face!"),
+		SPAN_DANGER("\The [src]'s armatures begin chipping away at your face!"),
 		vision_distance = 3
 	)
 	user.custom_pain("Your face feels like it's being shredded apart!", 160)

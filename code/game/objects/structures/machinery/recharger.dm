@@ -83,7 +83,7 @@
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE
 		anchored = !anchored
-		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", self_message = SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
+		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 

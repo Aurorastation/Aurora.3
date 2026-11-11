@@ -87,10 +87,10 @@
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
 			user.visible_message(SPAN_DANGER("[user] attacks [src] with [I] waking [get_pronoun("him")] up!"), \
-									self_message = SPAN_DANGER("You attack [src] with [I], but they do not respond... Maybe they have S.S.D?"))
+									SPAN_DANGER("You attack [src] with [I], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
 		user.visible_message(SPAN_DANGER("[user] attacked [src] with [I] waking [get_pronoun("him")] up!"), \
-							self_message = SPAN_DANGER("You attack [src] with [I], waking [get_pronoun("him")] up!"))
+							SPAN_DANGER("You attack [src] with [I], waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 

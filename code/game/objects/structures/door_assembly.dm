@@ -141,7 +141,7 @@
 		if(WT.use(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(glass)
-				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", self_message = SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
@@ -149,7 +149,7 @@
 					new /obj/item/stack/material/glass/reinforced(src.loc)
 					glass = FALSE
 			else if(!anchored)
-				user.visible_message("<b>[user]</b> starts disassembling the airlock assembly.", self_message = SPAN_NOTICE("You start disassembling the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts disassembling the airlock assembly.", SPAN_NOTICE("You start disassembling the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
@@ -166,10 +166,10 @@
 
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
-								self_message = SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
+								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
 		else
 			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
-								self_message = SPAN_NOTICE("You start securing the airlock assembly to the floor."))
+								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
@@ -188,7 +188,7 @@
 		if (C.get_amount() < 3)
 			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the airlock assembly."))
 			return
-		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", self_message = SPAN_NOTICE("You start wiring the airlock assembly."))
+		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", SPAN_NOTICE("You start wiring the airlock assembly."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50) && state == STATE_UNWIRED && anchored)
 			if(C.use(3))
 				state = STATE_WIRED
@@ -203,7 +203,7 @@
 			return
 
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", self_message = SPAN_NOTICE("You start cutting the wires from airlock assembly."))
+		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
@@ -222,7 +222,7 @@
 		var/obj/item/airlock_electronics/EL = attacking_item
 		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", self_message = SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
+			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
 			if(attacking_item.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
 				EL.is_installed = FALSE
@@ -247,7 +247,7 @@
 			state = STATE_WIRED
 			return
 
-		user.visible_message("<b>[user]</b> starts removing the electronics from \the [src].", self_message = SPAN_NOTICE("You start removing the electronics from \the [src]."))
+		user.visible_message("<b>[user]</b> starts removing the electronics from \the [src].", SPAN_NOTICE("You start removing the electronics from \the [src]."))
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
@@ -268,7 +268,7 @@
 				to_chat(user, SPAN_WARNING("You can only use reinforced glass to install a window into an airlock assembly."))
 				return
 			if(glass_material.type == MATERIAL_GLASS_REINFORCED)
-				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", self_message = SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
+				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
 				if(attacking_item.use_tool(src, user, 40, volume = 50) && !glass)
 					if(S.use(2))
 						to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
@@ -279,7 +279,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any electronics installed."))
 			return
 
-		user.visible_message("<b>[user]</b> starts finishing \the [src].", self_message = SPAN_NOTICE("You start finishing \the [src]."))
+		user.visible_message("<b>[user]</b> starts finishing \the [src].", SPAN_NOTICE("You start finishing \the [src]."))
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
@@ -304,14 +304,14 @@
 			ChainSawVar.cutting = TRUE
 			user.visible_message(\
 				SPAN_DANGER("[user] starts cutting \the [src] apart with \the [attacking_item]!"), \
-				self_message = SPAN_NOTICE("You start cutting \the [src] apart..."), \
-				blind_message = SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
+				SPAN_NOTICE("You start cutting \the [src] apart..."), \
+				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, user, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
 					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [attacking_item]."), \
-					self_message = SPAN_NOTICE("You finish cutting \the [src] apart."), \
-					blind_message = SPAN_WARNING("You hear a metal clank and some sparks.") \
+					SPAN_NOTICE("You finish cutting \the [src] apart."), \
+					SPAN_WARNING("You hear a metal clank and some sparks.") \
 				)
 				new /obj/item/stack/material/steel(src.loc, 2)
 				ChainSawVar.cutting = FALSE

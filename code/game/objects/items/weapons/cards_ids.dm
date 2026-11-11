@@ -295,7 +295,7 @@
 		message += " [add_text]"
 	if(blind_add_text != "")
 		blind_message += " [blind_add_text]"
-	user.visible_message(message, self_message = blind_message)
+	user.visible_message(message, blind_message)
 
 /obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
