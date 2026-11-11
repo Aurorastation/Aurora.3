@@ -103,6 +103,8 @@
 			params[1] = AM.filters[index]
 			animate(arglist(monkeypatched_params))
 
+// Filter constructors synchronized from TG:
+// https://github.com/tgstation/tgstation/blob/12131504f3b/code/__HELPERS/filters.dm
 //Helpers to generate lists for filter helpers
 //This is the only practical way of writing these that actually produces sane lists
 /proc/alpha_mask_filter(x, y, icon/icon, render_source, flags)
@@ -118,11 +120,33 @@
 	if(!isnull(flags))
 		.["flags"] = flags
 
+/proc/angular_blur_filter(x, y, size)
+	. = list("type" = "angular_blur")
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(size))
+		.["size"] = size
+
 /proc/color_matrix_filter(matrix/in_matrix, space)
 	. = list("type" = "color")
 	.["color"] = in_matrix
 	if(!isnull(space))
 		.["space"] = space
+
+/proc/displacement_map_filter(icon, render_source, x, y, size = ICON_SIZE_ALL)
+	. = list("type" = "displace")
+	if(!isnull(icon))
+		.["icon"] = icon
+	if(!isnull(render_source))
+		.["render_source"] = render_source
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(size))
+		.["size"] = size
 
 /proc/drop_shadow_filter(x, y, size, offset, color)
 	. = list("type" = "drop_shadow")
@@ -142,8 +166,19 @@
 	if(!isnull(size))
 		.["size"] = size
 
-/proc/displacement_map_filter(icon, render_source, x, y, size = 32)
-	. = list("type" = "displace")
+/proc/bloom_filter(threshold, size, offset, alpha)
+	. = list("type" = "bloom")
+	if(!isnull(threshold))
+		.["threshold"] = threshold
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(alpha))
+		.["alpha"] = alpha
+
+/proc/layering_filter(icon, render_source, x, y, flags, color, transform, blend_mode)
+	. = list("type" = "layer")
 	if(!isnull(icon))
 		.["icon"] = icon
 	if(!isnull(render_source))
@@ -152,8 +187,60 @@
 		.["x"] = x
 	if(!isnull(y))
 		.["y"] = y
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(flags))
+		.["flags"] = flags
+	if(!isnull(transform))
+		.["transform"] = transform
+	if(!isnull(blend_mode))
+		.["blend_mode"] = blend_mode
+
+/proc/motion_blur_filter(x, y)
+	. = list("type" = "motion_blur")
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+
+/proc/outline_filter(size, color, flags)
+	. = list("type" = "outline")
 	if(!isnull(size))
 		.["size"] = size
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(flags))
+		.["flags"] = flags
+
+/proc/radial_blur_filter(size, x, y)
+	. = list("type" = "radial_blur")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+
+/proc/rays_filter(size, color, offset, density, threshold, factor, x, y, flags)
+	. = list("type" = "rays")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(color))
+		.["color"] = color
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(density))
+		.["density"] = density
+	if(!isnull(threshold))
+		.["threshold"] = threshold
+	if(!isnull(factor))
+		.["factor"] = factor
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(flags))
+		.["flags"] = flags
 
 /proc/ripple_filter(radius, size, falloff, repeat, x, y, flags)
 	. = list("type" = "ripple")
@@ -171,3 +258,16 @@
 		.["x"] = x
 	if(!isnull(y))
 		.["y"] = y
+
+/proc/wave_filter(x, y, size, offset, flags)
+	. = list("type" = "wave")
+	if(!isnull(size))
+		.["size"] = size
+	if(!isnull(x))
+		.["x"] = x
+	if(!isnull(y))
+		.["y"] = y
+	if(!isnull(offset))
+		.["offset"] = offset
+	if(!isnull(flags))
+		.["flags"] = flags
