@@ -17,3 +17,8 @@
 
 /datum/synthetic_internal/electronics/heal_damage(amount)
 	integrity = min(integrity + amount, max_integrity)
+
+/datum/synthetic_internal/electronics/replace_health(new_max_health)
+	max_integrity = new_max_health
+	integrity = new_max_health
+

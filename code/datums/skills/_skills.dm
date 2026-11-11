@@ -74,6 +74,25 @@
 	return skill_cost_map[level]
 
 /**
+ * Returns the displayed name of this skill, optionally tailored to the passed character preferences.
+ */
+/singleton/skill/proc/get_name(datum/preferences/pref)
+	return name
+
+/**
+ * Returns the general description of this skill, optionally tailored to the passed character preferences.
+ */
+/singleton/skill/proc/get_description(datum/preferences/pref)
+	return description
+
+/**
+ * Returns the assoc list of skill level descriptions for this skill, optionally tailored to the passed character preferences.
+ */
+/singleton/skill/proc/get_skill_level_descriptions(datum/preferences/pref)
+	return skill_level_descriptions
+
+
+/**
  * ECS hook for Skills, based on a one-shot-on-spawn pattern common to traits/disabilities/loadouts, etc.
  * Skills may optionally include this, but are not required to.
  * This is primarily useful for making skills that offload all of their functional logic to a Component.

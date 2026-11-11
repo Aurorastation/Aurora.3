@@ -59,8 +59,12 @@
 
 /singleton/skill/carousing
 	name = "Carousing"
+	/// Alternate displayed name when configuring an IPC character.
+	var/ipc_name = "Thermal Conditioning"
 	description = "Represents a character's ability to resist drugs and alcohol. Higher ranks in this skill slightly improve the filtration effectiveness of the character's liver. " \
-		+ "This does nothing for characters that don't have a liver."
+		+ "This does nothing for organic characters that don't have a liver."
+	/// Alternate general description displayed when configuring an IPC character.
+	var/ipc_description = "Represents a synthetic's thermal management optimization and heat-tolerance tuning. Higher ranks in this skill improve the efficiency of the chassis's cooling unit, reduce its power draw, and raise the safe operating temperature threshold before sprint safeties engage."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_PHYSICAL
@@ -71,6 +75,67 @@
 		SKILL_LEVEL_TRAINED = "Your liver is 10% more effective at filtering drugs and alcohol.",
 		SKILL_LEVEL_PROFESSIONAL = "Your liver is 15% more effective at filtering drugs and alcohol."
 	)
+	/// Alternate skill level descriptions displayed when configuring an IPC character.
+	var/alist/ipc_skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Thermal Conditioning.",
+		SKILL_LEVEL_FAMILIAR = "Your cooling unit is slightly better tuned for sustained operation.<br>" \
+			+ " - Your cooling unit's passive temperature regulation rate is increased by 5%.<br>" \
+			+ " - Your cooling unit's base power consumption is reduced by 5%.<br>" \
+			+ " - Your maximum safe sprinting temperature threshold is increased by 10°C.",
+		SKILL_LEVEL_TRAINED = "Your cooling unit is moderately better tuned for sustained operation.<br>" \
+			+ " - Your cooling unit's passive temperature regulation rate is increased by 10%.<br>" \
+			+ " - Your cooling unit's base power consumption is reduced by 10%.<br>" \
+			+ " - Your maximum safe sprinting temperature threshold is increased by 20°C.",
+		SKILL_LEVEL_PROFESSIONAL = "Your cooling unit is well tuned for sustained operation.<br>" \
+			+ " - Your cooling unit's passive temperature regulation rate is increased by 15%.<br>" \
+			+ " - Your cooling unit's base power consumption is reduced by 15%.<br>" \
+			+ " - Your maximum safe sprinting temperature threshold is increased by 30°C."
+	)
+	/// Multiplier bonus to an IPC's cooling unit passive temperature change per rank above Unfamiliar.
+	var/ipc_bonus_cooling_efficiency_per_rank = 0.05
+	/// Multiplier reduction to an IPC's cooling unit base power consumption per rank above Unfamiliar.
+	var/ipc_bonus_power_reduction_per_rank = 0.05
+	/// Flat Kelvin/Celsius bonus to an IPC's cooling unit maximum safe sprinting temperature per rank above Unfamiliar.
+	var/ipc_bonus_safe_temp_per_rank = 10
+
+/singleton/skill/carousing/get_name(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_name
+	return ..()
+
+/singleton/skill/carousing/get_description(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_description
+	return ..()
+
+/singleton/skill/carousing/get_skill_level_descriptions(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_skill_level_descriptions
+	return ..()
+
+/singleton/skill/carousing/on_spawn(mob/owner, skill_level)
+	if(!isipc(owner))
+		return ..()
+
+	var/mob/living/carbon/human/character = owner
+	if(!istype(character))
+		return
+
+	var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = character.internal_organs_by_name[BP_COOLING_UNIT]
+	if(!istype(cooling_unit))
+		return
+
+	var/offset_skill = max(skill_level - 1, 0)
+	var/singleton/synthetic_organ_preset/cooling_unit/preset = cooling_unit.current_preset
+	var/base_temp_change = istype(preset) ? preset.passive_temp_change : initial(cooling_unit.passive_temp_change)
+	var/base_power = istype(preset) ? preset.base_power_consumption : initial(cooling_unit.base_power_consumption)
+
+	cooling_unit.passive_temp_change = base_temp_change * (1 + (ipc_bonus_cooling_efficiency_per_rank * offset_skill))
+	cooling_unit.base_power_consumption = base_power * (1 - (ipc_bonus_power_reduction_per_rank * offset_skill))
+	cooling_unit.maximum_safe_temperature = initial(cooling_unit.maximum_safe_temperature) + (ipc_bonus_safe_temp_per_rank * offset_skill)
 
 /singleton/skill/ministry
 	name = "Ministry"

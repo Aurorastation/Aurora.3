@@ -60,7 +60,6 @@
 	wiring.heal_damage(wiring.max_wires)
 	plating.heal_damage(plating.max_health)
 	electronics.heal_damage(electronics.max_integrity)
-	integrity_event_cooldown = initial(integrity_event_cooldown)
 
 /obj/item/organ/internal/machine/heal_damage(amount)
 	. = ..()
