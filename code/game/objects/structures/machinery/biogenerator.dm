@@ -856,9 +856,9 @@ EMAG/ILLEGAL
 			man_rating += P.rating
 
 	// We're doing a lot of division with these variables, so all of these have to be sanity checked to prevent any accidental divisions by zero.
-	build_eff = max(1, man_rating)
-	eat_eff = max(1, bin_rating)
-	processing_time_divisor = max(1, capacitor_rating)
+	build_eff = max(STOCK_PART_MIN_RATING, man_rating)
+	eat_eff = max(STOCK_PART_MIN_RATING, bin_rating)
+	processing_time_divisor = max(STOCK_PART_MIN_RATING, capacitor_rating)
 
 /obj/structure/machinery/biogenerator/small
 	icon_state = "biogen_small"
@@ -894,6 +894,9 @@ EMAG/ILLEGAL
 	..()
 	// Upgraded parts are less efficient on small biogenerators.
 	// Tier 3 parts are equivalent to tier 2 parts for them, while tier 2 parts are only 33% more effective than tier 1 parts.
-	build_eff = max(build_eff * 0.667, 1)
-	eat_eff = max(eat_eff * 0.667, 1)
-	processing_time_divisor = max(processing_time_divisor * 0.667, 1)
+	if(build_eff > 1)
+		build_eff = max(build_eff * 0.667, 1)
+	if(eat_eff > 1)
+		eat_eff = max(eat_eff * 0.667, 1)
+	if(processing_time_divisor > 1)
+		processing_time_divisor = max(processing_time_divisor * 0.667, 1)
