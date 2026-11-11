@@ -190,6 +190,11 @@
 	add_damage(damage * 0.2)
 
 /obj/structure/grille/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)

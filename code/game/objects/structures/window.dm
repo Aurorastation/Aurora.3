@@ -225,6 +225,11 @@
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return
+
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 

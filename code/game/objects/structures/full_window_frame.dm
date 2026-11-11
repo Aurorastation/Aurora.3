@@ -70,6 +70,11 @@
 		return .
 
 /obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return
+
 	if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))

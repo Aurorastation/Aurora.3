@@ -71,6 +71,11 @@
 	return FALSE
 
 /obj/structure/lattice/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
@@ -134,6 +139,11 @@
 	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))

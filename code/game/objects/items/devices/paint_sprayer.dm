@@ -130,9 +130,9 @@
 /obj/item/paint_sprayer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use a paint sprayer on yourself to configure it."
-	. += "Paint sprayers can be used on the following targets: floors, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
+	. += "Paint sprayers can be used on the following targets: floors, walls, windows, window frames, windoors, tables, chairs, beds, computers, vending machines, smartfridges, grilles, lattices, catwalks and grates, airlocks, exosuit frames and components, beds, atmos pipes, and (plain grey) lockers/crates."
 	. += "CTRL-click a turf or airlock with the paint sprayer to copy the color(s) used on it."
-	. += "SHIFT-click a turf with the paint sprayer to clear all decals from it."
+	. += "SHIFT-click a turf with the paint sprayer to clear all decals from it, or to strip the paint from a wall."
 
 /obj/item/paint_sprayer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -166,7 +166,10 @@
 	var/obj/structure/bed/B = A
 	if(istype(B))
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
-		B.set_colour(paint_colour)
+		if(B.padding_material)
+			B.set_colour(paint_colour)
+		else
+			B.color = paint_colour // No padding to paint, so paint the frame itself.
 		B.update_icon()
 		return
 
@@ -191,6 +194,30 @@
 		var/obj/item/pipe/P = A
 		P.color = GLOB.pipe_colors[mode]
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+
+/obj/item/paint_sprayer/proc/paint_wall(turf/simulated/wall/W, mob/user)
+	if(!user.Adjacent(W) || user.incapacitated())
+		return FALSE
+	if(!W.material)
+		to_chat(user, SPAN_WARNING("\The [src] cannot paint this wall."))
+		return FALSE
+	playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	W.color = paint_colour
+	W.update_icon()
+	add_fingerprint(user)
+	to_chat(user, SPAN_NOTICE("You paint \the [W] with \the [src]."))
+	return TRUE
+
+/// Paints a window or window frame by recolouring it.
+/obj/item/paint_sprayer/proc/paint_colourable(obj/O, mob/user)
+	if(!user.Adjacent(O) || user.incapacitated())
+		return FALSE
+	playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
+	O.color = paint_colour
+	O.update_icon()
+	add_fingerprint(user)
+	to_chat(user, SPAN_NOTICE("You paint \the [O] with \the [src]."))
+	return TRUE
 
 /obj/item/paint_sprayer/proc/paint_floor(turf/simulated/floor/F, mob/user, params)
 	if(!F.flooring?.can_paint)
@@ -289,6 +316,87 @@
 
 	. = ..()
 
+/turf/simulated/wall/Click(location, control, params)
+	if(ishuman(usr) || isrobot(usr))
+		var/mob/living/L = usr
+		var/list/modifiers = params2list(params)
+		var/obj/item/paint_sprayer/paint_sprayer = L.get_active_hand()
+		if(istype(paint_sprayer) && modifiers["shift"])
+			if(!istype(L.buckled_to))
+				L.face_atom(src)
+			if(paint_sprayer.remove_paint(src, L))
+				return
+
+	. = ..()
+
+/obj/structure/table/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/bed/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/machinery/vending/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/machinery/smartfridge/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/grille/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/lattice/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/machinery/door/window/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/item/modular_computer/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/machinery/computer/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/window/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/obj/structure/window_frame/Click(location, control, params)
+	if(paint_sprayer_shift_click(src, usr, params))
+		return
+	. = ..()
+
+/// Handles shift-clicking an atom with a paint sprayer in hand to strip its paint. Returns TRUE if handled.
+/proc/paint_sprayer_shift_click(atom/target, mob/user, params)
+	if(!ishuman(user) && !isrobot(user))
+		return FALSE
+	var/mob/living/L = user
+	var/list/modifiers = params2list(params)
+	var/obj/item/paint_sprayer/paint_sprayer = L.get_active_hand()
+	if(!istype(paint_sprayer) || !modifiers["shift"])
+		return FALSE
+	if(!istype(L.buckled_to))
+		L.face_atom(target)
+	return paint_sprayer.remove_paint(target, L)
+
 /obj/item/paint_sprayer/proc/pick_color(atom/A, mob/user)
 	if (!user.Adjacent(A) || user.incapacitated())
 		return FALSE
@@ -367,6 +475,28 @@
 		if (F.decals && F.decals.len > 0)
 			F.decals.len--
 			F.update_icon()
+			. = TRUE
+	else if (istype(A, /obj/structure/table))
+		var/obj/structure/table/T = A
+		T.color = "#ffffff"
+		T.update_icon()
+		. = TRUE
+	else if (istype(A, /obj/structure/bed))
+		var/obj/structure/bed/B = A
+		B.color = initial(B.color)
+		B.painted_colour = null
+		B.update_icon()
+		. = TRUE
+	else if (istype(A, /obj/structure/window) || istype(A, /obj/structure/window_frame) || istype(A, /obj/structure/machinery/computer) || istype(A, /obj/item/modular_computer) || istype(A, /obj/structure/machinery/vending) || istype(A, /obj/structure/machinery/smartfridge) || istype(A, /obj/structure/grille) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/machinery/door/window))
+		var/obj/O = A
+		O.color = initial(O.color)
+		O.update_icon()
+		. = TRUE
+	else if (istype(A, /turf/simulated/wall))
+		var/turf/simulated/wall/W = A
+		if (W.material)
+			W.reset_color()
+			W.update_icon()
 			. = TRUE
 	else if (istype(A, /obj/structure/machinery/door/airlock))
 		var/obj/structure/machinery/door/airlock/D = A

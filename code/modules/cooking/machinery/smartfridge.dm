@@ -311,12 +311,12 @@
 /obj/structure/machinery/smartfridge/proc/update_overlays()
 	ClearOverlays()
 	if(panel_open)
-		AddOverlays("[initial(icon_state)]-panel")
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]-panel", null, RESET_COLOR))
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && length(shown_contents) > 0)
 		var/contents_icon_state = change_display(length(shown_contents) - 1)
-		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
-	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+		AddOverlays(overlay_image(icon, "[initial(icon_state)][contents_path][contents_icon_state]", null, RESET_COLOR))
+	AddOverlays(overlay_image(icon, "[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]", null, RESET_COLOR))
 	if(has_emissive && powered() && !(stat & BROKEN))
 		AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-light-mask", src, alpha = src.alpha))
 
@@ -329,6 +329,11 @@
 ********************/
 
 /obj/structure/machinery/smartfridge/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].",

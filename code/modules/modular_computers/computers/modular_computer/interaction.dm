@@ -234,6 +234,11 @@
 		turn_on(user)
 
 /obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, SPAN_WARNING("You cannot reset this type of device."))

@@ -165,6 +165,11 @@
 	if (operating)
 		return TRUE
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	//Emags and ninja swords? You may pass.
 	if (istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))

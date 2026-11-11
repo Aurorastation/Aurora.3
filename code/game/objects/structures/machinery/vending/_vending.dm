@@ -338,7 +338,7 @@
 		var/image/E = emissive_appearance(icon, light_mask)
 		AddOverlays(E)
 	if(src.icon_screen)
-		var/image/I = image(icon, icon_screen)
+		var/image/I = overlay_image(icon, icon_screen, null, RESET_COLOR) // Paint only tints the casing, not the screen.
 		AddOverlays(I)
 
 /**
@@ -432,6 +432,11 @@
 		return 1
 
 /obj/structure/machinery/vending/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/debugger))
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
