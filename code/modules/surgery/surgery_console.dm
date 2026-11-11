@@ -421,6 +421,9 @@
 	// procedure below, in the same order used by do_surgery().
 	var/success_modifier = 0
 	var/duration_multiplier = 1
+	var/obj/structure/surface = get_surgery_surface(patient)
+	if(surface)
+		success_modifier += surface.surgery_odds_modifier
 	SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, patient, &success_modifier, &duration_multiplier)
 
 	for(var/decl in all_surgeries)
