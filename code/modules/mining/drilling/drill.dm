@@ -375,7 +375,7 @@
 				component_parts += attacking_item
 				attacking_item.add_fingerprint(user)
 				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
-					blind_message = SPAN_NOTICE("You insert the power cell into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
+					SPAN_NOTICE("You insert the power cell into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 				power_change()
 		else
 			to_chat(user, SPAN_WARNING("The hatch must be open to insert a power cell."))

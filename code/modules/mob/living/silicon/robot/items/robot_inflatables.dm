@@ -91,7 +91,7 @@
 			stored_doors++
 			qdel(A)
 		playsound(get_turf(src), 'sound/machines/hiss.ogg', 75, TRUE)
-		visible_message("<b>[user]</b> deflates \the [A] with \the [src].", blind_message = SPAN_NOTICE("You deinflate \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
+		visible_message("<b>[user]</b> deflates \the [A] with \the [src].", SPAN_NOTICE("You deinflate \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	else if(istype(A, /obj/item/inflatable))
 		if(istype(A, /obj/item/inflatable/wall))
@@ -106,7 +106,7 @@
 				return
 			stored_doors++
 			qdel(A)
-		visible_message("<b>[user]</b> picks up \the [A] with \the [src].", blind_message = SPAN_NOTICE("You pick up \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
+		visible_message("<b>[user]</b> picks up \the [A] with \the [src].", SPAN_NOTICE("You pick up \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	to_chat(user, SPAN_WARNING("You fail to pick up \the [A] with \the [src]."))

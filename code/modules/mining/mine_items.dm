@@ -1219,7 +1219,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 
 /obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
-		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", blind_message = SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."), visible_message_flags = LOCAL_MESSAGE)
+		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 
