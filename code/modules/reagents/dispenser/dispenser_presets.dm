@@ -67,6 +67,7 @@
 /obj/structure/machinery/chemical_dispenser/bar_soft
 	name = "soft drink dispenser"
 	desc = "A soda machine."
+	persistent_cartridges = TRUE
 	icon_state = "soda_dispenser"
 	icon_state_active = null
 	ui_title = "Soda Dispenser"
@@ -107,6 +108,7 @@
 /obj/structure/machinery/chemical_dispenser/bar_alc
 	name = "booze dispenser"
 	desc = "A beer machine. Like a soda machine, but more fun!"
+	persistent_cartridges = TRUE
 	icon_state = "booze_dispenser"
 	icon_state_active = null
 	ui_title = "Booze Dispenser"
@@ -177,6 +179,7 @@
 /obj/structure/machinery/chemical_dispenser/coffeemaster
 	name = "Coffee Master 3000"
 	desc = "The only thing that can get some workers though the day, a coffee maker on steroids!"
+	persistent_cartridges = TRUE
 	icon_state = "coffee_master"
 	icon_state_active = null
 	ui_title = "Coffee Master 3000"
