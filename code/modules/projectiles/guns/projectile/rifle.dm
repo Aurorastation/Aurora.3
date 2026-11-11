@@ -12,7 +12,7 @@
 	max_shells = 5
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
-	rack_verb = "pull back the bolt on"
+	cycle_cue = "*rack*"
 	cycle_anim = FALSE
 
 	can_bayonet = TRUE
@@ -267,15 +267,15 @@
 		to_chat(user, SPAN_WARNING("There is no clip in \the [src.name]!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
+	playsound(M, rack_sound, 60, 1)
+	balloon_alert_to_viewers(cycle_cue)
 	if(!open_bolt)
 		open_bolt = 1
 		icon_state = "springfield-openbolt"
-		playsound(M, rack_sound, 60, 1)
 		update_icon()
 		return
 	open_bolt = 0
 	icon_state = "springfield"
-	playsound(M, rack_sound, 60, 1)
 	if(has_clip)
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
@@ -439,7 +439,7 @@
 	cycle_anim = TRUE
 
 	rack_sound = 'sound/weapons/reloads/lever_action_cock1.ogg'
-	rack_verb = "work the lever on"
+	cycle_cue = "*cycle*"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
 	drop_sound = 'sound/items/drop/rifle.ogg'

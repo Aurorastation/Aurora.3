@@ -6,6 +6,7 @@
 	item_state = "saber"
 	w_class = WEIGHT_CLASS_NORMAL
 	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
+	chamber_from_internal_feed = TRUE
 	max_shells = 22
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
@@ -203,6 +204,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
+	chamber_from_internal_feed = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	empty_sound = SFX_OUT_OF_AMMO_RIFLE
 	magazine_type = /obj/item/ammo_magazine/c762
@@ -459,11 +461,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	magazine_type = null
 
 /obj/item/gun/projectile/automatic/rifle/jingya/update_icon()
+	item_state = ammo_magazine ? "arx" : "arx-empty"
 	..()
-	if(ammo_magazine)
-		icon_state = "arx"
-	else
-		icon_state = "arx-empty"
+	icon_state = ammo_magazine ? "arx" : "arx-empty"
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "\improper CA-75E LMG"
@@ -473,6 +473,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	icon = 'icons/obj/guns/faction/caisc/ca-75e.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
+	persistent_chamber = FALSE // Unique Action operates the belt feed cover.
 	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	slot_flags = SLOT_BACK
@@ -591,8 +592,11 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 		var/obj/item/ammo_casing/C = stripper.stored_ammo[1]
 		magazine.stored_ammo.Add(C)
 		stripper.stored_ammo.Remove(C)
+		C.forceMove(magazine)
 	update_icon()
 	stripper.update_icon()
+	magazine.update_icon()
+	update_maptext()
 	playsound(src, 'sound/weapons/reload_clip.ogg', 30)
 
 /obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
@@ -873,6 +877,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	item_state = "poacher"
 	slot_flags = SLOT_BACK|SLOT_OCLOTHING
 	load_method = SINGLE_CASING
+	chamber_from_internal_feed = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	ammo_type = /obj/item/ammo_casing/vintage
 	handle_casings = EJECT_CASINGS

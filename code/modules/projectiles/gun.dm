@@ -479,7 +479,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 			break
 		var/obj/projectile = consume_next_projectile(user)
 		if(!projectile)
-			handle_click_empty(user)
+			handle_click_empty(user, null, TRUE)
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)] - accuracy_decrease
@@ -542,14 +542,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 	return (target in check_trajectory(target, user))
 
 /// Give a dry-fire cue and, when available, tell the operator why the shot was blocked.
-/obj/item/gun/proc/handle_click_empty(mob/user, reason)
+/obj/item/gun/proc/handle_click_empty(mob/user, reason, trigger_empty = FALSE, notify_empty = TRUE)
 	if(user && reason)
 		balloon_alert_to_viewers("*click*", ignored_mobs = list(user))
 		balloon_alert(user, reason)
 	else
 		balloon_alert_to_viewers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
-	if(user)
+	if(user && notify_empty)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
 
 /// Called after successfully firing

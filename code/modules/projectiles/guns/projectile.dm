@@ -9,7 +9,23 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	var/caliber = "357"		//determines which casings will fit
 	var/handle_casings = EJECT_CASINGS	//determines how spent casings should be handled
 	var/load_method = SINGLE_CASING|SPEEDLOADER //1 = Single shells, 2 = box or quick loader, 3 = magazine
+
+/**
+ * Chambering Vars
+ */
+
 	var/obj/item/ammo_casing/chambered = null
+	/// Enabled for detachable-magazine guns with self-loading receivers. Custom feeds can opt out.
+	var/persistent_chamber = TRUE
+	/// Allow a self-loading gun to chamber from its internal ammunition supply.
+	var/chamber_from_internal_feed = FALSE
+	var/chamber_rack_sound = SFX_RELOAD_RIFLE_SLIDE
+	var/chamber_locks_open = FALSE
+	var/chamber_locked_open = FALSE
+	/// A seated empty magazine blocks racking when there is no live chambered round.
+	var/block_empty_magazine_rack = FALSE
+	/// Prevent racking or starting another trigger request while this one is running.
+	var/chamber_firing = FALSE
 
 	//For SINGLE_CASING or SPEEDLOADER guns
 	var/max_shells = 0			//the number of casings that will fit inside
@@ -48,6 +64,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 /obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
+	if(persistent_chamber)
+		. += "Use Rack (Unique Action) to cycle the chamber."
+		if(!chamber_from_internal_feed)
+			. += "Removing the magazine leaves any chambered round in the gun."
 
 /obj/item/gun/projectile/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -57,23 +77,38 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		. += SPAN_WARNING("It looks jammed.")
 	if(ammo_magazine)
 		. += "It has \a [ammo_magazine] loaded."
+	if(persistent_chamber)
+		if(chamber_locked_open)
+			. += "The action is locked open."
+		else if(!QDELETED(chambered?.BB))
+			. += "There is a round chambered."
+		else
+			. += "There is no live round chambered."
 	if(suppressed)
 		. += "It has a suppressor attached."
 	. += "Has [get_ammo()] round\s remaining."
 
 /obj/item/gun/projectile/Initialize()
+	chamber_from_internal_feed = chamber_from_internal_feed && load_method != MAGAZINE
+	persistent_chamber = persistent_chamber && (load_method == MAGAZINE || chamber_from_internal_feed) && (handle_casings == EJECT_CASINGS || handle_casings == DELETE_CASINGS)
 	. = ..()
-	if(firemodes.len <= 1)
+	if(persistent_chamber || firemodes.len <= 1)
 		has_unique_gun_action = TRUE
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
 			loaded += new ammo_type(src)
 	if(ispath(magazine_type) && (load_method & MAGAZINE))
 		ammo_magazine = new magazine_type(src)
+	if(persistent_chamber)
+		feed_chamber()
+		update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/Destroy()
-	chambered = null
+	if(persistent_chamber)
+		QDEL_NULL(chambered)
+	else
+		chambered = null
 	QDEL_NULL(ammo_magazine)
 	QDEL_LIST(loaded)
 	. = ..()
@@ -91,6 +126,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 /obj/item/gun/projectile/consume_next_projectile()
 	if(jam_num)
 		return FALSE
+	if(persistent_chamber)
+		if(!QDELETED(chambered?.BB))
+			return chambered.BB
+		return null
 	//get the next casing
 	if(loaded.len)
 		chambered = loaded[1] //load next casing.
@@ -105,25 +144,74 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		return chambered.BB
 	return null
 
+/// Transfer the next casing from the gun's feed into its chamber.
+/obj/item/gun/projectile/proc/feed_chamber()
+	if(chambered)
+		return
+	var/list/feed = loaded
+	if(!chamber_from_internal_feed)
+		if(ammo_magazine?.loc != src)
+			return
+		feed = ammo_magazine.stored_ammo
+	if(!length(feed))
+		return
+	chambered = feed[1]
+	feed.Cut(1, 2)
+	if(!chamber_from_internal_feed)
+		chambered.forceMove(src)
+		ammo_magazine.update_icon()
+
+/obj/item/gun/projectile/fire_gun(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, accuracy_decrease = 0, is_offhand = FALSE, atom/controller)
+	if(!persistent_chamber)
+		return ..()
+	if(chamber_firing)
+		return FALSE
+	chamber_firing = TRUE
+	. = ..()
+	if(!QDELETED(src))
+		chamber_firing = FALSE
+
+/obj/item/gun/projectile/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params, pointblank = FALSE, reflex = FALSE)
+	. = ..()
+	if(. || !persistent_chamber || QDELETED(src) || !chambered || chambered.BB != projectile)
+		return
+	if(QDELETED(projectile))
+		chambered.expend()
+		update_maptext()
+	else if(projectile.loc != chambered)
+		projectile.forceMove(chambered)
+
 /obj/item/gun/projectile/post_fire(mob/user)
 	..()
 	if(chambered)
 		chambered.expend()
 		process_chambered(user)
-	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.check_weapon_affinity(src))
-			unload_ammo(user, TRUE, TRUE)
+	if(persistent_chamber)
+		feed_chamber()
+		if(chamber_locks_open && !chambered && ammo_magazine?.loc == src && !length(ammo_magazine.stored_ammo))
+			chamber_locked_open = TRUE
+			update_icon()
+	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && (!persistent_chamber || !chambered))
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.check_weapon_affinity(src))
+				unload_ammo(user, TRUE, TRUE)
+		if(persistent_chamber && auto_eject && ammo_magazine)
+			eject_empty_magazine(user)
 	update_maptext()
 
-/obj/item/gun/projectile/handle_click_empty(mob/user, reason)
+/obj/item/gun/projectile/handle_click_empty(mob/user, reason, trigger_empty = FALSE, notify_empty = TRUE)
+	if(persistent_chamber)
+		if(trigger_empty && !reason && !jam_num && (length(loaded) || length(ammo_magazine?.stored_ammo)))
+			reason = "rack first!"
+		return ..(user, reason, trigger_empty, notify_empty && trigger_empty && !jam_num && !get_ammo())
 	..()
 	process_chambered()
 
 /obj/item/gun/projectile/special_check(var/mob/user)
 	if(!..())
 		return FALSE
-	if(!jam_num && jam_chance && get_ammo())
+	if(!jam_num && jam_chance && (persistent_chamber ? !QDELETED(chambered?.BB) : get_ammo()))
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			balloon_alert(user, "jammed!")
@@ -185,6 +273,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method
 //Maybe this should be broken up into separate procs for each load method?
 /obj/item/gun/projectile/proc/load_ammo(var/obj/item/A, mob/user)
+	var/internal_capacity = max_shells - (persistent_chamber && chamber_from_internal_feed && chambered ? 1 : 0)
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
@@ -201,12 +290,12 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 				user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
 				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
-				if(loaded.len >= max_shells)
+				if(loaded.len >= internal_capacity)
 					to_chat(user,SPAN_WARNING("[src] is full!"))
 					return
 				var/count = 0
 				for(var/obj/item/ammo_casing/C in AM.stored_ammo)
-					if(loaded.len >= max_shells)
+					if(loaded.len >= internal_capacity)
 						break
 					if(C.caliber == caliber)
 						C.forceMove(src)
@@ -225,7 +314,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		if(caliber != C.caliber)
 			to_chat(user,SPAN_WARNING("\The [C] does not fit."))
 			return //incompatible
-		if(loaded.len >= max_shells)
+		if(loaded.len >= internal_capacity)
 			to_chat(user,SPAN_WARNING("[src] is full."))
 			return
 
@@ -319,8 +408,43 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		unload_ammo(user)
 
 /obj/item/gun/projectile/unique_action(mob/user)
-	if(firemodes.len <= 1)
-		unload_ammo(user)
+	if(!persistent_chamber)
+		if(firemodes.len <= 1)
+			unload_ammo(user)
+		return
+
+	if(user.get_active_hand() != src || user.next_move > world.time || use_check_and_message(user, USE_FORCE_SRC_IN_USER))
+		return
+	if(chamber_firing)
+		return
+	if(jam_num)
+		balloon_alert(user, "jammed!")
+		return
+	if(block_empty_magazine_rack && ammo_magazine?.loc == src && !length(ammo_magazine.stored_ammo) && QDELETED(chambered?.BB))
+		balloon_alert(user, "magazine empty!")
+		return
+	var/turf/drop_turf = get_turf(src)
+	if(!drop_turf)
+		return
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(chambered)
+		var/obj/item/ammo_casing/extracted = chambered
+		chambered = null
+		extracted.forceMove(drop_turf)
+		if(casing_has_gravity(extracted))
+			extracted.pixel_x = rand(-3, 3)
+			extracted.pixel_y = rand(-3, 3)
+			extracted.pixel_z = 6
+			var/ejection_angle = SIMPLIFY_DEGREES(dir2degree(turn(user.dir, 270)) + rand(-15, 15))
+			extracted.AddComponent(/datum/component/movable_physics, rand(24, 36), rand(32, 42), 132, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, extracted.drop_sound)
+		else
+			playsound(extracted, extracted.drop_sound, 30, TRUE)
+	chamber_locked_open = FALSE
+	feed_chamber()
+	playsound(src, chamber_rack_sound, 50, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	balloon_alert_to_viewers("*rack*")
+	update_maptext()
+	update_icon()
 
 /obj/item/gun/projectile/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
@@ -330,16 +454,21 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 
 /obj/item/gun/projectile/afterattack(atom/A, mob/living/user)
 	..()
-	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
-		ammo_magazine.forceMove(get_turf(src.loc))
+	if(!persistent_chamber && auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
+		eject_empty_magazine(user)
+
+/obj/item/gun/projectile/proc/eject_empty_magazine(mob/user)
+	var/obj/item/ammo_magazine/ejected_magazine = ammo_magazine
+	ammo_magazine = null
+	ejected_magazine.forceMove(get_turf(src))
+	if(user)
 		user.visible_message(
-			"[ammo_magazine] falls out and clatters on the floor!",
-			SPAN_NOTICE("[ammo_magazine] falls out and clatters on the floor!")
+			"[ejected_magazine] falls out and clatters on the floor!",
+			SPAN_NOTICE("[ejected_magazine] falls out and clatters on the floor!")
 			)
-		playsound(user, ammo_magazine.eject_sound, 40, FALSE)
-		ammo_magazine.update_icon()
-		ammo_magazine = null
-		update_icon() //make sure to do this after unsetting ammo_magazine
+	playsound(user || src, ejected_magazine.eject_sound, 40, FALSE)
+	ejected_magazine.update_icon()
+	update_icon()
 
 /obj/item/gun/projectile/get_ammo()
 	var/bullets = 0
@@ -347,7 +476,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		bullets += loaded.len
 	if(ammo_magazine && ammo_magazine.stored_ammo)
 		bullets += ammo_magazine.stored_ammo.len
-	if(chambered)
+	if(chambered && (!persistent_chamber || !QDELETED(chambered.BB)))
 		bullets += 1
 	return bullets
 

@@ -97,6 +97,9 @@
 		if("unique action")
 			icon_state = "unique_action"
 			name = "Unique Action"
+			var/obj/item/gun/projectile/ballistic_gun = gun
+			if(istype(ballistic_gun) && ballistic_gun.persistent_chamber)
+				name = "Rack"
 
 /// Cached visible bounds: left padding, bottom padding, width, height (in pixels).
 /// Include every frame of the supplied animations so their widest frame also fits.
