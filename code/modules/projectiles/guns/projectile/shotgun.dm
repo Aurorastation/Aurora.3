@@ -27,7 +27,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		to_chat(user, SPAN_NOTICE("You begin to [sawnoff_workmsg] of \the [src]."))
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
-				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
+				fire_gun(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message(SPAN_DANGER("\The [src] goes off!"),
 									SPAN_DANGER("\The [src] goes off in your face!"))
 
@@ -365,7 +365,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		return
 	..()
 
-/obj/item/gun/projectile/shotgun/wallgun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/wallgun/post_fire(mob/user)
 	..()
 	if(wielded)
 		return
