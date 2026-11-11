@@ -407,7 +407,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
 	if(cups > 0)
 		var/visible_messages = DispenserMessages(user)
-		visible_message(SPAN_NOTICE(visible_messages[1]), blind_message = SPAN_NOTICE(visible_messages[2]), visible_message_flags = LOCAL_MESSAGE)
+		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]), visible_message_flags = LOCAL_MESSAGE)
 		var/cup = new cup_type(loc)
 		user.put_in_active_hand(cup)
 		cups--

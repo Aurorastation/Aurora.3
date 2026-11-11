@@ -165,7 +165,7 @@
 				var/obj/item/card/emag/emagcard = attacking_item
 				emagcard.uses--
 				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"),
-								blind_message = SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"), visible_message_flags = LOCAL_MESSAGE)
+								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"), visible_message_flags = LOCAL_MESSAGE)
 
 
 				status = STATUS_BROKEN

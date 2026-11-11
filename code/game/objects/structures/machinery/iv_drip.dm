@@ -164,7 +164,7 @@
 		if(tipped)
 			return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
-			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), blind_message = SPAN_WARNING("You bump into \the [src], knocking it over!"), visible_message_flags = LOCAL_MESSAGE)
+			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"), visible_message_flags = LOCAL_MESSAGE)
 			do_crash()
 
 /obj/structure/machinery/iv_drip/update_icon()
@@ -590,7 +590,7 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), blind_message = SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 	if(beaker)
 		beaker.forceMove(dropspot)

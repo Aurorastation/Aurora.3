@@ -68,7 +68,7 @@ Deployable Kits
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
 						set_health(maxhealth)
-						visible_message("<b>[user]</b> repairs \the [src].", blind_message = SPAN_NOTICE("You repair \the [src]."), visible_message_flags = LOCAL_MESSAGE)
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
