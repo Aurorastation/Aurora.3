@@ -82,7 +82,7 @@
 
 /datum/component/skill/pilot_mechs/proc/handle_avoid_pilot_hit(mob/living/user, mob/living/heavy_vehicle/mech, cancelled)
 	SIGNAL_HANDLER
-	if(cancelled || parent != user || user.incapacitated())
+	if(*cancelled || parent != user || user.incapacitated())
 		return
 
 	var/avoidance_chance = (skill_level - SKILL_LEVEL_UNFAMILIAR) * pilot_hit_avoidance_per_rank
