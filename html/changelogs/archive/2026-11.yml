@@ -58,3 +58,20 @@
   rattydew:
   - bugfix: Resolved a missing accessory sprite for the red Han'san scaleshield custom
       item.
+2026-11-11:
+  FabianK3:
+  - bugfix: Fixed the (hacked) supply beacon activation.
+  OstianFox:
+  - rscadd: Added Edgar Dawnguard's Custom Item.
+  TheGreyWolf:
+  - bugfix: Fixed various grab related bugs.
+  - bugfix: Fixed the phoron supply monitor TGUI error.
+  - bugfix: Fixed dead plants not having a sprite.
+  - rscadd: Fixed various remote mech issues.
+  - rscadd: Fixed mech weapons not being as accurate as they're supposed to.
+  - bugfix: Fixed some incorrect moodlet icon behavior.
+  - bugfix: Fixed the IPC surge prevention module having its charges drained too fast.
+  - bugfix: The outpost blueprints should now be functional again.
+  - bugfix: Fixed skrell and others making foot step sounds and marks even when legless.
+  fyni:
+  - bugfix: Fixes a typo on the Dominian voidsuit.

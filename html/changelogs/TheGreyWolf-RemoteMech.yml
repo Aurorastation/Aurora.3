@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Fixed various remote mech issues."
-  - rscadd: "Fixed mech weapons not being as accurate as they're supposed to."
