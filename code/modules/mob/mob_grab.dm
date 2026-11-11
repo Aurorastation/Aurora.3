@@ -186,7 +186,7 @@
 					if(QDELETED(src))
 						return PROCESS_KILL
 					if(choked_out && state == GRAB_KILL && affecting == A)
-						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), self_message = FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")), visible_message_flags = GHOST_MESSAGE)
+						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), self_message = FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
 					has_choked = FALSE
 		else if(istype(affecting, /mob/living/simple_animal))
@@ -207,12 +207,12 @@
 	switch(target_zone)
 		if(BP_MOUTH)
 			if(announce)
-				user.visible_message(SPAN_WARNING("\The [user] covers [target]'s face!"), self_message = SPAN_WARNING("You cover [target]'s face!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("\The [user] covers [target]'s face!"), self_message = SPAN_WARNING("You cover [target]'s face!"))
 			if(target.silent < 3)
 				target.silent = 3
 		if(BP_EYES)
 			if(announce)
-				assailant.visible_message(SPAN_WARNING("[assailant] covers [affecting]'s eyes!"), self_message = SPAN_WARNING("You cover [target]'s eyes!"), visible_message_flags = GHOST_MESSAGE)
+				assailant.visible_message(SPAN_WARNING("[assailant] covers [affecting]'s eyes!"), self_message = SPAN_WARNING("You cover [target]'s eyes!"))
 			if(affecting.eye_blind < 3)
 				affecting.eye_blind = 3
 
@@ -309,9 +309,9 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message(SPAN_DANGER("[assailant] grabs [affecting] aggressively by the hands!"), self_message = SPAN_DANGER("You grab [affecting] aggressively by the hands!"), visible_message_flags = GHOST_MESSAGE)
+			assailant.visible_message(SPAN_DANGER("[assailant] grabs [affecting] aggressively by the hands!"), self_message = SPAN_DANGER("You grab [affecting] aggressively by the hands!"))
 		else
-			assailant.visible_message(SPAN_DANGER("[assailant] pins [affecting] down to the ground by the hands!"), self_message = SPAN_DANGER("You pin [affecting] down to the ground by the hands!"), visible_message_flags = GHOST_MESSAGE)
+			assailant.visible_message(SPAN_DANGER("[assailant] pins [affecting] down to the ground by the hands!"), self_message = SPAN_DANGER("You pin [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
 
 		state = GRAB_AGGRESSIVE
@@ -321,10 +321,10 @@
 		handle_eye_mouth_covering(affecting, assailant, assailant.zone_sel.selecting)
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
-			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), self_message = SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"), visible_message_flags = GHOST_MESSAGE)
+			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but [assailant.get_pronoun("his")] hands sink right through!"), self_message = SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"))
 			return
 		playsound(loc, SFX_GRAB, 50, FALSE, -1)
-		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), self_message = SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"), visible_message_flags = GHOST_MESSAGE)
+		assailant.visible_message(SPAN_DANGER("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck!"), self_message = SPAN_DANGER("You reinforce your grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
@@ -337,13 +337,13 @@
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/H = affecting
 			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
-				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), self_message = SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"), visible_message_flags = GHOST_MESSAGE)
+				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), self_message = SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"))
 				return
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
 		playsound(loc, SFX_GRAB, 50, FALSE, -1)
-		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), self_message = SPAN_DANGER("You start strangling [affecting]!"), visible_message_flags = GHOST_MESSAGE)
+		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), self_message = SPAN_DANGER("You start strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <span class='warning'>is strangling [affecting.name] ([affecting.ckey])</span>"
@@ -361,7 +361,7 @@
 		hud.icon_state = "kill"
 		hud.name = "kill"
 		state = GRAB_NECK
-		assailant.visible_message(SPAN_WARNING("[assailant] stops strangling [affecting]!"), self_message = SPAN_WARNING("You stop strangling [affecting]!"), visible_message_flags = GHOST_MESSAGE)
+		assailant.visible_message(SPAN_WARNING("[assailant] stops strangling [affecting]!"), self_message = SPAN_WARNING("You stop strangling [affecting]!"))
 	adjust_position()
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.
@@ -394,7 +394,7 @@
 			switch(assailant.a_intent)
 				if(I_HELP)
 					if(force_down)
-						assailant.visible_message(SPAN_WARNING("[assailant] is no longer pinning [affecting] to the ground."), self_message = SPAN_WARNING("You are no longer pinning [affecting] to the ground."), visible_message_flags = GHOST_MESSAGE)
+						assailant.visible_message(SPAN_WARNING("[assailant] is no longer pinning [affecting] to the ground."), self_message = SPAN_WARNING("You are no longer pinning [affecting] to the ground."))
 						force_down = 0
 						return
 					inspect_organ(affecting, assailant, hit_zone)
@@ -428,7 +428,7 @@
 
 /obj/item/grab/proc/reset_kill_state()
 	if(state == GRAB_KILL)
-		assailant.visible_message(SPAN_DANGER("[assailant] stops strangling [affecting] to move."), self_message = SPAN_DANGER("You stop strangling [affecting] to move."), visible_message_flags = GHOST_MESSAGE)
+		assailant.visible_message(SPAN_DANGER("[assailant] stops strangling [affecting] to move."), self_message = SPAN_DANGER("You stop strangling [affecting] to move."))
 		hud.icon_state = "kill"
 		state = GRAB_NECK
 
@@ -485,7 +485,7 @@
 		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
 		return
 
-	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", self_message = SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."), visible_message_flags = GHOST_MESSAGE)
+	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", self_message = SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
 
 	if(!do_after(H, 1 SECONDS, affecting))
 		return
@@ -503,7 +503,7 @@
 		var/obj/item/grab/offhand/OH = new /obj/item/grab/offhand(H, H, affecting, src)
 		H.put_in_hands(OH)
 
-	H.visible_message("<b>[H]</b> lifts \the [affecting] onto their shoulders!", self_message = SPAN_NOTICE("You lift \the [affecting] onto your shoulders!"), visible_message_flags = GHOST_MESSAGE)
+	H.visible_message("<b>[H]</b> lifts \the [affecting] onto their shoulders!", self_message = SPAN_NOTICE("You lift \the [affecting] onto your shoulders!"))
 
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
@@ -537,8 +537,7 @@
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] braces and starts bench pressing \the [affecting]!"),
-		self_message = SPAN_NOTICE("You brace and start bench pressing \the [affecting]!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You brace and start bench pressing \the [affecting]!")
 	)
 	animate(affecting, pixel_y = starting_pixel_y + lift_height, time = 0.5 SECONDS, easing = QUAD_EASING | EASE_OUT)
 	if(!do_after(user, 0.5 SECONDS, affecting, DO_EXERCISE))
@@ -570,8 +569,7 @@
 	if(lift_capacity < carried_mass)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] only manages to lift \the [affecting] part of the way before lowering them again."),
-			self_message = SPAN_NOTICE("You only manage to lift \the [affecting] part of the way before lowering them again."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You only manage to lift \the [affecting] part of the way before lowering them again.")
 		)
 		return FALSE
 
@@ -592,8 +590,7 @@
 		user.adjustHydrationLoss(exertion_level * 5 * THIRST_FACTOR)
 	user.visible_message(
 		SPAN_NOTICE("\The [user] bench presses \the [affecting] [effort_message]!"),
-		self_message = SPAN_NOTICE("You bench press \the [affecting] [effort_message]!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You bench press \the [affecting] [effort_message]!")
 	)
 	return TRUE
 

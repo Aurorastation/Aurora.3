@@ -203,7 +203,7 @@
 				to_chat(user, SPAN_WARNING("You can't empty \the [secured_storage] into \the [src]. It is locked."))
 				return TRUE
 
-		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", self_message = SPAN_NOTICE("You empty \the [S] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", self_message = SPAN_NOTICE("You empty \the [S] into \the [src]."), vision_distance = 3)
 		for(var/obj/item/O in S.contents)
 			S.remove_from_storage(O, src)
 		S.update_icon()
@@ -213,7 +213,7 @@
 	else if(istype(attacking_item, /obj/item/material/ashtray) && user.a_intent != I_HURT) // If attacked with ashtray on harm intent.
 		var/obj/item/material/ashtray/A = attacking_item
 		if(A.emptyout(src)) // Ashtray has contents.
-			user.visible_message("<b>[user]</b> pours \the [attacking_item] out into \the [src].", self_message = SPAN_NOTICE("You pour \the [attacking_item] out into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> pours \the [attacking_item] out into \the [src].", self_message = SPAN_NOTICE("You pour \the [attacking_item] out into \the [src]."))
 		else // Ashtray has no contents.
 			to_chat(user, SPAN_NOTICE("\The [attacking_item] is empty."))
 		return TRUE
@@ -263,7 +263,7 @@
 
 	user.drop_from_inventory(attacking_item, src)
 
-	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", self_message = SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> places \the [attacking_item] into \the [src].", self_message = SPAN_NOTICE("You place \the [attacking_item] into \the [src]."), vision_distance = 3)
 	update()
 
 /**
@@ -554,7 +554,7 @@
 
 	if(!can_flush)
 		shake_animation()
-		visible_message(SPAN_WARNING("\The [src] groans violently!"), vision_distance = 3)
+		visible_message(SPAN_WARNING("\The [src] groans violently!"), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		flush = FALSE
 		return
 
@@ -647,9 +647,9 @@
 	if(isitem(hitting_atom))
 		if(prob(75))
 			hitting_atom.forceMove(src)
-			visible_message(SPAN_NOTICE("[hitting_atom] lands in [src]."))
+			visible_message(SPAN_NOTICE("[hitting_atom] lands in [src]."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("[hitting_atom] bounces off of [src]'s rim!"))
+			visible_message(SPAN_NOTICE("[hitting_atom] bounces off of [src]'s rim!"), visible_message_flags = LOCAL_MESSAGE)
 			return ..()
 	else
 		return ..()

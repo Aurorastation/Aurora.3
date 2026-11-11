@@ -107,7 +107,7 @@
 		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
-				visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[user]</b> scoops [flavour_name] icecream into [I].")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[user]</b> scoops [flavour_name] icecream into [I].", visible_message_flags = LOCAL_MESSAGE)
 				product_types[dispense_flavour]--
 				I.add_ice_cream(flavour_name)
 			//	if(beaker)
@@ -136,9 +136,9 @@
 		product_types[make_type] += amount
 		var/flavour = get_flavour_name(make_type)
 		if(make_type > 6)
-			visible_message("<b>[user]</b> cooks up some [flavour] cones.")
+			visible_message("<b>[user]</b> cooks up some [flavour] cones.", visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message("<b>[user]</b> whips up some [flavour] icecream.")
+			visible_message("<b>[user]</b> whips up some [flavour] icecream.", visible_message_flags = LOCAL_MESSAGE)
 	else
 		to_chat(user, SPAN_WARNING("You don't have the ingredients to make this."))
 
@@ -150,7 +150,7 @@
 	if(href_list["select"])
 		dispense_flavour = text2num(href_list["select"])
 		flavour_name = get_flavour_name(dispense_flavour)
-		visible_message("<b>[usr]</b> sets [src] to dispense [flavour_name] flavoured icecream.")
+		visible_message("<b>[usr]</b> sets [src] to dispense [flavour_name] flavoured icecream.", visible_message_flags = LOCAL_MESSAGE)
 
 	if(href_list["cone"])
 		var/dispense_cone = text2num(href_list["cone"])
@@ -163,7 +163,7 @@
 		I.cone_type = cone_name
 		I.icon_state = "icecream_cone_[cone_name]"
 		I.desc = "Delicious [cone_name] cone, but no ice cream."
-		visible_message("<b>[usr]</b> dispenses a crunchy [cone_name] cone from [src].")
+		visible_message("<b>[usr]</b> dispenses a crunchy [cone_name] cone from [src].", visible_message_flags = LOCAL_MESSAGE)
 
 	if(href_list["make"])
 		var/amount = (text2num(href_list["amount"]))

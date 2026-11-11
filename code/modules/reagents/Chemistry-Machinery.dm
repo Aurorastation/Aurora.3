@@ -586,21 +586,21 @@
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
 			user.visible_message(SPAN_NOTICE("[user] looks like they're about to feed their own hair into the [src], but think better of it."),
-									self_message = SPAN_NOTICE("You grasp your hair and are about to feed it into the [src], but stop and come to your sense."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You grasp your hair and are about to feed it into the [src], but stop and come to your sense."))
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
 			user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into the [src]!"),
-									self_message = SPAN_WARNING("You start feeding [target]'s hair into the [src]!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("You start feeding [target]'s hair into the [src]!"))
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"),
-									self_message = SPAN_WARNING("You turn the [src] on!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("You turn the [src] on!"))
 			target.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 			target.apply_damage(25, DAMAGE_PAIN)
 			target.say("*scream")
@@ -616,13 +616,13 @@
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message(SPAN_WARNING("[user] starts tugging on [target]'s head as the [src] keeps running!"),
-									self_message = SPAN_WARNING("You start tugging on [target]'s head!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("You start tugging on [target]'s head!"))
 			target.apply_damage(25, DAMAGE_BRUTE, BP_HEAD)
 			target.apply_damage(10, DAMAGE_PAIN)
 			target.say("*scream")
 			spawn(10)
 			user.visible_message(SPAN_WARNING("[user] stops the [src] and leaves [target] resting as they are."),
-									self_message = SPAN_WARNING("You turn the [src] off and let go of [target]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("You turn the [src] off and let go of [target]."))
 
 /obj/structure/machinery/reagentgrinder/verb/Eject()
 	set src in oview(1)
@@ -632,8 +632,7 @@
 	if(use_check_and_message(usr))
 		return
 	usr.visible_message(
-	SPAN_NOTICE("[usr] opens [src] and has removed [english_list(holdingitems)]."),
-	visible_message_flags = GHOST_MESSAGE
+	SPAN_NOTICE("[usr] opens [src] and has removed [english_list(holdingitems)].")
 		)
 
 	eject()

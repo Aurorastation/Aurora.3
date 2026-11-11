@@ -66,7 +66,7 @@
 			newtype = /obj/structure/inflatable/wall
 
 	deploying = 1
-	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", self_message = SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts deploying an inflatable [mode ? "door" : "wall"].", self_message = SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
 	if(do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 		new newtype(T)
@@ -91,7 +91,7 @@
 			stored_doors++
 			qdel(A)
 		playsound(get_turf(src), 'sound/machines/hiss.ogg', 75, TRUE)
-		visible_message("<b>[user]</b> deflates \the [A] with \the [src].", blind_message = SPAN_NOTICE("You deinflate \the [A] with \the [src]."))
+		visible_message("<b>[user]</b> deflates \the [A] with \the [src].", blind_message = SPAN_NOTICE("You deinflate \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	else if(istype(A, /obj/item/inflatable))
 		if(istype(A, /obj/item/inflatable/wall))
@@ -106,7 +106,7 @@
 				return
 			stored_doors++
 			qdel(A)
-		visible_message("<b>[user]</b> picks up \the [A] with \the [src].", blind_message = SPAN_NOTICE("You pick up \the [A] with \the [src]."))
+		visible_message("<b>[user]</b> picks up \the [A] with \the [src].", blind_message = SPAN_NOTICE("You pick up \the [A] with \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	to_chat(user, SPAN_WARNING("You fail to pick up \the [A] with \the [src]."))

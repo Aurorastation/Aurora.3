@@ -124,7 +124,7 @@
 			to_chat(user, SPAN_WARNING("\The [I] is no longer in storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), vision_distance = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 		I.forceMove(get_turf(src))
 		if(Adjacent(user))
@@ -140,7 +140,7 @@
 			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), vision_distance = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 		for(var/obj/item/I in frozen_items)
 			I.forceMove(get_turf(src))
@@ -387,7 +387,7 @@
 
 	if(force_announce || is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
-	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
+	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, on_store_sound, 25)
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
@@ -461,7 +461,7 @@
 	if(!willing)
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), self_message = SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), self_message = SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3)
 	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE

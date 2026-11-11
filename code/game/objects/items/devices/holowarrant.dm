@@ -67,7 +67,7 @@
 
 /obj/item/holowarrant/proc/play_message(var/message)
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 40)
-	audible_message(message)
+	audible_message(message, audible_message_flags = LOCAL_MESSAGE)
 
 /// Called when a warrant is created
 /obj/item/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)
@@ -95,7 +95,7 @@
 		to_chat(user, SPAN_WARNING("There are no warrants loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", self_message = SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", self_message = SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
 	show_content(target_mob)
 
 /obj/item/holowarrant/update_icon()

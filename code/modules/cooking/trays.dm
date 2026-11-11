@@ -40,7 +40,7 @@
 
 	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
-			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 		return TRUE
@@ -83,8 +83,7 @@
 		user.visible_message(
 			"<b>[user]</b> tries to stack two trays and spills their contents everywhere!",
 			self_message = SPAN_WARNING("You spill both the trays' contents!"),
-			blind_message = SPAN_WARNING("You hear the sound of metal crashing!"),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_WARNING("You hear the sound of metal crashing!")
 		)
 		return
 	var/remaining = max_carry - current_weight
@@ -94,8 +93,7 @@
 			user.visible_message(
 				"<b>[user]</b> places [I] on the tray.",
 				self_message = SPAN_NOTICE("You place [I] on the tray."),
-				blind_message = SPAN_NOTICE("You hear something being placed on a tray."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_NOTICE("You hear something being placed on a tray.")
 			)
 		return TRUE
 	if (messages)
@@ -167,7 +165,7 @@
 
 	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-	user.visible_message("<b>[user]</b> unloads the tray.", self_message = SPAN_NOTICE("You unload the tray."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> unloads the tray.", self_message = SPAN_NOTICE("You unload the tray."))
 
 
 /obj/item/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)
@@ -184,9 +182,9 @@
 		unload_item(I, dropspot)
 		I.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(0, 2), 10)
 	if (user)
-		user.visible_message("<b>[user]</b> spills their tray all over the floor.", self_message = SPAN_WARNING("You spill the tray!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> spills their tray all over the floor.", self_message = SPAN_WARNING("You spill the tray!"))
 	else
-		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
+		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(dropspot, SFX_TRAY_HIT, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)

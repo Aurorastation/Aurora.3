@@ -39,7 +39,7 @@
 	loc = M.loc
 	canmove = FALSE
 	anchored = TRUE
-	visible_message(SPAN_DANGER("\The [src] leaps onto [victim], feeding on them!"), self_message = SPAN_WARNING("You start feeding on [victim]."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] leaps onto [victim], feeding on them!"), self_message = SPAN_WARNING("You start feeding on [victim]."))
 
 	regenerate_icons()
 
@@ -87,7 +87,7 @@
 				victim.updatehealth()
 
 			if(nutrition >= get_max_nutrition())
-				visible_message(SPAN_WARNING("\The [src] releases [victim], content and full."), self_message = SPAN_WARNING("You are full."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("\The [src] releases [victim], content and full."), self_message = SPAN_WARNING("You are full."))
 				check_friendship_increase() // increase our friendship with the person who fed us
 				break
 

@@ -74,10 +74,10 @@
 		return
 
 	if(prob(attacking_item.force * 2))
-		visible_message(SPAN_WARNING("[user] smashes [src] with [attacking_item]!"))
+		visible_message(SPAN_WARNING("[user] smashes [src] with [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 		shatter()
 	else
-		visible_message(SPAN_WARNING("[user] hits [src] with [attacking_item]!"))
+		visible_message(SPAN_WARNING("[user] hits [src] with [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
 /obj/structure/mirror/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
@@ -88,10 +88,10 @@
 		return 0
 
 	if(damage)
-		user.visible_message(SPAN_DANGER("[user] smashes [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] smashes [src]!"))
 		shatter()
 	else
-		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"))
 	return 1
 
 /obj/effect/reflection

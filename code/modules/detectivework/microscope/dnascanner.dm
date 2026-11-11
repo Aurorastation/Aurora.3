@@ -45,7 +45,7 @@
 		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear a ratchet")
 		anchored = !anchored
 		return TRUE
 	return ..()
@@ -125,7 +125,7 @@
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/dnaforensics/proc/complete_scan()
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), vision_distance = 2)
+	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()

@@ -113,7 +113,7 @@
 	// Removing components.
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(is_reinforced == FRAME_REINFORCED)
-			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
 			new /obj/item/stack/material/steel(loc, 15)
 			is_reinforced = 0
 			return
@@ -168,7 +168,7 @@
 
 		// We're all done. Finalize the mech and pass the frame to the new system.
 		var/mob/living/heavy_vehicle/M = new(get_turf(src), src)
-		visible_message("\The [user] finishes off \the [M].")
+		visible_message("\The [user] finishes off \the [M].", visible_message_flags = LOCAL_MESSAGE)
 		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		arms = null
@@ -191,7 +191,7 @@
 			to_chat(user, SPAN_WARNING("You need at least ten units of cable to complete the exosuit."))
 			return
 
-		user.visible_message("\The [user] begins wiring \the [src]...", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] begins wiring \the [src]...")
 
 		if(!do_after(user, 30))
 			return
@@ -200,7 +200,7 @@
 			return
 
 		CC.use(10)
-		user.visible_message("\The [user] installs wiring in \the [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] installs wiring in \the [src].")
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		is_wired = FRAME_WIRED
 	// Securing wiring.
@@ -209,7 +209,7 @@
 			to_chat(user, "There is no wiring in \the [src] to neaten.")
 			return
 
-		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].")
+		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		is_wired = (is_wired == FRAME_WIRED_ADJUSTED) ? FRAME_WIRED : FRAME_WIRED_ADJUSTED
 	// Installing metal.
@@ -222,7 +222,7 @@
 			if(M.amount < 15)
 				to_chat(user, SPAN_WARNING("You need at least fifteen sheets of steel to reinforce \the [src]."))
 				return
-			visible_message("\The [user] reinforces \the [src] with \the [M].")
+			visible_message("\The [user] reinforces \the [src] with \the [M].", visible_message_flags = LOCAL_MESSAGE)
 			playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			is_reinforced = FRAME_REINFORCED
 			M.use(15)
@@ -236,7 +236,7 @@
 		if(is_reinforced == FRAME_REINFORCED_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcement has been welded in."))
 			return
-		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].")
+		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		is_reinforced = (is_reinforced == FRAME_REINFORCED_SECURE) ? FRAME_REINFORCED : FRAME_REINFORCED_SECURE
 	// Welding metal.
@@ -252,7 +252,7 @@
 			to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 			return
 		if(WT.use(1, user))
-			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
+			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].", visible_message_flags = LOCAL_MESSAGE)
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
 			attacking_item.play_tool_sound(get_turf(src), 50)
 		else
@@ -306,7 +306,7 @@
 		return 0
 	user.unEquip(thing)
 	thing.forceMove(src)
-	visible_message("\The [user] installs \the [thing] into \the [src].")
+	visible_message("\The [user] installs \the [thing] into \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	playsound(user.loc, 'sound/machines/click.ogg', 50, 1)
 	return 1
 
@@ -314,7 +314,7 @@
 	if(!istype(component) || (component.loc != src) || !istype(user))
 		return FALSE
 
-	user.visible_message("\The [user] crowbars \the [component] off \the [src].", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("\The [user] crowbars \the [component] off \the [src].")
 	component.forceMove(get_turf(src))
 	user.put_in_hands(component)
 	playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)

@@ -91,12 +91,12 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			if(I.default_type in burnable_materials)
 				I.use(1)
 				fuel = min(fuel + burnable_materials[I.default_type], max_fuel)
-				user.visible_message(SPAN_NOTICE("\The [user] adds some of \the [I] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] adds some of \the [I] to \the [src]."))
 				return
 		if(is_type_in_list(attacking_item, burnable_other))
 			var/fuel_add = burnable_other[attacking_item]
 			fuel = min(fuel + fuel_add, max_fuel)
-			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [attacking_item] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [attacking_item] into \the [src]."))
 			user.drop_from_inventory(attacking_item)
 			qdel(attacking_item)
 			return
@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			if(M.material.type in burnable_materials)
 				var/fuel_add = burnable_materials[M.material] * (M.w_class / 5) //if you crafted a small item, it's not worth as much fuel
 				fuel = min(fuel + fuel_add, max_fuel)
-				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."))
 				user.drop_from_inventory(attacking_item)
 				attacking_item.forceMove(get_turf(src))
 				qdel(attacking_item)
@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	update_icon()
 	GLOB.total_active_bonfires -= src
 	if(burn_out)
-		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."))
+		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."), visible_message_flags = LOCAL_MESSAGE)
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
 		qdel(src)
 
@@ -332,7 +332,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		if(fuel / max_fuel <= 0.25)
 			message_picks += list("The embers shift as a piece of wood falls into them.", "The glow of the fire pulses weakly.", "Ash dances upward with a few sparks.")
 		var/message = "<I>[pick(message_picks)]</I>"
-		visible_message(SPAN_NOTICE(message))
+		visible_message(SPAN_NOTICE(message), visible_message_flags = LOCAL_MESSAGE)
 		last_ambient_message = world.time
 
 /obj/structure/bonfire/light_up/Initialize()

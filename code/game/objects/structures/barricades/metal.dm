@@ -56,7 +56,7 @@
 				if(!attacking_item.use_tool(src, user, 1 SECOND, volume = 40))
 					return
 				user.visible_message(SPAN_NOTICE("[user] removes [src]'s protection panel."),
-				self_message = SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				return
 
@@ -65,14 +65,14 @@
 				if(!attacking_item.use_tool(src, user, 2 SECONDS, volume = 40))
 					return
 				user.visible_message(SPAN_NOTICE("[user] screws \the [src]'s protection panel back."),
-				self_message = SPAN_NOTICE("You screw \the [src]'s protection panel back."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You screw \the [src]'s protection panel back."))
 				build_state = BARRICADE_BSTATE_SECURED
 				return
 			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(!attacking_item.use_tool(src, user, 1 SECOND, volume = 40))
 					return
 				user.visible_message(SPAN_NOTICE("[user] loosens [src]'s anchor bolts."),
-				self_message = SPAN_NOTICE("You loosen [src]'s anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You loosen [src]'s anchor bolts."))
 				anchored = FALSE
 				build_state = BARRICADE_BSTATE_MOVABLE
 				update_icon() //unanchored changes layer
@@ -90,17 +90,17 @@
 				if(!attacking_item.use_tool(src, user, 1 SECOND, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] secures [src]'s anchor bolts."),
-				self_message = SPAN_NOTICE("You secure [src]'s anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You secure [src]'s anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				anchored = TRUE
 				update_icon() //unanchored changes layer
 				return
 			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				user.visible_message(SPAN_NOTICE("[user] starts unseating [src]'s panels."),
-				self_message = SPAN_NOTICE("You start unseating [src]'s panels."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You start unseating [src]'s panels."))
 				if(attacking_item.use_tool(src, user, 3 SECONDS, volume = 40))
 					user.visible_message(SPAN_NOTICE("[user] takes [src]'s panels apart."),
-					self_message = SPAN_NOTICE("You take [src]'s panels apart."), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_NOTICE("You take [src]'s panels apart."))
 					barricade_deconstruct(TRUE) //Note : Handles deconstruction too !
 				return
 

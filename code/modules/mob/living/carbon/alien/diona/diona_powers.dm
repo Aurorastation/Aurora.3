@@ -37,7 +37,7 @@
 		to_chat(src, SPAN_WARNING("[H.name] has rejected your wish to merge!"))
 		return FALSE
 
-	H.visible_message(SPAN_WARNING("[H] starts absorbing [src] into its body."), self_message = SPAN_WARNING("You start absorbing [src]. This will take 15 seconds and both of you must remain still."), blind_message = SPAN_WARNING("You hear a strange, alien, sucking noise."), visible_message_flags = GHOST_MESSAGE)
+	H.visible_message(SPAN_WARNING("[H] starts absorbing [src] into its body."), self_message = SPAN_WARNING("You start absorbing [src]. This will take 15 seconds and both of you must remain still."), blind_message = SPAN_WARNING("You hear a strange, alien, sucking noise."))
 	to_chat(src, SPAN_NOTICE("You feel yourself slowly becoming part of something greater, remain still to finish."))
 	face_atom(H)
 	H.face_atom(get_turf(src))
@@ -102,7 +102,7 @@
 			to_chat(src, SPAN_WARNING("\The [D] must remain close to the collective if [D.get_pronoun("he")] wishes to be part of us."))
 			return
 
-	src.visible_message(SPAN_WARNING("[src] starts absorbing [D] into its body."), self_message = SPAN_WARNING("You start absorbing [D]. This will take 15 seconds and both of you must remain still."), blind_message = SPAN_WARNING("You hear a strange, alien, sucking noise."), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_WARNING("[src] starts absorbing [D] into its body."), self_message = SPAN_WARNING("You start absorbing [D]. This will take 15 seconds and both of you must remain still."), blind_message = SPAN_WARNING("You hear a strange, alien, sucking noise."))
 	to_chat(D, SPAN_NOTICE("You feel yourself slowly becoming part of something greater, remain still to finish."))
 	face_atom(D)
 	D.face_atom(get_turf(src))
@@ -198,16 +198,16 @@
 	var/types = donor.find_type()
 
 	if(types & TYPE_SYNTHETIC)
-		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal."), self_message = SPAN_DANGER("You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal."), self_message = SPAN_DANGER("You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth."))
 		donor.adjustBruteLoss(2)
 		adjustBruteLoss(15) //biting metal hurts!
 	else if (isanimal(donor) && (types & TYPE_ORGANIC) && donor.stat != DEAD)
-		visible_message(SPAN_DANGER("[src] bites into [donor.name] and drains some of their blood."), self_message = SPAN_DANGER("You bite into [donor.name] and drain some of their blood."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] bites into [donor.name] and drains some of their blood."), self_message = SPAN_DANGER("You bite into [donor.name] and drain some of their blood."))
 		to_chat(src, SPAN_DANGER("This simple creature has insufficient intelligence for you to learn anything!"))
 		donor.adjustBruteLoss(4)
 		adjustNutritionLoss(-20)
 	else if (types & TYPE_WEIRD)
-		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), self_message = SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] attempts to bite into [donor.name] but passes right through it!."), self_message = SPAN_DANGER("You attempt to sink your fangs into [donor.name] but pass right through it!"))
 	else if (ishuman(donor))
 		var/datum/dionastats/DS = get_dionastats()
 		if(DS)
@@ -362,6 +362,6 @@
 	if(hat)
 		src.drop_from_inventory(hat)
 		hat = null
-		visible_message(SPAN_WARNING("[src] removes their hat!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] removes their hat!"))
 	else
 		to_chat(src, SPAN_WARNING("You have no hat!"))

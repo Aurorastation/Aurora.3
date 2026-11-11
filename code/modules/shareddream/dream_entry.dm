@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 				return_text = "You are ripped from the Srom." // You're dead - ensures there's no message about feeling weird or waking up.
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.visible_message(SPAN_NOTICE("[old_bg] begins to fade as they depart from the dream..."), visible_message_flags = GHOST_MESSAGE)
+			old_bg.visible_message(SPAN_NOTICE("[old_bg] begins to fade as they depart from the dream..."))
 			animate(old_bg, alpha=0, time = 20)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))

@@ -321,8 +321,7 @@
 	if(!seal_target && !suit_is_deployed())
 		wearer.visible_message(
 			SPAN_DANGER("[wearer]'s suit flashes an error light."),
-			self_message = SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed.")
 		)
 		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
@@ -340,7 +339,7 @@
 	if(!failed_to_seal)
 		if(!instant)
 			wearer.visible_message(SPAN_NOTICE("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."),
-									self_message = SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."))
 
 			if(seal_delay && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 				if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
@@ -432,7 +431,7 @@
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>", visible_message_flags = LOCAL_MESSAGE)
 			crushing = TRUE
 
 	if(wearer != initiator)
@@ -518,7 +517,7 @@
 		wearer.apply_damage(10 * seconds_per_tick) // Applies 10 brute damage per second to a random extremity
 		if(wearer.stat == DEAD)
 			crushing = FALSE
-			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
+			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit.."), visible_message_flags = LOCAL_MESSAGE) // this denotes that the user inside has died.
 
 	if(offline)
 		crushing = FALSE
@@ -869,14 +868,14 @@
 /obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
 	if(istype(M) && slot == slot_back)
 		if(!assisted_equip && seal_delay > 0)
-			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), self_message = SPAN_NOTICE("You start putting on \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), self_message = SPAN_NOTICE("You start putting on \the [src]..."))
 			if(!do_after(M, seal_delay))
 				return FALSE
 
 		if(wearer && wearer != M)
 			unregister_wearer_signals(wearer)
 
-		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), self_message = SPAN_NOTICE("<b>You struggle into \the [src].</b>"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_NOTICE("<b>[M] struggles into \the [src].</b>"), self_message = SPAN_NOTICE("<b>You struggle into \the [src].</b>"))
 		wearer = M
 		wearer.wearing_rig = src
 		register_wearer_signals(wearer)

@@ -78,7 +78,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 			if(last_rads > max_rads)
 				if(world.time > end_time)
 					end_time = world.time + alert_delay
-					visible_message("[icon2html(src, viewers(get_turf(src)))] \the [src] beeps loudly as the radiation reaches dangerous levels, indicating imminent damage.")
+					visible_message("[icon2html(src, viewers(get_turf(src)))] \the [src] beeps loudly as the radiation reaches dangerous levels, indicating imminent damage.", visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
 			receive_pulse(12.5*(last_rads/max_rads)/(0.3+(last_rads/max_rads)) * seconds_per_tick)
 
@@ -105,7 +105,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 	if(!src.locked)
 		toggle_power()
 		user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
-		self_message = "You turn the [src.name] [active? "on":"off"].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You turn the [src.name] [active? "on":"off"].")
 		investigate_log("turned [active ? SPAN_COLOR("green", "on") : SPAN_COLOR("red", "off")] by [user.key]. [loaded_tank ? "Fuel: [round(loaded_tank.air_contents.gas[GAS_PHORON]/0.29)]%" : SPAN_COLOR("red", "It is empty")].","singulo")
 	else
 		USE_FEEDBACK_FAILURE("The controls are locked!")
@@ -145,7 +145,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
 			self_message = "You [anchored? "secure":"undo"] the external bolts.", \
-			blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear a ratchet")
 		if(anchored && !(stat & BROKEN))
 			connect_to_network()
 		else
@@ -172,7 +172,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 		var/turf/T = get_turf(src)
 		if(T)
 			T.assume_air(loaded_tank.air_contents)
-			audible_message(SPAN_DANGER("\The [loaded_tank.name] detonates, sending shrapnel flying!"))
+			audible_message(SPAN_DANGER("\The [loaded_tank.name] detonates, sending shrapnel flying!"), audible_message_flags = LOCAL_MESSAGE)
 			explosion(T, -1, -1, 0)
 			QDEL_NULL(loaded_tank)
 	disconnect_from_network()

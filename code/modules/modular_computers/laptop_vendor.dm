@@ -340,10 +340,10 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
-								self_message = SPAN_NOTICE("You start unsecuring \the [src] from the floor."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
 		else
 			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
-								self_message = SPAN_NOTICE("You start securing \the [src] to the floor."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You start securing \the [src] to the floor."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src)
 				return
@@ -398,9 +398,9 @@
 		cash = id_container
 	if(id_card)
 		if(id_card == id_container || !id_container)
-			visible_message("<span class='info'>\The [usr] swipes \the [id_card] through \the [src].</span>")
+			visible_message("<span class='info'>\The [usr] swipes \the [id_card] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message("<span class='info'>\The [usr] swipes \the [id_container] through \the [src].</span>")
+			visible_message("<span class='info'>\The [usr] swipes \the [id_container] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 		//Allow BSTs to take stuff from vendors, for debugging and adminbus purposes
 		if(istype(id_card, /obj/item/card/id/bst))
@@ -441,7 +441,7 @@
 			ping("Insufficient funds!")
 			return FALSE
 		else
-			visible_message(SPAN_INFO("\The [usr] inserts [cash] into \the [src]."))
+			visible_message(SPAN_INFO("\The [usr] inserts [cash] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, SFX_PRINT, 50, 1)
 			var/change = credit_value - total_price
 			if(cash.is_bundle())

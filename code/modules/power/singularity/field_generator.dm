@@ -83,7 +83,7 @@ field_generator power level display
 			else
 				user.visible_message("[user.name] turns on the [src.name]", \
 					self_message = "You turn on the [src.name].", \
-					blind_message = "You hear heavy droning", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear heavy droning")
 				turn_on()
 				investigate_log("<font color='green'>activated</font> by [user.key].","singulo")
 
@@ -104,7 +104,7 @@ field_generator power level display
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] secures [src.name] to the floor.",
 										self_message = "You secure the external reinforcing bolts to the floor.",
-										blind_message = "You hear ratchet", visible_message_flags = GHOST_MESSAGE)
+										blind_message = "You hear ratchet")
 				src.anchored = 1
 				update_icon()
 			if(1)
@@ -112,7 +112,7 @@ field_generator power level display
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.",
 										self_message = "You undo the external reinforcing bolts.",
-										blind_message = "You hear ratchet", visible_message_flags = GHOST_MESSAGE)
+										blind_message = "You hear ratchet")
 				src.anchored = 0
 				update_icon()
 			if(2)
@@ -129,7 +129,7 @@ field_generator power level display
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to weld the [src.name] to the floor.",
 											self_message = "You start to weld the [src] to the floor.",
-											blind_message = "You hear welding", visible_message_flags = GHOST_MESSAGE)
+											blind_message = "You hear welding")
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 2
@@ -142,7 +142,7 @@ field_generator power level display
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.",
 											self_message = "You start to cut the [src] free from the floor.",
-											blind_message = "You hear welding", visible_message_flags = GHOST_MESSAGE)
+											blind_message = "You hear welding")
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn()) return
 						state = 1
@@ -210,7 +210,7 @@ field_generator power level display
 	if(draw_power(round(power_draw)) >= power_draw)
 		return 1
 	else
-		visible_message(SPAN_ALERT("\The [src] shuts down!"))
+		visible_message(SPAN_ALERT("\The [src] shuts down!"), visible_message_flags = LOCAL_MESSAGE)
 		turn_off()
 		investigate_log("ran out of power and <span class='warning'>deactivated</span>","singulo")
 		src.power = 0

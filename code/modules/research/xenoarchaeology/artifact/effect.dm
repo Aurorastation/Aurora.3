@@ -69,7 +69,7 @@
 			var/atom/toplevelholder = holder
 			while(!istype(toplevelholder.loc, /turf))
 				toplevelholder = toplevelholder.loc
-			toplevelholder.visible_message(SPAN_WARNING("[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]"), visible_message_flags = (ismob(toplevelholder) ? GHOST_MESSAGE : NONE))
+			toplevelholder.visible_message(SPAN_WARNING("[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]"), visible_message_flags = (ismob(toplevelholder) ? NONE : LOCAL_MESSAGE))
 
 /datum/artifact_effect/proc/DoEffectTouch(var/mob/living/user)
 /datum/artifact_effect/proc/DoEffectAura(var/atom/holder)

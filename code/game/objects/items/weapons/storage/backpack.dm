@@ -1013,7 +1013,7 @@
 
 	wings_extended = !wings_extended
 	playsound(src.loc, 'sound/items/storage/wings.ogg', 50)
-	user.visible_message("<b>[user]</b> [wings_extended ? "extend" : "collapse"]s their wings.", self_message = SPAN_NOTICE("You [wings_extended ? "extend" : "collapse"] your wings."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> [wings_extended ? "extend" : "collapse"]s their wings.", self_message = SPAN_NOTICE("You [wings_extended ? "extend" : "collapse"] your wings."))
 	icon_state = "[initial(icon_state)][wings_extended ? "_open" : ""]"
 	item_state = "icon_state"
 

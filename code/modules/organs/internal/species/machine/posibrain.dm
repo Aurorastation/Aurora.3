@@ -67,7 +67,7 @@
 
 /obj/item/organ/internal/machine/posibrain/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	playsound(src, SFX_BREAK_GLASS, 100, 1)
-	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"))
+	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"), visible_message_flags = LOCAL_MESSAGE)
 	to_chat(owner, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
 	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
 	. = ..()
@@ -476,12 +476,12 @@
 
 	self_preservation_activated = state
 	if(!self_preservation_activated)
-		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), self_message = SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), self_message = SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."))
 		if(!is_broken())
 			playsound(owner, 'sound/species/synthetic/synthetic_restart.ogg', 100)
 		self_preservation_activated = FALSE
 	else
-		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), self_message = FONT_LARGE(SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!")), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), self_message = FONT_LARGE(SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!")))
 		if(!is_broken())
 			playsound(owner, 'sound/species/synthetic/synthetic_stun.ogg', 100)
 		self_preservation_activated = TRUE

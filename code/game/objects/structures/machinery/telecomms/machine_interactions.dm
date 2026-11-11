@@ -28,7 +28,7 @@
 	// Beat it with a stick!
 	if(!istype(user, /mob/living/silicon))
 		if(user.a_intent == I_HURT)
-			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
 			user.do_attack_animation(user, used_item = attacking_item)
 			playsound(loc, hitsound, 60, TRUE)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

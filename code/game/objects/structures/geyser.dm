@@ -26,7 +26,7 @@
 			trigger(L)
 
 /obj/structure/geyser/proc/trigger(mob/living/carbon/human/L)
-	visible_message(SPAN_WARNING("\The [src] spews a cloud of hot steam!"))
+	visible_message(SPAN_WARNING("\The [src] spews a cloud of hot steam!"), visible_message_flags = LOCAL_MESSAGE)
 	flick("geyser_fire", src)
 	var/steam_temperature = pick(10,50,100,500)
 	L.bodytemperature += steam_temperature

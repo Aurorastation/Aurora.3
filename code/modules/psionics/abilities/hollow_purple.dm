@@ -26,7 +26,7 @@
 		return
 
 	stage = 1
-	user.visible_message(SPAN_NOTICE("<b><font size=4>[user] puts [user.get_pronoun("his")] palms together...</font></b>"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("<b><font size=4>[user] puts [user.get_pronoun("his")] palms together...</font></b>"))
 	START_PROCESSING(SSprocessing, src)
 	user.say("Cursed Technique Amplification: Blue...")
 	user.set_light_range_power_color(7, 10, COLOR_BLUE)
@@ -40,7 +40,7 @@
 		if(do_after(user, 4 SECONDS))
 			user.say("Hollow Technique: Purple!")
 			user.set_light_on(FALSE)
-			user.visible_message(SPAN_CULT("<b><font size=4>[user] fires a gigantic purple sphere from [user.get_pronoun("his")] hand!</font></b>"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_CULT("<b><font size=4>[user] fires a gigantic purple sphere from [user.get_pronoun("his")] hand!</font></b>"))
 			. = ..()
 
 	STOP_PROCESSING(SSprocessing, src)

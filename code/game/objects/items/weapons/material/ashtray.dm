@@ -42,7 +42,7 @@
 /obj/item/material/ashtray/shatter()
 	..()
 	if(emptyout(get_turf(src)))
-		visible_message(SPAN_DANGER("The contents of [src] spill everywhere!"))
+		visible_message(SPAN_DANGER("The contents of [src] spill everywhere!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/material/ashtray/proc/emptyout(atom/dest)
 	if(!contents.len)
@@ -55,7 +55,7 @@
 /obj/item/material/ashtray/attack_self(mob/user)
 	var/turf/dest = get_turf(src)
 	if(emptyout(dest))
-		user.visible_message("<b>[user]</b> pours [src] out onto [dest].", self_message = SPAN_NOTICE("You pour [src] out onto [dest]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> pours [src] out onto [dest].", self_message = SPAN_NOTICE("You pour [src] out onto [dest]."))
 		return
 	to_chat(user, SPAN_WARNING("[src] is empty, there's nothing to pour out!"))
 
@@ -95,7 +95,7 @@
 		if (istype(attacking_item,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = attacking_item
 			if (cig.lit == TRUE)
-				user.visible_message("<b>[user]</b> crushes [cig] in [src], putting it out.", self_message = SPAN_NOTICE("You crush [cig] in [src], putting it out."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> crushes [cig] in [src], putting it out.", self_message = SPAN_NOTICE("You crush [cig] in [src], putting it out."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 				STOP_PROCESSING(SSprocessing, cig)
 				var/obj/item/butt = new cig.type_butt(src)
@@ -107,11 +107,10 @@
 			else if (cig.lit == FALSE)
 				user.visible_message(
 					"<b>[user]</b> places [cig] in [src] without even smoking it.",
-					self_message = SPAN_NOTICE("You place [cig] in [src] without even smoking it. Why would you do that?"),
-					visible_message_flags = GHOST_MESSAGE
+					self_message = SPAN_NOTICE("You place [cig] in [src] without even smoking it. Why would you do that?")
 				)
 		else
-			user.visible_message("<b>[user]</b> places [attacking_item] in [src].", self_message = SPAN_NOTICE("You place [attacking_item] in [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> places [attacking_item] in [src].", self_message = SPAN_NOTICE("You place [attacking_item] in [src]."))
 
 		user.update_inv_l_hand()
 		user.update_inv_r_hand()
@@ -119,7 +118,7 @@
 		update_icon()
 	else
 		health = max(0,health - attacking_item.force)
-		user.visible_message(user, self_message = SPAN_DANGER("[user] hits [src] with [attacking_item]!"), blind_message = SPAN_DANGER("You hit [src] with [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(user, self_message = SPAN_DANGER("[user] hits [src] with [attacking_item]!"), blind_message = SPAN_DANGER("You hit [src] with [attacking_item]."))
 		playsound(get_turf(src), material.hitsound, 25)
 		if (health < 1)
 			shatter()
@@ -129,7 +128,7 @@
 	if (health > 0)
 		health = max(0,health - 3)
 		if(emptyout(get_turf(src)))
-			visible_message(SPAN_DANGER("[src] slams into [hit_atom], spilling its contents everywhere!"))
+			visible_message(SPAN_DANGER("[src] slams into [hit_atom], spilling its contents everywhere!"), visible_message_flags = LOCAL_MESSAGE)
 		if (health < 1)
 			shatter()
 			return

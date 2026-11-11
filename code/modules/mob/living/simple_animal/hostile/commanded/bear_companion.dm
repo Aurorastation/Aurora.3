@@ -62,7 +62,7 @@
 	INVOKE_ASYNC(src, PROC_REF(command_dance))
 
 /mob/living/simple_animal/hostile/commanded/bear/proc/command_dance()
-	visible_message("\The [src] starts to dance!.", visible_message_flags = GHOST_MESSAGE)
+	visible_message("\The [src] starts to dance!.")
 	for(var/i in 1 to 10)
 		if(stance != COMMANDED_MISC || incapacitated()) //something has stopped this ride.
 			return
@@ -78,8 +78,8 @@
 			set_dir(WEST)
 		else
 			set_dir(EAST)
-		visible_message("\The [src] [message]", visible_message_flags = GHOST_MESSAGE)
+		visible_message("\The [src] [message]")
 		sleep(30)
 	change_stance(COMMANDED_STOP)
 	set_dir(SOUTH)
-	visible_message("\The [src] bows, finished with [get_pronoun("his")] dance.", visible_message_flags = GHOST_MESSAGE)
+	visible_message("\The [src] bows, finished with [get_pronoun("his")] dance.")

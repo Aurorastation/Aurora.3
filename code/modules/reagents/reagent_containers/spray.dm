@@ -92,7 +92,7 @@
 	if(istype(A, /obj) && A.loc == user)
 		return
 	if (A.density && proximity)
-		A.visible_message("[user] sprays [A] with [src].", visible_message_flags = (ismob(A) ? GHOST_MESSAGE : NONE))
+		A.visible_message("[user] sprays [A] with [src].", visible_message_flags = (ismob(A) ? NONE : LOCAL_MESSAGE))
 		reagents.splash(A, amount_per_transfer_from_this)
 	else
 		var/obj/effect/effect/water/chempuff/D = new/obj/effect/effect/water/chempuff(get_turf(src))

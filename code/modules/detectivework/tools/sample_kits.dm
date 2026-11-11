@@ -132,7 +132,7 @@
 		return 1
 
 	if(user != H && H.a_intent != "help" && !H.lying)
-		user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
 		return 1
 
 	if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
@@ -147,7 +147,7 @@
 		if(!has_hand)
 			to_chat(user, SPAN_WARNING("They don't have any hands."))
 			return 1
-		user.visible_message("[user] takes a copy of \the [H]'s fingerprints.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] takes a copy of \the [H]'s fingerprints.")
 		var/fullprint = H.get_full_print()
 		LAZYSET(evidence, fullprint, fullprint)
 		copy_evidence(src)

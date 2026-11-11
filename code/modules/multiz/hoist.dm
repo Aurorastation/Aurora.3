@@ -12,7 +12,7 @@
 
 /obj/item/hoist_kit/attack_self(mob/user)
 	new /obj/structure/hoist (get_turf(user), user.dir)
-	user.visible_message(SPAN_NOTICE("[user] deploys the hoist kit!"), self_message = SPAN_NOTICE("You deploy the hoist kit!"), blind_message = SPAN_NOTICE("You hear the sound of parts snapping into place."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] deploys the hoist kit!"), self_message = SPAN_NOTICE("You deploy the hoist kit!"), blind_message = SPAN_NOTICE("You hear the sound of parts snapping into place."))
 	qdel(src)
 
 /obj/effect/hoist_hook
@@ -36,7 +36,7 @@
 	if(source_hoist && source_hoist.hoistee)
 		source_hoist.check_consistency()
 		source_hoist.hoistee.forceMove(get_turf(src))
-		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), self_message = SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), blind_message = SPAN_NOTICE("You hear something unclamp."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), self_message = SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), blind_message = SPAN_NOTICE("You hear something unclamp."))
 		source_hoist.release_hoistee()
 
 /obj/effect/hoist_hook/mouse_drop_receive(atom/dropped, mob/user, params)
@@ -54,7 +54,7 @@
 		to_chat(user, SPAN_NOTICE("\The [source_hoist.hoistee] is already attached to \the [src]!"))
 		return
 	source_hoist.attach_hoistee(AM, user)
-	user.visible_message(SPAN_NOTICE("[user] attaches \the [AM] to \the [src]."), self_message = SPAN_NOTICE("You attach \the [AM] to \the [src]."), blind_message = SPAN_NOTICE("You hear something clamp into place."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] attaches \the [AM] to \the [src]."), self_message = SPAN_NOTICE("You attach \the [AM] to \the [src]."), blind_message = SPAN_NOTICE("You hear something clamp into place."))
 
 /obj/structure/hoist/proc/attach_hoistee(atom/movable/AM, mob/user)
 	if (user && AM.loc == user)
@@ -87,7 +87,7 @@
 
 	var/turf/desturf = over
 	source_hoist.hoistee.forceMove(desturf)
-	user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), self_message = SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), blind_message = SPAN_NOTICE("You hear something unclamp."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), self_message = SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), blind_message = SPAN_NOTICE("You hear something unclamp."))
 	source_hoist.release_hoistee()
 
 /// This will handle mobs unbuckling themselves.
@@ -211,7 +211,7 @@
 			load_mass = hoistee.get_effective_mass()
 
 	if(load_mass) // A defined load means we're hoisting and it'll take time.
-		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), self_message = SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), blind_message = SPAN_NOTICE("You hear the sound of a crank."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), self_message = SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), blind_message = SPAN_NOTICE("You hear the sound of a crank."))
 
 	// The pulley permits loads above the user's normal capacity, but the
 	// relative strain determines how long the crank takes to operate.
@@ -221,9 +221,9 @@
 
 	if(.)
 		if(hoistee)
-			user.visible_message(SPAN_NOTICE("[user] [movtext]s \the [hoistee]!"), self_message = SPAN_NOTICE("You [movtext] \the [hoistee]!"), blind_message = SPAN_NOTICE("You hear the sound of a crank."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] [movtext]s \the [hoistee]!"), self_message = SPAN_NOTICE("You [movtext] \the [hoistee]!"), blind_message = SPAN_NOTICE("You hear the sound of a crank."))
 		else
-			user.visible_message(SPAN_NOTICE("[user] [movtext]s the clamp."), self_message = SPAN_NOTICE("You [movtext] the clamp."), blind_message = SPAN_NOTICE("You hear the sound of a crank."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] [movtext]s the clamp."), self_message = SPAN_NOTICE("You [movtext] the clamp."), blind_message = SPAN_NOTICE("You hear the sound of a crank."))
 
 /obj/structure/hoist/proc/collapse_kit()
 	new /obj/item/hoist_kit(get_turf(src))

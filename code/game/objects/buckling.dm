@@ -103,16 +103,16 @@
 			MA.visible_message(\
 				"<b>[MA.name]</b> starts buckling themselves to [src].",\
 				SPAN_NOTICE("You start buckling yourself to [src]."),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else if(isliving(MA))
 			MA.visible_message(\
 				SPAN_DANGER("[MA.name] is starting to be buckled to [src] by [user.name]!"),\
 				SPAN_DANGER("You are starting to be buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
 				SPAN_DANGER("\The [MA] is starting to be buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 
 		if(!do_after(user, buckle_delay, src))
 			return
@@ -121,16 +121,16 @@
 			MA.visible_message(\
 				"<b>[MA.name]</b> buckles themselves to [src].",\
 				SPAN_NOTICE("You buckle yourself to [src]."),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else if(isliving(MA))
 			MA.visible_message(\
 				SPAN_DANGER("[MA.name] is buckled to [src] by [user.name]!"),\
 				SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
 				SPAN_DANGER("\The [MA] is buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/proc/user_unbuckle(mob/user)
 	var/atom/movable/MA = unbuckle()
@@ -139,20 +139,20 @@
 			MA.visible_message(\
 				"<b>[MA.name]</b> unbuckles themselves.",\
 				SPAN_NOTICE("You unbuckle yourself from [src]."),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else if(isliving(MA))
 			MA.visible_message(\
 				"<b>[user.name]</b> unbuckles [MA.name].", \
 				SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else if(isliving(user) && isobj(MA))
 			user.visible_message(\
 				"<b>[user]</b> unbuckles \the [MA] from [src].",\
 				SPAN_NOTICE("You unbuckle \the [MA] from [src]."),\
-				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			MA.visible_message(\
 				"<b>[MA.name]</b> unbuckles themselves.",\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 		add_fingerprint(user)
 	return MA

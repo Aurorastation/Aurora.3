@@ -325,7 +325,7 @@ BREATH ANALYZER
 		return
 
 	var/value = get_value(target)
-	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."))
 	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]电</b>."))
 
 /obj/item/breath_analyzer
@@ -372,7 +372,7 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 
 	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),
-							self_message = SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
@@ -382,7 +382,7 @@ BREATH ANALYZER
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] takes a breath sample from [H]."),
-							self_message = SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
@@ -469,7 +469,7 @@ BREATH ANALYZER
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", self_message = SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", self_message = SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
 	flick("[icon_state]-scan", src)
 	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
 		print_scan(target_mob, user)
@@ -482,7 +482,7 @@ BREATH ANALYZER
 /// Variant of print_scan(), main difference is different method to print the paper
 /obj/item/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
-	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
 	playsound(user.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user.loc)
 

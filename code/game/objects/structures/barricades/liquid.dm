@@ -58,10 +58,10 @@
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
 		var/obj/item/ET = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] starts disassembling [src]."), \
-		self_message = SPAN_NOTICE("You start disassembling [src]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start disassembling [src]."))
 		if(ET.use_tool(src, user, 4 SECONDS))
 			user.visible_message(SPAN_NOTICE("[user] disassembles [src]."),
-			self_message = SPAN_NOTICE("You disassemble [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You disassemble [src]."))
 			barricade_deconstruct(TRUE)
 		return TRUE
 
@@ -72,7 +72,7 @@
 			return
 
 		user.visible_message(SPAN_NOTICE("[user] starts adding more [SB] to [src]."), \
-			self_message = SPAN_NOTICE("You start adding liquid bags to [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You start adding liquid bags to [src]."))
 		for(var/i = build_stage to BARRICADE_LIQUIDBAG_5)
 			if(build_stage >= BARRICADE_LIQUIDBAG_5 || !do_after(user, 5, src, DO_REPAIR_CONSTRUCT) || build_stage >= BARRICADE_LIQUIDBAG_5)
 				break
@@ -80,7 +80,7 @@
 			increment_build_stage()
 			update_icon()
 		user.visible_message(SPAN_NOTICE("[user] finishes stacking [SB] onto [src]."), \
-			self_message = SPAN_NOTICE("You stack [SB] onto [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You stack [SB] onto [src]."))
 		return
 	else
 		. = ..()

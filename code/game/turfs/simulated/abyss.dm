@@ -33,7 +33,7 @@
 		if(has_lattice())	// Should be safe to walk upon.
 			return TRUE
 		if(!L.CanAvoidGravity())
-			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), self_message = SPAN_DANGER("You plummet down into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			L.visible_message(SPAN_DANGER("\The [L] falls into \the [src]."), self_message = SPAN_DANGER("You plummet down into \the [src]!"))
 			L.death()
 			if(L)
 				L.loc = null
@@ -46,7 +46,7 @@
 		if(has_lattice())	// Should be safe to be placed upon.
 			return TRUE
 		var/obj/O = AM
-		O.visible_message(SPAN_DANGER("\The [O] falls into \the [src]."))
+		O.visible_message(SPAN_DANGER("\The [O] falls into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(O)
 
 	else

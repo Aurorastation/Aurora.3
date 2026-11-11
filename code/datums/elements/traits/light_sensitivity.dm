@@ -56,7 +56,7 @@
 		if(I?.body_parts_covered & EYES)
 			return
 
-	human.visible_message("<b>[human]</b> squints in discomfort.", visible_message_flags = GHOST_MESSAGE)
+	human.visible_message("<b>[human]</b> squints in discomfort.")
 
 /datum/element/light_sensitivity/proc/handle_flash_protection(mob/living/carbon/human/human, base_flash_protection)
 	SIGNAL_HANDLER

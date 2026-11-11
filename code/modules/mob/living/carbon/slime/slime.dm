@@ -300,10 +300,10 @@
 	if(victim)
 		if(victim == M)
 			if(prob(60))
-				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
 				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
-				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
@@ -321,10 +321,10 @@
 
 		else
 			if(prob(30))
-				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
 				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			else
-				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
@@ -360,7 +360,7 @@
 			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 
 		else
 
@@ -383,13 +383,13 @@
 
 				playsound(loc, SFX_PUNCH, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
-						self_message = SPAN_DANGER("[M] has punched [src]!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
 				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
-				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 
 /mob/living/carbon/slime/attackby(obj/item/attacking_item, mob/user)

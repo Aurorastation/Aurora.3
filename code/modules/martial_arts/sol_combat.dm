@@ -41,16 +41,16 @@
 			var/mob/living/M = AM
 			if(M.stat || M.incapacitated() || distfromcaster == 0)
 				D.apply_damage(25, DAMAGE_BRUTE)
-				A.visible_message(SPAN_DANGER("[A] hits [M] with a powerful kick!"), visible_message_flags = GHOST_MESSAGE)
+				A.visible_message(SPAN_DANGER("[A] hits [M] with a powerful kick!"))
 			else
 				A.spin(10,1)
 				M.Weaken(3)
-				A.visible_message(M, self_message = SPAN_DANGER("[A] swiftly leg sweeps [M]!"), visible_message_flags = GHOST_MESSAGE)
+				A.visible_message(M, self_message = SPAN_DANGER("[A] swiftly leg sweeps [M]!"))
 				AM.throw_at(sweeptarget, ((clamp((1 - (clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
-	A.visible_message(SPAN_WARNING("[A] pounds [D] on the chest!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_WARNING("[A] pounds [D] on the chest!"))
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
@@ -59,7 +59,7 @@
 
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	A.visible_message(SPAN_WARNING("[A] karate chops [D]'s neck!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_WARNING("[A] karate chops [D]'s neck!"))
 	playsound(get_turf(A), SFX_PUNCH, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.silent += 30
@@ -91,7 +91,7 @@
 	else
 		playsound(get_turf(D), SFX_PUNCH, 50, 1, -1)
 
-	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>"
 	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
@@ -111,12 +111,12 @@
 	if(prob(60))
 		var/obj/item/I = D.get_active_hand()
 		if(I)
-			A.visible_message(SPAN_DANGER("[A] has disarmed [D]!"), visible_message_flags = GHOST_MESSAGE)
+			A.visible_message(SPAN_DANGER("[A] has disarmed [D]!"))
 			playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			D.drop_from_inventory(I)
 			A.put_in_hands(I)
 	else
-		A.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"), visible_message_flags = GHOST_MESSAGE)
+		A.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
 		playsound(D, SFX_PUNCH_MISS, 25, 1, -1)
 	return 1
 

@@ -192,7 +192,7 @@
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
 			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
-								self_message = SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
 			playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(attacking_item)
@@ -295,7 +295,7 @@
 		return
 
 	if(user.a_intent == I_HURT)
-		user.visible_message(SPAN_DANGER("\The [user] squashes \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] squashes \the [src]!"))
 		seed.thrown_at(src,user)
 		sleep(-1)
 		if(src) qdel(src)

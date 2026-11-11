@@ -22,7 +22,7 @@
 
 /obj/structure/gore/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
-	visible_message(SPAN_WARNING(final_message))
+	visible_message(SPAN_WARNING(final_message), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 /obj/structure/gore/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
@@ -44,7 +44,7 @@
 
 /obj/structure/gore/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	visible_message(SPAN_WARNING("\The [src] was hit by \the [hitting_atom]."))
+	visible_message(SPAN_WARNING("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 	var/throw_force = 0
 	if(isobj(hitting_atom))

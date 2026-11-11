@@ -485,7 +485,7 @@ pixel_x = 10;
 			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
-			blind_message = "You hear a click and a faint electronic hum.")
+			blind_message = "You hear a click and a faint electronic hum.", visible_message_flags = LOCAL_MESSAGE)
 			update_icon()
 	else
 		//check for when we should stop adjusting temperature
@@ -493,7 +493,7 @@ pixel_x = 10;
 			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
-			blind_message = "You hear a click as a faint electronic humming stops.")
+			blind_message = "You hear a click as a faint electronic humming stops.", visible_message_flags = LOCAL_MESSAGE)
 			update_icon()
 
 	if (regulating_temperature)
@@ -979,7 +979,7 @@ pixel_x = 10;
 				return TRUE
 
 			if (panel_open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), self_message = "You cut the wires inside \the [src].", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), self_message = "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1

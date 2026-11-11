@@ -10,5 +10,5 @@
 #define WITH_EMPHASIS_MESSAGE (1<<2)
 /// Suppress chat highlighting on explicit self feedback.
 #define BLOCK_SELF_HIGHLIGHT_MESSAGE (1<<3)
-/// Forward chat to global observers with the corresponding ghost sight/ears preference.
-#define GHOST_MESSAGE (1<<4)
+/// Limit delivery to local recipients, including nearby observers.
+#define LOCAL_MESSAGE (1<<4)

@@ -40,7 +40,7 @@
 			var/drink_moodlet_value = 5 * bar_skill.skill_level
 			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
 			if (!isnull(drink_moodlet_value))
-				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
@@ -57,15 +57,15 @@
 			to_chat(user, SPAN_WARNING("[H] needs to be holding a glass to perform a toast."))
 			return
 		else
-			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
 			if(tgui_alert(H, "[user] wants to do a toast with you. Will you accept it?", , list("Yes", "No")) == "No")
-				H.visible_message("<b>[H]</b> pushes [user]'s hand away.", visible_message_flags = GHOST_MESSAGE)
+				H.visible_message("<b>[H]</b> pushes [user]'s hand away.")
 				return
 			if(!user.Adjacent(H))
 				to_chat(user, SPAN_WARNING("You need to remain next to [H]!"))
 				to_chat(H, SPAN_WARNING("You need to remain next to [user]!"))
 				return
-			user.visible_message("<b>[user]</b> clinks \the [src] with [H]'s [glass.name].", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> clinks \the [src] with [H]'s [glass.name].")
 			playsound(user.loc, pick('sound/items/glass_clink_1.ogg', 'sound/items/glass_clink_2.ogg', 'sound/items/glass_clink_3.ogg'), 50, 0, vary = FALSE)
 			return
 	..()

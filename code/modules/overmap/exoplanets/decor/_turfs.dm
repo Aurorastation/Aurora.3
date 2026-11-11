@@ -16,7 +16,7 @@
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
 	if(diggable && istype(attacking_item, /obj/item/shovel))
-		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"))
+		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user,SPAN_NOTICE("You dig a deep pit."))
 			new /obj/structure/pit(src)
@@ -29,7 +29,7 @@
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, FALSE, TRUE)
 	else if(diggable && istype(attacking_item,/obj/item/material/minihoe))
-		visible_message(SPAN_NOTICE("\The [user] starts clearing \the [src]"))
+		visible_message(SPAN_NOTICE("\The [user] starts clearing \the [src]"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			to_chat(user, SPAN_NOTICE("You make a small clearing."))
 			new /obj/structure/clearing(src)

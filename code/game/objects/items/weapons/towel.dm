@@ -23,13 +23,13 @@
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)
-			user.visible_message(SPAN_WARNING("\The [user] uses \the [src] to pat out \the [M]'s flames with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] uses \the [src] to pat out \the [M]'s flames with \the [src]!"))
 			playsound(M, 'sound/weapons/towelwhip.ogg', 25, 1)
 			M.ExtinguishMob(-1)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [M] off with \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [M] off with \the [src]..."))
 			if(do_mob(user, M, 3 SECONDS))
-				user.visible_message(SPAN_NOTICE("\The [user] dries \the [M] off with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] dries \the [M] off with \the [src]."))
 				playsound(M, 'sound/weapons/towelwipe.ogg', 25, 1)
 				M.adjust_fire_stacks(-clamp(M.fire_stacks,-1.5,1.5))
 		return

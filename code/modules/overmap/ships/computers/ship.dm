@@ -37,13 +37,13 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(electrical_level > SKILL_LEVEL_UNFAMILIAR && (emergency_power_window || stat & NOPOWER) && istype(attacking_item, /obj/item/cell))
 		var/obj/item/cell/battery = attacking_item
 		var/pilot_level = user.GetComponent(PILOT_SPACECRAFT_SKILL_COMPONENT)?.skill_level
-		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", self_message = SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]<b> opens a panel underneath \the [src]...", self_message = SPAN_NOTICE("You start searching for the power port to attempt an emergency power bypass..."))
 		emergency_power_window = world.time
 		if(pilot_level <= SKILL_LEVEL_UNFAMILIAR && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
 				to_chat(user, SPAN_NOTICE("Although unfamiliar with spacecraft to find it fast, your electrical intuition knows there's a port somewhere..."))
 			else
-				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", self_message = SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> closes the panel underneath \the [src].", self_message = SPAN_WARNING("You need to stay and look longer if you want to perform a bypass."))
 				return
 		while(battery.percent() > 0 && Adjacent(user) && user.get_active_hand() == battery)
 			if(do_after(user, 3 SECONDS))
@@ -52,7 +52,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 					emergency_power_window += bypass_value/((100 - pilot_level * 3)/electrical_level) SECONDS // should be 10m for high-caps
 					playsound(src.loc, 'sound/machines/click.ogg', 30)
 					battery.charge -= bypass_value
-					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", self_message = SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("<b>[user]</b> presses into some port with a click.<BR><i>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining.</i>", self_message = SPAN_NOTICE("You press into the port with \the [battery] transferring 10% into \the [src] and leaving \the [battery] with [battery.percent()]%<BR>\The [src]'s power bypass timer notifies there are <b>[round((emergency_power_window - world.time)/10)]</b> seconds of emergency power remaining."))
 					stat &= ~NOPOWER
 					update_icon()
 		return
@@ -79,7 +79,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return
 		// Begin hotwire
-		user.visible_message("<b>[user]</b> opens a panel underneath \the [src]...", self_message = SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> opens a panel underneath \the [src]...", self_message = SPAN_BOLD("You open the maintenance panel and attempt to hotwire \the [src]..."))
 		while(hotwire_progress > 0)
 			if(do_after(user, 15 SECONDS, src, DO_UNIQUE))
 				hotwire_progress--
@@ -101,9 +101,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		emergency_power_window = null
 		if(!powered())
 			stat |= NOPOWER
-			visible_message(SPAN_DANGER("\The [src] flickers, its power bypass depleted."))
+			visible_message(SPAN_DANGER("\The [src] flickers, its power bypass depleted."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("\The [src] hums as it transitions from emergency power to main."))
+			visible_message(SPAN_NOTICE("\The [src] hums as it transitions from emergency power to main."), visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.
@@ -115,9 +115,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	// A lack of a difference means skill level (1-4) is less than pilot_class (1-3)
 	if(pilot_level && piloting_difference <= 0)
 		if(connected.pilot_class == PILOTING_CLASS_SHUTTLE)
-			user.visible_message("<b>[user]</b> starts indecisively messing with \the [src].", self_message = SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> starts indecisively messing with \the [src].", self_message = SPAN_WARNING("There's just so many buttons... You have no idea where to even begin, but..."))
 			if(do_after(user, 10 SECONDS) && Adjacent(user))
-				user.visible_message("<b>[user]</b> peers at \the [src].", self_message = SPAN_NOTICE("...maybe, if you take it slow? It <i>is</i> only a shuttle."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> peers at \the [src].", self_message = SPAN_NOTICE("...maybe, if you take it slow? It <i>is</i> only a shuttle."))
 				if(do_after(user, 3 SECONDS) && Adjacent(user))
 					if(prob(30))
 						to_chat(user, SPAN_WARNING("You lose track and can't figure out the controls."))
@@ -165,9 +165,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return FALSE
 	emagged = TRUE
 	if(hotwired)
-		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [src] sparks as a panel suddenly opens and burnt cabling spills out!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
 	else
-		user.visible_message(SPAN_WARNING("\The [src] sparks!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [src] sparks!"),self_message = SPAN_BOLD("You short out the console's ID checking system. It's now available to everyone!"))
 	spark(src, 2, 0)
 	hotwire_progress = 0
 	return TRUE

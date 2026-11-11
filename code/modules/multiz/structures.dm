@@ -59,9 +59,9 @@
 /obj/structure/ladder/attackby(obj/item/attacking_item, mob/user)
 	if(LAZYLEN(destroy_tools))
 		if(is_type_in_list(attacking_item, destroy_tools))
-			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [attacking_item]!", self_message = SPAN_NOTICE("You start breaking down \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [attacking_item]!", self_message = SPAN_NOTICE("You start breaking down \the [src] with \the [attacking_item]."))
 			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
-				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [attacking_item]!", self_message = SPAN_NOTICE("You break down \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [attacking_item]!", self_message = SPAN_NOTICE("You break down \the [src] with \the [attacking_item]."))
 				qdel(src)
 			return
 	attack_hand(user)
@@ -93,9 +93,9 @@
 
 	M.visible_message(SPAN_NOTICE("\The [M] begins climbing [direction] \the [src]!"),
 	self_message = "You begin climbing [direction] \the [src]!",
-	blind_message = "You hear the grunting and clanging of a metal ladder being used.", visible_message_flags = GHOST_MESSAGE)
+	blind_message = "You hear the grunting and clanging of a metal ladder being used.")
 
-	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
+	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"), audible_message_flags = LOCAL_MESSAGE)
 
 	var/adjusted_climb_time = M.get_conditioning_action_delay(climb_time)
 	if(do_after(M, istype(G) ? (adjusted_climb_time * 2) : adjusted_climb_time))
@@ -325,8 +325,7 @@
 		L.visible_message(
 			SPAN_ALERT("\The [L] steps off of [src] and faceplants onto [L.loc]."),
 			self_message = SPAN_DANGER("You step off [src] and faceplant onto [L.loc]."),
-			blind_message = SPAN_ALERT("You hear a thump."),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_ALERT("You hear a thump.")
 		)
 
 /obj/structure/stairs/north
@@ -479,13 +478,13 @@
 		if(istype(next_turf) && !next_turf.density && can_climb(user))
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)
-			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), self_message = SPAN_NOTICE("You start climbing [climb_text] \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), self_message = SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
 
 			if(!do_after(user, user.get_conditioning_action_delay(1 SECOND)) || !can_climb(user, TRUE))
 				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
 				return
 
-			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), self_message = SPAN_NOTICE("You climb [climb_text] \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), self_message = SPAN_NOTICE("You climb [climb_text] \the [src]."))
 			user.forceMove(next_turf)
 			LAZYREMOVE(climbers, user)
 
@@ -501,9 +500,9 @@
 	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
 		var/atom/movable/bumped_movable = bumped_atom
 		if(ismob(bumped_movable))
-			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."), visible_message_flags = LOCAL_MESSAGE)
 		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge

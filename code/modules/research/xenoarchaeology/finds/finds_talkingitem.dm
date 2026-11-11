@@ -57,7 +57,7 @@
 		var/list/options = list("[holder_atom] seems to be listening intently to [source]...",\
 			"[holder_atom] seems to be focusing on [source]...",\
 			"[holder_atom] seems to turn it's attention to [source]...")
-		holder_atom.loc.visible_message(SPAN_NOTICE("[icon2html(holder_atom, viewers(get_turf(holder_atom)))] [pick(options)]"), visible_message_flags = (ismob(holder_atom.loc) ? GHOST_MESSAGE : NONE))
+		holder_atom.loc.visible_message(SPAN_NOTICE("[icon2html(holder_atom, viewers(get_turf(holder_atom)))] [pick(options)]"), visible_message_flags = (ismob(holder_atom.loc) ? NONE : LOCAL_MESSAGE))
 
 	if(prob(20))
 		spawn(2)

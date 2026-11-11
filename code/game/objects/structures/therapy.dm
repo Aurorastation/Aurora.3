@@ -102,7 +102,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -113,7 +113,7 @@
 	var/response = tgui_alert(H, "Do you believe in hypnosis?", "Willpower", list("Yes", "No"))
 
 	if(response == "Yes")
-		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), self_message = SPAN_DANGER("You fall into a deep slumber!"), visible_message_flags = GHOST_MESSAGE)
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), self_message = SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)

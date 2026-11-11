@@ -117,14 +117,14 @@
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(balance > 0)
-			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
+			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'", visible_message_flags = LOCAL_MESSAGE) //Prevents converting coins into credits and vice versa
 		else
 			if(paymode == CREDITCHIP)
 				paymode = COIN
-				visible_message("<b>[src]</b> says, 'This machine now works with COINS!'")
+				visible_message("<b>[src]</b> says, 'This machine now works with COINS!'", visible_message_flags = LOCAL_MESSAGE)
 			else
 				paymode = CREDITCHIP
-				visible_message("<b>[src]</b> says, 'This machine now works with CREDITCHIPS!'")
+				visible_message("<b>[src]</b> says, 'This machine now works with CREDITCHIPS!'", visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 	else
 		return ..()
@@ -207,7 +207,7 @@
 	var/the_name
 	if(user)
 		the_name = user.real_name
-		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
+		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/arcade/sloto_lever.ogg', 10, 0, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		flick("slots_pull", src)
 	else
@@ -275,7 +275,7 @@
 	var/linelength = get_lines()
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
-		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'")
+		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits!'", visible_message_flags = LOCAL_MESSAGE)
 		GLOB.global_announcer.autosay("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!", "Automated Announcement System")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 20, 1, required_asfx_toggles = ASFX_ARCADE) // ham it up
 		jackpots += 1
@@ -290,12 +290,12 @@
 				C.forceMove(get_turf(src))
 
 	else if(linelength == 5)
-		visible_message("<b>[src]</b> says, 'Big Winner! You win one hundred credits!'")
+		visible_message("<b>[src]</b> says, 'Big Winner! You win one hundred credits!'", visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(BIG_PRIZE)
 
 	else if(linelength == 4)
-		visible_message("<b>[src]</b> says, 'Winner! You win fourty credits!'")
+		visible_message("<b>[src]</b> says, 'Winner! You win fourty credits!'", visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(SMALL_PRIZE)
 

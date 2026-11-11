@@ -211,7 +211,7 @@
 		return
 
 	if(!has_required_reagents(design_to_build))
-		visible_message(SPAN_WARNING("\The [src] stops because the required reagents are no longer available."))
+		visible_message(SPAN_WARNING("\The [src] stops because the required reagents are no longer available."), visible_message_flags = LOCAL_MESSAGE)
 		pause_console_job()
 		return
 

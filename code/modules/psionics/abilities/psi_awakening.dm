@@ -32,12 +32,12 @@
 	if(!.)
 		return
 
-	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), self_message = SPAN_DANGER("You grab [L]'s head..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("[user] grabs [L]'s head..."), self_message = SPAN_DANGER("You grab [L]'s head..."))
 	if(do_mob(user, L, 5 SECONDS))
 		L.set_psi_rank(PSI_RANK_HARMONIOUS)
 		L.flash_pain(50)
 		L.adjustHalLoss(20)
 		playsound(get_turf(L), 'sound/effects/psi/power_feedback.ogg', 100)
 		user.visible_message(SPAN_DANGER("[user] unleashes a psionic shock through [L]'s head!"),
-							self_message = SPAN_DANGER("You unleash a psionic shock through [L]'s head, targeting their Zona Bovinae and stimulating it it."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_DANGER("You unleash a psionic shock through [L]'s head, targeting their Zona Bovinae and stimulating it it."))
 		to_chat(L, SPAN_HIGHDANGER("A large, painful shock courses through your head. You can see the weave of the universe... and manipulate it."))

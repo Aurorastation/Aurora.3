@@ -42,7 +42,7 @@
 /obj/structure/machinery/ship_weapon/leviathan/pre_fire(atom/target, obj/effect/landmark/landmark)
 	firing = TRUE
 	icon_state = "weapon_on"
-	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"))
+	visible_message(SPAN_DANGER("<font size=5>\The [src] begins lighting up with a powerful hum...</font>"), visible_message_flags = LOCAL_MESSAGE)
 	var/power_draw = smes.drain_power_simple(active_power_usage)
 	if(power_draw >= active_power_usage)
 		for(var/mob/M in GLOB.living_mob_list)
@@ -55,13 +55,13 @@
 		var/obj/item/ship_ammunition/leviathan/L = new()
 		ammunition |= L
 		if(!stat)
-			visible_message(SPAN_DANGER("<font size=6>\The [src] fires, quaking the ground below you!</font>"))
+			visible_message(SPAN_DANGER("<font size=6>\The [src] fires, quaking the ground below you!</font>"), visible_message_flags = LOCAL_MESSAGE)
 			for(var/mob/M in GLOB.living_mob_list)
 				if(AreConnectedZLevels(M.z, z) && (get_area(M) != get_area(src)))
 					to_chat(M, SPAN_DANGER("<font size=4>A gigantic shock courses through the hull of the ship!</font>"))
 			. = ..()
 	else
-		visible_message(SPAN_DANGER("<font size=4>\The [src]'s capacitors fizzle out!</font>"))
+		visible_message(SPAN_DANGER("<font size=4>\The [src]'s capacitors fizzle out!</font>"), visible_message_flags = LOCAL_MESSAGE)
 		. = FALSE
 	disable()
 
@@ -84,7 +84,7 @@
 /obj/structure/machinery/ship_weapon/leviathan/disable()
 	firing = FALSE
 	if(use_power != POWER_USE_OFF)
-		visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"))
+		visible_message(SPAN_DANGER("<font size=4>\The [src]'s humming comes to an abrupt halt.</font>"), visible_message_flags = LOCAL_MESSAGE)
 		for(var/mob/living/L in GLOB.living_mob_list)
 			if(AreConnectedZLevels(L.z, z))
 				sound_to(L, 'sound/effects/ship_weapons/leviathan_powerdown.ogg')
@@ -95,9 +95,9 @@
 /obj/structure/machinery/ship_weapon/leviathan/enable()
 	couple_to_smes()
 	if(!smes)
-		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."))
+		visible_message(SPAN_DANGER("\The [src] doesn't light up at all! Its maintenance display indicates there is no SMES to draw power from."), visible_message_flags = LOCAL_MESSAGE)
 		return
-	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"))
+	visible_message(SPAN_DANGER("<font size=4>\The [src] lights up with a powerful hum...</font>"), visible_message_flags = LOCAL_MESSAGE)
 	for(var/mob/living/L in GLOB.living_mob_list)
 		if(AreConnectedZLevels(L.z, z))
 			sound_to(L, 'sound/effects/ship_weapons/leviathan_powerup.ogg')
@@ -157,12 +157,12 @@
 	if(!is_landmark_hit)
 		if(ismob(target))
 			var/mob/M = target
-			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_DANGER("<font size=6>[M] evaporates as they are engulfed by the beam!</font>"))
 			M.dust()
 			return
 		explosion(get_turf(target), 6, 6, 6, spreading = TRUE)
 	else
-		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"), visible_message_flags = (ismob(target) ? GHOST_MESSAGE : NONE))
+		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"), visible_message_flags = (ismob(target) ? NONE : LOCAL_MESSAGE))
 		explosion(get_turf(target), 30, 30, 30, spreading = TRUE)
 
 /obj/structure/machinery/zat_lever
@@ -191,7 +191,7 @@
 /obj/structure/machinery/zat_lever/attack_hand(mob/user)
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
-			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
+			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"), visible_message_flags = LOCAL_MESSAGE)
 			toggled = !toggled
 			switch(toggled)
 				if(FALSE)
@@ -239,13 +239,13 @@
 		return
 	open = !open
 	if(open)
-		user.visible_message(SPAN_NOTICE("[user] opens \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] opens \the [src]."))
 		if(LK)
 			icon_state = "key_case-o"
 		else
 			icon_state = "key_case-e"
 	else
-		user.visible_message(SPAN_NOTICE("[user] closes \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] closes \the [src]."))
 		icon_state = "key_case"
 
 /obj/item/leviathan_case/attack_hand(mob/user)
@@ -255,7 +255,7 @@
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 	if(LK)
-		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] retrieves \the [LK]."))
 		user.put_in_hands(LK)
 		LK = null
 		icon_state = "key_case-e"
@@ -267,7 +267,7 @@
 	if(!LK && open)
 		if(istype(attacking_item, /obj/item/leviathan_key))
 			var/obj/item/leviathan_key/key = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."))
 			LK = key
 			user.drop_from_inventory(key, src)
 			icon_state = "key_case-o"
@@ -331,7 +331,7 @@
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
-			visible_message(SPAN_WARNING("[user] places \the [LK] inside \the [src]'s keyhole!"))
+			visible_message(SPAN_WARNING("[user] places \the [LK] inside \the [src]'s keyhole!"), visible_message_flags = LOCAL_MESSAGE)
 			key = LK
 			user.drop_from_inventory(attacking_item, src)
 			icon_state = "safeguard_open"
@@ -342,7 +342,7 @@
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
-			visible_message(SPAN_WARNING("[user] twists \the [key]!"))
+			visible_message(SPAN_WARNING("[user] twists \the [key]!"), visible_message_flags = LOCAL_MESSAGE)
 			flick("safeguard_locking", src)
 			icon_state = "safeguard_locked"
 			locked = TRUE
@@ -404,7 +404,7 @@
 				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
 				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg', 50)
-				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
+				visible_message(SPAN_DANGER("[user] presses \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				for(var/obj/structure/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))
 						LT.firing_command(linked.targeting, landmark)

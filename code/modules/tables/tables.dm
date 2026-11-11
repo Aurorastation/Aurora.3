@@ -118,14 +118,14 @@
 	health -= amount
 	if(health <= 0)
 		if(msg)
-			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
+			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
 /obj/structure/table/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	take_damage(damage)
 	return TRUE
 
@@ -233,7 +233,7 @@
 		manipulating = 0
 		return null
 	user.visible_message(SPAN_NOTICE("\The [user] [verb]es \the [src] with [M.display_name]."),
-							self_message = SPAN_NOTICE("You finish [verb]ing \the [src]."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You finish [verb]ing \the [src]."))
 
 	manipulating = 0
 	return M
@@ -247,14 +247,14 @@
 	if(manipulating) return M
 	manipulating = 1
 	user.visible_message(SPAN_NOTICE("\The [user] begins removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place."),
-							self_message = SPAN_NOTICE("You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place."))
 	if(sound)
 		playsound(src.loc, sound, 50, 1)
 	if(!do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		manipulating = 0
 		return M
 	user.visible_message(SPAN_NOTICE("\The [user] removes the [M.display_name] [what] from \the [src]."),
-							self_message = SPAN_NOTICE("You remove the [M.display_name] [what] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You remove the [M.display_name] [what] from \the [src]."))
 	new M.stack_type(src.loc)
 	manipulating = 0
 	return null
@@ -271,12 +271,12 @@
 	manipulating = TRUE
 	if(W && user)
 		user.visible_message("<b>[user]</b> begins dismantling \the [src].",
-							self_message = SPAN_NOTICE("You begin dismantling \the [src]."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(!W.use_tool(src, user, 20, volume = 50))
 			manipulating = FALSE
 			return
 		user.visible_message("\The [user] dismantles \the [src].",
-							self_message = SPAN_NOTICE("You dismantle \the [src]."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You dismantle \the [src]."))
 	new dismantle_mat(src.loc)
 	qdel(src)
 

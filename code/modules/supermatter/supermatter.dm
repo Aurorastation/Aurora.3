@@ -311,8 +311,8 @@
 		var/thermal_power = THERMAL_RELEASE_MODIFIER * device_energy
 		if (debug)
 			var/heat_capacity_new = removed.heat_capacity()
-			visible_message("[src]: Releasing [round(thermal_power)] W.")
-			visible_message("[src]: Releasing additional [round((heat_capacity_new - heat_capacity)*removed.temperature)] W with exhaust gasses.")
+			visible_message("[src]: Releasing [round(thermal_power)] W.", visible_message_flags = LOCAL_MESSAGE)
+			visible_message("[src]: Releasing additional [round((heat_capacity_new - heat_capacity)*removed.temperature)] W with exhaust gasses.", visible_message_flags = LOCAL_MESSAGE)
 
 		removed.add_thermal_energy(thermal_power)
 		removed.temperature = between(0, removed.temperature, 10000)
@@ -384,8 +384,7 @@
 	user.visible_message(
 		SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance. For a brief instant, [user.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
 		self_message = SPAN_DANGER(FONT_LARGE("You reach out and touch \the [src]. Instantly, you feel a curious sensation as your body turns into new and exciting forms of plasma. That was not a wise decision.")),
-		blind_message = SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."),
-		visible_message_flags = GHOST_MESSAGE
+		blind_message = SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
 	)
 	Consume(user)
 
@@ -415,8 +414,7 @@
 	living_user.visible_message(
 		SPAN_WARNING("\The [living_user] touches \a [attacking_item] to \the [src], then flinches away as it flashes instantly into dust. Silence blankets the air."),
 		self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]. Everything suddenly goes silent as it flashes into dust, and you flinch away."),
-		blind_message = SPAN_WARNING("For a brief moment, you hear an oppressive, unnatural silence."),
-		visible_message_flags = GHOST_MESSAGE
+		blind_message = SPAN_WARNING("For a brief moment, you hear an oppressive, unnatural silence.")
 	)
 
 	living_user.drop_from_inventory(attacking_item)
@@ -437,13 +435,13 @@
 		bumped_atom.visible_message(
 			SPAN_WARNING("\The [bumped_atom] slams \the [src], inducing a resonance. For a brief instant, [bumped_atom.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
 			self_message = SPAN_DANGER(FONT_LARGE("You slam into \the [src], and your mind fills with unearthly shrieking. Your vision floods with light as your body instantly dissolves into dust.")),
-			blind_message = SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_WARNING("You hear an unearthly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.")
 		)
 	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
 		bumped_atom.visible_message(
 			SPAN_WARNING("\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash."),
-			blind_message = SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat.")
+			blind_message = SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat."),
+			visible_message_flags = LOCAL_MESSAGE
 		)
 
 	Consume(bumped_atom)

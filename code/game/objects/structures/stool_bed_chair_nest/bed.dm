@@ -219,7 +219,7 @@
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		var/mob/living/affecting = G.affecting
-		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
@@ -227,7 +227,7 @@
 					affecting.visible_message(\
 						SPAN_DANGER("[affecting.name] is buckled to [src] by [user.name]!"),\
 						self_message = SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
-						blind_message = SPAN_NOTICE("You hear metal clanking."), visible_message_flags = GHOST_MESSAGE)
+						blind_message = SPAN_NOTICE("You hear metal clanking."))
 			qdel(attacking_item)
 
 	else if(istype(attacking_item, /obj/item/gripper) && buckled)
@@ -260,9 +260,9 @@
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
 	if(user)
-		user.visible_message("<b>[user]</b> begins dismantling \the [src].", self_message = SPAN_NOTICE("You begin dismantling \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].", self_message = SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(W.use_tool(src, user, 20, volume = 50))
-			user.visible_message("\The [user] dismantles \the [src].", self_message = SPAN_NOTICE("You dismantle \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("\The [user] dismantles \the [src].", self_message = SPAN_NOTICE("You dismantle \the [src]."))
 		else
 			return FALSE
 	if(padding_material)
@@ -326,12 +326,12 @@
 			victim.apply_damage(10, DAMAGE_BRUTE, def_zone)
 
 		if(pulling)
-			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"), visible_message_flags = GHOST_MESSAGE)
+			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
 			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
-			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"), visible_message_flags = GHOST_MESSAGE)
+			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -502,14 +502,14 @@
 /obj/structure/bed/roller/AltClick(mob/user)
 	if(density && !use_check_and_message(user))
 		anchored = !anchored
-		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] [anchored ? "locks" : "releases"] \the [src]'s brakes."))
 		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
 	if(buckled)
 		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
 		return
-	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), self_message = SPAN_NOTICE("You collapse \the [src]"), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), self_message = SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
 
@@ -549,13 +549,13 @@
 	if(!beaker)
 		return
 	if(do_mob(user, target, 1 SECOND))
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), self_message = SPAN_NOTICE("You attach the IV to \the [target]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> attaches [target] to the IV on \the [src]."), self_message = SPAN_NOTICE("You attach the IV to \the [target]."))
 		iv_attached = TRUE
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/proc/detach_iv(mob/living/carbon/human/target, mob/user)
-	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), self_message = SPAN_NOTICE("You take the IV off \the [target]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), self_message = SPAN_NOTICE("You take the IV off \the [target]."))
 	iv_attached = FALSE
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)

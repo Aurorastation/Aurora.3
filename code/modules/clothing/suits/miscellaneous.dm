@@ -301,12 +301,12 @@
 
 	if(voidproofed)
 		usr.visible_message(SPAN_NOTICE("[usr] unfastens the straps of their racing jacket."),
-							self_message = SPAN_NOTICE("You unfasten the straps of your racing jacket. Much comfier and more mobile!"), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You unfasten the straps of your racing jacket. Much comfier and more mobile!"))
 		playsound(usr, 'sound/items/zip.ogg', 50, 1)
 		loosen_straps(usr)
 	else
 		usr.visible_message(SPAN_NOTICE("[usr] fastens the straps of their racing jacket tight."),
-							self_message = SPAN_NOTICE("You fasten the straps of your racing jacket tight, providing some moderate void/heat protection. This is going to slow you down a bit..."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You fasten the straps of your racing jacket tight, providing some moderate void/heat protection. This is going to slow you down a bit..."))
 		playsound(usr, 'sound/items/zip.ogg', 50, 1)
 		fasten_straps(usr)
 

@@ -46,7 +46,7 @@
 	psi_drain(L, user)
 
 /obj/item/spell/psi_drain/proc/psi_drain(mob/living/L, mob/living/user)
-	user.visible_message(SPAN_DANGER("[user] squeezes [user.get_pronoun("his")] hand at [L]!"), self_message = SPAN_DANGER("You squeeze your hand at [L] and siphon [L.get_pronoun("his")] psionic energy!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("[user] squeezes [user.get_pronoun("his")] hand at [L]!"), self_message = SPAN_DANGER("You squeeze your hand at [L] and siphon [L.get_pronoun("his")] psionic energy!"))
 	var/psi_taken = min(user.psi.max_stamina, rand(10, 25))
 	if(L.psi)
 		L.psi.spend_power(psi_taken)

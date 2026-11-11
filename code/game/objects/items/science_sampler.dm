@@ -203,7 +203,7 @@
 
 /obj/structure/machinery/centrifuge/proc/process_samples()
 	update_icon()
-	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."))
+	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."), visible_message_flags = LOCAL_MESSAGE)
 	var/obj/item/paper/report = new()
 
 	report_num++
@@ -339,10 +339,10 @@
 	update_icon()
 	if(!zeroed)
 		zeroed = TRUE
-		visible_message(SPAN_NOTICE("\The [src] beeps, \"Calibration complete!\""))
+		visible_message(SPAN_NOTICE("\The [src] beeps, \"Calibration complete!\""), visible_message_flags = LOCAL_MESSAGE)
 		return
 
-	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."))
+	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."), visible_message_flags = LOCAL_MESSAGE)
 	var/obj/item/paper/report = new()
 
 	report_num++

@@ -123,15 +123,13 @@
 			user.visible_message(
 				SPAN_NOTICE("\The [user] tries to climb out of \the [src]."),
 				self_message = SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
-				blind_message = SPAN_NOTICE("You hear water sloushing."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_NOTICE("You hear water sloushing.")
 				)
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] begins pulling \the [buckled] out of \the [src]."),
 				self_message = SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
-				blind_message = SPAN_NOTICE("You hear water sloushing."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_NOTICE("You hear water sloushing.")
 				)
 		busy = 1
 		if(do_after(user, delay, src))
@@ -140,9 +138,9 @@
 				if(prob(80))
 					to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 					return
-				user.visible_message(SPAN_NOTICE("\The [buckled] pulls himself out of \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [buckled] pulls himself out of \the [src]."))
 			else
-				user.visible_message(SPAN_NOTICE("\The [buckled] has been freed from \the [src] by \the [user]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [buckled] has been freed from \the [src] by \the [user]."))
 			unbuckle()
 		else
 			busy = 0
@@ -171,7 +169,7 @@
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
 		return
-	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"))
+	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"), visible_message_flags = LOCAL_MESSAGE)
 	name = "quicksand"
 	desc = "There is no candy at the bottom."
 	exposed = 1

@@ -38,12 +38,12 @@
 					if(!(locate(/obj/structure/machinery/door/airlock/lift) in dest))
 						if(LM.Move(dest))
 							moved = 1
-							LM.visible_message("\The [LM] scurries away from the closing doors.", visible_message_flags = GHOST_MESSAGE)
+							LM.visible_message("\The [LM] scurries away from the closing doors.")
 							break
 				if(!moved) // nowhere to go....
 					LM.gib()
 			else // the mob is too big to just move, so we need to give up what we're doing
-				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.")
+				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.", audible_message_flags = LOCAL_MESSAGE)
 				cur_command = null // the door will just keep trying otherwise
 				return 0
 	return ..()

@@ -31,11 +31,11 @@
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.",
 									self_message = "You secure the [src.name] to the floor.",
-									blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+									blind_message = "You hear a ratchet")
 		else
 			user.visible_message("[user.name] unsecures [src.name] from the floor.",
 									self_message = "You unsecure the [src.name] from the floor.",
-									blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+									blind_message = "You hear a ratchet")
 		update_icon()
 		return
 	return ..()

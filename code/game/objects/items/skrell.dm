@@ -21,14 +21,14 @@
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
-	visible_message(SPAN_NOTICE("\The [src] lands on \the [pick_constellation()]."))
+	visible_message(SPAN_NOTICE("\The [src] lands on \the [pick_constellation()]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/stellascope/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
 			H.visible_message(SPAN_NOTICE("\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen."),
-							self_message = SPAN_NOTICE("You see the starry edge of srom floating on the void of space."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You see the starry edge of srom floating on the void of space."))
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
@@ -63,13 +63,13 @@
 	AddOverlays(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
-	visible_message(SPAN_NOTICE("\The [src] vanishes!"))
+	visible_message(SPAN_NOTICE("\The [src] vanishes!"), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 	return TRUE
 
 /obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
 	if(user.a_intent == I_HURT)
-		visible_message(SPAN_NOTICE("\The [src] vanishes!"))
+		visible_message(SPAN_NOTICE("\The [src] vanishes!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 		return
 
@@ -214,7 +214,7 @@
 
 
 		if(hologram_message)
-			visible_message(SPAN_NOTICE("[hologram_message]"))
+			visible_message(SPAN_NOTICE("[hologram_message]"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/skrell_projector/dream // Subtype that starts processing on init, for mapping/use in the dream - lly
 	name = "dream projector"
@@ -264,7 +264,7 @@
 		return
 	if(!canremove)
 		icon_state = initial(icon_state)
-		visible_message(SPAN_WARNING("\The [src] fizzles loudly, then clicks open!"))
+		visible_message(SPAN_WARNING("\The [src] fizzles loudly, then clicks open!"), visible_message_flags = LOCAL_MESSAGE)
 		canremove = TRUE
 		fried = TRUE
 

@@ -56,7 +56,7 @@
 	P.set_content_unsafe("paper - [form_title]", "[last_data]")
 	if(istype(user,/mob/living/carbon/human) && !(user.l_hand && user.r_hand))
 		user.put_in_hands(P)
-	user.visible_message("\The [src] spits out a piece of paper.", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("\The [src] spits out a piece of paper.")
 	return
 
 /obj/item/analyzer/plant_analyzer/attack_self(mob/user as mob)
@@ -99,7 +99,7 @@
 
 	form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"
 	var/dat = "<h3>Plant data for [form_title]</h3>"
-	user.visible_message(SPAN_NOTICE("[user] runs the scanner over \the [target]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] runs the scanner over \the [target]."))
 
 	dat += "<h2>General Data</h2>"
 

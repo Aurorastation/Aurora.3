@@ -37,8 +37,7 @@
 			user.visible_message(
 				SPAN_NOTICE("[user] begins cutting \the [src]'s safety bolts."),
 				self_message = SPAN_NOTICE("You begin welding \the [src]'s safety bolts."),
-				blind_message = SPAN_NOTICE("You hear a welding torch on metal."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_NOTICE("You hear a welding torch on metal.")
 			)
 			if(!WT.use_tool(src, user, 50, volume = 50))
 				return
@@ -47,8 +46,7 @@
 				return
 			user.visible_message(
 				SPAN_NOTICE("[user] cuts \the [src]'s safety bolts and removes the plating."),
-				self_message = SPAN_NOTICE("You cut \the [src]'s safety bolts and remove the plating."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You cut \the [src]'s safety bolts and remove the plating.")
 			)
 			new /obj/item/stack/material/steel(get_turf(src), 5)
 			qdel(src)
@@ -58,7 +56,7 @@
 		return
 
 	deployed = 1
-	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"))
+	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 
 	// This is shit but it will do for the sake of testing.

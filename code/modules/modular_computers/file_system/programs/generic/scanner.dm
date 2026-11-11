@@ -11,7 +11,7 @@
 		computer.scan_mode = mode
 		return TRUE
 	else
-		computer.visible_message(SPAN_WARNING("Cannot activate [filedesc]: Another scanner is already active!"))
+		computer.visible_message(SPAN_WARNING("Cannot activate [filedesc]: Another scanner is already active!"), visible_message_flags = LOCAL_MESSAGE)
 		return FALSE
 
 /datum/computer_file/program/scanner/service_deactivate()

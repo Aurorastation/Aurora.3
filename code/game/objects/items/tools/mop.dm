@@ -52,7 +52,7 @@
 			return
 		// Spam is bad
 		if(!(last_clean && world.time < last_clean + 120))
-			user.visible_message(SPAN_WARNING("[user] begins to mop \the [get_turf(A)]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] begins to mop \the [get_turf(A)]."))
 			clean_msg = TRUE
 			last_clean = world.time
 		else

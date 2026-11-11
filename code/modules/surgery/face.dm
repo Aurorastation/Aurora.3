@@ -17,17 +17,17 @@
 
 /singleton/surgery_step/generic/cut_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s face and neck with \the [tool].", \
-		self_message = "You start to cut open [target]'s face and neck with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to cut open [target]'s face and neck with \the [tool].")
 	..()
 
 /singleton/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s face and neck with \the [tool]." , \
-		self_message = SPAN_NOTICE("You have cut open [target]'s face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE,)
+		self_message = SPAN_NOTICE("You have cut open [target]'s face and neck with \the [tool]."),)
 	target.op_stage.face = FACE_CUT_OPEN
 
 /singleton/surgery_step/generic/cut_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
@@ -46,15 +46,15 @@
 
 /singleton/surgery_step/robotics/face/synthskin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
-		self_message = "You start to cut open [target]'s synthskin face and neck with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to cut open [target]'s synthskin face and neck with \the [tool].")
 	..()
 
 /singleton/surgery_step/robotics/face/synthskin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
-		self_message = SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE,)
+		self_message = SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."),)
 	target.op_stage.face = FACE_CUT_OPEN
 
 /singleton/surgery_step/robotics/face/synthskin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

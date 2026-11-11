@@ -100,7 +100,7 @@
 		M.Stun(4)
 		M.custom_pain(SPAN_DANGER("You feel [pick("a spike of horrific pain razing through every cell of your body","your insides bursting into screaming fire","your body trying to turn itself inside out","what death must be like")]!"), 40)
 		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 40
-		M.visible_message(SPAN_WARNING("[M] [pick("writhes in agony!","seizes up!","contorts in pain!")]"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_WARNING("[M] [pick("writhes in agony!","seizes up!","contorts in pain!")]"))
 
 /singleton/reagent/toxin/panotoxin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(ishuman(M))
@@ -108,17 +108,17 @@
 		if(!H.can_feel_pain())
 			return
 	if(prob(5))
-		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), vision_distance = 2, visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), vision_distance = 2)
 	else if(prob(5))
 		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
 		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 120
-		M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
 
 /singleton/reagent/toxin/panotoxin/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
 	var/pain_to_refund = M.chem_tracking[/singleton/reagent/toxin/panotoxin] //5u does about 1900-2600 pain.
 	if(pain_to_refund > 80)
-		M.visible_message("<b>[M]</b> visibly untenses.", visible_message_flags = GHOST_MESSAGE) //Torturers should microdose. This saves them constant scans while preventing spam if IV'd.
+		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves them constant scans while preventing spam if IV'd.
 		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
 		M.apply_effect(pain_to_refund * -0.5, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse in the game except for red nightshade. We only do half because a lot of it heals during the dose.
 	if(pain_to_refund > 4000)
@@ -437,7 +437,7 @@
 				S.target = null
 				++S.discipline
 		if(S.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), self_message = SPAN_DANGER("Your flesh burns in the foam!"), visible_message_flags = GHOST_MESSAGE)
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), self_message = SPAN_DANGER("Your flesh burns in the foam!"))
 
 /singleton/reagent/toxin/fertilizer/monoammoniumphosphate/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/structure/bonfire))
@@ -466,9 +466,9 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(T, /turf/simulated/floor/diona))
-		T.visible_message(SPAN_WARNING("\The [T] squirms as it's hit by the solution, before dissolving."))
+		T.visible_message(SPAN_WARNING("\The [T] squirms as it's hit by the solution, before dissolving."), visible_message_flags = LOCAL_MESSAGE)
 		var/turf/simulated/floor/F = T
 		F.make_plating()
 		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)
@@ -839,7 +839,7 @@
 				if(prob(10))
 					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
 					E.status &= ~ORGAN_BROKEN
-					M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain!"), visible_message_flags = GHOST_MESSAGE)
+					M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))

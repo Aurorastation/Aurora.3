@@ -37,7 +37,7 @@
 			C.add_strength()
 
 		if(WIRE_POWER_LIMIT)
-			C.visible_message("[icon2html(C, viewers(get_turf(C)))]<b>[C]</b> makes a large whirring noise.")
+			C.visible_message("[icon2html(C, viewers(get_turf(C)))]<b>[C]</b> makes a large whirring noise.", visible_message_flags = LOCAL_MESSAGE)
 
 /datum/wires/particle_acc/control_box/on_cut(wire, mend, source)
 	var/obj/structure/machinery/particle_accelerator/control_box/C = holder

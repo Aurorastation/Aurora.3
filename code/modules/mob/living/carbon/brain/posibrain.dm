@@ -21,7 +21,7 @@
 
 /obj/item/mmi/digital/posibrain/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	playsound(src, SFX_BREAK_GLASS, 100, 1)
-	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"))
+	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"), visible_message_flags = LOCAL_MESSAGE)
 	to_chat(brainmob, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
 	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
 	. = ..()
@@ -36,7 +36,7 @@
 		bullet_ping(hitting_projectile)
 
 	if(!hitting_projectile.do_not_log)
-		visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile]!"))
+		visible_message(SPAN_DANGER("\The [src] is hit by \a [hitting_projectile]!"), visible_message_flags = LOCAL_MESSAGE)
 		to_chat(brainmob, SPAN_DANGER(FONT_LARGE("Your positronic is hit by \a [hitting_projectile]!")))
 
 	add_damage(projectile_damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
@@ -88,7 +88,7 @@
 		brainmob.real_name = new_name
 		brainmob.name = new_name
 		brainmob.voice_name = new_name
-	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
+	visible_message(SPAN_NOTICE("\The [src] chimes quietly."), visible_message_flags = LOCAL_MESSAGE)
 	return ..()
 
 /obj/item/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

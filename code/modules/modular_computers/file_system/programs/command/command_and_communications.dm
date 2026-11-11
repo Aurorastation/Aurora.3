@@ -218,7 +218,7 @@
 					if(!computer.nano_printer.print_text(params["contents"], params["title"]))
 						to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					else
-						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		if("toggleintercept")
 			if(is_authenticated(user) && ntn_comm)
 				if(computer?.nano_printer)

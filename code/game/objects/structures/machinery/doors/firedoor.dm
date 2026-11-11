@@ -193,13 +193,13 @@
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"), visible_message_flags = LOCAL_MESSAGE)
 				open(1)
 			else
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"), visible_message_flags = LOCAL_MESSAGE)
 				close(1)
 		else
-			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."))
+			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	..()
 
@@ -235,10 +235,10 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
-				visible_message(SPAN_DANGER("\The [H] forces \the [src] open!"))
+				visible_message(SPAN_DANGER("\The [H] forces \the [src] open!"), visible_message_flags = LOCAL_MESSAGE)
 				open(1)
 			else
-				visible_message(SPAN_DANGER("\The [H] forces \the [src] closed!"))
+				visible_message(SPAN_DANGER("\The [H] forces \the [src] closed!"), visible_message_flags = LOCAL_MESSAGE)
 				close(1)
 			return
 
@@ -253,7 +253,7 @@
 	else if(Adjacent(user))
 		user.visible_message("[user] [density ? "open" : "close"]s \an [src].",\
 		self_message = "You [density ? "open" : "close"] \the [src].",\
-		blind_message = "You hear a beep, and a door opening.", visible_message_flags = GHOST_MESSAGE)
+		blind_message = "You hear a beep, and a door opening.")
 
 	var/needs_to_close = 0
 	if(density)
@@ -293,8 +293,7 @@
 			user.visible_message(
 				SPAN_WARNING("[user] begins welding [src] [blocked ? "open" : "shut"]."),
 				self_message = SPAN_NOTICE("You begin welding [src] [blocked ? "open" : "shut"]."),
-				blind_message = SPAN_ITALIC("You hear a welding torch on metal."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_ITALIC("You hear a welding torch on metal.")
 			)
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(!WT.use_tool(src, user, 20, volume = 50, extra_checks = CALLBACK(src, PROC_REF(is_open), src.density)))
@@ -309,7 +308,7 @@
 	if(density && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		hatch_open = !hatch_open
 		user.visible_message(SPAN_DANGER("[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel."),
-									self_message = "You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.", visible_message_flags = GHOST_MESSAGE)
+									self_message = "You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
 		return TRUE
 
@@ -318,11 +317,11 @@
 			to_chat(user, SPAN_DANGER("You must open the maintenance panel first!"))
 		else
 			user.visible_message(SPAN_DANGER("[user] is removing the electronics from \the [src]."),
-									self_message = "You start to remove the electronics from [src].", visible_message_flags = GHOST_MESSAGE)
+									self_message = "You start to remove the electronics from [src].")
 			if(attacking_item.use_tool(src, user, 30, volume = 50))
 				if(blocked && density && hatch_open)
 					user.visible_message(SPAN_DANGER("[user] has removed the electronics from \the [src]."),
-										self_message = "You have removed the electronics from [src].", visible_message_flags = GHOST_MESSAGE)
+										self_message = "You have removed the electronics from [src].")
 
 					if (stat & BROKEN)
 						new /obj/item/trash/broken_electronics(src.loc)
@@ -348,7 +347,7 @@
 		if(blocked && attacking_item.tool_behaviour == TOOL_CROWBAR)
 			user.visible_message(SPAN_DANGER("\The [user] pries at \the [src] with \a [attacking_item], but \the [src] is welded in place!"),\
 			self_message = "You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
-			blind_message = "You hear someone struggle and metal straining.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear someone struggle and metal straining.")
 			return TRUE
 
 		if(istype(attacking_item,/obj/item/material/twohanded/fireaxe))
@@ -358,17 +357,17 @@
 
 		user.visible_message(SPAN_DANGER("\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [attacking_item]!"),\
 				self_message = "You start forcing \the [src] [density ? "open" : "closed"] with \the [attacking_item]!",\
-				blind_message = "You hear metal strain.", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear metal strain.")
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if(attacking_item.tool_behaviour == TOOL_CROWBAR || attacking_item.tool_behaviour == TOOL_HAMMER)
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message(SPAN_DANGER("\The [user] forces \the [src] [density ? "open" : "closed"] with \a [attacking_item]!"),\
 					self_message = "You force \the [src] [density ? "open" : "closed"] with \the [attacking_item]!",\
-					blind_message = "You hear metal strain, and a door [density ? "open" : "close"].", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear metal strain, and a door [density ? "open" : "close"].")
 			else
 				user.visible_message(SPAN_DANGER("\The [user] forces \the [ blocked ? "welded" : "" ] [src] [density ? "open" : "closed"] with \a [attacking_item]!"),\
 					self_message = "You force \the [ blocked ? "welded" : "" ] [src] [density ? "open" : "closed"] with \the [attacking_item]!",\
-					blind_message = "You hear metal strain and groan, and a door [density ? "opening" : "closing"].", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear metal strain and groan, and a door [density ? "opening" : "closing"].")
 			if(density)
 				open(1, user)
 			else
@@ -463,7 +462,7 @@
 	ClearOverlays()
 	if(hatch_open)
 		hatch_open = 0
-		visible_message("The maintenance panel of \the [src] closes.")
+		visible_message("The maintenance panel of \the [src] closes.", visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 
 	if(!forced)

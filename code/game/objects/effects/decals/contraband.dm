@@ -147,7 +147,7 @@
 	if(tgui_alert(usr, "Do I want to rip the poster from the wall?", "You think...", list("Yes", "No")) == "Yes")
 		if(ruined || !user.Adjacent(src))
 			return
-		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!") )
+		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!"), visible_message_flags = LOCAL_MESSAGE )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		ruined = TRUE
 		icon_state = "poster_ripped"

@@ -43,7 +43,7 @@
 		else
 			user.visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield."),
 									self_message = SPAN_DANGER("You hit [src] with [attacking_item], but it bounces off the forcefield."),
-									blind_message = "You hear something bouncing off a forcefield.", visible_message_flags = GHOST_MESSAGE)
+									blind_message = "You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 
@@ -53,7 +53,7 @@
 		if((last_toggle_time + timeout) > world.time)
 			user.visible_message(SPAN_NOTICE("\The [user] presses the button, but nothing happens."),
 									self_message = SPAN_NOTICE("You press the button, but it is not responding."),
-									blind_message = "You hear something being pressed.", visible_message_flags = GHOST_MESSAGE)
+									blind_message = "You hear something being pressed.")
 
 			return ..()
 		last_toggle_time = world.time
@@ -93,14 +93,14 @@
 /obj/structure/machinery/case_button/proc/activate(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] presses the button."),
 							self_message = SPAN_NOTICE("<span class='notice'>You press the button."),
-							blind_message = "You hear something being pressed.", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You hear something being pressed.")
 	return 1
 
 //Deactivate Button - Needs ro return 1 for the activation to be successful
 /obj/structure/machinery/case_button/proc/deactivate(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] resets the button."),
 							self_message = SPAN_NOTICE("<span class='notice'>You reset the button."),
-							blind_message = "You hear something being pressed.", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You hear something being pressed.")
 	return 1
 
 

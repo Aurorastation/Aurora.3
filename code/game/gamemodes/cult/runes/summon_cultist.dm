@@ -41,6 +41,6 @@
 					C.apply_effect(1, WEAKEN)
 		user.visible_message(SPAN_WARNING("The rune disappears with a flash of red light, and in its place now a body lies."), \
 		SPAN_WARNING("You are blinded by a flash of red light! After you're able to see again, you see that now instead of the rune there's a body."), \
-		SPAN_WARNING("You hear a pop and smell ozone."), visible_message_flags = GHOST_MESSAGE)
+		SPAN_WARNING("You hear a pop and smell ozone."))
 	qdel(A)
 	return fizzle(user, A)

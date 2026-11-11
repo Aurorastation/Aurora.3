@@ -1149,7 +1149,7 @@
 	var/obj/item/slime_extract/T = holder.my_atom
 	T.uses--
 	if(T.uses <= 0)
-		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
+		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>", visible_message_flags = LOCAL_MESSAGE)
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
 		if(istype(T.loc, /obj/item/storage))
@@ -1166,7 +1166,7 @@
 	required = /obj/item/slime_extract/grey
 
 /datum/chemical_reaction/slime/spawn/on_reaction(var/datum/reagents/holder)
-	holder.my_atom.visible_message(SPAN_WARNING("Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!"), visible_message_flags = (ismob(holder.my_atom) ? GHOST_MESSAGE : NONE))
+	holder.my_atom.visible_message(SPAN_WARNING("Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!"), visible_message_flags = (ismob(holder.my_atom) ? NONE : LOCAL_MESSAGE))
 	new /mob/living/carbon/slime(get_turf(holder.my_atom))
 	..()
 
@@ -1202,7 +1202,7 @@
 		var/turf/target = A.random_space()
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
-		AM.visible_message("\The [AM] phases in!", visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))
+		AM.visible_message("\The [AM] phases in!", visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 
 /datum/chemical_reaction/slime/bluespace_crystal
 	name = "Slime Bluespace Crystal"
@@ -1522,7 +1522,7 @@
 	..()
 	for(var/mob/living/carbon/slime/slime in viewers(get_turf(holder.my_atom), null))
 		slime.rabid = TRUE
-		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"), visible_message_flags = GHOST_MESSAGE)
+		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"))
 
 /datum/chemical_reaction/slime/nightshade
 	name = "Slime Nightshade"

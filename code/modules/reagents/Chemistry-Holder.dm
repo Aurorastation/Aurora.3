@@ -362,11 +362,11 @@
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
 		var/burn_damage = clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(SPAN_DANGER("The hot liquid burns [target]!"), visible_message_flags = GHOST_MESSAGE)
+		target.visible_message(SPAN_DANGER("The hot liquid burns [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
 		var/burn_damage = clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,min(total_volume*2,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP))
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"), visible_message_flags = GHOST_MESSAGE)
+		target.visible_message(SPAN_DANGER("The freezing liquid burns [target]!"))
 
 	for(var/_current in reagent_volumes)
 		var/singleton/reagent/current = GET_SINGLETON(_current)

@@ -449,7 +449,7 @@
 		damage = projectile.damage
 
 	projectile.damage = shields.stop_damage(damage)
-	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."), visible_message_flags = (ismob(user) ? GHOST_MESSAGE : NONE))
+	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 	flick("shield_impact", src)
 	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
 	//light up the night.
@@ -473,7 +473,7 @@
 		damage = hitting_projectile.damage
 
 	hitting_projectile.damage = shields.stop_damage(damage)
-	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."), visible_message_flags = (ismob(user) ? GHOST_MESSAGE : NONE))
+	user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash and crackle."), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 	flick("shield_impact", src)
 	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
 	//light up the night.
@@ -487,7 +487,7 @@
 	if(!active)
 		return
 	if(shields.charge && throwingdatum.speed <= 5)
-		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [hitting_atom]."), visible_message_flags = (ismob(user) ? GHOST_MESSAGE : NONE))
+		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [hitting_atom]."), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 10, TRUE)
 		return AURA_FALSE|AURA_CANCEL

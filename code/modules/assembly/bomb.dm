@@ -63,7 +63,7 @@
 	return
 
 /obj/item/onetankbomb/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
-	visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", blind_message = "*beep* *beep*")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", blind_message = "*beep* *beep*", visible_message_flags = LOCAL_MESSAGE)
 	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), 10 SECONDS)
 
 

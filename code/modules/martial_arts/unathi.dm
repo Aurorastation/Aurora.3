@@ -31,7 +31,7 @@
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
 		G.state = GRAB_AGGRESSIVE
-		D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"), visible_message_flags = GHOST_MESSAGE)
+		D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
 	return 1
 
 /datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -53,7 +53,7 @@
 
 /datum/martial_art/kis_khan/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
 	if(!D.paralysis)
-		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!", visible_message_flags = GHOST_MESSAGE)
+		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!")
 		A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 		playsound(D.loc, SFX_PUNCH, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
 		D.AdjustParalysis(5)
@@ -67,7 +67,7 @@
 	if(!isunathi(A))
 		return 0
 	TornadoAnimate(A)
-	A.visible_message(SPAN_WARNING("[A] sweeps [D] with their tail!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_WARNING("[A] sweeps [D] with their tail!"))
 	playsound(get_turf(A), SFX_SWING_HIT, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.Weaken(2)
@@ -86,16 +86,16 @@
 				var/obj/item/I = D.r_hand
 				D.drop_item()
 				A.put_in_hands(I)
-		D.visible_message(SPAN_DANGER("[A] has disarmed [D]!"), visible_message_flags = GHOST_MESSAGE)
+		D.visible_message(SPAN_DANGER("[A] has disarmed [D]!"))
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
-		D.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"), visible_message_flags = GHOST_MESSAGE)
+		D.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
 		playsound(D, SFX_PUNCH_MISS, 25, 1, -1)
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D, ATTACK_EFFECT_SMASH)
-	A.visible_message(SPAN_DANGER("[A] slams [D] away!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_DANGER("[A] slams [D] away!"))
 	playsound(D.loc, "punch", 50, 1, -1)
 	D.apply_effect(2, WEAKEN)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))

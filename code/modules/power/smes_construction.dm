@@ -181,13 +181,13 @@
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
+	visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"), visible_message_flags = LOCAL_MESSAGE)
 	health_check()
 
 /obj/structure/machinery/power/smes/buildable/proc/health_check(var/health_reduction = 0)
 	health -= health_reduction
 	if(health < 0)
-		visible_message(SPAN_DANGER("\The [src] blows apart!"))
+		visible_message(SPAN_DANGER("\The [src] blows apart!"), visible_message_flags = LOCAL_MESSAGE)
 		for(var/thing in component_parts)
 			var/obj/O = thing
 			if(prob(40))
@@ -200,7 +200,7 @@
 	else if(is_badly_damaged() && !busted)
 		busted = TRUE
 		open_hatch = TRUE
-		visible_message(SPAN_DANGER("\The [src]'s maintenance hatch [open_hatch ? "releases a torrent of sparks" : "blows open with a flurry of sparks"]!"))
+		visible_message(SPAN_DANGER("\The [src]'s maintenance hatch [open_hatch ? "releases a torrent of sparks" : "blows open with a flurry of sparks"]!"), visible_message_flags = LOCAL_MESSAGE)
 
 // Proc: process()
 // Parameters: None

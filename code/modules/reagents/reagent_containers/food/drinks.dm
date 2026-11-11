@@ -65,7 +65,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
-			user.visible_message("[user] shakes \the [src]!", self_message = "You shake \the [src]!", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("[user] shakes \the [src]!", self_message = "You shake \the [src]!")
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
@@ -78,13 +78,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
-	user.visible_message("<b>[user]</b> opens \the [src].", self_message = SPAN_NOTICE("You open \the [src] with an audible pop!"), blind_message = "You can hear a pop.", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> opens \the [src].", self_message = SPAN_NOTICE("You open \the [src] with an audible pop!"), blind_message = "You can hear a pop.")
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
 							self_message = SPAN_DANGER("\The [src] explodes all over you as you open it!"),
-							blind_message = "You can hear a soda can explode.", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You can hear a soda can explode.")
 
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
@@ -278,10 +278,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		var/cap_chance = is_psi_apex_or_higher ? 50 : 10
 		if(prob(upright_chance)) // landed upright in some way
 			if(prob(cap_chance)) // landed upright on ITS CAP (1% chance)
-				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"), visible_message_flags = LOCAL_MESSAGE)
 				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
 			else
-				src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright!"), visible_message_flags = LOCAL_MESSAGE)
 		else // landed on it's side
 			animate(src, transform = matrix(prob(50)? 90 : -90, MATRIX_ROTATE), time = 3, loop = 0)
 
@@ -354,7 +354,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			var/drink_moodlet_value = 5 * bar_skill.skill_level
 			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
 			if (!isnull(drink_moodlet_value))
-				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 

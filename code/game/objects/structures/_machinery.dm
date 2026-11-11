@@ -371,8 +371,7 @@ Class Procs:
 	user.visible_message(
 		SPAN_NOTICE("\The [user] swipes \the [pda] over \the [src]."),
 		self_message = SPAN_NOTICE("You swipe \the [pda] over \the [src]."),
-		vision_distance = 3,
-		visible_message_flags = GHOST_MESSAGE
+		vision_distance = 3
 	)
 	add_fingerprint(user)
 	return toggle_pda_link(pda, user)
@@ -428,11 +427,11 @@ Class Procs:
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
-			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", self_message = SPAN_NOTICE("You attach \the [S] to \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", self_message = SPAN_NOTICE("You attach \the [S] to \the [src]."), vision_distance = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
 		else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler)
-			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", self_message = SPAN_NOTICE("You remove \the [signaler] from \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", self_message = SPAN_NOTICE("You remove \the [signaler] from \the [src]."), vision_distance = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
 	return ..()
@@ -634,7 +633,7 @@ Class Procs:
 
 	if(!message)
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
-	visible_message(SPAN_NOTICE(message))
+	visible_message(SPAN_NOTICE(message), visible_message_flags = LOCAL_MESSAGE)
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
@@ -668,7 +667,7 @@ Class Procs:
 	if(hair_style.length >= 4 && prob(25))
 		H.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
-					self_message = SPAN_DANGER("Your hair gets caught in \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_DANGER("Your hair gets caught in \the [src]!"))
 		if(H.can_feel_pain())
 			H.emote("scream")
 			H.apply_damage(45, DAMAGE_PAIN)
@@ -709,7 +708,7 @@ Class Procs:
 		M.turf_collision(src, throwingdatum.speed)
 		return
 	else
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()

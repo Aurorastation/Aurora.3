@@ -59,7 +59,7 @@
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.is_damaged() && !BP_IS_ROBOTIC(I) && (~I.status & ORGAN_DEAD || I.can_recover()))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
-			self_message = "You start treating damage to [target]'s [I.name] with [tool_name].", visible_message_flags = GHOST_MESSAGE )
+			self_message = "You start treating damage to [target]'s [I.name] with [tool_name]." )
 	target.custom_pain("The pain in your [affected.name] is living hell!",100, affecting = affected)
 	..()
 
@@ -78,13 +78,13 @@
 		if(I && I.is_damaged() && !BP_IS_ROBOTIC(I))
 			if(I.status & ORGAN_DEAD && I.can_recover())
 				user.visible_message(SPAN_NOTICE("\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further."), \
-				self_message = SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further."), visible_message_flags = GHOST_MESSAGE )
+				self_message = SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.") )
 			else
 				user.visible_message(SPAN_NOTICE("[user] treats damage to [target]'s [I.name] with [tool_name]."), \
-				self_message = SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name]."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name]."))
 			I.surgical_fix(user)
 			user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
-			self_message = "You finish treating damage within \the [target]'s [affected.name] with [tool_name].", visible_message_flags = GHOST_MESSAGE)
+			self_message = "You finish treating damage within \the [target]'s [affected.name] with [tool_name].")
 			if(I.status & ORGAN_DEAD)
 				to_chat(user, SPAN_DANGER("This organ is still dead! You must remove the dead tissue with a scalpel!"))
 
@@ -94,7 +94,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!"))
 	var/dam_amt = 2
 
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
@@ -142,7 +142,7 @@
 		if(I && I.is_damaged())
 			if(I.robotic >= 2)
 				user.visible_message("<b>[user]</b> starts mending the damage to [target]'s [I.name]'s mechanisms.", \
-					self_message = SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ))
 
 	target.custom_pain("The pain in your [affected.name] is living hell!", 75, affecting = affected)
 	..()
@@ -156,7 +156,7 @@
 		if(I && I.is_damaged())
 			if(I.robotic >= 2)
 				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
-					self_message = SPAN_NOTICE("You repair [target]'s [I.name] with [tool]."), visible_message_flags = GHOST_MESSAGE )
+					self_message = SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
 				I.surgical_fix(user)
 				START_PROCESSING(SSprocessing, I)
 				if(istype(tool, /obj/item/stack/nanopaste))
@@ -170,7 +170,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"))
 
 	target.adjustToxLoss(5)
 	target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -225,13 +225,13 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	user.visible_message("<b>[user]</b> starts to separate [target]'s [target.op_stage.current_organ] with \the [tool].", \
-		self_message = SPAN_NOTICE("You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." ), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start to separate [target]'s [target.op_stage.current_organ] with \the [tool]." ))
 	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
 	..()
 
 /singleton/surgery_step/internal/detach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has separated [target]'s [target.op_stage.current_organ] with \the [tool]." , \
-		self_message = SPAN_NOTICE("You have separated [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have separated [target]'s [target.op_stage.current_organ] with \the [tool]."))
 
 	var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 	if(I && istype(I))
@@ -244,7 +244,7 @@
 /singleton/surgery_step/internal/detach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
 	affected.sever_artery()
 	target.apply_damage(rand(30, 50), DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
@@ -318,13 +318,13 @@
 
 /singleton/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
-		self_message = "You start removing [target]'s [target.op_stage.current_organ] with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!", 75)
 	..()
 
 /singleton/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_NOTICE("[user] has removed [target]'s [target.op_stage.current_organ] with \the [tool]."), \
-		self_message = SPAN_NOTICE("You have removed [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have removed [target]'s [target.op_stage.current_organ] with \the [tool]."))
 
 	// Extract the organ!
 	if(target.op_stage.current_organ)
@@ -344,7 +344,7 @@
 /singleton/surgery_step/internal/remove_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/replace_organ
@@ -426,14 +426,14 @@
 /singleton/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
-		self_message = "You start transplanting \the [tool] into [target]'s [affected.name].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start transplanting \the [tool] into [target]'s [affected.name].")
 	target.custom_pain("Someone's rooting around in your [affected.name]!", 75, affecting = affected)
 	..()
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] has transplanted \the [tool] into [target]'s [affected.name]."), \
-		self_message = SPAN_NOTICE("You have transplanted \the [tool] into [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have transplanted \the [tool] into [target]'s [affected.name]."))
 	var/obj/item/organ/O = tool
 	if(istype(O) && user.unEquip(O))
 		O.replaced(target,affected)
@@ -445,7 +445,7 @@
 
 /singleton/surgery_step/internal/replace_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging \the [tool]!"))
 	var/obj/item/organ/I = tool
 	if(istype(I))
 		I.take_damage(rand(3,5),0)
@@ -480,13 +480,13 @@
 
 /singleton/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
-		self_message = "You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!", 75)
 	..()
 
 /singleton/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_NOTICE("[user] has reattached [target]'s [target.op_stage.current_organ] with \the [tool].") , \
-		self_message = SPAN_NOTICE("You have reattached [target]'s [target.op_stage.current_organ] with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have reattached [target]'s [target.op_stage.current_organ] with \the [tool]."))
 
 	var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 	if(I && istype(I))
@@ -499,7 +499,7 @@
 /singleton/surgery_step/internal/attach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/internal/prepare
@@ -530,18 +530,18 @@
 /singleton/surgery_step/internal/prepare/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 	user.visible_message("[user] begins to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].", \
-		self_message = "You start to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to modify [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].")
 	target.custom_pain("Someone's scraping away at your [B]!", 75)
 	..()
 
 /singleton/surgery_step/internal/prepare/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
 	user.visible_message(SPAN_NOTICE("[user] has modified [target]'s [B] to prepare it for Man-Machine-Interface compatibility with \the [tool].") , \
-		self_message = SPAN_NOTICE("You prepare \the [target]'s brain for Man-Machine-Interface compatibility with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You prepare \the [target]'s brain for Man-Machine-Interface compatibility with \the [tool]."))
 	B.prepared = TRUE
 
 /singleton/surgery_step/internal/prepare/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(20, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

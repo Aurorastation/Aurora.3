@@ -73,7 +73,7 @@
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
-					SPAN_NOTICE("You shake \the [src]."), visible_message_flags = GHOST_MESSAGE)
+					SPAN_NOTICE("You shake \the [src]."))
 		structure_shaken()
 
 	return ..()
@@ -185,7 +185,7 @@
 	if (!can_climb(user))
 		return FALSE
 
-	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
 	if(!do_after(user, user.get_conditioning_action_delay(5 SECONDS), src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
@@ -202,7 +202,7 @@
 		if(user.loc == TT)
 			TT = get_turf(src)
 
-	user.visible_message(SPAN_WARNING("[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!"))
 	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 

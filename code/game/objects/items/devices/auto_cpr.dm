@@ -185,7 +185,7 @@
 		if(H.wear_suit)
 			to_chat(user, SPAN_WARNING("Their [H.wear_suit] is in the way, remove it first!"))
 			return 1
-		user.visible_message(SPAN_NOTICE("[user] starts fitting \the [src] onto [H]'s chest."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] starts fitting \the [src] onto [H]'s chest."))
 
 		if(!do_after(user, 2 SECONDS, H))
 			to_chat(user, SPAN_DANGER("Failed fitting \the [src] onto [H]! Both you and [H] must remain still for you to do that!"))
@@ -206,7 +206,7 @@
 				to_chat(user, SPAN_WARNING("You must unequip \the [src] before doing that!"))
 				return TRUE
 		panel_open = !panel_open
-		user.visible_message(SPAN_NOTICE("[user] screws \the [src]'s panel [panel_open ? "open" : "closed"]."), self_message = SPAN_NOTICE("You screw \the [src]'s panel [panel_open ? "open" : "closed"]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] screws \the [src]'s panel [panel_open ? "open" : "closed"]."), self_message = SPAN_NOTICE("You screw \the [src]'s panel [panel_open ? "open" : "closed"]."))
 		update_icon()
 		return TRUE
 
@@ -215,7 +215,7 @@
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [tank] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] removes \the [tank] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [tank] from \the [src]."))
 			tank.forceMove(user.loc)
 			user.put_in_hands(tank)
 			tank = null
@@ -225,7 +225,7 @@
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
-			user.visible_message(SPAN_NOTICE("[user] removes \the [battery] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [battery] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] removes \the [battery] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [battery] from \the [src]."))
 			battery.forceMove(user.loc)
 			user.put_in_hands(battery)
 			battery = null
@@ -237,7 +237,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			battery = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 		if(istype(attacking_item, /obj/item/clothing/mask/breath))
@@ -249,7 +249,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			breath_mask = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 		if(istype(attacking_item, /obj/item/tank/emergency_oxygen))
@@ -258,7 +258,7 @@
 				return TRUE
 			user.drop_from_inventory(attacking_item, src)
 			tank = attacking_item
-			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), self_message = SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 
@@ -267,7 +267,7 @@
 		if(!breath_mask)
 			to_chat(user, "There isn't an installed mask to remove!")
 			return
-		user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [breath_mask] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] removes \the [breath_mask] from \the [src]."), self_message = SPAN_NOTICE("You remove \the [breath_mask] from \the [src]."))
 		breath_mask.forceMove(user.loc)
 		user.put_in_hands(breath_mask)
 		breath_mask = null
@@ -325,7 +325,7 @@
 			epp_off()
 		if(cpr_mode)
 			cpr_mode = FALSE
-		visible_message(SPAN_WARNING("\The [src] sputters as it runs out of charge!"))
+		visible_message(SPAN_WARNING("\The [src] sputters as it runs out of charge!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/synth_no.ogg', 50)
 		update_icon()
 		return PROCESS_KILL
@@ -356,7 +356,7 @@
 
 /obj/item/auto_cpr/proc/epp_process(mob/living/carbon/human/H)
 	if(!tank || !breath_mask)
-		src.visible_message(SPAN_WARNING("Error! Vital component for \the [src]'s [EPP] missing! Turning function off."))
+		src.visible_message(SPAN_WARNING("Error! Vital component for \the [src]'s [EPP] missing! Turning function off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 	if(H.species.flags & NO_BREATHE)
@@ -386,17 +386,17 @@
 		epp_off()
 		return
 	if(lungs.checking_rupture == FALSE)
-		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."))
+		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 	if(XGM_PRESSURE(tank.air_contents) <= 10)
-		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."))
+		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 
 	if(H.losebreath > 0)
 		if(!epp_active)
-			src.visible_message(SPAN_WARNING("\The [src] beeps, activating it's [EPP]!"))
+			src.visible_message(SPAN_WARNING("\The [src] beeps, activating it's [EPP]!"), visible_message_flags = LOCAL_MESSAGE)
 			tank.forceMove(H)
 			H.internal = tank
 			if(H.internals)
@@ -410,22 +410,22 @@
 
 /obj/item/auto_cpr/proc/breath_mask_on(mob/living/carbon/human/H)
 	if(!H.organs_by_name[BP_HEAD])
-		src.visible_message(SPAN_WARNING("Error! Patient lacks a head!"))
+		src.visible_message(SPAN_WARNING("Error! Patient lacks a head!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(!H.check_has_mouth())
-		src.visible_message(SPAN_WARNING("Error! Patient lacks a mouth!"))
+		src.visible_message(SPAN_WARNING("Error! Patient lacks a mouth!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(H.head && (H.head.body_parts_covered & FACE))
-		src.visible_message(SPAN_WARNING("Error! Access to patient's head is obstructed!"))
+		src.visible_message(SPAN_WARNING("Error! Access to patient's head is obstructed!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(H.wear_mask)
-		src.visible_message(SPAN_WARNING("Error! Access to patient's mouth is obstructed!"))
+		src.visible_message(SPAN_WARNING("Error! Access to patient's mouth is obstructed!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
-	src.visible_message(SPAN_INFO("\The [src] automatically fastens \the [breath_mask] onto \the [H]."))
+	src.visible_message(SPAN_INFO("\The [src] automatically fastens \the [breath_mask] onto \the [H]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(H, 'sound/effects/buckle.ogg', 50)
 	breath_mask.forceMove(H.loc)
 	H.equip_to_slot(breath_mask, slot_wear_mask)
@@ -435,7 +435,7 @@
 	update_icon()
 
 /obj/item/auto_cpr/proc/breath_mask_off()
-	src.visible_message(SPAN_WARNING("\The [src] automatically retracts \the [breath_mask]!"))
+	src.visible_message(SPAN_WARNING("\The [src] automatically retracts \the [breath_mask]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(epp_active)
 		tank.forceMove(src)
 		if(breather.internals)

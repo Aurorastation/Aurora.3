@@ -343,7 +343,7 @@
 			service.service_state = PROGRAM_STATE_KILLED
 
 	if(loud)
-		visible_message(SPAN_NOTICE("\The [src] shuts down."))
+		visible_message(SPAN_NOTICE("\The [src] shuts down."), visible_message_flags = LOCAL_MESSAGE)
 	SStgui.close_uis(src)
 	enabled = FALSE
 	if(looping_sound)
@@ -538,7 +538,7 @@
 		if(user)
 			to_chat(user, message)
 		return
-	audible_message(message, hearing_distance = message_range)
+	audible_message(message, hearing_distance = message_range, audible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/modular_computer/proc/get_message_recipient()
 	if(ismob(loc))

@@ -308,7 +308,7 @@
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
 				user.visible_message(SPAN_NOTICE("[user] places \the [src] against [M]'s [organ.name] and listens attentively."),
-										self_message = EXAMINE_BLOCK("You place \the [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."), visible_message_flags = GHOST_MESSAGE)
+										self_message = EXAMINE_BLOCK("You place \the [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
 				return
 	return ..(M,user)
 
@@ -925,7 +925,7 @@
 	if(can_be_broken)
 		if(!separated)
 			if(user.a_intent == I_HURT)
-				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("[user] yanks apart \the [src]!"))
 				separated = TRUE
 				var/obj/item/dogtag/tag = new tag_type(get_turf(user))
 				user.put_in_hands(tag)

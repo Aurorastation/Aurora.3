@@ -49,8 +49,7 @@
 		if(do_after(user, 30))
 			user.visible_message(
 			SPAN_NOTICE("\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]"),
-			self_message = SPAN_NOTICE("You brush your teeth with \the [src]."),
-			visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You brush your teeth with \the [src]."))
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()
 	return
@@ -71,10 +70,10 @@
 			else if(reagents.total_volume)
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
-					user.visible_message(SPAN_WARNING("[user] is trying to brush \the [target_mob]'s teeth \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message(SPAN_WARNING("[user] is trying to brush \the [target_mob]'s teeth \the [src]!"))
 					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 					if(do_after(user, 30))
-						user.visible_message(SPAN_WARNING("[user] has brushed \the [target_mob]'s teeth with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						user.visible_message(SPAN_WARNING("[user] has brushed \the [target_mob]'s teeth with \the [src]!"))
 
 						reagents.trans_to_mob(target_mob, amount_per_transfer_from_this, CHEM_BREATHE)
 						update_icon()
@@ -95,7 +94,7 @@
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 			user.visible_message(SPAN_NOTICE("\The [user] soaks [src] using [A]."),
-									self_message = SPAN_NOTICE("You soak [src] using [A]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You soak [src] using [A]."))
 
 			update_icon()
 		return
@@ -111,11 +110,11 @@
 	if(!reagents.total_volume)
 		to_chat(user, SPAN_WARNING("The [initial(name)] is dry!"))
 	else
-		user.visible_message("\The [user] starts to brush down [A] with [src]!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] starts to brush down [A] with [src]!")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 		update_icon()
 		if(do_after(user, 120))
-			user.visible_message("\The [user] finishes brushing off \the [A]!", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("\The [user] finishes brushing off \the [A]!")
 			reagents.splash(A, 5)
 			A.clean_blood()
 

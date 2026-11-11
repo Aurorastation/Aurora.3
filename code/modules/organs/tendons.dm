@@ -102,11 +102,11 @@
 		parent.owner.flash_strong_pain()
 		parent.owner.custom_pain(FONT_LARGE("You feel something [pick(messages)] in your [parent.name]!"), 25)
 		parent.owner.visible_message(SPAN_WARNING("You hear a loud snapping sound coming from [parent.owner]!"),
-		blind_message = "You hear a sickening snap!", visible_message_flags = GHOST_MESSAGE)
+		blind_message = "You hear a sickening snap!")
 	else
 		parent.owner.visible_message(SPAN_WARNING("You hear a loud snapping sound coming from [parent.owner]!"),\
 		self_message = SPAN_DANGER("Something feels like it [pick(messages)] in your [parent.name]!"),\
-		blind_message = "You hear a sickening snap!", visible_message_flags = GHOST_MESSAGE)
+		blind_message = "You hear a sickening snap!")
 
 	if(istype(parent, /obj/item/organ/external/hand))
 		parent.owner.update_hud_hands()

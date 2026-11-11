@@ -39,7 +39,7 @@
 		if(istype(attacking_item, /obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/C = attacking_item
 			if(C.powered)
-				user.visible_message(SPAN_NOTICE("\The [user] begins cutting down \the [src]..."), self_message = SPAN_NOTICE("You start cutting down \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] begins cutting down \the [src]..."), self_message = SPAN_NOTICE("You start cutting down \the [src]..."))
 				playsound(get_turf(user), 'sound/weapons/saw/chainsawhit.ogg', 60, 1)
 				shake_animation()
 				if(do_after(user, 50))
@@ -55,7 +55,7 @@
 			chop_health -= attacking_item.force
 			update_desc()
 			if(prob(20))
-				user.visible_message(SPAN_NOTICE("\The [user] chops at \the [src]."), self_message = SPAN_NOTICE("You chop at \the [src]."), blind_message = SPAN_NOTICE("You hear someone chopping wood."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] chops at \the [src]."), self_message = SPAN_NOTICE("You chop at \the [src]."), blind_message = SPAN_NOTICE("You hear someone chopping wood."))
 			if(prob(attacking_item.force/3))
 				var/list/valid_turfs = list()
 				for(var/turf/T in circle_range(src, 1))
@@ -66,7 +66,7 @@
 					valid_turfs += get_turf(src)
 				var/obj/item/stack/material/wood/branch/B = new(pick(valid_turfs))
 				B.amount = 1
-				visible_message(SPAN_NOTICE("\The [B] falls from \the [src]."))
+				visible_message(SPAN_NOTICE("\The [B] falls from \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 			if(chop_health <= 0)
 				timber(user)
@@ -102,7 +102,7 @@
 			continue
 		if(isliving(A))
 			var/mob/living/L = A
-			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"))
+			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"), visible_message_flags = LOCAL_MESSAGE)
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				var/obj/item/organ/external/affected = pick(H.organs)
@@ -118,7 +118,7 @@
 		if(isobj(A) && !istype(A, /obj/item/stack) && A != src)
 			var/obj/O = A
 			if(prob(fall_force * 0.75))
-				visible_message(SPAN_WARNING("\The [src] crushes \the [O] under its weight!"))
+				visible_message(SPAN_WARNING("\The [src] crushes \the [O] under its weight!"), visible_message_flags = LOCAL_MESSAGE)
 				qdel(A)
 	new /obj/structure/flora/stump/log(fall_loc)
 	var/obj/item/stack/material/wood/branch/B = new(fall_loc)
@@ -150,13 +150,13 @@
 		cutting = TRUE
 		var/chopsound = istype(attacking_item, /obj/item/material/twohanded/chainsaw) ? 'sound/weapons/saw/chainsawhit.ogg' : 'sound/effects/woodcutting.ogg'
 		playsound(get_turf(user), chopsound, 50, 1)
-		user.visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into log sections."), self_message = SPAN_NOTICE("You begin chopping \the [src] into log sections."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into log sections."), self_message = SPAN_NOTICE("You begin chopping \the [src] into log sections."))
 		var/chopspeed = 1
 		if(istype(attacking_item, /obj/item/material/twohanded))
 			var/obj/item/material/twohanded/W = attacking_item
 			chopspeed = W.wielded ? 2 : 1
 		if(do_after(user, 100 / chopspeed))
-			user.visible_message(SPAN_NOTICE("\The [user] chops \the [src] into log sections."), self_message = SPAN_NOTICE("You chop \the [src] into log sections."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] chops \the [src] into log sections."), self_message = SPAN_NOTICE("You chop \the [src] into log sections."))
 			var/obj/item/stack/material/wood/log/L = new(get_turf(src))
 			L.amount = rand(5, 8)
 			qdel(src)

@@ -100,7 +100,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 		return TRUE
 
 	if(!issilicon(user))
-		user.visible_message(SPAN_NOTICE("\The [user] presses the [chosen_control] button."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] presses the [chosen_control] button."))
 
 	activate_control(chosen_control, control_data)
 

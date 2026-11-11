@@ -3348,7 +3348,7 @@
 		else
 			M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 			if(prob(5))
-				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]", visible_message_flags = GHOST_MESSAGE)
+				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 				to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj

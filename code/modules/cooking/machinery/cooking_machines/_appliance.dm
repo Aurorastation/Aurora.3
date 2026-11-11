@@ -136,7 +136,7 @@
 	stat ^= POWEROFF // Toggles power
 	update_use_power(stat & POWEROFF ? POWER_USE_OFF : POWER_USE_ACTIVE)
 	if(user)
-		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", self_message = "You turn [use_power ? "on" : "off"] [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", self_message = "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 
@@ -246,7 +246,7 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == CONTAINER_EMPTY)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
 			playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 			return
 	else
@@ -260,7 +260,7 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
 	playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
@@ -370,7 +370,7 @@
 
 /obj/structure/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 	if(finish_verb)
-		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND)
+		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND, audible_message_flags = LOCAL_MESSAGE)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -527,7 +527,7 @@
 	new /obj/item/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
-	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"))
+	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)

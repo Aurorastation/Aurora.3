@@ -99,7 +99,7 @@
 			return
 		if(ckey || client)
 			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."),
-								self_message = SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 			shut_down()
 			return
 		if(seeking_player)
@@ -110,7 +110,7 @@
 			return
 
 		user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."),
-							self_message = SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
 		request_player()
 		return
 	..()

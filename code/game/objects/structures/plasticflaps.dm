@@ -102,11 +102,11 @@
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.sharp && !attacking_item.noslice)
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
-					blind_message = SPAN_NOTICE("You begin cutting down \the [src]."))
+					blind_message = SPAN_NOTICE("You begin cutting down \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
-		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."), blind_message = SPAN_NOTICE("You cut down \the [src]."))
+		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."), blind_message = SPAN_NOTICE("You cut down \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		dismantle()
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates

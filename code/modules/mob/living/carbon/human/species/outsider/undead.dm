@@ -491,7 +491,7 @@
 
 	last_special = world.time + 5 SECONDS
 
-	src.visible_message(SPAN_DANGER("\The [src] hunkers down over \the [target], tearing into their flesh."), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_DANGER("\The [src] hunkers down over \the [target], tearing into their flesh."))
 	playsound(loc, 'sound/effects/bonebreak3.ogg', 20, 1)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
 
@@ -542,9 +542,9 @@
 		if (target.getBruteLoss() > target.maxhealth*0.75)
 			if (prob(50))
 				gibs(get_turf(src), target.dna)
-				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"), visible_message_flags = GHOST_MESSAGE)
+				src.visible_message(SPAN_DANGER("\The [src] tears out \the [target]'s insides!"))
 	else
-		src.visible_message(SPAN_WARNING("\The [src] leaves their meal for later."), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_WARNING("\The [src] leaves their meal for later."))
 
 /mob/living/carbon/proc/smash_barricade()
 	set name = "Destroy Barricade"
@@ -562,7 +562,7 @@
 
 	last_special = world.time + 10 SECONDS
 	if(do_after(src, 2 SECONDS, B))
-		visible_message(SPAN_DANGER("<font size=4>\The [src] raises a giant, mutated hand and smashes \the [B]!</font>"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("<font size=4>\The [src] raises a giant, mutated hand and smashes \the [B]!</font>"))
 		playsound(src, 'sound/weapons/heavysmash.ogg', 100)
 		B.attack_generic(src, 200, "destroys", TRUE)
 
@@ -576,9 +576,9 @@
 		return
 
 	last_special = world.time + 10 SECONDS
-	visible_message(SPAN_DANGER(FONT_LARGE("[src] digs their hands into the ground and starts picking up a portion of it!")), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER(FONT_LARGE("[src] digs their hands into the ground and starts picking up a portion of it!")))
 	if(do_after(src, 3 SECONDS))
-		visible_message(SPAN_DANGER(FONT_LARGE("[src] picks up a large boulder out of the ground!")), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER(FONT_LARGE("[src] picks up a large boulder out of the ground!")))
 		var/obj/item/tank_rock/TR = new()
 		put_in_any_hand_if_possible(TR)
 
@@ -605,7 +605,7 @@
 	. = ..()
 	if(isliving(hit_atom))
 		var/mob/living/M = hit_atom
-		M.visible_message(SPAN_DANGER(FONT_LARGE("\The [src] breaks as it makes contact with [M]!")), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_DANGER(FONT_LARGE("\The [src] breaks as it makes contact with [M]!")))
 		M.Paralyse(5)
 		M.apply_damage(30, DAMAGE_BRUTE, used_weapon = src, armor_pen = 30)
 	qdel(src)

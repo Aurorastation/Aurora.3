@@ -345,7 +345,7 @@
 			fire_color = fuel.fire_color
 
 	if(power < REQUIRED_POWER_TO_FIRE_FLAMETHROWER)
-		audible_message(SPAN_DANGER("\The [src] sputters."))
+		audible_message(SPAN_DANGER("\The [src] sputters."), audible_message_flags = LOCAL_MESSAGE)
 		balloon_alert_to_hearers("*pshhhh*")
 		playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3)
 		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT) //Wastes some fuel
@@ -382,16 +382,16 @@
 #undef FLAMETHROWER_RELEASE_AMOUNT
 
 /obj/item/flamethrower/proc/explode_in_hand(power)
-	audible_message(SPAN_WARNING("\The [src] sputters a bit, throwing out some liquid."))
+	audible_message(SPAN_WARNING("\The [src] sputters a bit, throwing out some liquid."), audible_message_flags = LOCAL_MESSAGE)
 	balloon_alert_to_hearers("*pshhhhhhhhhhhhhh*")
 	playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3, frequency = 22000)
-	visible_message(SPAN_DANGER("\The [src] shakes uncontrollably!"))
+	visible_message(SPAN_DANGER("\The [src] shakes uncontrollably!"), visible_message_flags = LOCAL_MESSAGE)
 	sleep(0.5 SECONDS)
 	// Explode in a 3x3 area
 	var/list/turflist = circle_view_turfs(src.loc, 1)
 	var/turf_amount = length(turflist)
 	var/power_div = power/turf_amount
-	visible_message(SPAN_DANGER("\The [src] explodes!"))
+	visible_message(SPAN_DANGER("\The [src] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, SFX_EXPLOSION, 20, TRUE, -1, frequency = 48000)
 	for(var/turf/T as anything in turflist)
 		if(T.density || istype(T, /turf/space))

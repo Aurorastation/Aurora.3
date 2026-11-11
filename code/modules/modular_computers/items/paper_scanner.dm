@@ -81,12 +81,12 @@
 	if(!length(pages_to_scan))
 		return
 
-	user.visible_message("<b>[user]</b> starts making a scan of \the [target]...", self_message = SPAN_NOTICE("You start making a scan of \the [target]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts making a scan of \the [target]...", self_message = SPAN_NOTICE("You start making a scan of \the [target]..."), vision_distance = 3)
 	if(do_after(user, 30 * length(pages_to_scan), target))
 		if(!drive)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a drive installed."))
 			return
-		user.visible_message("<b>[user]</b> makes a scan of \the [target].", self_message = SPAN_NOTICE("You make a scan of \the [target]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> makes a scan of \the [target].", self_message = SPAN_NOTICE("You make a scan of \the [target]."), vision_distance = 3)
 		var/datum/computer_file/data/F = new /datum/computer_file/data(drive)
 		F.filename = target.name != initial(target.name) ? "[target.name] ([worldtime2text()] - [time2text(world.time, "Month DD")])" : "Digital Paper ([worldtime2text()] - [time2text(world.time, "Month DD")])"
 		F.filetype = "TXT"

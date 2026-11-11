@@ -146,7 +146,7 @@
 	var/obj/item/reagent_containers/RG = attacking_item
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
 		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
-		user.visible_message(SPAN_NOTICE("[user] fills \the [RG] from \the [src]."),self_message = SPAN_NOTICE("You fill \the [RG] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] fills \the [RG] from \the [src]."),self_message = SPAN_NOTICE("You fill \the [RG] from \the [src]."))
 	else
 		return ..()
 

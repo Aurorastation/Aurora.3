@@ -50,7 +50,7 @@
 				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
-						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 						M.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>"
 						src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>"
 
@@ -63,7 +63,7 @@
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 							M.visible_message(SPAN_WARNING("The power source on [M]'s stun gloves overloads in a terrific fashion!"),
 												self_message = SPAN_WARNING("Your jury rigged stun gloves malfunction!"),
-												blind_message = SPAN_WARNING("You hear a loud sparking."), visible_message_flags = GHOST_MESSAGE)
+												blind_message = SPAN_WARNING("You hear a loud sparking."))
 
 							if(prob(50))
 								M.apply_damage(rand(1,5), DAMAGE_BURN)
@@ -74,7 +74,7 @@
 						return 1
 					else
 						to_chat(M, SPAN_WARNING("Not enough charge!"))
-						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 					return
 
 
@@ -83,7 +83,7 @@
 			var/damage = rand(0, 9)
 			if(!damage)
 				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
-				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
@@ -92,11 +92,11 @@
 
 			playsound(loc, SFX_PUNCH, 25, 1, -1)
 
-			visible_message(SPAN_DANGER("[H] has punched [src]!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("[H] has punched [src]!"))
 
 			apply_damage(damage, DAMAGE_PAIN, affecting)
 			if(damage >= 9)
-				visible_message(SPAN_DANGER("[H] has weakened [src]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_DANGER("[H] has weakened [src]!"))
 				apply_effect(4, WEAKEN)
 
 			return
@@ -166,9 +166,9 @@
 				G.icon_state = "grabbed1"
 				G.hud.icon_state = "reinforce1"
 				G.last_action = world.time
-				visible_message(SPAN_WARNING("[M] gets a strong grip on [src]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_WARNING("[M] gets a strong grip on [src]!"))
 				return 1
-			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 			return 1
 
 		if(I_HURT)
@@ -273,7 +273,7 @@
 			if(!attack_message)
 				attack.show_attack(H, src, hit_zone, rand_damage)
 			else
-				H.visible_message(SPAN_DANGER("[attack_message]"), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message(SPAN_DANGER("[attack_message]"))
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>"
@@ -325,7 +325,7 @@
 
 
 			if(M.resting && src.help_up_offer)
-				M.visible_message(SPAN_WARNING("[M] slaps away [src]'s hand!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_WARNING("[M] slaps away [src]'s hand!"))
 				src.help_up_offer = 0
 
 		if(I_DISARM)
@@ -396,7 +396,7 @@
 						if(istype(W, /obj/item/grab))
 							var/obj/item/grab/G = W
 							if(G.affecting && G.affecting != M)
-								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), self_message = SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"), visible_message_flags = GHOST_MESSAGE)
+								visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [M]'s disarm attempt!"), self_message = SPAN_NOTICE("You reposition \the [G.affecting] to block \the [M]'s disarm attempt!"))
 								G.attack_hand(M)
 							return
 						if(istype(W, /obj/item/gun))
@@ -405,11 +405,11 @@
 								turfs += T
 							if(turfs.len)
 								var/turf/target = pick(turfs)
-								visible_message(SPAN_DANGER("[src]'s [W] goes off during the struggle!"), visible_message_flags = GHOST_MESSAGE)
+								visible_message(SPAN_DANGER("[src]'s [W] goes off during the struggle!"))
 								return W.afterattack(target,src)
 						else
 							if(M.Adjacent(src))
-								visible_message(SPAN_DANGER("[src] retaliates against [M]'s [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "inexperienced shoving" : "disarm attempt"] with [W]!"), visible_message_flags = GHOST_MESSAGE)
+								visible_message(SPAN_DANGER("[src] retaliates against [M]'s [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "inexperienced shoving" : "disarm attempt"] with [W]!"))
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
@@ -428,14 +428,14 @@
 						break
 				if(problem_railing)
 					if(!problem_railing.turf_is_crowded(TRUE))
-						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), self_message = SPAN_DANGER("[H] shoves you over the railing!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_DANGER("[H] shoves [src] over the railing!"), self_message = SPAN_DANGER("[H] shoves you over the railing!"))
 						apply_effect(5, WEAKEN)
 						forceMove(same_loc ? problem_railing.loc : problem_railing.get_destination_turf(src))
 						return
 					else
 						to_chat(H, SPAN_NOTICE("It's too crowded, you can't push [src] off the railing!")) //No return is intentional - it'll continue with a normal shove.
 				else
-					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), self_message = SPAN_DANGER("[H] pushes you forward!"), visible_message_flags = GHOST_MESSAGE)
+					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), self_message = SPAN_DANGER("[H] pushes you forward!"))
 					apply_effect(5, WEAKEN)
 					var/turf/current_turf = get_turf(z_eye)
 					forceMove(GET_TURF_ABOVE(current_turf)) //We use GET_TURF_ABOVE so people can't cheese it by turning their sprite.
@@ -445,7 +445,7 @@
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)
 					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-					visible_message(SPAN_DANGER("[M] hurls [src] to the floor!"), visible_message_flags = GHOST_MESSAGE)
+					visible_message(SPAN_DANGER("[M] hurls [src] to the floor!"))
 					step_away(src,M,15)
 					sleep(3)
 					step_away(src,M,15)
@@ -455,17 +455,17 @@
 					var/armor_check = 100 * get_blocked_ratio(affecting, DAMAGE_BRUTE, damage = 20)
 					apply_effect(3, WEAKEN, armor_check)
 					if(armor_check < 100)
-						visible_message(SPAN_DANGER("[M] has pushed [src]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_DANGER("[M] has pushed [src]!"))
 						playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					else
-						visible_message(SPAN_WARNING("[M] attempted to push [src]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_WARNING("[M] attempted to push [src]!"))
 						playsound(loc, 'sound/weapons/push.ogg', 50, 1, -1)
 					return
 
 			if(randn <= disarm_chance)
 				if(H.gloves && istype(H.gloves, /obj/item/clothing/gloves/force))
 					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-					visible_message(SPAN_DANGER("[M] shoves, sending [src] flying!"), visible_message_flags = GHOST_MESSAGE)
+					visible_message(SPAN_DANGER("[M] shoves, sending [src] flying!"))
 					step_away(src,M,15)
 					sleep(1)
 					step_away(src,M,15)
@@ -485,7 +485,7 @@
 				//Actually disarm them, if possible
 				for(var/obj/item/I in holding)
 					if(unEquip(I))
-						visible_message(SPAN_DANGER("\The [M] has disarmed \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_DANGER("\The [M] has disarmed \the [src]!"))
 						playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 						return
 					else
@@ -493,7 +493,7 @@
 						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
 			playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
-			visible_message(SPAN_DANGER("[M] [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] attempted to disarm [src]!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("[M] [attacker_skill_level == SKILL_LEVEL_UNFAMILIAR ? "[pick("inexpertly", "clumsily")] disarm" : "disarm"] attempted to disarm [src]!"))
 	return
 
 /mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
@@ -615,7 +615,7 @@
 	if(damage < 15 && (check_shields(damage, null, user, null, "\the [user]") != BULLET_ACT_HIT))
 		return
 
-	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 
 	var/dam_zone = user.zone_sel?.selecting
 	var/obj/item/organ/external/affecting = dam_zone ? get_organ(dam_zone) : pick(organs)
@@ -646,15 +646,15 @@
 	if(!organ || ORGAN_IS_DISLOCATED(organ) || LIMB_GET_DISLOCATED(organ) == -1)
 		return 0
 
-	user.visible_message(SPAN_WARNING("[user] begins to dislocate [src]'s [organ.joint]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] begins to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
-		src.visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		user.limb_breaking = FALSE
 		return 1
-	user.visible_message(SPAN_WARNING("[user] fails to dislocate [src]'s [organ.joint]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] fails to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = FALSE
 	return 0
 
@@ -662,21 +662,21 @@
 /mob/living/carbon/human/proc/break_all_grabs(mob/living/carbon/user)
 	var/success = 0
 	if(pulling)
-		visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [pulling]!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [pulling]!"))
 		success = 1
 		stop_pulling()
 
 	if(istype(l_hand, /obj/item/grab))
 		var/obj/item/grab/lgrab = l_hand
 		if(lgrab.affecting)
-			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [lgrab.affecting]!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [lgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(lgrab)
 	if(istype(r_hand, /obj/item/grab))
 		var/obj/item/grab/rgrab = r_hand
 		if(rgrab.affecting)
-			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [rgrab.affecting]!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [rgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(rgrab)
@@ -695,10 +695,10 @@
 
 	if(user == src)
 		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!"),
-								self_message = SPAN_NOTICE("You start applying pressure to your [organ.name]!"), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"),
-								self_message = SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
 
@@ -709,10 +709,10 @@
 
 		if(user == src)
 			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!"),
-									self_message = SPAN_NOTICE("You stop applying pressure to your [organ.name]!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"),
-									self_message = SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1
 

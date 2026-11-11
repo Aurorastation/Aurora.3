@@ -169,8 +169,7 @@
 
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts to snort some of \the [src] with \a [attacking_item]!"),
-			self_message = SPAN_NOTICE("You start to snort some of \the [src] with \the [attacking_item]!"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You start to snort some of \the [src] with \the [attacking_item]!")
 		)
 		playsound(loc, 'sound/effects/snort.ogg', 50, 1)
 		if (!do_after(user, 2 SECONDS))
@@ -178,8 +177,7 @@
 
 		user.visible_message(
 			SPAN_WARNING("\The [user] snorts some of \the [src] with \a [attacking_item]!"),
-			self_message = SPAN_NOTICE("You snort \the [src] with \the [attacking_item]!"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You snort \the [src] with \the [attacking_item]!")
 		)
 		playsound(loc, 'sound/effects/snort.ogg', 50, 1)
 

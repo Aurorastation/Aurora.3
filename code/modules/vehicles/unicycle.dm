@@ -39,7 +39,7 @@
 		unload(load)
 		to_chat(user, "You climb on \the [src]")
 	else if(user != load && load)
-		user.visible_message("[user] starts to remove [load] from \the [src]!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] starts to remove [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You remove [load] from \the [src]")
@@ -76,7 +76,7 @@
 				if(ishuman(buckled))
 					var/mob/living/carbon/human/H = buckled
 					if(H.mind && (H.mind.assigned_role != "Adhomian Circus Clown"))
-						H.visible_message(SPAN_DANGER("\The [H] falls off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						H.visible_message(SPAN_DANGER("\The [H] falls off from \the [src]!"))
 						unload(H)
 						H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 						H.apply_effect(2, WEAKEN)

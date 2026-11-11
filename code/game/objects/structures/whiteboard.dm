@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(whiteboard_overlay_cache)
 		balloon_alert(user, "[anchored ? "secure" : "unsecure"]")
 		user.visible_message("[user] [anchored ? "locks" : "unlocks"] [src]'s wheels.", \
 					self_message = "You [anchored ? "locked" : "unlocked"] [src]'s wheels.", \
-					blind_message = "You hear a click.", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear a click.")
 
 	else
 		to_chat(user, SPAN_WARNING("This is the wrong tool to manifest your inland empire, maybe a pen would be more fitting?"))

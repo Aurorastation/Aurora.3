@@ -35,12 +35,12 @@
 		if(is_type_in_list(target_move, GLOB.ventcrawl_machinery) && target_move.can_crawl_through())
 			var/obj/structure/machinery/atmospherics/unary/UA = target_move
 			if(UA.is_welded())
-				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), self_message = SPAN_NOTICE("You can't escape from a welded vent."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), self_message = SPAN_NOTICE("You can't escape from a welded vent."))
 			else
 				user.remove_ventcrawl()
 				user.forceMove(UA.loc) //handles entering and so on
 				user.sight &= ~(SEE_TURFS|BLIND)
-				user.visible_message(SPAN_WARNING("You hear something squeezing through the ducts."), self_message = "You climb out the ventilation system.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("You hear something squeezing through the ducts."), self_message = "You climb out the ventilation system.")
 				user.vent_trap_check("arriving", UA)
 
 		else if(target_move.can_crawl_through())
@@ -59,7 +59,7 @@
 			user.remove_ventcrawl()
 			user.forceMove(check_neighbor_density(get_turf(src.loc), direction) ? src.loc : get_step(src, direction))
 			user.sight &= ~(SEE_TURFS|BLIND)
-			user.visible_message(SPAN_WARNING("You hear something squeezing through the pipes."), self_message = "You climb out the ventilation system.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("You hear something squeezing through the pipes."), self_message = "You climb out the ventilation system.")
 			user.vent_trap_check("arriving", user.loc)
 	user.canmove = 0
 	spawn(1)

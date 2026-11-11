@@ -51,7 +51,7 @@
 					H.adjustBruteLoss(-40)
 					H.adjustFireLoss(-40)
 					L.basic_revival() //Restores your boy's brain to half health and makes them conscious. Doesn't touch anything internal: they'll immediately have a heart attack, good luck!
-					visible_message(SPAN_DANGER("\The [H]'s eyes open!"))
+					visible_message(SPAN_DANGER("\The [H]'s eyes open!"), visible_message_flags = LOCAL_MESSAGE)
 					to_chat(user, SPAN_NOTICE("It's alive!"))
 					adjust_instability(50)
 					log_and_message_admins("has resurrected [H].")

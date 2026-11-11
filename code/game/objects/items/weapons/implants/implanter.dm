@@ -40,7 +40,7 @@
 	var/obj/item/organ/external/affected = M.get_organ(target_zone)
 
 	if(user && imp && affected)
-		M.visible_message(SPAN_WARNING("[user] is attempting to implant [M] in \the [affected.name]."), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_WARNING("[user] is attempting to implant [M] in \the [affected.name]."))
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
@@ -48,7 +48,7 @@
 		var/turf/T1 = get_turf(M)
 		if (T1 && ((M == user) || do_after(user, 5 SECONDS)))
 			if(user && M && (get_turf(M) == T1) && src && imp)
-				M.visible_message(SPAN_WARNING("[M] has been implanted by [user] in the [affected.name]."), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_WARNING("[M] has been implanted by [user] in the [affected.name]."))
 
 				admin_attack_log(user, M, "Implanted using \the [name] ([imp.name])", "Implanted with \the [name] ([imp.name])", "used an implanter, [name] ([imp.name]), on")
 
@@ -96,7 +96,7 @@
 		to_chat(user, SPAN_WARNING("\The [H] is already tagged!"))
 		return
 
-	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("\The [user] tags \the [target_mob] with \the [src]!"), self_message = SPAN_NOTICE("You tag \the [target_mob] with \the [src]."), vision_distance = 3)
 
 	target_mob.attack_log += "\[[time_stamp()]\] <font color='orange'> Implanted with [name] ([ipc_tag.name])  by [user.name] ([user.ckey])</font>"
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Used the [name] ([ipc_tag.name]) to implant [target_mob.name] ([target_mob.ckey])</span>"

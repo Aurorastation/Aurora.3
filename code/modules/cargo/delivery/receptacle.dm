@@ -104,12 +104,12 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 
 		if(package.associated_delivery_point.resolve() != src)
 			playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-			visible_message(SPAN_WARNING("\The [src] buzzes harshly, \"Invalid package! Check the delivery ID!\""))
+			visible_message(SPAN_WARNING("\The [src] buzzes harshly, \"Invalid package! Check the delivery ID!\""), visible_message_flags = LOCAL_MESSAGE)
 			return
 
 		var/pays_horizon_account = package.pays_horizon_account
 
-		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", self_message = SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> starts heaving \the [attacking_item] into \the [src]...", self_message = SPAN_NOTICE("You start heaving \the [attacking_item] into \the [src]..."))
 		if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 			user.drop_from_inventory(attacking_item, src)
 			pay_account(user, attacking_item)
@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 
 			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
 			if(selected_delivery_point)
-				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
+				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"", visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, SFX_PRINT, 50, TRUE)
 
 				var/obj/item/package/delivery/printed_package = new /obj/item/package/delivery/offship(get_turf(user), selected_delivery_point)
@@ -166,13 +166,13 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	// if a third party ambushed and stole the package, we want to let them collect the tip wirelessly
 	if(!found_user_account)
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-		visible_message("\The [src] buzzes harshly, \"[SPAN_WARNING("Delivery complete! User account details not found... printing cash tip...")]\"")
+		visible_message("\The [src] buzzes harshly, \"[SPAN_WARNING("Delivery complete! User account details not found... printing cash tip...")]\"", visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, SFX_PRINT, 50, TRUE)
 		var/obj/item/spacecash/bundle/cash_tip = new /obj/item/spacecash/bundle(loc)
 		cash_tip.worth = package.pay_amount * 0.02
 		cash_tip.update_icon()
 	else
-		visible_message("\The [src] pings, \"[SPAN_NOTICE("Delivery complete! Cash deposited into supply account, tip wirelessly transmitted into courier account.")]\"")
+		visible_message("\The [src] pings, \"[SPAN_NOTICE("Delivery complete! Cash deposited into supply account, tip wirelessly transmitted into courier account.")]\"", visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 
 /obj/structure/cargo_receptacle/horizon

@@ -88,4 +88,4 @@ GLOBAL_LIST_INIT_TYPED(active_buddy_tags, /obj/item/clothing/accessory/buddytag,
 		playsound(src, 'sound/machines/twobeep.ogg', 10)
 		var/turf/T = get_turf(src)
 		if(T)
-			T.visible_message(SPAN_WARNING("[src] beeps anxiously."), vision_distance = 3)
+			T.visible_message(SPAN_WARNING("[src] beeps anxiously."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)

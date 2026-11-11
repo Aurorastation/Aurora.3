@@ -569,13 +569,13 @@
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<b>\The [M]</b> [response_help] \the [src].", visible_message_flags = GHOST_MESSAGE)
+				M.visible_message("<b>\The [M]</b> [response_help] \the [src].")
 				poke()
 
 		if(I_DISARM)
 			if(attacker_style && attacker_style.disarm_act(M, src))
 				return TRUE
-			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]", visible_message_flags = GHOST_MESSAGE)
+			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
 			handle_attack_by(M)
@@ -598,7 +598,7 @@
 			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
 			handle_attack_by(M)
@@ -626,7 +626,7 @@
 
 /mob/living/simple_animal/proc/simple_harm_attack(var/mob/living/user)
 	apply_damage(harm_intent_damage, damage_type, used_weapon = "Attack by [user.name]")
-	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), self_message = SPAN_WARNING("You [response_harm] \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), self_message = SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src)
 	poke(TRUE)
 
@@ -654,9 +654,9 @@
 		poke()
 
 	else if(istype(attacking_item, brush) && canbrush) //Brushing animals
-		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [attacking_item].", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [attacking_item].")
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].", visible_message_flags = GHOST_MESSAGE) //purring
+			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
@@ -680,7 +680,7 @@
 	if(istype(O, /obj/item/glass_jar))
 		return FALSE
 	if(!O.force)
-		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("<b>\The [user]</b> gently taps \the [src] with \the [O]."))
 		poke()
 		return FALSE
 
@@ -698,7 +698,7 @@
 		to_chat(user, SPAN_WARNING("This weapon is ineffective, it does no damage."))
 		poke()
 
-	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	if(O.hitsound)
 		playsound(loc, O.hitsound, O.get_clamped_volume(), 1, -1)
 	user.do_attack_animation(src, O)
@@ -919,13 +919,13 @@
 			new path(get_turf(src))
 
 	if (issmall(src))
-		user.visible_message("<b>\The [user]</b> chops up \the [src]!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> chops up \the [src]!")
 		var/obj/effect/decal/cleanable/blood/splatter/S = new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 		S.basecolor = blood_type
 		S.update_icon()
 		qdel(src)
 	else
-		user.visible_message("<b>\The [user]</b> butchers \the [src] messily!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
 		gib()
 
 /// For picking up small animals
@@ -996,7 +996,7 @@
 	apply_damage(shock_damage, DAMAGE_BURN)
 	playsound(loc, SFX_SPARKS, 50, 1, -1)
 	spark(loc, 5, GLOB.alldirs)
-	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), self_message = SPAN_WARNING("You are shocked by \the [source]!"), blind_message = SPAN_WARNING("You hear an electrical crack!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), self_message = SPAN_WARNING("You are shocked by \the [source]!"), blind_message = SPAN_WARNING("You hear an electrical crack!"))
 
 
 /mob/living/simple_animal/can_fall()
@@ -1130,12 +1130,12 @@
 	if(container.reagents.total_volume >= container.volume)
 		to_chat(user, SPAN_WARNING("The [container] is full."))
 		return
-	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>\The [user]</b> milks \the [src] using \the [container].")
 	udder.trans_type_to(container, milk_type, rand(milk_regeneration[1], milk_regeneration[2]))
 
 /// Removes holographic animals from the holodeck
 /mob/living/simple_animal/proc/derez()
-	visible_message(SPAN_NOTICE("\The [src] fades away!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
 
 //Taken from /obj/item/proc/attack_can_reach

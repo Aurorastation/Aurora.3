@@ -15,17 +15,17 @@
 		var/mob/living/carbon/human/H = user
 		if(istype(attacking_item, /obj/item/primer) && !primer)
 			var/obj/item/primer/P = attacking_item
-			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), self_message = SPAN_NOTICE("You start connecting \the [P] to the casing..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), self_message = SPAN_NOTICE("You start connecting \the [P] to the casing..."))
 			if(do_after(H, 3 SECONDS))
-				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), blind_message = SPAN_NOTICE("[H] connects \the [P] to the casing!"))
+				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), blind_message = SPAN_NOTICE("[H] connects \the [P] to the casing!"), visible_message_flags = LOCAL_MESSAGE)
 				H.drop_from_inventory(P)
 				add_primer(P)
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 		if(istype(attacking_item, /obj/item/warhead) && !warhead)
 			var/obj/item/warhead/W = attacking_item
-			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), self_message = SPAN_NOTICE("You start connecting \the [W] to the casing..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), self_message = SPAN_NOTICE("You start connecting \the [W] to the casing..."))
 			if(do_after(H, 5 SECONDS))
-				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), blind_message = SPAN_NOTICE("[H] connects \the [W] to the casing!"))
+				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), blind_message = SPAN_NOTICE("[H] connects \the [W] to the casing!"), visible_message_flags = LOCAL_MESSAGE)
 				H.drop_from_inventory(W)
 				add_warhead(W)
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
@@ -85,7 +85,7 @@
 	. = ..()
 	if(warhead)
 		if(prob(75))
-			visible_message(SPAN_DANGER("\The [src] goes off!"))
+			visible_message(SPAN_DANGER("\The [src] goes off!"), visible_message_flags = LOCAL_MESSAGE)
 			warhead.cookoff()
 			qdel(src)
 
@@ -168,7 +168,7 @@
 		cookoff(TRUE)
 
 /obj/item/warhead/longbow/proc/cookoff(var/caused_by_heat = TRUE)
-	visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
+	visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light, spreading = TRUE)
 	qdel(src)
 

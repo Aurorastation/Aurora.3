@@ -215,7 +215,7 @@
 		else
 			to_chat(victim, SPAN_WARNING("The floor lurches beneath you!"))
 			shake_camera(victim, 10, 1)
-			victim.visible_message(SPAN_HIGHDANGER("[victim.name] is tossed around by a sudden knot in the artifical gravity field!"), visible_message_flags = GHOST_MESSAGE)
+			victim.visible_message(SPAN_HIGHDANGER("[victim.name] is tossed around by a sudden knot in the artifical gravity field!"))
 			victim.throw_at_random(FALSE, 4, 1)
 			victim.Weaken(3)
 
@@ -240,7 +240,7 @@
 			to_chat(victim, SPAN_WARNING("You feel like your ankles are about to be ripped apart as the artificial gravity surges!"))
 			shake_camera(victim, 8, 2)
 		else
-			victim.visible_message(SPAN_HIGHDANGER("[victim.name] is flung violently by a horrible gravity flux!"), visible_message_flags = GHOST_MESSAGE)
+			victim.visible_message(SPAN_HIGHDANGER("[victim.name] is flung violently by a horrible gravity flux!"))
 			victim.Weaken(8)
 			if(prob(90))
 				victim.throw_at_random(FALSE, 7, 1)

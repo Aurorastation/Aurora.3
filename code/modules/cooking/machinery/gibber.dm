@@ -80,7 +80,7 @@
 		return FALSE
 
 	if(istype(victim_mob, /mob) && victim_mob.loc == input_plate)
-		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"))
+		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	else
 		return FALSE
 	if(victim_human.client)
@@ -140,7 +140,7 @@
 		user.drop_from_inventory(attacking_item)
 		//TODO: Gibber Animations
 		qdel(attacking_item)
-		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] feeds [attacking_item] into [src], obliterating it."))
 
 	do_hair_pull(user)
 
@@ -175,12 +175,12 @@
 		to_chat(user, SPAN_DANGER("[victim] may not have abiotic items on."))
 		return FALSE
 
-	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
 	add_fingerprint(user)
 	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
 		return
 
-	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
 
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE
@@ -217,10 +217,10 @@
 	if(operating)
 		return
 	if(!occupant)
-		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
+		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	use_power_oneoff(1000)
-	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
+	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."), visible_message_flags = LOCAL_MESSAGE)
 	operating = TRUE
 	update_icon()
 

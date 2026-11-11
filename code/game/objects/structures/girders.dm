@@ -87,7 +87,7 @@
 	return ..()
 
 /obj/structure/girder/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	visible_message(SPAN_WARNING("\The [src] falls apart!"))
+	visible_message(SPAN_WARNING("\The [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	. = ..()
 
 /obj/structure/girder/proc/reset_girder()
@@ -218,10 +218,10 @@
 		playsound(src, 'sound/weapons/smash.ogg', 50)
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!"), visible_message_flags = LOCAL_MESSAGE)
 			add_damage(damage_to_deal)
 		else
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"), visible_message_flags = LOCAL_MESSAGE)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return
 
@@ -305,7 +305,7 @@
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if((user.mutations & HULK))
-		visible_message(SPAN_DANGER("[user] smashes [src] apart!"))
+		visible_message(SPAN_DANGER("[user] smashes [src] apart!"), visible_message_flags = LOCAL_MESSAGE)
 		dismantle()
 		return
 	return ..()
@@ -330,7 +330,7 @@
 	if(!damage || !environment_smash)
 		return FALSE
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	dismantle()
 	return TRUE
 

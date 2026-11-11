@@ -294,7 +294,7 @@
 			distance = 0
 		if(distance <= range)
 			if (M.mob_size <= 3 && (M.find_type() & TYPE_ORGANIC))
-				M.visible_message(SPAN_DANGER("\The [M] gets fried!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_DANGER("\The [M] gets fried!"))
 				M.color = "#4d4d4d" //get fried
 				M.death()
 				spark(M, 3, GLOB.alldirs)
@@ -309,7 +309,7 @@
 
 					if(A.mob_size <= 3 && (A.find_type() & TYPE_ORGANIC))
 						H.release_mob()
-						A.visible_message(SPAN_DANGER("\The [A] gets fried!"), visible_message_flags = GHOST_MESSAGE)
+						A.visible_message(SPAN_DANGER("\The [A] gets fried!"))
 						A.color = "#4d4d4d" //get fried
 						A.death()
 
@@ -335,7 +335,7 @@
 			distance = 0
 		if(distance <= range)
 			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
-				M.visible_message(SPAN_DANGER("[M] bursts like a balloon!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_DANGER("[M] bursts like a balloon!"))
 				M.gib()
 				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
@@ -349,7 +349,7 @@
 
 					if(A.mob_size <= 4 && (A.find_type() & TYPE_ORGANIC))
 						H.release_mob()
-						A.visible_message(SPAN_DANGER("[A] bursts like a balloon!"), visible_message_flags = GHOST_MESSAGE)
+						A.visible_message(SPAN_DANGER("[A] bursts like a balloon!"))
 						A.gib()
 
 			to_chat(M, 'sound/effects/basscannon.ogg')
@@ -528,7 +528,7 @@
 			var/mob/living/carbon/human/H = L
 			if(H.bodytemperature <= H.species.cold_level_2)
 				new /obj/structure/closet/statue/ice(H.loc, H)
-				H.visible_message(SPAN_WARNING("\The [H] freezes!"), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message(SPAN_WARNING("\The [H] freezes!"))
 
 /obj/projectile/beam/stun/skrell
 	name = "particle stun beam"

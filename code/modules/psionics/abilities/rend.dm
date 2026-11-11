@@ -49,16 +49,16 @@
 			if(W.reinf_material)
 				base_time += (W.reinf_material.hardness / 10) SECONDS
 			user.visible_message(SPAN_WARNING("[user] lays [user.get_pronoun("his")] palms on \the [W] and begins discharging psionic energy on it..."),
-								self_message = SPAN_WARNING("You lay your palms on \the [W] and begin permeating psionic energy through its structure..."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_WARNING("You lay your palms on \the [W] and begin permeating psionic energy through its structure..."))
 			if(do_after(user, base_time))
-				user.visible_message(SPAN_WARNING("[user] disintegrates \the [W]!"), self_message = SPAN_WARNING("You disintegrate \the [W]!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("[user] disintegrates \the [W]!"), self_message = SPAN_WARNING("You disintegrate \the [W]!"))
 				W.dismantle_wall(TRUE, FALSE, TRUE)
 		else if(isairlock(hit_atom))
 			var/obj/structure/machinery/door/airlock/A = hit_atom
 			var/base_time = (round(A.maxhealth / 60)) SECONDS
 			user.visible_message(SPAN_WARNING("[user] lays [user.get_pronoun("his")] palms on \the [A] and begins discharging psionic energy on it..."),
-							self_message = SPAN_WARNING("You lay your palms on \the [A] and begin permeating psionic energy through its structure..."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_WARNING("You lay your palms on \the [A] and begin permeating psionic energy through its structure..."))
 			if(do_after(user, base_time))
-				user.visible_message(SPAN_WARNING("[user] disintegrates \the [A]!"), self_message = SPAN_WARNING("You disintegrate \the [A]!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("[user] disintegrates \the [A]!"), self_message = SPAN_WARNING("You disintegrate \the [A]!"))
 				playsound(A, 'sound/effects/meteorimpact.ogg', 40)
 				qdel(A)

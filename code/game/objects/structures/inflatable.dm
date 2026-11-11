@@ -80,7 +80,7 @@
 		return TRUE
 
 	if(isprojectile(mover))
-		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		deflate(TRUE)
 		return TRUE
 	return FALSE
@@ -124,7 +124,7 @@
 		return
 
 	if(attacking_item.can_puncture())
-		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), self_message = SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), self_message = SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"))
 		deflate(TRUE)
 	else if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 		hit(attacking_item.force)
@@ -149,7 +149,7 @@
 			return
 		deflating = TRUE
 		if(msg)
-			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
+			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		var/matrix/M = new
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
@@ -160,7 +160,7 @@
 			return
 		deflating = TRUE
 		if(msg)
-			visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
+			visible_message(SPAN_NOTICE("\The [src] slowly deflates."), visible_message_flags = LOCAL_MESSAGE)
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
@@ -191,10 +191,10 @@
 	health -= damage
 	user.do_attack_animation(src)
 	if(health <= 0)
-		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] [attack_verb] open the [src]!"))
 		INVOKE_ASYNC(src, PROC_REF(deflate), TRUE)
 	else
-		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] [attack_verb] at [src]!"))
 	return TRUE
 
 /obj/structure/inflatable/door //Based on mineral door code
@@ -235,7 +235,7 @@
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	if(isprojectile(mover))
-		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		deflate(TRUE)
 		return TRUE
 	return !density

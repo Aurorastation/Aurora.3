@@ -481,7 +481,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 		else if(T)
-			T.visible_message(SPAN_DANGER("\The [src] turns on."))
+			T.visible_message(SPAN_DANGER("\The [src] turns on."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 22
 		damtype = DAMAGE_BURN
@@ -495,7 +495,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message(SPAN_WARNING("\The [src] turns off."))
+			T.visible_message(SPAN_WARNING("\The [src] turns off."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
@@ -560,7 +560,7 @@
 	return TRUE
 
 /obj/item/tesla_arc_lighter/attack(mob/living/target_mob, mob/living/user, target_zone)
-	user.visible_message(SPAN_NOTICE("[user] gives [target_mob] a harmless snap from [src]."), self_message = SPAN_NOTICE("You give [target_mob] a harmless but sharp electrical snap."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] gives [target_mob] a harmless snap from [src]."), self_message = SPAN_NOTICE("You give [target_mob] a harmless but sharp electrical snap."))
 	to_chat(target_mob, SPAN_WARNING("A sharp electrical sting runs through your [parse_zone(target_zone)]!"))
 	playsound(get_turf(user), 'sound/weapons/Egloves.ogg', 20, TRUE)
 	return TRUE
@@ -861,7 +861,7 @@
 			return FALSE
 	primed = FALSE
 	rearm_at = world.time + 10 MINUTES
-	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), self_message = SPAN_DANGER("Your emergency resuscitation apparatus shocks your stopped heart!"), visible_message_flags = GHOST_MESSAGE)
+	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), self_message = SPAN_DANGER("Your emergency resuscitation apparatus shocks your stopped heart!"))
 	playsound(get_turf(owner), 'sound/machines/defib_zap.ogg', 60, TRUE)
 	var/was_dead = owner.stat == DEAD
 	if(was_dead)
@@ -882,7 +882,7 @@
 	restart_pending = FALSE
 	restart_generation++
 	rearm_at = world.time + 10 MINUTES
-	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), self_message = SPAN_DANGER("Your emergency resuscitation sends an agonizing shock through your chest!"), visible_message_flags = GHOST_MESSAGE)
+	owner.visible_message(SPAN_DANGER("[owner]'s Tesla spine discharges with a sharp crack!"), self_message = SPAN_DANGER("Your emergency resuscitation sends an agonizing shock through your chest!"))
 	playsound(get_turf(owner), 'sound/machines/defib_zap.ogg', 60, TRUE)
 	owner.apply_damage(5, DAMAGE_BURN, BP_CHEST, src)
 	owner.custom_pain("Agonizing electrical pain tears through your chest!", 30, TRUE, owner.organs_by_name[BP_CHEST])
@@ -938,8 +938,7 @@
 		owner.drop_from_inventory(deployed)
 		owner.visible_message(
 			SPAN_NOTICE("The diagnostic probe retracts into [owner]'s [src]."),
-			self_message = SPAN_NOTICE("You retract your diagnostic probe."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You retract your diagnostic probe.")
 		)
 		return TRUE
 
@@ -952,8 +951,7 @@
 	probe.item_flags |= ITEM_FLAG_NO_MOVE
 	owner.visible_message(
 		SPAN_NOTICE("A diagnostic probe extends from [owner]'s [src]."),
-		self_message = SPAN_NOTICE("You deploy your diagnostic probe."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You deploy your diagnostic probe.")
 	)
 	return TRUE
 

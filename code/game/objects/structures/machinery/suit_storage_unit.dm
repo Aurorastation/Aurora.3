@@ -380,7 +380,7 @@
 					src.SUIT = null
 				if(src.MASK)
 					src.MASK = null
-				visible_message(SPAN_WARNING("With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber."), vision_distance = 3)
+				visible_message(SPAN_WARNING("With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 				src.isbroken = 1
 				src.isopen = 1
 				src.islocked = 0
@@ -449,7 +449,7 @@
 		to_chat(usr, SPAN_WARNING("It's too cluttered inside for you to fit in!"))
 		return
 	usr.visible_message(SPAN_NOTICE("[usr] starts squeezing into [src]!"),
-						self_message = SPAN_NOTICE("You start squeezing into [src]!"), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_NOTICE("You start squeezing into [src]!"), vision_distance = 3)
 
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
@@ -493,7 +493,7 @@
 			return TRUE
 		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
 								self_message = SPAN_NOTICE("You start putting [G.affecting] into [src]."),
-								vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+								vision_distance = 3)
 
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting) return TRUE //derpcheck

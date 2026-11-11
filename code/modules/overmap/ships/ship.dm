@@ -422,7 +422,7 @@
 
 /obj/effect/overmap/visitable/ship/signal_hit(var/list/hit_data)
 	for(var/obj/structure/machinery/computer/ship/targeting/TR in consoles)
-		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), vision_distance = 2)
+		TR.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(TR)))] Hit confirmed on [hit_data["target_name"]] in [hit_data["target_area"]] at coordinates [hit_data["coordinates"]]."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 
 /obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
 	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.

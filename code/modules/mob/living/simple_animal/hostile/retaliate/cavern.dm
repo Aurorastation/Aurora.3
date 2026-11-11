@@ -144,7 +144,7 @@
 		FindOre()
 	else if(!scan_timer)
 		// reusing vars is funny
-		visible_message(SPAN_WARNING("\The [src] pings, \"Mineral hopper full.\""), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("\The [src] pings, \"Mineral hopper full.\""))
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		scan_timer = rand(90, 150) // Life() ticks, so 3-5 minutes
 	else
@@ -168,7 +168,7 @@
 			ore_message = TRUE
 
 	if(ore_message)
-		visible_message(SPAN_NOTICE("\The [src] collects the ore into a metallic hopper."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("\The [src] collects the ore into a metallic hopper."))
 		ore_message = FALSE
 
 	if(!target_ore)
@@ -212,7 +212,7 @@
 	return
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."))
 	return FALSE
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/get_bullet_impact_effect_type(var/def_zone)

@@ -34,7 +34,7 @@
 	new /obj/effect/overlay/temp/kinetic_blast(T)
 	for(var/mob/living/L in T)
 		L.take_overall_damage(min(living_damage, 50))
-		L.visible_message(SPAN_DANGER("\The [L] is hit by \the [src]!"), self_message = SPAN_DANGER("You are hit by \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		L.visible_message(SPAN_DANGER("\The [L] is hit by \the [src]!"), self_message = SPAN_DANGER("You are hit by \the [src]!"))
 	if(istype(T, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = T
 		M.kinetic_hit(mineral_damage)

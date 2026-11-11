@@ -117,7 +117,7 @@
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
-		visible_message(SPAN_DANGER("[src] warps in!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
 
@@ -195,7 +195,7 @@
 		if(activated == -1)
 			return
 		else
-			visible_message(SPAN_WARNING("[src] suddenly activates!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("[src] suddenly activates!"))
 			icon_state = "hivebotbeacon_raising"
 			sleep(16)
 			icon_state = "hivebotbeacon_active"
@@ -229,7 +229,7 @@
 	S.start()
 
 	if(random_turf)
-		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		do_teleport(src, random_turf)
 
@@ -243,7 +243,7 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!total_hivebots_to_spawn)
-		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		QDEL_IN(src, 0)
@@ -253,7 +253,7 @@
 		return
 
 	if(linked_bots.len < maximum_linked_and_alive_hivebots)
-		visible_message(SPAN_WARNING("[src] radiates with energy!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] radiates with energy!"))
 
 		var/bot_type
 

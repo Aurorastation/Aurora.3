@@ -7,7 +7,7 @@
 	if(!istype(user))
 		return FALSE
 
-	user.visible_message(SPAN_DANGER("\The [user] has prodded \the [M] with \a [src]!"), self_message = SPAN_DANGER("You prod \the [M] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("\The [user] has prodded \the [M] with \a [src]!"), self_message = SPAN_DANGER("You prod \the [M] with \the [src]."))
 
 	if(!user.cell || !user.cell.checked_use(1250)) //Slightly more than a baton.
 		return FALSE

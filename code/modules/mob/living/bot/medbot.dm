@@ -114,7 +114,7 @@
 		patient = null
 		return
 
-	visible_message(SPAN_WARNING("[src] is trying to inject [H]!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("[src] is trying to inject [H]!"))
 	if(declare_treatment)
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
@@ -125,7 +125,7 @@
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
 		else
 			H.reagents.add_reagent(t, injection_amount)
-		visible_message(SPAN_WARNING("[src] injects [H] with the syringe!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] injects [H] with the syringe!"))
 	currently_healing = 0
 	update_icon()
 
@@ -261,7 +261,7 @@
 	if(!emagged)
 		if(user)
 			to_chat(user, SPAN_WARNING("You short out [src]'s reagent synthesis circuits."))
-		visible_message(SPAN_WARNING("[src] buzzes oddly!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] buzzes oddly!"))
 		flick_overlay("medibot_spark", src)
 		patient = null
 		currently_healing = 0
@@ -273,7 +273,7 @@
 
 /mob/living/bot/medbot/explode()
 	on = FALSE
-	visible_message(SPAN_DANGER("\The [src] blows apart!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 	if(firstaid_item)
 		firstaid_item.forceMove(Tsec)

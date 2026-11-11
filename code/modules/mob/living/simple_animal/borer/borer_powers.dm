@@ -385,7 +385,7 @@
 		return
 
 	remove_verb(src, /mob/living/carbon/human/proc/jumpstart)
-	visible_message(SPAN_WARNING("With a hideous, rattling moan, [src] shudders back to life!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("With a hideous, rattling moan, [src] shudders back to life!"))
 
 	rejuvenate()
 	fixblood()
@@ -443,7 +443,7 @@
 
 	if(B.chemicals >= 100)
 		to_chat(src, SPAN_WARNING("Your host twitches and quivers as you rapidly excrete a larva from your sluglike body."))
-		visible_message(SPAN_WARNING("[src] heaves violently, expelling a rush of vomit and a wriggling, sluglike creature!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] heaves violently, expelling a rush of vomit and a wriggling, sluglike creature!"))
 		B.chemicals -= 100
 		B.has_reproduced = TRUE
 

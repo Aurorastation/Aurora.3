@@ -214,8 +214,7 @@
 					else if(cargo_elevator)
 						safety_hater.visible_message(
 							SPAN_WARNING("[safety_hater] falls down the cargo elevator hatch!"),
-							self_message = SPAN_WARNING("You fall down the cargo elevator hatch!"),
-							visible_message_flags = GHOST_MESSAGE
+							self_message = SPAN_WARNING("You fall down the cargo elevator hatch!")
 						)
 						shake_camera(safety_hater, 10, 1)
 						safety_hater.fall_impact(1)
@@ -250,14 +249,13 @@
 					else if(!M.incapacitated() && (nearby_handrail || M.Check_Dense_Object(FALSE)) && prob(catch_chance))
 						M.visible_message(
 							SPAN_NOTICE("[M.name] catches hold of something as the shuttle accelerates!"),
-							self_message = SPAN_WARNING("The floor lurches beneath you, but you catch hold of something within reach!"),
-							visible_message_flags = GHOST_MESSAGE
+							self_message = SPAN_WARNING("The floor lurches beneath you, but you catch hold of something within reach!")
 						)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
 						shake_camera(M, 10, 1)
-						M.visible_message(SPAN_WARNING("[M.name] is tossed around by the sudden acceleration!"), visible_message_flags = GHOST_MESSAGE)
+						M.visible_message(SPAN_WARNING("[M.name] is tossed around by the sudden acceleration!"))
 						M.throw_at_random(FALSE, 4, 1)
 						M.Weaken(3)
 

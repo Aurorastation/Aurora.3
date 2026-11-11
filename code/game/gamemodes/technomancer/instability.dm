@@ -108,7 +108,7 @@
 				L.buckled_to.unbuckle()
 		spark(AM, 5, 2)
 		AM.forceMove(destination)
-		AM.visible_message(SPAN_NOTICE("\The [AM] vanishes!"), visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))
+		AM.visible_message(SPAN_NOTICE("\The [AM] vanishes!"), visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 		to_chat(AM, SPAN_NOTICE("You suddenly appear somewhere else!"))
 	return
 
@@ -124,7 +124,7 @@
 				switch(rng)
 					if(0)
 						spark(src, 5, 0)
-						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"))
 					if(1)
 						return
 
@@ -185,7 +185,7 @@
 				switch(rng)
 					if(0)
 						spark(src, 5, 0)
-						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"))
 					if(1)
 						return
 
@@ -247,7 +247,7 @@
 						apply_damage(instability, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 					if(1)
 						visible_message(SPAN_WARNING("\The [src] suddenly collapses!"),
-						self_message = SPAN_DANGER("You suddenly feel very light-headed, and faint!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_DANGER("You suddenly feel very light-headed, and faint!"))
 						Paralyse(instability * 0.1)
 					if(2)
 						if(can_feel_pain())

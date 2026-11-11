@@ -99,10 +99,10 @@
 			hooded = TRUE
 			update_icon(H)
 			H.equip_to_slot_if_possible(src,slot_head,0,0,1)
-			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [src]."))
 	else
 		RemoveHood(parent)
-		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		usr.visible_message(SPAN_NOTICE("[usr] pulls down the hood on \the [src]."))
 
 /obj/item/clothing/head/winterhood/proc/RemoveHood(var/parent)
 	if(ishuman(loc))

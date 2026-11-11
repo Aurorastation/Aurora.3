@@ -17,7 +17,7 @@
  * * blind_message (optional) is what blind people will hear e.g. "You hear something!"
  * * vision_distance (optional) define how many tiles away the message can be seen.
  * * ignored_mobs (optional) doesn't show any message to any mob in this list.
- * * visible_message_flags (optional) is the type of message being sent.
+ * * visible_message_flags (optional) controls message delivery and formatting. Use LOCAL_MESSAGE to omit distant observer chat.
  * * intent_message - A message sent via `intent_message()`
  * * intent_range - The range considered for the evaluation of the `intent_message`
  * * emote_message (optional) supplies a complete formatted chat sentence when EMOTE_MESSAGE is set, preserving existing emotes and custom `^` name placement without prepending the speaker's name twice.
@@ -92,7 +92,7 @@
 			object_listener.see_emote(src, message, VISIBLE_MESSAGE)
 		else
 			hearer.show_message(message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
-	if(visible_message_flags & GHOST_MESSAGE)
+	if(!(visible_message_flags & LOCAL_MESSAGE))
 		for(var/mob/observer as anything in GLOB.dead_mob_list)
 			if(!isghost(observer) || !observer.client || (observer in delivered_mobs) || (observer in ignored_mobs) || (self_message && observer == src))
 				continue
@@ -105,7 +105,7 @@
 	if(ismovable(src))
 		var/atom/movable/movable_source = src
 		if(movable_source.bound_overlay)
-			movable_source.bound_overlay.visible_message(raw_msg, blind_message = blind_message, vision_distance = vision_distance, ignored_mobs = ignored_mobs | delivered_mobs, visible_message_flags = visible_message_flags & ~(GHOST_MESSAGE | WITH_EMPHASIS_MESSAGE), emote_message = message)
+			movable_source.bound_overlay.visible_message(raw_msg, blind_message = blind_message, vision_distance = vision_distance, ignored_mobs = ignored_mobs | delivered_mobs, visible_message_flags = (visible_message_flags & ~WITH_EMPHASIS_MESSAGE) | LOCAL_MESSAGE, emote_message = message)
 
 ///Adds the functionality to self_message.
 /mob/visible_message(message, self_message, blind_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs, visible_message_flags = NONE, intent_message = null, intent_range = DEFAULT_MESSAGE_RANGE, emote_message = null)
@@ -148,7 +148,7 @@
  * * self_message (optional) is what the src mob hears.
  * * deaf_message (optional) is what deaf people will see.
  * * hearing_distance (optional) is the range, how many tiles away the message can be heard.
- * * audible_message_flags (optional) is the type of message being sent.
+ * * audible_message_flags (optional) controls message delivery and formatting. Use LOCAL_MESSAGE to omit distant observer chat.
  * * intent_message - A message sent via `intent_message()`
  * * intent_range - The range considered for the evaluation of the `intent_message`
  * * emote_message (optional) supplies a complete formatted chat sentence when EMOTE_MESSAGE is set, preserving existing emotes and custom `^` name placement without prepending the speaker's name twice.
@@ -196,7 +196,7 @@
 			if(bubble_text)
 				langchat_build_image(bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
 
-	if(audible_message_flags & GHOST_MESSAGE)
+	if(!(audible_message_flags & LOCAL_MESSAGE))
 		for(var/mob/observer as anything in GLOB.dead_mob_list)
 			if(!isghost(observer) || !observer.client || (observer in delivered_mobs) || (self_message && observer == src))
 				continue

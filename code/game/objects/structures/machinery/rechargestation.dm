@@ -190,7 +190,7 @@
 	. = ..()
 	if(occupant && (user != occupant))
 		if(do_after(user, 1 SECOND, src))
-			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), self_message = SPAN_NOTICE("You lower the manual release lever on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), self_message = SPAN_NOTICE("You lower the manual release lever on \the [src]."))
 			go_out()
 
 /obj/structure/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
@@ -332,10 +332,10 @@
 
 /obj/structure/machinery/recharge_station/proc/move_ipc(var/mob/M) // For the grab/drag and drop
 	var/mob/living/R = M
-	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), self_message = SPAN_NOTICE("You start putting [R] into [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("[usr] starts putting [R] into [src]."), self_message = SPAN_NOTICE("You start putting [R] into [src]."), vision_distance = 3)
 	if(do_mob(usr, R, 5 SECONDS))
 		if(go_in(R))
-			usr.visible_message(SPAN_NOTICE("After some effort, [usr] manages to get [R] into the recharging unit!"), visible_message_flags = GHOST_MESSAGE)
+			usr.visible_message(SPAN_NOTICE("After some effort, [usr] manages to get [R] into the recharging unit!"))
 			return 1
 		else
 			to_chat(usr, SPAN_DANGER("Failed loading [R] into charger. Please ensure that [R]'s limbs are safely within the charger and has a power cell, and that the charger is functioning."))
@@ -351,11 +351,11 @@
 			return
 		user.face_atom(src)
 		user.visible_message(SPAN_DANGER("[user] starts hauling [dropped] into the recharging unit!"),
-							self_message = SPAN_DANGER("You start hauling and pushing [dropped] into the recharger. This might take a while..."), blind_message = "You hear heaving and straining", visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_DANGER("You start hauling and pushing [dropped] into the recharger. This might take a while..."), blind_message = "You hear heaving and straining")
 
 		if (do_mob(user, R, R.mob_size*10, needhand = 1))
 			if (go_in(R))
-				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [dropped] into the recharging unit!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [dropped] into the recharging unit!"))
 				return 1
 			else
 				to_chat(user, SPAN_DANGER("Failed loading [dropped] into the charger. Please ensure that [dropped] has a power cell and is not buckled down, and that the charger is functioning."))

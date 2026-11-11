@@ -569,14 +569,14 @@ By design, d1 is the smallest direction and d2 is the highest
 							continue
 						if(W.current_stage <= W.max_bleeding_stage)
 							user.visible_message(SPAN_NOTICE("\The [user] starts carefully suturing the open wound on [target_mob]'s [affecting.name]..."), \
-												self_message = SPAN_NOTICE("You start carefully suturing the open wound on [target_mob]'s [affecting.name]... This will take a while."), visible_message_flags = GHOST_MESSAGE)
+												self_message = SPAN_NOTICE("You start carefully suturing the open wound on [target_mob]'s [affecting.name]... This will take a while."))
 							if(!do_mob(user, target_mob, 200))
 								user.visible_message(SPAN_DANGER("[user]'s hand slips and tears open the wound on [target_mob]'s [affecting.name]!"), \
-														self_message = SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"), visible_message_flags = GHOST_MESSAGE)
+														self_message = SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
 								target_mob.apply_damage(rand(1,10), DAMAGE_BRUTE)
 								break
 							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), \
-														self_message = SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name]."), visible_message_flags = GHOST_MESSAGE )
+														self_message = SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [target_mob]'s [affecting.name].") )
 							W.bandage()
 							use(10)
 							affecting.add_pain(25)
@@ -619,7 +619,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!LIMB_GET_BURN_DAMAGE(affecting))
-		user.visible_message(SPAN_NOTICE("\The [user] finishes mending the burnt wiring in [target]'s [affecting]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
 		return
 
 	if(do_mob(user, target, 30))
@@ -630,7 +630,7 @@ By design, d1 is the smallest direction and d2 is the highest
 				"splices some cables"
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
-			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
 			playsound(target, 'sound/items/Wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
@@ -1030,7 +1030,7 @@ By design, d1 is the smallest direction and d2 is the highest
 		to_chat(usr, SPAN_WARNING("You need at least 25 lengths to make a noose!"))
 		return
 	usr.visible_message(SPAN_WARNING("[usr] starts winding some cable together to make a noose, tying it to the ceiling!"),
-							self_message = SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."))
 	if(do_after(usr, 250))
 		new /obj/structure/noose(usr.loc, color)
 		to_chat(usr, SPAN_NOTICE("You wind some cable together to make a noose, tying it to the ceiling."))
@@ -1065,12 +1065,12 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/structure/noose/attackby(obj/item/attacking_item, mob/user, params)
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message("<b>[user]</b> cuts \the [src].", self_message = SPAN_NOTICE("You cut \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> cuts \the [src].", self_message = SPAN_NOTICE("You cut \the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(istype(buckled, /mob/living))
 			var/mob/living/M = buckled
 			M.visible_message(SPAN_DANGER("[M] falls over and hits the ground!"),
-								self_message = SPAN_DANGER("You fall over and hit the ground!"), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_DANGER("You fall over and hit the ground!"))
 			M.adjustBruteLoss(10)
 		new /obj/item/stack/cable_coil(get_turf(src), 25, color)
 		qdel(src)
@@ -1101,16 +1101,16 @@ By design, d1 is the smallest direction and d2 is the highest
 		var/mob/living/M = buckled
 		if(M != user)
 			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
-									self_message = SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
 				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
-										self_message = SPAN_NOTICE("You untie the noose over [M]'s neck!"), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return
 		else
 			M.visible_message(\
 				SPAN_WARNING("[M] struggles to untie the noose over their neck!"),\
-				self_message = SPAN_NOTICE("You struggle to untie the noose over your neck."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You struggle to untie the noose over your neck."))
 			if(!do_after(M, 150))
 				if(M && M.buckled_to)
 					to_chat(M, SPAN_WARNING("You fail to untie yourself!"))
@@ -1119,7 +1119,7 @@ By design, d1 is the smallest direction and d2 is the highest
 				return
 			M.visible_message(\
 				SPAN_WARNING("[M] unties the noose over their neck!"),\
-				self_message = SPAN_NOTICE("You untie the noose over your neck!"), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You untie the noose over your neck!"))
 			M.Weaken(3)
 		unbuckle()
 		add_fingerprint(user)
@@ -1149,21 +1149,21 @@ By design, d1 is the smallest direction and d2 is the highest
 	if(M == user && buckle(M, user))
 		M.visible_message(\
 			SPAN_WARNING("[M] ties \the [src] over their neck!"),\
-			self_message = SPAN_WARNING("You tie \the [src] over your neck!"), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_WARNING("You tie \the [src] over your neck!"))
 		playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 		SSstatistics.IncrementSimpleStat("hangings")
 		return TRUE
 
 	else
 		M.visible_message(SPAN_DANGER("[user] attempts to tie \the [src] over [M]'s neck!"),
-							self_message = SPAN_DANGER("[user] ties \the [src] over your neck!"), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_DANGER("[user] ties \the [src] over your neck!"))
 
 		to_chat(user, SPAN_NOTICE("It will take 20 seconds and you have to stand still."))
 
 		if(do_after(user, 200))
 			if(buckle(M, user))
 				M.visible_message(SPAN_DANGER("[user] ties \the [src] over [M]'s neck!"),
-									self_message = SPAN_DANGER("[user] ties \the [src] over your neck!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_DANGER("[user] ties \the [src] over your neck!"))
 
 				playsound(user.loc, 'sound/effects/noosed.ogg', 50, 1, -1)
 
@@ -1173,14 +1173,14 @@ By design, d1 is the smallest direction and d2 is the highest
 
 			else
 				user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
-										self_message = SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
 
 				return FALSE
 
 		else
 
 			user.visible_message(SPAN_WARNING("[user] fails to tie \the [src] over [M]'s neck!"),
-									self_message = SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("You fail to tie \the [src] over [M]'s neck!"))
 
 			return FALSE
 
@@ -1215,7 +1215,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					if(B.stat == DEAD)
 						flavor_text = list(SPAN_WARNING("[B]'s limbs lifelessly sway back and forth."),\
 											SPAN_WARNING("[B]'s eyes stare straight ahead."))
-					B.visible_message(pick(flavor_text), visible_message_flags = GHOST_MESSAGE)
+					B.visible_message(pick(flavor_text))
 				playsound(B.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
 		if(4)
 			pixel_x = initial(pixel_x)

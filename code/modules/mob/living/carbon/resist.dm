@@ -11,15 +11,13 @@
 		spin(32,2)
 		visible_message(
 			SPAN_DANGER("[src] rolls on the floor, trying to put themselves out!"),
-			self_message = SPAN_NOTICE("You stop, drop, and roll!"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You stop, drop, and roll!")
 			)
 		sleep(3 SECONDS)
 		if(fire_stacks <= 0)
 			visible_message(
 				SPAN_DANGER("[src] has successfully extinguished themselves!"),
-				self_message = SPAN_NOTICE("You extinguish yourself."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You extinguish yourself.")
 				)
 		return
 
@@ -39,29 +37,25 @@
 /mob/living/carbon/human/proc/escape_jacket()
 	visible_message(
 		SPAN_DANGER("\The [src] attempts to escape [wear_suit]!"),
-		self_message = SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)")
 		)
 	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_WARNING("\The [src] is shifting in their [wear_suit]!"),
-			self_message = SPAN_WARNING("You start to loosen the [wear_suit]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You start to loosen the [wear_suit].")
 		)
 	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving in their [wear_suit]!"),
-			self_message = SPAN_WARNING("You slip one of your arms out of the [wear_suit]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You slip one of your arms out of the [wear_suit].")
 		)
 	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!"),
-			self_message = SPAN_WARNING("You start to pull loose the straps on the straightjacket[wear_suit]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You start to pull loose the straps on the straightjacket[wear_suit].")
 		)
 	if (do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		var/obj/ex_suit = wear_suit
@@ -105,14 +99,12 @@
 		breakouttime = rand(450,600)
 		visible_message(
 			SPAN_DANGER("\The [src] attempts to break out of \the [HC]!"),
-			self_message = SPAN_WARNING("You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)")
 			)
 	else
 		visible_message(
 			SPAN_DANGER("\The [src] attempts to slip out of \the [HC]!"),
-			self_message = SPAN_WARNING("You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 			)
 
 	if(do_after(src, breakouttime, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
@@ -134,14 +126,12 @@
 				dislocate_message = ", but dislocate your [E] in the process"
 			visible_message(
 				SPAN_DANGER("\The [src] manages to remove \the [handcuffed][buckle_message_other]!"),
-				self_message = SPAN_NOTICE("You successfully remove \the [handcuffed][buckle_message_user][dislocate_message]."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You successfully remove \the [handcuffed][buckle_message_user][dislocate_message].")
 				)
 		else
 			visible_message(
 				SPAN_NOTICE("\The [src] manages to slip out of \the [handcuffed][buckle_message_other]!"),
-				self_message = SPAN_NOTICE("You successfully slip out of \the [handcuffed][buckle_message_user]."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You successfully slip out of \the [handcuffed][buckle_message_user].")
 				)
 		drop_from_inventory(handcuffed)
 
@@ -168,8 +158,7 @@
 
 	visible_message(
 		SPAN_DANGER("[usr] attempts to remove \the [HC]!"),
-		self_message = SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 		)
 
 	if(do_after(src, breakouttime, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
@@ -177,8 +166,7 @@
 			return
 		visible_message(
 			SPAN_DANGER("[src] manages to remove \the [legcuffed]!"),
-			self_message = SPAN_NOTICE("You successfully remove \the [legcuffed]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You successfully remove \the [legcuffed].")
 			)
 
 		drop_from_inventory(legcuffed)
@@ -200,8 +188,7 @@
 /mob/living/carbon/proc/break_handcuffs()
 	visible_message(
 		SPAN_DANGER("[src] is trying to break \the [handcuffed]!"),
-		self_message = SPAN_WARNING("You attempt to break your [handcuffed.name]. (This will take around 10 seconds and you need to stand still)"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You attempt to break your [handcuffed.name]. (This will take around 10 seconds and you need to stand still)")
 		)
 
 	if(do_after(src, 10 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
@@ -210,8 +197,7 @@
 
 		visible_message(
 			SPAN_DANGER("[src] manages to break \the [handcuffed]!"),
-			self_message = SPAN_WARNING("You successfully break your [handcuffed.name]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You successfully break your [handcuffed.name].")
 			)
 
 		if((isunathi(src)) || (mutations & HULK) && !(src.isSynthetic()) && !(isvaurca(src)))
@@ -224,7 +210,7 @@
 
 /mob/living/carbon/proc/break_legcuffs()
 	to_chat(src, SPAN_WARNING("You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)"))
-	visible_message(SPAN_DANGER("[src] is trying to break the legcuffs!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("[src] is trying to break the legcuffs!"))
 
 	if(do_after(src, 50, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
 		if(!legcuffed || buckled_to)
@@ -232,8 +218,7 @@
 
 		visible_message(
 			SPAN_DANGER("[src] manages to break the legcuffs!"),
-			self_message = SPAN_WARNING("You successfully break your legcuffs."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_WARNING("You successfully break your legcuffs.")
 			)
 
 		say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))

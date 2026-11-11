@@ -34,7 +34,7 @@
 	if(!istype(affecting) || affecting.is_stump())
 		return 0
 
-	D.visible_message(SPAN_DANGER("[A] rakes their claws against [D]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
+	D.visible_message(SPAN_DANGER("[A] rakes their claws against [D]'s [affecting.name]!"))
 
 	for(var/obj/item/protection in list(D.head, D.wear_mask, D.glasses))
 		if(protection && (protection.body_parts_covered & EYES))
@@ -54,7 +54,7 @@
 
 /datum/martial_art/baghrar/proc/claw_punch(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
-	A.visible_message(SPAN_DANGER("[A] lunges forwards and strikes [D] with their claws!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_DANGER("[A] lunges forwards and strikes [D] with their claws!"))
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	D.apply_damage(20, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
@@ -67,7 +67,7 @@
 		return 0
 	A.do_attack_animation(D, ATTACK_EFFECT_CLAW)
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
-	A.visible_message(SPAN_DANGER("[A] stabs [D]'s [organ.name] with their claws!"), visible_message_flags = GHOST_MESSAGE)
+	A.visible_message(SPAN_DANGER("[A] stabs [D]'s [organ.name] with their claws!"))
 	D.apply_damage(LIMB_GET_BRUTE_DAMAGE(organ), DAMAGE_BRUTE, organ, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	return 1
 

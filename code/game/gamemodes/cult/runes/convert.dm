@@ -67,9 +67,9 @@
 
 		initial_message = TRUE
 		if(!target.can_feel_pain())
-			target.visible_message(SPAN_WARNING("The markings below [target] glow a bloody red."), visible_message_flags = GHOST_MESSAGE)
+			target.visible_message(SPAN_WARNING("The markings below [target] glow a bloody red."))
 		else
-			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below [target.get_pronoun("him")] glow a bloody red."), self_message = SPAN_DANGER("AAAAAAHHHH!"), visible_message_flags = GHOST_MESSAGE)
+			target.visible_message(SPAN_WARNING("[target] writhes in pain as the markings below [target.get_pronoun("him")] glow a bloody red."), self_message = SPAN_DANGER("AAAAAAHHHH!"))
 
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE
@@ -81,7 +81,7 @@
 					//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
 					to_chat(target, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
 					to_chat(target, SPAN_CULT("And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
-					target.visible_message(SPAN_WARNING("The markings below [target] lose their glow, this unworthy offering has been rejected!"), visible_message_flags = GHOST_MESSAGE)
+					target.visible_message(SPAN_WARNING("The markings below [target] lose their glow, this unworthy offering has been rejected!"))
 			else
 				var/choice = tgui_alert(target, "Do you want to join the cult? (Choosing ghost will ghost you and spawn a shade)", "Submit to Nar'Sie", list("Resist", "Submit", "Ghost"))
 				waiting_for_input[target] = FALSE

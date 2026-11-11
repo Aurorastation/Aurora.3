@@ -256,7 +256,7 @@
 
 		user.visible_message(SPAN_NOTICE("\The [user] inserts a sheet [attacking_item] into \the [src]."), \
 			self_message = SPAN_NOTICE("You insert a sheet of [attacking_item]s into \the [src]."), \
-			blind_message = SPAN_NOTICE("You hear mechanical whirring."), visible_message_flags = GHOST_MESSAGE)
+			blind_message = SPAN_NOTICE("You hear mechanical whirring."))
 
 
 		if(the_sheet.amount <= 0)

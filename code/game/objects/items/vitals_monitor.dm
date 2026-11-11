@@ -29,12 +29,12 @@
 
 	if(H.is_asystole())
 		if(!reported_critical)
-			bed.visible_message(SPAN_WARNING("\The [src] flashes red!"))
+			bed.visible_message(SPAN_WARNING("\The [src] flashes red!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(bed.loc, 'sound/machines/airalarm.ogg', 70)
 			reported_critical = TRUE
 			update_icon()
 	else if(reported_critical)
-		bed.visible_message(SPAN_NOTICE("\The [src] returns to a normal green."))
+		bed.visible_message(SPAN_NOTICE("\The [src] returns to a normal green."), visible_message_flags = LOCAL_MESSAGE)
 		reported_critical = FALSE
 		update_icon()
 

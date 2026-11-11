@@ -20,5 +20,5 @@
 	if(!.)
 		return FALSE
 
-	owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."), visible_message_flags = GHOST_MESSAGE)
+	owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."))
 	owner.change_appearance(APPEARANCE_ALL_HAIR, owner)

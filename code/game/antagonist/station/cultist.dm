@@ -74,7 +74,7 @@ GLOBAL_DATUM(cult, /datum/antagonist/cultist)
 	to_chat(player.current, SPAN_DANGER("An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it."))
 	player.memory = ""
 	if(show_message)
-		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>", visible_message_flags = GHOST_MESSAGE)
+		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>")
 	if(. && player.current && !istype(player.current, /mob/living/simple_animal/construct))
 		player.current.remove_language(LANGUAGE_CULT)
 		player.current.remove_language(LANGUAGE_OCCULT)

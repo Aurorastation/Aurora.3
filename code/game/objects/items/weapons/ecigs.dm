@@ -76,7 +76,7 @@
 		return
 
 	if(idle >= idle_threshold) //idle too long -> automatic shut down
-		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), blind_message = null, vision_distance = 2)
+		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), blind_message = null, vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 		deactivate()
 		return
 
@@ -203,7 +203,7 @@
 				return
 			last_drag = world.time
 			idle = 0
-			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name]."), visible_message_flags = GHOST_MESSAGE)
+			C.visible_message(SPAN_NOTICE("[C.name] takes a drag of their [name]."))
 			playsound(C, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			ec_cartridge.reagents.trans_to_mob(C, REM, CHEM_BREATHE, 0.4)
 			return TRUE

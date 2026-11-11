@@ -41,7 +41,7 @@
 			tethered = FALSE
 			return
 		if(!tethered)
-			visible_message(SPAN_DANGER("\The [src] tethers with \the [GLOB.revenants.revenant_rift]!"))
+			visible_message(SPAN_DANGER("\The [src] tethers with \the [GLOB.revenants.revenant_rift]!"), visible_message_flags = LOCAL_MESSAGE)
 			last_zap = world.time
 			tethered = TRUE
 			Beam(GLOB.revenants.revenant_rift, icon_state="n_beam", icon = 'icons/effects/beam.dmi', time=2, maxdistance=5, beam_datum_type=/datum/beam/held)

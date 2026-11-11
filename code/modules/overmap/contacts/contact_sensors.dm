@@ -111,7 +111,7 @@
 					animate(record.marker, alpha=0, 2 SECOND, 1, LINEAR_EASING)
 					QDEL_IN(record, 2 SECOND) // Need to restart the search if you've lost contact with the object.
 					if(contact.scannable)	  // Scannable objects are the only ones that give off notifications to prevent spam
-						visible_message(SPAN_NOTICE("\The [src] states, \"Contact lost with [record.name].\""))
+						visible_message(SPAN_NOTICE("\The [src] states, \"Contact lost with [record.name].\""), visible_message_flags = LOCAL_MESSAGE)
 						playsound(loc, 'sound/machines/sensors/contact_lost.ogg', 30, 1)
 				objects_in_view -= contact
 				continue
@@ -128,12 +128,12 @@
 					// Give the player an idea of where the ship is in relation to the ship.
 					if(objects_in_view[contact] <= 0)
 						if(!muted)
-							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Unknown contact designation '[contact.unknown_id]' detected nearby, bearing [bearing_estimate], error +/- [bearing_variability]. Beginning trace.\""))
+							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Unknown contact designation '[contact.unknown_id]' detected nearby, bearing [bearing_estimate], error +/- [bearing_variability]. Beginning trace.\""), visible_message_flags = LOCAL_MESSAGE)
 						objects_in_view[contact] = round(sensors.sensor_strength**2)
 					else
 						objects_in_view[contact] += round(sensors.sensor_strength**2)
 						if(!muted)
-							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""))
+							visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"Contact '[contact.unknown_id]' tracing [objects_in_view[contact]]% complete, bearing [bearing_estimate], error +/- [bearing_variability].\""), visible_message_flags = LOCAL_MESSAGE)
 					playsound(loc, 'sound/machines/sensors/contactgeneric.ogg', 10, 1) //Let players know there's something nearby.
 				if(objects_in_view[contact] >= 100) // Identification complete.
 					record = add_contact(contact)
@@ -153,7 +153,7 @@
 	contact_datums[contact] = record
 	if(contact.scannable)
 		playsound(loc, 'sound/machines/sensors/newcontact.ogg', 30, 1)
-		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""))
+		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"New contact identified, designation [record.name], bearing [bearing].\""), visible_message_flags = LOCAL_MESSAGE)
 	record.show()
 	animate(record.marker, alpha=255, 2 SECOND, 1, LINEAR_EASING)
 	return record
@@ -299,7 +299,7 @@
 
 			// Recurse the function on the other ship's instance
 			sensor_console.datalink_remove_ship_datalink(src.connected, remove_link)
-		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was severed! Recalibrating...\""))
+		visible_message(SPAN_NOTICE("<b>\The [src]</b> states, \"A datalink contact was severed! Recalibrating...\""), visible_message_flags = LOCAL_MESSAGE)
 
 
 /obj/structure/machinery/computer/ship/sensors/proc/datalink_remove_all_ships_datalink(var/remove_link)

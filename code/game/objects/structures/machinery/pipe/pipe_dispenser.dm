@@ -132,7 +132,7 @@
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message("<b>[user]</b> unfastens \the [src].", self_message = SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> unfastens \the [src].", self_message = SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), blind_message = SPAN_NOTICE("You hear a ratcheting noise."))
 				anchored = FALSE
 				stat |= MAINT
 				if(usr.machine == src)
@@ -140,7 +140,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You begin to fasten \the [src] to the floor..."))
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
-				user.visible_message("<b>[user]</b> fastens \the [src].", self_message = SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> fastens \the [src].", self_message = SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), blind_message = SPAN_NOTICE("You hear a ratcheting noise."))
 				anchored = TRUE
 				stat &= ~MAINT
 				power_change()

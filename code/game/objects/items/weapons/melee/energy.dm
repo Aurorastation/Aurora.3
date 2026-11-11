@@ -48,7 +48,7 @@
 	if(active)
 		if ((user.is_clumsy()) && prob(50))
 			user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
-			self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 			user.take_organ_damage(5,5)
 		deactivate(user)
 	else
@@ -64,7 +64,7 @@
 
 /obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return BULLET_ACT_BLOCK
@@ -96,7 +96,7 @@
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(P.starting && prob(reflectchance))
-						visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+						visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 						// Find a turf near or on the original location to bounce to
 						var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -108,7 +108,7 @@
 
 						return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 					else
-						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return BULLET_ACT_BLOCK
 
 				else if(istype(damage_source, /obj/projectile/bullet) && can_block_bullets)
@@ -116,7 +116,7 @@
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(prob(reflectchance))
-						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return BULLET_ACT_BLOCK
 			else
 				return BULLET_ACT_HIT
@@ -424,7 +424,7 @@
 	..()
 	if(prob(30))
 		user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
-		self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(5,5)
 /*
  *Energy Blade

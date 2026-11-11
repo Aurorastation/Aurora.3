@@ -228,7 +228,7 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	return TRUE
 
 /datum/species/diona/sleep_msg(var/mob/M)
-	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."), visible_message_flags = GHOST_MESSAGE)
+	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."))
 	to_chat(M, SPAN_NOTICE("You creak, entering an introspective state."))
 
 /datum/species/diona/sleep_examine_msg(var/mob/M)

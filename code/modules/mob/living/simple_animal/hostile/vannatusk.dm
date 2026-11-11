@@ -61,7 +61,7 @@
 			fire_spike(last_found_target)
 
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/atom/target)
-	visible_message(SPAN_DANGER("\The [src] fires a spike at [target]!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] fires a spike at [target]!"))
 	fire_projectile(/obj/projectile/bonedart, target, 'sound/weapons/bloodyslice.ogg', firer = src)
 
 /obj/item/bone_dart/vannatusk
@@ -78,7 +78,7 @@
 			to_chat(user, SPAN_WARNING("\The [src]'s crystal has already been harvested!"))
 			return
 
-		visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"))
 		var/obj/item/bluespace_crystal/C = new(get_turf(src))
 		user.put_in_any_hand_if_possible(C)
 		crystal_harvested = TRUE

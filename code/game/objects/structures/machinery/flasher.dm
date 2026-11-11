@@ -56,9 +56,9 @@
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
-			user.visible_message(SPAN_WARNING("[user] has disconnected the [src]'s flashbulb!"), self_message = SPAN_WARNING("You disconnect the [src]'s flashbulb!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] has disconnected the [src]'s flashbulb!"), self_message = SPAN_WARNING("You disconnect the [src]'s flashbulb!"))
 		if (!src.disable)
-			user.visible_message(SPAN_WARNING("[user] has connected the [src]'s flashbulb!"), self_message = SPAN_WARNING("You connect the [src]'s flashbulb!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] has connected the [src]'s flashbulb!"), self_message = SPAN_WARNING("You connect the [src]'s flashbulb!"))
 		return TRUE
 
 //Let the AI trigger them directly.

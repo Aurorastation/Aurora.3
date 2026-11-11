@@ -395,8 +395,7 @@
 
 		user.visible_message( \
 				SPAN_WARNING("[user] begins [anchored ? "un" : ""]securing the turret."), \
-				self_message = SPAN_NOTICE("You begin [anchored ? "un" : ""]securing the turret."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You begin [anchored ? "un" : ""]securing the turret.") \
 			)
 
 		wrenching = 1
@@ -468,7 +467,7 @@
 		//Emagging the turret makes it go bonkers and stun everyone. It also makes
 		//the turret shoot much, much faster.
 		to_chat(user, SPAN_WARNING("You short out [src]'s threat assessment circuits."))
-		visible_message("[src] hums oddly...")
+		visible_message("[src] hums oddly...", visible_message_flags = LOCAL_MESSAGE)
 		emagged = 1
 		lethal_icon = 1
 		controllock = 1

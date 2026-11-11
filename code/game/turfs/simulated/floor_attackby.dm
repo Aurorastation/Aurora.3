@@ -94,21 +94,21 @@
 				return
 			if(broken || burnt)
 				playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
-				visible_message(SPAN_NOTICE("[user] has begun prying off the damaged plating."))
+				visible_message(SPAN_NOTICE("[user] has begun prying off the damaged plating."), visible_message_flags = LOCAL_MESSAGE)
 				var/turf/T = GET_TURF_BELOW(src)
 				if(T)
-					T.visible_message(SPAN_WARNING("The ceiling above looks as if it's being pried off."))
+					T.visible_message(SPAN_WARNING("The ceiling above looks as if it's being pried off."), visible_message_flags = LOCAL_MESSAGE)
 				if(do_after(user, 10 SECONDS))
 					if(!istype(src, /turf/simulated/floor))
 						return
 					if(broken || burnt && !(is_plating()))
 						return
-					visible_message(SPAN_WARNING("[user] has pried off the damaged plating."))
+					visible_message(SPAN_WARNING("[user] has pried off the damaged plating."), visible_message_flags = LOCAL_MESSAGE)
 					new /obj/item/stack/tile/floor(src)
 					src.ReplaceWithLattice()
 					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 					if(T)
-						T.visible_message(SPAN_DANGER("The ceiling above has been pried off!"))
+						T.visible_message(SPAN_DANGER("The ceiling above has been pried off!"), visible_message_flags = LOCAL_MESSAGE)
 				return
 			return
 		else if(attacking_item.tool_behaviour == TOOL_WELDER)
@@ -128,9 +128,9 @@
 				else
 					if(welder.use(0, user))
 						playsound(src, 'sound/items/Welder.ogg', 80, 1)
-						visible_message(SPAN_NOTICE("[user] has started melting the plating's reinforcements!"))
+						visible_message(SPAN_NOTICE("[user] has started melting the plating's reinforcements!"), visible_message_flags = LOCAL_MESSAGE)
 						if(welder.use_tool(src, user, 100, volume = 80) && welder.isOn() && welder_melt())
-							visible_message(SPAN_WARNING("[user] has melted the plating's reinforcements! It should be possible to pry it off."))
+							visible_message(SPAN_WARNING("[user] has melted the plating's reinforcements! It should be possible to pry it off."), visible_message_flags = LOCAL_MESSAGE)
 							playsound(src, 'sound/items/Welder.ogg', 80, 1)
 					return
 

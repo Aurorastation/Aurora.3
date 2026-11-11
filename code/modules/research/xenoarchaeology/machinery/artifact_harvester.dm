@@ -86,7 +86,7 @@
 			cur_artifact.anchored = 0
 			cur_artifact.being_used = 0
 			cur_artifact = null
-			src.visible_message("<b>[name]</b> states, \"Battery is full.\"")
+			src.visible_message("<b>[name]</b> states, \"Battery is full.\"", visible_message_flags = LOCAL_MESSAGE)
 			icon_state = "harvester"
 
 	else if(harvesting < 0)
@@ -111,17 +111,17 @@
 			harvesting = 0
 			if(inserted_battery.battery_effect && inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate()
-			src.visible_message("<b>[name]</b> states, \"Battery dump completed.\"")
+			src.visible_message("<b>[name]</b> states, \"Battery dump completed.\"", visible_message_flags = LOCAL_MESSAGE)
 			icon_state = "harvester"
 
 /obj/structure/machinery/artifact_harvester/Topic(href, href_list)
 
 	if (href_list["harvest"])
 		if(!inserted_battery)
-			src.visible_message("<b>[src]</b> states, \"Cannot harvest. No battery inserted.\"")
+			src.visible_message("<b>[src]</b> states, \"Cannot harvest. No battery inserted.\"", visible_message_flags = LOCAL_MESSAGE)
 
 		else if(inserted_battery.stored_charge >= inserted_battery.capacity)
-			src.visible_message("<b>[src]</b> states, \"Cannot harvest. battery is full.\"")
+			src.visible_message("<b>[src]</b> states, \"Cannot harvest. battery is full.\"", visible_message_flags = LOCAL_MESSAGE)
 
 		else
 
@@ -135,10 +135,10 @@
 
 			if(articount <= 0)
 				var/message = "<b>[src]</b> states, \"Cannot harvest. No noteworthy energy signature isolated.\""
-				src.visible_message(message)
+				src.visible_message(message, visible_message_flags = LOCAL_MESSAGE)
 
 			else if(analysed && analysed.being_used)
-				src.visible_message("<b>[src]</b> states, \"Cannot harvest. Source already being harvested.\"")
+				src.visible_message("<b>[src]</b> states, \"Cannot harvest. Source already being harvested.\"", visible_message_flags = LOCAL_MESSAGE)
 
 			else
 				if(articount > 1)
@@ -148,9 +148,9 @@
 
 					//if both effects are active, we can't harvest either
 					if(cur_artifact.my_effect && cur_artifact.my_effect.activated && cur_artifact.secondary_effect && cur_artifact.secondary_effect.activated)
-						src.visible_message("<b>[src]</b> states, \"Cannot harvest. Source is emitting conflicting energy signatures.\"")
+						src.visible_message("<b>[src]</b> states, \"Cannot harvest. Source is emitting conflicting energy signatures.\"", visible_message_flags = LOCAL_MESSAGE)
 					else if(!cur_artifact.my_effect.activated && !(cur_artifact.secondary_effect && cur_artifact.secondary_effect.activated))
-						src.visible_message("<b>[src]</b> states, \"Cannot harvest. No energy emitting from source.\"")
+						src.visible_message("<b>[src]</b> states, \"Cannot harvest. No energy emitting from source.\"", visible_message_flags = LOCAL_MESSAGE)
 
 					else
 						//see if we can clear out an old effect
@@ -178,7 +178,7 @@
 								source_effect = cur_artifact.secondary_effect
 
 							if(!source_effect)
-								src.visible_message("<b>[src]</b> states, \"Cannot harvest. Battery is charged with a different energy signature.\"")
+								src.visible_message("<b>[src]</b> states, \"Cannot harvest. Battery is charged with a different energy signature.\"", visible_message_flags = LOCAL_MESSAGE)
 						else
 							//we're good to charge either
 							if(cur_artifact.my_effect.activated)
@@ -197,7 +197,7 @@
 							cur_artifact.being_used = 1
 							icon_state = "harvester_on"
 							var/message = "<b>[src]</b> states, \"Beginning energy harvesting.\""
-							src.visible_message(message)
+							src.visible_message(message, visible_message_flags = LOCAL_MESSAGE)
 							last_process = world.time
 
 							//duplicate the artifact's effect datum
@@ -221,7 +221,7 @@
 			cur_artifact.anchored = 0
 			cur_artifact.being_used = 0
 			cur_artifact = null
-			src.visible_message("<b>[name]</b> states, \"Energy harvesting interrupted.\"")
+			src.visible_message("<b>[name]</b> states, \"Energy harvesting interrupted.\"", visible_message_flags = LOCAL_MESSAGE)
 			icon_state = "harvester"
 
 	if (href_list["ejectbattery"])
@@ -239,13 +239,13 @@
 					update_use_power(POWER_USE_ACTIVE)
 					icon_state = "harvester_on"
 					var/message = "<b>[src]</b> states, \"Warning, battery charge dump commencing.\""
-					src.visible_message(message)
+					src.visible_message(message, visible_message_flags = LOCAL_MESSAGE)
 			else
 				var/message = "<b>[src]</b> states, \"Cannot dump energy. Battery is drained of charge already.\""
-				src.visible_message(message)
+				src.visible_message(message, visible_message_flags = LOCAL_MESSAGE)
 		else
 			var/message = "<b>[src]</b> states, \"Cannot dump energy. No battery inserted.\""
-			src.visible_message(message)
+			src.visible_message(message, visible_message_flags = LOCAL_MESSAGE)
 
 	if(href_list["close"])
 		usr << browse(null, "window=artharvester")

@@ -60,10 +60,10 @@ ABSTRACT_TYPE(/obj/item/package)
 			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
 			return
 
-	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", self_message = SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> tightens their grip on \the [src] and starts heaving...", self_message = SPAN_NOTICE("You tighten your grip on \the [src] and start heaving..."))
 	var/pickup_time = clamp((get_effective_mass() / user.get_lift_capacity()) * 1 SECOND, 0.5 SECONDS, 5 SECONDS)
 	if(do_after(user, pickup_time, src, DO_UNIQUE))
-		user.visible_message("<b>[user]</b> heaves \the [src] up!", self_message = SPAN_NOTICE("You heave \the [src] up!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> heaves \the [src] up!", self_message = SPAN_NOTICE("You heave \the [src] up!"))
 		configure_carry(user)
 
 		return TRUE

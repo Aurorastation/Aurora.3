@@ -23,15 +23,13 @@
 
 	user.visible_message(
 		SPAN_WARNING("[user] begins deploying \the [src]."),
-		self_message = SPAN_NOTICE("You begin deplyoing \the [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin deplyoing \the [src].")
 	)
 	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		SPAN_WARNING("[user] deployed \the [src].") ,
-		self_message = SPAN_NOTICE("You deploy \the [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You deploy \the [src].")
 	)
 	var/obj/structure/closet/airbubble/R
 	if(syndie)
@@ -197,15 +195,13 @@
 			return
 		user.visible_message(
 		SPAN_WARNING("[user] begins folding up the [src.name]."),
-		self_message = SPAN_NOTICE("You begin folding up the [src.name]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin folding up the [src.name].")
 		)
 		if (!do_after(user, 0.45 SECONDS))
 			return
 		user.visible_message(
 		SPAN_WARNING("[user] folds up the [src.name].") ,
-		self_message = SPAN_NOTICE("You fold up the [src.name]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You fold up the [src.name].")
 		)
 		var/obj/item/airbubble/bag
 		if(syndie)
@@ -268,7 +264,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)"))
-	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is terring it from the inside!"))
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is terring it from the inside!"), visible_message_flags = LOCAL_MESSAGE)
 
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
@@ -279,7 +275,7 @@
 
 	breakout = FALSE
 	to_chat(escapee, SPAN_WARNING("You successfully break out! Tearing the bubble's walls!")) // holy shit this is hilarious
-	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!"))
+	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!"), visible_message_flags = LOCAL_MESSAGE)
 	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
 	playsound(loc, sound_to_play, 100, 1)
 	break_open()
@@ -319,15 +315,13 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is setting [src] internals."),
-		self_message = SPAN_NOTICE("You are settting [src] internals."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You are settting [src] internals.")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has set [src] internals.") ,
-		self_message = SPAN_NOTICE("You set [src] internals."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You set [src] internals.")
 		)
 		if(use_internal_tank)
 			STOP_PROCESSING(SSfast_process, src)
@@ -354,15 +348,13 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [internal_tank] from [src]."),
-		self_message = SPAN_NOTICE("You are removing [internal_tank] from [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You are removing [internal_tank] from [src].")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [internal_tank] from [src]."),
-		self_message = SPAN_NOTICE("You removed [internal_tank] from [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You removed [internal_tank] from [src].")
 		)
 		for(var/obj/I in src)
 			I.forceMove(usr.loc)
@@ -389,15 +381,13 @@
 	if(!isnull(cell))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [cell] from [src]."),
-		self_message = SPAN_NOTICE("You are removing [cell] from [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You are removing [cell] from [src].")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [cell] from [src]."),
-		self_message = SPAN_NOTICE("You removed [cell] from [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You removed [cell] from [src].")
 		)
 		cell.forceMove(usr.loc)
 		cell = null
@@ -412,15 +402,13 @@
 		if(!isnull(use_internal_tank))
 			user.visible_message(
 			SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-			self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src].")
 			)
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
 			SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-			self_message = SPAN_NOTICE("You attached [attacking_item] to [src]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You attached [attacking_item] to [src].")
 			)
 			internal_tank = attacking_item
 			user.drop_from_inventory(attacking_item, src)
@@ -444,8 +432,7 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins putting cable restrains on zipper of [src]."),
-		self_message = SPAN_NOTICE("You begin putting cable restrains on zipper of [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin putting cable restrains on zipper of [src].")
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -454,8 +441,7 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src]'s zipper have been zipped by [user]."),
-		self_message = SPAN_NOTICE("You put restrains on [src]'s zipper."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You put restrains on [src]'s zipper.")
 		)
 
 		qdel(attacking_item)
@@ -468,8 +454,7 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins cutting cable restrains on zipper of [src]."),
-		self_message = SPAN_NOTICE("You begin cutting cable restrains on zipper of [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin cutting cable restrains on zipper of [src].")
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -478,8 +463,7 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src] zipper's cable restrains has been cut by [user]."),
-		self_message = SPAN_NOTICE("You cut cable restrains on [src]'s zipper."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You cut cable restrains on [src]'s zipper.")
 		)
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
@@ -491,15 +475,13 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-		self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You are attaching [attacking_item] to [src].")
 		)
 		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-		self_message = SPAN_NOTICE("You attached [attacking_item] to [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You attached [attacking_item] to [src].")
 		)
 		cell = attacking_item
 		cooling = TRUE
@@ -536,11 +518,11 @@
 			if(tank_pressure <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
-				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"))
+				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
-			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"))
+			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)

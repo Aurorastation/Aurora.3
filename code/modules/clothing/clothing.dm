@@ -327,7 +327,7 @@
 	if(!material)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
+	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
@@ -349,7 +349,7 @@
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -919,10 +919,10 @@
 		item_state = initial(item_state)
 
 /obj/item/clothing/mask/proc/lower_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", self_message = SPAN_NOTICE("You pull \the [src] down to hang around your neck."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", self_message = SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
 
 /obj/item/clothing/mask/proc/raise_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] up to cover your face."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] up to cover your face."))
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(adjustable)
@@ -972,7 +972,7 @@
 	holding.forceMove(get_turf(usr))
 
 	if(usr.put_in_hands(holding))
-		usr.visible_message(SPAN_DANGER("\The [usr] pulls \a [holding] out of their boot!"), visible_message_flags = GHOST_MESSAGE)
+		usr.visible_message(SPAN_DANGER("\The [usr] pulls \a [holding] out of their boot!"))
 		holding = null
 		playsound(get_turf(src), 'sound/weapons/holster/unholster_knife.ogg', 25)
 	else
@@ -994,7 +994,7 @@
 		user.unEquip(attacking_item)
 		attacking_item.forceMove(src)
 		holding = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [attacking_item] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] shoves \the [attacking_item] into \the [src]."))
 		playsound(get_turf(src), 'sound/weapons/holster/holster_knife.ogg', 25)
 		verbs |= /obj/item/clothing/shoes/proc/draw_knife
 		update_icon()
@@ -1339,20 +1339,20 @@
 	if (src.loc == user)
 		switch(sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "You disable your suit's remote sensing equipment.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "You disable your suit's remote sensing equipment.")
 			if(SUIT_SENSOR_BINARY)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse.")
 			if(SUIT_SENSOR_VITAL)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse and vital lifesigns.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse and vital lifesigns.")
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse, vital lifesigns, and your coordinate position.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] adjusts the tracking sensor on [get_pronoun("him")] [src.name].", self_message = "Your suit will now report your pulse, vital lifesigns, and your coordinate position.")
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
-			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), self_message = "You disable [src.loc]'s remote sensing equipment.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] disables [src.loc]'s remote sensing equipment."), self_message = "You disable [src.loc]'s remote sensing equipment.")
 		else
-			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", self_message = "You adjust [src.loc]'s sensors.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("[user] adjusts the tracking sensor on [src.loc]'s [src.name].", self_message = "You adjust [src.loc]'s sensors.")
 	else
-		user.visible_message("[user] adjusts the tracking sensor on [src]", self_message = "You adjust the sensor on [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] adjusts the tracking sensor on [src]", self_message = "You adjust the sensor on [src].")
 
 /obj/item/clothing/under/emp_act(severity)
 	..()

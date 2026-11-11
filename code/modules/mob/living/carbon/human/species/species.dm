@@ -633,11 +633,11 @@
 		target.fire_stacks += 1
 		target.IgniteMob()
 		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
-						self_message = SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
 		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
-						self_message = SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -1061,7 +1061,7 @@
 			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
 			stance_damage += 2
 			if(!damage_only && prob(10))
-				H.visible_message(SPAN_WARNING("\The [H]'s [E.name] [pick("twitches", "shudders")] and sparks!"), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message(SPAN_WARNING("\The [H]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
 				spark(H, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1
@@ -1105,7 +1105,7 @@
  * The message which displays when this species falls asleep
  */
 /datum/species/proc/sleep_msg(var/mob/M)
-	M.visible_message(SPAN_NOTICE("\The [M] lies down, falling asleep."), visible_message_flags = GHOST_MESSAGE)
+	M.visible_message(SPAN_NOTICE("\The [M] lies down, falling asleep."))
 	to_chat(M, SPAN_NOTICE("You lie down, falling asleep."))
 
 /**

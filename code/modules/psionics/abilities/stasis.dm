@@ -43,7 +43,7 @@
 		M.update_canmove()
 		net.affecting = M
 		our_net = net
-		M.visible_message(SPAN_DANGER("A field of condensed Nlom appears around [M]!"), self_message = SPAN_DANGER("You are immobilised by a field of condensed Nlom! You feel your body and mind slow down..."), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_DANGER("A field of condensed Nlom appears around [M]!"), self_message = SPAN_DANGER("You are immobilised by a field of condensed Nlom! You feel your body and mind slow down..."))
 
 /obj/effect/energy_net/stasis
 	name = "condensed nlom field"

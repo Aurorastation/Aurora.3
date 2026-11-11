@@ -142,7 +142,7 @@
 			spill(3, get_turf(target_mob))
 			playsound(target_mob, SFX_TRAY_HIT, 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"))
 
 /obj/item/storage/toolbox/lunchbox
 	name = "rainbow lunchbox"

@@ -20,10 +20,10 @@
 		to_chat(src, SPAN_WARNING("You can barely lift \the [I] up, how do you expect to hand it over to someone?"))
 		return FALSE
 
-	usr.visible_message(SPAN_NOTICE("\The [usr] holds out \the [I] to \the [target]."), self_message = SPAN_NOTICE("You hold out \the [I] to \the [target], waiting for them to accept it."), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("\The [usr] holds out \the [I] to \the [target]."), self_message = SPAN_NOTICE("You hold out \the [I] to \the [target], waiting for them to accept it."))
 
 	if(tgui_alert(target, "[usr] wants to give you \a [I]. Will you accept it?", , list("Yes", "No")) == "No")
-		target.visible_message("<b>[target]</b> pushes [usr]'s hand away.", visible_message_flags = GHOST_MESSAGE)
+		target.visible_message("<b>[target]</b> pushes [usr]'s hand away.")
 		return
 
 	if(!I)
@@ -48,4 +48,4 @@
 		I.on_give(usr, target)
 		if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 			target.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
-			usr.visible_message("<b>[usr]</b> hands \the [target] \a [I].", self_message = SPAN_NOTICE("You give \the [target] \a [I]."), visible_message_flags = GHOST_MESSAGE)
+			usr.visible_message("<b>[usr]</b> hands \the [target] \a [I].", self_message = SPAN_NOTICE("You give \the [target] \a [I]."))

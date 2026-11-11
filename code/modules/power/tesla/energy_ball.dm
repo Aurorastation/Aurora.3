@@ -115,15 +115,15 @@
 	if(can_move(T) && can_dunk(get_turf(src),T,move_dir))
 		switch(z_move)
 			if(1)
-				visible_message(SPAN_DANGER("\The [src] gravitates upwards!"))
+				visible_message(SPAN_DANGER("\The [src] gravitates upwards!"), visible_message_flags = LOCAL_MESSAGE)
 				zMove(UP)
-				visible_message(SPAN_DANGER("\The [src] gravitates from below!"))
+				visible_message(SPAN_DANGER("\The [src] gravitates from below!"), visible_message_flags = LOCAL_MESSAGE)
 			if(0)
 				Move(T)
 			if(-1)
-				visible_message(SPAN_DANGER("\The [src] gravitates downwards!"))
+				visible_message(SPAN_DANGER("\The [src] gravitates downwards!"), visible_message_flags = LOCAL_MESSAGE)
 				zMove(DOWN)
-				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
+				visible_message(SPAN_DANGER("\The [src] gravitates from above!"), visible_message_flags = LOCAL_MESSAGE)
 
 		if(dir in GLOB.alldirs)
 			dir = move_dir
@@ -317,7 +317,7 @@
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
-			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down")
+			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down", visible_message_flags = LOCAL_MESSAGE)
 			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2, maxdistance=beam_range)
 			E.tesla_act(0, TRUE)
 			qdel(B)
@@ -385,7 +385,7 @@
 		var/obj/singularity/energy_ball/E = source
 		if(E.energy && (E.orbiting_balls.len > rods_count * 4)) // so that miniballs don't fry stuff.
 			melt =  TRUE // 1 grounding rod can handle max 4 balls
-			E.visible_message(SPAN_DANGER("All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object! Sacrificing one of its miniballs!"))
+			E.visible_message(SPAN_DANGER("All [E.orbiting_balls.len] energize for a second, sending their energy to the main ball, which redirects it at the nearest object! Sacrificing one of its miniballs!"), visible_message_flags = LOCAL_MESSAGE)
 			for(var/obj/singularity/energy_ball/mini in E.orbiting_balls)
 				mini.Beam(source, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 			playsound(source.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 30)

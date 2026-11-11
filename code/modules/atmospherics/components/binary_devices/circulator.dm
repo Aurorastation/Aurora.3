@@ -104,7 +104,7 @@
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					self_message = "You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
-					blind_message = "You hear a ratchet.", visible_message_flags = GHOST_MESSAGE)
+					blind_message = "You hear a ratchet.")
 
 		if(anchored)
 			temperature_overlay = null

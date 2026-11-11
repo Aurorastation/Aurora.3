@@ -50,7 +50,7 @@
 	if(prob(25) && buckled) //has a chance of being thrown off when it explodes
 		if(ishuman(buckled))
 			var/mob/living/carbon/human/C = buckled
-			C.visible_message(SPAN_DANGER ("\The [C] is thrown off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			C.visible_message(SPAN_DANGER ("\The [C] is thrown off from \the [src]!"))
 			unload(C)
 			C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 			C.apply_effect(2, WEAKEN)
@@ -60,7 +60,7 @@
 			var/mob/living/carbon/human/V = buckled
 			V.apply_effect(2, WEAKEN)
 	explosion(loc, 1, 2, 4, 8, spreading = TRUE)
-	visible_message(SPAN_DANGER ("\The [src] detonates!"))
+	visible_message(SPAN_DANGER ("\The [src] detonates!"), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 /obj/vehicle/bike/wasp_torpedo/proc/prime(var/mob/user)
@@ -71,7 +71,7 @@
 	if(!on)
 		turn_on()
 	kickstand = FALSE
-	visible_message(SPAN_DANGER ("\The [src] begins to beep omnisouly before charging!"))
+	visible_message(SPAN_DANGER ("\The [src] begins to beep omnisouly before charging!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 75, 1, -3)
 	primmed = TRUE
 	land_speed = 1

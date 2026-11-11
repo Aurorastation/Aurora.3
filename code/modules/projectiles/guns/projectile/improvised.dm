@@ -38,7 +38,7 @@
 	if(prob(fail_chance))
 		M.visible_message(SPAN_DANGER("[M]'s weapon blows up, shattering into pieces!"),
 								self_message = SPAN_DANGER("[src] blows up in your face!"),
-								blind_message = "You hear a loud bang!", visible_message_flags = GHOST_MESSAGE)
+								blind_message = "You hear a loud bang!")
 
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -56,7 +56,7 @@
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message(SPAN_DANGER("The shotgun goes off!"),
-									self_message = SPAN_DANGER("The shotgun goes off in your face!"), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_DANGER("The shotgun goes off in your face!"))
 
 			return
 		if(attacking_item.use_tool(src, user, 30, volume = 50))

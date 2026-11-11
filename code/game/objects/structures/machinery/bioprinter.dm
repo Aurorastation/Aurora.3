@@ -42,7 +42,7 @@
 		if(prints_prosthetics)
 			O.robotic = ROBOTIC_MECHANICAL
 		else if(loaded_dna)
-			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.")
+			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.", visible_message_flags = LOCAL_MESSAGE)
 			O.transplant_data = list()
 			var/datum/weakref/W = loaded_dna["donor"]
 			var/mob/living/carbon/C = W.resolve()
@@ -51,7 +51,7 @@
 				O.transplant_data["blood_type"] = loaded_dna["blood_type"]
 				O.transplant_data["blood_DNA"] =  loaded_dna["blood_DNA"]
 
-		visible_message("<span class='info'>The bioprinter spits out a new organ.</span>")
+		visible_message("<span class='info'>The bioprinter spits out a new organ.</span>", visible_message_flags = LOCAL_MESSAGE)
 
 	else
 		to_chat(user, SPAN_WARNING("There is not enough matter in the printer."))

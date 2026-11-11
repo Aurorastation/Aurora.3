@@ -147,7 +147,7 @@
 
 		var/removed = -air_contents.add_thermal_energy(-heat_transfer*seconds_per_tick)		//remove the heat
 		if(debug)
-			visible_message("[src]: Removing [removed] W.")
+			visible_message("[src]: Removing [removed] W.", visible_message_flags = LOCAL_MESSAGE)
 
 		use_power_oneoff(power_rating*seconds_per_tick)
 

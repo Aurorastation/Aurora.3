@@ -510,14 +510,14 @@
 	user.remove_from_mob(W)
 	W.forceMove(src)
 	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
-	user.visible_message("[user] inserts \a [W] into [src].", self_message = SPAN_NOTICE("You insert \a [W] into [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("[user] inserts \a [W] into [src].", self_message = SPAN_NOTICE("You insert \a [W] into [src]."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
 	if(belt.len)
 		var/obj/item/arrow/rod/R = belt[belt.len]
 		belt.len--
 		user.put_in_hands(R)
-		user.visible_message("[user] removes \a [R] from [src].", self_message = SPAN_NOTICE("You remove \a [R] from [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] removes \a [R] from [src].", self_message = SPAN_NOTICE("You remove \a [R] from [src]."))
 	else
 		to_chat(user, SPAN_WARNING("[src] is empty."))
 

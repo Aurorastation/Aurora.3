@@ -30,7 +30,7 @@
 		M.captured = TRUE
 		M.update_canmove()
 		net.affecting = M
-		M.visible_message(SPAN_DANGER("\The [M] was caught in \the [net]!"), self_message = SPAN_DANGER("You get caught in \the [net]!"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_DANGER("\The [M] was caught in \the [net]!"), self_message = SPAN_DANGER("You get caught in \the [net]!"))
 		qdel(src)
 
 /obj/effect/energy_net
@@ -67,7 +67,7 @@
 /obj/effect/energy_net/proc/health_check()
 	if(health <= 0)
 		density = FALSE
-		src.visible_message(SPAN_WARNING("\The [src] is torn apart!"))
+		src.visible_message(SPAN_WARNING("\The [src] is torn apart!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/effect/energy_net/process()
@@ -105,7 +105,7 @@
 	else
 		health -= rand(5, 8)
 
-	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), self_message = SPAN_WARNING("You claw at \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), self_message = SPAN_WARNING("You claw at \the [src]!"))
 	health_check()
 
 /obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)

@@ -86,7 +86,7 @@
 			return TRUE
 		beaker = attacking_item
 		user.drop_from_inventory(attacking_item,src)
-		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", self_message = "You add \a [attacking_item] to \the [src]!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", self_message = "You add \a [attacking_item] to \the [src]!")
 		return TRUE
 
 	var/obj/item/grab/G = attacking_item
@@ -101,7 +101,7 @@
 	if (!bucklestatus)
 		return TRUE
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), self_message = SPAN_NOTICE("You start putting \the [M] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), self_message = SPAN_NOTICE("You start putting \the [M] into \the [src]."), vision_distance = 3)
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		put_in(G.affecting)
 	src.add_fingerprint(user)
@@ -125,9 +125,9 @@
 		return
 
 	if(L == user)
-		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", self_message = SPAN_NOTICE("You start climbing into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", self_message = SPAN_NOTICE("You start climbing into \the [src]."), vision_distance = 3)
 	else
-		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", self_message = SPAN_NOTICE("You start putting \the [L] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", self_message = SPAN_NOTICE("You start putting \the [L] into \the [src]."), vision_distance = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)

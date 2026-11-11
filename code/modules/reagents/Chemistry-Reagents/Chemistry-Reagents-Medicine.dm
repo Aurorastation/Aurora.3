@@ -47,7 +47,7 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT)
 				E.status &= ~ORGAN_ARTERY_CUT
-				M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain in your [E.name]!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain in your [E.name]!"))
 
 /singleton/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.dizziness = max(100, M.dizziness)
@@ -76,7 +76,7 @@
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.tendon && (E.tendon_status() & TENDON_CUT) && E.tendon.can_recover())
 				E.tendon.rejuvenate()
-				M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain in your [E.name]!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain in your [E.name]!"))
 
 /singleton/reagent/kelotane
 	name = "Kelotane"
@@ -99,7 +99,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head.disfigured && prob(10))
-			M.visible_message("<b>[M]</b>'s face begins to contort back into it's original shape.", self_message = SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message("<b>[M]</b>'s face begins to contort back into it's original shape.", self_message = SPAN_DANGER("You feel a truly disgusting sensation as the skin and muscles of your face twist, crawl and turn."))
 			head.disfigured = FALSE
 
 /singleton/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
@@ -719,7 +719,7 @@
 							if(O.can_recover())
 								O.status &= ~ORGAN_DEAD
 								O.heal_damage(5)
-								M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain!"), visible_message_flags = GHOST_MESSAGE)
+								M.visible_message("<b>[M]</b> spasms!", self_message = SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.dizziness = max(150, M.dizziness)
@@ -809,7 +809,7 @@
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
-		M.visible_message("<b>[M]</b> twitches violently, grimacing.", self_message = "You twitch violently and feel yourself sprain a joint.", visible_message_flags = GHOST_MESSAGE)
+		M.visible_message("<b>[M]</b> twitches violently, grimacing.", self_message = "You twitch violently and feel yourself sprain a joint.")
 		M.take_organ_damage(5 * removed, 0, used_weapon = "Hyperzine overdose", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 		M.adjustHalLoss(15)
 
@@ -1612,7 +1612,7 @@
 /singleton/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
-			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", self_message = "You cough up a cloud of purple dust.", visible_message_flags = GHOST_MESSAGE)
+			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", self_message = "You cough up a cloud of purple dust.")
 			remove_self(10, holder)
 		else
 			H.adjustOxyLoss(2)
@@ -1894,7 +1894,7 @@
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
-			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
 			M.set_stat(CONSCIOUS)
 
 /singleton/reagent/pacifier

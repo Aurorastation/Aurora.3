@@ -419,7 +419,7 @@
 	if(prob(3))
 		to_chat(M, SPAN_GOOD(pick("You feel pumped!", "Energy, energy, energy - so much energy!", "You could run a marathon!", "You can't sit still!", "It's difficult to focus right now... but that's not important!")))
 	if(prob(5)) // average of 6 brute every 20 seconds.
-		M.visible_message("[M] shudders violently.", self_message = "You shudder uncontrollably, it hurts.", visible_message_flags = GHOST_MESSAGE)
+		M.visible_message("[M] shudders violently.", self_message = "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0, used_weapon = "Stimm tissue damage", damage_flags = DAMAGE_FLAG_IGNORE_PROSTHETICS, silent = TRUE)
 
 

@@ -586,7 +586,7 @@
 		return
 
 	if(selected_limb == "All")
-		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from all of \the [src]'s damaged limbs..."), self_message = SPAN_NOTICE("You begin removing bandages from all of \the [src]'s damaged limbs..."), visible_message_flags = GHOST_MESSAGE)
+		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from all of \the [src]'s damaged limbs..."), self_message = SPAN_NOTICE("You begin removing bandages from all of \the [src]'s damaged limbs..."))
 		if(!do_after(remover, 3 SECONDS, src))
 			return
 		possible_limbs -= "All"
@@ -594,12 +594,12 @@
 			var/obj/item/organ/external/limb = possible_limbs[limb_name]
 			limb.bandage_level = limb.possible_bandage_level()
 		update_bandages()
-		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from all of \the [src]'s damaged limbs!"), self_message = SPAN_NOTICE("You removed the bandages from all of \the [src]'s damaged limbs!"), visible_message_flags = GHOST_MESSAGE)
+		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from all of \the [src]'s damaged limbs!"), self_message = SPAN_NOTICE("You removed the bandages from all of \the [src]'s damaged limbs!"))
 	else
 		var/obj/item/organ/external/limb = possible_limbs[selected_limb]
-		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from \the [src]'s [limb.name]..."), self_message = SPAN_NOTICE("You begin removing bandages \the [src]'s [limb.name]..."), visible_message_flags = GHOST_MESSAGE)
+		remover.visible_message(SPAN_NOTICE("\The [remover] begins removing bandages from \the [src]'s [limb.name]..."), self_message = SPAN_NOTICE("You begin removing bandages \the [src]'s [limb.name]..."))
 		if(!do_after(remover, 1 SECOND, src))
 			return
 		limb.bandage_level = limb.possible_bandage_level()
 		update_bandages()
-		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from \the [src]'s [limb.name]!"), self_message = SPAN_NOTICE("You removed the bandages \the [src]'s [limb.name]!"), visible_message_flags = GHOST_MESSAGE)
+		remover.visible_message(SPAN_NOTICE("\The [remover] removed the bandages from \the [src]'s [limb.name]!"), self_message = SPAN_NOTICE("You removed the bandages \the [src]'s [limb.name]!"))

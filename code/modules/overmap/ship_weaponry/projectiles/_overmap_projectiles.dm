@@ -150,7 +150,7 @@
 /obj/effect/overmap/projectile/proc/check_entry_exoplanet(obj/projectile/ship_ammo/widowmaker, turf/entry_turf, turf/laze)
 	. = TRUE
 	playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg', 60)
-	laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"))
+	laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"), visible_message_flags = LOCAL_MESSAGE)
 	sleep(11 SECONDS) //Let the sound play!
 	var/turf/nearest_valid_turf
 

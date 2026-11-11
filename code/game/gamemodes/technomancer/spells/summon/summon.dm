@@ -26,7 +26,7 @@
 			L.summoned = 1
 			on_summon(L)
 			to_chat(user, SPAN_NOTICE("You've successfully teleported \a [L] to you!"))
-			visible_message(SPAN_WARNING("\A [L] appears from no-where!"))
+			visible_message(SPAN_WARNING("\A [L] appears from no-where!"), visible_message_flags = LOCAL_MESSAGE)
 			log_and_message_admins("has summoned \a [L] at [T.x],[T.y],[T.z].")
 			user.adjust_instability(instability_cost)
 

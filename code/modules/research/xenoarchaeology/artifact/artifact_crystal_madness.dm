@@ -133,6 +133,7 @@
 				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]."),
 				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]. It has little effect."),
 			),
+			visible_message_flags = LOCAL_MESSAGE,
 		)
 	else if(istype(hitting_projectile, /obj/projectile/energy))
 		src.visible_message(
@@ -143,6 +144,7 @@
 				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
 				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 			),
+			visible_message_flags = LOCAL_MESSAGE,
 		)
 	else if(istype(hitting_projectile, /obj/projectile/beam))
 		var/damage = hitting_projectile.get_structure_damage()
@@ -155,6 +157,7 @@
 				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
 				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 				),
+				visible_message_flags = LOCAL_MESSAGE,
 			)
 		else
 			if(world.time - last_stage_advancement > 30 SECONDS)
@@ -172,6 +175,7 @@
 					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can hear it vibrate."),
 					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can see it glow stronger for a few seconds."),
 				),
+				visible_message_flags = LOCAL_MESSAGE,
 			)
 
 /obj/structure/crystal_madness/attack_hand(mob/user as mob)
@@ -179,25 +183,21 @@
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is cold."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 	else if(stage < 3)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is somewhat warm."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 	else if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is very hot."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 
 /obj/structure/crystal_madness/attackby(obj/item/attacking_item, mob/user)
@@ -205,13 +205,11 @@
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
 			self_message = SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
-			visible_message_flags = GHOST_MESSAGE,
 			)
 
 

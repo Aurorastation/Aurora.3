@@ -26,7 +26,7 @@
 		return .
 
 	if(hitting_projectile.damage > 0)
-		visible_message(SPAN_WARNING("[hitting_projectile] tears [src] down!"))
+		visible_message(SPAN_WARNING("[hitting_projectile] tears [src] down!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/structure/curtain/attack_hand(mob/user)
@@ -44,12 +44,12 @@
 		if(manipulating)	return
 		manipulating = TRUE
 		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
-					blind_message = SPAN_NOTICE("You begin cutting down \the [src]."))
+					blind_message = SPAN_NOTICE("You begin cutting down \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
-					blind_message = SPAN_NOTICE("You cut down \the [src]."))
+					blind_message = SPAN_NOTICE("You cut down \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		dismantle()
 
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //You can anchor/unanchor curtains
@@ -60,7 +60,7 @@
 				to_chat(user, "There is already a curtain secured here!")
 				return
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/curtain/proc/toggle()
 	src.set_opacity(!src.opacity)

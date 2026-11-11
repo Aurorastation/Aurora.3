@@ -140,7 +140,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.mob_size < 10) // smaller than an unathi
-			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"), visible_message_flags = GHOST_MESSAGE)
+			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
 			src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 3, 3)
 

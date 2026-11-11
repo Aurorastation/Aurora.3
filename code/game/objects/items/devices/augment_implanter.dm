@@ -54,7 +54,7 @@
 	H.UpdateDamageIcon()
 	augment_type = null
 
-	user.visible_message(SPAN_WARNING("\The [user] thrusts \the [src] deep into \the [H], injecting something!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("\The [user] thrusts \the [src] deep into \the [H], injecting something!"))
 
 /obj/item/augment_implanter/advanced_tesla
 	new_augment = /obj/item/organ/internal/augment/tesla/advanced

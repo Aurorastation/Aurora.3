@@ -72,7 +72,7 @@
 * Reloads the gun itself.
 */
 /obj/item/organ/internal/machine/targeting_core/proc/do_reload(mob/user, obj/item/gun/projectile/gun, obj/item/ammo_magazine/ammo)
-	user.visible_message(SPAN_DANGER(FONT_LARGE("With supernatural accuracy and swiftness, [owner] replaces the magazine in [owner.get_pronoun("his")] [gun] in a fraction of a second!")), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER(FONT_LARGE("With supernatural accuracy and swiftness, [owner] replaces the magazine in [owner.get_pronoun("his")] [gun] in a fraction of a second!")))
 	if(gun.ammo_magazine)
 		gun.unload_ammo(user, drop_mag = TRUE)
 	gun.load_ammo(ammo, user)

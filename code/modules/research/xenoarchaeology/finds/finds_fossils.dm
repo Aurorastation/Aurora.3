@@ -95,7 +95,7 @@
 			..()
 	else if(istype(attacking_item, /obj/item/pen))
 		plaque_contents = sanitize(input("What would you like to write on the plaque:","Skeleton plaque",""))
-		user.visible_message("<b>[user]</b> writes something on the base of [src].",self_message = "You relabel the plaque on the base of [icon2html(src, user)] [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> writes something on the base of [src].",self_message = "You relabel the plaque on the base of [icon2html(src, user)] [src].")
 		if(src.contents.Find(/obj/item/fossil/skull/horned))
 			src.desc = "A creature made of [src.contents.len-1] assorted bones and a horned skull. The plaque reads \'[plaque_contents]\'."
 		else

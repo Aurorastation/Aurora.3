@@ -442,7 +442,7 @@ update_flag
 	if(attacking_item.tool_behaviour != TOOL_WRENCH && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && (attacking_item.tool_behaviour != TOOL_WIRECUTTER && signaler))
 		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
-		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), blind_message = SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), blind_message = SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		user.do_attack_animation(src, used_item = attacking_item)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
 		add_damage(attacking_item.force)

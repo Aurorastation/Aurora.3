@@ -427,7 +427,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		return
 
@@ -455,7 +455,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src]'s pages..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src]'s pages..."))
 	if(do_after(user, 25))
 		to_chat(user, SPAN_NOTICE("You pick out a song in the folder and read the lyrics: [pick(lyrics)]"))
 
@@ -575,10 +575,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return ..()
 
 	if(weight_roll)
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You jiggle the die rapidly in your hand, resetting the internal weighting."))
 		weight_roll = 0
 	else
-		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> jiggles \the [src] around in their hand for a second.", self_message = SPAN_NOTICE("You carefully jiggle the die one way, then the other, allowing its internal weighting to lock into place."))
 		weight_roll = initial(weight_roll)
 
 /obj/item/stack/dice/fluff/suraya_dice/alt
@@ -673,7 +673,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(isnull(selected_paper))
 			return
 
-		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), self_message = SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), self_message = SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5)
 		if(selected_paper.can_change_icon_state)
 			selected_paper.icon = icon
 			selected_paper.base_state = "torn"
@@ -687,7 +687,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
 	if(open && Adjacent(user))
 		open_state = next_in_list(icon_state, open_states)
-		user.visible_message("<b>[user]</b> flips a page in \the [src].", self_message = SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", self_message = SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3)
 		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
 		update_icon()
 		return
@@ -1087,7 +1087,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	*canceled = TRUE
 	user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
-		self_message = SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
@@ -1095,7 +1095,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		owner.Weaken(weaken_strength)
 		last_drop = world.time
 		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
-		owner.visible_message("<b>[owner]</b> collapses!", visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message("<b>[owner]</b> collapses!")
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
 	name = "handsewn Idris cloak"
@@ -1150,7 +1150,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!K)
 		return
 
-	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
 	K.changed = !K.changed
 	K.update_icon()
 	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
@@ -1242,11 +1242,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_WARNING("You are unable to sacrifice blood."))
 		return
 
-	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
 	if(!do_after(user, 4 SECOND, src))
-		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
 		return
-	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
 
 	affected.status |= ORGAN_BLEEDING
 
@@ -1310,15 +1310,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!target_turf)
 		target_turf = get_turf(user)
 
-	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"))
 	if(!do_after(user, 4 SECOND, src))
-		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."))
 		return
 
 	// Crates a cleanable rune that looks like a cult rune to people who are neither cultists or raskariim
 	var/obj/effect/decal/cleanable/fluff/rune/R = new(target_turf)
 	user.visible_message(SPAN_CULT("[user] finishes drawing \the [R] on the floor!"),
-		self_message = SPAN_CULT("You finish drawing the markings of the King of Maggots."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_CULT("You finish drawing the markings of the King of Maggots."))
 
 	R.blood_DNA = list()
 	R.blood_DNA = src.blood_DNA

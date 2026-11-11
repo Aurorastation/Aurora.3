@@ -103,14 +103,14 @@
 			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
 			return
 
-	user.visible_message("<b>[user]</b> starts unloading a package from \the [src]...", self_message = SPAN_NOTICE("You start unloading a package from \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts unloading a package from \the [src]...", self_message = SPAN_NOTICE("You start unloading a package from \the [src]..."))
 	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
 		if(package.requires_two_hands(user))
 			var/obj/A = user.get_inactive_hand()
 			if(A)
 				to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
 				return
-		user.visible_message("<b>[user]</b> unloads a package from \the [src]!", self_message = SPAN_NOTICE("You unload a package from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> unloads a package from \the [src]!", self_message = SPAN_NOTICE("You unload a package from \the [src]!"))
 		user.put_in_hands(package)
 		package.configure_carry(user)
 		LAZYREMOVE(contained_packages, package)
@@ -131,9 +131,9 @@
 		to_chat(user, SPAN_WARNING("\The [src] is already fully loaded!"))
 		return
 
-	user.visible_message("<b>[user]</b> starts loading \the [attacking_item] onto \the [src]...", self_message = SPAN_NOTICE("You start loading \the [attacking_item] onto \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts loading \the [attacking_item] onto \the [src]...", self_message = SPAN_NOTICE("You start loading \the [attacking_item] onto \the [src]..."))
 	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-		user.visible_message("<b>[user]</b> loads \the [attacking_item] onto \the [src]!", self_message = SPAN_NOTICE("You load \the [attacking_item] onto \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> loads \the [attacking_item] onto \the [src]!", self_message = SPAN_NOTICE("You load \the [attacking_item] onto \the [src]!"))
 		user.drop_from_inventory(attacking_item, src)
 		LAZYADD(contained_packages, attacking_item)
 		update_state(user)

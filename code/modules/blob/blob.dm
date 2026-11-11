@@ -115,22 +115,22 @@
 			attack_door(D)
 			if(D.health <= 0)
 				if(!D.open(TRUE))
-					D.visible_message(SPAN_WARNING("\The [src] bashes through \the [D], demolishing it!"))
+					D.visible_message(SPAN_WARNING("\The [src] bashes through \the [D], demolishing it!"), visible_message_flags = LOCAL_MESSAGE)
 					qdel(D)
 			return
 	var/obj/structure/foamedmetal/F = locate() in T
 	if(F)
-		F.visible_message(SPAN_WARNING("\The [src] lashes into \the [F], tearing it apart!"))
+		F.visible_message(SPAN_WARNING("\The [src] lashes into \the [F], tearing it apart!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(F)
 		return
 	var/obj/structure/reagent_dispensers/RT = locate() in T
 	if(RT)
-		RT.visible_message(SPAN_WARNING("\The [src] pierces into \the [RT], blowing it apart!"))
+		RT.visible_message(SPAN_WARNING("\The [src] pierces into \the [RT], blowing it apart!"), visible_message_flags = LOCAL_MESSAGE)
 		RT.ex_act(2)
 		return
 	var/obj/structure/inflatable/I = locate() in T
 	if(I)
-		I.visible_message(SPAN_WARNING("\The [src] rips into \the [F], tearing a hole into it!"))
+		I.visible_message(SPAN_WARNING("\The [src] rips into \the [F], tearing a hole into it!"), visible_message_flags = LOCAL_MESSAGE)
 		I.deflate(TRUE)
 		return
 	var/obj/vehicle/V = locate() in T
@@ -173,7 +173,7 @@
 		B.pulse(forceLeft - 1, dirs - get_dir(B, src))
 
 /obj/effect/blob/proc/attack_msg(atom/source)
-	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), self_message = SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"), visible_message_flags = GHOST_MESSAGE)
+	source.visible_message(SPAN_WARNING("A tendril flies out from \the [src] and smashes into \the [source]!"), self_message = SPAN_DANGER("A tendril flies out from \the [src] and smashes into you!"))
 	playsound(get_turf(src), 'sound/effects/attackblob.ogg', 50, TRUE)
 
 /obj/effect/blob/proc/attack_door(var/obj/structure/machinery/door/D)
@@ -278,10 +278,10 @@
 
 /obj/effect/blob/core/proc/report_shield_status(var/status)
 	if(status == CORE_SHIELD_LOW)
-		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield fails, leaving the nucleus vulnerable!"), blind_message = 3)
+		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield fails, leaving the nucleus vulnerable!"), blind_message = 3, visible_message_flags = LOCAL_MESSAGE)
 		reported_low_damage = TRUE
 	if(status == CORE_SHIELD_HIGH)
-		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield seems to have fully reformed."), blind_message = 3)
+		visible_message(SPAN_DANGER("\The [src]'s internal tendril shield seems to have fully reformed."), blind_message = 3, visible_message_flags = LOCAL_MESSAGE)
 		reported_low_damage = FALSE
 
 // Rough icon state changes that reflect the core's health
@@ -414,7 +414,7 @@
 	if(prob(50))
 		force--
 		if(force <= 0)
-			visible_message(SPAN_NOTICE("\The [src] crumbles apart!"))
+			visible_message(SPAN_NOTICE("\The [src] crumbles apart!"), visible_message_flags = LOCAL_MESSAGE)
 			user.drop_from_inventory(src)
 			new /obj/effect/decal/cleanable/ash(get_turf(src))
 			qdel(src)

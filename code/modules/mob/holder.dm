@@ -153,11 +153,11 @@
 			var/mob/living/carbon/human/H = M
 			switch(H.a_intent)
 				if(I_HELP)
-					H.visible_message(SPAN_NOTICE("[H] pets [contained]."), visible_message_flags = GHOST_MESSAGE)
+					H.visible_message(SPAN_NOTICE("[H] pets [contained]."))
 
 				if(I_HURT)
 					contained.adjustBruteLoss(3)
-					H.visible_message(SPAN_ALERT("[H] crushes [contained]."), visible_message_flags = GHOST_MESSAGE)
+					H.visible_message(SPAN_ALERT("[H] crushes [contained]."))
 	else
 		to_chat(M, "[contained] is dead.")
 
@@ -188,7 +188,7 @@
 		//We have to play it as a visible message on the grabber, because the normal death message played on the dying mob won't show if it's being held
 		var/mob/M = get_holding_mob()
 		if (M)
-			M.visible_message("<b>[contained.name]</b> dies.", visible_message_flags = GHOST_MESSAGE)
+			M.visible_message("<b>[contained.name]</b> dies.")
 	//update_icon()
 
 

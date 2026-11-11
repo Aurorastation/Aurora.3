@@ -80,7 +80,7 @@
 
 /obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
-		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
 		qdel(src)
 		return TRUE
 	return ..()
@@ -124,7 +124,7 @@
 			if(do_teleport(M, target, precision))
 				has_teleported = TRUE
 	if(!has_teleported)
-		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
+		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 	return has_teleported
 
@@ -189,7 +189,7 @@
 
 /obj/effect/portal/spawner/process()
 	if(next_spawn < world.time)
-		visible_message(SPAN_WARNING("\The [src] spits something out!"))
+		visible_message(SPAN_WARNING("\The [src] spits something out!"), visible_message_flags = LOCAL_MESSAGE)
 		for(var/thing in spawn_things)
 			var/spawn_path = thing
 			var/atom/spawned_thing = new spawn_path(get_turf(src))
@@ -206,7 +206,7 @@
 		next_spawn = world.time + 30 SECONDS
 		num_of_spawns--
 	if(num_of_spawns <= 0)
-		visible_message(SPAN_WARNING("\The [src] collapses in on itself!"))
+		visible_message(SPAN_WARNING("\The [src] collapses in on itself!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/effect/portal/spawner/metal
@@ -314,7 +314,7 @@
 
 /obj/effect/portal/revenant/Destroy()
 	GLOB.revenants.destroyed_rift()
-	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] collapses!")))
+	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] collapses!")), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/random/highvalue/no_crystal(src)
 	new /obj/random/highvalue/no_crystal(src)
 	for(var/thing in contents)

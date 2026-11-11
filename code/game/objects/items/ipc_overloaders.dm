@@ -48,7 +48,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is totally spent."))
 		return
 	if(isipc(user))
-		user.visible_message("<b>[user]</b> jabs themselves with \the [src].", self_message = SPAN_NOTICE("You jab yourself with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> jabs themselves with \the [src].", self_message = SPAN_NOTICE("You jab yourself with \the [src]."))
 		user.do_attack_animation(user)
 		handle_overloader_effect(user)
 		if(effect_time)
@@ -80,9 +80,9 @@
 			return
 
 		if(SUIT_INJECTION_MOD)
-			user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] is searching for an injection port to jab \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You are searching for an injection port to jab \the [target_human] with \the [src]."))
 		else
-			user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] is trying to jab \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You are trying to jab \the [target_human] with \the [src]."))
 
 	if(do_mob(user, target_human, 2 SECONDS * injection_modifier))
 		// Checking this again if the target put on armour after the injection began.
@@ -91,7 +91,7 @@
 			to_chat(user, SPAN_WARNING("There is no exposed area on that body part."))
 			return
 
-		user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You jab \the [target_human] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [user] jabs \the [target_human] with \the [src]!"), self_message = SPAN_NOTICE("You jab \the [target_human] with \the [src]."))
 		user.do_attack_animation(target_human)
 
 		// If synthetic, they receive the overloader effects.

@@ -64,7 +64,7 @@
 			C.light_disabled = !C.light_disabled
 
 		if(WIRE_ALARM)
-			C.visible_message("[icon2html(C, viewers(get_turf(C)))] *beep*", blind_message = "[icon2html(C, viewers(get_turf(C)))] *beep*")
+			C.visible_message("[icon2html(C, viewers(get_turf(C)))] *beep*", blind_message = "[icon2html(C, viewers(get_turf(C)))] *beep*", visible_message_flags = LOCAL_MESSAGE)
 	return
 
 /datum/wires/camera/proc/CanDeconstruct()

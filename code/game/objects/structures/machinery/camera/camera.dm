@@ -172,7 +172,7 @@
 	if (istype(hitting_atom, /obj))
 		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
-			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
+			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(O.throwforce, O.damage_flags(), O.damtype, O.armor_penetration, O)
 
 /obj/structure/machinery/camera/proc/setViewRange(var/num = 7)
@@ -187,7 +187,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		set_status(0)
 		user.do_attack_animation(src)
-		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
+		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
 		destroy()
@@ -200,7 +200,7 @@
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
-		self_message = SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 
@@ -271,7 +271,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (attacking_item.force >= src.toughness)
 			user.do_attack_animation(src)
-			user.visible_message(SPAN_DANGER("[user] has [LAZYPICK(attacking_item.attack_verb,"attacked")] [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("[user] has [LAZYPICK(attacking_item.attack_verb,"attacked")] [src] with [attacking_item]!"))
 			if (istype(attacking_item, /obj/item)) //is it even possible to get into attackby() with non-items?
 				var/obj/item/I = attacking_item
 				if (I.hitsound)
@@ -293,17 +293,17 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
+				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
+				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)

@@ -39,7 +39,7 @@
 
 /obj/item/reagent_containers/glass/rag/attack_self(mob/user)
 	if(on_fire)
-		user.visible_message(SPAN_WARNING("\The [user] stamps out \the [src]."), self_message = SPAN_WARNING("You stamp out \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [user] stamps out \the [src]."), self_message = SPAN_WARNING("You stamp out \the [src]."))
 		user.unEquip(src)
 		extinguish()
 	else
@@ -49,7 +49,7 @@
 	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE
@@ -88,14 +88,14 @@
 
 	if(reagents.total_volume)
 		var/target_text = trans_dest? "\the [trans_dest]" : "\the [user.loc]"
-		user.visible_message(SPAN_DANGER("\The [user] begins to wring out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You begin to wring out \the [src] over \the [target_text]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] begins to wring out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You begin to wring out \the [src] over \the [target_text]."))
 
 		if(do_after(user, reagents.total_volume*5)) //50 for a fully soaked rag
 			if(trans_dest)
 				reagents.trans_to(trans_dest, reagents.total_volume)
 			else
 				reagents.splash(user.loc, reagents.total_volume)
-			user.visible_message(SPAN_DANGER("\The [user] wrings out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You finish wringing out \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("\The [user] wrings out \the [src] over \the [target_text]."), self_message = SPAN_NOTICE("You finish wringing out \the [src]."))
 			update_name()
 			update_icon()
 
@@ -104,7 +104,7 @@
 		to_chat(user, SPAN_WARNING("\The [name] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
-			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
@@ -114,14 +114,14 @@
 		update_icon()
 		if(do_after(user,cleantime))
 			if(clean_msg)
-				user.visible_message("<b>[user]</b> finishes wiping [A].", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> finishes wiping [A].")
 		A.on_rag_wipe(src)
 
 /obj/item/reagent_containers/glass/rag/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(isliving(target_mob))
 		var/mob/living/M = target_mob
 		if(on_fire)
-			user.visible_message(SPAN_DANGER("\The [user] hits \the [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("\The [user] hits \the [target_mob] with \the [src]!"))
 			user.do_attack_animation(src)
 			M.IgniteMob()
 		else if(ishuman(M))
@@ -148,7 +148,7 @@
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
 					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
-											self_message = SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), visible_message_flags = GHOST_MESSAGE)
+											self_message = SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
@@ -158,8 +158,7 @@
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target_mob] with [src]!"),
 						self_message = SPAN_WARNING("You smother [target_mob] with [src]!"),
-						blind_message = "You hear some struggling and muffled cries of surprise.",
-						visible_message_flags = GHOST_MESSAGE
+						blind_message = "You hear some struggling and muffled cries of surprise."
 						)
 
 					//it's inhaled, so... maybe CHEM_BLOOD doesn't make a whole lot of sense but it's the best we can do for now
@@ -187,7 +186,7 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message(SPAN_NOTICE("\The [user] soaks \the [src] using \the [A]."), self_message = SPAN_NOTICE("You soak \the [src] using \the [A]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] soaks \the [src] using \the [A]."), self_message = SPAN_NOTICE("You soak \the [src] using \the [A]."))
 			update_name()
 			update_icon()
 		return
@@ -225,7 +224,7 @@
 
 	//also copied from matches
 	if(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
-		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
+		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"), visible_message_flags = LOCAL_MESSAGE)
 		var/datum/effect/effect/system/reagents_explosion/e = new()
 		e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
@@ -246,7 +245,7 @@
 	//rags sitting around with 1 second of burn time left is dumb.
 	//ensures players always have a few seconds of burn time left when they light their rag
 	if(burn_time <= 5)
-		visible_message(SPAN_WARNING("\The [src] falls apart!"))
+		visible_message(SPAN_WARNING("\The [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 		if(istype(loc, /obj/item/reagent_containers/food/drinks/bottle))
 			var/obj/item/reagent_containers/food/drinks/bottle/B = loc
 			B.delete_rag()
@@ -259,7 +258,7 @@
 
 /obj/item/reagent_containers/glass/rag/process(seconds_per_tick)
 	if(!can_ignite())
-		visible_message(SPAN_WARNING("\The [src] burns out."))
+		visible_message(SPAN_WARNING("\The [src] burns out."), visible_message_flags = LOCAL_MESSAGE)
 		extinguish()
 
 	//copied from matches

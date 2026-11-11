@@ -29,7 +29,7 @@
 		if(LAZYISIN(C.memorized_runes, R.rune.name))
 			to_chat(H, SPAN_WARNING("This rune is already memorized!"))
 			return
-		H.visible_message("<b>[H]</b> bends over and runs their hands across \the [src].", self_message = SPAN_NOTICE("You bend over and run your hands across the patterns of the rune, slowly memorizing it."), visible_message_flags = GHOST_MESSAGE)
+		H.visible_message("<b>[H]</b> bends over and runs their hands across \the [src].", self_message = SPAN_NOTICE("You bend over and run your hands across the patterns of the rune, slowly memorizing it."))
 		if(!do_after(H, 10 SECONDS))
 			return
 		LAZYSET(C.memorized_runes, R.rune.name, R.rune.type)
@@ -85,7 +85,7 @@
 		return
 
 	var/mob/living/carbon/human/H = usr
-	H.visible_message(SPAN_CULT("Blood flows out from \the [H]'s hands, taking shape beneath them..."), visible_message_flags = GHOST_MESSAGE)
+	H.visible_message(SPAN_CULT("Blood flows out from \the [H]'s hands, taking shape beneath them..."))
 	H.drip(4)
 
 	if(do_after(H, 15 SECONDS))

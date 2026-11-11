@@ -52,7 +52,7 @@
 		if(ready)
 			ready = FALSE
 			addtimer(CALLBACK(src, PROC_REF(recharge), user), cooldown_to_charge)
-			visible_message(SPAN_DANGER("\The [user]'s [src.name] blocks [attack_text]!"))
+			visible_message(SPAN_DANGER("\The [user]'s [src.name] blocks [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 			update_icon()
 			return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT
@@ -91,5 +91,5 @@
 	lightning.power = power
 	lightning.old_style_target(target)
 	lightning.fire()
-	visible_message(SPAN_DANGER("\The [src] strikes \the [target] with lightning!"))
+	visible_message(SPAN_DANGER("\The [src] strikes \the [target] with lightning!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, 'sound/weapons/gaussrifle1.ogg', 75, 1)

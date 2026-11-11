@@ -82,7 +82,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		tank = attacking_item
 		user.visible_message("[user] jams [attacking_item] into [src]'s valve and twists it closed.",
-								self_message = "You jam [attacking_item] into [src]'s valve and twist it closed.", visible_message_flags = GHOST_MESSAGE)
+								self_message = "You jam [attacking_item] into [src]'s valve and twist it closed.")
 		update_icon()
 	else if(istype(attacking_item) && item_storage.can_be_inserted(attacking_item))
 		item_storage.handle_item_insertion(attacking_item)

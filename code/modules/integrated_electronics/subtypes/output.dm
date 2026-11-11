@@ -66,7 +66,7 @@
 	var/turf/T = get_turf(src)
 	if(!O || !T)
 		return
-	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(T))] [stuff_to_display]"))
+	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(T))] [stuff_to_display]"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/integrated_circuit/output/state_display
 	name = "state display"
@@ -283,7 +283,7 @@
 	 */
 	var/obj/O = loc ? loc : src
 	var/turf/T = get_turf(O)
-	audible_message("[icon2html(O, viewers(T))] \The [O.name] states, \"[text]\"")
+	audible_message("[icon2html(O, viewers(T))] \The [O.name] states, \"[text]\"", audible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()
@@ -537,12 +537,12 @@
 				if(!using_tray)
 					return
 				paper_sheet = paper_source.get_item(TRUE)
-				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."))
+				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."), audible_message_flags = LOCAL_MESSAGE)
 				paper_sheet.forceMove(get_turf(src))
 				if(using_tray)
 					paper_sheet = paper_source.get_item(FALSE)
 					if(!paper_sheet)
-						audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
+						audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."), audible_message_flags = LOCAL_MESSAGE)
 						return
 	else
-		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
+		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."), audible_message_flags = LOCAL_MESSAGE)

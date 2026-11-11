@@ -188,7 +188,7 @@
 		if(attached_grenade)
 			to_chat(user, SPAN_WARNING("There is already a grenade attached!"))
 		else if(user.unEquip(G, force = 1))
-			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), self_message = SPAN_NOTICE("You attach \the [G] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), self_message = SPAN_NOTICE("You attach \the [G] to \the [src]."))
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -196,7 +196,7 @@
 
 /obj/item/integrated_circuit/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), self_message = SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), self_message = SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."))
 		user.put_in_any_hand_if_possible(attached_grenade) || attached_grenade.dropInto(loc)
 		detach_grenade()
 	else
@@ -465,7 +465,7 @@
 		return
 
 	if((flashtime + (5 SECONDS)) > world.time)
-		visible_message(SPAN_WARNING("You see a weak flash from the [src]."))
+		visible_message(SPAN_WARNING("You see a weak flash from the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	var/flash_duration = clamp(get_pin_data(IC_INPUT, 2), 1, 4)
@@ -518,7 +518,7 @@
 			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", self_message = SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", self_message = SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 		user.drop_item(src)
 		LAZYADD(crystals, attacking_item)
 		attacking_item.forceMove(null)
@@ -903,7 +903,7 @@
 			if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/cutting))
 				if(!TR.seed)
 					var/obj/item/seeds/S = O
-					acting_object.visible_message(SPAN_NOTICE("[acting_object] plants [O]."))
+					acting_object.visible_message(SPAN_NOTICE("[acting_object] plants [O]."), visible_message_flags = LOCAL_MESSAGE)
 					TR.seed = S.seed
 					TR.lastproduce = 0
 					TR.dead = 0
@@ -1001,7 +1001,7 @@
 			if(can_pull(to_pull) && check_target(to_pull, exclude_contents = TRUE))
 				set_pin_data(IC_OUTPUT, 1, TRUE)
 				pulling = to_pull
-				acting_object.visible_message("\The [acting_object] starts pulling \the [to_pull] around.")
+				acting_object.visible_message("\The [acting_object] starts pulling \the [to_pull] around.", visible_message_flags = LOCAL_MESSAGE)
 				push_data()
 				activate_pin(2)
 
@@ -1044,7 +1044,7 @@
 
 	var/atom/movable/AM = get_object()
 	if(AM)
-		AM.visible_message("\The [AM] stops pulling \the [pulling].", visible_message_flags = (ismob(AM) ? GHOST_MESSAGE : NONE))
+		AM.visible_message("\The [AM] stops pulling \the [pulling].", visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 
 	pulling = null
 	set_pin_data(IC_OUTPUT, 1, FALSE)
@@ -1148,7 +1148,7 @@
 		controlling = L
 		card.forceMove(src)
 		aicard = card
-		user.visible_message("\The [user] loads \the [card] into \the [src]'s device slot.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] loads \the [card] into \the [src]'s device slot.")
 		to_chat(L, SPAN_NOTICE("### IICC FIRMWARE LOADED ###"))
 
 /obj/item/integrated_circuit/manipulation/ai/proc/unload_ai()
@@ -1157,7 +1157,7 @@
 
 	controlling.forceMove(aicard)
 	to_chat(controlling, SPAN_NOTICE("### IICC FIRMWARE DELETED. HAVE A NICE DAY ###"))
-	src.visible_message("\The [aicard] pops out of \the [src]!")
+	src.visible_message("\The [aicard] pops out of \the [src]!", visible_message_flags = LOCAL_MESSAGE)
 	aicard.dropInto(loc)
 	aicard = null
 	controlling = null
@@ -1199,7 +1199,7 @@
 
 	if(ord == 1)
 		assembly.anchored = !assembly.anchored
-		visible_message(assembly.anchored ? SPAN_NOTICE("\The [get_object()] deploys a set of anchoring bolts!") : SPAN_NOTICE("\The [get_object()] retracts its anchoring bolts."))
+		visible_message(assembly.anchored ? SPAN_NOTICE("\The [get_object()] deploys a set of anchoring bolts!") : SPAN_NOTICE("\The [get_object()] retracts its anchoring bolts."), visible_message_flags = LOCAL_MESSAGE)
 		set_pin_data(IC_OUTPUT, 1, assembly.anchored)
 		push_data()
 		activate_pin(2)
@@ -1227,4 +1227,4 @@
 /obj/item/integrated_circuit/manipulation/hatchlock/do_work(ord)
 	if(ord == 1)
 		lock_enabled = !lock_enabled
-		visible_message(SPAN_NOTICE("\The [get_object()] whirrs. The screws are now [lock_enabled ? "covered" : "exposed"]."))
+		visible_message(SPAN_NOTICE("\The [get_object()] whirrs. The screws are now [lock_enabled ? "covered" : "exposed"]."), visible_message_flags = LOCAL_MESSAGE)

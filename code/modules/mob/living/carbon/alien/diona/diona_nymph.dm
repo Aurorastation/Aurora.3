@@ -383,11 +383,11 @@
 			if(meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
-			user.visible_message(SPAN_WARNING("[user] chops up \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] chops up \the [src]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message(SPAN_WARNING("[user] butchers \the [src] messily!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] butchers \the [src] messily!"))
 			gib()
 
 

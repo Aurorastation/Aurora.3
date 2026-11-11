@@ -58,7 +58,7 @@
 			application_in_progress = TRUE
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message(SPAN_NOTICE("\The [user] begins to apply some [src] to \the [target_mob]."),\
-									self_message = SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."))
 			if(do_mob(user, target_mob, application_time))
 				if(isrobot(target_mob))
 					var/mob/living/silicon/robot/R = target_mob
@@ -72,7 +72,7 @@
 					A.updatehealth()
 				use(1)
 				user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] on [target_mob]'s damaged areas."),\
-										self_message = SPAN_NOTICE("You successfully apply some [src] on [target_mob]'s damaged areas."), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_NOTICE("You successfully apply some [src] on [target_mob]'s damaged areas."))
 			application_in_progress = FALSE
 		else
 			to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
@@ -94,11 +94,11 @@
 				if (application_in_progress == FALSE)
 					application_in_progress = TRUE
 					user.visible_message(SPAN_NOTICE("\The [user] begins to apply nanite past to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton..."), \
-						self_message = SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] endoskeleton..."), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] endoskeleton..."))
 					if(do_mob(user, target_mob, application_time))
 						SEND_SIGNAL(target_mob, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(15, 30))
 						user.visible_message(SPAN_NOTICE("\The [user] mends the broken links in [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton with \the [src]."),\
-												self_message = SPAN_NOTICE("You successfully mend the broken links in [user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+												self_message = SPAN_NOTICE("You successfully mend the broken links in [user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
 						use(1)
 					application_in_progress = FALSE
 
@@ -119,13 +119,13 @@
 				if (application_in_progress == FALSE)
 					application_in_progress = TRUE
 					user.visible_message(SPAN_NOTICE("\The [user] begins to apply some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
-											self_message = SPAN_NOTICE("You begin to apply some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+											self_message = SPAN_NOTICE("You begin to apply some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."))
 					if(do_mob(user, target_mob, application_time))
 						S.heal_damage(15, 15, robo_repair = 1)
 						H.updatehealth()
 						use(1)
 						user.visible_message(SPAN_NOTICE("\The [user] successfully applies some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
-												self_message = SPAN_NOTICE("You successfully apply some nanite paste at [user == target_mob ? "your" : "[target_mob]'s"] [S.name]."), visible_message_flags = GHOST_MESSAGE)
+												self_message = SPAN_NOTICE("You successfully apply some nanite paste at [user == target_mob ? "your" : "[target_mob]'s"] [S.name]."))
 					application_in_progress = FALSE
 				else
 					to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
@@ -167,8 +167,7 @@
 		if(isnull(s))
 			user.visible_message(
 			SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
-			self_message = SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!"),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!")
 			)
 
 			if (!do_mob(user, M, 2))
@@ -179,8 +178,7 @@
 			M.internal_organs_by_name[BP_SURGE_PROTECTOR] = s
 			user.visible_message(
 			SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
-			self_message = SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)].")
 			)
 			to_chat(M, SPAN_NOTICE("You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\""))
 			amount = 0
@@ -190,8 +188,7 @@
 			if(!s.surge_left)
 				user.visible_message(
 				SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
-				self_message = SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!"),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!")
 				)
 
 				if (!do_mob(user, M, 2))
@@ -203,8 +200,7 @@
 
 				user.visible_message(
 				SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
-				self_message = SPAN_NOTICE("You apply [src] to [(M == user) ? ("yourself") : (M)]."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You apply [src] to [(M == user) ? ("yourself") : (M)].")
 				)
 				to_chat(M,  SPAN_NOTICE("You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\""))
 				amount = 0

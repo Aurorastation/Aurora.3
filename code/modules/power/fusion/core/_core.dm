@@ -97,7 +97,7 @@
 /obj/structure/machinery/power/fusion_core/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user))
-		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
+		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"), visible_message_flags = LOCAL_MESSAGE)
 		if(owned_field)
 			Shutdown()
 	return TRUE
@@ -119,11 +119,11 @@
 		if(anchored)
 			user.visible_message("[user.name] secures [src.name] to the floor.", \
 				self_message = "You secure the [src.name] to the floor.", \
-				blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a ratchet")
 		else
 			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
 				self_message = "You unsecure the [src.name] from the floor.", \
-				blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a ratchet")
 		return
 
 	return ..()

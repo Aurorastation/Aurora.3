@@ -345,8 +345,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 				handle_post_fire(user, user)
 				user.visible_message(
 					SPAN_DANGER("\The [user] shoots [user.get_pronoun("himself")] in the foot with \the [src]!"),
-					self_message = SPAN_DANGER("You shoot yourself in the foot with \the [src]!"),
-					visible_message_flags = GHOST_MESSAGE
+					self_message = SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
 					)
 				M.drop_item()
 		else
@@ -586,15 +585,13 @@ ABSTRACT_TYPE(/obj/item/gun)
 				user.visible_message(
 					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
 					self_message = SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					blind_message = "You hear a [fire_sound_text]!",
-					visible_message_flags = GHOST_MESSAGE
+					blind_message = "You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
 					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
 					self_message = SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					blind_message = "You hear a [fire_sound_text]!",
-					visible_message_flags = GHOST_MESSAGE
+					blind_message = "You hear a [fire_sound_text]!"
 				)
 
 		if(muzzle_flash)
@@ -706,13 +703,13 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/mob/living/carbon/human/M = user
 
 	mouthshoot = TRUE
-	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."), visible_message_flags = GHOST_MESSAGE)
+	M.visible_message(SPAN_DANGER("\The [user] sticks \the [src] in their mouth, their finger ready to pull the trigger..."))
 	if(!do_after(user, 4 SECONDS))
-		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
 
-	user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
 	if (!pin && needspin) // Checks the pin of the gun.
 		handle_click_empty(user)
 		mouthshoot = FALSE
@@ -1126,10 +1123,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		return TRUE
 
 	if(pin && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
+		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
-				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.
@@ -1137,14 +1134,13 @@ ABSTRACT_TYPE(/obj/item/gun)
 				user.visible_message(
 				SPAN_WARNING("\The [user] breaks some electronics free from \the [src] with a crack."),
 				self_message = SPAN_ALERT("You apply a bit too much force to \the [pin], and it breaks in two. Oops."),
-				blind_message = "You hear a metallic crack.",
-				visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a metallic crack.")
 				qdel(pin)
 				pin = null
 		return TRUE
 
 	if(is_sharp(attacking_item))
-		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", self_message = SPAN_NOTICE("You carve a notched mark into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> carves a notched mark into \the [src].", self_message = SPAN_NOTICE("You carve a notched mark into \the [src]."))
 		markings++
 		return TRUE
 

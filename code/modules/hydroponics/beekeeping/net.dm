@@ -47,7 +47,7 @@
 	//Instead of a hard limit on bee storage, a chance of critical failure equal to the number of contained bees
 	if(caught_bees)
 		if(prob(caught_bees))
-			user.visible_message(SPAN_WARNING("\The [user] fails at capturing bees and spills their overstuffed net."), self_message = SPAN_WARNING("All the bees break free of your overstuffed net!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] fails at capturing bees and spills their overstuffed net."), self_message = SPAN_WARNING("All the bees break free of your overstuffed net!"))
 			empty_bees()
 			return
 
@@ -63,21 +63,21 @@
 
 	switch(success)
 		if(1)
-			user.visible_message(SPAN_NOTICE("\The [user] scoops up some bees."), self_message = SPAN_NOTICE("You scoop up [target.strength] of the docile bees."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] scoops up some bees."), self_message = SPAN_NOTICE("You scoop up [target.strength] of the docile bees."))
 			caught_bees += target.strength
 			target.strength = 0
 			qdel(target)
 		if(0)
-			user.visible_message(SPAN_WARNING("\The [user] swings at some angry bees, they don't seem to like it."), self_message = SPAN_WARNING("You swing at some angry bees, and just manage to make them madder."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] swings at some angry bees, they don't seem to like it."), self_message = SPAN_WARNING("You swing at some angry bees, and just manage to make them madder."))
 			target.feral = 5
 			target.target_mob = user
 		else
 			var/delta = round((target.strength * success), 1)
 			delta = min(max(delta, 1), target.strength)
 			if(delta >= target.strength)
-				user.visible_message(SPAN_WARNING("\The [user] scoops up the angry bees."), self_message = SPAN_NOTICE("You scoop up all of the angry bees, lucky!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("\The [user] scoops up the angry bees."), self_message = SPAN_NOTICE("You scoop up all of the angry bees, lucky!"))
 			else
-				user.visible_message(SPAN_WARNING("\The [user] nets a couple of bees."), self_message = SPAN_WARNING("You catch [delta] of the angry bees, others slip through your net."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("\The [user] nets a couple of bees."), self_message = SPAN_WARNING("You catch [delta] of the angry bees, others slip through your net."))
 
 			caught_bees += delta
 			target.strength -= delta
@@ -97,7 +97,7 @@
 		caught_bees -= delta
 		if(caught_bees <= 0)
 			feralbees = 0
-		user.visible_message(SPAN_NOTICE("\The [user] deposits [delta] bees into the hive."), self_message = SPAN_NOTICE("You deposit [delta] bees into the hive."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] deposits [delta] bees into the hive."), self_message = SPAN_NOTICE("You deposit [delta] bees into the hive."))
 		newhome.update_icon()
 	else
 		to_chat(user, SPAN_WARNING("You'll have to open the lid before you can place bees inside."))

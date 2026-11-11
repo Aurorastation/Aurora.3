@@ -27,7 +27,7 @@
 		to_chat(usr, SPAN_NOTICE("It won't budge."))
 		return
 
-	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND, visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
 
 	if(climbable)
 		structure_shaken()
