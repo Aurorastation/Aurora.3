@@ -39,7 +39,7 @@
 		return FALSE
 	pulse(FALSE)
 	if(!holder)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", deaf_message = "*beep* *beep*")
+		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", deaf_message = "*beep* *beep*", audible_message_flags = LOCAL_MESSAGE)
 	cooldown = 2
 	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 

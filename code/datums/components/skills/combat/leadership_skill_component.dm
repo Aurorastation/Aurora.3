@@ -39,10 +39,10 @@
 	if (!istype(owner))
 		return
 
-	owner.visible_message(SPAN_NOTICE("[owner] prepares to deliver a speech."), visible_message_flags = GHOST_MESSAGE)
+	owner.visible_message(SPAN_NOTICE("[owner] prepares to deliver a speech."))
 	var/speech_text = GET_SPEECH_TEXT(owner)
 	if (!speech_text)
-		owner.visible_message(SPAN_NOTICE("[owner] has stopped speaking."), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_NOTICE("[owner] has stopped speaking."))
 		return
 
 	owner.say(speech_text)
@@ -82,11 +82,11 @@
 		to_chat(owner, SPAN_NOTICE("[target] cannot hear your speech."))
 		return
 
-	owner.visible_message(SPAN_NOTICE("[owner] prepares to deliver a speech."), visible_message_flags = GHOST_MESSAGE)
+	owner.visible_message(SPAN_NOTICE("[owner] prepares to deliver a speech."))
 	var/speech_type = GET_SPEECH_TYPE(owner)
 	var/speech_text = GET_SPEECH_TEXT(owner)
 	if (!speech_text)
-		owner.visible_message(SPAN_NOTICE("[owner] has stopped speaking."), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_NOTICE("[owner] has stopped speaking."))
 		return
 
 	switch(speech_type)

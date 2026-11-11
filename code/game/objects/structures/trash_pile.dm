@@ -31,9 +31,9 @@
 /obj/structure/trash_pile/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
-	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", self_message = SPAN_NOTICE("You start climbing into \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", self_message = SPAN_NOTICE("You start climbing into \the [src]..."))
 	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
-		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", self_message = SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", self_message = SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
 		user.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		hider = user
@@ -57,16 +57,16 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.a_intent == I_HURT)
-			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", self_message = SPAN_NOTICE("You start taking \the [src] apart..."), visible_message_flags = GHOST_MESSAGE)
+			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", self_message = SPAN_NOTICE("You start taking \the [src] apart..."))
 			if(do_after(user, 2 MINUTES, src, DO_UNIQUE))
-				H.visible_message("<b>[user]</b> takes \the [src] apart.", self_message = SPAN_NOTICE("You takes \the [src] apart."), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message("<b>[user]</b> takes \the [src] apart.", self_message = SPAN_NOTICE("You takes \the [src] apart."))
 				for(var/i = 1 to 5)
 					var/obj/item/I = give_item()
 					I.forceMove(get_turf(src))
 				eject_hider(100, user)
 				qdel(src)
 			return
-		H.visible_message("<b>[user]</b> starts searching through \the [src]...", self_message = SPAN_NOTICE("You start searching through \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+		H.visible_message("<b>[user]</b> starts searching through \the [src]...", self_message = SPAN_NOTICE("You start searching through \the [src]..."))
 		if(hider)
 			to_chat(hider, SPAN_WARNING("[user] is searching the trash pile you're in!"))
 		//Do the searching

@@ -182,7 +182,7 @@
 
 		if(GetCloneReadiness() >= 100 && !eject_wait)
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
-			src.audible_message("\The [src] signals that the cloning process is complete.")
+			src.audible_message("\The [src] signals that the cloning process is complete.", audible_message_flags = LOCAL_MESSAGE)
 			connected_message("Cloning Process Complete.")
 			locked = 0
 			go_out()
@@ -250,9 +250,9 @@
 				anchored = 1
 			attacking_item.play_tool_sound(get_turf(src), 100)
 			if(anchored)
-				user.visible_message("[user] secures [src] to the floor.", self_message = "You secure [src] to the floor.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] secures [src] to the floor.", self_message = "You secure [src] to the floor.")
 			else
-				user.visible_message("[user] unsecures [src] from the floor.", self_message = "You unsecure [src] from the floor.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] unsecures [src] from the floor.", self_message = "You unsecure [src] from the floor.")
 		return TRUE
 	else
 		return ..()

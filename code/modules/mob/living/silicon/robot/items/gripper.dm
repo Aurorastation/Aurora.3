@@ -167,7 +167,7 @@
 
 		switch(user.a_intent)
 			if(I_HELP)
-				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [target_mob] with \the [src]", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("\The [user] [pick("boops", "squeezes", "pokes", "prods", "strokes", "bonks")] \the [target_mob] with \the [src]")
 			if(I_HURT)
 				target_mob.attack_generic(user, user.mob_size, "crushed")//about 16 dmg for a cyborg
 				//Attack generic does a visible message so we dont need one here

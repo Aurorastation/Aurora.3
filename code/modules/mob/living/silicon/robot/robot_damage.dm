@@ -164,7 +164,7 @@
 		if(C.surge_left >= 1)
 			playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 			C.surge_left -= 1
-			visible_message(SPAN_WARNING("\The [src] was not affected by the EMP pulse!"), self_message = SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("\The [src] was not affected by the EMP pulse!"), self_message = SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."))
 			if(C.surge_left)
 				to_chat(src, SPAN_NOTICE("Surge protection module can only withstand [C.surge_left] more EMPs!"))
 			else

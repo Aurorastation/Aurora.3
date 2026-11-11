@@ -149,7 +149,7 @@
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
-			blind_message = "You hear ratchet.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)
 

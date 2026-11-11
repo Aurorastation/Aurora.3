@@ -214,7 +214,7 @@
 
 	if(action == "run_diagnostics")
 		if(isipc(patient))
-			ui.user.visible_message(SPAN_NOTICE("[user] begins running a diagnostic scan..."), visible_message_flags = GHOST_MESSAGE)
+			ui.user.visible_message(SPAN_NOTICE("[user] begins running a diagnostic scan..."))
 			if(do_after(user, 3 SECONDS))
 				QDEL_NULL(diagnostic)
 				diagnostic = new(user, patient)

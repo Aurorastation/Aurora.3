@@ -33,7 +33,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] isn't loaded!"))
 		return
 
-	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!")
 
 	if(mode == "somewhat")
 		L.faction = user.faction
@@ -64,4 +64,4 @@
 /obj/item/dociler/proc/do_recharge()
 	loaded = 1
 	icon_state = "decloner"
-	src.visible_message("\The [src] beeps, refilling itself.")
+	src.visible_message("\The [src] beeps, refilling itself.", visible_message_flags = LOCAL_MESSAGE)

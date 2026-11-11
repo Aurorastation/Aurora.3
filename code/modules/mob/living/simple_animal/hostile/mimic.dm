@@ -89,11 +89,11 @@
 	if(istype(L))
 		if(prob(15))
 			L.Weaken(2)
-			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"), visible_message_flags = GHOST_MESSAGE)
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/mimic/crate/proc/trigger()
 	if(!attempt_open)
-		visible_message("<b>[src]</b> starts to move!", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>[src]</b> starts to move!")
 		attempt_open = 1
 
 /mob/living/simple_animal/hostile/mimic/crate/adjustBruteLoss(var/damage)
@@ -183,4 +183,4 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 		if(istype(L))
 			if(prob(15))
 				L.Weaken(1)
-				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"), visible_message_flags = GHOST_MESSAGE)
+				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))

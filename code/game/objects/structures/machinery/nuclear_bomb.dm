@@ -93,21 +93,21 @@ GLOBAL_VAR(bomb_set)
 						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return TRUE
 
-					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", self_message = "You start cutting loose the anchoring bolt covers with [attacking_item]...", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", self_message = "You start cutting loose the anchoring bolt covers with [attacking_item]...")
 
 					if(attacking_item.use_tool(src, user, 40, volume = 50))
 						if(!src || !user || !WT.use(5, user)) return TRUE
-						user.visible_message("[user] cuts through the bolt covers on [src].", self_message = "You cut through the bolt cover.", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] cuts through the bolt covers on [src].", self_message = "You cut through the bolt cover.")
 						removal_stage = 1
 					return TRUE
 
 			if(1)
 				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message("[user] starts forcing open the bolt covers on [src].", self_message = "You start forcing open the anchoring bolt covers with [attacking_item]...", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] starts forcing open the bolt covers on [src].", self_message = "You start forcing open the anchoring bolt covers with [attacking_item]...")
 
 					if(attacking_item.use_tool(src, user, 15, volume = 50))
 						if(!src || !user) return TRUE
-						user.visible_message("[user] forces open the bolt covers on [src].", self_message = "You force open the bolt covers.", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] forces open the bolt covers on [src].", self_message = "You force open the bolt covers.")
 						removal_stage = 2
 					return TRUE
 
@@ -119,30 +119,30 @@ GLOBAL_VAR(bomb_set)
 						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return TRUE
 
-					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", self_message = "You start cutting apart the anchoring system's sealant with [attacking_item]...", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", self_message = "You start cutting apart the anchoring system's sealant with [attacking_item]...")
 
 					if(attacking_item.use_tool(src, user, 150, amount = 5, volume = 50))
-						user.visible_message("[user] cuts apart the anchoring system sealant on [src].", self_message = "You cut apart the anchoring system's sealant.", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] cuts apart the anchoring system sealant on [src].", self_message = "You cut apart the anchoring system's sealant.")
 						removal_stage = 3
 					return TRUE
 
 			if(3)
 				if(attacking_item.tool_behaviour == TOOL_WRENCH)
-					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", self_message = "You begin unwrenching the anchoring bolts...", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", self_message = "You begin unwrenching the anchoring bolts...")
 
 					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						if(!src || !user) return TRUE
-						user.visible_message("[user] unwrenches the anchoring bolts on [src].", self_message = "You unwrench the anchoring bolts.", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] unwrenches the anchoring bolts on [src].", self_message = "You unwrench the anchoring bolts.")
 						removal_stage = 4
 					return TRUE
 
 			if(4)
 				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-					user.visible_message("[user] begins lifting [src] off of the anchors.", self_message = "You begin lifting the device off the anchors...", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] begins lifting [src] off of the anchors.", self_message = "You begin lifting the device off the anchors...")
 
 					if(attacking_item.use_tool(src, user, 80, volume = 50))
 						if(!src || !user) return TRUE
-						user.visible_message("[user] crowbars [src] off of the anchors. It can now be moved.", self_message = "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] crowbars [src] off of the anchors. It can now be moved.", self_message = "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!")
 						anchored = 0
 						removal_stage = 5
 				return TRUE
@@ -160,9 +160,9 @@ GLOBAL_VAR(bomb_set)
 	else if (deployable)
 		if(removal_stage < 5)
 			src.anchored = 1
-			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"))
+			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
+			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."), visible_message_flags = LOCAL_MESSAGE)
 		extended = 1
 		if(!src.lighthack)
 			flick("lock", src)
@@ -286,7 +286,7 @@ GLOBAL_VAR(bomb_set)
 				to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 				return TRUE
 			if(!area_safety_check())
-				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.")
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.", audible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			if(!timing && !safety)
 				timing = 1
@@ -311,22 +311,22 @@ GLOBAL_VAR(bomb_set)
 		if("anchor")
 			if(removal_stage == 5)
 				anchored = 0
-				visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
+				visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."), visible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			if(isinspace())
 				to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 				return TRUE
 			if(!area_safety_check())
-				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.")
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.", audible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			else
 				anchored = !anchored
 				if(anchored)
-					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
+					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/boltsdown.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 				else
 					secure_device()
-					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
+					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/boltsup.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 			return TRUE
 

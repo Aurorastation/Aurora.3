@@ -67,7 +67,7 @@
 		return
 
 	is_in_use = TRUE
-	user.visible_message("<b>[user]</b> begins waving \the [src] around \the [target]...", self_message = SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> begins waving \the [src] around \the [target]...", self_message = SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), vision_distance = 3)
 	if(!do_after(user, 50, target))
 		is_in_use = FALSE
 		return
@@ -92,7 +92,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] cannot be used on \the [target]!"))
 
 /obj/item/inductive_charger/proc/message_and_use(mob/user, var/others_message, var/self_message)
-	user.visible_message(others_message, self_message = self_message, vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(others_message, self_message = self_message, vision_distance = 3)
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
 	check_maptext(SMALL_FONTS(6, "Charge"))

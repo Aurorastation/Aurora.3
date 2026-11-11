@@ -41,7 +41,7 @@
 		var/throw_dist = get_dist(get_turf(M), get_turf(src))
 		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"), visible_message_flags = (ismob(hit_atom) ? GHOST_MESSAGE : NONE))
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"), visible_message_flags = (ismob(hit_atom) ? NONE : LOCAL_MESSAGE))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -170,15 +170,15 @@
 	var/mob/living/carbon/human/H = target_mob
 	if(istype(H) && H.headcheck(target_zone))
 		var/obj/item/organ/affecting = H.get_organ(target_zone) //headcheck should ensure that affecting is not null
-		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
 			target_mob.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target_mob]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target_mob]!"))
 
 	//The reagents in the bottle splash all over the target_mob, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target_mob]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target_mob]!"))
 		reagents.splash(target_mob, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
@@ -211,7 +211,7 @@
 	var/amount_lost = intensity * 5
 	reagents.remove_any(amount_lost)
 
-	visible_message(SPAN_WARNING("Some of [name]'s contents are let loose!"))
+	visible_message(SPAN_WARNING("Some of [name]'s contents are let loose!"), visible_message_flags = LOCAL_MESSAGE)
 	var/intensity_state = null
 	switch(intensity)
 		if(1)
@@ -416,8 +416,7 @@
 		user.visible_message(
 			SPAN_DANGER("[user] fumbles the sabrage and cuts [src] in half, spilling it over themselves!"), \
 			self_message = SPAN_DANGER("You fail your stunt and cut [src] in half, spilling it over you!"), \
-			blind_message = "You hear spilling.",
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = "You hear spilling."
 			)
 		return smash(src.loc, user, break_top = TRUE)
 
@@ -435,12 +434,12 @@
 	if(!sabrage)
 		user.visible_message(SPAN_DANGER("[user] loosens the cork of [src] causing it to pop out of the bottle with great force."), \
 								self_message = SPAN_GOOD("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."), \
-								blind_message = "You can hear a pop.", visible_message_flags = GHOST_MESSAGE)
+								blind_message = "You can hear a pop.")
 	else
 		sabraged = TRUE
 		user.visible_message(SPAN_DANGER("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."), \
 								self_message = SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
-								blind_message = "You can hear a pop.", visible_message_flags = GHOST_MESSAGE)
+								blind_message = "You can hear a pop.")
 
 		var/moodlet_value = 5
 		if (!moodlet_value)

@@ -94,7 +94,7 @@
 					to_chat(user, SPAN_WARNING("You aren't sure where this brain came from, but you're pretty sure it's a useless brain."))
 					return
 
-				user.visible_message("<b>[user]</b> places \the [B] into \the [src].", self_message = SPAN_NOTICE("You place \the [B] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> places \the [B] into \the [src].", self_message = SPAN_NOTICE("You place \the [B] into \the [src]."))
 
 				brainmob = B.brainmob
 				B.brainmob = null
@@ -113,19 +113,19 @@
 		if(STATE_NODIODES)
 			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].",
-									self_message = SPAN_NOTICE("You tighten the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You tighten the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
 				brainobj.prepared = TRUE
 				set_cradle_state(STATE_DIODES)
 		if(STATE_DIODES)
 			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within.",
-									self_message = SPAN_NOTICE("You undo the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You undo the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within."))
 				set_cradle_state(STATE_NODIODES)
 			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(0, user))
 					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.",
-										self_message = SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_NOTICE("You weld the two parts of the braincase together, permanently sealing \the [brainobj] inside."))
 					to_chat(brainmob, SPAN_NOTICE("As the braincase comes online, you feel your sense of self ebbing away, your memories suppressed by the onboard software."))
 					set_cradle_state(STATE_SEALED)
 					feedback_inc("cyborg_mmis_filled", 1)
@@ -134,9 +134,9 @@
 				to_chat(user, SPAN_WARNING("\The [src] is sealed tight, no welding will be able to undo it."))
 				return
 			else if(istype(attacking_item, /obj/item/surgery/circular_saw))
-				user.visible_message("<b>[user]</b> starts sawing \the [src] open...", self_message = SPAN_NOTICE("You start sawing \the [src] open, [SPAN_WARNING("this WILL destroy the brain inside")]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> starts sawing \the [src] open...", self_message = SPAN_NOTICE("You start sawing \the [src] open, [SPAN_WARNING("this WILL destroy the brain inside")]."))
 				if(attacking_item.use_tool(src, user, 30, volume = 50))
-					user.visible_message("<b>[user]</b> saws \the [src] open, leaving \the [brainobj] a gory mess.", self_message = SPAN_NOTICE("You saw \the [src] open, leaving \the [brainobj] a gory mess."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("<b>[user]</b> saws \the [src] open, leaving \the [brainobj] a gory mess.", self_message = SPAN_NOTICE("You saw \the [src] open, leaving \the [brainobj] a gory mess."))
 					var/obj/item/organ/internal/brain/brain_holder = brainobj
 					transfer_mob_to_brain()
 					brain_holder.forceMove(get_turf(src))

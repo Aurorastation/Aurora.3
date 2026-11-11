@@ -27,7 +27,7 @@
 		return
 	reading = TRUE //begin reading
 
-	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] begins to flip through [src]."))
 	playsound(loc, 'sound/items/bureaucracy/bookopen.ogg', 50, 1)
 
 	var/q // recycled from tip of the day code. it just works!(TM)

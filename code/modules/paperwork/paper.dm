@@ -208,7 +208,7 @@
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
-			self_message = SPAN_NOTICE("You carefully fold \the [src] into a plane."), blind_message = "\The [user] folds \the [src] into a plane.", visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You carefully fold \the [src] into a plane."), blind_message = "\The [user] folds \the [src] into a plane.")
 		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
@@ -222,7 +222,7 @@
 			user.show_message(SPAN_ALERT("The paper is already folded into a swan."))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
-			self_message = SPAN_NOTICE("You carefully fold \the [src] into a swan."), blind_message = "\The [user] folds \the [src] into a swan.", visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You carefully fold \the [src] into a swan."), blind_message = "\The [user] folds \the [src] into a swan.")
 		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_swan"
 		old_name = name
@@ -231,7 +231,7 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), self_message = SPAN_NOTICE("You unfold \the [src]."), blind_message = "You hear paper rustling.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), self_message = SPAN_NOTICE("You unfold \the [src]."), blind_message = "You hear paper rustling.")
 		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = base_state
 		throw_range = initial(throw_range)
@@ -254,7 +254,7 @@
 /obj/item/paper/proc/crumple(mob/user)
 	info = stars(info,85)
 	if(user)
-		user.visible_message("\The [user] crumples \the [src] into a ball!", self_message = "You crumple \the [src] into a ball.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] crumples \the [src] into a ball!", self_message = "You crumple \the [src] into a ball.")
 		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 	icon_state = "scrap"
 	throw_range = 4
@@ -269,7 +269,7 @@
 
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You show \the [src] to [M]."), \
-			self_message = SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("[user] holds up \the [src] and shows it to [M]."))
 		examinate(M, src)
 
 	else if(target_zone == BP_MOUTH && paper_like) // lipstick wiping
@@ -281,10 +281,10 @@
 				H.update_body()
 			else
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-										self_message = SPAN_NOTICE("You begin to wipe off [H]'s lipstick."), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
 				if(do_after(user, 1 SECOND, H, do_flags = (DO_DEFAULT | DO_USER_UNIQUE_ACT) & ~DO_BOTH_CAN_TURN))
 					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
-											self_message = SPAN_NOTICE("You wipe off [H]'s lipstick."), visible_message_flags = GHOST_MESSAGE)
+											self_message = SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lipstick_color = null
 					H.update_body()
 
@@ -446,7 +446,7 @@
 			class = "rose"
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
-		self_message = "<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>", visible_message_flags = GHOST_MESSAGE)
+		self_message = "<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
 			flick("scrap_onfire", src)
@@ -463,7 +463,7 @@
 
 	if(get_dist(src, user) < 2 && user.get_active_hand() == P)
 		user.visible_message("<span class='[class]'>[user] burns right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", \
-		self_message = "<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>", visible_message_flags = GHOST_MESSAGE)
+		self_message = "<span class='[class]'>You burn right through \the [src], turning it to ash. It flutters through the air before settling on the floor in a heap.</span>")
 
 		if(user.get_inactive_hand() == src)
 			user.drop_from_inventory(src)
@@ -614,7 +614,7 @@
 			playsound(src, ('sound/machines/typewriter.ogg'), 40)
 		else
 			if(istype(src, /obj/item/paper/stickynotes))
-				usr.visible_message(SPAN_NOTICE("\The [usr] jots a note down on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				usr.visible_message(SPAN_NOTICE("\The [usr] jots a note down on \the [src]."))
 			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()

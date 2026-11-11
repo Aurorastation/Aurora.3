@@ -67,14 +67,14 @@
 		user.visible_message(
 			SPAN_NOTICE("\The [user] activates the flare."),
 			self_message = SPAN_NOTICE("You twist the cap off the flare, activating it!"),
-			blind_message = SPAN_NOTICE("You hear a flare sparking to life."),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_NOTICE("You hear a flare sparking to life.")
 		)
 
 /obj/item/flashlight/flare/proc/turn_off()
 	on = FALSE
 	visible_message(
-		SPAN_NOTICE("\The [src] sputters out.")
+		SPAN_NOTICE("\The [src] sputters out."),
+		visible_message_flags = LOCAL_MESSAGE
 	)
 	update_icon()
 	set_light_on(on)
@@ -110,7 +110,7 @@
 	if (on)
 		turn_off()
 		update_damage()
-		user.visible_message("<b>[user]</b> extinguishes \the [src].", self_message = SPAN_NOTICE("You extinguish \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> extinguishes \the [src].", self_message = SPAN_NOTICE("You extinguish \the [src]."))
 	return
 
 /obj/item/flashlight/flare/torch/update_icon()
@@ -122,7 +122,7 @@
 		H.update_inv_r_hand()
 
 /obj/item/flashlight/flare/torch/proc/light(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	self_message = SPAN_NOTICE("You light \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	self_message = SPAN_NOTICE("You light \the [src]."))
 	force = on_damage
 	damtype = "fire"
 	on = TRUE
@@ -189,6 +189,6 @@
 	update_icon()
 
 /obj/item/flashlight/flare/torch/stick/turn_off()
-	visible_message("\The [src] burns out.")
+	visible_message("\The [src] burns out.", visible_message_flags = LOCAL_MESSAGE)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)

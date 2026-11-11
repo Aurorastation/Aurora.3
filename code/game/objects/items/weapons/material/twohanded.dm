@@ -96,7 +96,7 @@
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, SFX_PUNCH_MISS, 50, 1)
 		return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT
@@ -350,7 +350,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
-	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), self_message = SPAN_DANGER("You kick down \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), self_message = SPAN_DANGER("You kick down \the [src]!"))
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.forceMove(user.loc)
@@ -426,7 +426,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
-	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
+	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."), audible_message_flags = LOCAL_MESSAGE)
 	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 25, 0, 30)
 	force_unwielded = 30
 	force = force_unwielded
@@ -443,7 +443,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerDown()
 	var/turf/T = get_turf(src)
-	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."))
+	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."), audible_message_flags = LOCAL_MESSAGE)
 	force_unwielded = initial(force_unwielded)
 	force = force_unwielded
 	force_wielded = initial(force_wielded)
@@ -509,7 +509,7 @@
 		return
 	else if(powered)
 		if(!istype(O))
-			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), self_message = SPAN_WARNING("You rev the chainsaw!"), blind_message = SPAN_WARNING("You hear a chainsaw rev!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("[user] revs the chainsaw!"), self_message = SPAN_WARNING("You rev the chainsaw!"), blind_message = SPAN_WARNING("You hear a chainsaw rev!"))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			playsound(loc, 'sound/weapons/saw/chainsword.ogg', 25, 0, 30)
 			RemoveFuel(3)
@@ -521,11 +521,11 @@
 	else if(!wielded)
 		to_chat(user, SPAN_WARNING("You need to hold this with two hands to turn this on."))
 	else if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) <= 0)
-		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), self_message = SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), blind_message = SPAN_NOTICE("You hear a cord being pulled."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src], but nothing happens."), self_message = SPAN_WARNING("You pull the cord on \the [src], but nothing happens."), blind_message = SPAN_NOTICE("You hear a cord being pulled."))
 	else
 		var/max = rand(3,6)
 		for(var/i in 1 to max)
-			user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src]..."), self_message = SPAN_NOTICE("You pull the cord on \the [src]..."), blind_message = SPAN_NOTICE("You hear a cord being pulled and an engine sputtering..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] pulls the cord on \the [src]..."), self_message = SPAN_NOTICE("You pull the cord on \the [src]..."), blind_message = SPAN_NOTICE("You hear a cord being pulled and an engine sputtering..."))
 			if(i == max)
 				PowerUp(user)
 			else
@@ -621,7 +621,7 @@
 		planted = TRUE
 		pixel_x = 16
 		pixel_y = 4
-		user.visible_message(SPAN_DANGER("[user] plants [src] proudly into the ground!"), self_message = SPAN_DANGER("You plant [src] proudly into the ground!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] plants [src] proudly into the ground!"), self_message = SPAN_DANGER("You plant [src] proudly into the ground!"))
 
 /obj/item/material/twohanded/pike/flag/attack_hand(var/mob/user)
 	if(planted)
@@ -630,7 +630,7 @@
 		anchored = FALSE
 		pixel_x = initial(pixel_x)
 		pixel_y = initial(pixel_y)
-		user.visible_message(SPAN_NOTICE("[user] grabs [src]."), self_message = SPAN_NOTICE("You grab [src] from where it stands."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] grabs [src]."), self_message = SPAN_NOTICE("You grab [src] from where it stands."))
 		..()
 	else
 		..()

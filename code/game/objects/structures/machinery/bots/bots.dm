@@ -61,7 +61,7 @@
 		if(health < maxhealth)
 			if(open)
 				add_health(10)
-				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),self_message = SPAN_NOTICE("You repair [src]!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),self_message = SPAN_NOTICE("You repair [src]!"))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
 				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
@@ -132,7 +132,7 @@
 
 	if(user.species.can_shred(user))
 		add_damage(rand(15,30) * brute_dam_coeff)
-		src.visible_message(SPAN_DANGER("[user] has slashed [src]!"))
+		src.visible_message(SPAN_DANGER("[user] has slashed [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/weapons/slice.ogg', 25, 1, -1)
 		if(prob(10))
 			new /obj/effect/decal/cleanable/blood/oil(src.loc)

@@ -60,7 +60,7 @@
 	var/obj/item/organ/external/O = available_organs[choice]
 	for(var/thing in O.implants)
 		var/obj/S = thing
-		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."), visible_message_flags = GHOST_MESSAGE)
+		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
 		H.custom_pain(SPAN_DANGER("<font size=4>It burns!</font>"), 50, affecting = O)
 		if(do_mob(usr, H, 100))

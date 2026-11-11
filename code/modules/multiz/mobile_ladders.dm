@@ -24,7 +24,7 @@
 			to_chat(user, SPAN_NOTICE("Why would you do that?! There is only infinite space there..."))
 			return
 		user.visible_message(SPAN_WARNING("[user] begins to lower \the [src] into \the [A]."),
-			self_message = SPAN_WARNING("You begin to lower \the [src] into \the [A]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_WARNING("You begin to lower \the [src] into \the [A]."))
 		if (!handle_action(A, user))
 			return
 		// Create the lower ladder first. ladder/Initialize() will make the upper
@@ -44,7 +44,7 @@
 			to_chat(user, SPAN_NOTICE("There is something above. You can't deploy!"))
 			return
 		user.visible_message(SPAN_WARNING("[user] begins deploying \the [src] on \the [A]."),
-			self_message = SPAN_WARNING("You begin to deploy \the [src] on \the [A]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_WARNING("You begin to deploy \the [src] on \the [A]."))
 		if (!handle_action(A, user))
 			return
 		// Ditto here. Create the lower ladder first.
@@ -90,7 +90,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("\The [user] starts folding up \the [src]."),
-		self_message = SPAN_NOTICE("You start folding up \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start folding up \the [src]."))
 
 	if(!do_after(user, 30, src))
 		return
@@ -103,7 +103,7 @@
 	user.put_in_hands(R)
 
 	user.visible_message(SPAN_NOTICE("\The [user] folds \the [src] up into \the [R]!"),
-		self_message = SPAN_NOTICE("You fold \the [src] up into \the [R]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You fold \the [src] up into \the [R]!"))
 
 	if(target_down)
 		QDEL_NULL(target_down)

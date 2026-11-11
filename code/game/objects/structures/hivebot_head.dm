@@ -13,7 +13,7 @@
 
 /obj/structure/hivebot_head/attack_hand(mob/user)
 	. = ..()
-	user.visible_message(SPAN_NOTICE("\The [user] touches \the [src]."), self_message = SPAN_NOTICE("You touch \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] touches \the [src]."), self_message = SPAN_NOTICE("You touch \the [src]."))
 	if(prob(10))
 		var/T = get_turf(src)
 		icon_state = "hivebot_head_active"
@@ -24,4 +24,4 @@
 
 /obj/structure/hivebot_head/proc/deactivate()
 	icon_state = "hivebot_head"
-	visible_message(SPAN_WARNING("\The [src] shudders and goes silent..."))
+	visible_message(SPAN_WARNING("\The [src] shudders and goes silent..."), visible_message_flags = LOCAL_MESSAGE)

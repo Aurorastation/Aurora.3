@@ -19,7 +19,7 @@
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
 	user.visible_message(SPAN_WARNING("[user] crushes [src]!"),
-							self_message = SPAN_DANGER("You crush [src]!"), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_DANGER("You crush [src]!"))
 	single_spark(loc)
 	playsound(src.loc, SFX_SPARKS, 50, 1)
 	blink_mob(user)
@@ -31,7 +31,7 @@
 
 /obj/item/bluespace_crystal/throw_impact(atom/hit_atom)
 	if(!..()) // not caught in mid-air
-		visible_message(SPAN_NOTICE("[src] fizzles and disappears upon impact!"))
+		visible_message(SPAN_NOTICE("[src] fizzles and disappears upon impact!"), visible_message_flags = LOCAL_MESSAGE)
 		var/turf/T = get_turf(hit_atom)
 		single_spark(T)
 		playsound(src.loc, SFX_SPARKS, 50, 1)

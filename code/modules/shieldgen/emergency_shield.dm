@@ -95,7 +95,7 @@
 /obj/structure/machinery/shieldgen/process()
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		if(active)
-			visible_message(SPAN_WARNING("\The [src] shuts down."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."))
+			visible_message(SPAN_WARNING("\The [src] shuts down."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."), visible_message_flags = LOCAL_MESSAGE)
 			shields_down()
 		check_delay = initial(check_delay)
 		return
@@ -186,13 +186,13 @@
 	if(active)
 		user.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [user] deactivates the shield generator."), \
 			self_message = SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You deactivate the shield generator."), \
-			blind_message = "You hear heavy droning fade out.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear heavy droning fade out.")
 		shields_down()
 
 	else
 		user.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [user] activate the shield generator."), \
 			self_message = SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] You activate the shield generator."), \
-			blind_message = "You hear heavy droning.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear heavy droning.")
 		shields_up()
 	return
 
@@ -236,7 +236,7 @@
 				shields_down()
 			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
 			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."))
 			update_icon()
 			return
 
@@ -318,7 +318,7 @@
 				if(alpha != initial(alpha))
 					animate(src, 1 SECOND, alpha = initial(alpha))
 	if(health <= 0)
-		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
+		visible_message(SPAN_NOTICE("\The [src] dissipates!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 		return
 
@@ -396,7 +396,7 @@
 
 /obj/structure/machinery/shield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	//Let everyone know we've been hit!
-	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"))
+	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"), visible_message_flags = LOCAL_MESSAGE)
 
 	//Super realistic, resource-intensive, real-time damage calculations.
 	var/tforce = 0

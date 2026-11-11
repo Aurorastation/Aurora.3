@@ -80,7 +80,7 @@
 			return FALSE
 
 	if(user)
-		user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"))
 
 	if(!instant)
 		if(!do_mob(user, target, 30))
@@ -95,7 +95,7 @@
 	if(user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(H)
-		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src
@@ -131,7 +131,7 @@
 	if (!O) return
 
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")
-	H.visible_message(s, self_message = SPAN_WARNING("You chew on your [O.name]!"), visible_message_flags = GHOST_MESSAGE)
+	H.visible_message(s, self_message = SPAN_WARNING("You chew on your [O.name]!"))
 	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += "\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>"
 	log_attack("[s] ([H.ckey])")
@@ -217,7 +217,7 @@
 			qdel(src)
 			update_icon(user)
 	else if(can_be_cut && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
-		user.visible_message("[user] cuts the [src].", self_message = SPAN_NOTICE("You cut the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] cuts the [src].", self_message = SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)
 		qdel(src)

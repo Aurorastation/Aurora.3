@@ -221,7 +221,7 @@
 				return
 
 			if(do_after(user, 1 SECONDS))
-				visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+				visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 				insert_cable(access_cable, user)
 		return ..()
 

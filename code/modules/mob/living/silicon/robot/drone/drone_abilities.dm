@@ -38,7 +38,7 @@
 	else if(H.a_intent == "grab" && hat && !(H.l_hand && H.r_hand))
 		hat.forceMove(get_turf(src))
 		H.put_in_hands(hat)
-		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."), visible_message_flags = GHOST_MESSAGE)
+		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
 		hat = null
 		CutOverlays(hat_overlay)
 		QDEL_NULL(hat_overlay)

@@ -19,10 +19,10 @@
 		item_state = initial(icon_state)
 
 /obj/item/clothing/mask/breath/lyodsuit/lower_message(mob/user)
-	user.visible_message("<b>[user]</b> rolls \the [src] up to reveal their face.", self_message = SPAN_NOTICE("You roll \the [src] up to reveal your face."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> rolls \the [src] up to reveal their face.", self_message = SPAN_NOTICE("You roll \the [src] up to reveal your face."), vision_distance = 3)
 
 /obj/item/clothing/mask/breath/lyodsuit/raise_message(mob/user)
-	user.visible_message("<b>[user]</b> pulls \the [src] down to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] down to cover your face."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> pulls \the [src] down to cover their face.", self_message = SPAN_NOTICE("You pull \the [src] down to cover your face."), vision_distance = 3)
 
 /obj/item/clothing/gloves/lyodsuit
 	name = "lyodsuit gloves"

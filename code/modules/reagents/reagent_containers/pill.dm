@@ -28,7 +28,7 @@
 		if(!target_mob.can_eat(src))
 			return
 
-		target_mob.visible_message("<b>[target_mob]</b> swallows a pill.", self_message = SPAN_NOTICE("You swallow \the [src]."), blind_message = null, vision_distance = 2, visible_message_flags = GHOST_MESSAGE)
+		target_mob.visible_message("<b>[target_mob]</b> swallows a pill.", self_message = SPAN_NOTICE("You swallow \the [src]."), blind_message = null, vision_distance = 2)
 		if(reagents.total_volume)
 			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
@@ -38,13 +38,13 @@
 		if(!target_mob.can_force_feed(user, src))
 			return
 
-		user.visible_message(SPAN_WARNING("[user] attempts to force [target_mob] to swallow \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] attempts to force [target_mob] to swallow \the [src]!"))
 
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(!do_mob(user, target_mob))
 			return
 
-		user.visible_message(SPAN_WARNING("[user] forces [target_mob] to swallow \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] forces [target_mob] to swallow \the [src]."))
 
 		var/contained = reagentlist()
 		target_mob.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
@@ -84,8 +84,7 @@
 		user.visible_message(
 			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [attacking_item]!"),
 			self_message = SPAN_NOTICE("You gently cut up \the [src] with \the [attacking_item]."),
-			blind_message = SPAN_WARNING("You hear quiet grinding."),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_WARNING("You hear quiet grinding.")
 		)
 		playsound(loc, 'sound/effects/chop.ogg', 50, 1)
 

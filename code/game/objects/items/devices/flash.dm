@@ -122,11 +122,11 @@
 
 	if(flash(target_mob))
 		if(issilicon(target_mob))
-			user.visible_message(SPAN_WARNING("[user] overloads [target_mob]'s sensors with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] overloads [target_mob]'s sensors with \the [src]!"))
 		else
-			user.visible_message(SPAN_WARNING("[user] blinds [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] blinds [target_mob] with \the [src]!"))
 	else
-		user.visible_message(SPAN_NOTICE("[user] fails to blind [target_mob] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] fails to blind [target_mob] with \the [src]."))
 
 /obj/item/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	// AOE flash

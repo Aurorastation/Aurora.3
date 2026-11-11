@@ -25,7 +25,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message(SPAN_NOTICE("[src] pauses a moment to style their hair."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] pauses a moment to style their hair."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -50,7 +50,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message(SPAN_NOTICE("[src] adjusts [src.get_pronoun("his")] headtails."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] adjusts [src.get_pronoun("his")] headtails."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -71,7 +71,7 @@
 		if(selected_string && f_style != selected_string)
 			f_style = selected_string
 			regenerate_icons()
-			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
@@ -165,7 +165,7 @@
 	status_flags |= LEAPING
 
 	visible_message(SPAN_DANGER("[src] leaps at [T]!"),
-					self_message = SPAN_DANGER("You leap at [T]!"), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_DANGER("You leap at [T]!"))
 
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, spin = FALSE)
 
@@ -186,7 +186,7 @@
 			return TRUE
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
-					self_message = SPAN_WARNING("You aggressively seize [T]!"), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_WARNING("You aggressively seize [T]!"))
 
 	var/obj/item/grab/G = new /obj/item/grab(src, src, T)
 
@@ -228,7 +228,7 @@
 
 	last_special = world.time + 50
 
-	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!"))
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -283,7 +283,7 @@
 
 	last_special = world.time + 100
 
-	visible_message(SPAN_NOTICE("[src] touches their fingers to their temple."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_NOTICE("[src] touches their fingers to their temple."))
 
 	var/list/targets = list()
 	for(var/mob/living/M in view(client.view, client.eye))
@@ -401,14 +401,14 @@
 			return
 
 		H.apply_damage(25, DAMAGE_BRUTE, hit_zone, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
-		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
-		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
 	last_special = world.time + 100
@@ -508,18 +508,18 @@
 			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
-		visible_message(SPAN_DANGER("\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!"))
 		sleep(10)
 		if(!src.Adjacent(G.affecting))
 			return
-		visible_message(SPAN_DANGER("\The [src] closes their jaws around \the [H]'s head!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("\The [src] closes their jaws around \the [H]'s head!"))
 		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
 		affecting.droplimb(0, DROPLIMB_BLUNT)
 
 	else
 		var/mob/living/M = G.affecting
 		if(istype(M))
-			visible_message(SPAN_DANGER("\The [src] rips viciously at \the [M]'s body with its claws!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("\The [src] rips viciously at \the [M]'s body with its claws!"))
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
 			M.gib()
 
@@ -536,8 +536,7 @@
 
 	src.visible_message(
 	SPAN_DANGER("\The [src] begins to beep ominously!"),
-	self_message = SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!"),
-	visible_message_flags = GHOST_MESSAGE
+	self_message = SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!")
 	)
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
@@ -608,7 +607,7 @@
 
 	last_special = world.time + 30
 
-	visible_message(SPAN_WARNING("<b>[src]</b> launches a spine-quill at [target]!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("<b>[src]</b> launches a spine-quill at [target]!"))
 
 	src.apply_damage(10,DAMAGE_BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
@@ -623,7 +622,7 @@
 
 	if(tgui_alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", list("Yes", "No")) == "No")
 		return
-	visible_message(SPAN_DANGER("[src] dissolves!"), self_message = SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("[src] dissolves!"), self_message = SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
 	death()
 
 /mob/living/carbon/human/proc/shatter_light()
@@ -637,7 +636,7 @@
 
 	last_special = world.time + 50
 
-	visible_message(SPAN_DANGER("\The [src] shrieks!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] shrieks!"))
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
@@ -709,7 +708,7 @@
 
 	last_special = world.time + 200
 
-	visible_message(SPAN_DANGER("\The [src] vanishes into the shadows!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] vanishes into the shadows!"))
 
 	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow", null ,loc.dir)
 
@@ -737,10 +736,10 @@
 	last_special = world.time + 100
 
 	src.visible_message(SPAN_WARNING("\The [src] takes a step backwards and rears up."),
-			self_message = SPAN_NOTICE("You take a step backwards and then..."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You take a step backwards and then..."))
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
-		src.visible_message(SPAN_DANGER("\The [src] charges!"), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_DANGER("\The [src] charges!"))
 		trampling()
 
 
@@ -786,7 +785,7 @@
 		step(src, dir)
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
-			src.visible_message(SPAN_DANGER("[src.name] breaks through!"), visible_message_flags = GHOST_MESSAGE)
+			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
 		addtimer(CALLBACK(src, PROC_REF(trampling)), 1, TIMER_STOPPABLE|TIMER_DELETE_ME)
 
 	else
@@ -809,7 +808,7 @@
 
 	sleep(1)
 	if (A && !(A.gc_destroyed) && A.type == oldtype)
-		src.visible_message(SPAN_DANGER("[src.name] plows into \the [aname]!"), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_DANGER("[src.name] plows into \the [aname]!"))
 		return 0
 
 	return 1
@@ -831,7 +830,7 @@
 
 	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
 			self_message = SPAN_DANGER("You let out an ear-shattering shriek!"),
-			blind_message = SPAN_DANGER("You hear a painfully loud shriek!"), visible_message_flags = GHOST_MESSAGE)
+			blind_message = SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
@@ -883,7 +882,7 @@
 	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	visible_message(SPAN_DANGER("\The [src] unleashes a torrent of raging flame!"),
 			self_message = SPAN_DANGER("You unleash a gust of fire!"),
-			blind_message = SPAN_DANGER("You hear the roar of an inferno!"), visible_message_flags = GHOST_MESSAGE)
+			blind_message = SPAN_DANGER("You hear the roar of an inferno!"))
 
 	var/turf/T  = get_step(get_step(src, dir), dir)
 	var/turf/T1 = get_step(T, dir)
@@ -921,7 +920,7 @@
 		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
-	visible_message(SPAN_DANGER("\The [src] crackles with energy!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] crackles with energy!"))
 
 	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
@@ -1042,8 +1041,7 @@
 	if(detachment_delay)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] starts disconnecting [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]."),
-			self_message = SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You start disconnecting [src == user ? "your" : "[src]'s"] [limb].")
 		)
 		if(!do_after(user, detachment_delay, src))
 			return FALSE
@@ -1082,8 +1080,7 @@
 
 	user.visible_message(
 		SPAN_NOTICE("\The [user] detaches [src == user ? user.get_pronoun("his") : "[src]'s"] [limb]!"),
-		self_message = SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You detach [src == user ? "your" : "[src]'s"] [limb]!")
 	)
 	return TRUE
 
@@ -1120,8 +1117,7 @@
 	if(attachment_delay)
 		visible_message(
 			SPAN_NOTICE("\The [src] starts connecting [get_pronoun("his")] [limb]."),
-			self_message = SPAN_NOTICE("You start connecting your [limb]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You start connecting your [limb].")
 		)
 		if(!do_after(src, attachment_delay, src))
 			return FALSE
@@ -1143,8 +1139,7 @@
 
 	visible_message(
 		SPAN_NOTICE("\The [src] attaches [get_pronoun("his")] [limb] to its socket!"),
-		self_message = SPAN_NOTICE("You attach your [limb] to its socket!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You attach your [limb] to its socket!")
 	)
 	return TRUE
 
@@ -1190,7 +1185,7 @@
 		UpdateDamageIcon()
 
 		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
-				self_message = SPAN_NOTICE("You attach \the [O] to your body!"), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You attach \the [O] to your body!"))
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
@@ -1395,12 +1390,12 @@
 
 /mob/living/carbon/human/proc/start_listening()
 	if (!is_listening())
-		visible_message("<b>[src]</b> begins to listen intently.", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>[src]</b> begins to listen intently.")
 		GLOB.intent_listener |= src
 
 /mob/living/carbon/human/proc/stop_listening()
 	if (is_listening())
-		visible_message("<b>[src]</b> stops listening intently.", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>[src]</b> stops listening intently.")
 		GLOB.intent_listener -= src
 
 /mob/living/carbon/human/proc/open_tail_storage()
@@ -2266,10 +2261,10 @@
 			return
 
 		src.visible_message(SPAN_DANGER("[src] leans towards [H], exhaling a cloud of black spores into their face."), \
-		self_message = SPAN_GOOD("You lean towards [H], placing your face close to theirs, and exhale. They will become Us, soon."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_GOOD("You lean towards [H], placing your face close to theirs, and exhale. They will become Us, soon."))
 		if(!do_after(src, 2 SECONDS))
 			src.visible_message(SPAN_DANGER("[src] is interrupted before their target can breathe in the spores!"), \
-			self_message = SPAN_WARNING("You are interrupted, unable to deliver [H] to Our embrace!"), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_WARNING("You are interrupted, unable to deliver [H] to Our embrace!"))
 		var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 		var/obj/item/organ/internal/parasite/blackkois/infest = new()
 		infest.replaced(H, affected)

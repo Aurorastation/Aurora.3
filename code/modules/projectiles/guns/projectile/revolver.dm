@@ -26,7 +26,7 @@
 	chamber_offset = 0
 	usr.visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"),
 						self_message = SPAN_WARNING("You spin the cylinder of \the [src]!"),
-						blind_message = SPAN_NOTICE("You hear something metallic spin and click."), visible_message_flags = GHOST_MESSAGE)
+						blind_message = SPAN_NOTICE("You hear something metallic spin and click."))
 
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	loaded = shuffle(loaded)
@@ -89,7 +89,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.mob_size <10)
-				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), self_message = SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
 				src.throw_at(get_edge_target_turf(src, REVERSE_DIR(H.dir)), 2, 2)
 
@@ -249,7 +249,7 @@
 
 	chamber_offset = 0
 	visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"), \
-	blind_message = SPAN_NOTICE("You hear something metallic spin and click."))
+	blind_message = SPAN_NOTICE("You hear something metallic spin and click."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	if(!flipped_firing)
 		loaded = shuffle(loaded)
@@ -304,7 +304,7 @@
 
 /obj/item/gun/projectile/revolver/knife/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(default_parry_check(user, attacker, damage_source) && prob(20))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, "punchmiss", 50, 1)
 		return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT

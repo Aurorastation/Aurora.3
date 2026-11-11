@@ -78,7 +78,7 @@
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
 	..()
 	if(!gibbed)
-		visible_message("<b>[src]</b> lets out a waning scream as it disintegrates into a pile of flesh!", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>[src]</b> lets out a waning scream as it disintegrates into a pile of flesh!")
 		playsound(loc, 'sound/effects/creatures/vannatusk_attack.ogg', 90, 1, 15)
 		if(occupant)
 			qdel(occupant)
@@ -109,7 +109,7 @@
 		to_chat(src, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
-	src.visible_message(SPAN_WARNING("[src] begins ripping apart and feasting on [target]!"), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_WARNING("[src] begins ripping apart and feasting on [target]!"))
 	src.is_devouring = TRUE
 
 	target.adjustBruteLoss(35)
@@ -119,7 +119,7 @@
 		src.is_devouring = FALSE
 		return 0
 
-	src.visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"))
 
 	target.adjustBruteLoss(35)
 
@@ -129,7 +129,7 @@
 		return 0
 
 	src.visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
-						self_message = SPAN_DANGER("You completely devour \the [target]!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_DANGER("You completely devour \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()
@@ -227,7 +227,7 @@
 				occupant.client.init_verbs()
 			occupant = null
 
-		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
 		gibs(src.loc)
 		qdel(src)
 		return
@@ -256,6 +256,6 @@
 			mind.transfer_to(occupant)
 		occupant.client.init_verbs()
 		occupant = null
-		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
 		gibs(src.loc)
 		qdel(src)

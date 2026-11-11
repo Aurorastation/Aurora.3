@@ -55,7 +55,7 @@
 			if(attached == usr)
 				to_chat(usr, "You unplug \the [src] from your maintenace port.")
 			else
-				visible_message("[usr] unplugs \the [src] from [attached]'s maintenance port.")
+				visible_message("[usr] unplugs \the [src] from [attached]'s maintenance port.", visible_message_flags = LOCAL_MESSAGE)
 			unplug()
 			return
 		else
@@ -63,10 +63,10 @@
 				plug(over)
 				to_chat(usr, "You plug \the [src] into your maintenace port.")
 			else
-				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over]'s chassis.") // The age old question of "where do I put it in!?"
+				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over]'s chassis.", visible_message_flags = LOCAL_MESSAGE) // The age old question of "where do I put it in!?"
 				if(do_after(usr, 5 SECONDS))
 					plug(over)
-					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
+					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/memorywiper/attack_hand(user as mob)
 	if(attached)
@@ -91,7 +91,7 @@
 
 /obj/item/memorywiper/proc/memorywipe()
 	if(attached && wiping)
-		visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
+		visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		to_chat(attached, "<b>The process finishes, leaving you with nothing beyond your base programming and databases.</b>")
 		wiping = FALSE
@@ -102,13 +102,13 @@
 /obj/item/memorywiper/process()
 	if(attached)
 		if(!attached.Adjacent(src))
-			attached.visible_message(SPAN_WARNING("The cable rips out of [attached]'s maintenace port."), self_message = SPAN_DANGER("\The [src]'s cable rips out of your maintenace port."), visible_message_flags = GHOST_MESSAGE)
+			attached.visible_message(SPAN_WARNING("The cable rips out of [attached]'s maintenace port."), self_message = SPAN_DANGER("\The [src]'s cable rips out of your maintenace port."))
 			unplug()
 			return
 
 /obj/item/memorywiper/proc/unplug()
 	if(wiping)
-		visible_message(SPAN_WARNING("\The [src]'s screen flashes, \"ERROR : IPC NOT FOUND, TERMINATING PROTOCOL.\""))
+		visible_message(SPAN_WARNING("\The [src]'s screen flashes, \"ERROR : IPC NOT FOUND, TERMINATING PROTOCOL.\""), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
 		wiping = FALSE
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 25, 1)

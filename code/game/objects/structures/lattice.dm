@@ -186,8 +186,7 @@
 			user.visible_message(
 				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
 				self_message = SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
-				blind_message = SPAN_NOTICE("You hear the sound of a welder, slicing apart metal."),
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = SPAN_NOTICE("You hear the sound of a welder, slicing apart metal.")
 			)
 			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)

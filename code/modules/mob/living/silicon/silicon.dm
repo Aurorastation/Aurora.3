@@ -128,7 +128,7 @@
 		take_overall_damage(0, shock_damage)
 		visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), \
 			self_message = SPAN_DANGER("Energy pulse detected, system damaged!"), \
-			blind_message = SPAN_WARNING("You hear an electrical crack."), visible_message_flags = GHOST_MESSAGE)
+			blind_message = SPAN_WARNING("You hear an electrical crack."))
 		if(prob(20))
 			Stun(2)
 		return

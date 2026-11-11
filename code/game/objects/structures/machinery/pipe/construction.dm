@@ -1542,7 +1542,7 @@
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		self_message = SPAN_NOTICE("You have fastened the [src]."), \
-		blind_message = "You hear ratchet.", visible_message_flags = GHOST_MESSAGE)
+		blind_message = "You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
 	return TRUE

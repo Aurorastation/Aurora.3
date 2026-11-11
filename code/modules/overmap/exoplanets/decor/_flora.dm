@@ -16,10 +16,10 @@
 	var/is_rock = FALSE
 
 /obj/structure/flora/proc/dig_up(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] begins digging up \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] begins digging up \the [src]..."))
 	if(do_after(user, 150))
 		if(Adjacent(user))
-			user.visible_message(SPAN_NOTICE("\The [user] removes \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [src]!"))
 			qdel(src)
 
 /obj/structure/flora/proc/can_dig()

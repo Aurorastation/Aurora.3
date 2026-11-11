@@ -278,7 +278,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 
 	if(istype(attacking_item, /obj/item/measuring_tape))
 		var/obj/item/measuring_tape/P = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , self_message = SPAN_NOTICE("You extend \the [P] towards \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] extends \the [P] towards \the [src].") , self_message = SPAN_NOTICE("You extend \the [P] towards \the [src]."))
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
 				return
@@ -460,7 +460,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	ChangeTurf(mined_turf)
 
 	if(rand(1,500) == 1)
-		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
+		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"), visible_message_flags = LOCAL_MESSAGE)
 		new /obj/structure/closet/crate/secure/loot(src)
 
 /turf/simulated/mineral/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
@@ -502,7 +502,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		var/obj/effect/suspension_field/S = locate() in src
 		if(!S || S.field_type != get_responsive_reagent(F.find_type))
 			if(X)
-				visible_message(SPAN_DANGER("[pick("[display_name] crumbles away into dust","[display_name] breaks apart")]."))
+				visible_message(SPAN_DANGER("[pick("[display_name] crumbles away into dust","[display_name] breaks apart")]."), visible_message_flags = LOCAL_MESSAGE)
 				qdel(X)
 
 	finds.Remove(F)

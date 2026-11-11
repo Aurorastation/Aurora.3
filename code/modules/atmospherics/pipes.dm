@@ -124,7 +124,7 @@
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
-			blind_message = "You hear a ratchet.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		for (var/obj/structure/machinery/meter/meter in T)
 			if (meter.target == src)
@@ -248,7 +248,7 @@
 	else return 1
 
 /obj/structure/machinery/atmospherics/pipe/simple/proc/burst()
-	src.visible_message(SPAN_DANGER("\The [src] bursts!"));
+	src.visible_message(SPAN_DANGER("\The [src] bursts!"), visible_message_flags = LOCAL_MESSAGE);
 	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(1,0, src.loc, 0)

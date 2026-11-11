@@ -23,7 +23,7 @@
 			dismantle_wall()
 			return TRUE
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), self_message = SPAN_NOTICE("You start feeling around and pushing on \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), self_message = SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
 
 	if(!do_after(user, 30, src, DO_DEPLOY))
 		return
@@ -107,9 +107,9 @@
 					qdel(WR)
 				return
 		else if(attacking_item.sharp)
-			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping the rot away with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> starts scraping the rot away with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping the rot away with \the [attacking_item]."))
 			if(attacking_item.use_tool(src, user, rand(3 SECONDS, 5 SECONDS), volume = 50))
-				user.visible_message("<b>[user]</b> scrapes away the rot with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping away the rot with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> scrapes away the rot with \the [attacking_item].", self_message = SPAN_NOTICE("You start scraping away the rot with \the [attacking_item]."))
 				playsound(src, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					WR.scrape(user)
@@ -236,7 +236,7 @@
 				playsound(src, dismantle_sound, 100, 1)
 			attacking_item.use_resource(user, 1)
 			dismantle_wall()
-			user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), self_message = SPAN_NOTICE("You remove the outer plating."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("The wall was torn open by \the [user]!"), self_message = SPAN_NOTICE("You remove the outer plating."))
 			return
 
 	//Reinforced dismantling.
@@ -365,9 +365,9 @@
 			//Plasteel walls take 24 & 15 minimum damage.
 			//Steel walls take 3 & 15 minimum damage.
 			damage_to_deal -= weaken
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"), visible_message_flags = LOCAL_MESSAGE)
 			add_damage(damage_to_deal, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		else
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src, hitsound, 25, 1)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

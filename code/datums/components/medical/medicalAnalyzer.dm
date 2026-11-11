@@ -96,7 +96,7 @@
 /datum/component/health_analyzer/proc/attack(mob/living/target_mob, mob/living/user, target_zone)
 	sound_scan = TRUE
 
-	user.visible_message("\The [user] starts scanning [user == target_mob ? "themself" : "\the [target_mob]"] with \the [owner].", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("\The [user] starts scanning [user == target_mob ? "themself" : "\the [target_mob]"] with \the [owner].")
 	var/anatomy = GET_SKILL_LEVEL(user, ANATOMY_SKILL_COMPONENT)
 
 	// each device level and anatomy rank reduces the time by half a second. Get that skill up
@@ -110,7 +110,7 @@
 
 		owner.add_fingerprint(user)
 	else
-		user.visible_message("\The [user] stops scanning \the [target_mob].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] stops scanning \the [target_mob].")
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
 	if(scan_title == "" || scan_title == null)
@@ -131,7 +131,7 @@
 		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.",
 									self_message = SPAN_NOTICE("You run the scanner over the floor."),
-									blind_message = SPAN_NOTICE("You hear metal repeatedly clunking against the floor."), visible_message_flags = GHOST_MESSAGE)
+									blind_message = SPAN_NOTICE("You hear metal repeatedly clunking against the floor."))
 
 			to_chat(user, SPAN_NOTICE("<b>Scan results for the ERROR:</b>"))
 			if(sound_scan)
@@ -142,7 +142,7 @@
 			to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
-		user.visible_message("<b>[user]</b> runs a scanner over [M].",self_message = SPAN_NOTICE("You run the scanner over [M]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> runs a scanner over [M].",self_message = SPAN_NOTICE("You run the scanner over [M]."))
 
 	if(!istype(M, /mob/living/carbon/human))
 		scan_title = "Scan failed"

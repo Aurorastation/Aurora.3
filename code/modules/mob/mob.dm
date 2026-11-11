@@ -792,9 +792,9 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
 		if(H.lying) // If they're on the ground we're probably dragging their arms to move them
-			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
 		else //Otherwise we're probably just holding their arm to lead them somewhere
-			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
 		playsound(loc, SFX_GRAB, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
@@ -1133,11 +1133,11 @@
 
 	if(self)
 		visible_message(SPAN_WARNING("<b>[src] rips [selection] out of their body!</b>"),
-						SPAN_WARNING("<b>You rip [selection] out of your body!</b>"), visible_message_flags = GHOST_MESSAGE)
+						SPAN_WARNING("<b>You rip [selection] out of your body!</b>"))
 
 	else
 		visible_message(SPAN_WARNING("<b>[usr] rips [selection] out of [src]'s body!</b>"),
-						SPAN_WARNING("<b>[usr] rips [selection] out of your body!</b>"), visible_message_flags = GHOST_MESSAGE)
+						SPAN_WARNING("<b>[usr] rips [selection] out of your body!</b>"))
 
 	valid_objects = get_visible_implants(0)
 
@@ -1339,7 +1339,7 @@
 		return
 
 	SetWeakened(200)
-	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"), visible_message_flags = GHOST_MESSAGE)
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
 	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
@@ -1355,7 +1355,7 @@
 		return
 
 	SetWeakened(0)
-	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"), visible_message_flags = GHOST_MESSAGE)
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
 	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 

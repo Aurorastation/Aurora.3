@@ -31,12 +31,12 @@
 /singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<b>[user]</b> starts attaching [E.name] to [target]'s [E.amputation_point].", \
-		self_message = SPAN_NOTICE("You start attaching [E.name] to [target]'s [E.amputation_point]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start attaching [E.name] to [target]'s [E.amputation_point]."))
 
 /singleton/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<b>[user]</b> attaches [target]'s [E.name] to the [E.amputation_point].",	\
-		self_message = SPAN_NOTICE("You have attached [target]'s [E.name] to the [E.amputation_point]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have attached [target]'s [E.name] to the [E.amputation_point]."))
 	user.drop_from_inventory(E)
 	E.replaced(target)
 	target.update_body()
@@ -46,7 +46,7 @@
 /singleton/surgery_step/limb/attach/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"))
 	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags = DAMAGE_FLAG_EDGE)
 
 /singleton/surgery_step/limb/connect
@@ -70,13 +70,13 @@
 /singleton/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	user.visible_message("[user] starts connecting tendons and muscles in [target]'s [E.amputation_point] with [tool].", \
-		self_message = "You start connecting tendons and muscle in [target]'s [E.amputation_point].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start connecting tendons and muscle in [target]'s [E.amputation_point].")
 	..()
 
 /singleton/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has connected tendons and muscles in [target]'s [E.amputation_point] with [tool].",	\
-		self_message = SPAN_NOTICE("You have connected tendons and muscles in [target]'s [E.amputation_point] with [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have connected tendons and muscles in [target]'s [E.amputation_point] with [tool]."))
 	E.status &= ~ORGAN_DESTROYED
 	if(E.children)
 		for(var/obj/item/organ/external/C in E.children)
@@ -88,7 +88,7 @@
 /singleton/surgery_step/limb/connect/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s [E.amputation_point]!"))
 	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags = DAMAGE_FLAG_SHARP)
 
 /singleton/surgery_step/limb/mechanize
@@ -108,12 +108,12 @@
 
 /singleton/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts attaching \the [tool] to [target].", \
-		self_message = SPAN_NOTICE("You start attaching \the [tool] to [target]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start attaching \the [tool] to [target]."))
 
 /singleton/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/robot_parts/L = tool
 	user.visible_message("<b>[user]</b> has attached \the [tool] to [target].",	\
-		self_message = SPAN_NOTICE("You have attached \the [tool] to [target]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You have attached \the [tool] to [target]."))
 
 	if(L.part)
 		for(var/part_name in L.part)
@@ -136,5 +136,5 @@
 
 /singleton/surgery_step/limb/mechanize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s flesh!"), \
-		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s flesh!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s flesh!"))
 	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags = DAMAGE_FLAG_SHARP)

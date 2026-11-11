@@ -61,7 +61,7 @@
 		if (WIRE_CAMERA)
 			if(!isnull(R.camera) && R.camera.can_use() && !R.scrambled_codes)
 				R.camera.kick_viewers() // Kick anyone watching the Cyborg's camera
-				R.visible_message("[R]'s camera lense focuses loudly.", visible_message_flags = GHOST_MESSAGE)
+				R.visible_message("[R]'s camera lense focuses loudly.")
 				to_chat(R, "Your camera lense focuses loudly.")
 
 		if(WIRE_LOCKDOWN)

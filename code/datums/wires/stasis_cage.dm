@@ -42,7 +42,7 @@
 		if (WIRE_LOCK)
 			if (!mend)
 				playsound(stasis_cage.loc, 'sound/machines/BoltsDown.ogg', 60)
-				holder.visible_message(SPAN_WARNING("The cage's lid bolts down destructively, denting itself!"), blind_message = SPAN_NOTICE("You notice the cage lid override flag blink hastily."))
+				holder.visible_message(SPAN_WARNING("The cage's lid bolts down destructively, denting itself!"), blind_message = SPAN_NOTICE("You notice the cage lid override flag blink hastily."), visible_message_flags = LOCAL_MESSAGE)
 				stasis_cage.broken = TRUE
 				holder.update_icon()
 
@@ -52,5 +52,5 @@
 		if (WIRE_SAFETY)
 			if (stasis_cage.contained)
 				if (prob(20))
-					holder.visible_message(SPAN_WARNING("The cage hastily flicks open its lid!"), blind_message = SPAN_NOTICE("You notice the biometric sensor flag blink fervently."))
+					holder.visible_message(SPAN_WARNING("The cage hastily flicks open its lid!"), blind_message = SPAN_NOTICE("You notice the biometric sensor flag blink fervently."), visible_message_flags = LOCAL_MESSAGE)
 					stasis_cage.release()

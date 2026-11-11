@@ -39,7 +39,7 @@
 
 /mob/living/simple_animal/shade/death()
 	. = ..()
-	visible_message(SPAN_WARNING("[src] lets out a contented sigh as their form unwinds."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("[src] lets out a contented sigh as their form unwinds."))
 	new residue(loc)
 	qdel(src)
 
@@ -239,7 +239,7 @@
 		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
-	visible_message("<span class ='notice'>\The [src] pulses.</span>", visible_message_flags = GHOST_MESSAGE)
+	visible_message("<span class ='notice'>\The [src] pulses.</span>")
 	for(var/obj/structure/machinery/light/L in view(5, src))
 		L.flicker()
 
@@ -270,7 +270,7 @@
 		return
 
 	do_teleport(choice, get_turf(src))
-	visible_message("<span class ='notice'>\The [src] pulses.</span>", visible_message_flags = GHOST_MESSAGE)
+	visible_message("<span class ='notice'>\The [src] pulses.</span>")
 
 	message_countdown = max(0, message_countdown - 20)
 

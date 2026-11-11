@@ -52,7 +52,7 @@
 			scoop_fail(L, user)
 
 /obj/item/glass_jar/proc/scoop(var/atom/movable/A, var/mob/user)
-	user.visible_message(SPAN_NOTICE("<b>[user]</b> scoops \the [A] into \the [src]."), self_message = SPAN_NOTICE("You scoop \the [A] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> scoops \the [A] into \the [src]."), self_message = SPAN_NOTICE("You scoop \the [A] into \the [src]."))
 	playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	A.forceMove(src)
 	contained |= A
@@ -98,9 +98,9 @@
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)
 	if(istype(A, /obj/item/currency) || istype(A, /obj/item/clothing/mask/chewable/candy/gum/gumball))
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes \the [A] out from \the [src]."), self_message = SPAN_NOTICE("You take \the [A] out from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> takes \the [A] out from \the [src]."), self_message = SPAN_NOTICE("You take \the [A] out from \the [src]."))
 	else
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), self_message = SPAN_NOTICE("You release \the [A] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> releases \the [A] from \the [src]."), self_message = SPAN_NOTICE("You release \the [A] from \the [src]."))
 	contained -= A
 	if(!length(contents))
 		contains = JAR_NOTHING
@@ -134,7 +134,7 @@
 		if(contains != JAR_MONEY)
 			to_chat(user, SPAN_WARNING("\The [src] already contains something else!"))
 			return TRUE
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> puts [S] into \the [src]."))
 		user.drop_from_inventory(S,src)
 		contained |= S
 		update_icon()
@@ -150,7 +150,7 @@
 			contained |= G
 			if(!contains)
 				contains = JAR_GUMBALL
-			user.visible_message("<b>[user]</b> puts a gumball in \the [src].", self_message = SPAN_NOTICE("You put a gumball in \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> puts a gumball in \the [src].", self_message = SPAN_NOTICE("You put a gumball in \the [src]."))
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [name] is full!"))

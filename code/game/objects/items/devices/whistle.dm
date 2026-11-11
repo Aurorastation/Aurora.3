@@ -35,11 +35,11 @@
 
 	if(isnull(insults))
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
-		user.audible_message(SPAN_WARNING("[user]'s [name] rasps, \"[use_message]\""), deaf_message = SPAN_WARNING("\The [user] holds up \the [name]."), audible_message_flags = GHOST_MESSAGE)
+		user.audible_message(SPAN_WARNING("[user]'s [name] rasps, \"[use_message]\""), deaf_message = SPAN_WARNING("\The [user] holds up \the [name]."))
 	else
 		if(insults > 0)
 			// Yes, it used to show the transcription of the sound clip. That was a) inaccurate b) immature as shit.
-			user.audible_message(SPAN_WARNING("[user]'s [name] gurgles something indecipherable and deeply offensive."), deaf_message = SPAN_WARNING("\The [user] holds up \the [name]."), audible_message_flags = GHOST_MESSAGE)
+			user.audible_message(SPAN_WARNING("[user]'s [name] gurgles something indecipherable and deeply offensive."), deaf_message = SPAN_WARNING("\The [user] holds up \the [name]."))
 			insults--
 		else
 			to_chat(user, SPAN_DANGER("*BZZZZZZZZT*"))

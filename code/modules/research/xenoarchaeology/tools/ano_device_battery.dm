@@ -105,7 +105,7 @@
 						if(holder)
 							to_chat(holder, "[icon2html(src, viewers(get_turf(src)))] [src] held by [holder] shudders in your grasp.")
 						else
-							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.", visible_message_flags = (ismob(src.loc) ? GHOST_MESSAGE : NONE))
+							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.", visible_message_flags = (ismob(src.loc) ? NONE : LOCAL_MESSAGE))
 						inserted_battery.battery_effect.DoEffectTouch(holder)
 
 						//consume power
@@ -132,17 +132,17 @@
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
 				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] buzzes."),
-										blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."))
+										blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."), visible_message_flags = LOCAL_MESSAGE)
 
 				shutdown_emission()
 			else if(world.time > time_end)
 				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] chimes."),
-										blind_message = SPAN_NOTICE("<span class='notice'>You hear something chime."))
+										blind_message = SPAN_NOTICE("<span class='notice'>You hear something chime."), visible_message_flags = LOCAL_MESSAGE)
 
 				shutdown_emission()
 		else
 			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] buzzes."),
-									blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."))
+									blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."), visible_message_flags = LOCAL_MESSAGE)
 
 			shutdown_emission()
 		last_process = world.time
@@ -171,7 +171,7 @@
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
 			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] whirrs."),
-								blind_message = SPAN_NOTICE("You hear something whirr."))
+								blind_message = SPAN_NOTICE("You hear something whirr."), visible_message_flags = LOCAL_MESSAGE)
 
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)
@@ -209,9 +209,9 @@
 	if(activated && inserted_battery.battery_effect.effect == EFFECT_TOUCH && !isnull(inserted_battery))
 		inserted_battery.battery_effect.DoEffectTouch(target_mob)
 		inserted_battery.use_power(energy_consumed_on_touch)
-		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], and it shudders on contact."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], and it shudders on contact."))
 	else
-		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], but nothing happens."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] taps [target_mob] with [src], but nothing happens."))
 
 	//admin logging
 	user.lastattacked = target_mob

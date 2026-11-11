@@ -134,7 +134,7 @@
 /obj/item/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
 	var/boxstartloc = box.loc
 	var/ourstartloc = src.loc
-	user.visible_message(SPAN_NOTICE("[user] starts loading lights from the [box] into their [src]"), self_message = SPAN_NOTICE("You start loading lights from the [box] into the [src]"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("[user] starts loading lights from the [box] into their [src]"), self_message = SPAN_NOTICE("You start loading lights from the [box] into the [src]"))
 	while (uses < max_uses)
 		var/bulb = null
 		for (var/obj/item/light/L in box.contents)

@@ -47,10 +47,10 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(attacking_item.force < 10)
 		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [attacking_item]."),
-								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
 	else
 		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [attacking_item]."),
-								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_WARNING("You attack \the [src] with \the [attacking_item]."))
 		damage_field(attacking_item.force / 10)
 
 /obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
@@ -58,7 +58,7 @@
 		if(H.species.can_shred(H))
 			H.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			H.do_attack_animation(src)
-			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), self_message = SPAN_WARNING("You shred \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			H.visible_message(SPAN_WARNING("[H] shreds \the [src]!"), self_message = SPAN_WARNING("You shred \the [src]!"))
 			damage_field(1)
 			return
 	to_chat(H, SPAN_WARNING("You touch \the [src], and it repulses your hand."))
@@ -80,7 +80,7 @@
 	if(piercing_hit)
 		hitting_projectile.pierces += round((energy_field.field_strength / 2))
 		if(hitting_projectile.pierces < hitting_projectile.penetrating)
-			visible_message(SPAN_WARNING("\The [src] flickers and fails as it is penetrated by the \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] flickers and fails as it is penetrated by the \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			damage_field(initial_damage / 20) //The shield takes less damage if it is penetrated like this.
 			return BULLET_ACT_FORCE_PIERCE
 
@@ -99,10 +99,10 @@
 		hitting_projectile.damage -= energy_field.field_strength
 		if(hitting_projectile.damage >= 0)
 			damage_field(initial_damage / 10)
-			visible_message(SPAN_WARNING("\The [src] flashes and depletes the [hitting_projectile]'s energy, but doesn't fully block it."))
+			visible_message(SPAN_WARNING("\The [src] flashes and depletes the [hitting_projectile]'s energy, but doesn't fully block it."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_FORCE_PIERCE
 		else
-			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_BLOCK
 
 	/**
@@ -122,7 +122,7 @@
 				else if(distance <= explosive_projectile.explosion_strength[3])
 					shield_tile.damage_field(1)
 			// explosive_projectile.explosion_strength = list(0, 0, 0) // Set the explosion strength to 0.
-			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_BLOCK
 
 	damage_field(initial_damage / 10)

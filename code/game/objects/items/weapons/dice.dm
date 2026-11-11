@@ -27,9 +27,9 @@
 
 /obj/item/stack/dice/attack_self(mob/user)
 	if(amount > 1)
-		user.visible_message("<b>[user]</b> shakes the die in their hand...", self_message = SPAN_NOTICE("You shake the die in your hands..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> shakes the die in their hand...", self_message = SPAN_NOTICE("You shake the die in your hands..."))
 	else
-		user.visible_message("<b>[user]</b> raises the dice to their mouth and blows on it...", self_message = SPAN_NOTICE("You raise the dice to your mouth and blow on it..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> raises the dice to their mouth and blows on it...", self_message = SPAN_NOTICE("You raise the dice to your mouth and blow on it..."))
 
 /obj/item/stack/dice/throw_impact(atom/hit_atom)
 	..()
@@ -44,10 +44,10 @@
 		total_result += results[i]
 
 	if(amount > 1)
-		visible_message(SPAN_NOTICE("The die rolls, revealing... <b>[total_result * side_mult]</b>! ([english_list(results, "", " + ", " + ", "")])"))
+		visible_message(SPAN_NOTICE("The die rolls, revealing... <b>[total_result * side_mult]</b>! ([english_list(results, "", " + ", " + ", "")])"), visible_message_flags = LOCAL_MESSAGE)
 		update_icon(results[length(results)])
 	else
-		visible_message(SPAN_NOTICE("\The [name] lands on <b>[total_result * side_mult]</b>.[get_comment(total_result)]"))
+		visible_message(SPAN_NOTICE("\The [name] lands on <b>[total_result * side_mult]</b>.[get_comment(total_result)]"), visible_message_flags = LOCAL_MESSAGE)
 		update_icon(total_result)
 
 /obj/item/stack/dice/proc/get_comment(var/result)

@@ -39,7 +39,7 @@
 	var/types = target.find_type()
 	if(israt(target))
 		var/mob/living/simple_animal/rat/M = target
-		audible_message(SPAN_DANGER("SPLAT!"))
+		audible_message(SPAN_DANGER("SPLAT!"), audible_message_flags = LOCAL_MESSAGE)
 		M.splat()
 	else
 		var/zone = BP_CHEST
@@ -87,7 +87,7 @@
 		if(!user.hand)
 			which_hand = BP_R_HAND
 		triggered(user, which_hand)
-		user.visible_message(SPAN_WARNING("[user] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"))
 		return TRUE
 	return FALSE
 
@@ -99,16 +99,16 @@
 			var/mob/living/carbon/human/H = arrived
 			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
-				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."))
 		else if(isliving(arrived))
 			var/mob/living/L = arrived
 			triggered(L)
-			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), self_message = SPAN_WARNING("You accidentally step on \the [src]."))
 
 
 /obj/item/assembly/mousetrap/on_found(mob/finder)
 	if(armed)
-		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		finder.visible_message(SPAN_WARNING("[finder] accidentally sets off \the [src]!"), self_message = SPAN_WARNING("You accidentally trigger \the [src]!"))
 		triggered(finder, finder.hand ? BP_L_HAND : BP_R_HAND)
 		return TRUE
 	return FALSE
@@ -116,7 +116,7 @@
 /obj/item/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
-	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."))
+	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 	triggered(null)
 
 /obj/item/assembly/mousetrap/armed

@@ -80,7 +80,7 @@
 			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
 			if(friendly_message)
 				written_message = friendly_message
-			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), blind_message = SPAN_NOTICE("You leave a nice message on \the [src]!"))
+			visible_message(SPAN_NOTICE("[user] writes something on \the [src] with \the [P]."), blind_message = SPAN_NOTICE("You leave a nice message on \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			return
 	return ..()
 
@@ -89,9 +89,9 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.get_lift_capacity() >= mass || user.status_flags & GODMODE)
-				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."))
+				visible_message(SPAN_NOTICE("[user] tightens their grip on [src] and starts heaving..."), visible_message_flags = LOCAL_MESSAGE)
 				if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"))
+					visible_message(SPAN_NOTICE("[user] heaves \the [src] up!"), visible_message_flags = LOCAL_MESSAGE)
 					wield(user)
 					return TRUE
 				else return FALSE
@@ -123,7 +123,7 @@
 
 /obj/item/ship_ammunition/proc/cookoff(var/caused_by_heat = TRUE)
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
-		visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"))
+		visible_message(SPAN_DANGER("\The [src] [caused_by_heat ? "cooks" : "goes"] off and explodes!"), visible_message_flags = LOCAL_MESSAGE)
 		explosion(get_turf(src), cookoff_devastation, cookoff_heavy, cookoff_light, spreading = TRUE)
 		qdel(src)
 
@@ -247,7 +247,7 @@
 /obj/projectile/ship_ammo/proc/handle_spalling(atom/source, shrapnel_dir, thing_pierced)
 	set waitfor = FALSE
 
-	src.visible_message(SPAN_DANGER("Huge chunks of shrapnel spray out from \the [thing_pierced] as \the [src] punches through!"))
+	src.visible_message(SPAN_DANGER("Huge chunks of shrapnel spray out from \the [thing_pierced] as \the [src] punches through!"), visible_message_flags = LOCAL_MESSAGE)
 
 	var/turf/O = get_turf(src)
 	var/list/target_turfs = list()

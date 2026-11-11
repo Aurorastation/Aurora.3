@@ -22,7 +22,7 @@
 					user.visible_message( \
 						"[user] tightens \the [src]'s casters.", \
 						self_message = SPAN_NOTICE(" You tighten \the [src]'s casters. Now it can be played again."), \
-						blind_message = span("italics", "You hear ratchet."), visible_message_flags = GHOST_MESSAGE)
+						blind_message = span("italics", "You hear ratchet."))
 					src.anchored = TRUE
 		else if(anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
@@ -32,7 +32,7 @@
 					user.visible_message( \
 						"[user] loosens \the [src]'s casters.", \
 						self_message = SPAN_NOTICE(" You loosen \the [src]. Now it can be pulled somewhere else."), \
-						blind_message = span("italics", "You hear ratchet."), visible_message_flags = GHOST_MESSAGE)
+						blind_message = span("italics", "You hear ratchet."))
 					src.anchored = FALSE
 	else
 		..()

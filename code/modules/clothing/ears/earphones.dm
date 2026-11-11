@@ -223,7 +223,7 @@
 		return
 
 	if(ismob(src.loc))
-		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."), visible_message_flags = GHOST_MESSAGE)
+		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 		playsound(usr, SFX_BUTTON, 10)
 
 		if(soundplayer_token)
@@ -242,7 +242,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	usr.visible_message(SPAN_NOTICE("[usr] swipes at [usr.get_pronoun("his")] [src]."), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("[usr] swipes at [usr.get_pronoun("his")] [src]."))
 
 	// Volume Control
 	var/volume_input = tgui_input_number(usr,"Change the volume (0 - 100)","Volume", volume, 100, 0)
@@ -271,7 +271,7 @@
 		return
 
 	if(ismob(src.loc))
-		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."), visible_message_flags = GHOST_MESSAGE)
+		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 		playsound(usr, SFX_BUTTON, 10)
 		if(soundplayer_token)
 			if(soundplayer_token.status != SOUND_PAUSED)
@@ -305,7 +305,7 @@
 	set category = "Object.Earphones"
 	set src in usr
 
-	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 	playsound(usr, SFX_BUTTON, 10)
 	next_song(usr)
 
@@ -314,7 +314,7 @@
 	set category = "Object.Earphones"
 	set src in usr
 
-	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."), visible_message_flags = GHOST_MESSAGE)
+	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
 	playsound(usr, SFX_BUTTON, 10)
 	previous_song(usr)
 

@@ -13,7 +13,7 @@
 	if(stat == DEAD)
 		var/genetic_damage = getCloneLoss()
 		if(genetic_damage > 100 && !(mutations & SKELETON)) //They need flesh to slough off
-			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), self_message = SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), vision_distance = 5, visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("\The [src]'s flesh sloughs off [get_pronoun("his")] body into a puddle of viscera and goop."), self_message = SPAN_WARNING("Your flesh sloughs off your body into a puddle of viscera and goop."), vision_distance = 5)
 			ChangeToSkeleton(FALSE)
 		else
 			var/fire_dmg = getFireLoss()

@@ -444,27 +444,27 @@
 			if(istype(usr,/mob/living/carbon) && prob(75))
 				var/mob/living/carbon/M = usr
 				M.Weaken(3)
-				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", blind_message = "You hear a large fwooshing sound, followed by a bang.")
+				src.visible_message("A sudden gust of powerful wind slams \the [M] into the floor!", blind_message = "You hear a large fwooshing sound, followed by a bang.", visible_message_flags = LOCAL_MESSAGE)
 				M.take_organ_damage(10)
 			else
 				to_chat(usr, SPAN_WARNING("A violent gale blows past you, and you barely manage to stay standing!"))
 		if(ORION_TRAIL_MALFUNCTION)
 			if(supplies["3"])
 				return
-			src.visible_message("\The [src]'s screen glitches out and smoke comes out of the back.")
+			src.visible_message("\The [src]'s screen glitches out and smoke comes out of the back.", visible_message_flags = LOCAL_MESSAGE)
 			for(var/i=1;i<7;i++)
 				supplies["[i]"] = max(0,supplies["[i]"] + rand(-10,10))
 		if(ORION_TRAIL_COLLISION)
 			if(prob(90) && !supplies["2"])
 				var/turf/simulated/floor/F = src.loc
 				F.ChangeTurf(/turf/space)
-				src.visible_message(SPAN_DANGER("Something slams into the floor around \the [src], exposing it to space!"), blind_message = "You hear something crack and break.")
+				src.visible_message(SPAN_DANGER("Something slams into the floor around \the [src], exposing it to space!"), blind_message = "You hear something crack and break.", visible_message_flags = LOCAL_MESSAGE)
 			else
-				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", blind_message = "You hear something crack.")
+				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", blind_message = "You hear something crack.", visible_message_flags = LOCAL_MESSAGE)
 		if(ORION_TRAIL_GAMEOVER)
 			to_chat(usr, SPAN_DANGER("<font size=4>You're never going to make it to Orion...</font>"))
 			var/mob/living/M = usr
-			M.visible_message("\The [M] starts rapidly deteriorating.", visible_message_flags = GHOST_MESSAGE)
+			M.visible_message("\The [M] starts rapidly deteriorating.")
 			show_browser(M, null, "window=arcade")
 			for(var/i=0;i<10;i++)
 				sleep(10)
@@ -481,7 +481,7 @@
 		src.updateUsrDialog()
 
 /obj/structure/machinery/computer/arcade/orion_trail/proc/win()
-	src.visible_message("\The [src] plays a triumpant tune, stating 'CONGRATULATIONS, YOU HAVE MADE IT TO ORION.'")
+	src.visible_message("\The [src] plays a triumpant tune, stating 'CONGRATULATIONS, YOU HAVE MADE IT TO ORION.'", visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/arcade/Ori_win.ogg', 10, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 	if(emagged)
 		new /obj/item/orion_ship(src.loc)
@@ -513,15 +513,15 @@
 	log_game("[key_name(usr)] primed an explosive Orion ship for detonation.")
 	to_chat(user, SPAN_WARNING("You flip the switch on the underside of [src]."))
 	active = 1
-	src.visible_message(SPAN_NOTICE("[src] softly beeps and whirs to life!"))
-	src.audible_message("<b>[src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'")
+	src.visible_message(SPAN_NOTICE("[src] softly beeps and whirs to life!"), visible_message_flags = LOCAL_MESSAGE)
+	src.audible_message("<b>[src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'", audible_message_flags = LOCAL_MESSAGE)
 	sleep(20)
-	src.visible_message(SPAN_WARNING("[src] begins to vibrate..."))
-	src.audible_message("<b>[src]</b> says, 'Uh, Port? Having some issues with our reactor, could you check it out? Over.'")
+	src.visible_message(SPAN_WARNING("[src] begins to vibrate..."), visible_message_flags = LOCAL_MESSAGE)
+	src.audible_message("<b>[src]</b> says, 'Uh, Port? Having some issues with our reactor, could you check it out? Over.'", audible_message_flags = LOCAL_MESSAGE)
 	sleep(30)
-	src.audible_message("<b>[src]</b> says, 'Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-'")
+	src.audible_message("<b>[src]</b> says, 'Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-'", audible_message_flags = LOCAL_MESSAGE)
 	sleep(3.6)
-	src.visible_message(SPAN_DANGER("[src] explodes!"))
+	src.visible_message(SPAN_DANGER("[src] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	explosion(src.loc, 1,2,4)
 	qdel(src)
 

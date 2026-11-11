@@ -79,7 +79,7 @@
 	if(!emagged)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You short out [src]'s plant identifier circuits."))
-			visible_message(SPAN_WARNING("[src] buzzes oddly."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_WARNING("[src] buzzes oddly."))
 			emagged = TRUE
 		return TRUE
 
@@ -244,35 +244,35 @@
 			if(FARMBOT_COLLECT)
 				action = "collect"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_COLLECT, T), 3 SECONDS)
 
 			if(FARMBOT_WATER)
 				action = "water"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_WATER, T), 3 SECONDS)
 
 			if(FARMBOT_UPROOT)
 				action = "hoe"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_UPROOT, T), 3 SECONDS)
 
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_PESTKILL, T), 3 SECONDS)
 
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
 				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
 
@@ -282,7 +282,7 @@
 		var/obj/structure/sink/S = A
 		action = "water"
 		update_icon()
-		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
 		addtimer(CALLBACK(src, PROC_REF(refill_water), S), 3 SECONDS)
 
@@ -295,13 +295,13 @@
 				flick("farmbot_hoe", src)
 				do_attack_animation(A)
 				if(prob(50))
-					visible_message(SPAN_DANGER("[src] swings wildly at [A] with a minihoe, missing completely!"), visible_message_flags = GHOST_MESSAGE)
+					visible_message(SPAN_DANGER("[src] swings wildly at [A] with a minihoe, missing completely!"))
 					return
 				var/t = pick("slashed", "sliced", "cut", "clawed")
 				A.attack_generic(src, 5, t)
 			if("water")
 				flick("farmbot_water", src)
-				visible_message(SPAN_DANGER("[src] splashes [A] with water!"), visible_message_flags = GHOST_MESSAGE) // That's it. RP effect.
+				visible_message(SPAN_DANGER("[src] splashes [A] with water!")) // That's it. RP effect.
 
 /**
  * Performs an action on the tray, call with a timer to have delays
@@ -312,22 +312,22 @@
 	if(on && !QDELETED(T) && Adjacent(T) && process_tray(T) == action_to_take)
 		switch(action_to_take)
 			if(FARMBOT_COLLECT)
-				visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [T]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [T]."))
 				T.attack_hand(src)
 			if(FARMBOT_WATER)
 				if(tank && tank.reagents.total_volume)
 					playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-					visible_message(SPAN_NOTICE("[src] waters \the [T]."), visible_message_flags = GHOST_MESSAGE)
+					visible_message(SPAN_NOTICE("[src] waters \the [T]."))
 					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
-				visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [T]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [T]."))
 				T.weedlevel = 0
 			if(FARMBOT_PESTKILL)
-				visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [T]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [T]."))
 				T.pestlevel = 0
 				T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
 			if(FARMBOT_NUTRIMENT)
-				visible_message(SPAN_NOTICE("[src] waters \the [T]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
 				T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
 
 	action = ""
@@ -352,7 +352,7 @@
 	attacking = FALSE
 
 /mob/living/bot/farmbot/explode()
-	visible_message(SPAN_DANGER("[src] blows apart!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 	var/turf/T = get_turf(src)
 
 	new /obj/item/material/minihoe(T)

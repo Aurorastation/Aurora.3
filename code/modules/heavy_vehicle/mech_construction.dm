@@ -121,7 +121,7 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message(SPAN_NOTICE("\The [user] begins trying to install \the [system] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] begins trying to install \the [system] into \the [src]."))
 			if(!do_after(user, delay, src) || user.get_active_hand() != system)
 				return FALSE
 
@@ -170,7 +170,7 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message(SPAN_NOTICE("\The [user] begins trying to remove \the [system] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] begins trying to remove \the [system] from \the [src]."))
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)
 				return FALSE
 

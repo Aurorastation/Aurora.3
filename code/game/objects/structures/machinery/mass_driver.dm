@@ -60,13 +60,13 @@
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] secures [src] to the floor.", \
 				self_message = "You secure the external reinforcing bolts to the floor.", \
-				blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a ratchet")
 			src.anchored = 1
 		else
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] unsecures [src] from the floor.", \
 				self_message = "You unsecure the external reinforcing bolts from the floor.", \
-				blind_message = "You hear a ratchet", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a ratchet")
 			src.anchored = 0
 		return TRUE
 
@@ -87,7 +87,7 @@
 		var/obj/item/mass_driver_button/B = new /obj/item/mass_driver_button(user.loc)
 		B.id = master_id
 		user.visible_message("<span class='notice'>[user] assembles \a [R].\
-			</span>", self_message = SPAN_NOTICE("You assemble \a [R]."), visible_message_flags = GHOST_MESSAGE)
+			</span>", self_message = SPAN_NOTICE("You assemble \a [R]."))
 		R.add_fingerprint(user)
 		qdel(src)
 

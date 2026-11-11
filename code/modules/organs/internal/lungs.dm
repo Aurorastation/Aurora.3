@@ -58,7 +58,6 @@
 				"<B>\The [owner]</B> coughs up blood!",
 				self_message = SPAN_WARNING("You cough up blood!"),
 				blind_message = "You hear someone coughing!",
-				visible_message_flags = GHOST_MESSAGE,
 				)
 			owner.drip(10)
 		if(prob(4))
@@ -66,7 +65,6 @@
 				"<B>\The [owner]</B> gasps for air!",
 				self_message = SPAN_DANGER("You can't breathe!"),
 				blind_message = "You hear someone gasp for air!",
-				visible_message_flags = GHOST_MESSAGE,
 			)
 			owner.losebreath = max(round(damage / 2), owner.losebreath)
 

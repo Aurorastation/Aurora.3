@@ -33,14 +33,12 @@
 	if(icon_state == "stack") //Deck form
 		user.visible_message(\
 			SPAN_NOTICE("\The [user] draws a card from their [src]."),\
-			self_message = SPAN_NOTICE("You draw a card from their [src]."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You draw a card from their [src].") \
 		)
 	else
 		user.visible_message(\
 			SPAN_NOTICE("\The [user] takes a card from their hand."),\
-			self_message = SPAN_NOTICE("You take a card from your hand."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You take a card from your hand.") \
 		)
 
 	take_specific_card(user,get_top_card())
@@ -76,8 +74,7 @@
 
 		user.visible_message(\
 			SPAN_NOTICE("\The [user] combines two decks together."),\
-			self_message = SPAN_NOTICE("You combine two decks together."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You combine two decks together.") \
 		)
 
 		qdel(dropped)
@@ -104,15 +101,13 @@
 	if(icon_state == "hand")
 		usr.visible_message(\
 			SPAN_NOTICE("\The [usr] turns their hand into a stack of cards."),\
-			self_message = SPAN_NOTICE("You turn your hand into a stack of cards."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You turn your hand into a stack of cards.") \
 		)
 		icon_state = "stack"
 	else
 		usr.visible_message(\
 			SPAN_NOTICE("\The [usr] turns their stack of cards into a hand."),\
-			self_message = SPAN_NOTICE("You turn your stack of cards into a hand."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You turn your stack of cards into a hand.") \
 		)
 		icon_state = "hand"
 
@@ -128,8 +123,7 @@
 
 	usr.visible_message(\
 		SPAN_NOTICE("\The [usr] shuffles \the [src]."),\
-		self_message = SPAN_NOTICE("You shuffle \the [src]."), \
-		visible_message_flags = GHOST_MESSAGE \
+		self_message = SPAN_NOTICE("You shuffle \the [src].") \
 	)
 
 	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
@@ -156,14 +150,12 @@
 	if(icon_state != "hand")
 		user.visible_message(\
 			SPAN_NOTICE("\The [usr] begins searching through \the [src]..."),\
-			self_message = SPAN_NOTICE("You begin searching through your deck..."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You begin searching through your deck...") \
 		)
 		if(!do_after(user, 5 + stored_card_names.len, src))
 			user.visible_message(\
 				SPAN_NOTICE("\The [usr] stops and thinks better of it."),\
-				self_message = SPAN_NOTICE("You stop and think better of it."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You stop and think better of it.") \
 			)
 			return
 

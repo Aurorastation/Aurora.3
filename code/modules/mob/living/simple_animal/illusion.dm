@@ -50,21 +50,20 @@
 /mob/living/simple_animal/illusion/attack_hand(mob/living/carbon/human/M)
 	if(!realistic)
 		playsound(src, 'sound/weapons/punchmiss1.ogg', 25, 1, -1)
-		visible_message(SPAN_NOTICE("\The [M]'s hand goes through \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("\The [M]'s hand goes through \the [src]!"))
 		return
 	else
 		switch(M.a_intent)
 			if(I_HELP)
 				M.visible_message(
 					SPAN_NOTICE("\The [M] tap [src] to get their attention!"), \
-					self_message = SPAN_NOTICE("You tap [src] to get their attention!"),
-					visible_message_flags = GHOST_MESSAGE
+					self_message = SPAN_NOTICE("You tap [src] to get their attention!")
 					) // slightly redundant as at the moment most mobs still use the normal gender var, but it works and future-proofs it
 				playsound(src, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 			if(I_DISARM)
 				playsound(src, 'sound/weapons/punchmiss1.ogg', 25, 1, -1)
-				visible_message(SPAN_DANGER("\The [M] attempted to disarm [src]!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_DANGER("\The [M] attempted to disarm [src]!"))
 				M.do_attack_animation(src)
 
 			if(I_GRAB)
@@ -72,7 +71,7 @@
 
 			if(I_HURT)
 				adjustBruteLoss(harm_intent_damage)
-				M.visible_message(SPAN_DANGER("\The [M] [response_harm] \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_DANGER("\The [M] [response_harm] \the [src]!"))
 				M.do_attack_animation(src)
 
 /mob/living/simple_animal/illusion/hit_with_weapon(obj/item/I, mob/living/user, effective_force, hit_zone)
@@ -80,7 +79,7 @@
 		return ..()
 
 	playsound(src, 'sound/weapons/punchmiss1.ogg', 25, 1, -1)
-	visible_message(span("warning", "\The [user]'s [I] goes through \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(span("warning", "\The [user]'s [I] goes through \the [src]!"))
 	return FALSE
 
 /mob/living/simple_animal/illusion/ex_act()

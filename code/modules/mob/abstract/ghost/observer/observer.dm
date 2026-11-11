@@ -440,14 +440,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.update_icon()
 		W.message = message
 		W.add_hiddenprint(src)
-		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
+		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."), visible_message_flags = LOCAL_MESSAGE)
 
 /mob/abstract/ghost/observer/pointed(atom/pointing_at)
 	. = ..()
 	if(!.)
 		return
 
-	src.visible_message("<span class='deadsay'><b>[src]</b> points to [pointing_at]</span>", visible_message_flags = GHOST_MESSAGE)
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [pointing_at]</span>")
 
 /mob/abstract/ghost/observer/proc/manifest(mob/user)
 	is_manifest = 0
@@ -460,15 +460,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(src.invisibility != 0)
 		user.visible_message( \
 			SPAN_WARNING("\The [user] drags ghost, [src], to our plane of reality!"), \
-			self_message = SPAN_WARNING("You drag [src] to our plane of reality!"), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_WARNING("You drag [src] to our plane of reality!") \
 		)
 		toggle_visibility(1)
 	else
 		user.visible_message( \
 			SPAN_WARNING("\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective."), \
-			self_message = SPAN_WARNING("You get the feeling that the ghost can't become any more visible."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_WARNING("You get the feeling that the ghost can't become any more visible.") \
 		)
 
 
@@ -502,7 +500,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	if(invisibility == 0)
 		toggled_invisible = world.time
-		visible_message("<span class='emote'>It fades from sight...</span>", self_message = "<span class='info'>You are now invisible.</span>", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<span class='emote'>It fades from sight...</span>", self_message = "<span class='info'>You are now invisible.</span>")
 	else
 		to_chat(src, "<span class='info'>You are now visible!</span>")
 
@@ -563,7 +561,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	if(step_to(choice, T))
-		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"))
+		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"), visible_message_flags = LOCAL_MESSAGE)
 
 	ghost_cooldown = world.time + 500
 

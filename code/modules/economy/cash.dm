@@ -408,7 +408,7 @@
 		else if(result == 2)
 			comment = "heads"
 		playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
-		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), self_message = SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), self_message = SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
 
 /obj/item/spacecash/coin/c001
 	name = "1 cent unie coin"

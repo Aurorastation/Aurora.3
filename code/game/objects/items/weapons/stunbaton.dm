@@ -164,17 +164,17 @@
 				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, target_mob)
 
 			if(!target_zone)
-				target_mob.visible_message(SPAN_WARNING("[user] misses [target_mob] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+				target_mob.visible_message(SPAN_WARNING("[user] misses [target_mob] with \the [src]!"))
 				return 0
 
 			var/mob/living/carbon/human/H = target_mob
 			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 			if (affecting)
 				if(!status)
-					target_mob.visible_message(SPAN_WARNING("[target_mob] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off."), visible_message_flags = GHOST_MESSAGE)
+					target_mob.visible_message(SPAN_WARNING("[target_mob] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off."))
 					return 1
 				else
-					H.visible_message(SPAN_DANGER("[target_mob] has been prodded in the [affecting.name] with \the [src] by [user]!"), visible_message_flags = GHOST_MESSAGE)
+					H.visible_message(SPAN_DANGER("[target_mob] has been prodded in the [affecting.name] with \the [src] by [user]!"))
 					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
 					admin_attack_log(user, target_mob, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src]")
 					if(!sheathed)
@@ -182,10 +182,10 @@
 		if(isslime(target_mob))
 			var/mob/living/carbon/slime/S =  target_mob
 			if(!status)
-				target_mob.visible_message(SPAN_WARNING("[S] has been prodded with \the [src] by [user]. Too bad it was off."), visible_message_flags = GHOST_MESSAGE)
+				target_mob.visible_message(SPAN_WARNING("[S] has been prodded with \the [src] by [user]. Too bad it was off."))
 				return TRUE
 			else
-				target_mob.visible_message(SPAN_DANGER("[S] has been prodded with \the [src] by [user]!"), visible_message_flags = GHOST_MESSAGE)
+				target_mob.visible_message(SPAN_DANGER("[S] has been prodded with \the [src] by [user]!"))
 
 			S.discipline++
 			if(prob(1))
@@ -194,10 +194,10 @@
 
 		else
 			if(!status)
-				target_mob.visible_message(SPAN_WARNING("[target_mob] has been prodded with \the [src] by [user]. Luckily it was off."), visible_message_flags = GHOST_MESSAGE)
+				target_mob.visible_message(SPAN_WARNING("[target_mob] has been prodded with \the [src] by [user]. Luckily it was off."))
 				return TRUE
 			else
-				target_mob.visible_message(SPAN_DANGER("[target_mob] has been prodded with \the [src] by [user]!"), visible_message_flags = GHOST_MESSAGE)
+				target_mob.visible_message(SPAN_DANGER("[target_mob] has been prodded with \the [src] by [user]!"))
 
 	//stun effects
 	target_mob.stun_effect_act(stun, agony, DAMAGE_PAIN, target_zone, src)

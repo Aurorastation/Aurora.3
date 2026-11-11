@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 				I.on_give(src, target)
 				if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 					H.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
-					visible_message("<b>[src]</b> hands \the [H] \a [I].", self_message = SPAN_NOTICE("You give \the [target] \a [I]."), visible_message_flags = GHOST_MESSAGE)
+					visible_message("<b>[src]</b> hands \the [H] \a [I].", self_message = SPAN_NOTICE("You give \the [target] \a [I]."))
 			else
 				to_chat(src, SPAN_NOTICE("You offer \the [I] to \the [target]."))
 				do_give(H)
@@ -534,7 +534,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 	//actually throw it!
 	if(item)
-		src.visible_message(SPAN_WARNING("[src] throws \a [item]."), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))

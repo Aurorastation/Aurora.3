@@ -23,7 +23,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] starts assembling a [barricade_name] barricade."),
-	self_message = SPAN_NOTICE("You start assembling a barricade."), visible_message_flags = GHOST_MESSAGE)
+	self_message = SPAN_NOTICE("You start assembling a barricade."))
 
 	if(!do_after(user, 3 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 		return
@@ -35,7 +35,7 @@
 
 	var/obj/structure/barricade/SB = new barricade_type(user.loc, user, user.dir)
 	user.visible_message(SPAN_NOTICE("[user] assembles a [barricade_name] barricade."),
-	self_message = SPAN_NOTICE("You assemble a [barricade_name] barricade."), visible_message_flags = GHOST_MESSAGE)
+	self_message = SPAN_NOTICE("You assemble a [barricade_name] barricade."))
 	SB.set_dir(user.dir)
 	SB.add_fingerprint(user)
 	playsound(SB, build_sound, 40)

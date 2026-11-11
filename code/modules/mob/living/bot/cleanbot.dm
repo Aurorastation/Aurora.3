@@ -191,7 +191,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 			T.wet_floor()
 
 	if(odd_button && prob(5)) // Make a big mess
-		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."))
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		var/datum/weakref/gib_ref = WEAKREF(gib)
 		ignorelist += gib_ref
@@ -505,7 +505,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 
 /mob/living/bot/cleanbot/explode()
 	on = FALSE // the first thing i do when i explode is turn off, tbh - geeves
-	visible_message(SPAN_WARNING("[src] blows apart!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/T = get_turf(src)
 	new /obj/item/reagent_containers/glass/bucket(T)
 	new /obj/item/assembly/prox_sensor(T)

@@ -114,14 +114,14 @@
 
 /obj/item/mollusc/attack_self(mob/user)
 	if(isvaurca(user) || isipc(user) || isunathi(user))
-		user.visible_message("<b>[user]</b> cracks open \the [src] with their hands.", self_message = SPAN_NOTICE("You crack open \the [src] with your hands."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> cracks open \the [src] with their hands.", self_message = SPAN_NOTICE("You crack open \the [src] with your hands."))
 		crack_shell(user)
 		return
 	return ..()
 
 /obj/item/mollusc/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.sharp || attacking_item.edge)
-		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You crack open \the [src] with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> cracks open \the [src] with \the [attacking_item].", self_message = SPAN_NOTICE("You crack open \the [src] with \the [attacking_item]."))
 		crack_shell(user)
 		return
 	return ..()
@@ -147,7 +147,7 @@
 
 /obj/item/reagent_containers/food/snacks/psiren_tentacle_meat/attackby(obj/item/attacking_item, mob/user)
 	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
-		user.visible_message(SPAN_NOTICE("[user] slices [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
 		var/psiren_cutlet = new /obj/item/reagent_containers/food/snacks/raw_psiren_cutlet(loc)
 		reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 2)
 		var/psiren_leather = new /obj/item/reagent_containers/food/snacks/psiren_leather(loc)
@@ -165,7 +165,7 @@
 
 /obj/item/reagent_containers/food/snacks/psiren_body_meat/attackby(obj/item/attacking_item, mob/user)
 	if(has_edge(attacking_item)) //this checks if the item you click the meat with is a knife/has an edge
-		user.visible_message(SPAN_NOTICE("[user] slices [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] slices [src]!"))
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/raw_psiren_cutlet/psiren_cutlet = new (loc)
 			reagents.trans_to_obj(psiren_cutlet, reagents.total_volume / 4)

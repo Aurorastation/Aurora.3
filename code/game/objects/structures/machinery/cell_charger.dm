@@ -87,7 +87,7 @@
 
 		user.drop_from_inventory(attacking_item, src)
 		charging = attacking_item
-		user.visible_message("[user] inserts \the [charging.name] into \the [src].", self_message = "You insert \the [charging.name] into \the [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] inserts \the [charging.name] into \the [src].", self_message = "You insert \the [charging.name] into \the [src].")
 
 		update_icon()
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -116,7 +116,7 @@
 		user.put_in_hands(charging, TRUE)
 		charging.add_fingerprint(user)
 		charging.update_icon()
-		user.visible_message("[user] removes \the [charging.name] from \the [src].", self_message = "You remove \the [charging.name] from \the [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] removes \the [charging.name] from \the [src].", self_message = "You remove \the [charging.name] from \the [src].")
 
 		charging = null
 		update_icon()
@@ -127,7 +127,7 @@
 	if(isrobot(user) && charging) // Borgs can remove the cell if they are near enough
 		user.put_in_hands(charging, TRUE)
 		charging.update_icon()
-		user.visible_message("[user] removes \the [charging.name] from \the [src].", self_message = "You remove \the [charging.name] from \the [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] removes \the [charging.name] from \the [src].", self_message = "You remove \the [charging.name] from \the [src].")
 
 		charging = null
 		charge_level = -1
@@ -241,7 +241,7 @@
 			return TRUE
 
 		user.drop_from_inventory(attacking_item, src)
-		user.visible_message("[user] inserts \the [attacking_item] into \the [src].", self_message = "You insert \the [attacking_item] into \the [src].", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] inserts \the [attacking_item] into \the [src].", self_message = "You insert \the [attacking_item] into \the [src].")
 		select_charging_cell()
 		update_icon()
 		if(charging)

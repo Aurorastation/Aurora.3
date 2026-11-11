@@ -88,7 +88,7 @@
 /mob/living/simple_animal/hostile/icarus_drone/proc/beam_out()
 	if(malfunctioning) // if we somehow start malfunctioning after init, don't beam out
 		return
-	visible_message(SPAN_WARNING("\The [src] warps into nothingness!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_WARNING("\The [src] warps into nothingness!"))
 
 	spark(src, 3, GLOB.alldirs)
 
@@ -169,7 +169,7 @@
 
 	//repair a bit of damage
 	if(prob(1) && health < maxhealth)
-		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."))
 		spark(src, 3, GLOB.alldirs)
 		health += rand(25, 100)
 
@@ -180,10 +180,10 @@
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(malfunctioning && prob(disabled ? 0 : 1))
 		if(hostile_drone)
-			src.visible_message(SPAN_NOTICE("\The [src] retracts several targetting vanes, and dulls its running lights."), visible_message_flags = GHOST_MESSAGE)
+			src.visible_message(SPAN_NOTICE("\The [src] retracts several targetting vanes, and dulls its running lights."))
 			hostile_drone = FALSE
 		else
-			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."), visible_message_flags = GHOST_MESSAGE)
+			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = TRUE
 
 	if(health / maxhealth > 0.9)
@@ -204,17 +204,17 @@
 		exploding = FALSE
 		if(!disabled)
 			if(prob(50))
-				visible_message(SPAN_NOTICE("\The [src] suddenly shuts down!"), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("\The [src] suddenly shuts down!"))
 			else
-				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
 			GLOB.move_manager.stop_looping(src)
 
 	if(exploding && prob(20))
 		if(prob(50))
-			visible_message(SPAN_ALERT("\The [src] begins to spark and shake violently!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_ALERT("\The [src] begins to spark and shake violently!"))
 		else
-			visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
 		spark(src, 3, GLOB.alldirs)
 
 	if(!exploding && !disabled && prob(explode_chance))

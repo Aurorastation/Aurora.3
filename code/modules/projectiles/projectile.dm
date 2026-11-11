@@ -399,7 +399,7 @@
 				penetrating += 1
 				projectile_piercing = PASSMOB
 				pierce_chance = 100
-				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their limp body!"), visible_message_flags = GHOST_MESSAGE)
+				M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their limp body!"))
 				return G.affecting
 			else
 				if(ishuman(G.affecting))
@@ -409,11 +409,11 @@
 						penetrating += 1
 						projectile_piercing = PASSMOB
 						pierce_chance = 100
-						M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled [organ.name]!"), visible_message_flags = GHOST_MESSAGE)
+						M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield, but the shot punches through their mangled [organ.name]!"))
 						return G.affecting
-			M.visible_message(SPAN_WARNING("\The [M] uses [G.affecting] as a shield!"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_WARNING("\The [M] uses [G.affecting] as a shield!"))
 			return G.affecting
-		M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_WARNING("\The [M] tries to use [G.affecting] as a shield but their [M.organs_by_name[def_zone]] is exposed!"))
 	return FALSE
 
 /obj/projectile/Collide(atom/A)
@@ -469,7 +469,7 @@
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(aimed_zone, selected_target, miss_modifier, (distance > 1 || original != selected_target), point_blank)
 		if (!def_zone)
-			selected_target.visible_message(SPAN_NOTICE("\The [src] misses [selected_target] narrowly!"), visible_message_flags = (ismob(selected_target) ? GHOST_MESSAGE : NONE))
+			selected_target.visible_message(SPAN_NOTICE("\The [src] misses [selected_target] narrowly!"), visible_message_flags = (ismob(selected_target) ? NONE : LOCAL_MESSAGE))
 			impacted[WEAKREF(selected_target)] = TRUE
 			selected_target = select_target(T, selected_target, A)
 			if(!selected_target)

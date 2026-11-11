@@ -539,12 +539,12 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 						user.visible_message(\
 							SPAN_WARNING("[user.name] has broken the power control board inside [name]!"),\
 							self_message = SPAN_NOTICE("You broke the charred power control board and remove the remains."),
-							blind_message = "You hear a crack!", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You hear a crack!")
 						//ticker.mode:apcs-- //XSI said no and I agreed. -rastaf0
 					else
 						user.visible_message(\
 							SPAN_WARNING("[user.name] has removed the power control board from [name]!"),\
-							self_message = SPAN_NOTICE("You remove the power control board."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You remove the power control board."))
 						new /obj/item/module/power_control(loc)
 		else if (opened < COVER_REMOVED)
 			panel_open = FALSE
@@ -568,7 +568,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				cell.update_icon()
 				cell = null
 				user.visible_message(SPAN_WARNING("[user.name] removes the power cell from [name]!"),\
-										self_message = SPAN_NOTICE("You remove the power cell."), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_NOTICE("You remove the power cell."))
 				//to_chat(user, "You remove the power cell.")
 				charging = CHARGING_OFF
 				update_icon()
@@ -590,7 +590,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 		cell = attacking_item
 		user.visible_message(\
 			SPAN_WARNING("[user.name] has inserted \the [cell] to [name]!"),\
-			self_message = SPAN_NOTICE("You insert \the [cell]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You insert \the [cell]."))
 		chargecount = 0
 		update_icon()
 
@@ -631,7 +631,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			to_chat(user, SPAN_WARNING("You need ten lengths of cable for APC."))
 			return
 		user.visible_message(SPAN_WARNING("[user.name] adds cables to the APC frame."), \
-							self_message = "You start adding cables to the APC frame...", visible_message_flags = GHOST_MESSAGE)
+							self_message = "You start adding cables to the APC frame...")
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (C.amount >= 10 && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED) // Need at least 10 in stack to build the terminal.
 				var/obj/structure/cable/N = T.get_cable_node()
@@ -642,7 +642,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				C.use(10)
 				user.visible_message(\
 					SPAN_WARNING("[user.name] has added cables to the APC frame!"),\
-					self_message = "You add cables to the APC frame.", visible_message_flags = GHOST_MESSAGE)
+					self_message = "You add cables to the APC frame.")
 				make_terminal()
 				terminal.connect_to_network()
 
@@ -653,7 +653,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
 			return
 		user.visible_message(SPAN_WARNING("[user.name] dismantles the power terminal from [src]."), \
-							self_message = "You begin to cut the cables...", visible_message_flags = GHOST_MESSAGE)
+							self_message = "You begin to cut the cables...")
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			if(terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
@@ -672,7 +672,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			return
 		else
 			user.visible_message(SPAN_WARNING("[user.name] inserts the power control board into [src]."), \
-								self_message = "You start to insert the power control board into the frame...", visible_message_flags = GHOST_MESSAGE)
+								self_message = "You start to insert the power control board into the frame...")
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			if(attacking_item.use_tool(src, user, 10, volume = 50))
 				if(has_electronics == HAS_ELECTRONICS_NONE)
@@ -698,7 +698,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 					user.visible_message(\
 						SPAN_WARNING("[user.name] cuts the cover off of the broken APC."),\
 						self_message = SPAN_NOTICE("You cut the cover off the broken APC "),\
-						blind_message = "You hear welding.", visible_message_flags = GHOST_MESSAGE)
+						blind_message = "You hear welding.")
 					opened = COVER_REMOVED
 					update_icon()
 		else if (opened != COVER_CLOSED && has_electronics == HAS_ELECTRONICS_NONE && !terminal)
@@ -708,7 +708,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				return
 			user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
 								self_message = "You start welding the APC frame...", \
-								blind_message = "You hear welding.", visible_message_flags = GHOST_MESSAGE)
+								blind_message = "You hear welding.")
 			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				if(!src || !WT.use(3, user))
@@ -718,13 +718,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 					user.visible_message(\
 						SPAN_WARNING("[src] has been cut apart by [user.name] with the welding tool."),\
 						self_message = SPAN_NOTICE("You disassembled the broken APC frame."),\
-						blind_message = "You hear welding.", visible_message_flags = GHOST_MESSAGE)
+						blind_message = "You hear welding.")
 				else
 					new /obj/item/frame/apc(loc)
 					user.visible_message(\
 						SPAN_WARNING("[src] has been cut from the wall by [user.name] with the welding tool."),\
 						self_message = SPAN_NOTICE("You cut the APC frame from the wall."),\
-						blind_message = "You hear welding.", visible_message_flags = GHOST_MESSAGE)
+						blind_message = "You hear welding.")
 				qdel(src)
 				return
 
@@ -737,7 +737,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				opened = COVER_OPENED
 			user.visible_message(\
 				SPAN_WARNING("[user.name] has replaced the cover panel APC cover panel with a new one."),\
-				self_message = SPAN_NOTICE("You replace the damaged APC cover panel with a new one."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You replace the damaged APC cover panel with a new one."))
 			qdel(attacking_item)
 			update_icon()
 		else if (opened != COVER_CLOSED && ((stat & BROKEN) || hacker))
@@ -745,11 +745,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				to_chat(user, SPAN_WARNING("You cannot repair this APC until you remove the electronics still inside."))
 				return
 			user.visible_message(SPAN_WARNING("[user.name] replaces the damaged APC frame with a new one."),\
-								self_message = "You begin to replace the damaged APC frame...", visible_message_flags = GHOST_MESSAGE)
+								self_message = "You begin to replace the damaged APC frame...")
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				user.visible_message(\
 					SPAN_NOTICE("[user.name] has replaced the damaged APC frame with new one."),\
-					self_message = "You replace the damaged APC frame with new one.", visible_message_flags = GHOST_MESSAGE)
+					self_message = "You replace the damaged APC frame with new one.")
 				qdel(attacking_item)
 				stat &= ~BROKEN
 				// Malf AI, removes the APC from AI's hacked APCs list.
@@ -801,7 +801,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			opened = COVER_REMOVED
 			user.visible_message(SPAN_DANGER("The APC cover was knocked down with the [attacking_item.name] by [user.name]!"), \
 				self_message = SPAN_DANGER("You knock down the APC cover with your [attacking_item.name]!"), \
-				blind_message = "You hear a loud metallic bang.", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a loud metallic bang.")
 			update_icon()
 		else
 			if (issilicon(user))
@@ -812,7 +812,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 				return attack_hand(user)
 			user.visible_message(SPAN_DANGER("The [name] has been hit with the [attacking_item.name] by [user.name]!"), \
 				self_message = SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \
-				blind_message = "You hear a loud metallic bang", visible_message_flags = GHOST_MESSAGE)
+				blind_message = "You hear a loud metallic bang")
 
 /obj/structure/machinery/power/apc/AltClick(mob/user)
 	if(Adjacent(user) || issilicon(user))
@@ -904,7 +904,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 		else if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.visible_message(SPAN_WARNING("[user.name] slashes at the [name]!"), self_message = SPAN_NOTICE("You slash at the [name]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user.name] slashes at the [name]!"), self_message = SPAN_NOTICE("You slash at the [name]!"))
 			playsound(loc, 'sound/weapons/slash.ogg', 100, 1)
 
 			var/allcut = wires.is_all_cut()
@@ -912,12 +912,12 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			if(beenhit >= pick(3, 4) && !panel_open)
 				panel_open = TRUE
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
+				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"), visible_message_flags = LOCAL_MESSAGE)
 
 			else if(panel_open && !allcut)
 				wires.cut_all()
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
+				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				beenhit += 1
 			return
@@ -930,7 +930,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 			cell = null
 			user.visible_message(SPAN_WARNING("[user.name] removes the power cell from [name]!"),\
-									self_message = SPAN_NOTICE("You remove the power cell."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You remove the power cell."))
 			charging = CHARGING_ON
 			update_icon()
 		return
@@ -1041,7 +1041,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/mob/living/carbon/human/H = user
 	if (istype(H))
 		if(H.getBrainLoss() >= 60)
-			H.visible_message(SPAN_DANGER("[H] stares cluelessly at [src]."), visible_message_flags = GHOST_MESSAGE)
+			H.visible_message(SPAN_DANGER("[H] stares cluelessly at [src]."))
 			return FALSE
 		else if(prob(H.getBrainLoss()))
 			to_chat(user, SPAN_DANGER("You momentarily forget how to use [src]."))
@@ -1183,7 +1183,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			smoke.start()
 			spark(src, 5, GLOB.alldirs)
 			visible_message(SPAN_DANGER("The [name] suddenly lets out a blast of smoke and some sparks!"), \
-							blind_message = SPAN_DANGER("You hear sizzling electronics."))
+							blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/apc/proc/last_surplus()
 	return terminal?.powernet?.last_surplus()
@@ -1394,13 +1394,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
-	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"))
+	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"), visible_message_flags = LOCAL_MESSAGE)
 	spark(src, 5, GLOB.alldirs)
 	addtimer(CALLBACK(src, PROC_REF(break_timer)), rand(2, 5))
 
 /obj/structure/machinery/power/apc/proc/break_timer()
 	visible_message(SPAN_DANGER("[src]'s screen suddenly explodes in rain of sparks and small debris!"), \
-					blind_message = SPAN_DANGER("You hear sizzling electronics."))
+					blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 	smoke.set_up(3, 0, loc)
 	smoke.attach(src)

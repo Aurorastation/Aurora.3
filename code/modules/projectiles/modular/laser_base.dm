@@ -199,8 +199,7 @@
 			user.visible_message(
 				SPAN_WARNING("[user] begins repairing \the [src]."),
 				self_message = SPAN_NOTICE("You begin repairing \the [src]."),
-				blind_message = "You hear a welding torch on metal.",
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = "You hear a welding torch on metal."
 			)
 		else
 			to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))

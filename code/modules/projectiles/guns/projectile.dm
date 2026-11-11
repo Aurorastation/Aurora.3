@@ -289,7 +289,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 				user.remove_from_mob(AM)
 				AM.forceMove(src)
 				ammo_magazine = AM
-				user.visible_message("[user] inserts [AM] into [src].", self_message = SPAN_NOTICE("You insert [AM] into [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[user] inserts [AM] into [src].", self_message = SPAN_NOTICE("You insert [AM] into [src]."))
 				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= internal_capacity)
@@ -305,7 +305,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", self_message = SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] reloads [src].", self_message = SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."))
 					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
@@ -323,7 +323,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into [src].", self_message = SPAN_NOTICE("You insert \a [C] into [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] inserts \a [C] into [src].", self_message = SPAN_NOTICE("You insert \a [C] into [src]."))
 		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()
@@ -400,7 +400,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
-			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			balloon_alert(user, SPAN_GREEN("CLEAR"))
 			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
@@ -490,9 +490,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	ejected_magazine.forceMove(get_turf(src))
 	if(user)
 		user.visible_message(
-			"[ejected_magazine] falls out and clatters on the floor!",
-			SPAN_NOTICE("[ejected_magazine] falls out and clatters on the floor!")
-			visible_message_flags = GHOST_MESSAGE
+			"[ammo_magazine] falls out and clatters on the floor!",
+			SPAN_NOTICE("[ammo_magazine] falls out and clatters on the floor!")
 			)
 	playsound(user || src, ejected_magazine.eject_sound, 40, FALSE)
 	ejected_magazine.update_icon()

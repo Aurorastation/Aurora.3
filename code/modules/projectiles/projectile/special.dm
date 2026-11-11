@@ -26,7 +26,7 @@
 				s.surge_left -= 0.5
 				if(s.surge_left)
 					H.visible_message(SPAN_WARNING("[H] was not affected by EMP pulse."),
-										self_message = SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left."), visible_message_flags = GHOST_MESSAGE)
+										self_message = SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left."))
 				else
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
@@ -42,7 +42,7 @@
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				C.surge_left -= 0.5
 				R.visible_message(SPAN_WARNING("[R] was not affected by EMP pulse."),
-									self_message = SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."))
 				if(C.surge_left)
 					to_chat(R, SPAN_NOTICE("Surge module has [C.surge_left] preventions left!"))
 				else

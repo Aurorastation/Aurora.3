@@ -101,12 +101,12 @@
 		if(mover.throwing)
 			var/chance = (handle_barrier_chance(3))
 			if(chance)
-				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"))
+				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"), visible_message_flags = LOCAL_MESSAGE)
 				if(barricade_hitsound)
 					playsound(src, barricade_hitsound, 20, 1)
 				return !density
 			else
-				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"))
+				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 		return !density
 	else
@@ -159,11 +159,11 @@
 		return
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!"))
+	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(barricade_hitsound)
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
-		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
+		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"), visible_message_flags = LOCAL_MESSAGE)
 		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	add_damage(damage)
@@ -173,7 +173,7 @@
 		var/obj/item/stack/barbed_wire/B = attacking_item
 		if(can_wire)
 			user.visible_message(SPAN_NOTICE("[user] starts setting up [attacking_item.name] on [src]."),
-			self_message = SPAN_NOTICE("You start setting up [attacking_item.name] on [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You start setting up [attacking_item.name] on [src]."))
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT) && can_wire)
 				// Make sure there's still enough wire in the stack
 				if(!B.use(1))
@@ -181,7 +181,7 @@
 
 				playsound(src.loc, 'sound/effects/barbed_wire_movement.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] sets up [attacking_item.name] on [src]."),
-				self_message = SPAN_NOTICE("You set up [attacking_item.name] on [src]."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
 
 				set_maxhealth(maxhealth + 50)
 				add_health(50)
@@ -194,13 +194,13 @@
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
-			self_message = SPAN_NOTICE("You begin removing the barbed wire on [src]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You begin removing the barbed wire on [src]."))
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT))
 				if(!is_wired)
 					return
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] removes the barbed wire on [src]."),
-				self_message = SPAN_NOTICE("You remove the barbed wire on [src]."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You remove the barbed wire on [src]."))
 				set_maxhealth(maxhealth - 50)
 				add_damage(50)
 				can_wire = TRUE
@@ -264,7 +264,7 @@
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/message = pick(I.attack_verb)
-	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
+	visible_message(SPAN_DANGER("[L] has [message] the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	L.do_attack_animation(src)
 	add_damage(I.force, I.damage_flags(), I.damtype, I.armor_penetration, I)
 
@@ -278,7 +278,7 @@
 
 /obj/structure/barricade/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!health)
-		visible_message(SPAN_DANGER("[src] falls apart!"))
+		visible_message(SPAN_DANGER("[src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 		barricade_deconstruct()
 
 /obj/structure/barricade/proc/update_damage_state()
@@ -297,11 +297,11 @@
 		return FALSE
 
 	user.visible_message(SPAN_NOTICE("[user] begins repairing damage to [src]."),
-	self_message = SPAN_NOTICE("You begin repairing the damage to [src]."), visible_message_flags = GHOST_MESSAGE)
+	self_message = SPAN_NOTICE("You begin repairing the damage to [src]."))
 
 	if(WT.use_tool(src, user, 7 SECONDS, volume = 40))
 		user.visible_message(SPAN_NOTICE("[user] repairs some damage on [src]."),
-		self_message = SPAN_NOTICE("You repair \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You repair \the [src]."))
 		add_health(200)
 
 	return TRUE

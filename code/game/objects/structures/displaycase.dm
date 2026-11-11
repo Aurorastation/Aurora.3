@@ -67,7 +67,7 @@
 
 		var/obj/item/card/id/ID = attacking_item
 		if(check_access(ID))
-			user.visible_message("<b>[user]</b> presses their ID against \the [src], [open ? "closing" : "opening"] it.", self_message = SPAN_NOTICE("You press your ID against \the [src], [open ? "closing" : "opening"] it."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> presses their ID against \the [src], [open ? "closing" : "opening"] it.", self_message = SPAN_NOTICE("You press your ID against \the [src], [open ? "closing" : "opening"] it."))
 			open = !open
 			update_icon()
 
@@ -105,7 +105,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You peer inside \the [src], noticing it has nothing inside."))
 		else
-			user.visible_message("<b>[user]</b> kicks \the [src].", self_message = SPAN_WARNING("You kick \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>[user]</b> kicks \the [src].", self_message = SPAN_WARNING("You kick \the [src]."))
 			user.do_attack_animation(src)
 			playsound(src, 'sound/effects/glass_hit.ogg', 50, 1)
 			add_damage(3)

@@ -99,7 +99,7 @@
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
 			if(!(H.species.flags & NO_BREATHE))
-				H.visible_message("<b>[H]</b> gasps for air!", visible_message_flags = GHOST_MESSAGE)
+				H.visible_message("<b>[H]</b> gasps for air!")
 				H.losebreath += 5
 			return TRUE
 

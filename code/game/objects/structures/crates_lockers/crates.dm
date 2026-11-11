@@ -199,7 +199,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is too heavy for you to lift."))
 		return FALSE
 
-	user.visible_message(SPAN_NOTICE("\The [user] braces and starts lifting \the [src]..."), self_message = SPAN_NOTICE("You brace and start lifting \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] braces and starts lifting \the [src]..."), self_message = SPAN_NOTICE("You brace and start lifting \the [src]..."))
 	if(!do_after(user, 1 SECOND, src, DO_UNIQUE))
 		return FALSE
 	if(!user.Adjacent(src) || !isturf(loc) || opened || anchored || user.get_active_hand() || user.get_inactive_hand())
@@ -214,7 +214,7 @@
 		qdel(carrier)
 		return FALSE
 	carrier.wield(user)
-	user.visible_message(SPAN_NOTICE("\The [user] lifts \the [src]."), self_message = SPAN_NOTICE("You lift \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] lifts \the [src]."), self_message = SPAN_NOTICE("You lift \the [src]."))
 	return TRUE
 
 /// Temporary item representation used while an existing crate is carried in both hands.
@@ -309,7 +309,7 @@
 		timeneeded = 0
 		return TRUE
 	if (timeneeded > 0)
-		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", self_message = "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] starts hoisting \the [src] onto \the [table].", self_message = "You start hoisting \the [src] onto \the [table]. This will take about [timeneeded * 0.1] seconds.")
 		user.face_atom(src)
 		if (!do_after(user, timeneeded, src))
 			return FALSE
@@ -319,7 +319,7 @@
 			var/loudness = "thunk."
 			if(timeneeded * 0.1 > 10)
 				loudness = "loud THUNK!"
-			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", blind_message = "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", blind_message = "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 
 /*

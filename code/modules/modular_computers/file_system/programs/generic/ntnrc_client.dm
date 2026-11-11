@@ -225,7 +225,7 @@
 		var/message = params["message"]
 		if(istype(conv) && message)
 			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)
 		. = TRUE
 
@@ -234,7 +234,7 @@
 		var/datum/ntnet_conversation/conv = locate(params["focus"])
 		if(istype(conv))
 			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.", visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			if(focused_conv == conv)
 				focused_conv = null
 			else
@@ -337,7 +337,7 @@
 	if(href_list["Reply"])
 		var/mob/living/user = usr
 		if(ishuman(user))
-			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
 		var/message = tgui_input_text(user, "Enter a message or leave blank to cancel.", "Chat Client")
 		if(istype(conv) && message)

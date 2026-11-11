@@ -122,17 +122,17 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"))
 			computer.toggle_service("flashlight", src)
 
 		if(I_DISARM)
-			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"))
 			M.do_attack_animation(src)
 			close_up()
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, DAMAGE_BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
 
@@ -337,7 +337,7 @@
 					affecting.take_damage(rand(30,50))
 					affecting.implants -= card
 					if(loud)
-						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"), visible_message_flags = GHOST_MESSAGE)
+						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
 					break
 		holder.drop_from_inventory(card)
 
@@ -350,7 +350,7 @@
 
 	var/turf/T = get_turf(src)
 	if(loud && istype(T))
-		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
+		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	canmove = TRUE
 	resting = FALSE
@@ -443,21 +443,21 @@
 				adjustFireLoss(-50)
 				updatehealth()
 				N.use(1)
-				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", self_message = SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> applies some [N] at [src]'s damaged areas.", self_message = SPAN_NOTICE("You apply some [N] at [src]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [src]'s systems are nominal."))
 		return
 
 	if(attacking_item.force)
-		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [attacking_item]!"))
 		src.adjustBruteLoss(attacking_item.force)
 		src.updatehealth()
 	else
-		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [attacking_item]."))
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
-	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."))
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
@@ -470,7 +470,7 @@
 
 	var/turf/T = get_turf(src)
 	if(istype(T))
-		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
+		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.", visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 
 	src.stop_pulling()

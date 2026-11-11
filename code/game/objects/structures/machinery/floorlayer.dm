@@ -45,14 +45,14 @@
 
 /obj/structure/machinery/floorlayer/attack_hand(mob/user)
 	on = !on
-	user.visible_message("<b>[user]</b> has [!on ? "de" : ""]activated \the [src].", self_message = SPAN_NOTICE("You [!on ? "de" : ""]activate \the [src]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> has [!on ? "de" : ""]activated \the [src].", self_message = SPAN_NOTICE("You [!on ? "de" : ""]activate \the [src]."))
 
 /obj/structure/machinery/floorlayer/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/m = tgui_input_list(user, "Choose work mode", "Mode", mode)
 		mode[m] = !mode[m]
 		var/O = mode[m]
-		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", self_message = SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", self_message = SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
 		return TRUE
 
 	if(istype(attacking_item, /obj/item/stack/tile))

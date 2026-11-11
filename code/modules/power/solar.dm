@@ -58,14 +58,14 @@
 
 	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message(SPAN_NOTICE("[user] takes the glass off the solar panel."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] takes the glass off the solar panel."))
 			qdel(src)
 		return
 	else if (attacking_item)
@@ -213,13 +213,13 @@
 	if(!anchored && isturf(loc))
 		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			anchored = 1
-			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."))
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 	else
 		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			anchored = 0
-			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."))
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 
@@ -230,7 +230,7 @@
 				if(S.use(2))
 					glass_type = attacking_item.type
 					playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-					user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
 					if(tracker)
 						new /obj/structure/machinery/power/tracker(get_turf(src), src)
 					else
@@ -245,13 +245,13 @@
 			tracker = 1
 			user.drop_from_inventory(attacking_item, get_turf(src))
 			qdel(attacking_item)
-			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."))
 			return 1
 	else
 		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			new /obj/item/tracker_electronics(src.loc)
 			tracker = 0
-			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."))
 			return 1
 	..()
 

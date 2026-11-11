@@ -48,9 +48,9 @@
 		if(!user.unEquip(attacking_item, 0, src))
 			return
 		if(cur_assembly)
-			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."))
+			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."))
+			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(cur_assembly)
 			cur_assembly.dropInto(loc)
 			user.put_in_hands(cur_assembly)
@@ -64,9 +64,9 @@
 		anchored = !anchored
 		playsound(src.loc, 'sound/items/Welder.ogg', 75, 1)
 		if(anchored)
-			user.visible_message("\The [user] secures \the [src] to the floor.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("\The [user] secures \the [src] to the floor.")
 		else
-			user.visible_message("\The [user] unsecures \the [src] from the floor.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("\The [user] unsecures \the [src] from the floor.")
 		return
 
 	return ..()
@@ -88,7 +88,7 @@
 				return TRUE
 		cur_assembly.dropInto(loc)
 		user.put_in_hands(cur_assembly)
-		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		cur_assembly = null
 		return TRUE
 	else

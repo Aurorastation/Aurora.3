@@ -36,7 +36,7 @@
 	var/turf/found_turf = null			//Our destination, if one is found.
 	var/i = maximum_distance
 
-	visible_message(SPAN_NOTICE("[user] rests a hand on \the [hit_atom]."))
+	visible_message(SPAN_NOTICE("[user] rests a hand on \the [hit_atom]."), visible_message_flags = LOCAL_MESSAGE)
 	busy = TRUE
 
 	spark(our_turf, 3, GLOB.cardinals)
@@ -61,7 +61,7 @@
 			to_chat(user, SPAN_WARNING("You need to stand still in order to phase through \the [hit_atom]."))
 			return FALSE
 		if(!user.incapacitated())
-			visible_message(SPAN_WARNING("[user] appears to phase through \the [hit_atom]!"))
+			visible_message(SPAN_WARNING("[user] appears to phase through \the [hit_atom]!"), visible_message_flags = LOCAL_MESSAGE)
 			to_chat(user, SPAN_NOTICE("You find a destination on the other side of \the [hit_atom], and phase through it."))
 			spark(src, 5, 0)
 			user.forceMove(found_turf)

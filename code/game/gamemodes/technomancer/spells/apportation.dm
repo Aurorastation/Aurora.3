@@ -37,12 +37,12 @@
 
 			spark(I, 5, GLOB.cardinals)
 			spark(user, 5, GLOB.cardinals)
-			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"))
+			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"), visible_message_flags = LOCAL_MESSAGE)
 			I.forceMove(get_turf(user))
 			user.drop_item(src)
 			src.loc = null
 			user.put_in_hands(I)
-			user.visible_message(SPAN_NOTICE("\A [I] appears in \the [user]'s hand!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\A [I] appears in \the [user]'s hand!"))
 			log_and_message_admins("has stolen [I] with [src].")
 			qdel(src)
 		//Now let's try to teleport a living mob.
@@ -65,7 +65,7 @@
 	if(!G)
 		return
 
-	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
 	user.drop_item(src)
 	user.put_in_hands(G)
 	playsound(loc, SFX_GRAB, 50, FALSE, -1)

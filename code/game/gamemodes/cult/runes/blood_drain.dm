@@ -46,5 +46,5 @@
 		interrupt()
 
 /datum/rune/blood_drain/proc/interrupt()
-	parent.visible_message(SPAN_CULT("\The [parent] suddenly disappears, the incantation broken!"), visible_message_flags = (ismob(parent) ? GHOST_MESSAGE : NONE))
+	parent.visible_message(SPAN_CULT("\The [parent] suddenly disappears, the incantation broken!"), visible_message_flags = (ismob(parent) ? NONE : LOCAL_MESSAGE))
 	qdel(parent)

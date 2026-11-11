@@ -198,7 +198,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	if ((user.mutations & HULK) || (prob(75 - metal * 25)))
-		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), self_message = SPAN_NOTICE("You smash through the metal foam wall."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), self_message = SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
@@ -212,7 +212,7 @@
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
 			return TRUE
 		G.affecting.forceMove(src.loc)
-		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
+		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."), visible_message_flags = LOCAL_MESSAGE)
 		G.affecting.take_overall_damage(15)
 		qdel(attacking_item)
 		qdel(src)
@@ -230,7 +230,7 @@
 		if(M.integrity < 50)
 			to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
 			return TRUE
-		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", self_message = SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> starts slotting material into \the [src]...", self_message = SPAN_NOTICE("You start slotting material into \the [src], forming it into a wall..."))
 		if(!do_after(user, 10 SECONDS) || !S.use(4))
 			return TRUE
 		var/turf/Tsrc = get_turf(src)
@@ -256,7 +256,7 @@
 
 	user.do_attack_animation(src, used_item = attacking_item)
 	if(prob(attacking_item.force * 20 - metal * 25))
-		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), self_message = SPAN_NOTICE("You smash through the foamed metal with \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), self_message = SPAN_NOTICE("You smash through the foamed metal with \the [attacking_item]."))
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))

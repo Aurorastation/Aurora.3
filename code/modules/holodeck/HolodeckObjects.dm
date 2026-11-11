@@ -193,7 +193,7 @@
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message("[src] fades away as it shatters!")
+		visible_message("[src] fades away as it shatters!", visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 	return
 
@@ -211,7 +211,7 @@
 	if(src.density && istype(attacking_item, /obj/item) && !istype(attacking_item, /obj/item/card))
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			add_damage(aforce)
 		return
@@ -235,7 +235,7 @@
 	density = FALSE
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message(SPAN_WARNING("[src] fades away as it shatters!"))
+		visible_message(SPAN_WARNING("[src] fades away as it shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	. = ..()
 
 /obj/structure/bed/stool/chair/holochair
@@ -279,7 +279,7 @@
 
 /obj/item/holo/esword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
@@ -343,7 +343,7 @@
 
 /obj/item/holo/practicesword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
 		return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT
@@ -380,12 +380,12 @@
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
-		visible_message(SPAN_WARNING("[G.assailant] dunks [G.affecting] into the [src]!"), vision_distance = 3)
+		visible_message(SPAN_WARNING("[G.assailant] dunks [G.affecting] into the [src]!"), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		qdel(attacking_item)
 		return
 	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(attacking_item, get_turf(src))
-		visible_message(SPAN_NOTICE("[user] dunks [attacking_item] into the [src]!"), vision_distance = 3)
+		visible_message(SPAN_NOTICE("[user] dunks [attacking_item] into the [src]!"), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -395,9 +395,9 @@
 			return
 		if(prob(50))
 			I.forceMove(src.loc)
-			visible_message(SPAN_NOTICE("Swish! \the [I] lands in \the [src]."), vision_distance = 3)
+			visible_message(SPAN_NOTICE("Swish! \the [I] lands in \the [src]."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), vision_distance = 3)
+			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		return 0
 	else
 		return ..()

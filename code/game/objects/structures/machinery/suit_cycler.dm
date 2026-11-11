@@ -180,12 +180,12 @@
 		to_chat(user, SPAN_WARNING("There's no space in \the [src] for you!"))
 		return
 
-	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", self_message = SPAN_NOTICE("You start climbing into \the [src]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", self_message = SPAN_NOTICE("You start climbing into \the [src]..."), vision_distance = 3)
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		user.visible_message("<b>\The [user]</b> climbs into \the [src].", self_message = SPAN_NOTICE("You climb into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> climbs into \the [src].", self_message = SPAN_NOTICE("You climb into \the [src]."), vision_distance = 3)
 		M.forceMove(src)
 		occupant = M
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -227,7 +227,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 
-		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", self_message = SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", self_message = SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), vision_distance = 3)
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting)
 				return
@@ -235,7 +235,7 @@
 			if(M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
-			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", self_message = SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), vision_distance = 3, visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", self_message = SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), vision_distance = 3)
 			M.forceMove(src)
 			occupant = M
 			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -510,7 +510,7 @@
 		occupant.apply_damage(radiation_level * 10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/structure/machinery/suit_cycler/proc/finished_job()
-	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 	active = FALSE

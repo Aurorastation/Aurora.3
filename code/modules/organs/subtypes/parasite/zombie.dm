@@ -82,7 +82,7 @@
 					if(owner.species.zombie_type)
 						for(var/datum/language/L in owner.languages)
 							owner.remove_language(L.name)
-						owner.visible_message(SPAN_DANGER("<font size=4>[owner] falls to the ground and begins convulsing, their flesh turning green and rotting!</font>"), visible_message_flags = GHOST_MESSAGE)
+						owner.visible_message(SPAN_DANGER("<font size=4>[owner] falls to the ground and begins convulsing, their flesh turning green and rotting!</font>"))
 						owner.seizure(FALSE, 5, 10, FALSE)
 						addtimer(CALLBACK(src, PROC_REF(turn_into_zombie)), 5 SECONDS, TIMER_UNIQUE)
 					else
@@ -98,11 +98,11 @@
 				var/healed = FALSE
 				if(O.status & ORGAN_ARTERY_CUT)
 					O.status &= ~ORGAN_ARTERY_CUT
-					owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."), visible_message_flags = GHOST_MESSAGE)
+					owner.visible_message(SPAN_WARNING("The severed artery in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed artery in your [O] stitches itself back together..."))
 					healed = TRUE
 				else if((O.tendon_status() & TENDON_CUT) && O.tendon.can_recover())
 					O.tendon.rejuvenate()
-					owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."), visible_message_flags = GHOST_MESSAGE)
+					owner.visible_message(SPAN_WARNING("The severed tendon in \the [owner]'s [O] stitches itself back together..."), self_message = SPAN_NOTICE("The severed tendon in your [O] stitches itself back together..."))
 					healed = TRUE
 				else if(O.status & ORGAN_BROKEN)
 					var/list/brute_wounds = list()
@@ -114,7 +114,7 @@
 						var/datum/wound/W = wound
 						W.damage = max(min(W.damage, (O.min_broken_damage / length(brute_wounds))), 0)
 					O.status &= ~ORGAN_BROKEN
-					owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), self_message = SPAN_NOTICE("The shattered bone in your [O] melds back together..."), visible_message_flags = GHOST_MESSAGE)
+					owner.visible_message(SPAN_WARNING("The shattered bone in \the [owner]'s [O] melds back together..."), self_message = SPAN_NOTICE("The shattered bone in your [O] melds back together..."))
 					healed = TRUE
 				if(healed)
 					last_heal = world.time

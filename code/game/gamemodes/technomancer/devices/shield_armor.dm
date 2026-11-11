@@ -68,7 +68,7 @@
 			P.agony -= agony_blocked
 		P.damage = P.damage - damage_blocked
 
-	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"))
 	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
 	spark(src, 5, GLOB.cardinals)

@@ -32,17 +32,17 @@
 
 /singleton/surgery_step/generic/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s face with \the [tool].", \
-		self_message = "You start to retract [target]'s face with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to retract [target]'s face with \the [tool].")
 	..()
 
 /singleton/surgery_step/generic/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has retracted [target]'s face with \the [tool] for his facial alteration." , \
-		self_message = SPAN_NOTICE("You have retracted [target]'s face and neck with \the [tool] for plastic surgery."), visible_message_flags = GHOST_MESSAGE,)
+		self_message = SPAN_NOTICE("You have retracted [target]'s face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = FACE_RETRACTED
 
 /singleton/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
@@ -64,7 +64,7 @@
 
 /singleton/surgery_step/generic/alter_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to adjust [target]'s face with \the [tool].", \
-		self_message = SPAN_NOTICE("You start to alter [target]'s face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start to alter [target]'s face and neck with \the [tool]."))
 	..()
 
 /singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -73,7 +73,7 @@
 		head.disfigured = FALSE
 		target.mutations &= ~HUSK
 		target.update_body()
-		user.visible_message("<b>[user]</b> finishes adjusting the skin [target]'s face.", self_message = SPAN_NOTICE("You successfully restore [target]'s appearance."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> finishes adjusting the skin [target]'s face.", self_message = SPAN_NOTICE("You successfully restore [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)
@@ -88,7 +88,7 @@
 
 /singleton/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, DAMAGE_OXY)
 	target.losebreath += 10
@@ -111,13 +111,13 @@
 
 /singleton/surgery_step/face/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to cauterize the incision on [target]'s face and neck with \the [tool]." , \
-		self_message = "You are beginning to cauterize the incision on [target]'s face and neck with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You are beginning to cauterize the incision on [target]'s face and neck with \the [tool].")
 	..()
 
 /singleton/surgery_step/face/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> cauterizes the incision on [target]'s face and neck with \the [tool].", \
-		self_message = SPAN_NOTICE("You cauterize the incision on [target]'s face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You cauterize the incision on [target]'s face and neck with \the [tool]."))
 	affected.open = ORGAN_CLOSED
 	affected.status &= ~ORGAN_BLEEDING
 	if(target.op_stage.face == 3)
@@ -128,7 +128,7 @@
 /singleton/surgery_step/face/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"))
 	target.apply_damage(5, DAMAGE_BURN, affected)
 
 /singleton/surgery_step/robotics/face
@@ -161,8 +161,7 @@
 /singleton/surgery_step/robotics/face/reconstruct_chassis/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
 		SPAN_NOTICE("[user] begins reshaping a steel sheet to reconstruct [target]'s mangled face plating."),
-		self_message = SPAN_NOTICE("You begin reshaping a steel sheet to reconstruct [target]'s mangled face plating."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin reshaping a steel sheet to reconstruct [target]'s mangled face plating.")
 	)
 	..()
 
@@ -177,15 +176,13 @@
 	target.update_body()
 	user.visible_message(
 		SPAN_NOTICE("[user] finishes reconstructing [target]'s faceplate."),
-		self_message = SPAN_NOTICE("You successfully reconstruct [target]'s faceplate."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You successfully reconstruct [target]'s faceplate.")
 	)
 
 /singleton/surgery_step/robotics/face/reconstruct_chassis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
 		SPAN_WARNING("[user] fails to properly shape the replacement plating for [target]'s faceplate."),
-		self_message = SPAN_WARNING("You fail to properly shape the replacement facial plating."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You fail to properly shape the replacement facial plating.")
 	)
 
 /singleton/surgery_step/robotics/face/synthskinopen
@@ -204,17 +201,17 @@
 
 /singleton/surgery_step/robotics/face/synthskinopen/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
-		self_message = "You start to cut open [target]'s synthskin face and neck with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to cut open [target]'s synthskin face and neck with \the [tool].")
 	..()
 
 /singleton/surgery_step/robotics/face/synthskinopen/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
-		self_message = SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE,)
+		self_message = SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."),)
 	target.op_stage.face = FACE_CUT_OPEN
 
 /singleton/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/prepare_face
@@ -232,17 +229,17 @@
 
 /singleton/surgery_step/robotics/face/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to retract [target]'s synthskin face with \the [tool].", \
-		self_message = "You start to retract [target]'s face with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to retract [target]'s face with \the [tool].")
 	..()
 
 /singleton/surgery_step/robotics/face/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has retracted [target]'s synthskin face with \the [tool] for thier facial alteration." , \
-		self_message = SPAN_NOTICE("You have retracted [target]'s synthskin face and neck with \the [tool] for plastic surgery."), visible_message_flags = GHOST_MESSAGE,)
+		self_message = SPAN_NOTICE("You have retracted [target]'s synthskin face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = FACE_RETRACTED
 
 /singleton/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/alter_synthface
@@ -261,7 +258,7 @@
 
 /singleton/surgery_step/robotics/face/alter_synthface/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to alter [target]'s synthskin face with \the [tool].", \
-		self_message = SPAN_NOTICE("You start to alter [target]'s synthskin face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start to alter [target]'s synthskin face and neck with \the [tool]."))
 	..()
 
 /singleton/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -271,7 +268,7 @@
 		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting [target]'s synthetic face.", \
-								self_message = SPAN_NOTICE("You successfully adjust [target]'s appearance."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You successfully adjust [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)
@@ -286,7 +283,7 @@
 
 /singleton/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!"), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/robotics/face/seal_face
@@ -306,13 +303,13 @@
 
 /singleton/surgery_step/robotics/face/seal_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to seal the incision on [target]'s synthskin face and neck with \the [tool]." , \
-		self_message = "You are beginning to seal the incision on [target]'s synthskin face and neck with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You are beginning to seal the incision on [target]'s synthskin face and neck with \the [tool].")
 	..()
 
 /singleton/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_NOTICE("[user] seals the incision on [target]'s synthskin face and neck with \the [tool]."), \
-		self_message = SPAN_NOTICE("You seal the incision on [target]'s synthskin face and neck with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You seal the incision on [target]'s synthskin face and neck with \the [tool]."))
 	affected.open = ORGAN_CLOSED
 	if(target.op_stage.face == FACE_ALTERED)
 		var/obj/item/organ/external/head/h = affected
@@ -322,5 +319,5 @@
 /singleton/surgery_step/robotics/face/seal_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), \
-		self_message = SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"))
 	target.apply_damage(5, DAMAGE_BURN, affected)

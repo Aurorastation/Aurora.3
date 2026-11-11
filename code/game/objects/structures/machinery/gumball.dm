@@ -74,7 +74,7 @@
 			to_chat(user, SPAN_WARNING("You don't think this is enough to buy what you want from this."))
 			return TRUE
 		else
-			visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."))
+			visible_message(SPAN_INFO("\The [user] inserts a bill into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			var/changeleftover = credit_value - gumprice
 			user.drop_from_inventory(C,get_turf(src))
 			buygumball()
@@ -88,7 +88,7 @@
 		if(prob(25))
 			smashgumball()
 		else
-			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [attacking_item]."))
+			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 
 
@@ -105,7 +105,7 @@
 		var/amountleftinside = amountleft
 		for(var/i = 1; i<=amountleftinside; i++)
 			new vendingtype(src.loc)
-		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", blind_message = "You hear glass shatter!")
+		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", blind_message = "You hear glass shatter!", visible_message_flags = LOCAL_MESSAGE)
 	stat |= BROKEN
 	anchored = FALSE
 	broken = TRUE

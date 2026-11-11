@@ -62,7 +62,7 @@
 		message += " [add_text]"
 	if(blind_add_text != "")
 		blind_message += " [blind_add_text]"
-	user.visible_message(message, self_message = blind_message, visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(message, self_message = blind_message)
 
 /obj/item/paper/business_card/show_content(mob/user, forceshow)
 	var/datum/browser/paper_win = new(user, name, null, 525, 300, null, TRUE)

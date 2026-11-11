@@ -387,13 +387,13 @@
 			open_hatch = 1
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] opens the maintenance hatch of \the [src]."), self_message = \
-				SPAN_NOTICE("You open the maintenance hatch of \the [src]."), vision_distance = 4, visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You open the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 		else
 			open_hatch = 0
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] closes the maintenance hatch of \the [src]."), self_message = \
-				SPAN_NOTICE("You close the maintenance hatch of \the [src]."), vision_distance = 4, visible_message_flags = GHOST_MESSAGE)
+				SPAN_NOTICE("You close the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 
 	if (!open_hatch)
@@ -414,7 +414,7 @@
 		CC.use(10)
 		user.visible_message(\
 			SPAN_NOTICE("[user.name] has added cables to the [src]."), self_message = \
-			SPAN_NOTICE("You added cables to the [src]."), visible_message_flags = GHOST_MESSAGE)
+			SPAN_NOTICE("You added cables to the [src]."))
 		terminal.connect_to_network()
 		stat = 0
 		return 0
@@ -436,7 +436,7 @@
 					new /obj/item/stack/cable_coil(loc,10)
 					user.visible_message(\
 						SPAN_NOTICE("[user.name] cut the cables and dismantled the power terminal."), self_message = \
-						SPAN_NOTICE("You cut the cables and dismantle the power terminal."), visible_message_flags = GHOST_MESSAGE)
+						SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 					qdel(terminal)
 		building_terminal = 0
 		return 0

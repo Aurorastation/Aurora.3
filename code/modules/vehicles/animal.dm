@@ -84,7 +84,7 @@
 		unload(load)
 		to_chat(user, "You unbuckle yourself from \the [src]")
 	if(user != load && load)
-		user.visible_message("[user] starts to unbuckle [load] from \the [src]!", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
@@ -147,14 +147,14 @@
 				if(V.buckled)
 					if(ishuman(V.buckled))
 						var/mob/living/carbon/human/I = V.buckled
-						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"), visible_message_flags = GHOST_MESSAGE)
+						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
 				if(prob(25))
 					if(ishuman(buckled))
 						var/mob/living/carbon/human/C = buckled
-						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"))
 						unload(C)
 						C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 						C.apply_effect(2, WEAKEN)
@@ -165,7 +165,7 @@
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, SFX_SWING_HIT, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
@@ -175,7 +175,7 @@
 
 			else
 				var/mob/living/L = AM
-				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, SFX_SWING_HIT, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, DAMAGE_BRUTE)
@@ -260,12 +260,12 @@
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-		src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
+		src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 		H.apply_damage(40, DAMAGE_BRUTE)
 		if(H.species.mob_size < 16)
 			playsound(M, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-			src.visible_message(SPAN_DANGER("\The [src] slams into \the [H], sending them flying!"))
+			src.visible_message(SPAN_DANGER("\The [src] slams into \the [H], sending them flying!"), visible_message_flags = LOCAL_MESSAGE)
 			var/turf/target_turf = get_ranged_target_turf(H, M.dir, 4)
 			H.throw_at(target_turf, 4, 1, src)
 			H.apply_effect(4, WEAKEN)
@@ -284,14 +284,14 @@
 				if(V.buckled)
 					if(ishuman(V.buckled))
 						var/mob/living/carbon/human/I = V.buckled
-						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"), visible_message_flags = GHOST_MESSAGE)
+						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
 				if(prob(25))
 					if(ishuman(buckled))
 						var/mob/living/carbon/human/C = buckled
-						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+						C.visible_message(SPAN_DANGER ("\The [C] falls off from \the [src]!"))
 						unload(C)
 						C.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 						C.apply_effect(2, WEAKEN)
@@ -301,12 +301,12 @@
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-				src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
+				src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 				H.apply_damage(40, DAMAGE_BRUTE)
 				if(H.species.mob_size < 16)
 					playsound(M, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-					src.visible_message(SPAN_DANGER("\The [src] slams into \the [H], sending them flying!"))
+					src.visible_message(SPAN_DANGER("\The [src] slams into \the [H], sending them flying!"), visible_message_flags = LOCAL_MESSAGE)
 					var/turf/target_turf = get_ranged_target_turf(H, M.dir, 4)
 					H.throw_at(target_turf, 4, 1, src)
 					H.apply_effect(4, WEAKEN)
@@ -315,7 +315,7 @@
 
 			else
 				var/mob/living/L = AM
-				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(40, DAMAGE_BRUTE)

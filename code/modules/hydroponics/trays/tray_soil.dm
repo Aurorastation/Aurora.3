@@ -25,7 +25,7 @@
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
-					user.visible_message("[user] pours [amountToRemove]u of water into the soil.",self_message = " You pour [amountToRemove]u of water into the soil.", visible_message_flags = GHOST_MESSAGE)
+					user.visible_message("[user] pours [amountToRemove]u of water into the soil.",self_message = " You pour [amountToRemove]u of water into the soil.")
 					playsound(src, SFX_POUR, 25, 1)
 				else
 					to_chat(user, "The soil is saturated with water already.")

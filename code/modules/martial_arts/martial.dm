@@ -85,7 +85,7 @@
 	if(!attack_message)
 		attack.show_attack(A, D, hit_zone, rand_damage)
 	else
-		D.visible_message(SPAN_DANGER("[attack_message]"), visible_message_flags = GHOST_MESSAGE)
+		D.visible_message(SPAN_DANGER("[attack_message]"))
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>"
@@ -165,7 +165,7 @@
 
 /datum/martial_art/proc/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
 	if(A.a_intent == I_DISARM)
-		A.visible_message("[SPAN_BOLD("\The [A]")] [D.response_disarm] \the [D]", visible_message_flags = GHOST_MESSAGE)
+		A.visible_message("[SPAN_BOLD("\The [A]")] [D.response_disarm] \the [D]")
 		A.do_attack_animation(D, ATTACK_EFFECT_DISARM)
 		D.poke(1)
 		D.handle_attack_by(A)

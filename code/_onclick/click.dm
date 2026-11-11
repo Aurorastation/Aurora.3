@@ -393,7 +393,7 @@
 /mob/living/LaserEyes(atom/A, params)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
 	fire_projectile(/obj/projectile/beam, T, 'sound/weapons/wave.ogg', firer = src)
 	return TRUE
 

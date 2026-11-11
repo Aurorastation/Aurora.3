@@ -300,7 +300,7 @@ and some alternative things that are toxic to other life, such as radium and mut
 			diona_regen_progress(DS)
 
 			visible_message(SPAN_WARNING("[src] begins to shift and quiver."),
-				self_message = SPAN_WARNING("You begin to shift and quiver, feeling a stirring within your trunk."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_WARNING("You begin to shift and quiver, feeling a stirring within your trunk."))
 
 			DS.regening_organ = TRUE
 			to_chat(src, SPAN_NOTICE("You are trying to regrow a lost limb, this is a long and complicated process!"))
@@ -418,7 +418,7 @@ and some alternative things that are toxic to other life, such as radium and mut
 
 	our_organ.replaced(src)
 	visible_message(SPAN_WARNING("With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [our_organ]."),
-		self_message = SPAN_WARNING("With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [our_organ]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [our_organ]."))
 	blood_splatter(get_turf(src), src, TRUE)
 	regenerate_icons()
 
@@ -640,7 +640,7 @@ Most of these values are calculated from information configured at authortime in
 	return ..()
 
 /datum/dionastats/proc/do_blood_suck(var/mob/living/carbon/user, var/mob/living/carbon/human/H)
-	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), self_message = SPAN_DANGER("You start biting \the [H], you both must stay still!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("[user] is trying to bite [H.name]."), self_message = SPAN_DANGER("You start biting \the [H], you both must stay still!"))
 	user.face_atom(get_turf(H))
 	if(do_mob(user, H, 40, needhand = FALSE))
 		var/remove_amount = H.species.blood_volume * 0.05
@@ -654,7 +654,7 @@ Most of these values are calculated from information configured at authortime in
 			newDNA = md5("[REF(H)]")
 
 		H.adjustBruteLoss(4)
-		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , self_message = SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] sucks some blood from \the [H].") , self_message = SPAN_NOTICE("You extract a delicious mouthful of blood from \the [H]!"))
 		to_chat(H, SPAN_NOTICE("You feel some liquid being injected at the bite site."))
 		H.reagents.add_reagent(/singleton/reagent/mortaphenyl/aphrodite, 5)
 		if(H.client)

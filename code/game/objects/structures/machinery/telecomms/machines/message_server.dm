@@ -151,9 +151,9 @@
 		if(!Console.silent)
 			playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			if(priority >= 2)
-				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY [category_label] from [sender]'", deaf_message = 5)
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY [category_label] from [sender]'", deaf_message = 5, audible_message_flags = LOCAL_MESSAGE)
 			else
-				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: '[category_label] from [sender]'", deaf_message = 4)
+				Console.audible_message("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: '[category_label] from [sender]'", deaf_message = 4, audible_message_flags = LOCAL_MESSAGE)
 		var/notification_text = priority >= 2 ? "A high priority [lowertext(category_label)] has arrived!" : "A new [lowertext(category_label)] has arrived!"
 		for(var/datum/weakref/ref in Console.alert_pdas)
 			var/obj/item/modular_computer/pda = ref.resolve()

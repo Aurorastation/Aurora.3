@@ -37,7 +37,7 @@
 		return
 
 	if(user != H && H.a_intent != "help" && !H.lying)
-		user.visible_message(SPAN_DANGER("\The [user] tries to take a swab sample from \the [H], but they move away."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [user] tries to take a swab sample from \the [H], but they move away."))
 		return
 
 	if(target_zone == BP_MOUTH)
@@ -50,7 +50,7 @@
 		if(H.wear_mask)
 			to_chat(user, SPAN_WARNING("\The [H] is wearing a mask."))
 			return
-		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)
 		sample_type = "DNA"
 
@@ -71,13 +71,13 @@
 			if(!LAZYLEN(B.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s [B]."))
 				return
-			user.visible_message("[user] swabs [H]'s [B] for a sample.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("[user] swabs [H]'s [B] for a sample.")
 			LAZYADD(gsr, B.gunshot_residue)
 		else
 			if(!LAZYLEN(H.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s palms."))
 				return
-			user.visible_message("[user] swabs [H]'s palm for a sample.", visible_message_flags = GHOST_MESSAGE)
+			user.visible_message("[user] swabs [H]'s palm for a sample.")
 			LAZYADD(gsr, H.gunshot_residue)
 		sample_type = "GSR"
 	else
@@ -154,7 +154,7 @@
 			sample_message = additional_evidence["sample_message"]
 
 	if(sample_type)
-		user.visible_message("\The [user] swabs \the [A] for a sample.", self_message = sample_message || "You swab \the [A] for a sample.", visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("\The [user] swabs \the [A] for a sample.", self_message = sample_message || "You swab \the [A] for a sample.")
 		set_used(sample_type, A)
 
 /obj/item/forensics/swab/proc/set_used(var/sample_str, var/atom/source)

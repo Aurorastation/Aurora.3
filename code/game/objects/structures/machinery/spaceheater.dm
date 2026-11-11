@@ -96,7 +96,7 @@
 				cell = attacking_item
 				attacking_item.add_fingerprint(user)
 				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
-				blind_message = SPAN_NOTICE("You insert \the [cell] into [src]."))
+				blind_message = SPAN_NOTICE("You insert \the [cell] into [src]."), visible_message_flags = LOCAL_MESSAGE)
 				power_change()
 		else
 			balloon_alert("hatch still closed!")
@@ -114,7 +114,7 @@
 	if(panel_open)
 		if(cell)
 			user.visible_message(SPAN_NOTICE("\The [user] removes a power cell from \the [src]."),
-				self_message = SPAN_NOTICE("You remove \the [cell] from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)
 			cell.add_fingerprint(user)

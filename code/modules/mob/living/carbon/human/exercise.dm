@@ -27,14 +27,14 @@ Exercise Verbs
 		return
 
 	set_face_dir(WEST)
-	visible_message(SPAN_NOTICE("[src] gets down and prepares to do some pushups."), self_message = SPAN_NOTICE("You get down for some pushups."), blind_message = SPAN_NOTICE("You hear rustling."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_NOTICE("[src] gets down and prepares to do some pushups."), self_message = SPAN_NOTICE("You get down for some pushups."), blind_message = SPAN_NOTICE("You hear rustling."))
 
 	switch(tgui_alert(src, "Regular pushups or on your knees?", "Pushups", list("Regular", "On Knees")))
 		if("Regular")
-			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] hands and feet."), self_message = SPAN_NOTICE("You move your weight onto your hands and feet."), blind_message = SPAN_NOTICE("You hear rustling."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] hands and feet."), self_message = SPAN_NOTICE("You move your weight onto your hands and feet."), blind_message = SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = FALSE)
 		if("On Knees")
-			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] knees."), self_message = SPAN_NOTICE("You move your weight onto your knees."), blind_message = SPAN_NOTICE("You hear rustling."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] shifts [get_pronoun("his")] weight onto [get_pronoun("his")] knees."), self_message = SPAN_NOTICE("You move your weight onto your knees."), blind_message = SPAN_NOTICE("You hear rustling."))
 			execute_pushups(on_knees = TRUE)
 
 /mob/living/carbon/human/proc/stop_pushups()
@@ -55,18 +55,18 @@ Exercise Verbs
 			return
 		animate(src, pixel_y = target_y, time = 0.8 SECONDS, easing = QUAD_EASING) //down to the floor
 		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE, incapacitation_flags = (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_KNOCKOUT)))
-			visible_message(SPAN_NOTICE("[src] stops doing pushups."), self_message = SPAN_NOTICE("You stop doing pushups."), blind_message = SPAN_NOTICE("You hear movements."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] stops doing pushups."), self_message = SPAN_NOTICE("You stop doing pushups."), blind_message = SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()
 			return
 		animate(src, pixel_y = 0, time = 0.8 SECONDS, easing = QUAD_EASING) //back up
 		if(!lying || !do_after(src, 0.6 SECONDS, do_flags = DO_EXERCISE, incapacitation_flags = (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_PARTIALLY|INCAPACITATION_BUCKLED_FULLY|INCAPACITATION_KNOCKOUT)))
-			visible_message(SPAN_NOTICE("[src] stops doing pushups."), self_message = SPAN_NOTICE("You stop doing pushups."), blind_message = SPAN_NOTICE("You hear movements."), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_NOTICE("[src] stops doing pushups."), self_message = SPAN_NOTICE("You stop doing pushups."), blind_message = SPAN_NOTICE("You hear movements."))
 			animate(src, pixel_y = 0, time = 0.2 SECONDS, easing = QUAD_EASING)
 			stop_pushups()
 			return
 		pushups_in_a_row++
-		visible_message(SPAN_NOTICE("[src] does a pushup - [pushups_in_a_row] done so far!"), self_message = SPAN_NOTICE("You do a pushup - [pushups_in_a_row] done so far!"), blind_message = SPAN_NOTICE("You hear rustling."), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_NOTICE("[src] does a pushup - [pushups_in_a_row] done so far!"), self_message = SPAN_NOTICE("You do a pushup - [pushups_in_a_row] done so far!"), blind_message = SPAN_NOTICE("You hear rustling."))
 		species.drain_stamina(src, calculate_stamina_loss_per_pushup(on_knees))
 	to_chat(src, SPAN_WARNING("You slump down to the floor, too tired to keep going."))
 	stop_pushups()

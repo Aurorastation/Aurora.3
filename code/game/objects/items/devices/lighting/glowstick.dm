@@ -47,8 +47,7 @@
 		user.visible_message(
 			SPAN_NOTICE("\The [user] cracks and shakes \the [src]."),
 			self_message = SPAN_NOTICE("You crack and shake \the [src], turning it on!"),
-			blind_message = SPAN_NOTICE("You hear someone crack and shake a glowstick."),
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = SPAN_NOTICE("You hear someone crack and shake a glowstick.")
 		)
 
 /obj/item/flashlight/flare/glowstick/red

@@ -62,11 +62,11 @@
 
 	if(power_state >= POWER_STARTING)
 		power_state = POWER_INACTIVE
-		user.visible_message("<b>[user]</b> turns \the [src] off.", self_message = SPAN_NOTICE("You turn off \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> turns \the [src] off.", self_message = SPAN_NOTICE("You turn off \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."))
 		alldir_cleanup()
 	else
 		power_state = POWER_STARTING
-		user.visible_message("<b>[user]</b> turns \the [src] on.", self_message = SPAN_NOTICE("You turn on \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning start up."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> turns \the [src] on.", self_message = SPAN_NOTICE("You turn on \the [src]."), blind_message = SPAN_NOTICE("You hear a heavy droning start up."))
 	update_icon()
 	add_fingerprint(user)
 
@@ -120,7 +120,7 @@
 
 	if(power_state >= POWER_STARTING)
 		if(!is_powered)
-			visible_message(SPAN_WARNING("\The [src] shuts down due to a lack of power."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."))
+			visible_message(SPAN_WARNING("\The [src] shuts down due to a lack of power."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."), visible_message_flags = LOCAL_MESSAGE)
 			power_state = POWER_INACTIVE
 			update_icon()
 			alldir_cleanup()
@@ -171,7 +171,7 @@
 			add_fingerprint(user)
 			var/others_msg = anchored ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
 			var/self_msg = anchored ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
-			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(others_msg, self_message = SPAN_NOTICE(self_msg), blind_message = SPAN_NOTICE("You hear a ratcheting noise."))
 			update_icon()
 			return
 	return ..()
@@ -224,7 +224,7 @@
 
 	storedpower -= 400 * hitting_projectile.get_structure_damage()
 	if(power_state >= POWER_STARTING)
-		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [hitting_projectile] hits it!"))
+		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [hitting_projectile] hits it!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/shieldwall
 	name = "energy shield"
@@ -291,7 +291,7 @@
 			G = gen_primary
 		else
 			G = gen_secondary
-		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [hitting_projectile] impacts it!"))
+		visible_message(SPAN_WARNING("\The [src] wobbles precariously as \the [hitting_projectile] impacts it!"), visible_message_flags = LOCAL_MESSAGE)
 		G.storedpower -= 400 * hitting_projectile.get_structure_damage()
 
 /obj/shieldwall/ex_act(severity)

@@ -397,7 +397,7 @@ SUBSYSTEM_DEF(hallucinations)
 		var/chosen_emote = pick(SShallucinations.hal_emote)
 		// You are aware of it in this instance
 		if(prob(10))
-			H.visible_message("<B>[H]</B> [chosen_emote]", visible_message_flags = GHOST_MESSAGE)
+			H.visible_message("<B>[H]</B> [chosen_emote]")
 		// Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 		else
 			for(var/mob/M in oviewers(world.view, H))

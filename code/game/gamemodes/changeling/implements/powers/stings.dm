@@ -56,7 +56,7 @@
 			"[owner] erupts a grotesque tail and impales [target]!",
 			"[owner]'s chin skin bulges and tears, launching a bone-dart at [target]!"
 		)
-		owner.visible_message(SPAN_DANGER("[pick(possible_messages)]"), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_DANGER("[pick(possible_messages)]"))
 
 	feedback_add_details("changeling_powers", feedback_tag)
 

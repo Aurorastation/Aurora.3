@@ -52,8 +52,7 @@
 			set_dir(turn(user.dir,90))
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] adjusts the orientation of \the [src] horizontally."),\
-				self_message = SPAN_NOTICE("You adjust the orientation of \the [src] horizontally."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You adjust the orientation of \the [src] horizontally.") \
 			)
 	else
 		if(src.loc == user)
@@ -63,8 +62,7 @@
 			set_dir(user.dir)
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] adjusts the orientation of \the [src] vertically."),\
-				self_message = SPAN_NOTICE("You adjust the orientation of \the [src] vertically."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You adjust the orientation of \the [src] vertically.") \
 			)
 
 	update_icon()

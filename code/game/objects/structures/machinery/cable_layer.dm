@@ -27,7 +27,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded."))
 		return
 	on = !on
-	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", self_message = SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", self_message = SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 	return
 
 /obj/structure/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)
@@ -78,7 +78,7 @@
 		on = FALSE
 		reset()
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-		visible_message(SPAN_WARNING("A red light flashes on \the [src]."))
+		visible_message(SPAN_WARNING("A red light flashes on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	var/cable_color = cable.color
 	cable.use(amount)

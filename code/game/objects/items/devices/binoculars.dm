@@ -18,7 +18,7 @@
 
 /obj/item/binoculars/attack_self(mob/user)
 	if(do_after(user, 1.5 SECONDS))
-		user.visible_message(SPAN_NOTICE("[user] looks into the binoculars."), self_message = SPAN_NOTICE("You look through the binoculars."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("[user] looks into the binoculars."), self_message = SPAN_NOTICE("You look through the binoculars."))
 		zoom(user, tileoffset, viewsize, show_zoom_message = FALSE)
 
 /obj/item/binoculars/high_power

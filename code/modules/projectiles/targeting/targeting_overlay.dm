@@ -191,9 +191,9 @@
 		if(aiming_at == target)
 			return
 		cancel_aiming(TRUE)
-		owner.visible_message(SPAN_DANGER("\The [owner] turns \the [thing] on \the [target]!"), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_DANGER("\The [owner] turns \the [thing] on \the [target]!"))
 	else
-		owner.visible_message(SPAN_DANGER("\The [owner] aims \the [thing] at \the [target]!"), visible_message_flags = GHOST_MESSAGE)
+		owner.visible_message(SPAN_DANGER("\The [owner] aims \the [thing] at \the [target]!"))
 
 	if(owner.client)
 		owner.client.add_gun_icons()
@@ -255,8 +255,7 @@
 	if(!no_message)
 		owner.visible_message(
 			SPAN_NOTICE("\The [owner] lowers \the [aiming_with]."),
-			self_message = SPAN_NOTICE("You lower \the [aiming_with]."),
-			visible_message_flags = GHOST_MESSAGE
+			self_message = SPAN_NOTICE("You lower \the [aiming_with].")
 		)
 
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)

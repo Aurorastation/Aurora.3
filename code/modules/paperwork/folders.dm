@@ -186,7 +186,7 @@
 /obj/item/folder/envelope/proc/sealcheck(user)
 	var/ripperoni = tgui_alert(usr, "Are you sure you want to break the seal on \the [src]?", "Confirmation", list("Yes", "No"))
 	if(ripperoni == "Yes")
-		visible_message(SPAN_NOTICE("[user] breaks the seal on \the [src], and opens it."))
+		visible_message(SPAN_NOTICE("[user] breaks the seal on \the [src], and opens it."), visible_message_flags = LOCAL_MESSAGE)
 		sealed = FALSE
 		update_icon()
 		return TRUE

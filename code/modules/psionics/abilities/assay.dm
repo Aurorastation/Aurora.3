@@ -60,7 +60,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("[user] lays both [user.get_pronoun("his")] palms on [target]'s temples..."),
-						self_message = SPAN_NOTICE("You lay your palms on [target]'s temples and begin tracing their Nlom signature..."), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_NOTICE("You lay your palms on [target]'s temples and begin tracing their Nlom signature..."))
 	if(do_mob(user, target, 4 SECONDS))
 		var/target_psi_sensitivity = target.check_psi_sensitivity()
 

@@ -239,18 +239,18 @@
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
 			anchored = 0
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts to bolt \the [src] to the plating..."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] starts to bolt \the [src] to the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."))
 				return TRUE
-			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"))
 			anchored = 1
 		return TRUE
 	return ..()

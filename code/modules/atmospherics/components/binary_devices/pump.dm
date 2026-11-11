@@ -291,7 +291,7 @@ Thus, the two variables affect pump operation are set in New():
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			self_message = SPAN_NOTICE("You have unfastened \the [src]."), \
-			blind_message = "You hear a ratchet.", visible_message_flags = GHOST_MESSAGE)
+			blind_message = "You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 		return TRUE

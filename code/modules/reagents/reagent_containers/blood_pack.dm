@@ -78,7 +78,7 @@
 			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
 			return
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
-			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), self_message = SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), self_message = SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."))
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
@@ -97,7 +97,7 @@
 
 				if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) < 1)
 					break
-			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), self_message = SPAN_NOTICE("You lick your fangs clean of the tasteless blood."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), self_message = SPAN_NOTICE("You lick your fangs clean of the tasteless blood."))
 			being_feed = FALSE
 	else
 		..()
@@ -112,7 +112,7 @@
 	if(attached_mob)
 		remove_iv_mob()
 	else if(ishuman(over))
-		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."))
+		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(do_after(user, 30))
 			to_chat(user, SPAN_NOTICE("You hook \the [over] up to \the [src]."))
 			attached_mob = WEAKREF(over)
@@ -152,10 +152,10 @@
 		var/mob/living/carbon/human/attached = attached_mob.resolve()
 		if(attached)
 			if(safe)
-				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."))
+				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			else
 				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
-				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), self_message = SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), visible_message_flags = GHOST_MESSAGE)
+				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), self_message = SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
 				affecting.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
@@ -194,7 +194,7 @@
 	if (istype(attacking_item, /obj/item/) && attacking_item.sharp == 1)
 		var/mob/living/carbon/human/H = usr
 		if(LAZYLEN(attacking_item.attack_verb))
-			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"))
 		var/atkmsg_filled = null
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
@@ -250,7 +250,7 @@
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			I.add_blood()
 		var/atkmsg = SPAN_WARNING("\The [src] rips apart[atkmsg_filled]!")
-		user.visible_message(atkmsg, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(atkmsg)
 		qdel(src)
 		return
 	return

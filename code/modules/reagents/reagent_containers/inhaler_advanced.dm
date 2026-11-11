@@ -148,7 +148,7 @@
 		if(H.eyes_protected(src, FALSE))
 			eyestab(H,user)
 		user.visible_message(SPAN_NOTICE("[user] accidentally sticks \the [src] in [H]'s eye!"),
-								self_message = SPAN_NOTICE("You accidentally stick the [src] in [H]'s eye!"), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You accidentally stick the [src] in [H]'s eye!"))
 
 		return
 
@@ -166,17 +166,17 @@
 
 	if(user == H)
 		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in their mouth and presses the injection button."),
-								self_message = SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."))
 
 	else
 		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [H]..."),
-								self_message = SPAN_NOTICE("You attempt to administer \the [src] to [H]..."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You attempt to administer \the [src] to [H]..."))
 		if (!do_after(user, 1 SECONDS, H))
 			to_chat(user,SPAN_NOTICE("You and \the [H] need to be standing still in order to inject \the [src]."))
 			return
 
 		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in [H]'s mouth and presses the injection button."),
-								self_message = SPAN_NOTICE("You stick \the [src] in [H]'s mouth and press the injection button."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You stick \the [src] in [H]'s mouth and press the injection button."))
 
 
 	if(H.reagents)

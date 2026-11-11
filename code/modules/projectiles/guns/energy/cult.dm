@@ -55,7 +55,7 @@
 		did_absorb = TRUE
 
 	if(did_absorb)
-		user.visible_message("<b>[user]</b> runs \the [src] over \the [A], which it absorbs!", self_message = SPAN_CULT("\The [src] absorbs \the [A], powering it up!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message("<b>[user]</b> runs \the [src] over \the [A], which it absorbs!", self_message = SPAN_CULT("\The [src] absorbs \the [A], powering it up!"))
 		playsound(get_turf(src), 'sound/effects/blobattack.ogg', 30, TRUE)
 		qdel(A)
 		update_icon()

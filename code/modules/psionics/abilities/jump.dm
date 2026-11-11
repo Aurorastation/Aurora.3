@@ -18,5 +18,5 @@
 	. = ..()
 	if(!.)
 		return
-	user.visible_message(SPAN_WARNING("[user] warps and disappears!"), self_message = SPAN_WARNING("You weave the Nlom to bring you to your destination!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_WARNING("[user] warps and disappears!"), self_message = SPAN_WARNING("You weave the Nlom to bring you to your destination!"))
 	do_teleport(user, hit_atom)

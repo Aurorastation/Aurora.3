@@ -65,7 +65,7 @@
 	if(health < maxhealth) // Mend the damage.
 		add_health(amount * 3)
 		if(health == maxhealth)
-			visible_message(SPAN_NOTICE("The silicate fully mends the damage on \the [src]."))
+			visible_message(SPAN_NOTICE("The silicate fully mends the damage on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 	else // Reinforce.
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
@@ -81,7 +81,7 @@
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message(SPAN_WARNING("\The [src] shatters!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	if(dir == SOUTHWEST)
 		var/index = null
 		index = 0
@@ -161,10 +161,10 @@
 			M.turf_collision(src, throwingdatum.speed, SFX_GLASS_CRACK)
 			return
 		else
-			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 		tforce = 40
 	else if(isobj(hitting_atom))
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 		var/obj/item/I = hitting_atom
 		tforce = I.throwforce
 	if(reinf)
@@ -175,7 +175,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
-		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)
 		shatter()
 
@@ -190,27 +190,27 @@
 		user.do_attack_animation(src)
 		user.visible_message(SPAN_DANGER("\The [user] bangs against \the [src]!"),
 							self_message = SPAN_DANGER("You bang against \the [src]!"),
-							blind_message = "You hear a banging sound.", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
 		user.visible_message("<b>[user]</b> knocks on \the [src.name].",
 							self_message = "You knock on \the [src.name].",
-							blind_message = "You hear a knocking sound.", visible_message_flags = GHOST_MESSAGE)
+							blind_message = "You hear a knocking sound.")
 	return
 
 /obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
-		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
+		visible_message(SPAN_DANGER("[user] smashes into [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(damage)
 	else
-		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1
 
 /obj/structure/window/do_simple_ranged_interaction(var/mob/user)
-	visible_message(SPAN_NOTICE("Something knocks on \the [src]."))
+	visible_message(SPAN_NOTICE("Something knocks on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
@@ -271,7 +271,7 @@
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
-			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
+			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			dismantle_window()
 
 		return TRUE
@@ -288,17 +288,17 @@
 	var/def_zone = ran_zone(BP_HEAD, 20)
 	switch (state)
 		if(1)
-			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
 			M.apply_damage(7, damtype, def_zone, used_weapon = src)
 			hit(10)
 		if(2)
-			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
 			if (prob(50))
 				M.Weaken(1)
 			M.apply_damage(10, damtype, def_zone, used_weapon = src)
 			hit(25)
 		if(3)
-			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"), visible_message_flags = GHOST_MESSAGE)
+			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
 			M.Weaken(5)
 			M.apply_damage(20, damtype, def_zone, used_weapon = src)
 			hit(50)
@@ -666,7 +666,7 @@
 
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH && user.a_intent != I_HURT)
 		if(state == 0)
-			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
@@ -677,7 +677,7 @@
 /obj/structure/window/full/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message(SPAN_WARNING("\The [src] shatters!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	if(reinf)
 		new /obj/item/stack/rods(loc, 4)
 	for(var/i = 1 to 4)

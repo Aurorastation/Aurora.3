@@ -143,14 +143,12 @@
 		if(!old_table && new_table)
 			visible_message(
 				SPAN_NOTICE("[src] starts crawling underneath \the [new_table]."),
-				self_message = SPAN_NOTICE("You start crawling underneath \the [new_table]."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You start crawling underneath \the [new_table].")
 			)
 		else if(old_table && !new_table)
 			visible_message(
 				SPAN_NOTICE("[src] starts crawling out from underneath \the [old_table]."),
-				self_message = SPAN_NOTICE("You start crawling out from underneath \the [old_table]."),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You start crawling out from underneath \the [old_table].")
 			)
 		var/obj/structure/table/delay_target = new_table || old_table
 		if(!do_after(src, 0.5 SECOND, delay_target, DO_DEFAULT | DO_USER_UNIQUE_ACT, INCAPACITATION_DEFAULT & ~INCAPACITATION_FORCELYING))
@@ -251,8 +249,7 @@
 	next_table_search = world.time + 5 SECONDS
 	visible_message(
 		SPAN_NOTICE("[src] begins carefully searching the nearby area."),
-		self_message = SPAN_NOTICE("You begin carefully searching the nearby area."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You begin carefully searching the nearby area.")
 	)
 	if(!do_after(src, 2 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		return

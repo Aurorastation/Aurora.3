@@ -37,8 +37,7 @@
 			L.visible_message(
 				SPAN_DANGER("[L] steps into \the [src]."),
 				self_message = SPAN_DANGER("You step into \the [src]!"),
-				blind_message = "<b>You hear a loud organic snap!</b>",
-				visible_message_flags = GHOST_MESSAGE
+				blind_message = "<b>You hear a loud organic snap!</b>"
 				)
 			INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 			originator.eating = 1
@@ -60,8 +59,7 @@
 		H.visible_message(
 			SPAN_DANGER("\The [src] snaps tight across [H]'s upper body, swallowing it in three grisly gulps."),
 			self_message = SPAN_DANGER("You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!"),
-			blind_message = "<b>You hear a sick crunch!</b>",
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = "<b>You hear a sick crunch!</b>"
 			)
 		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
 		G.droplimb(0,DROPLIMB_EDGE)
@@ -76,16 +74,14 @@
 		L.visible_message(
 			SPAN_DANGER("\The [src] spits [R] out with a frustrated screech after failing to swallow."),
 			self_message = SPAN_DANGER("\The [src] scrapes and gnashes against your exoskeleton before spitting you out!"),
-			blind_message = "<b>You hear several metallic scrapes!</b>",
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = "<b>You hear several metallic scrapes!</b>"
 			)
 		R.apply_damage(60,DAMAGE_BRUTE)
 	else
 		L.visible_message(
 			SPAN_DANGER("\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!"),
 			self_message = SPAN_DANGER("\The [src] turns you into a slightly viscuous and very bloody paste."),
-			blind_message = "<b>You hear a grisly splat!</b>",
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = "<b>You hear a grisly splat!</b>"
 			)
 		L.gib()
 		originator.sated += L.mob_size*2
@@ -159,8 +155,7 @@
 		visible_message(
 			SPAN_DANGER("\The [src] awakens!"),
 			self_message = SPAN_DANGER("You awaken! You're so HUNGRY!"),
-			blind_message = "<b>You hear a deep, rumbling roar in the earth!</b>",
-			visible_message_flags = GHOST_MESSAGE
+			blind_message = "<b>You hear a deep, rumbling roar in the earth!</b>"
 			)
 		sarlacc.deployed = 1
 	if(sated >= 200)
@@ -193,14 +188,13 @@
 						L.visible_message(
 							SPAN_DANGER("\The [src] tears at [L]'s flesh with its gruesome jaws."),
 							self_message = SPAN_DANGER("You feel a searing pain as \the [src] tears at your flesh!"),
-							blind_message = "<b>You hear a sick tear!</b>",
-							visible_message_flags = GHOST_MESSAGE
+							blind_message = "<b>You hear a sick tear!</b>"
 							)
 
 
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
-	visible_message(SPAN_DANGER("With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!"))
 	var/turf/T = src.loc
 	T.ChangeTurf(/turf/space)
 	qdel(src)
@@ -211,7 +205,7 @@
 		asleep = 1
 	icon_state = "sarlacc_asleep"
 	sarlacc.deployed = 0
-	visible_message(SPAN_DANGER("With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight."))
 	new/obj/random/loot(get_turf(src))
 
 /mob/living/simple_animal/hostile/greatworm/FindTarget()
@@ -249,7 +243,7 @@
 	active_tentacles += L
 	L.originator = src
 	L.faction = src.faction
-	visible_message(SPAN_DANGER("\The [L] bursts from the earth under [target]."), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [L] bursts from the earth under [target]."))
 
 /mob/living/simple_animal/hostile/greatworm/Move()
 	return

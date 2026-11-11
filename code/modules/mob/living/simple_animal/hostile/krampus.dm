@@ -50,7 +50,7 @@
 	if(!gibbed)
 		for (var/mob/living/A in contents)
 			A.forceMove(get_turf(src))
-		visible_message(SPAN_WARNING("\The [src] vanishes!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("\The [src] vanishes!"))
 		dust()
 		return TRUE
 
@@ -73,7 +73,7 @@
 		return
 
 	src.visible_message(SPAN_DANGER("\The [src] starts stuffing \the [target] inside his bag!"), \
-						self_message = SPAN_DANGER("You begin to drag \the [target] to the depths of hell!"), visible_message_flags = GHOST_MESSAGE)
+						self_message = SPAN_DANGER("You begin to drag \the [target] to the depths of hell!"))
 	src.is_punishing = TRUE
 
 	if(!do_mob(src, target, 60))
@@ -81,7 +81,7 @@
 		src.is_punishing = FALSE
 		return
 
-	src.visible_message(SPAN_DANGER("\The [target] vanishes into \the [src]'s bag!"), visible_message_flags = GHOST_MESSAGE)
+	src.visible_message(SPAN_DANGER("\The [target] vanishes into \the [src]'s bag!"))
 	target.forceMove(src)
 	to_chat(target, SPAN_DANGER("You have been captured by \the [src], you will soon be punished due to your misdeeds!"))
 	addtimer(CALLBACK(src, PROC_REF(send_to_hell), target), 5 MINUTES)
@@ -102,7 +102,7 @@
 
 	last_special = world.time + 30
 
-	visible_message(SPAN_DANGER("\The [src] vomits a cloud of rancid smoke and neatly wrapped gifts!"), visible_message_flags = GHOST_MESSAGE)
+	visible_message(SPAN_DANGER("\The [src] vomits a cloud of rancid smoke and neatly wrapped gifts!"))
 
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)

@@ -19,9 +19,9 @@
 
 /obj/structure/pit/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/shovel))
-		visible_message(SPAN_NOTICE("\The [user] starts [open ? "filling" : "digging open"] \the [src]"))
+		visible_message(SPAN_NOTICE("\The [user] starts [open ? "filling" : "digging open"] \the [src]"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
-			visible_message(SPAN_NOTICE("\The [user] [open ? "fills" : "digs open"] \the [src]!"))
+			visible_message(SPAN_NOTICE("\The [user] [open ? "fills" : "digs open"] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			if(open)
 				close(user)
 			else
@@ -33,9 +33,9 @@
 		if(locate(/obj/structure/gravemarker) in src.loc)
 			to_chat(user, SPAN_NOTICE("There's already a grave marker here."))
 		else
-			visible_message(SPAN_NOTICE("\The [user] starts making a grave marker on top of \the [src]"))
+			visible_message(SPAN_NOTICE("\The [user] starts making a grave marker on top of \the [src]"), visible_message_flags = LOCAL_MESSAGE)
 			if( do_after(user, 50) )
-				visible_message(SPAN_NOTICE("\The [user] finishes the grave marker"))
+				visible_message(SPAN_NOTICE("\The [user] finishes the grave marker"), visible_message_flags = LOCAL_MESSAGE)
 				var/obj/item/stack/material/wood/plank = attacking_item
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
@@ -83,7 +83,7 @@
 
 	escapee.setClickCooldown(100)
 	to_chat(escapee, SPAN_WARNING("You start digging your way out of \the [src] (this will take about [breakout_time] minute\s)"))
-	visible_message(SPAN_DANGER("Something is scratching its way out of \the [src]!"))
+	visible_message(SPAN_DANGER("Something is scratching its way out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/weapons/bite.ogg', 100, 1)
@@ -98,7 +98,7 @@
 			to_chat(escapee, SPAN_WARNING("Halfway there..."))
 
 	to_chat(escapee, SPAN_WARNING("You successfuly dig yourself out!"))
-	visible_message(SPAN_DANGER("\the [escapee] emerges from \the [src]!"))
+	visible_message(SPAN_DANGER("\the [escapee] emerges from \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
 
@@ -193,9 +193,9 @@
 
 /obj/structure/gravemarker/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/hatchet))
-		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [attacking_item].</span>")
+		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [attacking_item].</span>", visible_message_flags = LOCAL_MESSAGE)
 		if(!do_after(user, 30))
-			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>")
+			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>", visible_message_flags = LOCAL_MESSAGE)
 			new /obj/item/stack/material/wood(src)
 			qdel(src)
 	if(istype(attacking_item, /obj/item/pen))

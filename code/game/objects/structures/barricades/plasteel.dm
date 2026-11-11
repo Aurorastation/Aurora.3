@@ -105,17 +105,17 @@
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] removes [src]'s protection panel."),
-				self_message = SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				return
 			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				if(linked)
 					user.visible_message(SPAN_NOTICE("[user] removes the linking on [src]."),
-					self_message = SPAN_NOTICE("You remove the linking on [src]."), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_NOTICE("You remove the linking on [src]."))
 				else if(linkable)
 					user.visible_message(SPAN_NOTICE("[user] sets up [src] for linking."),
-					self_message = SPAN_NOTICE("You set up [src] for linking."), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_NOTICE("You set up [src] for linking."))
 				else
 					to_chat(user, SPAN_WARNING("The [src] has no linking points."))
 					return
@@ -132,7 +132,7 @@
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] set [src]'s protection panel back."),
-				self_message = SPAN_NOTICE("You set [src]'s protection panel back."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You set [src]'s protection panel back."))
 				build_state = BARRICADE_BSTATE_SECURED
 				return
 			if(attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -141,7 +141,7 @@
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] loosens [src]'s anchor bolts."),
-				self_message = SPAN_NOTICE("You loosen [src]'s anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You loosen [src]'s anchor bolts."))
 				anchored = FALSE
 				build_state = BARRICADE_BSTATE_MOVABLE
 				update_icon() //unanchored changes layer
@@ -159,7 +159,7 @@
 				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] secures [src]'s anchor bolts."),
-				self_message = SPAN_NOTICE("You secure [src]'s anchor bolts."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You secure [src]'s anchor bolts."))
 				anchored = TRUE
 				build_state = BARRICADE_BSTATE_UNSECURED
 				update_icon() //unanchored changes layer
@@ -169,13 +169,13 @@
 					return
 				tool_cooldown = world.time + 10
 				user.visible_message(SPAN_NOTICE("[user] starts unseating [src]'s panels."),
-				self_message = SPAN_NOTICE("You start unseating [src]'s panels."), visible_message_flags = GHOST_MESSAGE)
+				self_message = SPAN_NOTICE("You start unseating [src]'s panels."))
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				busy = 1
 				if(attacking_item.use_tool(src, user, 8 SECONDS, volume = 50))
 					busy = 0
 					user.visible_message(SPAN_NOTICE("[user] takes [src]'s panels apart."),
-					self_message = SPAN_NOTICE("You take [src]'s panels apart."), visible_message_flags = GHOST_MESSAGE)
+					self_message = SPAN_NOTICE("You take [src]'s panels apart."))
 					playsound(loc, 'sound/items/Deconstruct.ogg', 25, 1)
 					barricade_deconstruct(TRUE) //Note : Handles deconstruction too !
 				else
@@ -194,7 +194,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
 			return
 		user.visible_message(SPAN_NOTICE("[user] flips [src] open."),
-		self_message = SPAN_NOTICE("You flip [src] open."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You flip [src] open."))
 		open(src)
 		recentlyflipped = TRUE
 		addtimer(CALLBACK(src, PROC_REF(remove_cooldown)), 1 SECOND)
@@ -204,7 +204,7 @@
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
 			return
 		user.visible_message(SPAN_NOTICE("[user] flips [src] closed."),
-		self_message = SPAN_NOTICE("You flip [src] closed."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You flip [src] closed."))
 		close(src)
 		recentlyflipped = TRUE
 		addtimer(CALLBACK(src, PROC_REF(remove_cooldown)), 1 SECOND)

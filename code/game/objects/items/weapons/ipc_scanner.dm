@@ -34,7 +34,7 @@
 	if(!powered)
 		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [target_mob] with \the [src]..."), self_message = SPAN_NOTICE("You start analyzing \the [target_mob] with \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [target_mob] with \the [src]..."), self_message = SPAN_NOTICE("You start analyzing \the [target_mob] with \the [src]..."))
 	if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
 		if(!isipc(target_mob))
 			to_chat(user, SPAN_WARNING("You analyze \the [target_mob], but find that they're not an IPC at all!"))
@@ -52,7 +52,7 @@
 /obj/item/ipc_tag_scanner/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		wires_exposed = !wires_exposed
-		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), self_message = SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), blind_message = 3, visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), self_message = SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), blind_message = 3)
 	else if(wires_exposed)
 		wires.interact(user)
 	else

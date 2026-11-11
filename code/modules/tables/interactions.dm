@@ -51,10 +51,10 @@
 		if(prob(chance))
 			health -= P.damage/2
 			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+				visible_message(SPAN_WARNING("[P] hits \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				return 0
 			else
-				visible_message(SPAN_WARNING("[src] breaks down!"))
+				visible_message(SPAN_WARNING("[src] breaks down!"), visible_message_flags = LOCAL_MESSAGE)
 				break_to_parts()
 				return 1
 	return 1
@@ -89,7 +89,7 @@
 		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/rustle_from_crawler()
-	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
+	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
 	var/list/rustling_atoms = list(src)
 	for(var/obj/item/item in get_turf(src))
@@ -128,8 +128,7 @@
 
 	user.visible_message(
 		SPAN_WARNING("[user] reaches beneath \the [src] and pulls [target] out from under it!"),
-		self_message = SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You reach beneath \the [src] and pull [target] out from under it!")
 	)
 	target.forceMove(get_turf(user))
 	var/obj/item/grab/grab = new /obj/item/grab(user, user, target)
@@ -158,8 +157,7 @@
 	if (user && anything_moved)
 		user.visible_message(
 		SPAN_NOTICE("[user] kicks everything off [src]."),
-		self_message = SPAN_NOTICE("You kick everything off [src]."),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_NOTICE("You kick everything off [src].")
 		)
 
 
@@ -174,8 +172,7 @@
 
 	user.visible_message(
 	SPAN_WARNING("[user] starts climbing onto \the [src]!"),
-	self_message = SPAN_WARNING("You start climbing onto \the [src]!"),
-	visible_message_flags = GHOST_MESSAGE
+	self_message = SPAN_WARNING("You start climbing onto \the [src]!")
 	)
 	LAZYADD(climbers, user)
 
@@ -192,8 +189,7 @@
 	if (get_turf(user) == get_turf(src))
 		user.visible_message(
 		SPAN_WARNING("[user] climbs onto \the [src]!"),
-		self_message = SPAN_WARNING("You climb onto \the [src]!"),
-		visible_message_flags = GHOST_MESSAGE
+		self_message = SPAN_WARNING("You climb onto \the [src]!")
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -249,11 +245,11 @@
 					H.last_special = world.time
 					switch(H.a_intent)
 						if(I_GRAB)
-							H.visible_message(SPAN_NOTICE("[H] knocks on the table!"), visible_message_flags = GHOST_MESSAGE)
+							H.visible_message(SPAN_NOTICE("[H] knocks on the table!"))
 							playsound(src, 'sound/effects/table_knock.ogg', 50)
 						if(I_HURT)
 							H.do_attack_animation(src)
-							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"), visible_message_flags = GHOST_MESSAGE)
+							H.visible_message(SPAN_WARNING("[H] slams [H.get_pronoun("his")] hand on the table!"))
 							playsound(src, 'sound/effects/table_slam.ogg', 50)
 							if(material.hardness > 15) //15 wood, 60 steel
 								var/obj/item/organ/external/hand/hand = H.zone_sel.selecting
@@ -290,7 +286,7 @@
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
@@ -300,7 +296,7 @@
 					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
 							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
-												self_message = SPAN_DANGER("\The [S] slices your face messily!"), visible_message_flags = GHOST_MESSAGE)
+												self_message = SPAN_DANGER("\The [S] slices your face messily!"))
 							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
@@ -309,7 +305,7 @@
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
-					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
+					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 					qdel(attacking_item)
 				return
 			else
@@ -326,7 +322,7 @@
 
 	if(carpeted && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
-								self_message = SPAN_NOTICE("You remove the carpet from \the [src]."), visible_message_flags = GHOST_MESSAGE)
+								self_message = SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
 		queue_icon_update()
@@ -336,7 +332,7 @@
 		var/obj/item/stack/tile/carpet/C = attacking_item
 		if(C.use(1))
 			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
-									self_message = SPAN_NOTICE("You add \the [C] to \the [src]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You add \the [C] to \the [src]."))
 			carpeted = 1
 			queue_icon_update()
 			return 1
@@ -365,7 +361,7 @@
 			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
 			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
-									self_message = SPAN_NOTICE("You repair some damage to \the [src]."), visible_message_flags = GHOST_MESSAGE)
+									self_message = SPAN_NOTICE("You repair some damage to \the [src]."))
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
 
@@ -389,7 +385,7 @@
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, SFX_SPARKS, 50, 1)
-		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
 
@@ -408,11 +404,11 @@
 				if(D.get_amount() < 1)
 					to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 					return
-				user.visible_message("<b>[user]</b> begins to repair \the [src].", self_message = SPAN_NOTICE("You begin to repair \the [src]."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message("<b>[user]</b> begins to repair \the [src].", self_message = SPAN_NOTICE("You begin to repair \the [src]."))
 				if(do_after(user, 2 SECONDS) && health < maxhealth)
 					if(D.use(1))
 						health = maxhealth
-						visible_message("<b>[user]</b> repairs \the [src].", blind_message = SPAN_NOTICE("You repair \the [src]."))
+						visible_message("<b>[user]</b> repairs \the [src].", blind_message = SPAN_NOTICE("You repair \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 	if(!attacking_item.dropsafety())
 		return

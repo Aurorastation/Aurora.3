@@ -34,7 +34,7 @@
 
 /obj/item/grenade/dynamite/activate(mob/user)
 	..()
-	user.visible_message(SPAN_DANGER("\The [user] lights \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+	user.visible_message(SPAN_DANGER("\The [user] lights \the [src]!"))
 	if(iscarbon(user))
 		user.swap_hand()
 		var/mob/living/carbon/C = user

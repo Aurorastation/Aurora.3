@@ -12,7 +12,7 @@
 	if( !cracked && istype(target_mob,/mob/living/carbon/human) && (target_mob.stat == CONSCIOUS) && !target_mob.get_active_hand() )
 		target_mob.visible_message(SPAN_NOTICE("[user] and [target_mob] pop \an [src]! *pop*"),
 								self_message = SPAN_NOTICE("You pull \an [src] with [target_mob]! *pop*"),
-								blind_message = SPAN_NOTICE("You hear a *pop*."), visible_message_flags = GHOST_MESSAGE)
+								blind_message = SPAN_NOTICE("You hear a *pop*."))
 
 		var/obj/item/paper/Joke = new /obj/item/paper(user.loc)
 		var/title = "[pick("awful","terrible","unfunny")] joke"

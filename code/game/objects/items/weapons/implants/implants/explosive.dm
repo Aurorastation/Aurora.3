@@ -165,12 +165,12 @@
 
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
-		audible_message(SPAN_WARNING("[src] beeps ominously!"))
+		audible_message(SPAN_WARNING("[src] beeps ominously!"), audible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
-		imp_in.audible_message(SPAN_WARNING(message), audible_message_flags = GHOST_MESSAGE)
+		imp_in.audible_message(SPAN_WARNING(message))
 	else if(ismob(imp_in))
-		imp_in.audible_message(SPAN_WARNING("Something beeps inside of [imp_in]..."), audible_message_flags = GHOST_MESSAGE)
+		imp_in.audible_message(SPAN_WARNING("Something beeps inside of [imp_in]..."))
 	playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
 	addtimer(CALLBACK(src, PROC_REF(small_boom)), 25)
 
@@ -184,7 +184,7 @@
 			part.add_pain(50)
 			imp_in.visible_message(SPAN_WARNING("\The [imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
 									self_message = SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
-									blind_message = SPAN_WARNING("You hear a horrible ripping noise."), visible_message_flags = GHOST_MESSAGE)
+									blind_message = SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_EDGE)
 		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)

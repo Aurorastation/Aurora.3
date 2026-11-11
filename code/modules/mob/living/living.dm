@@ -17,7 +17,7 @@
 	. = ..()
 
 	if(.)
-		visible_message("<b>\The [src]</b> points to \the [pointing_at].", visible_message_flags = GHOST_MESSAGE)
+		visible_message("<b>\The [src]</b> points to \the [pointing_at].")
 
 /mob/living/drop_from_inventory(var/obj/item/item, var/atom/target, update_icons = TRUE, force = FALSE)
 	. = ..()
@@ -636,11 +636,11 @@ default behaviour is:
 								//pull damage with injured people
 									if(prob(25))
 										M.adjustBruteLoss(1)
-										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"), visible_message_flags = GHOST_MESSAGE)
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"))
 								if(M.pull_damage())
 									if(prob(25))
 										M.adjustBruteLoss(2)
-										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"), visible_message_flags = GHOST_MESSAGE)
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"))
 										var/turf/location = M.loc
 										if(istype(location, /turf/simulated))
 											location.add_blood(M)
@@ -781,12 +781,12 @@ default behaviour is:
 				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
-			visible_message(resist_msg, visible_message_flags = GHOST_MESSAGE)
+			visible_message(resist_msg)
 			qdel(G)
 			break
 
 	if(resisting)
-		visible_message(SPAN_WARNING("[src] resists!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
@@ -1008,7 +1008,7 @@ default behaviour is:
 
 /mob/living/proc/seizure(var/severity_multiplier = 1)
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message(SPAN_HIGHDANGER("\The [src] starts having a seizure!"), visible_message_flags = GHOST_MESSAGE)
+		visible_message(SPAN_HIGHDANGER("\The [src] starts having a seizure!"))
 		Paralyse(24*severity_multiplier)
 		make_jittery(200*severity_multiplier)
 		adjustHalLoss(60*severity_multiplier)

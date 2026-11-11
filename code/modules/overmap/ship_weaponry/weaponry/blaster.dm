@@ -35,7 +35,7 @@
 	var/turf/epicenter = get_turf(target)
 	if(ismob(target))
 		var/mob/M = target
-		M.visible_message(SPAN_DANGER("<font size=5>\The [src] disintegrates [M]'s chest and blasts them into pieces!</font>"), visible_message_flags = GHOST_MESSAGE)
+		M.visible_message(SPAN_DANGER("<font size=5>\The [src] disintegrates [M]'s chest and blasts them into pieces!</font>"))
 	if(isturf(target) || isobj(target))
 		explosion(epicenter, explosion_strength[1], explosion_strength[2], explosion_strength[3])
 

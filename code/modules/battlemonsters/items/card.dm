@@ -42,8 +42,7 @@
 	if(istype(A,/obj/structure/table) || istype(A,/obj/structure/dueling_table))
 		user.visible_message(\
 			SPAN_NOTICE("\The [user] plays \the [src]!"),\
-			self_message = SPAN_NOTICE("You play \the [src]!"), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You play \the [src]!") \
 		)
 	..(A, user, click_parameters)
 
@@ -67,8 +66,7 @@
 		new_deck.layer = max(layer,new_deck.layer)
 		user.visible_message(\
 			SPAN_NOTICE("\The [user] combines \the [src] and the [adding_card] to form a deck."),\
-			self_message = SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a deck."), \
-			visible_message_flags = GHOST_MESSAGE \
+			self_message = SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a deck.") \
 		)
 
 	new_deck.add_card(user,src)
@@ -86,14 +84,12 @@
 		if(!facedown)
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] flip the card face up and reveals \the [name]."),\
-				self_message = SPAN_NOTICE("You flip the card face up and reveal \the [name]."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You flip the card face up and reveal \the [name].") \
 			)
 		else
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] flips \the [name] face down."),\
-				self_message = SPAN_NOTICE("You flip \the [name] face down."), \
-				visible_message_flags = GHOST_MESSAGE \
+				self_message = SPAN_NOTICE("You flip \the [name] face down.") \
 			)
 
 	update_icon()

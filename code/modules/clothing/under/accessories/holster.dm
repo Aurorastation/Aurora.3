@@ -50,7 +50,7 @@
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
 	user.visible_message(SPAN_NOTICE("[user] [holster_message] \the [holstered]."),
-							self_message = SPAN_NOTICE("You [holster_message] \the [holstered]."), visible_message_flags = GHOST_MESSAGE)
+							self_message = SPAN_NOTICE("You [holster_message] \the [holstered]."))
 	update_name()
 	update_icon()
 
@@ -72,14 +72,12 @@
 			sound_vol = 50
 			user.visible_message(
 				SPAN_DANGER("[user] draws \the [holstered], [draw_hostile]"),
-				self_message = SPAN_WARNING("You draw \the [holstered], [draw_hostile]"),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_WARNING("You draw \the [holstered], [draw_hostile]")
 			)
 		else
 			user.visible_message(
 				SPAN_NOTICE("[user] draws \the [holstered], [draw_peace]"),
-				self_message = SPAN_NOTICE("You draw \the [holstered], [draw_peace]"),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_NOTICE("You draw \the [holstered], [draw_peace]")
 			)
 
 		if(sound_out)

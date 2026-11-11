@@ -369,7 +369,7 @@
 				S.target = null
 				++S.discipline
 		if(M.chem_doses[type] == removed)
-			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), self_message = SPAN_DANGER("Your flesh burns in the space cleaner!"), visible_message_flags = GHOST_MESSAGE)
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), self_message = SPAN_DANGER("Your flesh burns in the space cleaner!"))
 
 /singleton/reagent/spacecleaner/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(REAGENT_VOLUME(holder, type) > 15)
@@ -487,7 +487,7 @@
 /singleton/reagent/silicate/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed, var/datum/reagents/holder)
 	if(check_min_dose(H, 5))
 		if(prob(50))
-			H.visible_message("<b>[H]</b> splutters.", self_message = "You cough up a bunch of silicate.", visible_message_flags = GHOST_MESSAGE)
+			H.visible_message("<b>[H]</b> splutters.", self_message = "You cough up a bunch of silicate.")
 			remove_self(5, holder)
 		else
 			H.adjustOxyLoss(2)
@@ -640,8 +640,7 @@
 		M.visible_message(\
 			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
 			self_message = SPAN_DANGER("Your body shifts and contorts!"),\
-			blind_message = SPAN_NOTICE("You hear strange flesh-like noises."), \
-			visible_message_flags = GHOST_MESSAGE \
+			blind_message = SPAN_NOTICE("You hear strange flesh-like noises.") \
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(25)
@@ -844,7 +843,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class, holder)
-		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
+		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."), visible_message_flags = LOCAL_MESSAGE)
 
 /singleton/reagent/usolve
 	name = "Universal Solvent"
@@ -859,7 +858,7 @@
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
-		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
+		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."), visible_message_flags = LOCAL_MESSAGE)
 		remove_self(10*I.w_class, holder)
 
 /singleton/reagent/shapesand
@@ -880,7 +879,7 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class, holder)
-		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
+		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/shapesand
 	name = "shapesand"

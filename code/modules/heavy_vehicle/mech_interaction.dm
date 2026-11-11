@@ -528,7 +528,7 @@
 	target_mob.apply_effect(2, WEAKEN)
 	if(target_mob.lying)
 		if(!was_lying)
-			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"), visible_message_flags = GHOST_MESSAGE)
+			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
 			trample_retry = TRUE
 		// Leave them here; entering their tile applies the existing trample damage.
 		return
@@ -574,7 +574,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [attacking_item] into \the [src]..."), self_message = SPAN_NOTICE("You begin installing the [attacking_item] into \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [attacking_item] into \the [src]..."), self_message = SPAN_NOTICE("You begin installing the [attacking_item] into \the [src]..."))
 				if(do_after(user, 30, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
@@ -583,7 +583,7 @@
 						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 						return
 					var/obj/item/remote_mecha/RM = attacking_item
-					user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."), self_message = SPAN_NOTICE("You install the [attacking_item] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [attacking_item] into \the [src]."), self_message = SPAN_NOTICE("You install the [attacking_item] into \the [src]."))
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
@@ -615,7 +615,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start disassembling \the [src]..."), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), self_message = SPAN_NOTICE("You start disassembling \the [src]..."))
 				if(do_after(user, 30, src))
 					if(!remote && length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
@@ -623,7 +623,7 @@
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
-					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You disassemble \the [src]."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), self_message = SPAN_NOTICE("You disassemble \the [src]."))
 					if(remote)
 						for(var/mob/pilot in pilots)
 							if(pilot.client)
@@ -670,7 +670,7 @@
 				user.put_in_hands(body.cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [body.cell] from \the [src]."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."), visible_message_flags = GHOST_MESSAGE)
+				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."))
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
 				UnregisterSignal(body.cell, COMSIG_CELL_CHARGE)
@@ -692,7 +692,7 @@
 					body.cell = attacking_item
 					RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), self_message = SPAN_NOTICE("You install \the [body.cell] into \the [src]."), visible_message_flags = GHOST_MESSAGE)
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), self_message = SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/robotanalyzer))
 				var/obj/item/robotanalyzer/analyzer_item = attacking_item
@@ -730,9 +730,9 @@
 				return
 
 			var/mob/pilot = pick(pilots)
-			user.visible_message(SPAN_DANGER("\The [user] is trying to pull \the [pilot] out of \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_DANGER("\The [user] is trying to pull \the [pilot] out of \the [src]!"))
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
-				user.visible_message(SPAN_DANGER("\The [user] drags \the [pilot] out of \the [src]!"), visible_message_flags = GHOST_MESSAGE)
+				user.visible_message(SPAN_DANGER("\The [user] drags \the [pilot] out of \the [src]!"))
 				eject(pilot, silent=1)
 			return
 	else if (body.total_damage > 1 && prob((body.total_damage / body.max_damage) * body.ejection_fail_chance))
@@ -764,7 +764,7 @@
 
 
 /mob/living/heavy_vehicle/proc/attack_self(var/mob/user)
-	return visible_message("\The [src] pokes itself.", visible_message_flags = GHOST_MESSAGE)
+	return visible_message("\The [src] pokes itself.")
 
 /mob/living/heavy_vehicle/get_inventory_slot(obj/item/I)
 	for(var/h in hardpoints)
@@ -810,13 +810,13 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
 				attack_log += "\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>"
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
-				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"), visible_message_flags = GHOST_MESSAGE)
+				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"))
 				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
 			var/mob/living/L = H
-			src.visible_message(SPAN_DANGER("\The [src] runs over \the [L]!"), visible_message_flags = GHOST_MESSAGE)
+			src.visible_message(SPAN_DANGER("\The [src] runs over \the [L]!"))
 			if(isanimal(L))
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()
@@ -827,9 +827,9 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 /mob/living/heavy_vehicle/proc/ToggleLockdown()
 	lockdown = !lockdown
 	if(lockdown)
-		src.visible_message(SPAN_WARNING("\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!"), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_WARNING("\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!"))
 	else
-		src.visible_message(SPAN_WARNING("\The [src] hums with life as it is released from its lockdown mode!"), visible_message_flags = GHOST_MESSAGE)
+		src.visible_message(SPAN_WARNING("\The [src] hums with life as it is released from its lockdown mode!"))
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset

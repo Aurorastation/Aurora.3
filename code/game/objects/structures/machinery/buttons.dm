@@ -35,7 +35,7 @@
 
 /obj/structure/machinery/button/attack_hand(mob/living/user)
 	if(..()) return 1
-	user.visible_message("<b>[user]</b> hits \the [src] button.", visible_message_flags = GHOST_MESSAGE)
+	user.visible_message("<b>[user]</b> hits \the [src] button.")
 	activate(user)
 	intent_message(BUTTON_FLICK, 5)
 

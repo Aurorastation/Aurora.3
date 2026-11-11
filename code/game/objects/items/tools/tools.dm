@@ -193,7 +193,7 @@
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
 		self_message = SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
-		blind_message = SPAN_NOTICE("You hear cable being cut."), visible_message_flags = GHOST_MESSAGE)
+		blind_message = SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
 		C.handcuff_update()
 		return
@@ -344,8 +344,7 @@
 			user.apply_damage(rand(5, 10), DAMAGE_BURN, burn_zone, src)
 			user.visible_message(
 				SPAN_DANGER("[user] jerks back after burning themselves with \the [src]!"),
-				self_message = SPAN_DANGER("Your blind welding slips, burning your hand!"),
-				visible_message_flags = GHOST_MESSAGE
+				self_message = SPAN_DANGER("Your blind welding slips, burning your hand!")
 			)
 		return FALSE
 
@@ -459,7 +458,7 @@
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!LIMB_GET_BRUTE_DAMAGE(affecting))
-		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
 	if(use_tool(target, user, 30, volume = 15))
@@ -470,7 +469,7 @@
 				"repairs some joints"
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
-			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
 			playsound(target, usesound, 15, extrarange = SILENCED_SOUND_EXTRARANGE)
 			repair_organ(user, target, affecting)
 
@@ -490,7 +489,7 @@
 		if(tank.armed)
 			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), self_message = SPAN_WARNING("You start to heat \the [O]!"), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), self_message = SPAN_WARNING("You start to heat \the [O]!"))
 		switch(tgui_alert(usr, "Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", list("No", "Yes")))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -498,7 +497,7 @@
 				tank.armed = 1
 				if(do_after(user, 10 SECONDS, O, DO_UNIQUE))
 					if(tank.defuse)
-						user.visible_message("[user] melts some of the framework on the [O]!", self_message = "You melt some of the framework!", visible_message_flags = GHOST_MESSAGE)
+						user.visible_message("[user] melts some of the framework on the [O]!", self_message = "You melt some of the framework!")
 						tank.defuse = 0
 						tank.armed = 0
 						return
@@ -588,7 +587,7 @@
 			if(M)
 				to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 			else if(T)
-				T.visible_message(SPAN_DANGER("\The [src] turns on."))
+				T.visible_message(SPAN_DANGER("\The [src] turns on."), visible_message_flags = LOCAL_MESSAGE)
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
@@ -607,7 +606,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message(SPAN_WARNING("\The [src] turns off."))
+			T.visible_message(SPAN_WARNING("\The [src] turns off."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
@@ -937,7 +936,7 @@
 	else
 		lit = TRUE
 		if(user)
-			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), self_message = SPAN_NOTICE("You ignite the steel wool with \the [L]"), blind_message = SPAN_NOTICE("You hear a gentle flame crackling."), visible_message_flags = GHOST_MESSAGE)
+			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), self_message = SPAN_NOTICE("You ignite the steel wool with \the [L]"), blind_message = SPAN_NOTICE("You hear a gentle flame crackling."))
 		playsound(get_turf(src), 'sound/items/flare.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
@@ -945,7 +944,7 @@
 		addtimer(CALLBACK(src, PROC_REF(endburn)), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn()
-	visible_message(SPAN_NOTICE("The steel wool burns out."))
+	visible_message(SPAN_NOTICE("The steel wool burns out."), visible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(loc))
 		var/mob/living/carbon/human/user = loc
 		if(!user.gloves)

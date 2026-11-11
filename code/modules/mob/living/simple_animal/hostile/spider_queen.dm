@@ -117,7 +117,7 @@
 	S.layer = initial(S.layer)
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
-		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"), visible_message_flags = GHOST_MESSAGE)
+		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)

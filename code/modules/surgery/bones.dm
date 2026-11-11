@@ -24,20 +24,20 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.stage == BONE_PRE_OP)
 		user.visible_message("<b>[user]</b> starts applying some of [tool] to the damaged bones in [target]'s [affected.name]." , \
-		self_message = SPAN_NOTICE("You start applying some of [tool] to the damaged bones in [target]'s [affected.name]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You start applying some of [tool] to the damaged bones in [target]'s [affected.name]."))
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!",1)
 	..()
 
 /singleton/surgery_step/glue_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> applies some of [tool] to [target]'s bone in [affected.name].", \
-		self_message = SPAN_NOTICE("You apply some of [tool] to [target]'s bone in [affected.name]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You apply some of [tool] to [target]'s bone in [affected.name]."))
 	affected.stage = BONE_GLUED
 
 /singleton/surgery_step/glue_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!") , \
-	self_message = SPAN_WARNING("Your hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!"), visible_message_flags = GHOST_MESSAGE)
+	self_message = SPAN_WARNING("Your hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!"))
 	target.apply_damage(15, DAMAGE_PAIN)
 
 /singleton/surgery_step/set_bone
@@ -58,7 +58,7 @@
 /singleton/surgery_step/set_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] is beginning to set the bone in [target]'s [affected.name] in place with \the [tool]." , \
-		self_message = "You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You are beginning to set the bone in [target]'s [affected.name] in place with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is going to make you pass out!",1)
 	..()
 
@@ -66,17 +66,17 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.status & ORGAN_BROKEN)
 		user.visible_message("<b>[user]</b> sets the bone in [target]'s [affected.name] in place with \the [tool].", \
-			self_message = SPAN_NOTICE("You set the bone in [target]'s [affected.name] in place with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You set the bone in [target]'s [affected.name] in place with \the [tool]."))
 		affected.stage = BONE_SET
 	else
 		user.visible_message(SPAN_NOTICE("[user] sets the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"), \
-			self_message = SPAN_NOTICE("You set the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"), visible_message_flags = GHOST_MESSAGE)
+			self_message = SPAN_NOTICE("You set the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"))
 		affected.fracture()
 
 /singleton/surgery_step/set_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!") , \
-		self_message = SPAN_WARNING("Your hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!"))
 	target.apply_damage(5, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /singleton/surgery_step/mend_skull
@@ -96,19 +96,19 @@
 
 /singleton/surgery_step/mend_skull/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to piece together [target]'s skull with \the [tool]."  , \
-		self_message = "You are beginning to piece together [target]'s skull with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You are beginning to piece together [target]'s skull with \the [tool].")
 	..()
 
 /singleton/surgery_step/mend_skull/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> sets [target]'s skull with \the [tool]." , \
-		self_message = SPAN_NOTICE("You set [target]'s skull with \the [tool]."), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_NOTICE("You set [target]'s skull with \the [tool]."))
 	affected.stage = ORGAN_OPEN_RETRACTED
 
 /singleton/surgery_step/mend_skull/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s face with \the [tool]!")  , \
-		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s face with \the [tool]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, damaging [target]'s face with \the [tool]!"))
 	var/obj/item/organ/external/head/h = affected
 	target.apply_damage(10, DAMAGE_BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	h.disfigured = 1
@@ -133,13 +133,13 @@
 /singleton/surgery_step/finish_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].", \
-		self_message = "You start to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].", visible_message_flags = GHOST_MESSAGE)
+		self_message = "You start to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].")
 	..()
 
 /singleton/surgery_step/finish_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has mended the damaged bones in [target]'s [affected.name] with \the [tool]."  , \
-		self_message = SPAN_NOTICE("You have mended the damaged bones in [target]'s [affected.name] with \the [tool]."), visible_message_flags = GHOST_MESSAGE )
+		self_message = SPAN_NOTICE("You have mended the damaged bones in [target]'s [affected.name] with \the [tool].") )
 	affected.status &= ~ORGAN_BROKEN
 	affected.status &= ~ORGAN_SPLINTED
 	affected.stage = BONE_PRE_OP
@@ -148,5 +148,5 @@
 /singleton/surgery_step/finish_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-		self_message = SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"), visible_message_flags = GHOST_MESSAGE)
+		self_message = SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	target.apply_damage(15, DAMAGE_PAIN)

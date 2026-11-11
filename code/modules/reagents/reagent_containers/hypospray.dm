@@ -64,7 +64,7 @@
 			inj_time = (1 SECOND) * mod_time
 		else
 			inj_time *= mod_time
-		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), self_message = SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."), visible_message_flags = GHOST_MESSAGE)
+		user.visible_message(SPAN_WARNING("\The [user] is trying to inject \the [L] with \the [src]!"), self_message = SPAN_NOTICE("You are trying to inject \the [L] with \the [src]."))
 		if(do_mob(user, L, inj_time))
 			inject(target_mob, user, target_mob.Adjacent(user))
 

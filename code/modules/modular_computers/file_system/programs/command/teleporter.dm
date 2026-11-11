@@ -134,7 +134,7 @@
 			linked_pad.locked_obj_name = params["name"]
 			if(!linked_pad.engaged)
 				linked_pad.engage()
-				linked_pad.visible_message(SPAN_NOTICE("Locked in."), vision_distance = 2)
+				linked_pad.visible_message(SPAN_NOTICE("Locked in."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 			. = TRUE
 
 		if("implant")
@@ -149,7 +149,7 @@
 			linked_pad.locked_obj_name = params["name"]
 			if(!linked_pad.engaged)
 				linked_pad.engage()
-				linked_pad.visible_message(SPAN_NOTICE("Locked in."), vision_distance = 2)
+				linked_pad.visible_message(SPAN_NOTICE("Locked in."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 			. = TRUE
 
 /datum/computer_file/program/teleporter/ninja
