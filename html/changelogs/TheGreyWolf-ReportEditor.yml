@@ -4,3 +4,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added the report editor program."
+  - rscadd: "Command PDAs now start with better internal storage."
+  - rscdel: "Removed the gun tracker and news browser from the default program sets. They can still be downloaded as usual."
