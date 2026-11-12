@@ -230,10 +230,14 @@ SUBSYSTEM_DEF(atlas)
 		CRASH("No directory supplied.")
 
 	var/static/regex/mapregex = new(".+\\.dmm$")
+	// Output of `tools/bapi/mapmanip.ps1`, for local preview only; never load these
+	var/static/regex/mapmanipout_regex = new("\\.mapmanipout\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
 	var/list/filemaps_to_load
 	for(var/file in files)
+		if(mapmanipout_regex.Find(file))
+			continue
 		if(mapregex.Find(file))
 			filemaps_to_load += list(file)
 
