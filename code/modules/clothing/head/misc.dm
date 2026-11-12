@@ -72,7 +72,7 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
@@ -150,6 +150,7 @@
 /obj/item/clothing/head/justice
 	name = "justice hat"
 	desc = "Fight for what's righteous!"
+	icon = 'icons/obj/item/clothing/head/head.dmi'
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES

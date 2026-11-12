@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/armor
+ABSTRACT_TYPE(/obj/item/clothing/suit/armor)
 	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/flashlight,/obj/item/clothing/head/helmet)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = ITEM_FLAG_THICK_MATERIAL
@@ -299,6 +299,8 @@
 	icon_badge = "forensictech_badge"
 	icon_nobadge = "forensictech_nobadge"
 
+/obj/item/clothing/suit/storage/vest/heavy
+
 /obj/item/clothing/suit/storage/hazardvest/security
 	name = "cadet hazard vest"
 	desc = "A sturdy high-visibility vest intended for training security personnel."
@@ -320,37 +322,6 @@
 	icon_state = "hazard_officer"
 	item_state = "hazard_officer"
 	body_parts_covered = UPPER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/vest/heavy/officer
-	name = "officer heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a security holobadge clipped to the chest."
-	icon_state = "officerwebvest_nobadge"
-	item_state = "officerwebvest_nobadge"
-	icon_badge = "officerwebvest_badge"
-	icon_nobadge = "officerwebvest_nobadge"
-
-/obj/item/clothing/suit/storage/vest/heavy/warden
-	name = "warden heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a silver badge clipped to the chest."
-	icon_state = "wardenwebvest_nobadge"
-	item_state = "wardenwebvest_nobadge"
-	icon_badge = "wardenwebvest_badge"
-	icon_nobadge = "wardenwebvest_nobadge"
-
-/obj/item/clothing/suit/storage/vest/heavy/hos
-	name = "commander heavy armor vest"
-	desc = "A heavy kevlar plate carrier belonging to the SCC, with webbing attached. This one has a gold badge clipped to the chest."
-	icon_state = "hoswebvest_nobadge"
-	item_state = "hoswebvest_nobadge"
-	icon_badge = "hoswebvest_badge"
-	icon_nobadge = "hoswebvest_nobadge"
-	armor = list(
-		MELEE = ARMOR_MELEE_RESISTANT,
-		BULLET = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_BALLISTIC_PISTOL,
-		ENERGY = ARMOR_ENERGY_MINOR,
-		BOMB = ARMOR_BOMB_PADDED
-	)
 
 //unathi armor
 
@@ -470,7 +441,7 @@
 
 //All of the armor below is mostly unused
 
-/obj/item/clothing/suit/armor/tdome
+ABSTRACT_TYPE(/obj/item/clothing/suit/armor/tdome)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 

@@ -1,6 +1,6 @@
 
 //Hat Station 13
-/obj/item/clothing/head/collectable
+ABSTRACT_TYPE(/obj/item/clothing/head/collectable)
 	name = "collectable hat"
 	desc = "A rare collectable hat."
 
@@ -80,6 +80,8 @@
 /obj/item/clothing/head/collectable/flatcap
 	name = "collectable flat cap"
 	desc = "A Collectible farmer's Flat Cap!"
+	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
+	contained_sprite = TRUE
 	icon_state = "flat_cap"
 	item_state_slots = list(
 		slot_l_hand_str = "detective",
@@ -105,6 +107,8 @@
 /obj/item/clothing/head/collectable/hardhat
 	name = "collectable hard hat"
 	desc = "WARNING! Offers no real protection, or luminosity, but it is damn fancy!"
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi'
+	contained_sprite = TRUE
 	icon_state = "hardhat_yellow"
 
 /obj/item/clothing/head/collectable/thunderdome

@@ -205,12 +205,6 @@
 	icon_state = "plate_blue"
 	item_state = "plate_scc"
 
-/obj/item/clothing/accessory/armor_plate/hos
-	name = "commander armor plate"
-	desc = "A particularly light-weight armor plate with really cool gold bands. Even more stylish when the gold bands are covered in the blood of your goons!"
-	icon_state = "plate_sec_commander"
-	item_state = "plate_sec_commander"
-
 /obj/item/clothing/accessory/armor_plate/ballistic
 	name = "ballistic armor plate"
 	desc = "A heavy alloy ballistic armor plate in gunmetal grey. Shockingly stylish, but also shockingly tiring to wear!"

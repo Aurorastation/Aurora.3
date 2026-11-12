@@ -1,4 +1,4 @@
-/obj/item/clothing/wrists/unathi
+ABSTRACT_TYPE(/obj/item/clothing/wrists/unathi)
 	name = "unathi wristwear"
 	desc = "The default wrists."
 	icon = 'icons/obj/unathi_items.dmi'

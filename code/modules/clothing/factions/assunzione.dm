@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/under/assunzione)
+
 /obj/item/clothing/under/assunzione/priest
 	name = "luceian cassock"
 	desc = "A linen cassock worn by clergyfolk of the Luceian faith of Assunzione. Despite being of simple make, the violet dye used for the shoulders has an almost iridescent sparkle to them."

@@ -1,6 +1,9 @@
 /*
 	Armor
 */
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/armor/riot)
+
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."

@@ -9,7 +9,7 @@ SEE_PIXELS// if an object is located on an unlit area, but some of its pixels ar
 			// in a lit area (via pixel_x,y or smooth movement), can see those pixels
 BLIND     // can't see anything
 */
-/obj/item/clothing/glasses
+ABSTRACT_TYPE(/obj/item/clothing/glasses)
 	name = "glasses"
 	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
 	contained_sprite = TRUE
@@ -657,6 +657,8 @@ BLIND     // can't see anything
 	item_state = "monocle"
 	body_parts_covered = 0
 
+ABSTRACT_TYPE(/obj/item/clothing/glasses/aug)
+
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
 	desc = "Corrective lenses made for those who have trouble seeing."
@@ -797,6 +799,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/aug/welding
 	name = "glare dampeners"
 	desc = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
