@@ -238,6 +238,10 @@
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
 		var/atom/movable/O = mob.loc
+		if(istype(O, /mob/living/heavy_vehicle))
+			var/mob/living/heavy_vehicle/mech = O
+			if(mob in mech.pilots)
+				return O.relaymove(mob, direct)
 		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
 		O.recalculate_glide_size(old_move_delay, move_delay, direct)
 		return O.relaymove(mob, direct)
