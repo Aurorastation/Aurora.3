@@ -605,60 +605,67 @@
 	return pick(mutants)
 
 /// Mutates the plant overall (randomly).
-/datum/seed/proc/mutate(var/degree,var/turf/source_turf)
+/datum/seed/proc/mutate(var/degree, var/turf/source_turf, var/mob/user = null)
 
 	if(!degree || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
 	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"))
 
+	var/min_case = 0
+	var/bias = 0
+	if(user)
+		SEND_SIGNAL(user, COMSIG_BOTANY_INDUCE_MUTATION, src, null, &min_case, &bias)
+	min_case = clamp(round(min_case), 0, 11)
+	bias = max(0, round(bias))
+
 	//This looks like shit, but it's a lot easier to read/change this way.
 	var/total_mutations = rand(1,1+degree)
 	for(var/i = 0;i<total_mutations;i++)
-		switch(rand(0,11))
+		switch(rand(min_case,11))
 			if(0) //Plant cancer!
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE, GET_SEED_TRAIT(src, TRAIT_ENDURANCE)-rand(10,20), null, 0, null)
 				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
 			if(1)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_NUTRIENT_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1), (degree*0.1)), 5, 0, null)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WATER_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION)+rand(-degree,degree), 50, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_NUTRIENT_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*(0.1 + 0.05*bias)), (degree*(0.1 - 0.04*bias))), 5, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WATER_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION)+rand(-degree*(1 + bias), max(0, degree*(1 - bias))), 50, 0, null)
 				SET_SEED_TRAIT(src, TRAIT_JUICY, !GET_SEED_TRAIT(src, TRAIT_JUICY))
 				SET_SEED_TRAIT(src, TRAIT_STINGS, !GET_SEED_TRAIT(src, TRAIT_STINGS))
 			if(2)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_IDEAL_HEAT,          GET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT) + (rand(-5,5)*degree), 800, 70, null)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_HEAT_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE) + (rand(-5,5)*degree), 800, 70, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_HEAT_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE) + (rand(-5 + 2*bias, 5 + 2*bias)*degree), 800, 70, null)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_LOWKPA_TOLERANCE,    GET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE)+ (rand(-5,5)*degree), 80, 0, null)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_HIGHKPA_TOLERANCE,   GET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE)+ (rand(-5,5)*degree), 500, 110, null)
 				SET_SEED_TRAIT(src, TRAIT_EXPLOSIVE, 1)
 			if(3)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_IDEAL_LIGHT,         GET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT)+(rand(-1,1)*degree), 30, 0, null)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_LIGHT_TOLERANCE,     GET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_LIGHT_TOLERANCE,     GET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE)+(rand(-2 + bias, 2 + bias)*degree), 10, 0, null)
 			if(4)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_TOXINS_TOLERANCE,    GET_SEED_TRAIT(src, TRAIT_TOXINS_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_TOXINS_TOLERANCE,    GET_SEED_TRAIT(src, TRAIT_TOXINS_TOLERANCE)+(rand(-2 + bias, 2 + bias)*degree), 10, 0, null)
 			if(5)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2 + bias, 2 + bias)*degree), 10, 0, null)
 				if(prob(degree*5))
 					SET_SEED_TRAIT_BOUNDED(src, TRAIT_CARNIVOROUS,     GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS)+rand(-degree,degree), 2, 0, null)
 					if(GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS))
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."))
 			if(6)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2 + bias, 2 + bias)*degree), 10, 0, null)
 				if(prob(degree*5))
 					SET_SEED_TRAIT(src, TRAIT_PARASITE, !GET_SEED_TRAIT(src, TRAIT_PARASITE))
 			if(7)
 				if(GET_SEED_TRAIT(src, TRAIT_YIELD) != -1)
-					SET_SEED_TRAIT_BOUNDED(src, TRAIT_YIELD,           GET_SEED_TRAIT(src, TRAIT_YIELD)+(rand(-2,2)*degree), 10, 0, null)
+					SET_SEED_TRAIT_BOUNDED(src, TRAIT_YIELD,           GET_SEED_TRAIT(src, TRAIT_YIELD)+(rand(-2 + bias, 2 + bias)*degree), 10, 0, null)
 			if(8)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE,           GET_SEED_TRAIT(src, TRAIT_ENDURANCE)+(rand(-5,5)*degree), 100, 10, null)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_PRODUCTION,          GET_SEED_TRAIT(src, TRAIT_PRODUCTION)+(rand(-1,1)*degree), 10, 1, null)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_POTENCY,             GET_SEED_TRAIT(src, TRAIT_POTENCY)+(rand(-20,20)*degree), 200, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE,           GET_SEED_TRAIT(src, TRAIT_ENDURANCE)+(rand(-5 + 3*bias, 5 + 3*bias)*degree), 100, 10, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_PRODUCTION,          GET_SEED_TRAIT(src, TRAIT_PRODUCTION)+(rand(-1 - bias, max(0, 1 - bias))*degree), 10, 1, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_POTENCY,             GET_SEED_TRAIT(src, TRAIT_POTENCY)+(rand(-20 + 10*bias, 20 + 5*bias)*degree), 200, 0, null)
 				if(prob(degree*5))
 					SET_SEED_TRAIT_BOUNDED(src, TRAIT_SPREAD,          GET_SEED_TRAIT(src, TRAIT_SPREAD)+rand(-1,1), 2, 0, null)
 					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."))
 				if(prob(degree*5))
 					SET_SEED_TRAIT(src, TRAIT_SPOROUS,         !GET_SEED_TRAIT(src, TRAIT_SPOROUS))
 			if(9)
-				SET_SEED_TRAIT_BOUNDED(src, TRAIT_MATURATION,          GET_SEED_TRAIT(src, TRAIT_MATURATION)+(rand(-1,1)*degree), 30, 0, null)
-				if(prob(degree*5))
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_MATURATION,          GET_SEED_TRAIT(src, TRAIT_MATURATION)+(rand(-1 - bias, max(0, 1 - bias))*degree), 30, 0, null)
+				if(prob(degree*(5 + 5*bias)))
 					SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, !GET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT))
 			if(10)
 				if(prob(degree*2))
@@ -676,16 +683,23 @@
 	return
 
 /// Mutates a specific trait/set of traits.
-/datum/seed/proc/apply_gene(var/datum/plantgene/gene)
+/datum/seed/proc/apply_gene(var/datum/plantgene/gene, var/mob/user = null)
 
 	if(!gene || !gene.values || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
-	// Splicing products has some detrimental effects on yield and lifespan.
+	// Splicing products has some detrimental effects on yield and lifespan unless mitigated by Xenobotany skill.
 	// We handle this before we do the rest of the looping, as normal traits don't really include lists.
 	switch(gene.genetype)
 		if(GENE_BIOCHEMISTRY)
-			for(var/trait in list(TRAIT_YIELD, TRAIT_ENDURANCE))
-				if(GET_SEED_TRAIT(src, trait) > 0) SET_SEED_TRAIT_BOUNDED(src, trait, GET_SEED_TRAIT(src, trait), null, 1, 0.85)
+			var/trait_retention = 0.85
+			var/gas_retention = 0.80
+			if(user)
+				SEND_SIGNAL(user, COMSIG_BOTANY_APPLY_GENE, src, null, null, &trait_retention, &gas_retention)
+
+			if(trait_retention < 1.0)
+				for(var/trait in list(TRAIT_YIELD, TRAIT_ENDURANCE))
+					if(GET_SEED_TRAIT(src, trait) > 0)
+						SET_SEED_TRAIT_BOUNDED(src, trait, GET_SEED_TRAIT(src, trait), null, 1, trait_retention)
 
 			if(!chems) chems = list()
 
@@ -712,20 +726,20 @@
 				if(!exude_gasses) exude_gasses = list()
 				exude_gasses |= new_gasses
 				for(var/gas in exude_gasses)
-					exude_gasses[gas] = max(1,round(exude_gasses[gas]*0.8))
-
-			gene.values["[TRAIT_EXUDE_GASSES]"] = null
-			gene.values["[TRAIT_CHEMS]"] = null
+					exude_gasses[gas] = max(1,round(exude_gasses[gas]*gas_retention))
 
 		if(GENE_DIET)
 			var/list/new_gasses = gene.values["[TRAIT_CONSUME_GASSES]"]
-			consume_gasses |= new_gasses
-			gene.values["[TRAIT_CONSUME_GASSES]"] = null
+			if(islist(new_gasses))
+				if(!consume_gasses) consume_gasses = list()
+				consume_gasses |= new_gasses
 		if(GENE_METABOLISM)
-			product_type = gene.values["product_type"]
-			gene.values["product_type"] = null
+			if(gene.values["product_type"])
+				product_type = gene.values["product_type"]
 
 	for(var/trait in gene.values)
+		if(trait in list("[TRAIT_EXUDE_GASSES]", "[TRAIT_CHEMS]", "[TRAIT_CONSUME_GASSES]", "product_type"))
+			continue
 		SET_SEED_TRAIT(src, trait, gene.values["[trait]"])
 
 	update_growth_stages()

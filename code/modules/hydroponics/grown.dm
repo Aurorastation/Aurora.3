@@ -342,6 +342,19 @@
 				return
 	*/
 
+/obj/item/reagent_containers/food/snacks/grown/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(seed && GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_NOTICE("Potency: <b>[potency]</b>.")
+		if(GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL && LAZYLEN(reagents?.reagent_volumes))
+			var/list/reagent_summary = list()
+			for(var/_R in reagents.reagent_volumes)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				if(R)
+					reagent_summary += "[R.name] ([round(REAGENT_VOLUME(reagents, _R), 0.1)]u)"
+			if(length(reagent_summary))
+				. += SPAN_NOTICE("Your expert xenobotanical sense identifies its chemical contents: <b>[english_list(reagent_summary)]</b>.")
+
 /obj/item/reagent_containers/food/snacks/grown/pickup(mob/user)
 	..()
 	if(!seed)
@@ -349,6 +362,11 @@
 	if(GET_SEED_TRAIT(seed, TRAIT_STINGS))
 		var/mob/living/carbon/human/H = user
 		if(istype(H) && H.gloves)
+			return
+		var/hazard_avoid_chance = 0
+		SEND_SIGNAL(user, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
+		if(hazard_avoid_chance > 0 && prob(hazard_avoid_chance))
+			to_chat(user, SPAN_NOTICE("You deftly grasp \the [src] by its stem, avoiding its stinging spines."))
 			return
 		if(!reagents || reagents.total_volume <= 0)
 			return
