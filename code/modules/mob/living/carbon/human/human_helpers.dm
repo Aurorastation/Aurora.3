@@ -101,26 +101,8 @@
 /// Unlike the equipment vision cache, this must continue to apply while looking through cameras or zoom optics.
 /mob/living/carbon/human/proc/get_equipment_flash_protection()
 	. = FLASH_PROTECTION_NONE
-
-	if(istype(head, /obj/item/clothing/head))
-		var/obj/item/clothing/head/headgear = head
-		. += headgear.flash_protection
-
-	if(istype(glasses, /obj/item/clothing/glasses))
-		var/obj/item/clothing/glasses/eyewear = glasses
-		if(eyewear.active)
-			. += eyewear.flash_protection
-
-	if(istype(wear_mask, /obj/item/clothing/mask))
-		var/obj/item/clothing/mask/mask = wear_mask
-		. += mask.flash_protection
-
-	if(istype(back, /obj/item/rig))
-		var/obj/item/rig/rig = back
-		if(rig.visor && rig.visor.active && rig.visor.vision_mode && rig.visor.vision_mode.glasses && (!rig.helmet || rig.helmet == head))
-			var/obj/item/clothing/glasses/rig_eyewear = rig.visor.vision_mode.glasses
-			if(rig_eyewear.active)
-				. += rig_eyewear.flash_protection
+	for(var/obj/item/equipment as anything in get_equipped_items())
+		. += equipment.get_equipped_flash_protection(src)
 
 /// Applies organ/markings prefs to this mob.
 /mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)
