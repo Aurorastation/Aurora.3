@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added persistence to the bar vending machine and the dispensers, including the booze dispenser, soda dispenser and coffee master 3000."
