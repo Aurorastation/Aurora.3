@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a changelog editing system that should cause fewer conflicts and more accurate timestamps."
