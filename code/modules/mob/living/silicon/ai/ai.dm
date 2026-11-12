@@ -706,7 +706,13 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 			if(!chosen_human)
 				return
 			var/mob/living/carbon/human/H = selectable_humans[chosen_human]
-			holo_icon.appearance = H.appearance
+			var/original_direction = H.dir
+			var/icon/copied_hologram = new /icon()
+			for(var/direction in GLOB.cardinals)
+				H.set_dir(direction)
+				copied_hologram.Insert(getFlatIcon(H, direction, no_anim = TRUE), "", direction, 1, 0)
+			H.set_dir(original_direction)
+			set_hologram_unique(copied_hologram)
 		else
 			to_chat(usr, SPAN_WARNING("There are no humanoids within camera view to base your hologram on."))
 	else
