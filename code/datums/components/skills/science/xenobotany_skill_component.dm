@@ -26,6 +26,7 @@
 		return
 
 	RegisterSignal(parent, COMSIG_APPLY_HIT_EFFECT, PROC_REF(modify_hit_effect), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_BUTCHERING_MODIFIERS, PROC_REF(modify_butchering), override = TRUE)
 	RegisterSignal(parent, COMSIG_PLANT_SAMPLER, PROC_REF(handle_plant_sampler), override = TRUE)
 	RegisterSignal(parent, COMSIG_BOTANY_EXTRACT_GENE, PROC_REF(handle_extract_gene), override = TRUE)
 	RegisterSignal(parent, COMSIG_BOTANY_APPLY_GENE, PROC_REF(handle_apply_gene), override = TRUE)
@@ -39,6 +40,7 @@
 		return ..()
 
 	UnregisterSignal(parent, COMSIG_APPLY_HIT_EFFECT)
+	UnregisterSignal(parent, COMSIG_GET_BUTCHERING_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_PLANT_SAMPLER)
 	UnregisterSignal(parent, COMSIG_BOTANY_EXTRACT_GENE)
 	UnregisterSignal(parent, COMSIG_BOTANY_APPLY_GENE)
@@ -48,20 +50,30 @@
 	UnregisterSignal(parent, COMSIG_BOTANY_FLORA_HANDLING)
 	return ..()
 
-/// Increases melee damage against living plant fauna (Pine Trees, Walking Mushrooms).
+/// Increases melee damage against living plant fauna (e.g. Pine Trees, Walking Mushrooms, Killer Tomatoes).
 /datum/component/skill/xenobotany/proc/modify_hit_effect(owner, mob/living/target, obj/item/weapon, power, hit_zone)
 	SIGNAL_HANDLER
 	if(skill_level <= SKILL_LEVEL_UNFAMILIAR)
 		return
-	if(!istype(target) || target.ckey)
-		return
-	if(!istype(target, /mob/living/simple_animal/hostile/tree) && !istype(target, /mob/living/simple_animal/mushroom))
+	if(!istype(target) || target.ckey || !HAS_TRAIT(target, TRAIT_MC_PLANT))
 		return
 
 	if(prob(20))
 		to_chat(owner, SPAN_NOTICE("Your attack exploits a structural weak spot in \the [target]'s fibrous anatomy!"))
 
 	*power = *power * (1 + bonus_damage_per_rank * skill_level)
+
+/// Increases butchering yield when harvesting parts from living plant fauna.
+/datum/component/skill/xenobotany/proc/modify_butchering(owner, mob/living/simple_animal/target, base_meat_amount, butchering_bonus)
+	SIGNAL_HANDLER
+	if(!HAS_TRAIT(target, TRAIT_MC_PLANT) || skill_level <= SKILL_LEVEL_UNFAMILIAR)
+		return
+
+	to_chat(owner, SPAN_NOTICE("Your familiarity with \the [target]'s botanical anatomy lets you harvest more intact parts."))
+	var/skill_difference = skill_level - SKILL_LEVEL_UNFAMILIAR
+	*base_meat_amount = *base_meat_amount + skill_difference
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		*butchering_bonus = *butchering_bonus + skill_difference
 
 /// Reduces tissue sampling damage and sample exhaustion chance, preserves wild flora, and grants a bonus cutting chance at Professional.
 /datum/component/skill/xenobotany/proc/handle_plant_sampler(mob/user, datum/seed/plant, sample_damage, exhaust_chance, bonus_seed_chance, wild_destroy_chance)
