@@ -14,16 +14,12 @@
 	var/list/spawn_cartridges
 	/// Associative, label -> cartridge.
 	var/list/cartridges = list()
-	/// Whether a mapped instance should persist the stock of its round-start cartridge types.
+	/// Whether this mapped dispenser is a host for persistent cartridge types.
 	var/persistent_cartridges = FALSE
 	/// Optional mapper-supplied suffix for otherwise identical dispensers sharing a turf.
 	var/persistent_cartridge_id_suffix
 	/// Original map identity. Runtime-created and off-station dispensers leave this null.
 	var/tmp/persistent_cartridge_id
-	/// Associative set of cartridge types originally spawned in this dispenser.
-	var/tmp/list/persistent_cartridge_types = list()
-	/// Saved stock supplied by the persistence subsystem before atom initialization.
-	var/tmp/list/persistent_cartridge_content
 	///Current container.
 	var/obj/item/reagent_containers/container
 	/// Name of the dispenser on the UI.
@@ -45,18 +41,28 @@
 	. += ..()
 	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
-/obj/structure/machinery/chemical_dispenser/Initialize()
+/obj/structure/machinery/chemical_dispenser/Initialize(mapload)
 	. = ..()
-	persistent_cartridge_types = list()
-	if(spawn_cartridges)
+	if(mapload && persistent_cartridges && SSpersistence.map_supports_persistence)
+		persistent_cartridge_id = get_persistent_cartridge_map_id()
+	if(spawn_cartridges && !(mapload && persistent_cartridge_id))
 		for(var/cartridge_path in spawn_cartridges)
 			var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = new cartridge_path(src)
 			add_cartridge(cartridge)
-			persistent_cartridge_types[cartridge.type] = TRUE
 
-	if(islist(persistent_cartridge_content))
-		apply_persistent_cartridge_stock(persistent_cartridge_content)
-	persistent_cartridge_content = null
+/** Returns the mapped identity used to restore persistent cartridge objects into this dispenser. */
+/obj/structure/machinery/chemical_dispenser/proc/get_persistent_cartridge_map_id()
+	if(persistent_cartridge_id)
+		return persistent_cartridge_id
+	if(!persistent_cartridges)
+		return
+	var/turf/dispenser_turf = get_turf(src)
+	if(!dispenser_turf || !is_station_level(dispenser_turf.z))
+		return
+	var/map_id = "[dispenser_turf.x]-[dispenser_turf.y]-[dispenser_turf.z]-[type]"
+	if(persistent_cartridge_id_suffix)
+		map_id += "-[persistent_cartridge_id_suffix]"
+	return map_id
 
 /** Returns an installed cartridge of the exact requested type, ignoring its mutable label. */
 /obj/structure/machinery/chemical_dispenser/proc/get_cartridge_by_type(cartridge_type)
@@ -64,40 +70,6 @@
 		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = cartridges[label]
 		if(cartridge.type == cartridge_type)
 			return cartridge
-
-/** Applies saved canonical stock to cartridges which originally spawned in this dispenser. */
-/obj/structure/machinery/chemical_dispenser/proc/apply_persistent_cartridge_stock(list/saved_stock)
-	if(!islist(saved_stock))
-		return
-
-	for(var/cartridge_type in persistent_cartridge_types)
-		var/stock_key = "[cartridge_type]"
-		if(!(stock_key in saved_stock))
-			continue
-		var/saved_amount = saved_stock[stock_key]
-		if(!isnum(saved_amount))
-			continue
-
-		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = get_cartridge_by_type(cartridge_type)
-		if(!cartridge?.reagents || !cartridge.spawn_reagent)
-			continue
-
-		saved_amount = clamp(saved_amount, 0, cartridge.reagents.maximum_volume)
-		cartridge.reagents.clear_reagents()
-		if(saved_amount)
-			cartridge.reagents.add_reagent(cartridge.spawn_reagent, saved_amount, temperature = cartridge.temperature_override)
-		cartridge.update_icon()
-
-/** Returns explicit stock for every original cartridge type. Missing cartridges are saved as empty. */
-/obj/structure/machinery/chemical_dispenser/proc/get_persistent_cartridge_stock()
-	var/list/saved_stock = list()
-	for(var/cartridge_type in persistent_cartridge_types)
-		var/stock_key = "[cartridge_type]"
-		saved_stock[stock_key] = 0
-		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = get_cartridge_by_type(cartridge_type)
-		if(cartridge?.reagents && cartridge.spawn_reagent)
-			saved_stock[stock_key] = clamp(REAGENT_VOLUME(cartridge.reagents, cartridge.spawn_reagent), 0, cartridge.reagents.maximum_volume)
-	return saved_stock
 
 /obj/structure/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))

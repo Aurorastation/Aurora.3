@@ -448,7 +448,6 @@
 #include "code\controllers\subsystems\movement\movement_types.dm"
 #include "code\controllers\subsystems\movement\spacedrift.dm"
 #include "code\controllers\subsystems\persistence\persistence.dm"
-#include "code\controllers\subsystems\persistence\persistence_dispenser.dm"
 #include "code\controllers\subsystems\persistence\persistence_objects.dm"
 #include "code\controllers\subsystems\persistence\persistence_objects_public.dm"
 #include "code\controllers\subsystems\persistence\persistence_objects_sql.dm"
