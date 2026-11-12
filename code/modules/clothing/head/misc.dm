@@ -556,8 +556,8 @@ ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 /obj/item/clothing/head/sol/army/service/general
 	name = "sol army general peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
-	icon_state = "army_cap_general"
-	item_state = "army_cap_general"
+	icon_state = "army_cap_senioroff"
+	item_state = "army_cap_senioroff"
 
 /obj/item/clothing/head/sol/army/service/garrison
 	name = "sol army garrison cap"

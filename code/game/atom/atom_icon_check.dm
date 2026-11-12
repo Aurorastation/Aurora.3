@@ -49,8 +49,11 @@
 
 	// These types (and their subtypes) are ignored
 	var/static/list/ignored_check_types = list(
-		/obj/item/clothing/suit/armor/shield,
-		/obj/item/clothing/suit/armor/tesla,
+		/obj/item/clothing/suit/armor/shield, // missing sprite, but a functional (?) technomancer ability
+		/obj/item/clothing/suit/armor/tesla,  // as above
+		/obj/item/clothing/head/lightrig,  // missing sprites, but used as custom item or something
+		/obj/item/clothing/suit/lightrig,  // as above
+		/obj/item/clothing/shoes/lightrig, // as above
 	)
 
 	// 0. Proc begins here proper
