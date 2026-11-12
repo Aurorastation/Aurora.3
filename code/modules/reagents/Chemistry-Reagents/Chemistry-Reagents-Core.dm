@@ -68,9 +68,7 @@
 	if(!istype(T) || amount < 3)
 		return
 	var/list/rdata = REAGENT_DATA(holder, type)
-	if(isemptylist(rdata))
-		return
-	var/datum/weakref/W = rdata["donor"]
+	var/datum/weakref/W = LAZYACCESS(rdata, "donor")
 	var/mob/living/carbon/C = W?.resolve()
 	if (!C || istype(C, /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
