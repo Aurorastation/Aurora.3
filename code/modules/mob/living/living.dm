@@ -134,7 +134,8 @@ default behaviour is:
 			now_pushing = FALSE
 			return
 
-		target_mob.LAssailant = WEAKREF(src)
+		if(!istype(src, /mob/living/carbon/human/monkey) && !istype(src, /mob/living/carbon/slime)) //The slime should not set the LAssailant if it bumps into the monkey while trying to eat it.
+			target_mob.LAssailant = WEAKREF(src)
 
 	now_pushing = FALSE
 	. = ..()
@@ -1101,3 +1102,14 @@ default behaviour is:
 		return
 
 	LoadComponent(footstep_component_type)
+
+/**
+ * Returns whether this mob's current movement can produce a footfall.
+ * Subtypes without usable feet should override this proc.
+ */
+/mob/living/proc/can_make_footfall()
+	if(buckled_to || lying || incorporeal_move || HAS_TRAIT(src, TRAIT_NO_FOOTFALL))
+		return FALSE
+
+	var/turf/current_turf = get_turf(src)
+	return !isspaceturf(current_turf) && check_solid_ground() && !CanAvoidGravity()

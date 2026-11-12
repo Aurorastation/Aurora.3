@@ -20,3 +20,62 @@
   diggiez:
   - balance: The Bite ability, currently only available to Ta, only requires a neckgrab.
   - qol: Black K'ois zombies get less message spam.
+2026-11-06:
+  ElorgRHG:
+  - imageadd: Added Golden Deep, Axiomite and Salamasian flagpatches.
+  - bugfix: Fixed sleeve patches not having a correct flipped sprite.
+  - bugfix: Fixed KOG shoulder tabs not having visible onmob sprites.
+  - bugfix: Fixed Sol Alliance (and party) pins not having working flipped sprites.
+  - bugfix: Fixed the name tag pin not having a visible onmob sprite.
+  - imageadd: Added the Ecclesiastical Authority of Axiom and Salamasian Republic
+      passports.
+  Fenodyree:
+  - bugfix: Fixes slimes not taming, because the monkey was not grabbed or pulled
+      by the player before feeding it to the slime.
+  - bugfix: Fixes pouring water on monkey cubes.
+  Stradfarian:
+  - imageadd: Added two tajaran hairstyles and two tajaran beards.
+  TheGreyWolf:
+  - bugfix: Fixed a backend issue causing TGUI to be unable to build.
+  - rscadd: Made the various food, drink and snack vendors on the ship persistent.
+  - bugfix: Fixes the spread of fire from napalm grenades.
+  - balance: Reduced the radius of napalm grenades from 5 to 3 turfs.
+2026-11-08:
+  FabianK3:
+  - admin: Updated the poll creation UI. Converted all inputs into a single TGUI.
+2026-11-09:
+  FabianK3:
+  - server: Added daily pinned rounds. If configured by admins, the server will automatically
+      schedule rounds to start a round at the specified time. One round before the
+      pinned round an automatic transfer vote is offered to either allow one full
+      round before the pinned round or to enforce the current round to be prolonged
+      up until the pinned round. The status panel displays the current configuration.
+  - admin: Added pinned round time config to server configuration menu.
+  TheGreyWolf:
+  - rscadd: Money can now be selected where it starts in the origins tab. The current
+      options are the bank, a charge card and biesei credits, as well as 50% options
+      for the latter two. Tajara can additionally select adhomian knuckles..
+  rattydew:
+  - bugfix: Resolved a missing accessory sprite for the red Han'san scaleshield custom
+      item.
+2026-11-11:
+  FabianK3:
+  - bugfix: Fixed the (hacked) supply beacon activation.
+  OstianFox:
+  - rscadd: Added Edgar Dawnguard's Custom Item.
+  TheGreyWolf:
+  - bugfix: Fixed various grab related bugs.
+  - bugfix: Fixed the phoron supply monitor TGUI error.
+  - bugfix: Fixed dead plants not having a sprite.
+  - rscadd: Fixed various remote mech issues.
+  - rscadd: Fixed mech weapons not being as accurate as they're supposed to.
+  - bugfix: Fixed some incorrect moodlet icon behavior.
+  - bugfix: Fixed the IPC surge prevention module having its charges drained too fast.
+  - bugfix: The outpost blueprints should now be functional again.
+  - bugfix: Fixed skrell and others making foot step sounds and marks even when legless.
+  fyni:
+  - bugfix: Fixes a typo on the Dominian voidsuit.
+2026-11-12:
+  Fenodyree:
+  - bugfix: Fixes a divide by zero runtime when autoinjectors (and any other 0 time
+      do_mob actions) trying to update their progress bars.
