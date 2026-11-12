@@ -14,7 +14,6 @@
 	desc = "This armor has no inherent ability to absorb shock, as normal armor usually does.  Instead, this emits a strong field \
 	around the wearer, designed to protect from most forms of harm, from lasers to bullets to close quarters combat.  It appears to \
 	require a very potent supply of an energy of some kind in order to function."
-	icon = ''
 	icon_state = "shield_armor_0"
 	blood_overlay_type = "armor"
 	slowdown = 0
