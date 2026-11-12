@@ -5,20 +5,38 @@
  * and handling of hazardous or spreading alien flora.
  */
 /datum/component/skill/xenobotany
-	/// +% bonus melee damage per skill level against living plant fauna (e.g. Pine Trees, Walking Mushrooms).
+	/// +% bonus melee damage per skill level against living plant fauna (e.g. Pine Trees, Walking Mushrooms, Killer Tomatoes).
 	var/bonus_damage_per_rank = 0.05
 	/// +% bonus melee/unarmed damage per effective skill rank above Unfamiliar against spreading vines (/obj/effect/plant).
 	var/vine_damage_bonus_per_rank = 0.25
+	/// Bonus vine escape chance per effective skill rank above Unfamiliar.
+	var/vine_escape_bonus_per_rank = 25
+	/// Bonus vine entanglement evasion chance per effective skill rank above Unfamiliar.
+	var/vine_evade_bonus_per_rank = 35
 	/// Reduction in sample damage multiplier per effective skill rank above Unfamiliar.
 	var/sample_damage_reduction_per_rank = 0.25
+	/// Reduction in sample exhaustion chance multiplier per effective skill rank above Unfamiliar.
+	var/sample_exhaust_reduction_per_rank = 0.334
 	/// Bonus chance to divide a cutting into an extra seed packet at Professional rank.
 	var/professional_bonus_seed_chance = 25
-	/// Increase in species mutation chance per effective skill rank above Unfamiliar.
-	var/species_mutation_bonus_per_rank = 10
+	/// Reduction in centrifuge genome degradation multiplier per effective skill rank above Unfamiliar.
+	var/centrifuge_degradation_reduction_per_rank = 0.18
+	/// Reduction in splicing failure chance multiplier per effective skill rank above Unfamiliar.
+	var/splice_fail_multiplier_reduction_per_rank = 0.15
+	/// Flat reduction in splicing failure chance per effective skill rank above Unfamiliar.
+	var/splice_fail_flat_reduction_per_rank = 5
 	/// Increase in trait retention per effective skill rank above Unfamiliar when splicing biochemistry genes.
 	var/trait_retention_bonus_per_rank = 0.05
+	/// Increase in gas retention per effective skill rank above Unfamiliar when splicing biochemistry genes.
+	var/gas_retention_bonus_per_rank = 0.07
+	/// Bonus somatoray trigger probability per effective skill rank above Unfamiliar.
+	var/somatoray_prob_bonus_per_rank = 13.34
+	/// Increase in species mutation chance per effective skill rank above Unfamiliar.
+	var/species_mutation_bonus_per_rank = 10
 	/// Bonus chance per effective skill rank above Unfamiliar to avoid flora hazards (stings, thorns, spores).
 	var/hazard_avoid_bonus_per_rank = 50
+	/// Bonus chance per effective skill rank above Familiar to salvage a seed packet from wild flora.
+	var/wild_salvage_bonus_per_rank = 50
 
 /datum/component/skill/xenobotany/Initialize(level)
 	. = ..()
@@ -86,14 +104,13 @@
 		*sample_damage = max(1, round(*sample_damage * max(0.2, 1 - sample_damage_reduction_per_rank * effective_skill)))
 
 	if(!isnull(exhaust_chance))
-		// Scales down existing exhaust chance by 1/3 per rank above Unfamiliar (reaching 0% at Professional).
-		*exhaust_chance = max(0, round(*exhaust_chance * (1 - (effective_skill / 3))))
+		*exhaust_chance = max(0, round(*exhaust_chance * (1 - sample_exhaust_reduction_per_rank * effective_skill)))
 
 	if(!isnull(wild_destroy_chance))
 		*wild_destroy_chance = 0
 
 	if(!isnull(bonus_seed_chance) && skill_level >= SKILL_LEVEL_PROFESSIONAL)
-		*bonus_seed_chance = *bonus_seed_chance + professional_bonus_seed_chance
+		*bonus_seed_chance = *bonus_seed_chance + professional_bonus_seed_chance * (skill_level - SKILL_LEVEL_TRAINED)
 
 /// Reduces genetic degradation increase when extracting a gene in the lysis-isolation centrifuge.
 /datum/component/skill/xenobotany/proc/handle_extract_gene(mob/user, obj/structure/machinery/botany/extractor/machine, degradation_increase)
@@ -101,13 +118,8 @@
 	if(skill_level <= SKILL_LEVEL_UNFAMILIAR || isnull(degradation_increase))
 		return
 
-	switch(skill_level)
-		if(SKILL_LEVEL_FAMILIAR)
-			*degradation_increase = max(5, round(*degradation_increase * 0.85))
-		if(SKILL_LEVEL_TRAINED)
-			*degradation_increase = max(5, round(*degradation_increase * 0.65))
-		if(SKILL_LEVEL_PROFESSIONAL)
-			*degradation_increase = max(5, round(*degradation_increase * 0.45))
+	var/effective_skill = skill_level - SKILL_LEVEL_UNFAMILIAR
+	*degradation_increase = max(5, round(*degradation_increase * (1 - centrifuge_degradation_reduction_per_rank * effective_skill)))
 
 /// Reduces splicing failure chance, genetic modification decay accumulation, and yield/endurance/gas penalties when splicing biochemistry genes.
 /datum/component/skill/xenobotany/proc/handle_apply_gene(mob/user, datum/seed/plant, fail_chance, decay_increase, trait_retention, gas_retention)
@@ -117,13 +129,7 @@
 
 	var/effective_skill = skill_level - SKILL_LEVEL_UNFAMILIAR
 	if(!isnull(fail_chance))
-		switch(skill_level)
-			if(SKILL_LEVEL_FAMILIAR)
-				*fail_chance = max(0, *fail_chance - 10)
-			if(SKILL_LEVEL_TRAINED)
-				*fail_chance = max(0, round(*fail_chance * 0.75) - 10)
-			if(SKILL_LEVEL_PROFESSIONAL)
-				*fail_chance = max(0, round(*fail_chance * 0.5) - 15)
+		*fail_chance = max(0, round(*fail_chance * (1 - splice_fail_multiplier_reduction_per_rank * effective_skill) - splice_fail_flat_reduction_per_rank * effective_skill))
 
 	if(!isnull(decay_increase))
 		*decay_increase = max(1, *decay_increase - effective_skill)
@@ -132,13 +138,7 @@
 		*trait_retention = min(1.0, *trait_retention + trait_retention_bonus_per_rank * effective_skill)
 
 	if(!isnull(gas_retention))
-		switch(skill_level)
-			if(SKILL_LEVEL_FAMILIAR)
-				*gas_retention = min(1.0, *gas_retention + 0.05)
-			if(SKILL_LEVEL_TRAINED)
-				*gas_retention = min(1.0, *gas_retention + 0.10)
-			if(SKILL_LEVEL_PROFESSIONAL)
-				*gas_retention = 1.0
+		*gas_retention = min(1.0, *gas_retention + gas_retention_bonus_per_rank * effective_skill)
 
 /// Improves floral somatoray activation probability and yield beam boost on hydroponics trays.
 /datum/component/skill/xenobotany/proc/handle_somatoray(mob/firer, obj/structure/machinery/portable_atmospherics/hydroponics/tray, proc_chance, yield_boost)
@@ -146,20 +146,12 @@
 	if(skill_level <= SKILL_LEVEL_UNFAMILIAR)
 		return
 
+	var/effective_skill = skill_level - SKILL_LEVEL_UNFAMILIAR
 	if(!isnull(proc_chance))
-		switch(skill_level)
-			if(SKILL_LEVEL_FAMILIAR)
-				*proc_chance = *proc_chance + 10
-			if(SKILL_LEVEL_TRAINED)
-				*proc_chance = *proc_chance + 25
-			if(SKILL_LEVEL_PROFESSIONAL)
-				*proc_chance = *proc_chance + 40
+		*proc_chance = round(*proc_chance + somatoray_prob_bonus_per_rank * effective_skill)
 
-	if(!isnull(yield_boost))
-		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-			*yield_boost = *yield_boost + rand(1, 2)
-		else if(skill_level >= SKILL_LEVEL_TRAINED)
-			*yield_boost = *yield_boost + 1
+	if(!isnull(yield_boost) && skill_level > SKILL_LEVEL_FAMILIAR)
+		*yield_boost = *yield_boost + (skill_level - SKILL_LEVEL_FAMILIAR)
 
 /// Improves species mutation chance, prevents plant cancer (case 0), and biases trait mutations toward beneficial shifts.
 /datum/component/skill/xenobotany/proc/handle_induce_mutation(mob/user, datum/seed/plant, species_mut_chance, min_mutation_case, mutation_bias)
@@ -174,7 +166,7 @@
 	if(!isnull(min_mutation_case) && skill_level >= SKILL_LEVEL_FAMILIAR)
 		*min_mutation_case = max(*min_mutation_case, 1)
 
-	if(!isnull(mutation_bias) && skill_level >= SKILL_LEVEL_TRAINED)
+	if(!isnull(mutation_bias) && skill_level > SKILL_LEVEL_FAMILIAR)
 		*mutation_bias = *mutation_bias + (skill_level - SKILL_LEVEL_FAMILIAR)
 
 /// Increases damage against spreading vines and improves unbuckling and entanglement evasion chances.
@@ -188,22 +180,10 @@
 		*damage = *damage * (1 + vine_damage_bonus_per_rank * effective_skill)
 
 	if(!isnull(escape_chance))
-		switch(skill_level)
-			if(SKILL_LEVEL_FAMILIAR)
-				*escape_chance = min(100, *escape_chance + 15)
-			if(SKILL_LEVEL_TRAINED)
-				*escape_chance = min(100, *escape_chance + 35)
-			if(SKILL_LEVEL_PROFESSIONAL)
-				*escape_chance = 100
+		*escape_chance = min(100, *escape_chance + vine_escape_bonus_per_rank * effective_skill)
 
 	if(!isnull(evade_chance))
-		switch(skill_level)
-			if(SKILL_LEVEL_FAMILIAR)
-				*evade_chance = min(100, *evade_chance + 35)
-			if(SKILL_LEVEL_TRAINED)
-				*evade_chance = min(100, *evade_chance + 70)
-			if(SKILL_LEVEL_PROFESSIONAL)
-				*evade_chance = 100
+		*evade_chance = min(100, *evade_chance + vine_evade_bonus_per_rank * effective_skill)
 
 /// Increases chance to avoid flora hazards (stings, thorns, spore bursts) and salvage wild seed packets.
 /datum/component/skill/xenobotany/proc/handle_flora_handling(mob/user, datum/seed/plant, hazard_avoid_chance, salvage_seed_chance)
@@ -215,8 +195,8 @@
 	if(!isnull(hazard_avoid_chance))
 		*hazard_avoid_chance = min(100, *hazard_avoid_chance + hazard_avoid_bonus_per_rank * effective_skill)
 
-	if(!isnull(salvage_seed_chance) && skill_level >= SKILL_LEVEL_TRAINED)
-		*salvage_seed_chance = min(100, *salvage_seed_chance + 50 * (skill_level - SKILL_LEVEL_FAMILIAR))
+	if(!isnull(salvage_seed_chance) && skill_level > SKILL_LEVEL_FAMILIAR)
+		*salvage_seed_chance = min(100, *salvage_seed_chance + wild_salvage_bonus_per_rank * (skill_level - SKILL_LEVEL_FAMILIAR))
 
 /**
  * Returns TRUE if the user's Xenobotany skill allows them to decode the given obfuscated plant gene tag.
