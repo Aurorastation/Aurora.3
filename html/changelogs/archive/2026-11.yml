@@ -75,3 +75,7 @@
   - bugfix: Fixed skrell and others making foot step sounds and marks even when legless.
   fyni:
   - bugfix: Fixes a typo on the Dominian voidsuit.
+2026-11-12:
+  Fenodyree:
+  - bugfix: Fixes a divide by zero runtime when autoinjectors (and any other 0 time
+      do_mob actions) trying to update their progress bars.
