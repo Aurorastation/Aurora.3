@@ -9,7 +9,6 @@
 	. = ..()
 	program_list += list(/datum/computer_file/program/filemanager,
 						/datum/computer_file/program/manifest,
-						/datum/computer_file/program/newsbrowser,
 						/datum/computer_file/program/chat_client,
 						/datum/computer_file/program/merchant
 						)
