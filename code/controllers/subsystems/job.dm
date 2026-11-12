@@ -306,11 +306,13 @@ SUBSYSTEM_DEF(jobs)
 		//Equip job items.
 		Debug("ER/([H]): Equipping custom loadout.")
 		job.pre_equip(H)
-		job.setup_account(H)
+		var/physical_starting_funds = job.setup_account(H)
 		job.after_spawn(H)
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
+		if(!isnull(physical_starting_funds))
+			job.equip_starting_funds(H, physical_starting_funds)
 
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else

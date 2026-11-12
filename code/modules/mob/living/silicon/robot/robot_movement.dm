@@ -3,6 +3,9 @@
 		return FALSE
 	..(prob_slip)
 
+/mob/living/silicon/robot/can_make_footfall()
+	return FALSE
+
 /mob/living/silicon/robot/Allow_Spacemove()
 	if(module)
 		for(var/obj/item/tank/jetpack/J in module.modules)

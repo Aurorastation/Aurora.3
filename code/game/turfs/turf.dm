@@ -432,12 +432,7 @@
 
 	if(does_footprint && footprint_color && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		var/has_feet = TRUE
-		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
-			has_feet = FALSE
-		if(!H.buckled_to && !H.lying && has_feet)
+		if(H.can_make_footfall())
 			if(H.shoes) //Adding ash to shoes
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
@@ -459,7 +454,9 @@
 
 	if(tracks_footprint && ishuman(arrived))
 		var/mob/living/carbon/human/H = arrived
-		H.species?.deploy_trail(H, src)
+		// Prone movement can still leave a body trail without producing a footfall.
+		if(H.can_make_footfall() || (H.lying && !H.buckled_to && !HAS_TRAIT(H, TRAIT_NO_FOOTFALL)))
+			H.species?.deploy_trail(H, src)
 
 	..()
 

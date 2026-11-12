@@ -57,9 +57,12 @@
 	var/turf/T = null
 	//--1---Move occupant---1--//
 	if(buckled)
+		var/footfall_trait_source = REF(src)
+		ADD_TRAIT(buckled, TRAIT_NO_FOOTFALL, footfall_trait_source)
 		buckled.buckled_to = null
 		step(buckled, direction)
 		buckled.buckled_to = src
+		REMOVE_TRAIT(buckled, TRAIT_NO_FOOTFALL, footfall_trait_source)
 	//--2----Move driver----2--//
 	if(pulling)
 		T = pulling.loc
@@ -144,4 +147,3 @@
 
 /obj/item/material/stool/chair/wheelchair/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH)
-
