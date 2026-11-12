@@ -475,7 +475,7 @@
 /obj/item/clothing/head/helmet/legion
 	name = "foreign legion helmet"
 	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
-	icon_state = "legion_helmet"
+	icon_state = "swat"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(

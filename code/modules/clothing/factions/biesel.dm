@@ -61,9 +61,9 @@ ABSTRACT_TYPE(/obj/item/clothing/under/tcaf)
 	desc = "A longsleeved shirt issued to the crew of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
-	icon_state = "tcaf_raf_crew_shirt"
-	item_state = "tcaf_raf_crew_shirt"
-	worn_state = "tcaf_raf_crew_shirt"
+	icon_state = "tcaf_raf_shirt"
+	item_state = "tcaf_raf_shirt"
+	worn_state = "tcaf_raf_shirt"
 
 /obj/item/clothing/under/dressshirt/tcaf/crew/foreign_legion
 	name = "\improper TCAF astroforces foreign legion crew shirt"

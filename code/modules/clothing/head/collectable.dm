@@ -49,13 +49,16 @@ ABSTRACT_TYPE(/obj/item/clothing/head/collectable)
 /obj/item/clothing/head/collectable/captain
 	name = "collectable captain's hat"
 	desc = "A Collectable Hat that'll make you look just like a real comdom!"
-	icon_state = "captain"
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
+	icon_state = "caphat"
 	item_state = "caphat"
 
 /obj/item/clothing/head/collectable/police
 	name = "collectable police officer's hat"
 	desc = "A Collectable Police Officer's Hat. This hat emphasizes that you are THE LAW."
-	icon_state = "policehelm"
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
+	icon_state = "konyang_police_hat"
+	item_state = "konyang_police_hat"
 
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"

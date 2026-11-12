@@ -109,11 +109,6 @@ ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 	item_state = "tophat"
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/head/redcoat
-	name = "redcoat's hat"
-	icon_state = "redcoat"
-	desc = "<i>'I guess it's a redhead.'</i>"
-
 /obj/item/clothing/head/mailman
 	name = "station cap"
 	icon_state = "mailman"
@@ -508,8 +503,8 @@ ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 /obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "navy_cap_senioroff"
+	item_state = "navy_cap_senioroff"
 
 //solarian army
 

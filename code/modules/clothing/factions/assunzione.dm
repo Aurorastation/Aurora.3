@@ -45,6 +45,8 @@ ABSTRACT_TYPE(/obj/item/clothing/under/assunzione)
 	desc = "A hood for an Assunzioni clerical robe."
 	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 	icon = 'icons/obj/item/clothing/suit/storage/assunzione_robes.dmi'
+	icon_state = "keeper_hood"
 
 /obj/item/clothing/head/winterhood/assunzione_robe/alt
 	min_cold_protection_temperature = LIGHT_MIN_COLD_PROTECTION_TEMPERATURE
+	icon_state = "keeperalt_hood"

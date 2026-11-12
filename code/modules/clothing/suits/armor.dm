@@ -106,16 +106,6 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/armor)
 	siemens_coefficient = 0.35
 	pocket_slots = 4//fullbody, more slots
 
-/obj/item/clothing/suit/armor/swat/officer
-	name = "officer jacket"
-	desc = "An armored jacket used in special operations."
-	icon_state = "detective"
-	item_state = "det_suit"
-	blood_overlay_type = "coat"
-	flags_inv = 0
-	body_parts_covered = UPPER_TORSO|ARMS
-	pocket_slots = 4//coat, so more slots
-
 //Reactive armor
 //When the wearer gets hit, this armor will teleport the user a short distance away (to safety or to more danger, no one knows. That's the fun of it!)
 /obj/item/clothing/suit/armor/reactive
@@ -290,14 +280,6 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/armor)
 /obj/item/clothing/suit/storage/vest/Initialize()
 	. = ..()
 	pockets.storage_slots = 2	//two slots
-
-/obj/item/clothing/suit/storage/vest/ft
-	name = "forensic technician armor vest"
-	desc = "A simple kevlar plate carrier belonging to the SCC. This one has a forensic technician's badge clipped to the chest."
-	icon_state = "forensictech_nobadge"
-	item_state = "forensictech_nobadge"
-	icon_badge = "forensictech_badge"
-	icon_nobadge = "forensictech_nobadge"
 
 /obj/item/clothing/suit/storage/vest/heavy
 
