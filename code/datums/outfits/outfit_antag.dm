@@ -198,7 +198,7 @@
 		/obj/item/clothing/under/color/brown,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/captainformal,
-		/obj/item/clothing/under/dominia,
+		/obj/item/clothing/under/dominia/imperial_suit,
 		/obj/item/clothing/under/dominia/lyodsuit/hoodie,
 		/obj/item/clothing/under/elyra_holo/masc,
 		/obj/item/clothing/under/kilt,
