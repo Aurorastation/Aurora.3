@@ -36,10 +36,9 @@
 	/// Slightly less than a Familiar Leadership buff
 	var/morale_value = 3
 
-/datum/moodlet/firearms_practice // Macros can't be multi-line, so occasional raw html for readibility
+/datum/moodlet/firearms_practice
 	moodlet_descriptor = SPAN_GOOD("Firing Warmup")
-	initial_descriptor = "<span class='good'>You have recieved a morale modifier from practicing firing." \
-	+ " You can refresh this bonus and stack it an extra time for double the duration, and a higher effect:</span>"
+	initial_descriptor = SPAN_GOOD("You have recieved a morale modifier from practicing firing. You can refresh this bonus and stack it an extra time for double the duration, and a higher effect:")
 	var/mob/owner // To get the accuracy boost chance
 	var/owner_lvl // Owner skill level, used for hiding boost_text
 	var/accuracy_text = "without skill penalties"// set in warmup() to always be immediately up-to-date
@@ -148,7 +147,7 @@
 			if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 				to_chat(shooter, SPAN_NOTICE("You feel you'll be more accurate now after warming up."))
 			if(morale_comp)
-				to_chat(shooter, "<span class='good'>You have refreshed your morale modifier from further firing:</span>" \
+				to_chat(shooter, "[SPAN_GOOD("You have refreshed your morale modifier from further firing:")]" \
 				+ "\n\t - worth [morale_value + skill_level] points" \
 				+ "\n\t - remaining duration: [minutes] minutes"
 				)
@@ -186,7 +185,7 @@
 		next_steady = world.time + ((4/skill_level) + 0.5) SECONDS
 		addtimer(CALLBACK(src, PROC_REF(set_steady), shooter), next_steady - world.time)
 		playsound(shooter, 'sound/weapons/magazine_eject.ogg', 70) // since you're out of realistically-usable ammo for a bit
-		to_chat(shooter, SPAN_DANGER("<i>Your grip becomes unsteadied!</i>"))
+		to_chat(shooter, SPAN_WARNING("<i>Your grip becomes unsteadied!</i>"))
 		shooter.balloon_alert(shooter, "Unsteadied shots!")
 
 /datum/component/skill/firearms/proc/handle_accuracy(mob/living/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
@@ -215,8 +214,8 @@
 	if((warmup_tier == 1 && prob(55)) || (warmup_tier == 2 && prob(65))) // Last to go as its effect is least common, & unpredictable
 		if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			playsound(shooter, 'sound/weapons/ammo_load.ogg', 90) // Actually tough to notice with gun fire
-			shooter.visible_message(SPAN_DANGER("[shooter] adjusts [shooter.get_pronoun("his")] angling!"),
-			SPAN_DANGER("You micro-adjust for better aim before firing."))
+			shooter.visible_message(SPAN_WARNING("[shooter] adjusts [shooter.get_pronoun("his")] angling!"),
+			SPAN_WARNING("You micro-adjust for better aim before firing."))
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 			*accuracy_decrease = *accuracy_decrease - 1
 			*dispersion_increase = *dispersion_increase + dispersion * skill_diff
