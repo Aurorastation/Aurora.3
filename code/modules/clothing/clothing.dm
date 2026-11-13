@@ -1133,7 +1133,7 @@
 			I.AddOverlays(accessory_image)
 		if(attached_radio)
 			var/radio_state = attached_radio.item_state ? attached_radio.item_state : attached_radio.icon_state
-			I.AddOverlays(attached_radio.get_mob_overlay(H, INV_WRISTS_DEF_ICON, radio_state, slot_wrists_str))
+			I.AddOverlays(attached_radio.get_mob_overlay(H, attached_radio.icon, "[radio_state][WORN_WRISTS]", slot_wrists_str))
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
@@ -1253,7 +1253,7 @@
 			I.AddOverlays(accessory_image)
 		if(attached_radio)
 			var/radio_state = attached_radio.item_state ? attached_radio.item_state : attached_radio.icon_state
-			I.AddOverlays(attached_radio.get_mob_overlay(H, INV_WRISTS_DEF_ICON, radio_state, slot_wrists_str))
+			I.AddOverlays(attached_radio.get_mob_overlay(H, attached_radio.icon, "[radio_state][WORN_WRISTS]", slot_wrists_str))
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
