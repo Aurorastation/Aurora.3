@@ -21,7 +21,7 @@
 		return
 
 	if(!length(gun_actions))
-		for(var/action_type in list("safety", "unique action", "fire mode", "scope"))
+		for(var/action_type in list("safety", "unique action", "eject", "fire mode", "scope"))
 			var/atom/movable/screen/gun_action/button = new
 			button.action_type = action_type
 			gun_actions += button
@@ -41,6 +41,9 @@
 					continue
 			if("unique action")
 				if(!gun.has_unique_gun_action)
+					continue
+			if("eject")
+				if(!gun.has_eject_action())
 					continue
 		button.master = gun
 		button.update_icon()
@@ -76,6 +79,9 @@
 				call(gun, scope_action)()
 		if("unique action")
 			gun.unique_action(user)
+		if("eject")
+			if(gun.has_eject_action())
+				gun.eject(user)
 	user.hud_used?.update_gun_actions()
 
 /atom/movable/screen/gun_action/update_icon()
@@ -94,6 +100,9 @@
 		if("scope")
 			icon_state = "scope[gun.zoom ? 1 : 0]"
 			name = "Use Scope ([gun.zoom ? "on" : "off"])"
+		if("eject")
+			icon_state = "eject"
+			name = "Eject Ammo"
 		if("unique action")
 			icon_state = "unique_action"
 			name = "Unique Action"

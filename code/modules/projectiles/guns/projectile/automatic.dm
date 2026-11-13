@@ -416,6 +416,12 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/automatic/rifle)
 	else
 		..()
 
+/obj/item/gun/projectile/automatic/rifle/z8/eject(mob/user)
+	if(!chamber_firing && use_launcher && launcher?.chambered)
+		launcher.eject(user)
+		return
+	return ..()
+
 /obj/item/gun/projectile/automatic/rifle/z8/fire_gun(atom/target, mob/living/user, params, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=FALSE, atom/controller)
 	if(user && use_launcher)
 		. = launcher.fire_gun(target, user, params, pointblank, reflex, accuracy_decrease, is_offhand)

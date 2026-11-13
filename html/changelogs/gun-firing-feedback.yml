@@ -9,3 +9,4 @@ changes:
   - qol: "On supported pistols, an empty seated magazine blocks racking when the chamber has no live round. Remove the magazine to rack it, or replace it to chamber a new round."
   - qol: "Pistols with slide-lock art show the slide locking back after the last shot."
   - qol: "Racking, pumping, and cycling supported guns show a brief text cue to the operator and nearby players."
+  - rscadd: "Added the Eject Ammo action. It drops a seated magazine first, then clears a chambered round if there is no seated magazine."

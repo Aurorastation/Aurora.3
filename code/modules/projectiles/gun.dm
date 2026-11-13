@@ -295,6 +295,13 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/proc/unique_action(var/mob/user)
 	return
 
+/// Whether this gun supports manual ammunition ejection.
+/obj/item/gun/proc/has_eject_action()
+	return FALSE
+
+/obj/item/gun/proc/eject(mob/user)
+	return
+
 /obj/item/gun/proc/toggle_firing_mode(var/mob/user, var/list/message_mobs)
 	var/cancelled = FALSE
 	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_FIRING_MODE, src, &cancelled)
