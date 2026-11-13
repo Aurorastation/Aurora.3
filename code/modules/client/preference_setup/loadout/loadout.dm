@@ -341,7 +341,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		if(!(gear_name in player_valid_gear_choices))
 			continue
 		var/datum/gear/counted = GLOB.gear_datums[gear_name]
-		if(!show_all_items && !can_character_take_gear(counted, job))
+		if(!show_all_items && !(gear_name in pref.gear) && !can_character_take_gear(counted, job))
 			continue
 		var/list/failed_groups = counted.get_failed_tag_groups(selected_tags)
 		if(length(failed_groups) > 1)
