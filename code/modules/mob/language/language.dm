@@ -77,12 +77,6 @@
 	/// A map of unscrambled words -> scrambled words, for scrambling.
 	var/list/scramble_cache = list()
 
-	/// Icon displayed in the chat window when speaking this language.
-	/// if you are seeing someone speak popcorn language, then something is wrong.
-	var/icon = 'icons/ui/language.dmi'
-	/// Icon state displayed in the chat window when speaking this language.
-	var/icon_state = "unknown"
-
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
 		if(gender==FEMALE)
