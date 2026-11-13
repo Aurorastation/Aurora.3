@@ -293,7 +293,7 @@
 	var/turf/T = get_turf(src)
 	if(mapload && T)
 		if(is_station_level(T.z) && persistent_stock)
-			persistent_stock_id = "[T.x]-[T.y]-[T.z]-[name]"
+			persistent_stock_id = "[name]-[T.x]-[T.y]-[T.z]"
 		if(!is_station_level(T.z))
 			if(!onstation_override)
 				onstation = FALSE

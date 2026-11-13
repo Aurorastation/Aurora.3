@@ -3,8 +3,8 @@
 	var/obj/structure/machinery/vending/vendor
 	/// Identity derived from the vendor's original map location and name.
 	var/persistent_id
-	/// Previous identity format, retained while existing type-based saves migrate.
-	var/legacy_persistent_id
+	/// Original x-y-z-type identity, retained while existing saves migrate.
+	var/type_based_persistent_id
 
 /** Returns current stock, or null when the vendor no longer exists so its prior generic is left untouched. */
 /datum/persistent_vending_stock/proc/get_final_stock()
@@ -50,18 +50,18 @@
 		if(!vendor_turf || !is_station_level(vendor_turf.z) || !vendor.persistent_stock)
 			continue
 
-		var/persistent_stock_id = "[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]-[vendor.name]"
-		var/legacy_persistent_stock_id = "[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]-[vendor.type]"
+		var/persistent_stock_id = "[vendor.name]-[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]"
+		var/type_based_persistent_stock_id = "[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]-[vendor.type]"
 		vendor.persistent_stock_id = persistent_stock_id
 		var/datum/persistent_vending_stock/stock_record = new
 		stock_record.vendor = vendor
 		stock_record.persistent_id = persistent_stock_id
-		stock_record.legacy_persistent_id = legacy_persistent_stock_id
+		stock_record.type_based_persistent_id = type_based_persistent_stock_id
 		if(vending_stock_register[persistent_stock_id])
 			log_subsystem_persistence_error("Duplicate persistent vending attribute '[persistent_stock_id]' at [vendor_turf].")
 			continue
 		vending_stock_register[persistent_stock_id] = stock_record
-		legacy_vending_stock_register[legacy_persistent_stock_id] = stock_record
+		legacy_vending_stock_register[type_based_persistent_stock_id] = stock_record
 
 	var/list/loaded_attributes = list()
 	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/horizon_vending_stock)
@@ -71,20 +71,22 @@
 		if(!length(persistent_stock_id))
 			continue
 		var/datum/persistent_vending_stock/stock_record = vending_stock_register[persistent_stock_id]
-		var/is_current_attribute = !!stock_record
+		var/attribute_priority = 2 // name-x-y-z
 		if(!stock_record)
 			stock_record = legacy_vending_stock_register[persistent_stock_id]
 		if(!stock_record)
 			continue
-		// Prefer a name-based save if both it and its old type-based entry still exist.
-		if(!is_current_attribute && loaded_attributes[stock_record.persistent_id])
+		if(persistent_stock_id == stock_record.type_based_persistent_id)
+			attribute_priority = 1 // x-y-z-type
+		// Prefer the newest identity format if more than one still exists.
+		if(loaded_attributes[stock_record.persistent_id] >= attribute_priority)
 			continue
 		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_vending_stock, persistent_stock_id, skip_caching = TRUE)
 		var/list/vendor_stock = saved_generic?.content
 		if(!islist(vendor_stock))
 			continue
 		stock_record.vendor.persistent_stock_content = vendor_stock
-		loaded_attributes[stock_record.persistent_id] = TRUE
+		loaded_attributes[stock_record.persistent_id] = attribute_priority
 
 	// Existing installations have one unattributed generic containing every vendor. Use it until each live vendor saves its own attribute.
 	var/list/legacy_stock = SSpersistence.load_legacy_horizon_vending_stock()
@@ -94,7 +96,7 @@
 			if(loaded_attributes[persistent_stock_id])
 				continue
 			var/datum/persistent_vending_stock/stock_record = vending_stock_register[persistent_stock_id]
-			var/list/vendor_stock = legacy_stock[stock_record.legacy_persistent_id]
+			var/list/vendor_stock = legacy_stock[stock_record.type_based_persistent_id]
 			if(!islist(vendor_stock))
 				continue
 			stock_record.vendor.persistent_stock_content = vendor_stock
