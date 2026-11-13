@@ -63,7 +63,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 
 /obj/item/gun/projectile/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "This is a ballistic weapon. It fires [caliber] ammunition. To reload most guns, click the gun with an empty hand to remove any spent casings or magazines, and then insert new ones."
+	. += "This is a ballistic weapon. It fires [caliber] ammunition."
+	if(has_eject_action())
+		. += "Use Eject Ammo to unload. A seated magazine comes out before any round in the chamber."
 	if(persistent_chamber)
 		. += "Use Rack (Unique Action) to cycle the chamber."
 		if(!chamber_from_internal_feed)
@@ -92,7 +94,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	chamber_from_internal_feed = chamber_from_internal_feed && load_method != MAGAZINE
 	persistent_chamber = persistent_chamber && (load_method == MAGAZINE || chamber_from_internal_feed) && (handle_casings == EJECT_CASINGS || handle_casings == DELETE_CASINGS)
 	. = ..()
-	if(persistent_chamber || firemodes.len <= 1)
+	if(persistent_chamber)
 		has_unique_gun_action = TRUE
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
 		for(var/i in 1 to max_shells)
@@ -330,10 +332,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(ammo_magazine)
 		if(drop_mag)
-			ammo_magazine.forceMove(user.loc)
+			ammo_magazine.forceMove(get_turf(src))
 		else
 			user.put_in_hands(ammo_magazine)
-		user.visible_message("[user] removes [ammo_magazine] from [src].", SPAN_NOTICE("You remove [ammo_magazine] from [src]."))
+		balloon_alert_to_viewers("magazine ejected!")
 		playsound(src.loc, ammo_magazine.eject_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 		ammo_magazine.update_icon()
 		ammo_magazine = null
@@ -354,14 +356,18 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 					count++
 				loaded.Cut()
 			if(count)
-				user.visible_message("[user] unloads [src].", SPAN_NOTICE("You unload [count] round\s from [src]."))
+				balloon_alert_to_viewers("weapon unloaded!", ignored_mobs = list(user))
+				balloon_alert(user, "[count] round\s ejected!")
 		else if(load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
-			user.put_in_hands(C)
-			user.visible_message("[user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
+			if(drop_mag)
+				C.forceMove(get_turf(src))
+			else
+				user.put_in_hands(C)
+			balloon_alert_to_viewers("casing ejected!")
 	else
-		to_chat(user, SPAN_WARNING("[src] is empty."))
+		balloon_alert(user, "already empty!")
 	update_maptext()
 	update_icon()
 
@@ -404,13 +410,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		return
 	else if(firemodes.len > 1)
 		..()
-	else
-		unload_ammo(user)
 
 /obj/item/gun/projectile/unique_action(mob/user)
 	if(!persistent_chamber)
-		if(firemodes.len <= 1)
-			unload_ammo(user)
 		return
 
 	if(user.get_active_hand() != src || user.next_move > world.time || use_check_and_message(user, USE_FORCE_SRC_IN_USER))
@@ -427,24 +429,49 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(!drop_turf)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(chambered)
-		var/obj/item/ammo_casing/extracted = chambered
-		chambered = null
-		extracted.forceMove(drop_turf)
-		if(casing_has_gravity(extracted))
-			extracted.pixel_x = rand(-3, 3)
-			extracted.pixel_y = rand(-3, 3)
-			extracted.pixel_z = 6
-			var/ejection_angle = SIMPLIFY_DEGREES(dir2degree(turn(user.dir, 270)) + rand(-15, 15))
-			extracted.AddComponent(/datum/component/movable_physics, rand(24, 36), rand(32, 42), 132, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, extracted.drop_sound)
-		else
-			playsound(extracted, extracted.drop_sound, 30, TRUE)
+	eject_chambered_casing(user, drop_turf)
 	chamber_locked_open = FALSE
 	feed_chamber()
 	playsound(src, chamber_rack_sound, 50, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	balloon_alert_to_viewers("*rack*")
 	update_maptext()
 	update_icon()
+
+/obj/item/gun/projectile/has_eject_action()
+	return (load_method & MAGAZINE) || max_shells > 0
+
+/obj/item/gun/projectile/eject(mob/user)
+	if(chamber_firing)
+		balloon_alert(user, "still firing!")
+		return
+	var/turf/drop_turf = get_turf(src)
+	if(!drop_turf)
+		return
+	if(ammo_magazine)
+		unload_ammo(user)
+	else if(chambered && persistent_chamber && !(chambered in loaded))
+		eject_chambered_casing(user, drop_turf)
+		balloon_alert_to_viewers("round ejected!")
+		update_maptext()
+		update_icon()
+	else
+		unload_ammo(user)
+
+/// Eject the casing intact without feeding another round.
+/obj/item/gun/projectile/proc/eject_chambered_casing(mob/user, turf/drop_turf)
+	if(!chambered || !drop_turf)
+		return
+	var/obj/item/ammo_casing/extracted = chambered
+	chambered = null
+	extracted.forceMove(drop_turf)
+	if(casing_has_gravity(extracted))
+		extracted.pixel_x = rand(-3, 3)
+		extracted.pixel_y = rand(-3, 3)
+		extracted.pixel_z = 6
+		var/ejection_angle = SIMPLIFY_DEGREES(dir2degree(turn(user.dir, 270)) + rand(-15, 15))
+		extracted.AddComponent(/datum/component/movable_physics, rand(24, 36), rand(32, 42), 132, 196.133, 0, ejection_angle, MOVABLE_PHYSICS_QDEL_WHEN_STOPPED, extracted.drop_sound)
+	else
+		playsound(extracted, extracted.drop_sound, 30, TRUE)
 
 /obj/item/gun/projectile/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)

@@ -91,17 +91,38 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		return
 	pump(user)
 
+/obj/item/gun/projectile/shotgun/pump/eject(mob/user)
+	if(ammo_magazine)
+		return ..()
+	if(!get_turf(src))
+		return
+
+	var/obj/item/ammo_casing/ejected_round = chambered
+	if(ejected_round)
+		chambered = null
+		loaded -= ejected_round
+	else if(length(loaded))
+		ejected_round = loaded[loaded.len]
+		loaded.len--
+	else
+		balloon_alert(user, "already empty!")
+		return
+
+	user.put_in_hands(ejected_round)
+	balloon_alert_to_viewers("casing ejected!")
+	update_maptext()
+	update_icon()
+
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
+	var/turf/drop_turf = get_turf(src)
+	if(!drop_turf)
+		return
 	playsound(M, rack_sound, 60, FALSE)
 	balloon_alert_to_viewers(cycle_cue)
 	if(cycle_anim)
 		flick("[icon_state]-cycling", src)
 
-	if(chambered)//We have a shell in the chamber
-		chambered.forceMove(get_turf(src)) //Eject casing
-		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
-		chambered = null
-
+	eject_chambered_casing(M, drop_turf)
 	handle_pump_loading()
 
 	update_maptext()
@@ -171,9 +192,6 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
-
-/obj/item/gun/projectile/shotgun/doublebarrel/unique_action(mob/user)
-	unload_ammo(user, TRUE)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
 	if(Adjacent(user))

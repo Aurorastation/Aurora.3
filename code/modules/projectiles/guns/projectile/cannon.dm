@@ -110,6 +110,9 @@
 /obj/item/gun/projectile/recoilless_rifle/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
 	return FALSE
 
+/obj/item/gun/projectile/recoilless_rifle/has_eject_action()
+	return FALSE
+
 /obj/item/gun/projectile/peac
 	name = "\improper SCC-PEAC-1 anti-materiel cannon"
 	desc = "An SCC-designed, man-portable cannon meant to neutralize mechanized threats. The disgustingly large accelerator capacitors make room for only one shot, so make it count."

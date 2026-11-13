@@ -153,6 +153,9 @@
 /obj/item/gun/projectile/automatic/rifle/minigun/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	return
 
+/obj/item/gun/projectile/automatic/rifle/minigun/has_eject_action()
+	return FALSE
+
 /obj/item/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
