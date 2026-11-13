@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Icon,
+  Image,
   Input,
   Section,
   Stack,
@@ -171,6 +172,8 @@ type LoadoutItem = {
   available: boolean;
   cost: number;
   description: string;
+  icon?: string;
+  icon_image?: string;
   name: string;
   restrictions: string[];
   selected: boolean;
@@ -1423,6 +1426,20 @@ export const CharacterSetup = () => {
             key={gear.name}
           >
             <Stack align="center">
+              {!!(gear.icon_image || gear.icon) && (
+                <Stack.Item>
+                  {gear.icon_image ? (
+                    <Image
+                      height="32px"
+                      src={`data:image/png;base64,${gear.icon_image}`}
+                      style={{ imageRendering: 'pixelated' }}
+                      width="32px"
+                    />
+                  ) : (
+                    <Box className={gear.icon} />
+                  )}
+                </Stack.Item>
+              )}
               <Stack.Item grow>
                 <Button
                   color={gear.selected ? 'average' : 'transparent'}

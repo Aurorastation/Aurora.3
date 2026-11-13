@@ -676,6 +676,28 @@ GLOBAL_LIST_EMPTY(asset_datums)
 
 		qdel(item)
 
+/// Previews of every loadout gear item, shown in the character setup loadout list.
+/datum/asset/spritesheet/loadout
+	name = "loadout"
+
+/datum/asset/spritesheet/loadout/create_spritesheets()
+	for(var/gear_name in GLOB.gear_datums)
+		var/datum/gear/gear = GLOB.gear_datums[gear_name]
+		var/obj/item/item_path = gear.get_preview_path()
+		if(!ispath(item_path, /obj/item))
+			continue
+
+		var/icon_file = initial(item_path.icon)
+		var/icon_state = initial(item_path.icon_state)
+		if(!icon_file || !(icon_state in icon_states(icon_file)))
+			continue
+
+		Insert(loadout_icon_id(gear.display_name), icon(icon_file, icon_state, SOUTH))
+
+/// The sprite name of a gear item in the loadout spritesheet.
+/proc/loadout_icon_id(gear_display_name)
+	return ckey(gear_display_name)
+
 /datum/asset/spritesheet/chem_master
 	name = "chemmaster"
 	cross_round_cachable = FALSE

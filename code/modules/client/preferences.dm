@@ -305,6 +305,11 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		ui.open()
 		addtimer(CALLBACK(src, PROC_REF(check_character_setup_bootstrap), ui), 8 SECONDS)
 
+/datum/preferences/ui_assets(mob/user)
+	return list(
+		get_asset_datum(/datum/asset/spritesheet/loadout)
+	)
+
 /// Reloads only the Character Setup browser if its React frontend never mounts.
 /datum/preferences/proc/check_character_setup_bootstrap(datum/tgui/ui)
 	if(!character_setup_loading || QDELETED(ui) || ui.closing || ui.window?.locked_by != ui)

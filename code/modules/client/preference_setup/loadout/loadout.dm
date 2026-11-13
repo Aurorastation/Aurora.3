@@ -375,6 +375,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 			))
 		if(length(group_tags))
 			tag_groups += list(list("name" = group, "tags" = group_tags))
+	var/datum/asset/spritesheet/loadout/loadout_spritesheet = get_asset_datum(/datum/asset/spritesheet/loadout)
 	var/list/items = list()
 	for(var/gear_name in visible_gear)
 		var/datum/gear/G = GLOB.gear_datums[gear_name]
@@ -420,10 +421,13 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 					"preview_color" = istype(tweak, /datum/gear_tweak/color) ? tweak_metadata : null,
 					"topic" = list("gear" = G.display_name, "tweak" = REF(tweak))
 				))
+		var/selected_icon = ticked ? get_selected_preview(G) : null
 		var/list/item_data = list(
 			"name" = G.display_name,
 			"cost" = G.cost,
 			"description" = G.description,
+			"icon" = loadout_spritesheet.icon_tag(loadout_icon_id(G.display_name), FALSE),
+			"icon_image" = selected_icon,
 			"available" = available,
 			"selected" = ticked,
 			"restrictions" = show_item_info ? restrictions : list(),
@@ -447,6 +451,48 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 		"show_item_info" = show_item_info,
 		"items" = items
 	)
+
+/// Cache of base64 previews for selected gear, keyed by "[path]|[color]".
+/datum/category_item/player_setup_item/loadout/var/static/list/selected_preview_cache = list()
+
+/**
+ * Returns a base64 preview of the gear reflecting the chosen path and color tweaks,
+ * or null if no tweak changes the look (the spritesheet preview is used then).
+ */
+/datum/category_item/player_setup_item/loadout/proc/get_selected_preview(datum/gear/G)
+	var/obj/item/preview_path = G.path
+	var/preview_color
+	var/customized = FALSE
+	for(var/datum/gear_tweak/tweak in G.gear_tweaks)
+		var/metadata = get_tweak_metadata(G, tweak)
+		if(istype(tweak, /datum/gear_tweak/path))
+			var/datum/gear_tweak/path/path_tweak = tweak
+			var/chosen = path_tweak.valid_paths?[metadata]
+			if(islist(chosen))
+				chosen = chosen[1]
+			if(ispath(chosen, /obj/item))
+				preview_path = chosen
+				customized = TRUE
+		else if(istype(tweak, /datum/gear_tweak/color) && !istype(tweak, /datum/gear_tweak/color/accent))
+			if(istext(metadata))
+				preview_color = sanitize_hexcolor(metadata, null)
+				customized = customized || !isnull(preview_color)
+	if(!customized || !ispath(preview_path, /obj/item))
+		return null
+
+	var/cache_key = "[preview_path]|[preview_color]"
+	if(!isnull(selected_preview_cache[cache_key]))
+		return selected_preview_cache[cache_key] || null
+	var/icon_file = initial(preview_path.icon)
+	var/icon_state = initial(preview_path.icon_state)
+	var/result = FALSE
+	if(icon_file && (icon_state in icon_states(icon_file)))
+		var/icon/preview = icon(icon_file, icon_state, SOUTH)
+		if(preview_color)
+			preview.Blend(preview_color, ICON_MULTIPLY)
+		result = icon2base64(preview)
+	selected_preview_cache[cache_key] = result
+	return result || null
 
 /// Whether the tag can't ever be useful for the current character, eg. a tag of another faction
 /// Whether the character can actually take the gear, ignoring the job restrictions if there is no job chosen yet
@@ -712,6 +758,14 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 
 	///Boolean, if this gear is an augment
 	var/augment = FALSE
+
+/// The item path used for the loadout list preview: the first option of a path tweak, or the gear's own path.
+/datum/gear/proc/get_preview_path()
+	for(var/datum/gear_tweak/path/path_tweak in gear_tweaks)
+		if(length(path_tweak.valid_paths))
+			var/preview = path_tweak.valid_paths[path_tweak.valid_paths[1]]
+			return islist(preview) ? preview[1] : preview
+	return path
 
 /datum/gear/New()
 	..()
