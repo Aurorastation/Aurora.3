@@ -9,6 +9,7 @@
 	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	supports_painting = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_SMALL,
 		BULLET = ARMOR_BALLISTIC_MINOR,

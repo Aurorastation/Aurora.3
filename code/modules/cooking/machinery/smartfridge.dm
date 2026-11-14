@@ -11,6 +11,7 @@
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_REACT
 	opacity = FALSE
+	supports_painting = TRUE
 	var/ui_sort_alphabetically = TRUE
 	var/global/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/item_quants = list()

@@ -18,6 +18,7 @@
 
 	atmos_canpass = CANPASS_PROC
 	pass_flags_self = PASSGLASS
+	supports_painting = TRUE
 
 /obj/structure/machinery/door/window/Initialize(mapload)
 	. = ..()

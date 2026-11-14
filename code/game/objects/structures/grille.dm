@@ -10,6 +10,7 @@
 	explosion_resistance = 1
 	layer = BELOW_WINDOW_LAYER
 	maxhealth = OBJECT_HEALTH_FRAGILE
+	supports_painting = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_KNIVES,
 		LASER = ARMOR_LASER_SMALL,

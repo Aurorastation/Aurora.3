@@ -9,6 +9,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	supports_painting = TRUE
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,

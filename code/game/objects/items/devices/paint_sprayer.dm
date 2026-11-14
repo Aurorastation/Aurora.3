@@ -340,67 +340,12 @@
 
 	. = ..()
 
-/obj/structure/table/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/bed/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/vending/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/smartfridge/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/grille/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/lattice/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/door/blast/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/camera/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/door/window/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
+/obj/structure/Click(location, control, params)
+	if(supports_painting && paint_sprayer_shift_click(src, usr, params))
 		return
 	. = ..()
 
 /obj/item/modular_computer/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/machinery/computer/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/window/Click(location, control, params)
-	if(paint_sprayer_shift_click(src, usr, params))
-		return
-	. = ..()
-
-/obj/structure/window_frame/Click(location, control, params)
 	if(paint_sprayer_shift_click(src, usr, params))
 		return
 	. = ..()
@@ -511,7 +456,20 @@
 		B.painted_colour = null
 		B.update_icon()
 		. = TRUE
-	else if (istype(A, /obj/structure/window) || istype(A, /obj/structure/window_frame) || istype(A, /obj/structure/machinery/computer) || istype(A, /obj/item/modular_computer) || istype(A, /obj/structure/machinery/vending) || istype(A, /obj/structure/machinery/smartfridge) || istype(A, /obj/structure/grille) || istype(A, /obj/structure/lattice) || istype(A, /obj/structure/machinery/door/window) || istype(A, /obj/structure/machinery/door/blast) || istype(A, /obj/structure/machinery/camera))
+	else if (istype(A, /obj/structure/machinery/door/airlock))
+		var/obj/structure/machinery/door/airlock/D = A
+		if (D.paintable)
+			D.paint_airlock(null)
+			D.stripe_airlock(null)
+			D.paint_window(null)
+			. = TRUE
+	else if (istype(A, /obj/structure))
+		var/obj/structure/S = A
+		if (S.supports_painting)
+			S.color = initial(S.color)
+			S.update_icon()
+			. = TRUE
+	else if (istype(A, /obj/item/modular_computer))
 		var/obj/O = A
 		O.color = initial(O.color)
 		O.update_icon()
@@ -521,13 +479,6 @@
 		if (W.material)
 			W.reset_color()
 			W.update_icon()
-			. = TRUE
-	else if (istype(A, /obj/structure/machinery/door/airlock))
-		var/obj/structure/machinery/door/airlock/D = A
-		if (D.paintable)
-			D.paint_airlock(null)
-			D.stripe_airlock(null)
-			D.paint_window(null)
 			. = TRUE
 	if (.)
 		add_fingerprint(user)

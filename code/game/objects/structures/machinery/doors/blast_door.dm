@@ -25,6 +25,7 @@
 	)
 	pass_flags_self = PASSDOORS
 	rad_resistance_modifier = 6
+	supports_painting = TRUE
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.

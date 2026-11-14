@@ -9,6 +9,7 @@
 	active_power_usage = 300
 	clicksound = SFX_KEYBOARD
 	maxhealth = OBJECT_HEALTH_MEDIUM
+	supports_painting = TRUE
 	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/circuit = null
 	var/processing = 0

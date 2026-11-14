@@ -64,6 +64,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	clicksound = SFX_BUTTON
 	manufacturer = "idris"
 	maxhealth = OBJECT_HEALTH_HIGH
+	supports_painting = TRUE
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.

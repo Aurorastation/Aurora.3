@@ -11,6 +11,7 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
+	supports_painting = TRUE
 	smoothing_flags = SMOOTH_MORE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
