@@ -202,5 +202,5 @@
 
 	return (!density || air_group)
 
-/obj/effect/energy_field/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/obj/effect/energy_field/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation)
 	qdel_self()

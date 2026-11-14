@@ -118,6 +118,7 @@
 	landmark_transition = "nav_transit_intrepid"
 	range = 2
 	fuel_consumption = 4
+	can_rotate = TRUE
 
 /obj/effect/shuttle_landmark/intrepid/hangar
 	name = "First Deck Intrepid Hangar Bay"
@@ -164,6 +165,7 @@
 	landmark_transition = "nav_transit_quark"
 	range = 1
 	fuel_consumption = 3
+	can_rotate = TRUE
 
 /obj/effect/shuttle_landmark/quark/hangar
 	name = "First Deck Quark Hangar Bay"
