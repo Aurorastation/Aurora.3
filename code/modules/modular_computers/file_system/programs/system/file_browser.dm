@@ -142,6 +142,9 @@
 			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_open_file"])
 			if(!F)
 				return
+			if(istype(F, /datum/computer_file/data/report))
+				open_report_in_editor(F, usr)
+				return TRUE
 			if(F.can_access_file(usr))
 				open_file = params["PRG_open_file"]
 				open_file_is_usb = FALSE
@@ -155,6 +158,9 @@
 			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_usb_open_file"])
 			if(!F)
 				return
+			if(istype(F, /datum/computer_file/data/report))
+				open_report_in_editor(F, usr)
+				return TRUE
 			if(F.can_access_file(usr))
 				open_file = params["PRG_usb_open_file"]
 				open_file_is_usb = TRUE
@@ -396,5 +402,19 @@
 			qdel(query)
 			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 			return TRUE
+
+/datum/computer_file/program/filemanager/proc/open_report_in_editor(datum/computer_file/data/report/report, mob/user)
+	var/datum/computer_file/program/report_editor/editor = computer?.hard_drive?.find_file_by_name("reporteditor")
+	if(!istype(editor))
+		error = "APPLICATION ERROR: Report Editor must be installed to open RPT files."
+		return FALSE
+	if(!editor.load_report(report, user))
+		error = "I/O ERROR: Unable to open that report."
+		return FALSE
+	error = null
+	if(!computer.run_program(editor.filename, user))
+		error = "APPLICATION ERROR: Report Editor could not be started."
+		return FALSE
+	return TRUE
 
 #undef MAX_TEXTFILE_LENGTH

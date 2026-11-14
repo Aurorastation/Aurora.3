@@ -14,7 +14,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
+	hard_drive = new default_hard_drive_type(src)
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
@@ -61,6 +61,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_state = "wristbound-h"
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
@@ -103,7 +104,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
+	hard_drive = new default_hard_drive_type(src)
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
@@ -163,6 +164,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "ce"
 
 // Supply
@@ -207,6 +209,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "cmo"
 
 // Science
@@ -225,6 +228,7 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "rd"
 
 // Security
@@ -238,6 +242,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	icon_add = "hos"
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
 // Command / Misc
 
@@ -247,6 +252,7 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_add = "h"
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/Initialize()
 	. = ..()
