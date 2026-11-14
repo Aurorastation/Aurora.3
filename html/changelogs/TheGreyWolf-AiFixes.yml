@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed copied AI holograms missing the target's hair and clothing."
+  - bugfix: "Allowed AIs to remotely operate the engine control console."
+  - bugfix: "Fixed AI shells suffering excessive movement delay after pushing objects."

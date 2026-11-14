@@ -47,6 +47,7 @@
 	cell_type = /obj/item/cell/super
 	remote_network = REMOTE_AI_ROBOT
 	scrambled_codes = TRUE
+	mass = REFERENCE_MASS_VAURCA_RA
 
 /mob/living/silicon/robot/shell/Initialize()
 	. = ..()
