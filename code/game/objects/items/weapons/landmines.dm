@@ -97,6 +97,8 @@
 			if(L.pass_flags & PASSTABLE)
 				return
 			if(L.mob_size >= 5)
+				if(try_xenoarch_trap_evasion(L, src))
+					return
 				L.visible_message(
 					SPAN_DANGER("[L] steps on \the [src]."),
 					SPAN_DANGER("You step on \the [src]!"),
@@ -163,10 +165,20 @@
 			return
 	else if(deployed && istype(attacking_item, /obj/item/wirecutters))
 		var/obj/item/wirecutters/W = attacking_item
+		var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT)
+		var/defusal_time = round(150 * get_xenoarch_dig_multiplier(user))
+		var/defusal_chance = W.bomb_defusal_chance
+		switch(arch_skill)
+			if(SKILL_LEVEL_FAMILIAR)
+				defusal_chance = min(100, defusal_chance + 25)
+			if(SKILL_LEVEL_TRAINED)
+				defusal_chance = min(100, defusal_chance + 50)
+			if(SKILL_LEVEL_PROFESSIONAL)
+				defusal_chance = 100
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
 							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
-		if(attacking_item.use_tool(src, user, 150, volume = 50))
-			if(prob(W.bomb_defusal_chance))
+		if(attacking_item.use_tool(src, user, defusal_time, volume = 50))
+			if(prob(defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))
 				deactivate(user)
 				anchored = FALSE
@@ -436,7 +448,11 @@
 
 /obj/item/landmine/standstill/attackby(obj/item/attacking_item, mob/user)
 	if(engaged_by && (user == locate(engaged_by)))
-		to_chat(user, SPAN_ALERT("You are unable to reach the mine without moving your foot, and you feel like doing so would not end well..."))
+		if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_TRAINED)
+			to_chat(user, SPAN_NOTICE("Keeping your weight carefully balanced on the pressure plate, you reach down to work on \the [src]..."))
+			..()
+		else
+			to_chat(user, SPAN_ALERT("You are unable to reach the mine without moving your foot, and you feel like doing so would not end well..."))
 	else
 		..()
 

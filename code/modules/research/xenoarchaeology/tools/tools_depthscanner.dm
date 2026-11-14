@@ -23,9 +23,25 @@
 	var/record_index = 1
 	var/dissonance_spread = 1
 	var/material = "unknown"
+	var/is_boulder = FALSE
+
+/proc/get_suspension_field_name(carrier_material)
+	switch(carrier_material)
+		if("carbon")
+			return "Diffracted Carbon Dioxide Laser"
+		if("potassium")
+			return "Potassium Refrigerant Cloud"
+		if("nitrogen")
+			return "Nitrogen Tracer Field"
+		if("mercury")
+			return "Mercury Dispersion Wave"
+		if("iron")
+			return "Iron Wafer Conduction Field"
+	return "None Required"
 
 /obj/item/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
 	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if((M.finds && M.finds.len) || M.artifact_find)
@@ -58,10 +74,15 @@
 			D.coords = "[10 * B.x].[rand(0,9)]:[10 * B.y].[rand(0,9)]:[10 * B.z].[rand(0,9)]"
 			D.time = worldtime2text()
 			D.record_index = positive_locations.len + 1
+			D.is_boulder = TRUE
 
-			//these values are arbitrary
-			D.depth = rand(75,100)
-			D.clearance = rand(5,25)
+			//these values are arbitrary unless the user is a Professional xenoarchaeologist
+			if(arch_skill >= SKILL_LEVEL_PROFESSIONAL)
+				D.depth = 2 * B.excavation_level
+				D.clearance = 200 - (2 * B.excavation_level)
+			else
+				D.depth = rand(75,100)
+				D.clearance = rand(5,25)
 			D.dissonance_spread = rand(750,2500) / 100
 
 			positive_locations.Add(D)
@@ -69,22 +90,31 @@
 			for(var/mob/L in range(src, 1))
 				to_chat(L, SPAN_NOTICE("[icon2html(src, L)] [src] pings [pick("madly","wildly","excitedly","crazily")]!"))
 				playsound(loc, 'sound/machines/triplebeep.ogg', 40)
+		else if(arch_skill >= SKILL_LEVEL_PROFESSIONAL)
+			to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] emits a flat tone—your experience tells you \the [B] is solid rock with no artifact inside (excavated to [2 * B.excavation_level]cm)."))
 
 /obj/item/depth_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
 
 /obj/item/depth_scanner/interact(var/mob/user as mob)
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
 	var/dat = "<b>Co-ordinates with positive matches</b><br>"
 	dat += "<A href='byond://?src=[REF(src)];clear=0'>== Clear all ==</a><br>"
 	if(current)
 		dat += "Time: [current.time]<br>"
 		dat += "Coords: [current.coords]<br>"
-		dat += "Anomaly depth: [current.depth] cm<br>"
-		dat += "Clearance above anomaly depth: [current.clearance] cm<br>"
+		if(current.is_boulder && arch_skill >= SKILL_LEVEL_PROFESSIONAL)
+			dat += "Boulder excavation depth: [current.depth] cm / 200 cm<br>"
+			dat += "Remaining margin before collapse: [current.clearance] cm<br>"
+		else
+			dat += "Anomaly depth: [current.depth] cm<br>"
+			dat += "Clearance above anomaly depth: [current.clearance] cm<br>"
 		dat += "Dissonance spread: [current.dissonance_spread]<br>"
 		var/index = GLOB.responsive_carriers.Find(current.material)
 		if(index > 0 && index <= GLOB.finds_as_strings.len)
 			dat += "Anomaly material: [GLOB.finds_as_strings[index]]<br>"
+			if(arch_skill >= SKILL_LEVEL_TRAINED)
+				dat += "Recommended suspension field: <b>[get_suspension_field_name(current.material)]</b><br>"
 		else
 			dat += "Anomaly material: Unknown<br>"
 		dat += "<A href='byond://?src=[REF(src)];clear=[current.record_index]'>clear entry</a><br>"
