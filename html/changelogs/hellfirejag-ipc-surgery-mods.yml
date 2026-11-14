@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Both the Mechanical Engineering and Electrical Engineering skills now provide situational modifiers to performing surgeries on an IPC."
+  - rscdel: "Both the Anatomy and Xenobiology skills can no longer provide their situational modifier to IPC surgery."

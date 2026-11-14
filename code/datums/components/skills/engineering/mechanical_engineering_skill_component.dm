@@ -2,15 +2,38 @@
 	/// +%bonus damage versus Structures
 	var/bonus_damage_per_rank = 0.05
 
+	/// Bonus surgery success rate, to be applied only when performing surgeries on an IPC.
+	var/success_rate_bonus_per_level = 2.5
+
+	/// Bonus surgery speed (as a percent increase) per skill level, to be applied only when performing surgeries on an IPC.
+	var/surgery_speed_mod_per_level = 0.05
+
 /datum/component/skill/mechanical_engineering/Initialize(level)
 	. = ..()
+	if (!parent)
+		return
+
 	RegisterSignal(parent, COMSIG_ATTACK_STRUCTURE, PROC_REF(modify_structure_damage), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_MECH_WELD_MODIFIERS, PROC_REF(modify_mech_weld), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers))
 
 /datum/component/skill/mechanical_engineering/Destroy(force)
+	if (!parent)
+		return ..()
+
 	UnregisterSignal(parent, COMSIG_ATTACK_STRUCTURE)
 	UnregisterSignal(parent, COMSIG_GET_MECH_WELD_MODIFIERS)
+	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
 	return ..()
+
+/datum/component/skill/mechanical_engineering/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
+	SIGNAL_HANDLER
+	if (!isipc(target))
+		return
+
+	var/effective_skill = skill_level - 1
+	*success_rate = *success_rate + success_rate_bonus_per_level * effective_skill
+	*duration = *duration * (1 - surgery_speed_mod_per_level * effective_skill)
 
 /datum/component/skill/mechanical_engineering/proc/modify_structure_damage(owner, obj/structure/target, damage)
 	SIGNAL_HANDLER
