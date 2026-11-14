@@ -28,11 +28,11 @@
 
 // /atom/movable signals
 
+/// From /atom/movable/Hear(): (datum/say_message/message).
 #define COMSIG_MOVABLE_HEAR "movable_hear"
-	#define HEARING_MESSAGE 	1
-	#define HEARING_SPEAKER 	2
-	#define HEARING_LANGUAGE 	3
-	#define HEARING_RAW_MESSAGE 4
+
+/// From /obj/item/radio/on_receive_message(): (list/data).
+#define COMSIG_RADIO_RECEIVE_MESSAGE "radio_receive_message"
 
 // /mob signals
 #define COMSIG_MOB_EXAMINATE "mob_examinate"

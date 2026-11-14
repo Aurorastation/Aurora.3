@@ -120,7 +120,7 @@
 	event_confirmed_by = null
 	recorded_message = ""
 
-/obj/structure/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/structure/machinery/keycard_auth/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(event == "Distress Beacon" && M == event_triggered_by)
 		recorded_message = text
 

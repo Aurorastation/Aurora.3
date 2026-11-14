@@ -771,11 +771,14 @@
 	door_matrix.Translate(matrix_door_hinge, 0)
 	return door_matrix
 
-/obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
+/obj/structure/closet/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	for (var/atom/A in src)
 		if(istype(A,/obj/))
 			var/obj/O = A
-			O.hear_talk(M, text, verb, speaking)
+			if(say_message)
+				O.Hear(say_message)
+			else
+				O.hear_talk(M, text, verb, speaking)
 
 /obj/structure/closet/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage || !environment_smash)

@@ -148,7 +148,7 @@
 	else
 		..()
 
-/obj/item/gun/energy/acp/hear_talk(mob/living/M in range(0,src), msg)
+/obj/item/gun/energy/acp/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	var/mob/living/carbon/human/H = M
 	if (!H || !istype(H))
 		return

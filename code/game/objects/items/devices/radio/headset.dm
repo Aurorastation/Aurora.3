@@ -8,6 +8,7 @@
 	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
+	shortwave_overlays = FALSE
 
 	slot_flags = SLOT_EARS
 	var/translate_binary = FALSE
@@ -65,8 +66,10 @@
 	else
 		..()
 
-/obj/item/radio/headset/handle_message_mode(mob/living/M, message, channel)
+/obj/item/radio/headset/handle_message_mode(atom/movable/M, message, channel)
 	if(channel == "special")
+		if(!isliving(M))
+			return null
 		if(translate_binary)
 			var/datum/language/binary = GLOB.all_languages[LANGUAGE_ROBOT]
 			binary.broadcast(M, message)

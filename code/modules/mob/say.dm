@@ -1,5 +1,4 @@
-/mob/proc/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
-	return
+//Speech verbs
 
 ///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
@@ -18,7 +17,7 @@
 	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
 	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
 	if(message)
-		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(say), message), SSspeech_controller)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/atom/movable, say), message), SSspeech_controller)
 
 /mob/verb/me_verb(message as text)
 	set name = "Me"
@@ -56,7 +55,7 @@
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
-/mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
+/mob/proc/say_understands(atom/movable/other, var/datum/language/speaking = null)
 	if(src.stat == DEAD)
 		return TRUE
 
@@ -68,7 +67,7 @@
 	if (!speaking)
 		if(!other)
 			return TRUE
-		if(other.universal_speak)
+		if(ismob(other) && astype(other, /mob).universal_speak)
 			return TRUE
 		if(isAI(src) && ispAI(other))
 			return TRUE
@@ -95,21 +94,27 @@
 	for it but just ignore it.
 */
 
-/mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
-	. = "says"
+/atom/movable/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
+	. = verb_say
 	if(singing)
-		return "sings"
+		return verb_sing
 	if(whisper)
-		return "whispers"
+		return verb_whisper
 	var/ending = copytext(message, length(message))
 	var/pre_ending = copytext(message, length(message) - 1, length(message))
 	if(ending == "!")
 		if(pre_ending == "!" || pre_ending == "?")
-			. = pick("shouts", "yells")
+			. = verb_yell
 		else
-			. = "exclaims"
+			. = verb_exclaim
 	else if(ending == "?")
-		. ="asks"
+		. = verb_ask
+
+/// Preserve the existing generic mob attribution for emphatic punctuation.
+/mob/say_quote(message, datum/language/speaking = null, singing = FALSE, whisper = FALSE)
+	if(!singing && !whisper && copytext(message, -1) == "!" && (copytext(message, -2, -1) in list("!", "?")))
+		return pick("shouts", "yells")
+	return ..()
 
 
 /mob/proc/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
@@ -188,68 +193,8 @@
 		else
 			return null
 
-/// Splits a message into per-language /datum/say_segment, switching language at each spoken prefix.
-/// A forced language takes the whole message with no prefix parsing.
-/mob/living/proc/build_say_message(message, datum/language/forced_language)
-	RETURN_TYPE(/datum/say_message)
-	var/datum/say_message/say_message = new
-	say_message.speaker = src
-	say_message.raw_message = message
-
-	if(forced_language)
-		say_message.collapse_to(forced_language, message)
-		return say_message
-
-	var/datum/language/current = get_default_language()
-	if(copytext(message, 1, 2) == "!")
-		current = GLOB.all_languages[LANGUAGE_NOISE]
-		message = trim_left(copytext(message, 2))
-
-	var/regex/trigger = get_language_trigger_regex()
-	trigger.next = 1
-
-	var/segment_start = 1
-	var/list/datum/say_segment/segments = list()
-
-	while(trigger.Find(message))
-		var/lead = trigger.group[1]	//empty at the start of the message, otherwise the whitespace before the prefix
-		var/prefix_pos = trigger.index + length(lead)
-		var/key_pos = prefix_pos + 1
-
-		var/key_len = 2
-		var/datum/language/found = resolve_language_key(copytext(message, key_pos, key_pos + 2))
-		if(!found)
-			key_len = 1
-			found = resolve_language_key(copytext(message, key_pos, key_pos + 1))
-		if(!found)
-			continue	//not a language we can speak, leave it as literal text and keep scanning
-
-		var/before = copytext(message, segment_start, prefix_pos)
-
-		var/after = key_pos + key_len
-		if(copytext(message, after, after + 1) == " ")
-			after++
-
-		// If LANG_NO_MULTILANG is present, it must be first. If first,
-		// set the whole message to that language. If not, skip it.
-		if(found.flags & LANG_NO_MULTILANG)
-			if(!length(segments) && !length(before))
-				say_message.collapse_to(found, copytext(message, after))
-				return say_message
-			continue
-
-		segments += new /datum/say_segment(before, current)
-		segment_start = after
-		current = found
-		trigger.next = after
-
-	segments += new /datum/say_segment(copytext(message, segment_start), current)
-	say_message.segments = clean_segments(segments)
-	say_message.single_language = (length(say_message.segments) == 1) ? say_message.segments[1].language : null
-	return say_message
-
 /// Returns the language for a prefix key if we can speak it, otherwise null.
-/mob/proc/resolve_language_key(key)
+/mob/resolve_language_key(key)
 	RETURN_TYPE(/datum/language)
 	if(!key)
 		return null

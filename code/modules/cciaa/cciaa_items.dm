@@ -34,7 +34,7 @@
 	. += ..()
 	. += "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 
-/obj/item/taperecorder/cciaa/hear_talk(mob/living/M as mob, msg, var/verb="says")
+/obj/item/taperecorder/cciaa/hear_talk(atom/movable/M, msg, var/verb="says", datum/language/speaking, datum/say_message/say_message = null)
 	if(recording && !paused)
 		timestamp = "[get_time()]"
 		var/fmsg = "\[[timestamp]\] [M.name] [verb], \"[msg]\""

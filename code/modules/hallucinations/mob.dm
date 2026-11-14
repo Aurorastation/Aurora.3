@@ -1,8 +1,8 @@
 //Hallucinated hearing: a chance to mishear the body entirely
-/mob/proc/hallucinate_heard(text, mob/speaker)
+/mob/proc/hallucinate_heard(text, atom/movable/speaker)
 	return text
 
-/mob/living/carbon/hallucinate_heard(text, mob/speaker)
+/mob/living/carbon/hallucinate_heard(text, atom/movable/speaker)
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = text
 		text = pick(SShallucinations.hallucinated_phrases)

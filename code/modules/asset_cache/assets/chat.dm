@@ -5,4 +5,4 @@
 	name = "chat"
 
 /datum/asset/spritesheet/chat/create_spritesheets()
-	InsertAll("accent", 'icons/accent_tags.dmi')
+	InsertAll("accent", 'icons/ui/accent_tags.dmi')

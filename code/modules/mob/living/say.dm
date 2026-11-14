@@ -89,7 +89,7 @@ var/list/channel_to_radio_key = new
 /mob/living/proc/get_stuttered_message(message)
 	return stutter(message, stuttering)
 
-/mob/living/proc/get_default_language()
+/mob/living/get_default_language()
 	return default_language
 
 /mob/proc/is_muzzled()
@@ -151,7 +151,7 @@ var/list/channel_to_radio_key = new
 	if(message_mode == "intercom")
 		for(var/obj/item/radio/intercom/I in view(1, src))
 			used_radios += I
-			I.talk_into(src, text, msg.verb, primary, say_message = msg)
+			I.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 	if(message_mode == "whisper" && !msg.whisper)
 		whisper(text, primary, say_verb = TRUE, msg = msg)
@@ -189,35 +189,22 @@ var/list/channel_to_radio_key = new
 	return "statement"
 
 
-/// Applies final edits to the message like autohiss, then adds markup. Returns false if msg ends empty.
-/mob/living/proc/finalize_say_message(datum/say_message/msg, skip_edit = FALSE)
+/mob/living/finalize_say_message(datum/say_message/msg, skip_edit = FALSE)
 	if(!skip_edit)
 		for(var/datum/say_segment/segment as anything in msg.segments)
 			if(segment.language && (segment.language.flags & NO_STUTTER))
 				continue
 			segment.text = handle_autohiss(segment.text, segment.language)
-			var/list/hsp_params = handle_speech_problems(segment.text, msg.verb, msg.message_mode, msg.message_range)
+			var/list/hsp_params = handle_speech_problems(segment.text, msg.message_mods[SAY_MOD_VERB], msg.message_mode, msg.message_range)
 			if(hsp_params)
 				segment.text = hsp_params[HSP_MSG] || segment.text
-				msg.verb = hsp_params[HSP_VERB] || msg.verb
+				msg.message_mods[SAY_MOD_VERB] = hsp_params[HSP_VERB] || msg.message_mods[SAY_MOD_VERB]
 				msg.message_mode = hsp_params[HSP_MSGMODE] || msg.message_mode
 				msg.message_range = hsp_params[HSP_MSGRANGE] || msg.message_range
-	for(var/datum/say_segment/segment as anything in msg.segments)
-		segment.text = process_chat_markup(segment.text, list("~", "_"))
-	return length(msg.to_string()) ? TRUE : FALSE
-
-/// Delivers message to each listener. Returns clients that heard it.
-/// Removes delivered mobs from the listeners list.
-/mob/living/proc/deliver_say_message(datum/say_message/msg, list/listeners)
-	var/list/client/heard = list()
-	for(var/mob/M in listeners)
-		if(M.hear_message(msg) && M.client)
-			heard += M.client
-		listeners -= M
-	return heard
+	return ..()
 
 /// Builds and animates the speech bubble over the speaker for the given clients.
-/mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
+/mob/living/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
 	var/speech_bubble_state = check_speech_punctuation_state(message)
 	var/speech_state_modifier = get_speech_bubble_state_modifier()
 	if(speech_bubble_state && speech_state_modifier)
@@ -231,7 +218,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
-/mob/living/say(var/text, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(text)
@@ -241,7 +228,8 @@ var/list/channel_to_radio_key = new
 		to_chat(src, SPAN_WARNING("You try to speak, but nothing comes out!"))
 		return
 
-	var/is_broadcast = verb == "broadcasts"
+	message_mods = message_mods ? message_mods.Copy() : list()
+	var/is_broadcast = message_mods[MODE_AMPLIFIED]
 	var/message_mode = is_broadcast ? null : parse_message_mode(text, "headset")
 
 	var/regex/emote = regex("^(\[\\*^\])\[^*\]+$")
@@ -260,24 +248,19 @@ var/list/channel_to_radio_key = new
 	text = trim(text)
 	text = formalize_text(text)
 
-	var/datum/language/forced = (speaking && !speaking.always_parse_language) ? speaking : null
-	var/datum/say_message/msg = build_say_message(text, forced)
+	message_mods[SAY_MOD_MESSAGE_MODE] = message_mode
+	return ..(text, speaking, message_mods, ghost_hearing, whisper, skip_edit, message_range, spans, sanitize)
 
-	if(!length(msg.to_string()))
-		return FALSE
-
+/mob/living/prepare_say_message(datum/say_message/msg, skip_edit, list/used_radios)
 	// the first segment's language is the message's primary
 	var/datum/language/primary = msg.segments[1].language
+	var/message_mode = msg.message_mode
+	var/is_broadcast = msg.message_mods[MODE_AMPLIFIED]
+	var/text = msg.to_string()
 	var/list/speech_mod = primary?.handle_message_mode(message_mode)
 	if(speech_mod)
 		primary = speech_mod[1]
 		message_mode = speech_mod[2]
-
-	if(copytext(msg.segments[1].text, 1, 2) == "%")
-		msg.segments[1].text = copytext(msg.segments[1].text, 2)
-		if(primary?.sing_verb)
-			msg.singing = TRUE
-			msg.sing_note = pick("\u2669", "\u266A", "\u266B")
 
 	// hivemind languages reach all speakers regardless of distance
 	if(msg.single_language?.flags & HIVEMIND)
@@ -285,42 +268,28 @@ var/list/channel_to_radio_key = new
 			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		msg.single_language.broadcast(src, trim(msg.to_string()))
-		return TRUE
-
-	msg.verb = verb || say_quote(msg.to_string(), primary, msg.singing, whisper)
-
-	var/is_shouting = FALSE
-	if(primary)
-		for(var/verb_to_check in primary.shout_verb)
-			if(verb_to_check == msg.verb)
-				is_shouting = TRUE
-				break
+		return SAY_PREPARE_HANDLED
 
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	msg.message_mode = message_mode
-	msg.message_range = world.view
-	msg.whisper = whisper
-	msg.alt_name = alt_name
-	msg.say_mode = SAYMODE_SPOKEN
 
-	if(!finalize_say_message(msg, skip_edit))
+	if(!..(msg, skip_edit, used_radios))
 		return FALSE
 
 	if(msg.single_language?.flags & SIGNLANG)
 		msg.say_mode = SAYMODE_SIGN
-		msg.verb = pick(msg.single_language.signlang_verb)
-		return say_signlang(msg)
+		msg.message_mods[SAY_MOD_VERB] = pick(msg.single_language.signlang_verb)
+		return say_signlang(msg) ? SAY_PREPARE_HANDLED : FALSE
 	if(primary && (primary.flags & NONVERBAL) && prob(30))
 		custom_emote(VISIBLE_MESSAGE, "[pick(primary.signlang_verb)].")
 
 	text = msg.to_string()
 
-	var/list/obj/item/used_radios = new
 	if(handle_message_mode(msg, primary, used_radios))
-		return TRUE
+		return SAY_PREPARE_HANDLED
 
 	var/list/handle_v = handle_speech_sound()
 	msg.speech_sound = handle_v[1]
@@ -331,9 +300,9 @@ var/list/channel_to_radio_key = new
 	//speaking into radios
 	if(length(used_radios))
 		msg.italics = TRUE
-		msg.message_range = 1
+		msg.message_range = min(msg.message_range, 1)
 		if(primary)
-			msg.message_range = primary.get_talkinto_msg_range(text)
+			msg.message_range = min(msg.message_range, primary.get_talkinto_msg_range(text))
 		if(!primary || !(primary.flags & NO_TALK_MSG))
 			var/talk_msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]].")
 			for (var/mob/living/L in get_hearers_in_view(5, src) - src)
@@ -341,31 +310,11 @@ var/list/channel_to_radio_key = new
 		if(msg.speech_sound)
 			msg.sound_vol *= 0.5
 
-	var/list/listening = list()
-	var/turf/T = get_turf(src)
+	return SAY_PREPARE_CONTINUE
 
-	if(whisper)
-		msg.message_range = 1
-		msg.italics = TRUE
-
-	if(T)
-		if(!msg.single_language || !(msg.single_language.flags & PRESSUREPROOF))
-			//make sure the air can transmit speech - speaker's side
-			var/datum/gas_mixture/environment = T.return_air()
-			var/pressure = SAFE_XGM_PRESSURE(environment)
-			if(pressure < SOUND_MINIMUM_PRESSURE)
-				msg.message_range = 1
-
-			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-				msg.italics = TRUE
-				msg.sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
-
-		listening = get_hearers_in_view(msg.message_range, src)
-
-		var/sensitive_listener = get_intent_listeners(src, msg.message_range + 1)
-		listening = mergelists(listening, sensitive_listener, TRUE)
-
-	if(client)
+/mob/living/get_speech_listeners(datum/say_message/msg, list/used_radios, ghost_hearing)
+	var/list/listening = ..()
+	if(client && ghost_hearing == GHOSTS_ALL_HEAR)
 		for (var/mob/player_mob in GLOB.player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
 				continue
@@ -374,37 +323,15 @@ var/list/channel_to_radio_key = new
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob
 
-	var/list/hear_clients = deliver_say_message(msg, listening)
+	return listening
 
-	show_speech_bubble(msg, text, hear_clients)
-
-	var/list/langchat_styles = list()
-	if(istype(primary, /datum/language/noise))
-		langchat_styles = list("emote", "langchat_small")
-	if(whisper)
-		langchat_styles = list("langchat_italic")
-	if(is_shouting)
-		langchat_styles = list("langchat_yell")
-	if(is_broadcast)
-		langchat_styles += "radio"
-
-	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = langchat_styles)
-
-	var/bypass_listen_obj = (msg.single_language && (msg.single_language.flags & PASSLISTENOBJ))
-	if(!bypass_listen_obj)
-		for(var/obj/O as anything in listening)
-			if(O) //It's possible that it could be deleted in the meantime.
-				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, text, msg.verb, primary)
-
+/mob/living/finish_say_message(datum/say_message/msg)
 	if(mind)
-		mind.last_words = text
-
-	if(whisper)
+		mind.last_words = msg.to_string()
+	if(msg.whisper)
 		log_whisper("[key_name(src)] : [msg.raw_message]")
 	else
 		log_say("[key_name(src)] : [msg.raw_message]")
-
-	return TRUE
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()
@@ -429,6 +356,3 @@ var/list/channel_to_radio_key = new
 
 /obj/effect/speech_bubble
 	var/mob/parent
-
-/mob/proc/GetVoice()
-	return name

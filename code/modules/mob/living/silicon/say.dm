@@ -27,7 +27,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return common_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return common_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
@@ -47,7 +47,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return ai_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return ai_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/pai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
 	var/text = msg.to_string()
@@ -59,7 +59,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	if(singing)
@@ -108,7 +108,7 @@
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI hears its own message. text_for keeps each language.
-		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.verb], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
+		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.message_mods[SAY_MOD_VERB]], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.

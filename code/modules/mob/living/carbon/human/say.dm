@@ -30,18 +30,18 @@
 					say(temp)
 				winset(client, "input", "text=[null]")
 
-/mob/living/carbon/human/say_understands(var/mob/other, var/datum/language/speaking = null)
+/mob/living/carbon/human/say_understands(atom/movable/other, var/datum/language/speaking = null)
 
 	if(has_brain_worms()) //Brain worms translate everything. Even rat and alien speak.
 		return TRUE
 
-	if(species.can_understand(other))
+	if(ismob(other) && species.can_understand(other))
 		return TRUE
 
 	//These only pertain to common. Languages are handled by mob/say_understands()
 	if(!speaking)
 		if(istype(other, /mob/living/carbon/alien/diona))
-			if(other.languages.len >= 2) //They've sucked down some blood and can speak common now.
+			if(astype(other, /mob).languages.len >= 2) //They've sucked down some blood and can speak common now.
 				return TRUE
 		if(istype(other, /mob/living/silicon))
 			return TRUE
@@ -65,7 +65,7 @@
 
 	return ..()
 
-/mob/living/carbon/human/say(text, datum/language/speaking, verb, alt_name, ghost_hearing, whisper, skip_edit)
+/mob/living/carbon/human/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
 	// Messaging the user is handled by the species proc.
 	if(!species.can_speak(src, speaking, text))
 		return FALSE
@@ -206,12 +206,12 @@
 			for(var/obj/item/radio/intercom/I in view(1))
 				I.add_fingerprint(src)
 				used_radios += I
-				I.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				I.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		if("headset")
 			var/obj/item/radio/R = get_radio()
 			if(R)
 				used_radios += R
-				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				R.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		if("right ear")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -223,7 +223,7 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				R.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		if("left ear")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -235,7 +235,7 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				R.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		if("wrist")
 			var/obj/item/radio/R
 			var/has_radio = FALSE
@@ -247,7 +247,7 @@
 				has_radio = TRUE
 			if(has_radio)
 				used_radios += R
-				R.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				R.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		if("whisper")
 			whisper(text, primary, msg.singing, say_verb = TRUE, msg = msg)
 			return TRUE
@@ -256,7 +256,7 @@
 				var/obj/item/radio/R = get_radio()
 				if(R)
 					used_radios += R
-					R.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+					R.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/carbon/human/handle_speech_sound()
 	var/list/returns = ..()

@@ -380,7 +380,7 @@
 	if(card_slot)
 		return card_slot.stored_card
 
-/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/item/modular_computer/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(Adjacent(M) && hard_drive)
 		var/datum/computer_file/program/chat_client/P = hard_drive.find_file_by_name("ntnrc_client")
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))

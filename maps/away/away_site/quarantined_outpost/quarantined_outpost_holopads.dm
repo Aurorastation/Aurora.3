@@ -125,7 +125,7 @@
 		hologram.langchat_speech("[I]", get_hearers_in_view(7, src))
 		var/datum/say_message/msg = new
 		msg.speaker = holo_icon
-		msg.verb = things_to_say[I]
+		msg.message_mods[SAY_MOD_VERB] = things_to_say[I]
 		msg.collapse_to(GLOB.all_languages[language], "[I]")
 		for(var/mob/living/L in get_hearers_in_view(7, src))
 			L.hear_message(msg)
