@@ -1,7 +1,4 @@
 
-ABSTRACT_TYPE(/obj/structure/machinery/vending/wardrobe/themed)
-	default_item_amount = 8
-
 /obj/structure/machinery/vending/wardrobe/themed/tajara_generic
 	name = "\improper Clothing Vendor, Tajaran, Generic"
 	products = list(

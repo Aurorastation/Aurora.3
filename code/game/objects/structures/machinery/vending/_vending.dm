@@ -53,7 +53,7 @@
  *
  * Captalism in the year 2467: everything in a vending machine. Even love.
  */
-/obj/structure/machinery/vending
+ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	name = "\improper Vendomat"
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
@@ -196,40 +196,6 @@
 	light_range = 2
 	light_power = 0.9
 
-	/**
-	 *	Is this item on station or not
-	 *
-	 *	if it doesn't originate from off-station during mapload, all_products_free gets automatically set to TRUE if it was unset previously.
-	 *	if it's off-station during mapload, it's also safe from the brand intelligence event
-	 */
-	var/onstation = TRUE
-
-	/**
-	 *	DO NOT APPLY THIS GLOBALLY. For mapping var edits only.
-	 *	A variable to change on a per instance basis that allows the instance to avoid having onstation set for them during mapload.
-	 *	Setting this to TRUE means that the vending machine is treated as if it were still onstation if it spawns off-station during mapload.
-	 *	Useful to specify an off-station machine that will still have costs for any given reason.
-	 */
-	var/onstation_override = FALSE
-
-	/**
-	 *	If this is set to TRUE, all products sold by the vending machine are free (cost nothing).
-	 *	Takes precedence over any price setting.
-	 *	If unset, this will get automatically set to TRUE during init if the machine originates from off-station during mapload.
-	 *	Defaults to null, set it to TRUE or FALSE explicitly on a per-machine basis if you want to force it to be a certain value.
-	 */
-	var/all_products_free
-
-	/**
-	 *	Recommended to set multipliers on these for a given vending machine's parent obj, to make things broadly more or less expensive.
-	 *	Vending machine products with no price explicitly set will use the defined prices- otherwise, an explicit price will override.
-	 *	If all_products_free is TRUE, all of this will be ignored.
-	 *	NOT YET IMPLEMENTED
-	 */
-	/// Default price of items if not overridden
-	var/default_price = 20
-	/// Default price of premium items if not overridden
-	var/extra_price = 50
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
 	/// Whether a mapped instance of this vendor should persist its normal stock between rounds.
@@ -242,11 +208,11 @@
 	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
 	var/default_item_amount = null
 
+
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
 	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
-
 
 /obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -289,17 +255,10 @@
 		build_inventory()
 	power_change()
 
-	// Check if we were created off-station during mapload. Non-station vending machines are always free.
+	// Associate mapped station vendors with their persistent stock.
 	var/turf/T = get_turf(src)
-	if(mapload && T)
-		if(is_station_level(T.z) && persistent_stock)
-			persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
-		if(!is_station_level(T.z))
-			if(!onstation_override)
-				onstation = FALSE
-				// Only auto-set the free products var if we haven't explicitly assigned a value to it yet.
-				if(isnull(all_products_free))
-					all_products_free = TRUE
+	if(mapload && T && is_station_level(T.z) && persistent_stock)
+		persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
 
 	return INITIALIZE_HINT_LATELOAD
 

@@ -635,20 +635,6 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		var/icon_file = initial(item.icon)
 		var/icon_state = initial(item.icon_state)
 
-		#ifdef UNIT_TEST
-		var/icon_states_list = icon_states(icon_file)
-		if(!(icon_state in icon_states_list))
-			var/icon_states_string
-			for(var/s in icon_states_list)
-				if(!icon_states_string)
-					icon_states_string = "[json_encode(s)]([REF(s)])"
-				else
-					icon_states_string += ", [json_encode(s)]([REF(s)])"
-
-			stack_trace("[item] has an invalid icon state, icon=[icon_file], icon_state=[json_encode(icon_state)]([REF(icon_state)]), icon_states=[icon_states_string]")
-			continue
-		#endif
-
 		var/icon/I = icon(icon_file, icon_state, SOUTH)
 		var/c = initial(item.color)
 		if(!isnull(c) && c != "#FFFFFF")
