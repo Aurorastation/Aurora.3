@@ -125,6 +125,56 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 /obj/item/stack/barbed_wire/full
 	amount = 50
 
+/obj/item/stack/chainlink_fence
+	name = "rolled chainlink fencing"
+	desc = "A rolled section of chainlink fencing, complete with lightweight support posts."
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "barbed_wire"
+	singular_name = "roll"
+	max_amount = 10
+	w_class = WEIGHT_CLASS_NORMAL
+	matter = list(MATERIAL_STEEL = 4000)
+
+/obj/item/stack/chainlink_fence/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Activate this in-hand to spend approximately seven seconds setting up a section of fencing in the direction you are facing."
+
+/obj/item/stack/chainlink_fence/attack_self(mob/living/user)
+	add_fingerprint(user)
+
+	if(!isturf(user.loc))
+		return
+
+	if(istype(user.loc, /turf/space))
+		to_chat(user, SPAN_WARNING("The fencing must be set up on a proper surface!"))
+		return
+
+	user.visible_message(
+		SPAN_NOTICE("[user] starts unrolling and setting up a section of chainlink fencing."),
+		SPAN_NOTICE("You start unrolling and setting up a section of chainlink fencing.")
+	)
+
+	if(!do_after(user, 7 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
+		return
+
+	if(QDELETED(src) || amount < 1)
+		return
+
+	for(var/obj/obstacle in user.loc)
+		if(obstacle.density && (!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) || obstacle.dir == user.dir))
+			to_chat(user, SPAN_WARNING("There is no room to set up the fencing there!"))
+			return
+
+	var/obj/structure/chainlink_fence/deployable/fence = new(user.loc)
+	fence.set_dir(user.dir)
+	fence.add_fingerprint(user)
+	playsound(fence, 'sound/effects/barbed_wire_movement.ogg', 40, TRUE)
+	user.visible_message(
+		SPAN_NOTICE("[user] finishes setting up a section of chainlink fencing."),
+		SPAN_NOTICE("You finish setting up a section of chainlink fencing.")
+	)
+	use(1)
+
 /obj/item/stack/liquidbags
 	name = "liquid bags"
 	desc = "Bags filled with non-Newtonian liquid for the creation of barricades. These bags feel weird when you touch them: liquid to the gentle touch and the hardest thing you've felt if you smack them."
