@@ -149,6 +149,13 @@ const ReportList = (props) => {
 
 const FormList = (props) => {
   const { act, data } = useBackend<ReportEditorData>();
+  const normalizedFilter = (data.form_filter || '').trim().toLowerCase();
+  const forms = (data.forms || []).filter(
+    (form) =>
+      !normalizedFilter ||
+      form.name.toLowerCase().includes(normalizedFilter) ||
+      form.department.toLowerCase().includes(normalizedFilter),
+  );
 
   return (
     <Section
@@ -174,7 +181,7 @@ const FormList = (props) => {
           <Table.Cell>Department</Table.Cell>
           <Table.Cell collapsing />
         </Table.Row>
-        {(data.forms || []).map((form) => (
+        {forms.map((form) => (
           <Table.Row key={form.id}>
             <Table.Cell>SCCF-{form.id}</Table.Cell>
             <Table.Cell>{form.name}</Table.Cell>

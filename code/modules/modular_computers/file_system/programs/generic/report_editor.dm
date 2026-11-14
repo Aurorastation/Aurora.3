@@ -34,9 +34,6 @@
 	data["form_filter"] = form_filter
 	data["usb_connected"] = !!computer?.portable_drive
 
-	if(screen == REPORT_EDITOR_FORMS)
-		data["forms"] = get_database_forms()
-
 	if(screen == REPORT_EDITOR_FILES)
 		data["reports"] = get_drive_reports(computer?.hard_drive, FALSE)
 		data["usb_reports"] = get_drive_reports(computer?.portable_drive, TRUE)
@@ -84,6 +81,11 @@
 				))
 		data["selected_signatures"] = selected_signatures
 		data["preview"] = render_report_preview(loaded_report)
+	return data
+
+/datum/computer_file/program/report_editor/ui_static_data(mob/user)
+	var/list/data = list()
+	data["forms"] = get_database_forms()
 	return data
 
 /datum/computer_file/program/report_editor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -234,13 +236,7 @@
 	if(!SSdbcore.Connect())
 		message = "Unable to connect to the forms database."
 		return forms
-	var/datum/db_query/query
-	if(form_filter)
-		query = SSdbcore.NewQuery(
-			"SELECT id, name, department FROM ss13_forms WHERE department LIKE :filter OR name LIKE :filter ORDER BY id",
-			list("filter" = "%[form_filter]%"))
-	else
-		query = SSdbcore.NewQuery("SELECT id, name, department FROM ss13_forms ORDER BY id")
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name, department FROM ss13_forms ORDER BY department, name, id")
 	if(!query.Execute())
 		message = "Unable to retrieve forms from the database."
 		qdel(query)
