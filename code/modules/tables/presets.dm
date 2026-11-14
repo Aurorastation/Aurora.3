@@ -48,28 +48,36 @@
 
 /obj/structure/table/wood
 	icon_state = "wood_preview"
-	table_mat = MATERIAL_WOOD
+	table_mat =		/singleton/material/wood
+	color =			/singleton/material/wood::icon_colour
 
 /obj/structure/table/wood/birch
-	table_mat = MATERIAL_BIRCH
+	table_mat =		/singleton/material/wood/birch
+	color =			/singleton/material/wood/birch::icon_colour
 
 /obj/structure/table/wood/mahogany
-	table_mat = MATERIAL_MAHOGANY
+	table_mat =		/singleton/material/wood/mahogany
+	color =			/singleton/material/wood/mahogany::icon_colour
 
 /obj/structure/table/wood/maple
-	table_mat = MATERIAL_MAPLE
+	table_mat =		/singleton/material/wood/maple
+	color =			/singleton/material/wood/maple::icon_colour
 
 /obj/structure/table/wood/bamboo
-	table_mat = MATERIAL_BAMBOO
+	table_mat =		/singleton/material/wood/bamboo
+	color =			/singleton/material/wood/bamboo::icon_colour
 
 /obj/structure/table/wood/ebony
-	table_mat = MATERIAL_EBONY
+	table_mat =		/singleton/material/wood/ebony
+	color =			/singleton/material/wood/ebony::icon_colour
 
 /obj/structure/table/wood/walnut
-	table_mat = MATERIAL_WALNUT
+	table_mat =		/singleton/material/wood/walnut
+	color =			/singleton/material/wood/walnut::icon_colour
 
 /obj/structure/table/wood/yew
-	table_mat = MATERIAL_YEW
+	table_mat =		/singleton/material/wood/yew
+	color =			/singleton/material/wood/yew::icon_colour
 
 /obj/structure/table/wood/gamblingtable
 	icon_state = "gamble_preview"
