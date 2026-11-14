@@ -1926,6 +1926,10 @@
 /mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
 	if(!force && (W in organs))
 		return
+	if(!target && istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		if(src in mech.pilots)
+			target = get_turf(mech)
 	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)
