@@ -79,6 +79,18 @@ var/real_round_start_time
 	return midnight_rollovers
 
 /**
+ * Returns the current UTC day count since January 1, 2000.
+ */
+/proc/get_current_irl_day()
+	return round(world.realtime / (1 DAY))
+
+/**
+ * Returns the elapsed IRL days (including fractional days) between a saved (day, timeofday) pair and a target (day, timeofday) pair.
+ */
+/proc/get_elapsed_irl_days(saved_day, saved_timeofday, current_day = get_current_irl_day(), current_timeofday = world.timeofday)
+	return (current_day - saved_day) + ((current_timeofday - saved_timeofday) / (1 DAY))
+
+/**
  * Returns timestamp in a SQL- and ISO 8601-friendly format.
  */
 /proc/SQLtime(timevar)

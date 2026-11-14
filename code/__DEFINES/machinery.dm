@@ -209,3 +209,10 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,
 #define STATUS_DISPLAY_ALERT 3
 #define STATUS_DISPLAY_TIME 4
 #define STATUS_DISPLAY_CUSTOM 99
+
+// Stock part ratings and persistence decay
+#define STOCK_PART_BASIC 1
+#define STOCK_PART_ADVANCED 2
+#define STOCK_PART_SUPER 3
+#define STOCK_PART_MIN_RATING 0.5
+#define STOCK_PART_DAILY_DECAY 1.0

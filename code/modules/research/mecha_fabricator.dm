@@ -68,7 +68,7 @@
 	var/laser_rating = 0
 	for(var/obj/item/stock_parts/micro_laser/laser in component_parts)
 		laser_rating += laser.rating
-	production_speed = max(1, laser_rating)
+	production_speed = max(STOCK_PART_MIN_RATING, laser_rating)
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/attack_hand(mob/user)
 	if(..())

@@ -141,14 +141,14 @@
 /obj/structure/machinery/appliance/cooker/microwave/RefreshParts()
 	..()
 	var/laser_rating = 0
-	for(var/obj/item/stock_parts/micro_laser/ML)
+	for(var/obj/item/stock_parts/micro_laser/ML in component_parts)
 		laser_rating += ML.rating
-	heating_power = initial(heating_power) + clamp(laser_rating, 1, 5) * 150
+	heating_power = initial(heating_power) + clamp(laser_rating, STOCK_PART_MIN_RATING, 5) * 150
 
 	var/mb_rating = 0
-	for(var/obj/item/stock_parts/matter_bin/MB)
+	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
-	break_multiplier = 1 / clamp((mb_rating), 1, 3)
+	break_multiplier = 1 / clamp((mb_rating), STOCK_PART_MIN_RATING, 3)
 
 /obj/structure/machinery/appliance/cooker/microwave/update_cooking_power()
 	if(!operating)
