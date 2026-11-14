@@ -1,14 +1,19 @@
 #define COOLING_UNIT_DEFAULT_THERMOSTAT_MAX 323.15
 #define COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP 423.15
+/// A single exposed hit at or above this damage causes a major coolant spill.
+#define COOLING_UNIT_NOTABLE_DAMAGE 12
 
 #define COOLING_POWER_LOW "low"
 #define COOLING_POWER_MEDIUM "medium"
 #define COOLING_POWER_HIGH "high"
 
-// Low power retains the cooler's base output with a flat reduction to power draw.
+// Low power reduces cooling output and power draw by the same proportion.
+// Medium power increases cooling speed without increasing the base power draw.
 // High power trades efficiency for additional cooling speed.
-#define COOLING_POWER_LOW_DRAW_REDUCTION 1.5
-#define COOLING_POWER_HIGH_OUTPUT_MULTIPLIER 2.5
+#define COOLING_POWER_LOW_OUTPUT_MULTIPLIER 0.8
+#define COOLING_POWER_LOW_DRAW_MULTIPLIER 0.8
+#define COOLING_POWER_MEDIUM_OUTPUT_MULTIPLIER 1.5
+#define COOLING_POWER_HIGH_OUTPUT_MULTIPLIER 2.2
 #define COOLING_POWER_HIGH_DRAW_MULTIPLIER 3
 
 /obj/item/organ/internal/machine/cooling_unit
@@ -40,7 +45,7 @@
 	/// The temperature cutoff at which the cooling unit stops drawing power.
 	var/thermostat = T20C
 	/// The player-selected balance between cooling output, cutoff temperature, and power draw.
-	var/power_setting = COOLING_POWER_MEDIUM
+	var/power_setting = COOLING_POWER_LOW
 	/// The minimum value the thermostat can reach. 0C.
 	var/thermostat_min = T0C
 	/// The maximum value the thermostat can reach. 50C.
@@ -57,9 +62,12 @@
 	var/locked_thermostat = FALSE
 	/// The amount of degrees kelvin (per second) of heat the cooling unit will generate if it is blocked by a space suit.
 	var/spacesuited_heat_per_second = 5
+	/// Whether breached plating and damaged internals produce cosmetic coolant leaks.
+	var/leaks_coolant = FALSE
 
 /obj/item/organ/internal/machine/cooling_unit/Initialize()
 	. = ..()
+	set_power_setting(power_setting)
 	if(owner)
 		RegisterSignal(owner, COMSIG_IPC_HAS_SPRINTED, PROC_REF(handle_safeties))
 
@@ -75,6 +83,20 @@
 		return
 
 	ui_interact(user)
+
+/obj/item/organ/internal/machine/cooling_unit/take_internal_damage(amount, silent, forced_damage = FALSE)
+	var/plating_was_intact = plating?.get_status() > 0
+	var/internal_integrity_before = (wiring.get_status() + electronics.get_status()) / 2
+	. = ..()
+	if(!leaks_coolant || plating?.get_status() > 0)
+		return
+
+	if(plating_was_intact)
+		spill_coolant(TRUE)
+	else if(amount >= COOLING_UNIT_NOTABLE_DAMAGE)
+		spill_coolant(TRUE)
+	else if(((wiring.get_status() + electronics.get_status()) / 2) < internal_integrity_before)
+		spill_coolant()
 
 /obj/item/organ/internal/machine/cooling_unit/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -134,6 +156,7 @@
 	if(!T)
 		// Some odd scenarios can cause there to be no turf. Like getting teleported into the game from lobby.
 		return
+	handle_coolant_leak(seconds_per_tick)
 
 	var/datum/gas_mixture/ambient = T.return_air()
 	// Too much heat is bad for the cooling unit.
@@ -183,20 +206,58 @@
 			// the entire temperature change for a partial power payment.
 			owner.bodytemperature -= actual_temperature_change * min(power_used / requested_power, 1)
 
+/// Leaves coolant drips while a liquid cooler has exposed, damaged internals.
+/obj/item/organ/internal/machine/cooling_unit/proc/handle_coolant_leak(seconds_per_tick)
+	if(!leaks_coolant || !owner || plating.get_status() > 0)
+		return
+
+	var/internal_damage = 100 - ((wiring.get_status() + electronics.get_status()) / 2)
+	if(internal_damage <= 0)
+		return
+
+	var/leak_probability = clamp(internal_damage * 0.5, 5, 25)
+	if(SPT_PROB(leak_probability, seconds_per_tick))
+		spill_coolant()
+
+/// Creates a forensic-free coolant spill using the oil decal behavior.
+/obj/item/organ/internal/machine/cooling_unit/proc/spill_coolant(burst = FALSE)
+	if(!owner)
+		return
+
+	var/turf/T = get_turf(owner)
+	if(!T)
+		return
+
+	if(burst)
+		new /obj/effect/decal/cleanable/blood/oil/coolant(T)
+		owner.visible_message(
+			SPAN_WARNING("Coolant sprays from [owner]'s damaged chassis!"),
+			SPAN_WARNING("Coolant sprays from your ruptured cooling unit!")
+		)
+		return
+
+	if(locate(/obj/effect/decal/cleanable/blood/drip/oil/coolant) in T)
+		return
+	new /obj/effect/decal/cleanable/blood/drip/oil/coolant(T)
+
 /// Returns the multiplier applied to the cooler's base cooling rate for the selected mode.
-/// Low and medium use the base rate, while high increases it.
+/// Each mode applies its own cooling rate multiplier to the cooler's base output.
 /obj/item/organ/internal/machine/cooling_unit/proc/get_cooling_output_multiplier()
 	switch(power_setting)
+		if(COOLING_POWER_LOW)
+			return COOLING_POWER_LOW_OUTPUT_MULTIPLIER
+		if(COOLING_POWER_MEDIUM)
+			return COOLING_POWER_MEDIUM_OUTPUT_MULTIPLIER
 		if(COOLING_POWER_HIGH)
 			return COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
 	return 1
 
 /// Returns the selected mode's maximum power draw per second.
-/// Low applies a flat saving, medium uses the base draw, and high multiplies it.
+/// Low uses a fraction of the base draw, medium uses the base draw, and high multiplies it.
 /obj/item/organ/internal/machine/cooling_unit/proc/get_maximum_power_draw()
 	switch(power_setting)
 		if(COOLING_POWER_LOW)
-			return max(0, base_power_consumption - COOLING_POWER_LOW_DRAW_REDUCTION)
+			return base_power_consumption * COOLING_POWER_LOW_DRAW_MULTIPLIER
 		if(COOLING_POWER_HIGH)
 			return base_power_consumption * COOLING_POWER_HIGH_DRAW_MULTIPLIER
 	return base_power_consumption
@@ -292,9 +353,12 @@
 
 #undef COOLING_UNIT_DEFAULT_THERMOSTAT_MAX
 #undef COOLING_UNIT_DEFAULT_MAX_SAFE_TEMP
+#undef COOLING_UNIT_NOTABLE_DAMAGE
 #undef COOLING_POWER_LOW
 #undef COOLING_POWER_MEDIUM
 #undef COOLING_POWER_HIGH
-#undef COOLING_POWER_LOW_DRAW_REDUCTION
+#undef COOLING_POWER_LOW_OUTPUT_MULTIPLIER
+#undef COOLING_POWER_LOW_DRAW_MULTIPLIER
+#undef COOLING_POWER_MEDIUM_OUTPUT_MULTIPLIER
 #undef COOLING_POWER_HIGH_OUTPUT_MULTIPLIER
 #undef COOLING_POWER_HIGH_DRAW_MULTIPLIER

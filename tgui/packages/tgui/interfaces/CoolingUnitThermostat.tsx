@@ -2,7 +2,6 @@ import {
   AnimatedNumber,
   Box,
   Button,
-  Knob,
   LabeledList,
   Section,
 } from 'tgui-core/components';
@@ -68,40 +67,27 @@ export const ThermostatWindow = (props) => {
           </LabeledList>
         </Box>
         <Box mt={2} textAlign="center">
-          <Knob
-            size={2}
-            value={
-              data.power_setting === 'low'
-                ? 1
-                : data.power_setting === 'medium'
-                  ? 2
-                  : 3
-            }
-            minValue={1}
-            maxValue={3}
-            step={1}
-            stepPixelSize={50}
-            onChange={(_, value) =>
-              act('change_power_setting', {
-                power_setting:
-                  value <= 1 ? 'low' : value >= 3 ? 'high' : 'medium',
-              })
+          <Button
+            content="Low"
+            selected={data.power_setting === 'low'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'low' })
             }
           />
-          <Box bold>
-            {data.power_setting === 'low'
-              ? 'Low Power'
-              : data.power_setting === 'medium'
-                ? 'Medium Power'
-                : 'High Power'}
-          </Box>
-          <Box color="label">
-            Low
-            {'  •  '}
-            Medium
-            {'  •  '}
-            High
-          </Box>
+          <Button
+            content="Medium"
+            selected={data.power_setting === 'medium'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'medium' })
+            }
+          />
+          <Button
+            content="High"
+            selected={data.power_setting === 'high'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'high' })
+            }
+          />
         </Box>
       </Box>
       &nbsp;
