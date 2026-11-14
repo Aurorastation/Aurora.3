@@ -353,8 +353,6 @@ SUBSYSTEM_DEF(discord)
  */
 /datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
 	SHOULD_NOT_SLEEP(TRUE)
-	if (!webhooks.len)
-		return
 	var/OutData = list()
 	switch (tag)
 		if (WEBHOOK_ADMIN_PM)
@@ -435,8 +433,10 @@ SUBSYSTEM_DEF(discord)
 		else
 			OutData["invalid"] = 1
 	if (!OutData["invalid"])
+		var/matched = FALSE
 		for (var/datum/webhook/W in webhooks)
 			if(tag in W.tags)
+				matched = TRUE
 				if (W.mention)
 					if (OutData["content"])
 						OutData["content"] = "[W.mention]: " + OutData["content"]
@@ -444,6 +444,8 @@ SUBSYSTEM_DEF(discord)
 						OutData["content"] = "[W.mention]"
 
 				SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,W.url,body = json_encode(OutData), headers = list("Content-Type" = "application/json"))
+		if (!matched)
+			log_subsystem_discord("PostWebhookEvent - No webhook configured for tag '[tag]'")
 
 //
 // Related Datums

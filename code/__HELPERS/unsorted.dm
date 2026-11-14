@@ -210,14 +210,13 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/DirBlocked(turf/loc,var/dir)
 	for(var/obj/structure/window/D in loc)
 		if(!D.density)			continue
-		if(D.dir == SOUTHWEST)	return 1
+		if(D.is_full_window())	return 1
 		if(D.dir == dir)		return 1
 
 	for(var/obj/structure/machinery/door/D in loc)
 		if(!D.density)			continue
 		if(istype(D, /obj/structure/machinery/door/window))
-			if((dir & SOUTH) && (D.dir & (EAST|WEST)))		return 1
-			if((dir & EAST ) && (D.dir & (NORTH|SOUTH)))	return 1
+			if(dir & D.dir)	return 1
 		else return 1	// it's a real, air blocking door
 	return 0
 
@@ -597,7 +596,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/holding = user.get_active_hand()
 
 	var/datum/progressbar/progbar
-	if (display_progress && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS))
+	if (display_progress && delay > 0 && user.client && (user.client.prefs.toggles_secondary & PROGRESS_BARS)) //Only show a progress bar if it is enabled, has a delay, and there is a client with them turned on to see it.
 		var/atom/loc_check = target
 		for(var/i = 0; !isturf(loc_check.loc) && i < 5; i++)
 			loc_check = target.loc

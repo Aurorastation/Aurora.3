@@ -12,6 +12,15 @@
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 	footstep_component_type = /datum/component/mob_footsteps/human
 
+/// Returns whether the human has at least one foot capable of touching the ground.
+/mob/living/carbon/human/proc/has_usable_foot()
+	var/obj/item/organ/external/left_foot = get_organ(BP_L_FOOT)
+	var/obj/item/organ/external/right_foot = get_organ(BP_R_FOOT)
+	return (left_foot && !left_foot.is_stump()) || (right_foot && !right_foot.is_stump())
+
+/mob/living/carbon/human/can_make_footfall()
+	return ..() && has_usable_foot()
+
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
@@ -913,7 +922,8 @@
 		return FLASH_PROTECTION_MAJOR
 
 	// Standard method, sum of modifiers.
-	var/base_flash_protection = flash_protection
+	// Physical eye protection still works while our viewpoint prevents its visual effects from being cached.
+	var/base_flash_protection = get_equipment_flash_protection()
 
 	// Fetch flash protection modifiers via ECS methods.
 	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.

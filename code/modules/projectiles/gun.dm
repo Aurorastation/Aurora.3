@@ -163,6 +163,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/recoil_wielded
 	var/accuracy_wielded
 	var/wielded = 0
+	/// Optional controller whose accuracy signals should be used when this gun is fired by a vehicle or other proxy mob.
+	var/tmp/mob/living/accuracy_user_override
 	var/needspin = TRUE
 	/// Can this weapon be dual-wielded?
 	var/is_wieldable = FALSE
@@ -454,7 +456,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
 	var/dispersion_increase = 0
-	SEND_SIGNAL(user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+	var/mob/living/accuracy_user = accuracy_user_override ? accuracy_user_override : user
+	SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -577,19 +580,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	play_fire_sound()
 	if(!suppressed)
-		if(playemote)
-			if(reflex)
-				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					"You hear a [fire_sound_text]!"
-				)
-			else
-				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					"You hear a [fire_sound_text]!"
-				)
+		if(user)
+			if(playemote)
+				if(reflex)
+					user.visible_message(
+						SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+						SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
+						"You hear a [fire_sound_text]!"
+					)
+				else
+					user.visible_message(
+						SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+						SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
+						"You hear a [fire_sound_text]!"
+					)
+		else
+			src.visible_message(
+				SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -599,7 +606,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
 	if(recoil)
-		shake_camera(user, recoil + 1, recoil)
+		if(user)
+			shake_camera(user, recoil + 1, recoil)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

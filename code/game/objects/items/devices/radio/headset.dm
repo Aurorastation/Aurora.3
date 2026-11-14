@@ -931,13 +931,14 @@
 		return ..()
 
 	var/sector_z = get_sector_z()
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
-	if(istype(V))
-		if(V.comms_support)
-			default_frequency = assign_away_freq(V.name)
-	else
-		if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
-			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
+	if(sector_z)
+		var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
+		if(istype(V))
+			if(V.comms_support)
+				default_frequency = assign_away_freq(V.name)
+		else
+			if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
+				default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
 

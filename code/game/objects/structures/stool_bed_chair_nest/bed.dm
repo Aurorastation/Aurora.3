@@ -276,9 +276,12 @@
 	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled
 		if(!driving)
+			var/footfall_trait_source = REF(src)
+			ADD_TRAIT(occupant, TRAIT_NO_FOOTFALL, footfall_trait_source)
 			occupant.buckled_to = null
 			occupant.Move(src.loc)
 			occupant.buckled_to = src
+			REMOVE_TRAIT(occupant, TRAIT_NO_FOOTFALL, footfall_trait_source)
 			if (occupant && (src.loc != occupant.loc))
 				if (propelled)
 					for (var/mob/O in src.loc)

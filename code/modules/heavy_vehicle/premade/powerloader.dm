@@ -185,7 +185,7 @@
 	name = "stationbound power loader"
 	e_color = COLOR_GREEN_GRAY
 	dummy_colour = COLOR_GREEN_GRAY
-	dummy_type = /mob/living/simple_animal/spiderbot/ai
+	dummy_type = /mob/living/simple_animal/spiderbot/remote_mech/ai
 	remote_network = REMOTE_AI_MECH
 	remote_type = /obj/item/remote_mecha/ai
 	does_hardpoint_lock = FALSE

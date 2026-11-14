@@ -10,11 +10,13 @@
 /obj/projectile/ion/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 
+	apply_emp_effect(target)
+
+/// Applies this projectile's single EMP effect. Subtypes should override this instead of on_hit().
+/obj/projectile/ion/proc/apply_emp_effect(atom/target)
 	empulse(target, pulse_range, pulse_range)
 
-/obj/projectile/ion/stun/on_hit(atom/target, blocked, def_zone)
-	. = ..()
-
+/obj/projectile/ion/stun/apply_emp_effect(atom/target)
 	if(isipc(target))
 		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/internal/machine/surge/s = H.internal_organs_by_name[BP_SURGE_PROTECTOR]

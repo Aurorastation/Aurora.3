@@ -397,6 +397,12 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		text += "There were <b>no survivors</b> (<b>[ghosts] ghosts</b>)."
 	to_world(text)
 
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]"
+	discord_text += "\nThere were **[GLOB.round_connected_ckeys.len] connected players** in the round."
+	if(antag_text)
+		discord_text += "\n[antag_text]"
+
+	SSdiscord.send_to_announce(discord_text, 1)
 	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("total_connected"=GLOB.round_connected_ckeys.len, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
 
 	if(clients > 0)

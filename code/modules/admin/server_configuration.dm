@@ -18,6 +18,9 @@
 	var/selected_lore_summary
 	var/committed_lore_summary
 
+	var/selected_pinned_round_time
+	var/committed_pinned_round_time
+
 /datum/tgui_module/server_configuration/ui_close(mob/user)
 	reset_state(TRUE)
 	. = ..()
@@ -26,11 +29,13 @@
 	selected_sector = null
 	selected_message_of_the_day = null
 	selected_lore_summary = null
+	selected_pinned_round_time = null
 
 	if(hard_reset)
 		committed_sector = null
 		committed_message_of_the_day = null
 		committed_lore_summary = null
+		committed_pinned_round_time = null
 
 /datum/tgui_module/server_configuration/ui_interact(mob/user, var/datum/tgui/ui)
 	if(!check_rights(R_SERVER|R_ADMIN|R_DEV, user=user))
@@ -39,6 +44,7 @@
 	committed_sector = SSatlas.possible_sectors[SSregistry.getValue(REGISTRY_CURRENT_SECTOR, GLOB.config.current_space_sector ? GLOB.config.current_space_sector : SSatlas.current_sector?.name)]
 	committed_message_of_the_day = SSregistry.getValue(REGISTRY_MESSAGE_OF_THE_DAY)
 	committed_lore_summary = SSregistry.getValue(REGISTRY_LORE_SUMMARY)
+	committed_pinned_round_time = SSregistry.getValue(REGISTRY_PINNED_ROUND_TIME)
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -59,6 +65,10 @@
 	data["lore_summary"] = selected_lore_summary != null ? selected_lore_summary : committed_lore_summary || ""
 	data["lore_summary_changed"] = selected_lore_summary != null
 
+	data["pinned_round_time"] = selected_pinned_round_time != null ? selected_pinned_round_time : committed_pinned_round_time || ""
+	data["pinned_round_time_changed"] = selected_pinned_round_time != null
+	data["pinned_round_time_configured"] = !!committed_pinned_round_time
+
 	data["read_only"] = !check_rights(R_SERVER|R_ADMIN, FALSE, user=user) // Developers only get view-access, no edit permissions
 	data["unsaved_changes"] = check_for_unsaved_changes()
 	return data
@@ -67,7 +77,8 @@
 	return \
 		selected_sector != null || \
 		selected_message_of_the_day != null || \
-		selected_lore_summary != null
+		selected_lore_summary != null || \
+		selected_pinned_round_time != null
 
 /datum/tgui_module/server_configuration/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -78,6 +89,10 @@
 		return
 
 	switch(action)
+		if("warn_unsaved_changes")
+			if(check_for_unsaved_changes())
+				tgui_alert(ui.user, "Commit or revert your pending changes before switching tabs.", "Unsaved changes", list("OK"))
+			return TRUE
 		if("set_selected_sector")
 			var/list/sector_names = list()
 			for(var/sector_name in SSatlas.possible_sectors)
@@ -114,6 +129,20 @@
 			selected_lore_summary = null
 			return TRUE
 
+		if("set_pinned_round_time")
+			var/pinned_round_time = tgui_input_time(ui.user, "Enter a new time for pinned rounds.", "Pinned round time", selected_pinned_round_time || committed_pinned_round_time)
+			if(isnull(pinned_round_time) || !state.can_use_topic(src, ui.user))
+				return TRUE
+			selected_pinned_round_time = pinned_round_time != committed_pinned_round_time ? pinned_round_time : null
+			return TRUE
+		if("reset_pinned_round_time")
+			selected_pinned_round_time = null
+			return TRUE
+		if("clear_pinned_round_time")
+			if(committed_pinned_round_time)
+				selected_pinned_round_time = ""
+			return TRUE
+
 		if("commit_changes")
 			if(selected_sector)
 				if(SSregistry.setValue(REGISTRY_CURRENT_SECTOR, selected_sector.name))
@@ -133,6 +162,14 @@
 					committed_lore_summary = selected_lore_summary
 				else
 					to_chat(ui.user, SPAN_WARNING("Failed to set the lore summary."))
+			if(selected_pinned_round_time != null)
+				if(SSregistry.setValue(REGISTRY_PINNED_ROUND_TIME, selected_pinned_round_time))
+					log_change(selected_pinned_round_time ? "Pinned round time changed to [selected_pinned_round_time]" : "Pinned round time cleared")
+					committed_pinned_round_time = selected_pinned_round_time
+					SSticker.set_pinned_round_time(selected_pinned_round_time)
+					SSstatpanels.pinned_round_time = selected_pinned_round_time
+				else
+					to_chat(ui.user, SPAN_WARNING("Failed to set the pinned round time."))
 			reset_state()
 			return TRUE
 

@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	delivery_id = "#[rand(1, 9)][rand(1, 9)][rand(1, 9)]"
 	name += " ([delivery_id])"
 	var/turf/current_turf = get_turf(loc)
-	var/obj/effect/overmap/visitable/my_sector = GLOB.map_sectors["[current_turf.z]"]
+	var/obj/effect/overmap/visitable/my_sector = get_map_sector(current_turf.z)
 
 	if(SSatlas.current_map.use_overmap)
 		if(my_sector)
