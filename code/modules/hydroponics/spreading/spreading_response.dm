@@ -25,6 +25,11 @@
 	var/mob/living/carbon/human/H = victim
 	if(istype(H) && H.shoes)
 		return
+	if(!victim.lying)
+		var/hazard_avoid_chance = 0
+		SEND_SIGNAL(victim, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
+		if(hazard_avoid_chance > 0 && prob(hazard_avoid_chance))
+			return
 	seed.do_thorns(victim,src)
 	seed.do_sting(victim,src,pick(BP_R_FOOT,BP_L_FOOT,BP_R_LEG,BP_L_LEG))
 
@@ -40,7 +45,10 @@
 
 /obj/effect/plant/proc/manual_unbuckle(mob/user as mob)
 	if(buckled)
-		if(prob(seed ? min(max(0,100 - GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2),100) : 50))
+		var/escape_chance = seed ? min(max(0, 100 - GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2), 100) : 50
+		if(user)
+			SEND_SIGNAL(user, COMSIG_BOTANY_VINE_INTERACT, src, null, &escape_chance, null)
+		if(prob(clamp(escape_chance, 0, 100)))
 			if(buckled.buckled_to == src)
 				if(buckled != user)
 					buckled.visible_message(\
@@ -68,6 +76,13 @@
 
 	if(victim.buckled_to)
 		return
+
+	if(!victim.lying && !victim.stat)
+		var/evade_chance = 0
+		SEND_SIGNAL(victim, COMSIG_BOTANY_VINE_INTERACT, src, null, null, &evade_chance)
+		if(evade_chance > 0 && prob(evade_chance))
+			to_chat(victim, SPAN_NOTICE("You anticipate \the [src]'s lashing tendrils and deftly sidestep their grasp!"))
+			return
 
 	//grabbing people
 	if(!victim.anchored && Adjacent(victim) && victim.loc != get_turf(src))

@@ -272,19 +272,19 @@
 		if(!seed)
 			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
 			return
-		if(sampled)
-			to_chat(user, SPAN_DANGER("You cannot take another sample from \the [src]."))
-			return
-		if(prob(70))
+		var/sample_damage = rand(3, 5) * 5
+		var/exhaust_chance = 70
+		SEND_SIGNAL(user, COMSIG_PLANT_SAMPLER, seed, &sample_damage, &exhaust_chance, null, null)
+		if(exhaust_chance > 0 && prob(exhaust_chance))
 			sampled = 1
-		seed.harvest(user,0,1)
-		health -= (rand(3,5)*5)
-		sampled = 1
+		seed.harvest(user, 0, 1)
+		health -= max(0, sample_damage)
 	else
 		playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 		var/damage = attacking_item.force ? attacking_item.force : 1 //always do at least a little damage
 		if(attacking_item.edge || attacking_item.sharp)
 			damage *= 2
+		SEND_SIGNAL(user, COMSIG_BOTANY_VINE_INTERACT, src, &damage, null, null)
 		health -= damage
 	check_health()
 
@@ -299,6 +299,7 @@
 	var/damage = H.default_attack.get_unarmed_damage(H, src) ? H.default_attack.get_unarmed_damage(H, src) : 1
 	if(H.default_attack.edge || H.default_attack.sharp)
 		damage *= 2
+	SEND_SIGNAL(H, COMSIG_BOTANY_VINE_INTERACT, src, &damage, null, null)
 	health -= damage
 	check_health()
 

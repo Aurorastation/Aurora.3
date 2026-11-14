@@ -47,12 +47,23 @@
 	set category = "Object"
 	set src in view(1)
 
-	var/genemask = input("Choose a gene to modify.") as null|anything in SSplants.plant_gene_datums
-	if(!genemask)
+	if(GET_SKILL_LEVEL(usr, XENOBOTANY_SKILL_COMPONENT) < SKILL_LEVEL_FAMILIAR)
+		to_chat(usr, SPAN_WARNING("You lack the xenobotanical knowledge to calibrate \the [src]'s targeted gene matrix."))
 		return
+
+	var/list/gene_choices = list()
+	for(var/mask in SSplants.plant_gene_datums)
+		var/singleton/plantgene/P = SSplants.plant_gene_datums[mask]
+		var/label = P ? format_plant_gene_mask(usr, P.gene_tag, mask) : mask
+		gene_choices[label] = mask
+
+	var/selected_label = tgui_input_list(usr, "Choose a gene locus to modify.", "Select Gene", gene_choices)
+	if(!selected_label)
+		return
+	var/genemask = gene_choices[selected_label]
 	gene = SSplants.plant_gene_datums[genemask]
 
-	to_chat(usr, SPAN_INFO("You set \the [src]\s targeted genetic area to [genemask]."))
+	to_chat(usr, SPAN_INFO("You set \the [src]'s targeted genetic locus to [selected_label]."))
 
 /obj/item/gun/energy/floragun/consume_next_projectile()
 	. = ..()

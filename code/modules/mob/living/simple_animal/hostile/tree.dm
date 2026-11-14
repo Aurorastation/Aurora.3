@@ -42,6 +42,10 @@
 
 	psi_pingable = FALSE
 
+/mob/living/simple_animal/hostile/tree/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_PLANT, TRAIT_SOURCE_MOB_CATEGORY)
+
 /mob/living/simple_animal/hostile/tree/FindTarget()
 	. = ..()
 	if(.)

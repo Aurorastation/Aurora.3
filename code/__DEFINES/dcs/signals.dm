@@ -121,6 +121,20 @@
 #define COMSIG_PLANT_HARVESTER "plant_harvester"
 /// Signal raised against the plant being harvested during the Harvest() proc.
 #define COMSIG_PLANT_HARVESTED "plant_harvested"
+/// Signal raised against a mob sampling a plant: (datum/seed/plant, &sample_damage, &exhaust_chance, &bonus_seed_chance, &wild_destroy_chance)
+#define COMSIG_PLANT_SAMPLER "plant_sampler"
+/// Signal raised against a mob extracting a plant gene in the centrifuge: (obj/structure/machinery/botany/extractor/machine, &degradation_increase)
+#define COMSIG_BOTANY_EXTRACT_GENE "botany_extract_gene"
+/// Signal raised against a mob splicing a plant gene into a seed: (datum/seed/plant, &fail_chance, &decay_increase, &trait_retention, &gas_retention)
+#define COMSIG_BOTANY_APPLY_GENE "botany_apply_gene"
+/// Signal raised against a mob firing a somatoray at a hydroponics tray: (obj/structure/machinery/portable_atmospherics/hydroponics/tray, &proc_chance, &yield_boost)
+#define COMSIG_BOTANY_SOMATORAY "botany_somatoray"
+/// Signal raised against a mob inducing a plant mutation: (datum/seed/plant, &species_mut_chance, &min_mutation_case, &mutation_bias)
+#define COMSIG_BOTANY_INDUCE_MUTATION "botany_induce_mutation"
+/// Signal raised against a mob interacting with or attacking spreading vines: (obj/effect/plant/vine, &damage, &escape_chance, &evade_chance)
+#define COMSIG_BOTANY_VINE_INTERACT "botany_vine_interact"
+/// Signal raised against a mob handling hazardous or wild flora: (datum/seed/plant, &hazard_avoid_chance, &salvage_seed_chance)
+#define COMSIG_BOTANY_FLORA_HANDLING "botany_flora_handling"
 
 // Armed Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"

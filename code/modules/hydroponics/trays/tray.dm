@@ -84,6 +84,8 @@
 	var/icon_status = 0
 	/// Currently displayed growth stage, set in update_icon.
 	var/displayed_stage
+	/// Weakref to the last mob who added reagents to this tray, used for Xenobotany mutation checks.
+	var/datum/weakref/last_mutagen_user
 
 
 	/**
@@ -262,22 +264,33 @@
 		connect()
 	update_icon()
 
+/obj/structure/machinery/portable_atmospherics/hydroponics/on_reagent_change()
+	. = ..()
+	if(ismob(usr))
+		last_mutagen_user = WEAKREF(usr)
+
 /obj/structure/machinery/portable_atmospherics/hydroponics/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	//Don't act on seeds like dionaea that shouldn't change.
 	if(seed && GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE) > 0)
 		return BULLET_ACT_HIT
 
+	var/mob/firer = ismob(hitting_projectile.firer) ? hitting_projectile.firer : null
+	var/somatoray_prob = 20
+	var/yield_boost = rand(1, 2)
+	if(firer)
+		SEND_SIGNAL(firer, COMSIG_BOTANY_SOMATORAY, src, &somatoray_prob, &yield_boost)
+
 	//Override for somatoray projectiles.
-	if(istype(hitting_projectile ,/obj/projectile/energy/floramut)&& prob(20))
+	if(istype(hitting_projectile ,/obj/projectile/energy/floramut) && prob(clamp(somatoray_prob, 0, 100)))
 		if(istype(hitting_projectile, /obj/projectile/energy/floramut/gene))
 			var/obj/projectile/energy/floramut/gene/G = hitting_projectile
 			if(seed)
-				seed = seed.diverge_mutate_gene(G.gene, get_turf(loc))	//get_turf just in case it's not in a turf.
+				seed = seed.diverge_mutate_gene(G.gene, get_turf(loc), firer)	//get_turf just in case it's not in a turf.
 		else
-			mutate(1)
+			mutate(1, firer)
 			return BULLET_ACT_HIT
-	else if(istype(hitting_projectile ,/obj/projectile/energy/florayield) && prob(20))
-		yield_mod = min(10,yield_mod+rand(1,2))
+	else if(istype(hitting_projectile ,/obj/projectile/energy/florayield) && prob(clamp(somatoray_prob, 0, 100)))
+		yield_mod = min(10, yield_mod + max(1, round(yield_boost)))
 		return BULLET_ACT_HIT
 
 	. = ..()
@@ -382,8 +395,14 @@
 		seed.harvest(get_turf(src),yield_mod, stunted_status = stunted)
 	// Reset values.
 	if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS))
-		seed.create_spores(get_turf(src))
-		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+		var/hazard_avoid_chance = 0
+		if(user && user.a_intent != I_HURT)
+			SEND_SIGNAL(user, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
+		if(hazard_avoid_chance > 0 && prob(hazard_avoid_chance))
+			to_chat(user, SPAN_NOTICE("You carefully harvest \the [seed.display_name] without rupturing its volatile spore sacs."))
+		else
+			seed.create_spores(get_turf(src))
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 	harvest = FALSE
 	stunted = FALSE
 	lastproduce = age
@@ -443,14 +462,14 @@
 
 	return
 
-/obj/structure/machinery/portable_atmospherics/hydroponics/proc/mutate(var/severity)
+/obj/structure/machinery/portable_atmospherics/hydroponics/proc/mutate(var/severity, var/mob/user = null)
 	// No seed, no mutations.
 	if(!seed)
 		return
 
 	// Check if we should even bother working on the current seed datum.
 	if(seed.mutants?.len && severity > 1)
-		mutate_species()
+		mutate_species(user)
 		return
 
 	// We need to make sure we're not modifying one of the global seed datums.
@@ -458,7 +477,7 @@
 	// harvested yet and it's safe to assume it's restricted to this tray.
 	if(!isnull(SSplants.seeds[seed.name]))
 		seed = seed.diverge()
-	seed.mutate(severity,get_turf(src))
+	seed.mutate(severity, get_turf(src), user)
 
 	return
 
@@ -500,7 +519,7 @@
 	weedlevel =      max(0,min(weedlevel,10))
 	toxins =         max(0,min(toxins,10))
 
-/obj/structure/machinery/portable_atmospherics/hydroponics/proc/mutate_species()
+/obj/structure/machinery/portable_atmospherics/hydroponics/proc/mutate_species(var/mob/user = null)
 	var/previous_plant = seed.display_name
 	var/newseed = seed.get_mutant_variant()
 	if(newseed in SSplants.seeds)
@@ -509,7 +528,7 @@
 		return
 
 	dead = FALSE
-	mutate(1)
+	mutate(1, user)
 	age = 0
 	plant_health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
 	lastcycle = world.time
@@ -560,10 +579,21 @@
 		user.visible_message(SPAN_WARNING("\The [user] begins to sample \the [src]."), SPAN_NOTICE("You begin sampling \the [src]."))
 		if(do_after(user, 1 SECOND))
 			playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
-			seed.harvest(user,yield_mod,1)
-			plant_health -= (rand(3,5)*10)
+			seed.harvest(user, yield_mod, 1)
+			var/sample_damage = rand(3, 5) * 10
+			var/exhaust_chance = 30
+			var/bonus_seed_chance = 0
+			SEND_SIGNAL(user, COMSIG_PLANT_SAMPLER, seed, &sample_damage, &exhaust_chance, &bonus_seed_chance, null)
 
-			if(prob(30))
+			if(bonus_seed_chance > 0 && prob(bonus_seed_chance))
+				var/obj/item/seeds/bonus_seeds = new(get_turf(user))
+				bonus_seeds.seed_type = seed.name
+				bonus_seeds.update_seed()
+				to_chat(user, SPAN_NOTICE("Your surgical precision lets you divide the cutting into a second viable seed packet!"))
+
+			plant_health -= max(0, sample_damage)
+
+			if(exhaust_chance > 0 && prob(exhaust_chance))
 				sampled = 1
 
 			// Bookkeeping.
@@ -808,6 +838,14 @@
 			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
 		else if(harvest)
 			. += SPAN_GOOD("This is ready to harvest!")
+
+	var/botany_skill = GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT)
+	if(botany_skill >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_NOTICE("Your xenobotanical assessment reads: Toxins <b>[round(toxins, 0.1)]/10</b> | Weeds <b>[round(weedlevel, 0.1)]/10</b> | Pests <b>[round(pestlevel, 0.1)]/10</b>.")
+		if(seed && !dead)
+			. += SPAN_NOTICE("Plant vitality: <b>[round(plant_health, 0.1)]/[GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)]</b> (Age: <b>[age]</b>, Maturation: <b>[GET_SEED_TRAIT(seed, TRAIT_MATURATION)]</b>).")
+			if(botany_skill >= SKILL_LEVEL_TRAINED)
+				. += SPAN_NOTICE("Genetic instability: <b>[round(mutation_level, 0.1)]%</b> | Yield modifier: <b>+[yield_mod]</b>[sampled ? " | <b>Already sampled</b>" : ""].")
 
 /// Opens and closes the lid.
 /obj/structure/machinery/portable_atmospherics/hydroponics/proc/close_lid(var/mob/living/user)

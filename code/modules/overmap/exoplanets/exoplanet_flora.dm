@@ -81,6 +81,8 @@
 	density = FALSE
 	/// The seed datum this plant grows from.
 	var/datum/seed/seed
+	/// Whether a tissue sample has already been clipped from this wild plant.
+	var/sampled = FALSE
 
 /obj/structure/flora/harvestable/Initialize(var/newloc, var/datum/seed/newseed)
 	. = ..()
@@ -128,6 +130,35 @@
 		SSplants.plant_icon_cache[cache_key] = harvest_overlay
 	AddOverlays(harvest_overlay)
 
+/obj/structure/flora/harvestable/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel))
+		if(!seed)
+			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
+			return
+		if(sampled)
+			to_chat(user, SPAN_WARNING("You have already taken a sample from \the [src]."))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] begins taking a cutting from \the [src]."), SPAN_NOTICE("You begin taking a cutting from \the [src]."))
+		if(do_after(user, 1 SECOND, src))
+			playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
+			seed.harvest(user, 0, 1)
+			var/exhaust_chance = 100
+			var/bonus_seed_chance = 0
+			var/wild_destroy_chance = 50
+			SEND_SIGNAL(user, COMSIG_PLANT_SAMPLER, seed, null, &exhaust_chance, &bonus_seed_chance, &wild_destroy_chance)
+			if(exhaust_chance > 0 && prob(exhaust_chance))
+				sampled = TRUE
+			if(bonus_seed_chance > 0 && prob(bonus_seed_chance))
+				var/obj/item/seeds/bonus_seeds = new(get_turf(user))
+				bonus_seeds.seed_type = seed.name
+				bonus_seeds.update_seed()
+				to_chat(user, SPAN_NOTICE("Your surgical precision lets you divide the wild cutting into a second viable seed packet!"))
+			if(wild_destroy_chance > 0 && prob(wild_destroy_chance))
+				to_chat(user, SPAN_WARNING("Your rough cutting damages \the [src] beyond recovery, and it withers away!"))
+				qdel(src)
+		return
+	return ..()
+
 /obj/structure/flora/harvestable/attack_hand(mob/user)
 	if(!seed)
 		to_chat(user, SPAN_NOTICE("There is nothing to harvest."))
@@ -135,12 +166,44 @@
 	if(!Adjacent(user))
 		return
 	if(seed.harvest(user))
+		var/salvage_seed_chance = 0
+		if(!sampled && user)
+			SEND_SIGNAL(user, COMSIG_BOTANY_FLORA_HANDLING, seed, null, &salvage_seed_chance)
+		if(salvage_seed_chance > 0 && prob(salvage_seed_chance))
+			var/obj/item/seeds/salvaged = new(get_turf(user))
+			salvaged.seed_type = seed.name
+			salvaged.update_seed()
+			to_chat(user, SPAN_NOTICE("Your xenobotanical training lets you salvage a viable packet of [seed.seed_name] [seed.seed_noun] while harvesting \the [src]!"))
 		qdel(src)
 
 /obj/structure/flora/harvestable/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(seed)
 		. += SPAN_NOTICE("You could harvest this plant.")
+		var/botany_skill = GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT)
+		if(botany_skill >= SKILL_LEVEL_FAMILIAR)
+			. += SPAN_NOTICE("Your xenobotanical eye estimates: Potency <b>[GET_SEED_TRAIT(seed, TRAIT_POTENCY)]</b> | Ideal Heat <b>[GET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT)]K</b> | Ideal Light <b>[GET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT)] lm</b>.")
+			var/list/hazards = list()
+			if(GET_SEED_TRAIT(seed, TRAIT_STINGS))
+				hazards += "stinging spines"
+			if(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS))
+				hazards += "carnivorous thorns"
+			if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS))
+				hazards += "volatile spore sacs"
+			if(GET_SEED_TRAIT(seed, TRAIT_EXPLOSIVE))
+				hazards += "explosive fruit"
+			if(GET_SEED_TRAIT(seed, TRAIT_TELEPORTING))
+				hazards += "bluespace instability"
+			if(length(hazards))
+				. += SPAN_WARNING("Detected flora hazards: <b>[english_list(hazards)]</b>.")
+			if(botany_skill >= SKILL_LEVEL_PROFESSIONAL && islist(seed.chems) && length(seed.chems))
+				var/list/chem_names = list()
+				for(var/rid in seed.chems)
+					var/singleton/reagent/R = GET_SINGLETON(rid)
+					if(R)
+						chem_names += R.name
+				if(length(chem_names))
+					. += SPAN_NOTICE("Your expert xenobotanical knowledge identifies its chemical synthesis profile: <b>[english_list(chem_names)]</b>.")
 
 /obj/structure/flora/harvestable/Destroy()
 	// Check if we're masking a decal that needs to be visible again.

@@ -18,3 +18,7 @@
 	melee_damage_lower = 10
 	attacktext = "mauls"
 	mob_size = 2
+
+/mob/living/simple_animal/tomato/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_PLANT, TRAIT_SOURCE_MOB_CATEGORY)
