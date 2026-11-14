@@ -16,3 +16,8 @@
 
 /datum/synthetic_internal/wiring/heal_damage(amount)
 	wires = min(wires + amount, max_wires)
+
+/datum/synthetic_internal/wiring/replace_health(new_max_health)
+	max_wires = new_max_health
+	wires = new_max_health
+

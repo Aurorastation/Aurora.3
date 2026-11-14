@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Skills can now selectively change their displayed name and description depending on a player character's selected options."
+  - rscadd: "Tenacity now has an IPC-only variant called Fault-Tolerant Architecture. It effectively increases the amount of time for an IPC to permanently die when fully disabled."
+  - rscadd: "Carousing now has an IPC-only variant called Thermal Conditioning. It improves the energy efficiency of an IPCs cooling systems."
+  - rscadd: "Conditioning now has its name and description changed for IPCs to better match their concept, displaying its skill name as High-Torque Servos."

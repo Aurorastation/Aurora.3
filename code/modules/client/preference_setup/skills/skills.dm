@@ -133,7 +133,8 @@
 	var/level_from_pref = pref.skills[skill.type]
 	var/current_level = level_from_pref ? level_from_pref : SKILL_LEVEL_UNFAMILIAR
 	var/maximum_skill_level = get_maximum_skill_level(skill, education)
-	var/current_description = replacetext(skill.skill_level_descriptions[current_level], "<br>", "\n")
+	var/alist/level_descriptions = skill.get_skill_level_descriptions(pref)
+	var/current_description = replacetext(level_descriptions[current_level], "<br>", "\n")
 	current_description = html_decode(strip_html_properly(current_description))
 	var/list/levels = list()
 	for(var/i = SKILL_LEVEL_UNFAMILIAR, i <= skill.maximum_level, i++)
@@ -141,9 +142,9 @@
 			continue
 		levels += list(get_skill_level_ui_data(skill, education, current_level, i, maximum_skill_level))
 	return list(
-		"name" = skill.name,
+		"name" = skill.get_name(pref),
 		"type" = "[skill.type]",
-		"description" = skill.description,
+		"description" = skill.get_description(pref),
 		"current_description" = current_description,
 		"uneducated_cap" = skill.uneducated_skill_cap ? skill.skill_level_map[skill.uneducated_skill_cap] : null,
 		"levels" = levels
@@ -274,7 +275,7 @@
 			var/list/granted_skills = list()
 			for(var/granted_skill in chosen_education.skills)
 				var/singleton/skill/granted_skill_data = GET_SINGLETON(granted_skill)
-				granted_skills += "[granted_skill_data.name] ([granted_skill_data.skill_level_map[chosen_education.skills[granted_skill_data.type]]])"
+				granted_skills += "[granted_skill_data.get_name(pref)] ([granted_skill_data.skill_level_map[chosen_education.skills[granted_skill_data.type]]])"
 			var/education_summary = html_decode(strip_html(chosen_education.description))
 			if(length(granted_skills))
 				education_summary += "\n\nGranted skills: [english_list(granted_skills)]"
@@ -286,7 +287,7 @@
 			for(var/skill in chosen_education.skills)
 				var/singleton/skill/new_skill = GET_SINGLETON(skill)
 				pref.skills[new_skill.type] = chosen_education.skills[new_skill.type]
-				to_chat(user, SPAN_NOTICE("Added the [new_skill.name] skill at level [new_skill.skill_level_map[chosen_education.skills[new_skill.type]]]."))
+				to_chat(user, SPAN_NOTICE("Added the [new_skill.get_name(pref)] skill at level [new_skill.skill_level_map[chosen_education.skills[new_skill.type]]]."))
 			sanitize_character()
 			return TOPIC_REFRESH
 		return TOPIC_NOACTION
