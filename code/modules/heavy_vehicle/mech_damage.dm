@@ -1,5 +1,27 @@
-///Returns TRUE if an incoming attack should target the pilot instead of the mech, FALSE otherwise.
+/// Returns TRUE if an incoming attack should target the pilot after protection and evasive maneuvers.
 /mob/living/heavy_vehicle/proc/should_target_pilot(atom/attack_source = null)
+	if(!is_pilot_exposed(attack_source))
+		return FALSE
+
+	// Environmental effects cannot be avoided by twisting the torso.
+	if(attack_source && !incapacitated() && !lockdown && !maintenance_protocols)
+		var/cancelled = FALSE
+		// First check any signal registers on the mech in case components wish to interrupt the pilot injury.
+		// Such as a hypothetical "Hardened cockpit" module, or some cockpit energy shielding.
+		SEND_SIGNAL(src, COMSIG_MECH_AVOID_PILOT_HIT, &cancelled)
+
+		// Relay to the mech's pilots to check for piloting skill or other factors like cybernetic wired reflexes.
+		// Yes this does intentionally mean the rare few dual-cockpit mechs have two piloting skill rolls. You have two people who can reactively torso twist after all.
+		if (length(pilots))
+			for(var/mob/living/pilot in pilots)
+				SEND_SIGNAL(pilot, COMSIG_MECH_AVOID_PILOT_HIT_RELAYED, src, &cancelled)
+		if(cancelled)
+			return FALSE
+
+	return TRUE
+
+/// Returns TRUE if cockpit coverage, hatch position, and shields expose the pilot to this attack.
+/mob/living/heavy_vehicle/proc/is_pilot_exposed(atom/attack_source = null)
 	if(!body || !LAZYLEN(pilots)) //If there is no pilot, or the mech somehow doesn't have a body don't try hit the pilot.
 		return FALSE
 

@@ -105,6 +105,30 @@
 
 #define COMSIG_MECH_TOGGLE_POWER "mech_toggle_power"
 
+/**
+ * Relayed to a mech's pilots when making melee attacks.
+ * PARAMS:
+ * mob/living/heavy_vehicle/mech -- Reference to the mech being piloted.
+ * &melee_damage -- float Pointer, defaulted to the original unmodified melee damage.
+ * &attack_delay -- float Pointer, defaulted to the click delay (in ticks) for a mech's limbs. Cannot go below 1, and defaults to 15.
+ **/
+#define COMSIG_MECH_MELEE_ATTACK "mech_melee_attack"
+
+/**
+ * Sent to a mech when an incoming attack would hit the cockpit, useful for checking if mech components want to roll to prevent the pilot's injury.
+ * PARAMS:
+ * &cancelled -- Boolean Pointer, set to true via signal registree to prevent a pilot hit.
+ **/
+#define COMSIG_MECH_AVOID_PILOT_HIT "mech_avoid_pilot_hit"
+
+/**
+ * Relayed to a mech's pilots when an incoming attack would hit the cockpit, useful for checking if pilot skills or equipment want to roll to prevent the pilot's injury.
+ * PARAMS:
+ * mob/living/heavy_vehicle/mech -- Reference to the mech being piloted.
+ * &cancelled -- Boolean Pointer, set to true via signal registree to prevent a pilot hit.
+ **/
+#define COMSIG_MECH_AVOID_PILOT_HIT_RELAYED "mech_avoid_pilot_hit_relayed"
+
 // Unarmed Combat Signals
 
 #define COMSIG_UNARMED_HARM_ATTACKER "unarmed_harm_attacker"
