@@ -50,7 +50,7 @@ GLOBAL_DATUM(highlanders, /datum/antagonist/highlander)
 /proc/only_one()
 
 	if(!ROUND_IS_STARTED)
-		alert("The game hasn't started yet!")
+		tgui_alert(usr, "The game hasn't started yet!")
 		return
 
 	for(var/mob/living/carbon/human/H in GLOB.player_list)

@@ -64,9 +64,7 @@
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
 	suits["executive suit"] = /obj/item/clothing/under/suit_jacket/really_black
 	suits["navy suit"] = /obj/item/clothing/under/suit_jacket/navy
-	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
-	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
 	suits["nt skirtsuit"] = /obj/item/clothing/under/suit_jacket/nt_skirtsuit

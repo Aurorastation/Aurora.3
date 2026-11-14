@@ -309,6 +309,74 @@
 			turfs += checked_turf
 	return turfs
 
+/datum/spread_path_node
+	var/turf/tile
+	var/distance
+
+/datum/spread_path_node/New(turf/new_tile, new_distance)
+	tile = new_tile
+	distance = new_distance
+
+/proc/HeapSpreadPathCompare(datum/spread_path_node/a, datum/spread_path_node/b)
+	return b.distance - a.distance
+
+/// Returns every turf reachable within a maximum weighted path distance without crossing a solid boundary.
+/proc/get_spread_turfs(center, max_distance)
+	var/turf/origin = get_turf(center)
+	if(!origin || max_distance < 0)
+		return list()
+
+	var/list/reached = list()
+	var/list/distances = list()
+	var/datum/heap/frontier = new /datum/heap(/proc/HeapSpreadPathCompare)
+	distances[origin] = 0
+	frontier.insert(new /datum/spread_path_node(origin, 0))
+
+	while(!frontier.is_empty())
+		var/datum/spread_path_node/current_node = frontier.pop()
+		var/turf/current = current_node.tile
+		var/current_distance = current_node.distance
+
+		if(current_distance > distances[current])
+			qdel(current_node)
+			continue
+		if(current_distance > max_distance)
+			qdel(current_node)
+			break
+
+		reached += current
+		for(var/direction in GLOB.alldirs)
+			var/turf/target = get_step(current, direction)
+			if(!target || target.density || (target in reached))
+				continue
+
+			var/step_distance = 1
+			if(direction in GLOB.diagonals)
+				var/turf/vertical_step = get_step(current, direction & (NORTH|SOUTH))
+				var/turf/horizontal_step = get_step(current, direction & (EAST|WEST))
+				var/vertical_route_open = vertical_step && !vertical_step.density && !LinkBlocked(current, vertical_step) && !LinkBlocked(vertical_step, target)
+				var/horizontal_route_open = horizontal_step && !horizontal_step.density && !LinkBlocked(current, horizontal_step) && !LinkBlocked(horizontal_step, target)
+				if(!vertical_route_open && !horizontal_route_open)
+					continue
+				step_distance = 1.414
+			else if(LinkBlocked(current, target))
+				continue
+
+			var/new_distance = current_distance + step_distance
+			if(new_distance > max_distance)
+				continue
+			var/previous_distance = distances[target]
+			if(!isnull(previous_distance) && previous_distance <= new_distance)
+				continue
+
+			distances[target] = new_distance
+			frontier.insert(new /datum/spread_path_node(target, new_distance))
+
+		qdel(current_node)
+
+	qdel(frontier)
+	return reached
+
 ///Returns the list of turfs around the outside of a center based on RANGE_TURFS()
 /proc/border_diamond_range_turfs(atom/center = usr, radius = 3)
 	var/turf/center_turf = get_turf(center)

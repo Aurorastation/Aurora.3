@@ -180,6 +180,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/disabilities = list()
 
 	var/economic_status = ECONOMICALLY_AVERAGE
+	var/starting_funds_location = STARTING_FUNDS_BANK_ACCOUNT
 
 	var/uplinklocation = "PDA"
 
@@ -438,9 +439,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		if("delete")
 			if(!GLOB.config.sql_saves)
 				return FALSE
-			if(alert(user, "You will be unable to re-create a character with the same name! Are you sure you want to permanently delete [real_name]? The slot cannot be restored.", "Permanently Delete Character", "No", "Yes") != "Yes")
+			if(tgui_alert(user, "You will be unable to re-create a character with the same name! Are you sure you want to permanently delete [real_name]? The slot cannot be restored.", "Permanently Delete Character", list("No", "Yes")) != "Yes")
 				return FALSE
-			if(alert(user, "Are you sure you want to PERMANENTLY delete your character?", "Confirm Permanent Deletion", "Yes", "No") != "Yes")
+			if(tgui_alert(user, "Are you sure you want to PERMANENTLY delete your character?", "Confirm Permanent Deletion", list("Yes", "No")) != "Yes")
 				return FALSE
 			delete_character_sql(user.client)
 			clear_character_previews()
@@ -811,6 +812,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
+		starting_funds_location = STARTING_FUNDS_BANK_ACCOUNT
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)

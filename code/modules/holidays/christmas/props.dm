@@ -142,7 +142,7 @@
 		/obj/item/paicard,
 		/obj/item/synthesized_instrument/violin,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/clothing/accessory/horrible)
+		/obj/item/clothing/accessory/tie/horrible)
 
 	if(!ispath(gift_type,/obj/item))	return
 
@@ -225,7 +225,7 @@
 		/obj/item/toy/mech/ripley,
 		/obj/item/toy/mech/seraph,
 		/obj/item/paicard,
-		/obj/item/clothing/accessory/horrible,
+		/obj/item/clothing/accessory/tie/horrible,
 		/obj/item/camera,
 		/obj/item/bluespace_crystal,
 		/obj/item/flame/lighter/zippo,
@@ -292,7 +292,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiadeus,
 		/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 		/obj/item/paicard,
-		/obj/item/clothing/accessory/horrible,
+		/obj/item/clothing/accessory/tie/horrible,
 		/obj/item/clothing/shoes/heels,
 		/obj/item/storage/box/unique/donkpockets,
 		/obj/item/reagent_containers/glass/beaker/teapot,

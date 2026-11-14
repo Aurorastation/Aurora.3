@@ -231,7 +231,7 @@
 	if (href_list["drainbattery"])
 		if(inserted_battery)
 			if(inserted_battery.battery_effect && inserted_battery.stored_charge > 0)
-				if(alert("This action will dump all charge, safety gear is recommended before proceeding","Warning","Continue","Cancel"))
+				if(tgui_alert(usr, "This action will dump all charge, safety gear is recommended before proceeding", "Warning", list("Continue", "Cancel")))
 					if(!inserted_battery.battery_effect.activated)
 						inserted_battery.battery_effect.ToggleActivate(1)
 					last_process = world.time

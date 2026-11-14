@@ -425,7 +425,7 @@ update_flag
 				else
 					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the <span class='warning'><b>air</b></span><br>"
 			else
-				if (alert(admin, "The release valve is currently closed. Do you want to open it?", "Open the valve?", "Yes", "No") == "No")
+				if (tgui_alert(admin, "The release valve is currently closed. Do you want to open it?", "Open the valve?", list("Yes", "No")) == "No")
 					return
 
 				if (holding)

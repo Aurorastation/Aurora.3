@@ -50,9 +50,9 @@
 
 /datum/action/ministry/proc/try_give_blessing(mob/target)
 	set waitfor = FALSE
-	switch(alert(target.client, "Would you like to accept a blessing from [owner]? You will need to remain close to them while they speak it", "Accept Blessing", "Yes", "No"))
+	switch(tgui_alert(target.client, "Would you like to accept a blessing from [owner]? You will need to remain close to them while they speak it", "Accept Blessing", list("Yes", "No")))
 		if ("Yes")
-			var/blessing_type = alert(owner.client, "What type of chat message would you like to use for your blessing?", "Say Type", "Say", "Whisper", "Emote")
+			var/blessing_type = tgui_alert(owner.client, "What type of chat message would you like to use for your blessing?", "Say Type", list("Say", "Whisper", "Emote"))
 			var/blessing_text = tgui_input_text(owner, "Write what you wish to say as a blessing for [target].", "Offer Blessing")
 			if (!blessing_text)
 				to_chat(owner, SPAN_NOTICE("You have stopped speaking."))

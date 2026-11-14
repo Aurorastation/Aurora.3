@@ -204,7 +204,7 @@ emp_act
 	return src
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
-	if(check_attack_throat(I, user))
+	if(check_attack_throat(I, user, target_zone))
 		return null
 
 	if(user == src) // Attacking yourself can't miss

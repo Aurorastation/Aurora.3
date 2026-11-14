@@ -1522,3 +1522,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_force_icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/edgar_labcoat // Lowell Arcology Labcoat - Edgar Dawnguard - OstianFox
+	name = "\improper Lowell Arcology labcoat"
+	desc = "A simple labcoat with orange hem, this article shows the old Martian Union flag on the back in a field of phoronic purple, \
+	with an orange and red shoulder patch of the Lowell Red Coalition on the red shoulder, a set of chains around the Red Planet. \
+	On the left shoulder along the hem it reads in Martian Freespeak 'Lowell Arcology'."
+	icon = 'icons/obj/custom_items/edgar_labcoat.dmi'
+	icon_override = 'icons/obj/custom_items/edgar_labcoat.dmi'
+	icon_state = "edgar_labcoat"
+	item_state = "edgar_labcoat"

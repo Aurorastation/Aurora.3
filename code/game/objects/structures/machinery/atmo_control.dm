@@ -233,13 +233,13 @@
 	var/list/data = .
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
-	if(input_info)
+	if(input_info && isnum(input_info["volume_rate"]))
 		LAZYINITLIST(data["input"])
 		data["input"]["power"] = input_info["power"]
 		data["input"]["rate"] = input_info["volume_rate"]
 		data["input"]["setrate"] = default_input_flow_setting
 
-	if(output_info)
+	if(output_info && isnum(output_info["internal"]))
 		LAZYINITLIST(data["output"])
 		data["output"]["power"] = output_info["power"]
 		data["output"]["pressure"] = output_info["internal"]
@@ -250,11 +250,15 @@
 	if(!signal || signal.encryption) return
 
 	var/id_tag = signal.data["tag"]
+	if(!id_tag || signal.data["sigtype"] != "status")
+		return
 
-	if(input_tag == id_tag)
-		input_info = signal.data
-	else if(output_tag == id_tag)
-		output_info = signal.data
+	if(input_tag && input_tag == id_tag)
+		if(isnum(signal.data["volume_rate"]))
+			input_info = signal.data
+	else if(output_tag && output_tag == id_tag)
+		if(isnum(signal.data["internal"]))
+			output_info = signal.data
 	else
 		..(signal)
 
@@ -335,13 +339,13 @@
 	var/list/data = .
 	data["maxrate"] = max_input_flow_setting
 	data["maxpressure"] = max_pressure_setting
-	if(input_info)
+	if(input_info && isnum(input_info["volume_rate"]))
 		LAZYINITLIST(data["input"])
 		data["input"]["power"] = input_info["power"]
 		data["input"]["rate"] = input_info["volume_rate"]
 		data["input"]["setrate"] = default_input_flow_setting
 
-	if(output_info)
+	if(output_info && isnum(output_info["external"]))
 		LAZYINITLIST(data["output"])
 		data["output"]["power"] = output_info["power"]
 		data["output"]["pressure"] = output_info["external"]
@@ -352,11 +356,15 @@
 	if(!signal || signal.encryption) return
 
 	var/id_tag = signal.data["tag"]
+	if(!id_tag || signal.data["sigtype"] != "status")
+		return
 
-	if(input_tag == id_tag)
-		input_info = signal.data
-	else if(output_tag == id_tag)
-		output_info = signal.data
+	if(input_tag && input_tag == id_tag)
+		if(isnum(signal.data["volume_rate"]))
+			input_info = signal.data
+	else if(output_tag && output_tag == id_tag)
+		if(isnum(signal.data["external"]))
+			output_info = signal.data
 	else
 		..(signal)
 

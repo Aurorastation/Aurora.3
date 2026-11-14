@@ -22,7 +22,7 @@
 
 	usr.visible_message(SPAN_NOTICE("\The [usr] holds out \the [I] to \the [target]."), SPAN_NOTICE("You hold out \the [I] to \the [target], waiting for them to accept it."))
 
-	if(alert(target,"[usr] wants to give you \a [I]. Will you accept it?",,"Yes","No") == "No")
+	if(tgui_alert(target, "[usr] wants to give you \a [I]. Will you accept it?", , list("Yes", "No")) == "No")
 		target.visible_message("<b>[target]</b> pushes [usr]'s hand away.")
 		return
 

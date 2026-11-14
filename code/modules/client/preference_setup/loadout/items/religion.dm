@@ -42,6 +42,13 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	trinaryrobe["templeist robes"] = /obj/item/clothing/suit/storage/hooded/trinary_robes/templeist
 	gear_tweaks += new /datum/gear_tweak/path(trinaryrobe)
 
+/datum/gear/religion/trinary/mictlan_robe
+	display_name = "trinary mictlan robes"
+	description = "A selection of colorful robes worn by the Mictlani clergy of the Trinary Perfection."
+	path = /obj/item/clothing/suit/storage/mictlan_robes
+	slot = slot_wear_suit
+	origin_restriction = list(/singleton/origin_item/origin/ipc_mictlan, /singleton/origin_item/origin/mictlan)
+
 /datum/gear/religion/trinary/tunic
 	display_name = "axiomite tunic selection"
 	description = "A selection of tunics worn by the people of Axiom, and their fellow interstellar Trinarists. An emulation of a clerical style."
@@ -61,8 +68,8 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/cape
 	display_name = "trinary cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
-	path = /obj/item/clothing/under/dressshirt/axiom_tunic
-	slot = slot_wear_suit
+	path = /obj/item/clothing/accessory/poncho/trinary
+	slot = slot_tie
 
 /datum/gear/religion/trinary/cape/New()
 	..()
@@ -74,6 +81,21 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	trinarycape["trinary perfection pellegrina"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	trinarycape["trinary perfection pellegrina, blue"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
 	gear_tweaks += new /datum/gear_tweak/path(trinarycape)
+
+/datum/gear/religion/trinary/cape_mictlan
+	display_name = "trinary mictlan cape selection"
+	description = "A selection of capes worn by Mictlani adherents to the Trinary Perfection."
+	path = /obj/item/clothing/accessory/poncho/trinary/mictlan
+	slot = slot_tie
+	origin_restriction = list(/singleton/origin_item/origin/ipc_mictlan, /singleton/origin_item/origin/mictlan)
+
+/datum/gear/religion/trinary/cape_mictlan/New()
+	..()
+	var/list/mictlancape = list()
+	mictlancape["trinary perfection cape, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/mictlan
+	mictlancape["trinary perfection shoulder cape, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/shouldercape/mictlan
+	mictlancape["trinary perfection pellegrina, mictlan"] = /obj/item/clothing/accessory/poncho/trinary/pellegrina/mictlan
+	gear_tweaks += new /datum/gear_tweak/path(mictlancape)
 
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"

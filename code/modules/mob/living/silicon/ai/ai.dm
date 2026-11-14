@@ -479,7 +479,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 
-	var/confirm = alert("Are you sure you want to call the evacuation?", "Confirm Evacuation", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Are you sure you want to call the evacuation?", "Confirm Evacuation", list("Yes", "No"))
 
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
@@ -497,7 +497,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 
-	var/confirm = alert("Are you sure you want to cancel the evacuation?", "Confirm Cancel", "Yes", "No")
+	var/confirm = tgui_alert(usr, "Are you sure you want to cancel the evacuation?", "Confirm Cancel", list("Yes", "No"))
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 
@@ -696,7 +696,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		return
 
 	var/input
-	if(alert(usr, "Would you like to select a hologram based on a humanoids within camera view or switch to a unique avatar?",,"Humanoids","Unique") == "Humanoids")
+	if(tgui_alert(usr, "Would you like to select a hologram based on a humanoids within camera view or switch to a unique avatar?", , list("Humanoids", "Unique")) == "Humanoids")
 		var/list/selectable_humans = list()
 		for(var/mob/living/carbon/human/H in view(usr.client))
 			if(H.near_camera())
