@@ -89,6 +89,10 @@
 	damage = 25
 	armor_penetration = 10
 
+/obj/projectile/beam/midlaser/interloper
+	damage = 25
+	armor_penetration = 5
+
 /obj/projectile/beam/heavylaser
 	name = "heavy laser"
 	icon_state = "heavylaser"
