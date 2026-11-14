@@ -455,7 +455,7 @@
 			if (!receiver_morale)
 				continue
 
-			if (astype(receiver_morale.moodlets[/datum/moodlet/bartender_sabrage], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+			if (astype((locate(/datum/moodlet/bartender_sabrage) in receiver_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 				receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage)?.refresh_moodlet()
 				continue // Don't overwrite stronger moodlets.
 
