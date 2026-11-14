@@ -922,7 +922,8 @@
 		return FLASH_PROTECTION_MAJOR
 
 	// Standard method, sum of modifiers.
-	var/base_flash_protection = flash_protection
+	// Physical eye protection still works while our viewpoint prevents its visual effects from being cached.
+	var/base_flash_protection = get_equipment_flash_protection()
 
 	// Fetch flash protection modifiers via ECS methods.
 	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.

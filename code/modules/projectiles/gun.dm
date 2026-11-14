@@ -580,19 +580,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	play_fire_sound()
 	if(!suppressed)
-		if(playemote)
-			if(reflex)
-				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					"You hear a [fire_sound_text]!"
-				)
-			else
-				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					"You hear a [fire_sound_text]!"
-				)
+		if(user)
+			if(playemote)
+				if(reflex)
+					user.visible_message(
+						SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+						SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
+						"You hear a [fire_sound_text]!"
+					)
+				else
+					user.visible_message(
+						SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+						SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
+						"You hear a [fire_sound_text]!"
+					)
+		else
+			src.visible_message(
+				SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -602,7 +606,8 @@ ABSTRACT_TYPE(/obj/item/gun)
 				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
 	if(recoil)
-		shake_camera(user, recoil + 1, recoil)
+		if(user)
+			shake_camera(user, recoil + 1, recoil)
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

@@ -205,7 +205,7 @@
 
 /// Removes and re-adds the fill so its filtered appearance updates immediately.
 /datum/progressbar/proc/refresh_fill()
-	if (!fill || !bar)
+	if (!fill || !bar || !goal)
 		return
 	bar.overlays -= fill
 	update_fill(clamp(last_progress / goal, 0, 1))

@@ -43,6 +43,9 @@ BLIND     // can't see anything
 	if(brand_name)
 		desc += " This pair has been made in [brand_name] colors."
 
+/obj/item/clothing/glasses/get_equipped_flash_protection(mob/living/carbon/human/wearer)
+	return active ? ..() : FLASH_PROTECTION_NONE
+
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand/RangedAttack()
