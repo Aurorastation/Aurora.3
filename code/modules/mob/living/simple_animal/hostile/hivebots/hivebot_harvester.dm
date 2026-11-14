@@ -1,4 +1,25 @@
+/datum/ai_holder/simple_animal/retaliate/hivebot_harvester
+	pointblank = TRUE
+	conserve_ammo = TRUE
+	wander = FALSE
+
+/datum/ai_holder/simple_animal/retaliate/hivebot_harvester/handle_special_strategical()
+	var/mob/living/simple_animal/hostile/retaliate/hivebotharvester/harvester = holder
+	if(harvester.busy || (stance in AI_STANCES_COMBAT))
+		return
+	if(harvester.last_processed_turf == harvester.loc)
+		INVOKE_ASYNC(harvester, TYPE_PROC_REF(/mob/living/simple_animal/hostile/retaliate/hivebotharvester, prospect))
+	else
+		INVOKE_ASYNC(harvester, TYPE_PROC_REF(/mob/living/simple_animal/hostile/retaliate/hivebotharvester, process_turf))
+
+/datum/ai_holder/simple_animal/retaliate/hivebot_harvester/react_to_attack(atom/attacker)
+	var/mob/living/simple_animal/hostile/retaliate/hivebotharvester/harvester = holder
+	if(harvester.busy)
+		harvester.AISetHarvestBusy(FALSE)
+	return ..()
+
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester
+	ai_holder_type = /datum/ai_holder/simple_animal/retaliate/hivebot_harvester
 	name = "Hivebot Harvester"
 	desc = "An odd and primitive looking machine. It emanates of powerful thermal radiation. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
@@ -86,26 +107,16 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	. = ..()
 
-	LoseTarget()
-	change_stance(HOSTILE_STANCE_IDLE)
+	ai_holder.clear_target()
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/think()
-	..()
-	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
-			if(last_processed_turf == src.loc)
-				INVOKE_ASYNC(src, PROC_REF(prospect))
-			else
-				INVOKE_ASYNC(src, PROC_REF(process_turf))
-		else if(busy)
-			busy = 0
-			update_icon()
-	if(wander)
-		wander = 0
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/AISetHarvestBusy(new_busy)
+	busy = new_busy
+	set_AI_busy(!!new_busy)
+	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/proc/process_turf()
 	if(busy)
@@ -116,76 +127,64 @@
 			for(I in src.loc)
 
 				if(I.matter)
-					busy = 1
-					update_icon()
+					AISetHarvestBusy(1)
 					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."))
 					if(do_after(src, 32))
 						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."))
 						qdel(I)
-					busy = 0
-					update_icon()
+					AISetHarvestBusy(FALSE)
 					continue
 
 				if(istype(O, /obj/item/storage))
 					var/obj/item/storage/S = O
 					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."))
-					busy = 2
-					update_icon()
+					AISetHarvestBusy(2)
 					if(do_after(src, 32))
 						src.visible_message(SPAN_WARNING("[src] rips \the [S] apart."))
 						S.spill(3, src.loc)
 						qdel(S)
-					busy = 0
-					update_icon()
+					AISetHarvestBusy(FALSE)
 					return
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
 			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."))
-			busy = 2
-			update_icon()
+			AISetHarvestBusy(2)
 			if(do_after(src, 48))
 				src.visible_message(SPAN_WARNING("[src] dismantles \the [TB]."))
 				TB.break_to_parts(1)
-			busy = 0
-			update_icon()
+			AISetHarvestBusy(FALSE)
 			return
 
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
 				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."))
-				busy = 2
-				update_icon()
+				AISetHarvestBusy(2)
 				if(do_after(src, 48))
 					src.visible_message(SPAN_WARNING("[src] dismantles \the [B]."))
 					B.dismantle()
 					qdel(B)
-				busy = 0
-				update_icon()
+				AISetHarvestBusy(FALSE)
 				return
 
 		if(istype(O, /obj/structure/bed/stool))
 			var/obj/structure/bed/stool/S = O
 			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
-			busy = 2
-			update_icon()
+			AISetHarvestBusy(2)
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] dismantles \the [S]."))
 				S.dismantle()
-			busy = 0
-			update_icon()
+			AISetHarvestBusy(FALSE)
 			return
 
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
 			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."))
-			busy = 1
-			update_icon()
+			AISetHarvestBusy(1)
 			if(do_after(src, 48))
 				src.visible_message(SPAN_WARNING("[src] recycles \the [O]."))
 				qdel(O)
-			busy = 0
-			update_icon()
+			AISetHarvestBusy(FALSE)
 			continue
 
 		if(istype(O, /obj/structure/cable))
@@ -193,30 +192,26 @@
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
 				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."))
-				busy = 2
-				update_icon()
+				AISetHarvestBusy(2)
 				if(do_after(src, 32))
 					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
 						spark(src, 3, GLOB.alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
 					qdel(C)
-				busy = 0
-				update_icon()
+				AISetHarvestBusy(FALSE)
 				return
 
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
 			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."))
-			busy = 2
-			update_icon()
+			AISetHarvestBusy(2)
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
 				playsound(src.loc, SFX_CROWBAR, 100, 1)
 				T.make_plating(1)
-			busy = 0
-			update_icon()
+			AISetHarvestBusy(FALSE)
 			return
 
 	last_processed_turf = src.loc
@@ -245,7 +240,7 @@
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
-		busy = 0
+		AISetHarvestBusy(FALSE)
 	else
 		T = last_prospect_target
 
@@ -267,19 +262,19 @@
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
 			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."))
-			busy = 1
+			AISetHarvestBusy(1)
 			if(do_after(src, 32))
 				src.do_attack_animation(G)
 				src.visible_message(SPAN_WARNING("[src] tears \the [O] apart!"))
 				G.dismantle()
-			busy = 0
+			AISetHarvestBusy(FALSE)
 			continue
 
 		if((istype(O, /obj/structure/machinery/door/firedoor) && O.density) || (istype(O, /obj/structure/machinery/door/airlock) && O.density) || istype(O, /obj/structure/machinery/door/blast) && O.density)
 			var/obj/structure/machinery/door/D = O
 			if(D.stat & BROKEN)
 				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
-				busy = 1
+				AISetHarvestBusy(1)
 				if(do_after(src, 48))
 					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"))
 					src.do_attack_animation(D)
@@ -289,7 +284,7 @@
 					new /obj/item/stack/material/steel(get_turf(D))
 					new /obj/item/stack/material/steel(get_turf(D))
 					qdel(D)
-				busy = 0
+				AISetHarvestBusy(FALSE)
 			else if(istype(D, /obj/structure/machinery/door/airlock/multi_tile))
 				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
@@ -322,7 +317,7 @@
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
 			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."))
-			busy = 1
+			AISetHarvestBusy(1)
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)
 				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
@@ -330,7 +325,7 @@
 				new /obj/item/stack/material/steel(get_turf(RD))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				qdel(RD)
-			busy = 0
+			AISetHarvestBusy(FALSE)
 			return
 
 	if(T)

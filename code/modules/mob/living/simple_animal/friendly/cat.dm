@@ -1,5 +1,70 @@
 //Cat
+/datum/ai_holder/simple_animal/passive/cat
+	use_astar = TRUE
+
+/datum/ai_holder/simple_animal/passive/cat/should_flee(force = FALSE)
+	if(istype(target, /mob/living/simple_animal/rat))
+		return FALSE
+	return ..()
+
+/datum/ai_holder/simple_animal/passive/cat/handle_special_tactic()
+	if(!istype(target, /mob/living/simple_animal/rat))
+		return
+	var/mob/living/simple_animal/rat/rat = target
+	if(rat.stat == DEAD)
+		remove_target()
+		return
+	if(holder.Adjacent(rat))
+		var/mob/living/simple_animal/cat/cat = holder
+		cat.attack_mice()
+		remove_target(FALSE)
+
+/datum/ai_holder/simple_animal/passive/cat/handle_special_strategical()
+	if(stance == AI_STANCE_IDLE && !target)
+		for(var/mob/living/simple_animal/rat/snack in oview(holder, 7))
+			if(snack.stat != DEAD && prob(65))
+				if(prob(15))
+					holder.AIAudibleEmote(pick("hisses and spits!", "mrowls fiercely!", "eyes [snack] hungrily."))
+				give_target(snack, TRUE)
+				break
+	if(prob(2))
+		var/mob/abstract/ghost/observer/spook = locate() in range(holder, 5)
+		if(spook)
+			var/list/visible_objects = list()
+			for(var/obj/visible_object in spook.loc)
+				if(!visible_object.invisibility && visible_object.name && !istype(visible_object, /obj/effect))
+					visible_objects += visible_object
+			if(length(visible_objects))
+				var/atom/visible_object = pick(visible_objects)
+				holder.AIVisualEmote("suddenly stops and stares at something unseen near [visible_object].")
+
+/datum/ai_holder/simple_animal/passive/cat/fluff/handle_special_strategical()
+	. = ..()
+	var/mob/living/simple_animal/cat/fluff/cat = holder
+	if(QDELETED(cat.friend) || target || (stance in AI_STANCES_COMBAT))
+		return
+	var/follow_trigger_distance = 5
+	if(cat.friend.stat >= DEAD || cat.friend.health <= GLOB.config.health_threshold_softcrit)
+		follow_trigger_distance = 1
+	else if(cat.friend.stat || cat.friend.health <= 50)
+		follow_trigger_distance = 2
+	follow_distance = max(follow_trigger_distance - 2, 1)
+	leader = cat.friend
+	var/friend_distance = get_dist(holder, leader)
+	if(friend_distance > follow_trigger_distance && can_see_target(leader))
+		set_stance(AI_STANCE_FOLLOW)
+	if(friend_distance <= 1)
+		if(cat.friend.stat >= DEAD || cat.friend.health <= GLOB.config.health_threshold_softcrit)
+			if(prob(cat.friend.stat < DEAD ? 50 : 15))
+				var/distress_verb = pick("meows", "mews", "mrowls")
+				holder.AIAudibleEmote(pick("[distress_verb] in distress.", "[distress_verb] anxiously."))
+		else if(prob(5))
+			holder.AIVisualEmote(pick("nuzzles [cat.friend].", "brushes against [cat.friend].", "rubs against [cat.friend].", "purrs."))
+	else if(cat.friend.health <= 50 && prob(10))
+		holder.AIAudibleEmote("[pick("meows", "mews", "mrowls")] anxiously.")
+
 /mob/living/simple_animal/cat
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/cat
 	name = "cat"
 	desc = "A domesticated, feline pet. Has a tendency to adopt crewmembers."
 	icon = 'icons/mob/npc/pets.dmi'
@@ -21,7 +86,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	var/mob/flee_target
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
@@ -31,7 +95,6 @@
 	metabolic_factor = 0.75
 	max_nutrition = 60
 	density = 0
-	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
 	//Counter for how intense the radlight is
@@ -47,59 +110,6 @@
 	. = ..()
 	src.filters += filter(type="drop_shadow", size = 2, offset = 2, color = rgb(0,208,0,0))
 
-/mob/living/simple_animal/cat/Destroy()
-	lost_rattarget()
-	return ..()
-
-/mob/living/simple_animal/cat/proc/lost_rattarget()
-	if(rattarget)
-		UnregisterSignal(rattarget, COMSIG_QDELETING)
-		rattarget = null
-
-/mob/living/simple_animal/cat/think()
-	//MICE!
-	..()
-	if (!stat)
-		for(var/mob/living/simple_animal/rat/snack in oview(src,7))
-			if(snack.stat != DEAD && prob(65))//The probability allows her to not get stuck target the first rat, reducing exploits
-				if(rattarget) // fr?
-					UnregisterSignal(rattarget, COMSIG_QDELETING)
-				rattarget = snack
-				movement_target = snack
-				RegisterSignal(rattarget, COMSIG_QDELETING, PROC_REF(lost_rattarget))
-				RegisterSignal(movement_target, COMSIG_QDELETING, PROC_REF(lostMovementTarget))
-				if(prob(15))
-					audible_emote(pick("hisses and spits!","mrowls fiercely!","eyes [snack] hungrily."))
-
-				addtimer(CALLBACK(src, PROC_REF(attack_mice)), 2)
-				break
-
-
-		if(!buckled_to)
-			if (turns_since_move > 5 || (flee_target || rattarget))
-				GLOB.move_manager.stop_looping(src)
-				turns_since_move = 0
-
-				if (flee_target) //fleeing takes precendence
-					handle_flee_target()
-				else
-					handle_movement_target()
-
-		if (!movement_target)
-			GLOB.move_manager.stop_looping(src)
-
-		if(prob(2)) //spooky
-			var/mob/abstract/ghost/observer/spook = locate() in range(src,5)
-			if(spook)
-				var/turf/T = spook.loc
-				var/list/visible = list()
-				for(var/obj/O in T.contents)
-					if(!O.invisibility && O.name && !istype(O, /obj/effect))
-						visible += O
-				if(visible.len)
-					var/atom/A = pick(visible)
-					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
-
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled_to)
@@ -107,14 +117,13 @@
 				if(M.stat != DEAD)
 					M.splat()
 					visible_emote(pick("bites \the [M]!","toys with \the [M].","chomps on \the [M]!"),0)
-					lostMovementTarget()
+					ai_holder?.give_up_movement()
 					stop_automated_movement = 0
 					if (prob(75))
 						break//usually only kill one rat per proc
 
 /mob/living/simple_animal/cat/Released()
 	//A thrown cat will immediately attack mice near where it lands
-	handle_movement_target()
 	addtimer(CALLBACK(src, PROC_REF(attack_mice)), 3)
 	..()
 
@@ -168,46 +177,9 @@
 	. = ..()
 	handle_radiation_light()
 
-/mob/living/simple_animal/cat/proc/handle_flee_target()
-	//see if we should stop fleeing
-	if (flee_target && !(flee_target.loc in view(src)))
-		flee_target = null
-		stop_automated_movement = 0
-
-	if (flee_target)
-		if(prob(25)) say("HSSSSS")
-		stop_automated_movement = 1
-		GLOB.move_manager.move_away(src, flee_target, 7, 2)
-
-/mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
-	if(A)
-		flee_target = A
-		turns_since_move = 5
-
-/mob/living/simple_animal/cat/attackby(obj/item/attacking_item, mob/user)
-	. = ..()
-	if(attacking_item.force)
-		set_flee_target(user? user : src.loc)
-
-/mob/living/simple_animal/cat/attack_hand(mob/living/carbon/human/M as mob)
-	. = ..()
-	if(M.a_intent == I_HURT)
-		set_flee_target(M)
-
 /mob/living/simple_animal/cat/ex_act(var/severity = 2.0)
 	. = ..()
-	set_flee_target(src.loc)
-
-/mob/living/simple_animal/cat/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
-	. = ..()
-	if(. != BULLET_ACT_HIT)
-		return .
-
-	set_flee_target(hitting_projectile.firer? hitting_projectile.firer : src.loc)
-
-/mob/living/simple_animal/cat/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
-	. = ..()
-	set_flee_target(throwingdatum?.thrower?.resolve() ? throwingdatum.thrower.resolve() : src.loc)
+	ai_holder?.react_to_attack(src.loc)
 
 /mob/living/simple_animal/cat/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))
@@ -215,65 +187,9 @@
 
 //Basic friend AI
 /mob/living/simple_animal/cat/fluff
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/cat/fluff
 	var/mob/living/carbon/human/friend
 	var/befriend_job = null
-
-/mob/living/simple_animal/cat/fluff/handle_movement_target()
-	if (!QDELETED(friend))
-		var/follow_dist = 5
-		if (friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit) //danger
-			follow_dist = 1
-		else if (friend.stat || friend.health <= 50) //danger or just sleeping
-			follow_dist = 2
-		var/near_dist = max(follow_dist - 2, 1)
-		var/current_dist = get_dist(src, friend)
-
-		if (movement_target != friend)
-			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/rat) && (friend in oview(src)))
-				//stop existing movement
-				GLOB.move_manager.stop_looping(src)
-				turns_since_scan = 0
-
-				//walk to friend
-				stop_automated_movement = 1
-				movement_target = friend
-				GLOB.move_manager.move_to(src, movement_target, near_dist, seek_move_delay)
-
-		//already following and close enough, stop
-		else if (current_dist <= near_dist)
-			GLOB.move_manager.stop_looping(src)
-			lostMovementTarget()
-			stop_automated_movement = 0
-			if (prob(10))
-				say("Meow!")
-
-	if (!friend || movement_target != friend)
-		..()
-
-/mob/living/simple_animal/cat/fluff/think()
-	..()
-	if (stat || QDELETED(friend))
-		return
-	if (get_dist(src, friend) <= 1)
-		if (friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit)
-			if (prob((friend.stat < DEAD)? 50 : 15))
-				var/verb = pick("meows", "mews", "mrowls")
-				audible_emote(pick("[verb] in distress.", "[verb] anxiously."))
-		else
-			if (prob(5))
-				var/emote = pick(
-								"nuzzles [friend].",
-								"brushes against [friend].",
-								"rubs against [friend].",
-								"purrs.",
-								)
-
-				visible_emote(emote, 0)
-
-	else if (friend.health <= 50)
-		if (prob(10))
-			var/verb = pick("meows", "mews", "mrowls")
-			audible_emote("[verb] anxiously.")
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
 	set name = "Befriend Cat"
