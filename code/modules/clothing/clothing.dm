@@ -77,6 +77,9 @@
 	QDEL_LIST(accessories)
 	return ..()
 
+/obj/item/clothing/get_equipped_flash_protection(mob/living/carbon/human/wearer)
+	return flash_protection
+
 /obj/item/clothing/examine_descriptor(mob/user)
 	return "clothing"
 
