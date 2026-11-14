@@ -54,6 +54,7 @@
 #define COLOR_PALE_RED_GRAY    "#cc9090"
 #define COLOR_PALE_PURPLE_GRAY "#8a7387"
 #define COLOR_PALE_BLUE_GRAY   "#708997"
+#define COLOR_COOLANT          "#9EDAF0"
 #define COLOR_LUMINOL          "#66ffff"
 #define COLOR_SILVER           "#c0c0c0"
 #define COLOR_GRAY80           "#cccccc"

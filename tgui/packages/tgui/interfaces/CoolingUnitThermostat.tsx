@@ -2,7 +2,6 @@ import {
   AnimatedNumber,
   Box,
   Button,
-  Knob,
   LabeledList,
   Section,
 } from 'tgui-core/components';
@@ -14,13 +13,13 @@ import { Window } from '../layouts';
 export type ThermostatData = {
   broken: BooleanLike;
   thermostat: number;
-  thermostat_min: number;
-  thermostat_max: number;
-  passive_temp_change: number;
+  power_setting: 'low' | 'medium' | 'high';
+  cooling_output: number;
   bodytemperature: number;
   temperature_safety: number;
   estimated_power_consumption: number;
   safety_burnt: BooleanLike;
+  locked_thermostat: BooleanLike;
 };
 
 export const CoolingUnitThermostat = (props) => {
@@ -30,7 +29,7 @@ export const CoolingUnitThermostat = (props) => {
     <Window
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
       width={400}
-      height={300}
+      height={350}
     >
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <ThermostatWindow />}
@@ -44,32 +43,52 @@ export const ThermostatWindow = (props) => {
 
   // K = C + 273.15 | C = K – 273.15
   return (
-    <Section title="Thermostat Regulation">
+    <Section title="Cooling Power Regulation">
       <Box>
         <Box textAlign="center">
           My internals are currently at{' '}
           <AnimatedNumber value={round(data.bodytemperature, 1)} />
           °C.
         </Box>
-        <Box textAlign="center">
-          Estimated power consumption:{' '}
-          <AnimatedNumber value={round(data.estimated_power_consumption, 1)} />
-          kW.
+        <Box mt={1}>
+          <LabeledList>
+            <LabeledList.Item label="Cooling cutoff">
+              <AnimatedNumber value={round(data.thermostat, 1)} />°C
+            </LabeledList.Item>
+            <LabeledList.Item label="Rated cooling output">
+              <AnimatedNumber value={round(data.cooling_output, 1)} /> K/s
+            </LabeledList.Item>
+            <LabeledList.Item label="Maximum power draw">
+              <AnimatedNumber
+                value={round(data.estimated_power_consumption, 1)}
+              />
+              kW
+            </LabeledList.Item>
+          </LabeledList>
         </Box>
-        <Knob
-          size={2}
-          value={data.thermostat}
-          minValue={data.thermostat_min}
-          maxValue={data.thermostat_max}
-          step={5}
-          stepPixelSize={25}
-          unit={'°C'}
-          onChange={(_, value) =>
-            act('change_thermostat', {
-              change_thermostat: value,
-            })
-          }
-        />
+        <Box mt={2} textAlign="center">
+          <Button
+            content="Low"
+            selected={data.power_setting === 'low'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'low' })
+            }
+          />
+          <Button
+            content="Medium"
+            selected={data.power_setting === 'medium'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'medium' })
+            }
+          />
+          <Button
+            content="High"
+            selected={data.power_setting === 'high'}
+            onClick={() =>
+              act('change_power_setting', { power_setting: 'high' })
+            }
+          />
+        </Box>
       </Box>
       &nbsp;
       {data.safety_burnt ? (
