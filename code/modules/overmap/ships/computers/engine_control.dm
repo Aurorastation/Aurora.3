@@ -75,7 +75,7 @@
 	if(!connected)
 		return FALSE
 
-	if(use_check_and_message(usr))
+	if(use_check_and_message(usr, isAI(usr) ? USE_ALLOW_NON_ADJACENT : 0))
 		return FALSE
 
 	switch(action)
