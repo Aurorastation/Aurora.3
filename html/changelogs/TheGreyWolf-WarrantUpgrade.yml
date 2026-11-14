@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Upgraded the warrant projector to use TGUi and to be able to issue fines."
