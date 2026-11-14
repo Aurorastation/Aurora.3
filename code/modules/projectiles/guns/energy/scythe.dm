@@ -72,6 +72,10 @@
 		return
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		playsound(terminator, 'sound/items/goggles_charge.ogg', 40)
 		toggle_scope(2, terminator)
 	else
