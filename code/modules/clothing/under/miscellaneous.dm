@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/under/pj)
+
 /obj/item/clothing/under/pj/red
 	name = "red pyjamas"
 	desc = "Slightly old-fashioned sleepwear."
@@ -115,19 +117,6 @@
 	item_state = "bl_suit"
 	worn_state = "centcom"
 
-/obj/item/clothing/under/space
-	name = "\improper NASA jumpsuit"
-	desc = "It has a NASA logo on it and is made of space-proofed materials."
-	icon_state = "black"
-	item_state = "bl_suit"
-	worn_state = "black"
-	w_class = WEIGHT_CLASS_BULKY//bulky item
-	gas_transfer_coefficient = 0.01
-	permeability_coefficient = 0.02
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS //Needs gloves and shoes with cold protection to be fully protected.
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-
 /obj/item/clothing/under/acj
 	name = "administrative cybernetic jumpsuit"
 	icon_state = "syndicate"
@@ -211,14 +200,6 @@
 	worn_state = "kilt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
 
-/obj/item/clothing/under/sexymime
-	name = "sexy mime outfit"
-	desc = "The only time when you DON'T enjoy looking at someone's rack."
-	icon_state = "sexymime"
-	item_state = "w_suit"
-	worn_state = "sexymime"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
 /obj/item/clothing/under/gladiator
 	name = "gladiator uniform"
 	desc = "Are you not entertained? Is that not why you are here?"
@@ -228,7 +209,7 @@
 	body_parts_covered = LOWER_TORSO
 
 //dress
-/obj/item/clothing/under/dress
+ABSTRACT_TYPE(/obj/item/clothing/under/dress)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/dress/dress_fire
@@ -238,26 +219,12 @@
 	item_state = "bl_suit"
 	worn_state = "dress_fire"
 
-/obj/item/clothing/under/dress/dress_green
-	name = "green dress"
-	desc = "A simple, tight fitting green dress."
-	icon_state = "dress_green"
-	item_state = "g_suit"
-	worn_state = "dress_green"
-
 /obj/item/clothing/under/dress/dress_orange
 	name = "orange dress"
 	desc = "A fancy orange gown for those who like to show leg."
 	icon_state = "dress_orange"
 	item_state = "y_suit"
 	worn_state = "dress_orange"
-
-/obj/item/clothing/under/dress/dress_pink
-	name = "pink dress"
-	desc = "A simple, tight fitting pink dress."
-	icon_state = "dress_pink"
-	item_state = "p_suit"
-	worn_state = "dress_pink"
 
 /obj/item/clothing/under/dress/dress_yellow
 	name = "yellow dress"
@@ -409,7 +376,7 @@
 	item_state = "cheongsampurple"
 
 //swimsuit
-/obj/item/clothing/under/swimsuit
+ABSTRACT_TYPE(/obj/item/clothing/under/swimsuit)
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -855,6 +822,8 @@
 	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
 	icon_state = "himeo_coveralls_pilot"
 	item_state = "himeo_coveralls_pilot"
+
+ABSTRACT_TYPE(/obj/item/clothing/under/rank/assunzione)
 
 // Assunzione
 /obj/item/clothing/under/rank/assunzione/stafylia

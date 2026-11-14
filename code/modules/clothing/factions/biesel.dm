@@ -36,6 +36,8 @@
 	item_state = "tcaf_espatier_shirt"
 	worn_state = "tcaf_espatier_shirt"
 
+ABSTRACT_TYPE(/obj/item/clothing/under/tcaf)
+
 // Intended for enlisted vessel crew of the TCAF's Astroforces
 /obj/item/clothing/under/tcaf/crew
 	name = "\improper TCAF astroforces crew jumpsuit"
@@ -59,9 +61,9 @@
 	desc = "A longsleeved shirt issued to the crew of the TCAF's Republic Astroforce."
 	icon = 'icons/obj/item/clothing/under/human/biesel/tcaf_uniform.dmi'
 	contained_sprite = TRUE
-	icon_state = "tcaf_raf_crew_shirt"
-	item_state = "tcaf_raf_crew_shirt"
-	worn_state = "tcaf_raf_crew_shirt"
+	icon_state = "tcaf_raf_shirt"
+	item_state = "tcaf_raf_shirt"
+	worn_state = "tcaf_raf_shirt"
 
 /obj/item/clothing/under/dressshirt/tcaf/crew/foreign_legion
 	name = "\improper TCAF astroforces foreign legion crew shirt"
@@ -73,7 +75,7 @@
 	worn_state = "tcaf_raf_foreign_legion_shirt"
 
 // Medallions
-/obj/item/clothing/accessory/tcaf/medallion
+ABSTRACT_TYPE(/obj/item/clothing/accessory/tcaf/medallion)
 	icon = 'icons/obj/item/clothing/accessory/human/biesel/tcaf_accessories.dmi'
 	slot = ACCESSORY_SLOT_CAPE
 	flippable = TRUE
@@ -102,7 +104,7 @@
 	item_state = "tcaf_legate_medallions"
 
 // Pauldrons
-/obj/item/clothing/accessory/tcaf/pauldron
+ABSTRACT_TYPE(/obj/item/clothing/accessory/tcaf/pauldron)
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_GENERIC

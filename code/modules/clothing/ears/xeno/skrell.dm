@@ -1,4 +1,4 @@
-/obj/item/clothing/ears/skrell
+ABSTRACT_TYPE(/obj/item/clothing/ears/skrell)
 	name = "skrell tentacle wear"
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
 	icon = 'icons/obj/item/clothing/ears/skrell/chains.dmi'

@@ -179,7 +179,7 @@
 	origin_tech = list()
 	canremove = 0
 
-/obj/item/clothing/backpack/chameleon/changeling/dropped(mob/user)
+/obj/item/storage/backpack/chameleon/changeling/dropped(mob/user)
 	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
@@ -296,7 +296,7 @@
 	origin_tech = list()
 	canremove = 0
 
-/obj/item/clothing/storage/belt/chameleon/changeling/dropped(mob/user)
+/obj/item/storage/belt/chameleon/changeling/dropped(mob/user)
 	. = ..()
 	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)

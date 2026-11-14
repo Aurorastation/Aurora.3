@@ -146,7 +146,7 @@
 /datum/gear/uniform/dominia
 	display_name = "dominian suit selection"
 	description = "A selection of Dominian suits."
-	path = /obj/item/clothing/under/dominia
+	path = /obj/item/clothing/under/dominia/imperial_suit
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 

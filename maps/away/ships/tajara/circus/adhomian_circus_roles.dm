@@ -130,7 +130,7 @@
 	name = "Adhomian Circus Fortune Teller"
 
 	uniform = /obj/item/clothing/under/dress/tajaran/fortune
-	shoes = /obj/item/clothing/shoes/sandal
+	shoes = /obj/item/clothing/shoes/sandals
 
 
 /datum/ghostspawner/human/adhomian_circus/clown

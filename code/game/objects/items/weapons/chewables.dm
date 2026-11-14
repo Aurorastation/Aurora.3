@@ -1,4 +1,4 @@
-/obj/item/clothing/mask/chewable
+ABSTRACT_TYPE(/obj/item/clothing/mask/chewable)
 	name = "chewable item master"
 	desc = "If you are seeing this, ahelp it."
 	icon = 'icons/obj/item/clothing/masks.dmi'

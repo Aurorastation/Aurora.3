@@ -31,6 +31,10 @@
 /proc/validate_atom_icon(atom/target)
 
 	// Atom types already checked
+	// Leaving this commented out, as it should not be needed.
+	// But in case of performance problems, this could be uncommented,
+	// so that every type is checked only once.
+	// Which means it wouldn't check stuff like var-edited icons in maps.
 	// var/static/list/checked_atom_types = list()
 
 	// Only these types (and their subtypes) are checked
@@ -40,10 +44,16 @@
 
 		/obj/random,
 		/obj/structure/sign/flag,
+		/obj/item/clothing,
 	)
 
 	// These types (and their subtypes) are ignored
 	var/static/list/ignored_check_types = list(
+		/obj/item/clothing/suit/armor/shield, // missing sprite, but a functional (?) technomancer ability
+		/obj/item/clothing/suit/armor/tesla,  // as above
+		/obj/item/clothing/head/lightrig,  // missing sprites, but used as custom item or something
+		/obj/item/clothing/suit/lightrig,  // as above
+		/obj/item/clothing/shoes/lightrig, // as above
 	)
 
 	// 0. Proc begins here proper
@@ -55,6 +65,7 @@
 	var/atom_type = target.type
 
 	// 1. Check if type was already validated
+	// See comment above the `checked_atom_types` definition.
 	// if (checked_atom_types[atom_type])
 	// 	return TRUE
 	// checked_atom_types[atom_type] = TRUE

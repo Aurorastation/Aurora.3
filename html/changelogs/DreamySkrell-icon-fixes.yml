@@ -1,0 +1,11 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds `/obj/item/clothing` to `whitelisted_check_types` in `/proc/validate_atom_icon`."
+  - bugfix: "Fixed several clothing items with missing or wrong inventory icons (cyborg boots, Santa suit, justice hats, Weishii robe, Jensen shades, glare dampeners, and a few others)."
+  - bugfix: "Fixed some maps and ghost roles spawning an invisible, non-existent sandal type instead of regular sandals."
+  - bugfix: "Fixed changeling-fabricated backpacks and belts not falling apart when dropped, unlike the rest of their clothing."
+  - rscdel: "Removed several unused, broken clothing items with no sprites (some heavy armor vests, a few dresses, and some other old items)."
+  - code_imp: "Marked many abstract clothing base types as abstract, so they are skipped by the icon validation check."

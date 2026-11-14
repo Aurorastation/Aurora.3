@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/head/diona)
+
 /obj/item/clothing/head/diona/ekane
 	name = "feather cap"
 	desc = "A simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."

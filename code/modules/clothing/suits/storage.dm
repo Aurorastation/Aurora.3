@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/storage
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage)
 	var/obj/item/storage/internal/pockets
 
 /obj/item/clothing/suit/storage/Initialize()
@@ -43,7 +43,7 @@
 	..()
 
 //Jackets with buttons
-/obj/item/clothing/suit/storage/toggle
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle)
 	var/opened = FALSE
 
 /obj/item/clothing/suit/storage/toggle/verb/toggle()
@@ -131,7 +131,7 @@
 
 // Corporate Jackets
 
-/obj/item/clothing/suit/storage/toggle/corp
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/corp)
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 

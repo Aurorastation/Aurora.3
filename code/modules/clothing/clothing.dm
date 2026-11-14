@@ -1,4 +1,4 @@
-/obj/item/clothing
+ABSTRACT_TYPE(/obj/item/clothing)
 	name = "clothing"
 	siemens_coefficient = 0.9
 	drop_sound = 'sound/items/drop/clothing.ogg'
@@ -435,7 +435,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
-/obj/item/clothing/ears
+ABSTRACT_TYPE(/obj/item/clothing/ears)
 	name = "ears"
 	icon = 'icons/obj/item/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
@@ -615,7 +615,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Head
-/obj/item/clothing/head
+ABSTRACT_TYPE(/obj/item/clothing/head)
 	name = "head"
 	icon = 'icons/obj/item/clothing/hats.dmi'
 	item_icons = list(
@@ -823,7 +823,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
-/obj/item/clothing/mask
+ABSTRACT_TYPE(/obj/item/clothing/mask)
 	name = "mask"
 	icon = 'icons/obj/item/clothing/masks.dmi'
 	item_icons = list(
@@ -933,7 +933,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
-/obj/item/clothing/shoes
+ABSTRACT_TYPE(/obj/item/clothing/shoes)
 	name = "shoes"
 	desc = "Comfortable-looking shoes."
 	species_sprite_adaption_type = WORN_SHOES
@@ -1079,7 +1079,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
-/obj/item/clothing/suit
+ABSTRACT_TYPE(/obj/item/clothing/suit)
 	icon = 'icons/obj/item/clothing/suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
@@ -1144,7 +1144,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
-/obj/item/clothing/under
+ABSTRACT_TYPE(/obj/item/clothing/under)
 	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
@@ -1463,7 +1463,7 @@
 
 //Rings
 
-/obj/item/clothing/ring
+ABSTRACT_TYPE(/obj/item/clothing/ring)
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/gloves/rings.dmi'

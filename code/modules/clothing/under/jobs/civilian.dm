@@ -1,5 +1,7 @@
 //Alphabetical order of civilian jobs.
 
+ABSTRACT_TYPE(/obj/item/clothing/under/rank)
+
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."

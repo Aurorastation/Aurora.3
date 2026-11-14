@@ -20,7 +20,7 @@ Protectiveness | Armor %
 			80 = 80%
 */
 
-/obj/item/clothing/suit/armor/material
+ABSTRACT_TYPE(/obj/item/clothing/suit/armor/material)
 	name = "armor"
 	default_material = MATERIAL_STEEL
 

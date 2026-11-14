@@ -1,4 +1,4 @@
-/obj/item/clothing/accessory/storage
+ABSTRACT_TYPE(/obj/item/clothing/accessory/storage)
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
 	icon_state = "webbing"
