@@ -56,7 +56,7 @@ ABSTRACT_TYPE(/datum/moodlet)
 
 	// Else if the moodlet is deleted directly rather than its parent.
 	var/datum/component/morale/parent = morale_component.resolve()
-	if (!parent || !parent.moodlets[src])
+	if (!parent || !(src in parent.moodlets))
 		morale_component = null
 		return ..()
 

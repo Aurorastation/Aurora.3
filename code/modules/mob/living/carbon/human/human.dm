@@ -922,7 +922,8 @@
 		return FLASH_PROTECTION_MAJOR
 
 	// Standard method, sum of modifiers.
-	var/base_flash_protection = flash_protection
+	// Physical eye protection still works while our viewpoint prevents its visual effects from being cached.
+	var/base_flash_protection = get_equipment_flash_protection()
 
 	// Fetch flash protection modifiers via ECS methods.
 	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.
@@ -1925,6 +1926,10 @@
 /mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
 	if(!force && (W in organs))
 		return
+	if(!target && istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		if(src in mech.pilots)
+			target = get_turf(mech)
 	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)

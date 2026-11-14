@@ -1,0 +1,8 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Food prepared in cooking appliances by characters with the Cooking skill now has a quality rating and provides a morale bonus to whoever eats it, scaling with the cook's skill level."
+  - rscadd: "Ingredients grown by characters with the Gardening skill now also increase the quality of food when used by characters with the Cooking skill to prepare meals."
+  - rscadd: "Slicing a skillfully prepared dish preserves its quality and morale bonus on each slice."
+  - bugfix: "Bartending, sabrage, leadership and ministry moodlets no longer overwrite a stronger existing moodlet of the same type with a weaker one."
+
