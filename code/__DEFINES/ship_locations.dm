@@ -43,6 +43,7 @@
 #define SUBLOC_COMMAND		"Command"
 
 /// Command Subdepartments
+#define SUBLOC_WEAPON_SYSTEMS		"Weapon Systems"
 
 /// Crew Subdepartments
 #define SUBLOC_HALLS		"Corridor"
