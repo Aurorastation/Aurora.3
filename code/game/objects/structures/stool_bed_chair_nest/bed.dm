@@ -412,6 +412,8 @@
 		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	slowdown = 0
+	surgery_surface = TRUE
+	surgery_odds_modifier = -20
 
 /obj/structure/bed/roller/Initialize()
 	. = ..()

@@ -9,6 +9,8 @@
 	climbable = TRUE
 	layer = TABLE_LAYER
 	build_amt = 1
+	surgery_surface = TRUE
+	surgery_odds_modifier = -34
 
 	//Preset shit
 	var/table_mat
