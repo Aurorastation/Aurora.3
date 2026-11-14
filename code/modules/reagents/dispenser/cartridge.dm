@@ -12,11 +12,36 @@
 	// Large, but inaccurate. Use a chem dispenser or beaker for accuracy.
 	possible_transfer_amounts = list(50, 100)
 	unacidable = 1
+	persistent_objects_expiration_time_days = 60
 
 	var/spawn_reagent = null
 	var/label = ""
+	/// Whether this cartridge type uses object persistence on supported maps.
+	var/persistent_stock = FALSE
+	/// Whether object persistence supplied a canonical amount before atom initialization.
+	var/tmp/persistent_stock_loaded = FALSE
+	/// Canonical amount supplied by object persistence.
+	var/tmp/persistent_loaded_amount = 0
+	/// Mutable label supplied by object persistence.
+	var/tmp/persistent_loaded_label
 
 	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
+
+/** Returns only the cartridge's canonical reagent volume, ignoring contaminants and its mutable label. */
+/obj/item/reagent_containers/chem_disp_cartridge/proc/get_persistent_stock()
+	if(!persistent_stock || !reagents || !spawn_reagent)
+		return 0
+	return clamp(REAGENT_VOLUME(reagents, spawn_reagent), 0, reagents.maximum_volume)
+
+/** Restores canonical stock and discards any round-start contents which are not canonical for this type. */
+/obj/item/reagent_containers/chem_disp_cartridge/proc/apply_persistent_stock(saved_amount)
+	if(!persistent_stock || !reagents || !spawn_reagent || !isnum(saved_amount))
+		return
+	saved_amount = clamp(saved_amount, 0, reagents.maximum_volume)
+	reagents.clear_reagents()
+	if(saved_amount)
+		reagents.add_reagent(spawn_reagent, saved_amount, temperature = temperature_override)
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -39,6 +64,43 @@
 			setLabel(label)
 		else
 			setLabel(R.name)
+	if(persistent_stock_loaded)
+		apply_persistent_stock(persistent_loaded_amount)
+		if(!isnull(persistent_loaded_label))
+			setLabel(persistent_loaded_label)
+		persistent_stock_loaded = FALSE
+	var/obj/structure/machinery/chemical_dispenser/dispenser = loc
+	if(istype(dispenser) && dispenser.persistent_cartridges)
+		dispenser.add_cartridge(src)
+	if(persistent_stock && SSpersistence.map_supports_persistence)
+		SSpersistence.objectsRegisterTrack(src)
+
+/** Saves canonical contents and the mapped dispenser containing this cartridge, if any. */
+/obj/item/reagent_containers/chem_disp_cartridge/persistent_objects_get_content()
+	var/list/content = list()
+	content["amount"] = get_persistent_stock()
+	content["label"] = label
+	var/obj/structure/machinery/chemical_dispenser/dispenser = loc
+	if(istype(dispenser) && dispenser.persistent_cartridges)
+		content["dispenser"] = dispenser.get_persistent_cartridge_map_id()
+	else
+		content["dispenser"] = null
+	return content
+
+/** Restores contents and places the cartridge in its mapped dispenser, or at its saved turf. */
+/obj/item/reagent_containers/chem_disp_cartridge/persistent_objects_apply_content(content, x, y, z)
+	persistent_stock_loaded = TRUE
+	persistent_loaded_amount = content["amount"]
+	persistent_loaded_label = content["label"]
+	var/saved_dispenser_id = content["dispenser"]
+	if(saved_dispenser_id)
+		for(var/obj/structure/machinery/chemical_dispenser/dispenser in world)
+			if(dispenser.get_persistent_cartridge_map_id() == saved_dispenser_id)
+				forceMove(dispenser)
+				return
+	src.x = x
+	src.y = y
+	src.z = z
 
 /obj/item/reagent_containers/chem_disp_cartridge/update_icon()
 	ClearOverlays()

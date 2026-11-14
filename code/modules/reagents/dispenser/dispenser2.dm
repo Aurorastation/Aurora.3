@@ -14,6 +14,12 @@
 	var/list/spawn_cartridges
 	/// Associative, label -> cartridge.
 	var/list/cartridges = list()
+	/// Whether this mapped dispenser is a host for persistent cartridge types.
+	var/persistent_cartridges = FALSE
+	/// Optional mapper-supplied suffix for otherwise identical dispensers sharing a turf.
+	var/persistent_cartridge_id_suffix
+	/// Original map identity. Runtime-created and off-station dispensers leave this null.
+	var/tmp/persistent_cartridge_id
 	///Current container.
 	var/obj/item/reagent_containers/container
 	/// Name of the dispenser on the UI.
@@ -35,11 +41,35 @@
 	. += ..()
 	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
-/obj/structure/machinery/chemical_dispenser/Initialize()
+/obj/structure/machinery/chemical_dispenser/Initialize(mapload)
 	. = ..()
-	if(spawn_cartridges)
-		for(var/type in spawn_cartridges)
-			add_cartridge(new type(src))
+	if(mapload && persistent_cartridges && SSpersistence.map_supports_persistence)
+		persistent_cartridge_id = get_persistent_cartridge_map_id()
+	if(spawn_cartridges && !(mapload && persistent_cartridge_id))
+		for(var/cartridge_path in spawn_cartridges)
+			var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = new cartridge_path(src)
+			add_cartridge(cartridge)
+
+/** Returns the mapped identity used to restore persistent cartridge objects into this dispenser. */
+/obj/structure/machinery/chemical_dispenser/proc/get_persistent_cartridge_map_id()
+	if(persistent_cartridge_id)
+		return persistent_cartridge_id
+	if(!persistent_cartridges)
+		return
+	var/turf/dispenser_turf = get_turf(src)
+	if(!dispenser_turf || !is_station_level(dispenser_turf.z))
+		return
+	var/map_id = "[dispenser_turf.x]-[dispenser_turf.y]-[dispenser_turf.z]-[type]"
+	if(persistent_cartridge_id_suffix)
+		map_id += "-[persistent_cartridge_id_suffix]"
+	return map_id
+
+/** Returns an installed cartridge of the exact requested type, ignoring its mutable label. */
+/obj/structure/machinery/chemical_dispenser/proc/get_cartridge_by_type(cartridge_type)
+	for(var/label in cartridges)
+		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = cartridges[label]
+		if(cartridge.type == cartridge_type)
+			return cartridge
 
 /obj/structure/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
