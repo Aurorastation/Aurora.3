@@ -33,6 +33,21 @@
 	desc = "A purple folder, specifically designed for the Research Division facilities of the company."
 	icon_state = "folder_purple"
 
+/obj/item/folder/colorable
+	desc = "A folder with a customizable fold and marking."
+	icon_state = "folder_colorable_fold"
+	color = COLOR_GRAY
+	accent_color = COLOR_GRAY
+	update_icon_on_init = TRUE
+
+/obj/item/folder/colorable/update_icon()
+	ClearOverlays()
+	AddOverlays(overlay_image(icon, "folder_colorable_mark", accent_color, RESET_COLOR))
+	AddOverlays(overlay_image(icon, "folder_colorable_tag", flags = RESET_COLOR))
+	if(contents.len)
+		AddOverlays(overlay_image(icon, "folder_paper", flags = RESET_COLOR))
+	return
+
 /obj/item/folder/update_icon()
 	ClearOverlays()
 	if(contents.len)
