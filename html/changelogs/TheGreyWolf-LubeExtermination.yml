@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscdel: "Removed the lube tanks from maintenance and warehouse random spawn. The warehouse side room spawn was left in."

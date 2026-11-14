@@ -43681,7 +43681,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "fIn" = (
-/obj/structure/reagent_dispensers/lube,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -60286,9 +60285,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/lube,
-/obj/item/reagent_containers/spray,
-/obj/item/reagent_containers/spray,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/port)
 "hPr" = (
@@ -76053,10 +76049,7 @@
 /area/horizon/service/hydroponics)
 "jRb" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/lube,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/spray,
-/obj/item/reagent_containers/spray,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/operations)
 "jRe" = (
