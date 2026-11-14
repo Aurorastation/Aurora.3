@@ -1,4 +1,9 @@
-import { Button, LabeledList, Section } from 'tgui-core/components';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -7,6 +12,8 @@ export type ScannerData = {
   enabled: BooleanLike;
   search_ores: string[];
   ore_names: string[];
+  has_cell: BooleanLike;
+  charge: number;
 };
 
 export const OreDetector = (props) => {
@@ -40,12 +47,21 @@ export const OreDetector = (props) => {
               buttons={
                 <Button
                   icon="power-off"
-                  disabled={!data.search_ores.length}
+                  disabled={!data.search_ores.length || !data.has_cell}
                   onClick={() => act('toggle')}
                 />
               }
             >
               {get_status()}
+            </LabeledList.Item>
+            <LabeledList.Item label="Battery">
+              {data.has_cell ? (
+                <ProgressBar value={data.charge / 100}>
+                  {Math.round(data.charge)}%
+                </ProgressBar>
+              ) : (
+                'No cell installed'
+              )}
             </LabeledList.Item>
           </LabeledList>
         </Section>

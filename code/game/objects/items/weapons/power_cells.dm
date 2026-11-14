@@ -54,6 +54,110 @@
 	maxcharge = charge_amount
 	charge = maxcharge
 
+/**
+ * A small, reusable power supply for handheld devices.
+ *
+ * The owning item remains responsible for exposing interactions and reacting to
+ * power changes. This datum centralizes cell ownership, swapping, charge use,
+ * and the default-off behavior shared by portable electronics.
+ */
+/datum/device_power_supply
+	var/obj/item/owner
+	var/obj/item/cell/cell
+	var/cell_type = /obj/item/cell/device
+	var/powered = FALSE
+
+/datum/device_power_supply/New(obj/item/new_owner, new_cell_type = /obj/item/cell/device, starts_powered = FALSE)
+	owner = new_owner
+	cell_type = new_cell_type
+	if(cell_type)
+		cell = new cell_type(owner)
+	powered = starts_powered && has_charge()
+
+/datum/device_power_supply/Destroy()
+	QDEL_NULL(cell)
+	owner = null
+	return ..()
+
+/datum/device_power_supply/proc/has_charge(amount = 0.001)
+	return cell?.check_charge(amount)
+
+/datum/device_power_supply/proc/set_power(new_power, mob/user)
+	if(new_power && !has_charge())
+		if(user)
+			to_chat(user, SPAN_WARNING("\The [owner] has no usable power cell."))
+		return FALSE
+
+	if(powered == new_power)
+		return TRUE
+
+	powered = new_power
+	owner?.on_device_power_change(powered, user)
+	return TRUE
+
+/datum/device_power_supply/proc/toggle_power(mob/user)
+	return set_power(!powered, user)
+
+/datum/device_power_supply/proc/use(amount)
+	if(!powered || !cell || amount <= 0)
+		return FALSE
+
+	if(!cell.checked_use(amount))
+		set_power(FALSE)
+		return FALSE
+	if(cell.charge <= 0)
+		set_power(FALSE)
+	return TRUE
+
+/// Consumes charge for devices which have no manual power state and only draw power when used.
+/datum/device_power_supply/proc/use_per_use(amount)
+	if(!cell || amount <= 0)
+		return FALSE
+	return cell.checked_use(amount)
+
+/datum/device_power_supply/proc/install_cell(obj/item/cell/new_cell, mob/user)
+	if(!istype(new_cell, /obj/item/cell/device))
+		to_chat(user, SPAN_WARNING("\The [new_cell] is too large for \the [owner]."))
+		return FALSE
+	if(cell)
+		to_chat(user, SPAN_WARNING("\The [owner] already has a power cell installed."))
+		return FALSE
+	if(!user.unEquip(new_cell))
+		return FALSE
+
+	new_cell.forceMove(owner)
+	cell = new_cell
+	to_chat(user, SPAN_NOTICE("You install \the [new_cell] in \the [owner]."))
+	playsound(owner, 'sound/machines/click.ogg', 30, TRUE)
+	owner.on_device_cell_changed()
+	return TRUE
+
+/datum/device_power_supply/proc/eject_cell(mob/user)
+	if(!cell)
+		to_chat(user, SPAN_WARNING("\The [owner] does not have a power cell installed."))
+		return FALSE
+
+	set_power(FALSE, user)
+	var/obj/item/cell/removed_cell = cell
+	cell = null
+	removed_cell.update_icon()
+	user.put_in_hands(removed_cell)
+	to_chat(user, SPAN_NOTICE("You remove \the [removed_cell] from \the [owner]."))
+	playsound(owner, 'sound/machines/click.ogg', 30, TRUE)
+	owner.on_device_cell_changed()
+	return TRUE
+
+/datum/device_power_supply/proc/emp_act(severity)
+	cell?.emp_act(severity)
+	if(!has_charge())
+		set_power(FALSE)
+
+/obj/item/proc/on_device_power_change(powered, mob/user)
+	return
+
+/obj/item/proc/on_device_cell_changed()
+	return
+
 /obj/item/cell/crap
 	name = "old power cell"
 	desc = "A cheap, old power cell. It's probably been in use for quite some time now."

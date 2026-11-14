@@ -15,6 +15,14 @@ GLOBAL_LIST_EMPTY(gps_list)
 	var/compass_color = "#193A7A"
 
 	var/emped = FALSE
+	var/uses_device_cell = TRUE
+	var/starts_powered = FALSE
+	var/always_powered = FALSE
+	var/datum/device_power_supply/power_supply
+	/// A standard 250 charge device cell lasts forty minutes.
+	var/power_usage_per_second = 250 / (40 * 60)
+	var/last_broadcast_position = FALSE
+	var/offline_since
 
 	var/mob/held_by = null
 	var/mob/implanted_into = null
@@ -30,10 +38,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/gps/Initialize()
 	. = ..()
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, starts_powered)
 	compass = new(src)
 	gpstag = next_initial_tag()
 	name = "global positioning system ([gpstag])"
-	update_position()
+	if(is_operational())
+		update_position()
 
 	if(ismob(loc))
 		if(ishuman(loc))
@@ -63,7 +74,8 @@ GLOBAL_LIST_EMPTY(gps_list)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/gps/Destroy()
-	GLOB.gps_list -= GLOB.gps_list[gpstag]
+	GLOB.gps_list -= gpstag
+	QDEL_NULL(power_supply)
 	UnregisterSignal(src, COMSIG_MOVABLE_MOVED)
 	if(held_by)
 		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
@@ -75,16 +87,88 @@ GLOBAL_LIST_EMPTY(gps_list)
 	return ..()
 
 /obj/item/gps/attack_self(mob/user, modifiers)
-	if(!emped)
-		ui_interact(user)
+	ui_interact(user)
+	if(!is_operational())
+		return
 
 	var/turf/T = get_turf(src)
-	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
+	if(T)
+		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
+
+/obj/item/gps/AltClick(mob/user)
+	if(!uses_device_cell || !user.Adjacent(src))
+		return ..()
+	power_supply.toggle_power(user)
+
+/obj/item/gps/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/gps/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
+
+/obj/item/gps/get_cell()
+	return power_supply?.cell
+
+/obj/item/gps/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell)
+		. += "ALT-click to turn the GPS on or off."
+		. += "While holding it, click it with your empty hand to remove its device power cell."
+
+/obj/item/gps/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell && distance <= 1)
+		. += "It is switched <b>[power_supply?.powered ? "on" : "off"]</b>."
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/gps/proc/is_operational()
+	return !emped && (always_powered || power_supply?.powered)
+
+/obj/item/gps/on_device_power_change(powered, mob/user)
+	if(powered)
+		offline_since = null
+		update_position()
+	else
+		mark_offline()
+	if(user)
+		to_chat(user, SPAN_NOTICE("You switch [src] [powered ? "on" : "off"]."))
+	update_icon()
+	update_compass(TRUE)
+	SStgui.update_uis(src)
+
+/obj/item/gps/on_device_cell_changed()
+	update_icon()
+	SStgui.update_uis(src)
+
+/obj/item/gps/proc/mark_offline()
+	if(!last_broadcast_position || !GLOB.gps_list[gpstag])
+		return
+	offline_since = world.time
+	GLOB.gps_list[gpstag]["powered"] = FALSE
+	GLOB.gps_list[gpstag]["offline_since"] = offline_since
+
+/obj/item/gps/proc/expire_offline_position()
+	if(is_operational() || !offline_since || world.time < offline_since + 10 MINUTES)
+		return
+	GLOB.gps_list -= gpstag
+	last_broadcast_position = FALSE
+	offline_since = null
 
 /obj/item/gps/update_icon()
 	ClearOverlays()
 	if(emped)
 		AddOverlays("emp")
+	else if(!is_operational())
+		AddOverlays("confused")
 	else if(held_by || implanted_into)
 		AddOverlays("working")
 	else
@@ -129,8 +213,11 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/gps/emp_act(severity)
 	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
 
 	emped = TRUE
+	mark_offline()
 	addtimer(CALLBACK(src, PROC_REF(post_emp)), 30 SECONDS)
 	update_icon()
 	update_position()
@@ -138,12 +225,18 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/gps/proc/post_emp()
 	emped = FALSE
 	update_icon()
-	update_position()
+	if(is_operational())
+		offline_since = null
+		update_position()
 
 /obj/item/gps/ui_data(mob/user)
 	var/list/data = list()
 
 	data["own_tag"] = gpstag
+	data["powered"] = is_operational()
+	data["has_cell"] = !!power_supply?.cell
+	data["charge"] = power_supply?.cell ? power_supply.cell.percent() : 0
+	data["uses_cell"] = uses_device_cell
 
 	var/list/tracking_list = list()
 	for(var/tracking_tag in sortList(tracking))
@@ -152,7 +245,10 @@ GLOBAL_LIST_EMPTY(gps_list)
 			continue
 
 		if(AreConnectedZLevels(loc.z, GLOB.gps_list[tracking_tag]["pos_z"]))
-			tracking_list += list(list("tag" = tracking_tag , "gps" = (GLOB.gps_list[tracking_tag])))
+			var/list/tracked_gps_data = GLOB.gps_list[tracking_tag]
+			var/list/gps_data = tracked_gps_data.Copy()
+			gps_data["offline_for"] = gps_data["offline_since"] ? round((world.time - gps_data["offline_since"]) / 10) : 0
+			tracking_list += list(list("tag" = tracking_tag , "gps" = gps_data))
 
 	data["tracking_list"] = tracking_list
 	data["compass_list"] = tracking_compass
@@ -165,15 +261,29 @@ GLOBAL_LIST_EMPTY(gps_list)
 		ui = new(user, src, "GPS", capitalize_first_letters(name), 550, 650)
 		ui.open()
 
-/obj/item/gps/process()
-	if(held_by || implanted_into || (world.time < last_process + process_interval))
+/obj/item/gps/process(seconds_per_tick)
+	if(uses_device_cell && power_supply?.powered)
+		power_supply.use(power_usage_per_second * seconds_per_tick)
+
+	expire_offline_position()
+	if(!is_operational() || held_by || implanted_into || (world.time < last_process + process_interval))
 		return
+	last_process = world.time
 	update_position(FALSE)
 
 /obj/item/gps/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
+
+	switch(action)
+		if("toggle_power")
+			if(uses_device_cell)
+				power_supply.toggle_power(usr)
+			return TRUE
+
+	if(!is_operational())
+		return FALSE
 
 	switch(action)
 		if("tag")
@@ -241,6 +351,8 @@ GLOBAL_LIST_EMPTY(gps_list)
 	return FALSE
 
 /obj/item/gps/proc/update_position(var/check_held_by = TRUE)
+	if(!is_operational())
+		return
 	var/turf/T = get_turf(src)
 	if(check_held_by && held_by && (held_by.x != T.x || held_by.y != T.y || held_by.z != T.z) && held_by != recursive_loc_turf_check(src, 3, held_by))
 		UnregisterSignal(held_by, COMSIG_MOVABLE_MOVED)
@@ -265,12 +377,18 @@ GLOBAL_LIST_EMPTY(gps_list)
 		y_coord = held_by.y
 		z_coord = held_by.z
 
-	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = x_coord, "pos_y" = y_coord, "pos_z" = z_coord, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = x_coord, "pos_y" = y_coord, "pos_z" = z_coord, "area" = "[gps_areaname]", "emped" = emped, "powered" = TRUE, "offline_since" = null, "compass_color" = compass_color)
+	tracking |= gpstag
+	last_broadcast_position = TRUE
+	offline_since = null
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 
 /obj/item/gps/proc/update_compass(var/update_compass_icon)
 	compass.hide_waypoints(FALSE)
+	if(!is_operational())
+		compass.rebuild_overlay_lists(update_compass_icon)
+		return
 	if(LAZYLEN(tracking_compass))
 		for(var/tracking_tag in tracking_compass - gpstag)
 			if(!GLOB.gps_list[tracking_tag])
@@ -281,7 +399,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 				continue
 			compass.set_waypoint(tracking_tag, tracking_tag, GLOB.gps_list[tracking_tag]["pos_x"], GLOB.gps_list[tracking_tag]["pos_y"], GLOB.gps_list[tracking_tag]["pos_z"], GLOB.gps_list[tracking_tag]["compass_color"])
 			var/turf/origin = get_turf(src)
-			if(!emped && !GLOB.gps_list[tracking_tag]["emped"] && origin.z == GLOB.gps_list[tracking_tag]["pos_z"])
+			if(!emped && GLOB.gps_list[tracking_tag]["powered"] && !GLOB.gps_list[tracking_tag]["emped"] && origin.z == GLOB.gps_list[tracking_tag]["pos_z"])
 				compass.show_waypoint(tracking_tag)
 	compass.rebuild_overlay_lists(update_compass_icon)
 
@@ -331,6 +449,18 @@ GLOBAL_LIST_EMPTY(gps_list)
 	compass_color = "#EAD152"
 	gpstag = "MAROON0"
 
+/obj/item/gps/integrated
+	uses_device_cell = FALSE
+	starts_powered = TRUE
+	always_powered = TRUE
+
+/obj/item/gps/integrated/mining
+	icon_state = "gps-min"
+	gps_prefix = "MIN"
+	compass_color = "#5F4519"
+	gpstag = "MIN0"
+	desc = "An integrated positioning system helpful for locating its synthetic user."
+
 /********** Static GPS Start **********/
 // Static GPS
 /obj/item/gps/stationary
@@ -340,6 +470,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 	unacidable = TRUE
 	layer = BASE_ABOVE_OBJ_LAYER
 	gpstag = "STAT0"
+	uses_device_cell = FALSE
+	starts_powered = TRUE
+	always_powered = TRUE
 
 /obj/item/gps/stationary/Initialize()
 	SHOULD_CALL_PARENT(FALSE)

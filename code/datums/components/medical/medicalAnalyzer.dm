@@ -30,6 +30,10 @@
 /datum/component/health_analyzer/simple
 	device_level = 1
 
+/datum/component/health_analyzer/pda
+	name = "PDA health analyzer"
+	device_level = 2
+
 /datum/component/health_analyzer/mech
 	name = "mech health analyzer"
 
@@ -103,6 +107,8 @@
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
 	if(do_after(user, time SECONDS, target_mob)) //This can't be DO_UNIQUE because prevents two people from scanning the same patient.
+		if(!owner.consume_analyzer_power(user))
+			return
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
@@ -114,6 +120,8 @@
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
 	if(scan_title == "" || scan_title == null)
+		if(!owner.consume_analyzer_power(user))
+			return
 		health_scan_mob(user, user, FALSE, sound_scan = sound_scan)
 	ui_interact(user)
 

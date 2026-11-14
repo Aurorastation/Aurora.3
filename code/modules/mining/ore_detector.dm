@@ -22,6 +22,8 @@
 	var/list/search_ores = list()
 	var/ping_rate = 4 SECONDS
 	var/last_ping = 0
+	var/datum/device_power_supply/power_supply
+	var/power_usage_per_second = 250 / (40 * 60)
 
 	var/list/ore_names
 
@@ -31,13 +33,25 @@
 /obj/item/ore_detector/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click to set the type of ore you wish to search for."
+	. += "The detector uses a replaceable device power cell while active."
+
+/obj/item/ore_detector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "It is switched <b>[active ? "on" : "off"]</b>."
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
 
 /obj/item/ore_detector/Initialize(mapload, ...)
 	. = ..()
 	anchor = new /obj/item/detector_anchor(src)
+	power_supply = new(src, /obj/item/cell/device, FALSE)
 
 /obj/item/ore_detector/Destroy()
 	deactivate()
+	QDEL_NULL(power_supply)
 	QDEL_NULL(anchor)
 	return ..()
 
@@ -71,6 +85,8 @@
 	data["ore_names"] = ore_names
 	data["search_ores"] = search_ores
 	data["enabled"] = active
+	data["has_cell"] = !!power_supply?.cell
+	data["charge"] = power_supply?.cell ? power_supply.cell.percent() : 0
 	return data
 
 /obj/item/ore_detector/ui_act(action,params)
@@ -93,7 +109,9 @@
 			deactivate()
 		. = TRUE
 
-/obj/item/ore_detector/process()
+/obj/item/ore_detector/process(seconds_per_tick)
+	if(!power_supply.use(power_usage_per_second * seconds_per_tick))
+		return PROCESS_KILL
 	if(last_ping + ping_rate > world.time)
 		return
 	if(isnull(our_user))
@@ -143,11 +161,13 @@
 
 /obj/item/ore_detector/emp_act(severity)
 	. = ..()
-
+	power_supply.emp_act(severity)
 	deactivate()
 
 /obj/item/ore_detector/proc/activate(var/mob/user)
 	if(!length(search_ores))
+		return
+	if(!power_supply.set_power(TRUE, user))
 		return
 	START_PROCESSING(SSprocessing, src)
 	our_user = WEAKREF(user)
@@ -156,10 +176,36 @@
 
 /obj/item/ore_detector/proc/deactivate()
 	active = FALSE
+	power_supply?.set_power(FALSE)
 	STOP_PROCESSING(SSprocessing, src)
 	clear_images()
 	our_user = null
 	update_icon()
+
+/obj/item/ore_detector/on_device_power_change(powered, mob/user)
+	if(!powered && active)
+		active = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+		clear_images()
+		our_user = null
+		if(!user)
+			visible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
+		update_icon()
+
+/obj/item/ore_detector/get_cell()
+	return power_supply?.cell
+
+/obj/item/ore_detector/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/ore_detector/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
 
 /obj/item/ore_detector/proc/clear_images()
 	var/mob/M = our_user?.resolve()

@@ -1,4 +1,5 @@
 /obj/item/radio/electropack
+	uses_device_cell = FALSE
 	name = "electropack"
 	desc = "Dance my monkeys! DANCE!!!"
 	icon_state = "electropack0"

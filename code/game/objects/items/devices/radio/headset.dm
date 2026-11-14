@@ -1,4 +1,5 @@
 /obj/item/radio/headset
+	uses_device_cell = FALSE
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon = 'icons/obj/item/radio/headset.dmi'
@@ -18,6 +19,8 @@
 	var/ks1type = /obj/item/encryptionkey
 	var/ks2type = null
 	var/radio_sound = null
+	/// A shortwave using this wearable radio for audio input/output.
+	var/datum/weakref/linked_shortwave
 
 	var/EarSound = TRUE
 
@@ -43,8 +46,21 @@
 		set_listening(FALSE, actual_setting = FALSE)
 
 /obj/item/radio/headset/Destroy()
+	disconnect_shortwave()
 	QDEL_NULL(keyslot1)
 	QDEL_NULL(keyslot2)
+	return ..()
+
+/obj/item/radio/headset/proc/disconnect_shortwave()
+	var/obj/item/radio/shortwave = linked_shortwave?.resolve()
+	linked_shortwave = null
+	if(shortwave?.connected_audio_accessory?.resolve() == src)
+		shortwave.disconnect_audio_accessory(TRUE)
+
+/obj/item/radio/headset/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
+	var/obj/item/radio/shortwave = linked_shortwave?.resolve()
+	if(shortwave && shortwave.route_audio_to_accessory && (!channel || channel == "headset") && shortwave.get_connected_audio_wearer() == M)
+		return shortwave.talk_into(M, message, null, say_verb, speaking, ignore_restrained, say_message)
 	return ..()
 
 /obj/item/radio/headset/Moved(atom/old_loc, forced)

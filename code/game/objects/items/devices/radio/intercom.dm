@@ -16,6 +16,7 @@ pixel_x = 8;
 
 
 /obj/item/radio/intercom
+	uses_device_cell = FALSE
 	name = "intercom (general)"
 	desc = "An intercom with buttons for transmitting, receiving, and for volume control."
 	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \

@@ -324,8 +324,8 @@
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/radio/exosuit
+	uses_device_cell = FALSE
 	name = "exosuit radio"
-	cell = null
 
 /obj/item/radio/exosuit/get_cell()
 	. = ..()

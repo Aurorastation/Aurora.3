@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/taperoll/medical(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -293,7 +293,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/taperoll/medical(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -381,7 +381,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/pickaxe/borgdrill(src) // as station is being located at the rock terrain, which is presumed to be digged out to clear the area for new rooms
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -445,7 +445,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/paint_sprayer(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -567,7 +567,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/matter_decompiler(src) // free drone remains for all
 	modules += new /obj/item/taperoll/custodial(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -674,7 +674,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -719,7 +719,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/taperoll/police(src)
 	modules += new /obj/item/paper_scanner(src) //TODO: Add functionality to allow for scanned paperwork to show up in internal computer
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -764,11 +764,11 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/mining_scanner(src)
 	modules += new /obj/item/ore_radar(src)
 	modules += new /obj/item/gripper/paperwork(src) // for Yield Declarations
-	modules += new /obj/item/gps/mining(src) // for locating itself in the deep space
+	modules += new /obj/item/gps/integrated/mining(src) // for locating itself in the deep space
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -847,7 +847,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/storage/bag/plants(src)
 	modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
-	modules += new /obj/item/gps(src) // For being located while disabled and coordinating with life sensor consoles.
+	modules += new /obj/item/gps/integrated(src) // For being located while disabled and coordinating with life sensor consoles.
 	modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
@@ -1106,7 +1106,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/screwdriver/robotic(src)
 	modules += new /obj/item/wrench/robotic(src)
 	modules += new /obj/item/mining_scanner(src)
-	modules += new /obj/item/gps/mining(src)
+	modules += new /obj/item/gps/integrated/mining(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide(src)
 	modules += new /obj/item/rfd/mining(src)
 	modules += new /obj/item/tethering_device(src)

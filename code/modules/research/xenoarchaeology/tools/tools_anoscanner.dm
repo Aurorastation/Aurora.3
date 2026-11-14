@@ -12,16 +12,57 @@
 	var/nearest_artifact_distance = -1
 	var/last_scan_time = 0
 	var/scan_delay = 25
+	var/datum/device_power_supply/power_supply
+	/// Forty scans from a standard 250 charge device cell.
+	var/scan_power_cost = 6.25
 
 /obj/item/ano_scanner/Initialize()
 	. = ..()
-	scan()
+	power_supply = new(src, /obj/item/cell/device, FALSE)
+
+/obj/item/ano_scanner/Destroy()
+	QDEL_NULL(power_supply)
+	return ..()
+
+/obj/item/ano_scanner/emp_act(severity)
+	. = ..()
+	power_supply.emp_act(severity)
+
+/obj/item/ano_scanner/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/ano_scanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A standard device cell powers forty scans."
+
+/obj/item/ano_scanner/get_cell()
+	return power_supply?.cell
+
+/obj/item/ano_scanner/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/ano_scanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
 
 /obj/item/ano_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
 
 /obj/item/ano_scanner/interact(var/mob/user as mob)
 	if(world.time - last_scan_time >= scan_delay)
+		if(!power_supply.use_per_use(scan_power_cost))
+			to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
+			return
 		spawn(0)
 			scan()
 

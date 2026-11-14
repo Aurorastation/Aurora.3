@@ -14,6 +14,9 @@
 	var/datum/sound_token/sound_token
 	var/geiger_volume = 0
 	var/sound_id
+	var/uses_device_cell = TRUE
+	var/datum/device_power_supply/power_supply
+	var/power_usage_per_second = 250 / (40 * 60)
 
 /obj/item/geiger/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -24,10 +27,17 @@
 		. += SPAN_WARNING("[msg]")
 	else
 		. += SPAN_NOTICE("[msg]")
+	if(uses_device_cell && distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
 
 /obj/item/geiger/Initialize()
 	. = ..()
 	sound_id = "[type]_[sequential_id(type)]"
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
 
 /obj/item/geiger/proc/update_sound(playing)
 	if(playing && !sound_token)
@@ -38,22 +48,61 @@
 /obj/item/geiger/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	update_sound(0)
+	QDEL_NULL(power_supply)
 	return ..()
 
-/obj/item/geiger/process()
+/obj/item/geiger/process(seconds_per_tick)
 	if(!scanning)
 		return
+	if(uses_device_cell && !power_supply.use(power_usage_per_second * seconds_per_tick))
+		return PROCESS_KILL
 	radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
 	update_icon()
 
 /obj/item/geiger/attack_self(mob/user)
-	scanning = !scanning
+	if(uses_device_cell)
+		power_supply.toggle_power(user)
+	else
+		scanning = !scanning
+		if(scanning)
+			START_PROCESSING(SSprocessing, src)
+		else
+			STOP_PROCESSING(SSprocessing, src)
+		update_icon()
+		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [scanning ? "on" : "off"] [src]."))
+
+/obj/item/geiger/on_device_power_change(powered, mob/user)
+	scanning = powered
 	if(scanning)
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
+		update_sound(FALSE)
+	if(user)
+		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [src] [powered ? "on" : "off"]."))
+	else if(!powered)
+		visible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
 	update_icon()
-	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [scanning ? "on" : "off"] [src]."))
+
+/obj/item/geiger/get_cell()
+	return power_supply?.cell
+
+/obj/item/geiger/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/geiger/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
+
+/obj/item/geiger/emp_act(severity)
+	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
 
 /obj/item/geiger/update_icon()
 	if(!scanning)
@@ -97,6 +146,7 @@
 	action_button_name = "Toggle dosimeter counter"
 	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 50)
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 4)
+	uses_device_cell = FALSE
 
 	///The amount of rads the dosimeter has detected after armor mitigation.
 	var/current_rate_after_armor = 0

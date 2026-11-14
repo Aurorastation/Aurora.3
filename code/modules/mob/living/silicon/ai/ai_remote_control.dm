@@ -32,7 +32,7 @@
 	modules += new /obj/item/advanced_healthanalyzer/cyborg(src)
 	modules += new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 	modules += new /obj/item/inflatable_dispenser(src)
-	modules += new /obj/item/gps(src)
+	modules += new /obj/item/gps/integrated(src)
 	modules += new /obj/item/taperoll/medical(src)
 	modules += new /obj/item/taperoll/engineering(src)
 	modules += new /obj/item/taperoll/police(src)
