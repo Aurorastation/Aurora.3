@@ -60,7 +60,7 @@
 	var/cap_next = TRUE
 	for(var/datum/say_segment/segment as anything in segments)
 		var/is_emote = (segment.language?.flags & INNATE) ? TRUE : FALSE
-		var/rendered = segment.plain_text_for(listener, speaker)
+		var/rendered = segment.plain_text_for(listener, speaker, TRUE)
 		if(clarity == CLARITY_FAINT && !is_emote)
 			rendered = length(rendered) ? stars(rendered) : ""
 		rendered = trim(rendered)	// Strip whitespace for quoting. We'll re-add it later.
