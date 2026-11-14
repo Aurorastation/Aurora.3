@@ -4051,7 +4051,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/inside/sewers)
 "cLR" = (
@@ -5957,7 +5957,7 @@
 /turf/simulated/open,
 /area/crevus/outside)
 "eeJ" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/spline/plain/corner/grey,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -8563,7 +8563,7 @@
 "fDT" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/lino/diamond,
 /area/crevus/inside/restaurant/azaula_enforcers)
 "fDW" = (
@@ -10289,7 +10289,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/crevus/outside)
 "gIS" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/auto_gallery)
@@ -13735,7 +13735,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/structure/machinery/light{
 	dir = 1
 	},
@@ -15883,7 +15883,7 @@
 /area/crevus/outside)
 "knG" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/tiled/full,
 /area/crevus/inside/artisan_shop/basement)
 "knI" = (
@@ -16483,7 +16483,7 @@
 /turf/unsimulated/mineral/adhomai,
 /area/crevus/inside/firearm_store/basement)
 "kHp" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/transit_centre)
@@ -21410,7 +21410,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
 "nXO" = (
-/obj/structure/machinery/vending/wardrobe/chef_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chef,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/kitchen)
@@ -26563,7 +26563,7 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
 "rop" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
@@ -28105,7 +28105,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/the_lock)
 "sku" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/kitchen)
@@ -31536,7 +31536,7 @@
 /turf/simulated/floor/cave/adhomai,
 /area/crevus/inside/the_lock/backroom)
 "uuw" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/crevus/inside/the_lock/backroom)
@@ -32700,7 +32700,7 @@
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/inside/sewers)
 "viy" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
@@ -35641,7 +35641,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/power_room)
 "xdN" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
 	},
@@ -35790,7 +35790,7 @@
 "xkL" = (
 /obj/structure/platform/column,
 /obj/random/dirt_75,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/tiled/full,
 /area/crevus/inside/general_store/storage)
 "xln" = (
@@ -36042,7 +36042,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/crevus/inside/restaurant/floor_1/south)
 "xtT" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/rhan_cresh_office)

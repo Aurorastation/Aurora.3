@@ -5391,7 +5391,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/structure/machinery/vending/wardrobe/cargo_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/cargo,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/tech_storage)
