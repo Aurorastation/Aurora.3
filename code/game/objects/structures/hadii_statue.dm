@@ -39,7 +39,7 @@
 /obj/structure/hadii_statue/proc/topple()
 	if(toppled)
 		return
-	visible_message(SPAN_WARNING("\The [src] topples down!"))
+	visible_message(SPAN_WARNING("\The [src] topples down!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, toppling_sound, 75, 1)
 	toppled = TRUE
 	update_icon()
@@ -50,9 +50,9 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	if(attacking_item.force <= 15)
-		visible_message(SPAN_WARNING("\The [attacking_item] bounces off \the [src]!"))
+		visible_message(SPAN_WARNING("\The [attacking_item] bounces off \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		return
-	visible_message(SPAN_WARNING("\The [user] strikes \the [src] with \the [attacking_item]!"))
+	visible_message(SPAN_WARNING("\The [user] strikes \the [src] with \the [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 	do_integrity_check(attacking_item.force)
 
 /obj/structure/hadii_statue/proc/do_integrity_check(damage)
@@ -69,12 +69,12 @@
 	if(!hitting_projectile)
 		return BULLET_ACT_BLOCK
 	if(!hitting_projectile.damage)
-		visible_message(SPAN_WARNING("\The [hitting_projectile] bounces off \the [src]!"))
+		visible_message(SPAN_WARNING("\The [hitting_projectile] bounces off \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		return BULLET_ACT_BLOCK
 
 	. = ..()
 	if(. != BULLET_ACT_HIT)
 		return .
 
-	visible_message(SPAN_WARNING("\The [hitting_projectile] hits \the [src]!"))
+	visible_message(SPAN_WARNING("\The [hitting_projectile] hits \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	do_integrity_check(hitting_projectile.damage)

@@ -43,7 +43,7 @@
 
 /*/obj/item/ore/strangerock/ex_act(var/severity)
 	if(severity && prob(30))
-		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
+		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.", visible_message_flags = LOCAL_MESSAGE)*/
 
 /obj/item/ore/strangerock/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/weldingtool/))
@@ -72,7 +72,7 @@
 
 	..()
 	if(prob(33))
-		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
+		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

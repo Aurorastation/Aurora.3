@@ -129,11 +129,11 @@
 		else
 			user.visible_message("\The [user] turns \a [key] in the ignition of \the [src].", "You turn \a [key] in the ignition of \the [src], and it beeps happily.")
 			turn_on()
-			src.visible_message("\The [src] rumbles to life.", "You hear something rumble deeply.")
+			src.visible_message("\The [src] rumbles to life.", blind_message = "You hear something rumble deeply.", visible_message_flags = LOCAL_MESSAGE)
 			playsound(src, 'sound/machines/vehicles/bike_start.ogg', 100, 1)
 	else
 		turn_off()
-		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+		src.visible_message("\The [src] putters before turning off.", blind_message = "You hear something putter slowly.", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/vehicle/bike/AltClick(var/mob/user)
 	if(Adjacent(user))
@@ -189,7 +189,7 @@
 		if(on)
 			toggle_engine(user)
 	else if(user != load && load)
-		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
+		user.visible_message("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
@@ -230,7 +230,7 @@
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
+		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 		H.apply_damage(collision_damage, DAMAGE_BRUTE)
 		H.apply_effect(4, WEAKEN)
 		return TRUE
@@ -244,7 +244,7 @@
 
 /obj/vehicle/bike/Move(var/turf/destination)
 	if(kickstand)
-		visible_message("The kickstand prevents the bike from moving!")
+		visible_message("The kickstand prevents the bike from moving!", visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	var/mob/living/rider = buckled
@@ -344,7 +344,7 @@
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, SFX_SWING_HIT, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
@@ -354,7 +354,7 @@
 
 			else
 				var/mob/living/L = AM
-				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, SFX_SWING_HIT, 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, DAMAGE_BRUTE)
@@ -463,7 +463,7 @@
 	..()
 
 /obj/vehicle/bike/casino/proc/rearm()
-	visible_message(SPAN_NOTICE("\The [src] beeps lowly, asking for another chip to continue."))
+	visible_message(SPAN_NOTICE("\The [src] beeps lowly, asking for another chip to continue."), visible_message_flags = LOCAL_MESSAGE)
 	paid = FALSE
 
 /obj/vehicle/bike/casino/check_destination(var/turf/destination)

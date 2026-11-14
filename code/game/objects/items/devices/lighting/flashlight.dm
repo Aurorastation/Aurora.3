@@ -103,7 +103,8 @@
 	if(brightness_level && power_usage)
 		if(cell.use(power_usage) != power_usage)
 			visible_message(
-				SPAN_WARNING("\The [src] flickers before shutting out!")
+				SPAN_WARNING("\The [src] flickers before shutting out!"),
+				visible_message_flags = LOCAL_MESSAGE
 			)
 			playsound(src.loc, 'sound/effects/sparks3.ogg', 10, 1, -3)
 			toggle()

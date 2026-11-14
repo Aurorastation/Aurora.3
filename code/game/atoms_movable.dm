@@ -1066,7 +1066,7 @@
 /atom/movable/proc/begin_falling(var/lastloc, var/below)
 	return
 
-/atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/atom/movable/proc/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return
 
 /**

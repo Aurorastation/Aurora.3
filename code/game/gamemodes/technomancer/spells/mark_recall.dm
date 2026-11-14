@@ -73,7 +73,7 @@ GLOBAL_DATUM(mark_spell_ref, /obj/effect/mark_spell)
 			if(!allowed_to_teleport())
 				to_chat(user, SPAN_WARNING("Teleportation doesn't seem to work here."))
 				return
-			visible_message(SPAN_WARNING("\The [user] starts glowing!"))
+			visible_message(SPAN_WARNING("\The [user] starts glowing!"), visible_message_flags = LOCAL_MESSAGE)
 			var/light_intensity = 2
 			var/time_left = 3
 			if(check_for_scepter())
@@ -81,7 +81,7 @@ GLOBAL_DATUM(mark_spell_ref, /obj/effect/mark_spell)
 			set_light_on(TRUE)
 			while(time_left)
 				if(user.incapacitated())
-					visible_message(SPAN_NOTICE("\The [user]'s glow fades."))
+					visible_message(SPAN_NOTICE("\The [user]'s glow fades."), visible_message_flags = LOCAL_MESSAGE)
 					to_chat(user, SPAN_DANGER("You cannot Recall while incapacitated!"))
 					return 0
 				light_intensity++

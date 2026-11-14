@@ -90,7 +90,7 @@
 	if(driver?.m_intent == M_RUN)
 		if(isliving(A))
 			var/mob/living/M = A
-			visible_message(SPAN_WARNING("[src] knocks over [M]!"))
+			visible_message(SPAN_WARNING("[src] knocks over [M]!"), visible_message_flags = LOCAL_MESSAGE)
 			var/def_zone = ran_zone()
 			M.apply_effects(5, 5)				//knock people down if you hit them
 			// Keep fractional movement delays; instantaneous movement uses one tick for damage scaling.
@@ -110,7 +110,7 @@
 	var/mob/living/driver = get_driver()
 	if(driver?.m_intent != M_RUN)
 		return
-	visible_message(SPAN_WARNING("\The [src] collides with \the [target_mob], jolting its driver!"))
+	visible_message(SPAN_WARNING("\The [src] collides with \the [target_mob], jolting its driver!"), visible_message_flags = LOCAL_MESSAGE)
 	to_chat(driver, SPAN_WARNING("You collide with \the [target_mob]! They are too big to run over."))
 	driver.apply_damage(10, DAMAGE_PAIN)
 	driver.Stun(1)

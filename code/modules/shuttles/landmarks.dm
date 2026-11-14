@@ -264,7 +264,7 @@
 	QDEL_NULL(landmark)
 	update_icon()
 	if (!silent)
-		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."))
+		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."), visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /obj/item/spaceflare/update_icon()

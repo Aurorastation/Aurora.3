@@ -88,7 +88,7 @@
 		return null
 	else if ((!welding_tool && !is_military) || !fuel_container || !fuel_container.reagents || fuel_container.reagents.total_volume <= 0)
 		lit = FALSE
-		balloon_alert_to_viewers("*fffft*")
+		balloon_alert_to_hearers("*fffft*")
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE)
 		update_icon()
 		STOP_PROCESSING(SSprocessing, src)
@@ -275,7 +275,7 @@
 	if(!external) // if it's external input, we can't unlight it, but we don't need to check for an igniter either
 		if(lit) // you can extinguish the flamethrower without an igniter
 			lit = FALSE
-			balloon_alert_to_viewers("*fffft*")
+			balloon_alert_to_hearers("*fffft*")
 			STOP_PROCESSING(SSprocessing, src)
 			if(!external)
 				playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE)
@@ -297,7 +297,7 @@
 		balloon_alert(user, "fuel container is empty!")
 		return
 	lit = TRUE
-	balloon_alert_to_viewers("*whoosh*")
+	balloon_alert_to_hearers("*whoosh*")
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 	if(!external)
@@ -345,8 +345,8 @@
 			fire_color = fuel.fire_color
 
 	if(power < REQUIRED_POWER_TO_FIRE_FLAMETHROWER)
-		audible_message(SPAN_DANGER("\The [src] sputters."))
-		balloon_alert_to_viewers("*pshhhh*")
+		audible_message(SPAN_DANGER("\The [src] sputters."), audible_message_flags = LOCAL_MESSAGE)
+		balloon_alert_to_hearers("*pshhhh*")
 		playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3)
 		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT) //Wastes some fuel
 		return_fuel(fuel_reagents, my_fraction)
@@ -382,16 +382,16 @@
 #undef FLAMETHROWER_RELEASE_AMOUNT
 
 /obj/item/flamethrower/proc/explode_in_hand(power)
-	audible_message(SPAN_WARNING("\The [src] sputters a bit, throwing out some liquid."))
-	balloon_alert_to_viewers("*pshhhhhhhhhhhhhh*")
+	audible_message(SPAN_WARNING("\The [src] sputters a bit, throwing out some liquid."), audible_message_flags = LOCAL_MESSAGE)
+	balloon_alert_to_hearers("*pshhhhhhhhhhhhhh*")
 	playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3, frequency = 22000)
-	visible_message(SPAN_DANGER("\The [src] shakes uncontrollably!"))
+	visible_message(SPAN_DANGER("\The [src] shakes uncontrollably!"), visible_message_flags = LOCAL_MESSAGE)
 	sleep(0.5 SECONDS)
 	// Explode in a 3x3 area
 	var/list/turflist = circle_view_turfs(src.loc, 1)
 	var/turf_amount = length(turflist)
 	var/power_div = power/turf_amount
-	visible_message(SPAN_DANGER("\The [src] explodes!"))
+	visible_message(SPAN_DANGER("\The [src] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, SFX_EXPLOSION, 20, TRUE, -1, frequency = 48000)
 	for(var/turf/T as anything in turflist)
 		if(T.density || istype(T, /turf/space))

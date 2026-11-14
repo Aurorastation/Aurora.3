@@ -98,7 +98,7 @@
 		else
 			if(occupant)
 				visible_message(SPAN_CULT(FONT_HUGE("\The [src] finishes working and, with a click, releases [occupant] from their bindings. It helpfully dispenses \
-								a vial of shining white liquid...")))
+								a vial of shining white liquid...")), visible_message_flags = LOCAL_MESSAGE)
 				unbuckle()
 				new /obj/item/reagent_containers/glass/beaker/vial/antidote(get_turf(src))
 				playsound(src, 'sound/machines/weapons_analyzer_finish.ogg', 30)

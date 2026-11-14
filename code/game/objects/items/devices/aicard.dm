@@ -169,16 +169,16 @@
 	carded_ai = null
 	update_icon()
 
-/obj/item/aicard/see_emote(mob/living/M, text)
+/obj/item/aicard/see_emote(mob/living/M, text, emote_type = AUDIBLE_MESSAGE)
 	if(carded_ai && carded_ai.client)
 		var/rendered = span("message", "[text]")
-		carded_ai.show_message(rendered, 2)
+		carded_ai.show_message(rendered, emote_type, null, emote_type == VISIBLE_MESSAGE ? AUDIBLE_MESSAGE : VISIBLE_MESSAGE)
 	..()
 
-/obj/item/aicard/show_message(msg, type, alt, alt_type)
+/obj/item/aicard/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	if(carded_ai && carded_ai.client)
 		var/rendered = span("message", "[msg]")
-		carded_ai.show_message(rendered, type)
+		carded_ai.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 	..()
 
 /obj/item/aicard/relaymove(mob/living/user, direction)

@@ -380,13 +380,13 @@
 			user.resting = FALSE
 			return ..()
 		if(prob(10 * speed_multiplier)) // Climb out
-			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment while squeezing through it..."))
+			visible_message(SPAN_WARNING("[user] gets tangled in the \the [src] for a moment while squeezing through it..."), visible_message_flags = LOCAL_MESSAGE)
 			if(!do_after(user, user.get_conditioning_action_delay((5 * speed_multiplier) SECONDS), src, DO_UNIQUE, (INCAPACITATION_RESTRAINED|INCAPACITATION_BUCKLED_FULLY)))
 				user.forceMove(old_loc)
 				user.resting = FALSE
 				return ..()
 		user.Move(T) // Get out behind assembly
-		visible_message(SPAN_NOTICE("[user] squeezes through the \the [src]!"))
+		visible_message(SPAN_NOTICE("[user] squeezes through the \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	user.resting = FALSE
 
 	..()

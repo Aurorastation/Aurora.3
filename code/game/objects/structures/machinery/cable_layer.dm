@@ -78,7 +78,7 @@
 		on = FALSE
 		reset()
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
-		visible_message(SPAN_WARNING("A red light flashes on \the [src]."))
+		visible_message(SPAN_WARNING("A red light flashes on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	var/cable_color = cable.color
 	cable.use(amount)

@@ -52,7 +52,7 @@
 		if(do_after(user, 30))
 			// Extra !pressing check here to protect against button-mashers. Naughty naughty.
 			if(!pressing)
-				src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."))
+				src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."), visible_message_flags = LOCAL_MESSAGE)
 				pressing = TRUE
 				update_icon()
 				use_power_oneoff(500)
@@ -66,6 +66,6 @@
 					pressing = FALSE
 					update_icon()
 			else
-				src.visible_message(SPAN_WARNING("\The [src] is already printing something!"))
+				src.visible_message(SPAN_WARNING("\The [src] is already printing something!"), visible_message_flags = LOCAL_MESSAGE)
 	else
 		..()

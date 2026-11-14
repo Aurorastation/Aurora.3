@@ -75,7 +75,7 @@
 		else
 			results = get_scan_info(scanned_object)
 
-		src.visible_message("<b>[name]</b> states, \"Scanning complete.\"")
+		src.visible_message("<b>[name]</b> states, \"Scanning complete.\"", visible_message_flags = LOCAL_MESSAGE)
 		var/obj/item/paper/P = new(src.loc)
 		var/pname = "[src] report #[++report_num]"
 		var/info = "<b>[src] analysis report #[report_num]</b><br>"
@@ -112,18 +112,18 @@
 						A.being_used = 1
 
 				if(artifact_in_use)
-					src.visible_message("<b>[name]</b> states, \"Cannot harvest. Too much interference.\"")
+					src.visible_message("<b>[name]</b> states, \"Cannot harvest. Too much interference.\"", visible_message_flags = LOCAL_MESSAGE)
 				else
 					scanned_object = O
 					scan_in_progress = 1
 					scan_completion_time = world.time + scan_duration
-					src.visible_message("<b>[name]</b> states, \"Scanning begun.\"")
+					src.visible_message("<b>[name]</b> states, \"Scanning begun.\"", visible_message_flags = LOCAL_MESSAGE)
 				break
 			if(!scanned_object)
-				src.visible_message("<b>[name]</b> states, \"Unable to isolate scan target.\"")
+				src.visible_message("<b>[name]</b> states, \"Unable to isolate scan target.\"", visible_message_flags = LOCAL_MESSAGE)
 	if(href_list["halt_scan"])
 		scan_in_progress = 0
-		src.visible_message("<b>[name]</b> states, \"Scanning halted.\"")
+		src.visible_message("<b>[name]</b> states, \"Scanning halted.\"", visible_message_flags = LOCAL_MESSAGE)
 
 	if(href_list["close"])
 		usr.unset_machine(src)

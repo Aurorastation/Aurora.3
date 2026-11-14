@@ -153,7 +153,7 @@
 			overlays = 0
 			if(chained)
 				overlays = "chain_s1"
-			visible_message(SPAN_NOTICE("The singularity has shrunk to a rather pitiful size."))
+			visible_message(SPAN_NOTICE("The singularity has shrunk to a rather pitiful size."), visible_message_flags = LOCAL_MESSAGE)
 		if (STAGE_TWO) //1 to 3 does not check for the turfs if you put the gens right next to a 1x1 then its going to eat them.
 			name = "gravitational singularity"
 			desc = "A gravitational singularity."
@@ -171,9 +171,9 @@
 			if(chained)
 				overlays = "chain_s3"
 			if(growing)
-				visible_message(SPAN_NOTICE("The singularity noticeably grows in size."))
+				visible_message(SPAN_NOTICE("The singularity noticeably grows in size."), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("The singularity has shrunk to a less powerful size."))
+				visible_message(SPAN_NOTICE("The singularity has shrunk to a less powerful size."), visible_message_flags = LOCAL_MESSAGE)
 		if (STAGE_THREE)
 			if ((check_turfs_in(1, 2)) && (check_turfs_in(2, 2)) && (check_turfs_in(4, 2)) && (check_turfs_in(8, 2)))
 				name = "gravitational singularity"
@@ -192,9 +192,9 @@
 				if(chained)
 					overlays = "chain_s5"
 				if(growing)
-					visible_message(SPAN_NOTICE("The singularity expands to a reasonable size."))
+					visible_message(SPAN_NOTICE("The singularity expands to a reasonable size."), visible_message_flags = LOCAL_MESSAGE)
 				else
-					visible_message(SPAN_NOTICE("The singularity has returned to a safe size."))
+					visible_message(SPAN_NOTICE("The singularity has returned to a safe size."), visible_message_flags = LOCAL_MESSAGE)
 		if(STAGE_FOUR)
 			if ((check_turfs_in(1, 3)) && (check_turfs_in(2, 3)) && (check_turfs_in(4, 3)) && (check_turfs_in(8, 3)))
 				name = "gravitational singularity"
@@ -213,9 +213,9 @@
 				if(chained)
 					overlays = "chain_s7"
 				if(growing)
-					visible_message(SPAN_WARNING("The singularity expands to a dangerous size."))
+					visible_message(SPAN_WARNING("The singularity expands to a dangerous size."), visible_message_flags = LOCAL_MESSAGE)
 				else
-					visible_message(SPAN_NOTICE("Miraculously, the singularity reduces in size, and can be contained."))
+					visible_message(SPAN_NOTICE("Miraculously, the singularity reduces in size, and can be contained."), visible_message_flags = LOCAL_MESSAGE)
 		if(STAGE_FIVE) //This one also lacks a check for gens because it eats everything.
 			name = "gravitational singularity"
 			desc = "A gravitational singularity."
@@ -231,9 +231,9 @@
 			if(chained)
 				overlays = "chain_s9"
 			if(growing)
-				visible_message(SPAN_DANGER("<font size='2'>The singularity has grown out of control!</font>"))
+				visible_message(SPAN_DANGER("<font size='2'>The singularity has grown out of control!</font>"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_WARNING("The singularity miraculously reduces in size and loses its supermatter properties."))
+				visible_message(SPAN_WARNING("The singularity miraculously reduces in size and loses its supermatter properties."), visible_message_flags = LOCAL_MESSAGE)
 		if(STAGE_SUPER)//SUPERSINGULO
 			name = "super gravitational singularity"
 			desc = "A gravitational singularity with the properties of supermatter. <b>It has the power to destroy worlds.</b>"
@@ -248,7 +248,7 @@
 			event_chance = 25 //Events will fire off more often.
 			if(chained)
 				overlays = "chain_s9"
-			visible_message(SPAN_DANGER("<font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font>"))
+			visible_message(SPAN_DANGER("<font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font>"), visible_message_flags = LOCAL_MESSAGE)
 
 	if (current_size == allowed_size)
 		investigate_log(SPAN_WARNING("grew to size [current_size]."), I_SINGULO)
@@ -317,13 +317,13 @@
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message(SPAN_DANGER("\The [src] gravitates downwards."))
+			visible_message(SPAN_DANGER("\The [src] gravitates downwards."), visible_message_flags = LOCAL_MESSAGE)
 			zMove(DOWN)
-			visible_message(SPAN_DANGER("\The [src] appears from above."))
+			visible_message(SPAN_DANGER("\The [src] appears from above."), visible_message_flags = LOCAL_MESSAGE)
 		else if(target.z > z)
-			visible_message(SPAN_DANGER("\The [src] gravitates upwards."))
+			visible_message(SPAN_DANGER("\The [src] gravitates upwards."), visible_message_flags = LOCAL_MESSAGE)
 			zMove(UP)
-			visible_message(SPAN_DANGER("\The [src] appears from below."))
+			visible_message(SPAN_DANGER("\The [src] appears from below."), visible_message_flags = LOCAL_MESSAGE)
 
 	if(current_size >= 9)//The superlarge one does not care about things in its way
 		spawn(0)

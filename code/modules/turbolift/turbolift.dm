@@ -60,7 +60,7 @@
 		else // We failed to close the doors - probably, someone is blocking them; stop trying to move
 			doors_closing = 0
 			open_doors()
-			control_panel_interior.audible_message("\The [current_floor.ext_panel] buzzes loudly.")
+			control_panel_interior.audible_message("\The [current_floor.ext_panel] buzzes loudly.", audible_message_flags = LOCAL_MESSAGE)
 			playsound(control_panel_interior.loc, 'sound/machines/buzz-two.ogg', 50, 1)
 			return 0
 
@@ -74,7 +74,7 @@
 		target_floor = null
 
 		sleep(15)
-		control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"")
+		control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"", visible_message_flags = LOCAL_MESSAGE)
 
 		queue_movement(floor_wait_delay + move_delay)
 		return 1
@@ -122,7 +122,7 @@
 			AM.forceMove(GET_TURF_ABOVE(T))
 
 	current_floor = next_floor
-	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")
+	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.", visible_message_flags = LOCAL_MESSAGE)
 
 	queue_movement()
 	return 1

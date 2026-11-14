@@ -90,4 +90,4 @@
 	if(..()) // If the above code succeeds, do this below.
 		if(prob(2))
 			spark(src, 3)
-			visible_message(SPAN_WARNING("\The [assembly] makes some sparks!"))
+			visible_message(SPAN_WARNING("\The [assembly] makes some sparks!"), visible_message_flags = LOCAL_MESSAGE)

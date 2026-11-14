@@ -160,9 +160,9 @@ GLOBAL_VAR(bomb_set)
 	else if (deployable)
 		if(removal_stage < 5)
 			src.anchored = 1
-			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"))
+			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
+			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."), visible_message_flags = LOCAL_MESSAGE)
 		extended = 1
 		if(!src.lighthack)
 			flick("lock", src)
@@ -286,7 +286,7 @@ GLOBAL_VAR(bomb_set)
 				to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 				return TRUE
 			if(!area_safety_check())
-				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), "\The [src]'s deployment light blinks red once and disables.")
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.", audible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			if(!timing && !safety)
 				timing = 1
@@ -311,22 +311,22 @@ GLOBAL_VAR(bomb_set)
 		if("anchor")
 			if(removal_stage == 5)
 				anchored = 0
-				visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
+				visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."), visible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			if(isinspace())
 				to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 				return TRUE
 			if(!area_safety_check())
-				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), "\The [src]'s deployment light blinks red once and disables.")
+				audible_message(SPAN_WARNING("\The [src] emits a beep, \"Deployment aborted: local radiation shielding prevents reliable detonation coupling.\""), deaf_message = "\The [src]'s deployment light blinks red once and disables.", audible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 			else
 				anchored = !anchored
 				if(anchored)
-					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
+					visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/boltsdown.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 				else
 					secure_device()
-					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
+					visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/boltsup.ogg', 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 			return TRUE
 

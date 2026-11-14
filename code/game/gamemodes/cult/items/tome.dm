@@ -32,7 +32,7 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	target_mob.take_organ_damage(0, rand(5,20)) //really lucky - 5 hits for a crit
-	visible_message(SPAN_WARNING("\The [user] beats \the [target_mob] with \the [src]!"))
+	visible_message(SPAN_WARNING("\The [user] beats \the [target_mob] with \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	to_chat(target_mob, SPAN_DANGER("You feel searing heat inside!"))
 	attack_admins(target_mob, user)
 

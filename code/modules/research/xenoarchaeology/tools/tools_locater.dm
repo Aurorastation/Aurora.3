@@ -50,9 +50,9 @@
 					scan_ticks = 0
 					var/turf/T = get_turf(src)
 					if(target_radio)
-						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] happily.")
+						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] happily.", visible_message_flags = LOCAL_MESSAGE)
 					else
-						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] sadly.")
+						T.visible_message("[icon2html(src, viewers(get_turf(T)))] [src] [pick("chirps","chirrups","cheeps")] sadly.", visible_message_flags = LOCAL_MESSAGE)
 		else
 			icon_state = "pinoff"
 

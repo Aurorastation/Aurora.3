@@ -69,7 +69,7 @@
 
 /obj/item/clothing/under/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -85,7 +85,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/clothing/head/chameleon/changeling
@@ -97,7 +97,7 @@
 
 /obj/item/clothing/head/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -114,7 +114,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/clothing/suit/chameleon/changeling
@@ -125,7 +125,7 @@
 
 /obj/item/clothing/suit/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -142,7 +142,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/clothing/shoes/chameleon/changeling
@@ -153,7 +153,7 @@
 
 /obj/item/clothing/shoes/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -170,7 +170,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/storage/backpack/chameleon/changeling
@@ -181,7 +181,7 @@
 
 /obj/item/clothing/backpack/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -198,7 +198,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		for(var/atom/movable/AM in src.contents) //Dump whatever's in the bag before deleting.
 			AM.forceMove(get_turf(loc))
 		qdel(src)
@@ -212,7 +212,7 @@
 
 /obj/item/clothing/gloves/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -229,7 +229,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/clothing/mask/chameleon/changeling
@@ -241,7 +241,7 @@
 
 /obj/item/clothing/mask/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -258,7 +258,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/clothing/glasses/chameleon/changeling
@@ -269,7 +269,7 @@
 
 /obj/item/clothing/glasses/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -287,7 +287,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/storage/belt/chameleon/changeling
@@ -298,7 +298,7 @@
 
 /obj/item/clothing/storage/belt/chameleon/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -315,7 +315,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/card/id/syndicate/changeling
@@ -336,7 +336,7 @@
 
 /obj/item/card/id/syndicate/changeling/dropped(mob/user)
 	. = ..()
-	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"))
+	visible_message(SPAN_DANGER("With a sickening crunch, \the [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -348,7 +348,7 @@
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
 		visible_message(SPAN_WARNING("[H] tears off [src]!"),
-		SPAN_NOTICE("We remove [src]."))
+		SPAN_NOTICE("We remove [src]."), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/item/card/id/syndicate/changeling/Click() //Since we can't hold it in our hands, and attack_hand() doesn't work if it in inventory...

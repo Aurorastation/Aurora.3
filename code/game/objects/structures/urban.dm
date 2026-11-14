@@ -427,7 +427,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
-		visible_message(SPAN_WARNING("A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made."))
+		visible_message(SPAN_WARNING("A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made."), visible_message_flags = LOCAL_MESSAGE)
 		icon_state = "manhole_open"
 		desc = "This looks pretty dangerous, stinks horribly, and doesn't have a ladder inside. Watch out!"
 		open = 1
@@ -435,7 +435,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		turf.is_hole = TRUE
 		return
 	if(open)
-		visible_message(SPAN_WARNING("The manhole clunks and seals back into place, safely burying our problems underground for someone else later."))
+		visible_message(SPAN_WARNING("The manhole clunks and seals back into place, safely burying our problems underground for someone else later."), visible_message_flags = LOCAL_MESSAGE)
 		icon_state = "manhole_closed"
 		desc = "It looks recently opened and sloppily closed."
 		open = 0
@@ -1264,7 +1264,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		if("deny")
 			if(rattle_sound)
 				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
-			balloon_alert_to_viewers("*rattles*")
+			balloon_alert_to_hearers("*rattles*")
 			shake_animation(1)
 
 	return
@@ -1315,7 +1315,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 					previous_req_access = list()
 
 		else
-			balloon_alert_to_viewers("*rattles*")
+			balloon_alert_to_hearers("*rattles*")
 			if(rattle_sound)
 				playsound(src.loc, rattle_sound, 50, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
@@ -1334,7 +1334,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp_assun)
 		return FALSE //Keys only
 
 /obj/structure/machinery/door/urban/on_death()
-	visible_message(SPAN_WARNING("[src] breaks!"))
+	visible_message(SPAN_WARNING("[src] breaks!"), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 // ---------- Urban door subtypes

@@ -18,7 +18,7 @@
 	. = ..()
 	set_light_range_power_color(6, 5, "#FF6A00")
 	set_light_on(TRUE)
-	visible_message(SPAN_WARNING("\The [loc]'s hand begins to emit a flame."))
+	visible_message(SPAN_WARNING("\The [loc]'s hand begins to emit a flame."), visible_message_flags = LOCAL_MESSAGE)
 	welder = new /obj/item/weldingtool/spell(src)
 	welder.setWelding(1)
 
@@ -42,7 +42,7 @@
 	if(isliving(hit_atom) && user.a_intent != I_HELP)
 		var/mob/living/L = hit_atom
 		if(pay_energy(1000))
-			visible_message(SPAN_DANGER("\The [user] reaches out towards \the [L] with the flaming hand, and they ignite!"))
+			visible_message(SPAN_DANGER("\The [user] reaches out towards \the [L] with the flaming hand, and they ignite!"), visible_message_flags = LOCAL_MESSAGE)
 			to_chat(L, SPAN_DANGER("You ignite!"))
 			L.fire_act()
 			log_and_message_admins("has ignited [L] with [src].")

@@ -10,6 +10,7 @@
 	S["toggles_secondary"] >> pref.toggles_secondary
 	S["lobby_music_vol"] >> pref.lobby_music_vol
 	S["looping_sound_volume"] >> pref.looping_sound_volume
+	S["max_chat_length"] >> pref.max_chat_length
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
@@ -19,6 +20,7 @@
 	S["toggles_secondary"] << pref.toggles_secondary
 	S["lobby_music_vol"] << pref.lobby_music_vol
 	S["looping_sound_volume"] << pref.looping_sound_volume
+	S["max_chat_length"] << pref.max_chat_length
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -30,7 +32,8 @@
 				"sfx_toggles",
 				"toggles_secondary",
 				"lobby_music_vol",
-				"looping_sound_volume"
+				"looping_sound_volume",
+				"max_chat_length"
 			),
 			"args" = list("ckey")
 		)
@@ -50,6 +53,7 @@
 			"toggles_secondary",
 			"lobby_music_vol",
 			"looping_sound_volume",
+			"max_chat_length",
 		)
 	)
 
@@ -62,7 +66,8 @@
 		"sfx_toggles" = pref.sfx_toggles,
 		"toggles_secondary" = pref.toggles_secondary,
 		"lobby_music_vol" = pref.lobby_music_vol,
-		"looping_sound_volume" = pref.looping_sound_volume
+		"looping_sound_volume" = pref.looping_sound_volume,
+		"max_chat_length" = pref.max_chat_length
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
@@ -77,6 +82,7 @@
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 	pref.lobby_music_vol = sanitize_integer(text2num(pref.lobby_music_vol), 0, BITFIELDMAX, initial(pref.lobby_music_vol))
 	pref.looping_sound_volume = sanitize_integer(text2num(pref.looping_sound_volume), 0, 100, initial(pref.looping_sound_volume))
+	pref.max_chat_length = sanitize_integer(istext(pref.max_chat_length) ? text2num(pref.max_chat_length) : pref.max_chat_length, 1, FLOATING_MESSAGE_MAX_LENGTH, initial(pref.max_chat_length))
 
 /datum/category_item/player_setup_item/player_global/settings/ui_data(mob/user)
 	var/list/fields = list(
@@ -89,7 +95,11 @@
 		list("label" = "Item Outlines", "value" = (pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden", "action" = "paratoggle", "action_value" = SEE_ITEM_OUTLINES),
 		list("label" = "Hide Item Tooltips", "value" = (pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No", "action" = "paratoggle", "action_value" = HIDE_ITEM_TOOLTIPS),
 		list("label" = "Progress Bars", "value" = (pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No", "action" = "paratoggle", "action_value" = PROGRESS_BARS),
-		list("label" = "Floating Messages", "value" = (pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No", "action" = "paratoggle", "action_value" = FLOATING_MESSAGES),
+		list("label" = "Floating Messages", "value" = (pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No", "action" = "paratoggle", "action_value" = FLOATING_MESSAGES, "note" = "Balloon alerts appear in chat when disabled by these settings."),
+		list("label" = "Floating Messages on Objects", "value" = (pref.toggles_secondary & HIDE_FLOATING_OBJECTS) ? "No" : "Yes", "action" = "paratoggle", "action_value" = HIDE_FLOATING_OBJECTS),
+		list("label" = "Floating Messages on Ghosts", "value" = (pref.toggles_secondary & HIDE_FLOATING_GHOSTS) ? "No" : "Yes", "action" = "paratoggle", "action_value" = HIDE_FLOATING_GHOSTS),
+		list("label" = "Floating Emotes", "value" = (pref.toggles_secondary & HIDE_FLOATING_EMOTES) ? "No" : "Yes", "action" = "paratoggle", "action_value" = HIDE_FLOATING_EMOTES),
+		list("label" = "Maximum Floating Message Length", "value" = pref.max_chat_length, "action" = "select_max_chat_length"),
 		list("label" = "Hotkey Mode Default", "value" = (pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off", "action" = "paratoggle", "action_value" = HOTKEY_DEFAULT)
 	)
 	return list(
@@ -115,6 +125,13 @@
 	if(href_list["paratoggle"])
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
+		return TOPIC_REFRESH
+
+	if(href_list["select_max_chat_length"])
+		var/new_length = tgui_input_number(user, "Maximum characters shown in floating speech and emotes (1-[FLOATING_MESSAGE_MAX_LENGTH]). Balloon alerts retain their full text.", "Floating Message Length", pref.max_chat_length, FLOATING_MESSAGE_MAX_LENGTH, 1)
+		if(isnull(new_length))
+			return
+		pref.max_chat_length = sanitize_integer(new_length, 1, FLOATING_MESSAGE_MAX_LENGTH, initial(pref.max_chat_length))
 		return TOPIC_REFRESH
 
 	return ..()

@@ -84,7 +84,7 @@
 		return
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/on_product_completed(obj/new_item, datum/design/design_to_build, datum/research_fabrication_job/job)
-	visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.", intent_message = PING_SOUND)
+	visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", blind_message = "You hear a ping.", intent_message = PING_SOUND, visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/carbon/human/target = dropped
@@ -134,20 +134,20 @@
 	switch(emagged)
 		if(0)
 			emagged = 0.5
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"", visible_message_flags = LOCAL_MESSAGE)
 			sleep(10)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"Attempting auto-repair\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"Attempting auto-repair\"", visible_message_flags = LOCAL_MESSAGE)
 			sleep(15)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"", visible_message_flags = LOCAL_MESSAGE)
 			sleep(30)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [SSatlas.current_map.company_name] system operator for future assistance.\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [SSatlas.current_map.company_name] system operator for future assistance.\"", visible_message_flags = LOCAL_MESSAGE)
 			req_access = null
 			emagged = 1
 			return 1
 		if(0.5)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"", visible_message_flags = LOCAL_MESSAGE)
 		if(1)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"No records in User DB\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"No records in User DB\"", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/r_n_d/fabricator/mecha_part_fabricator/on_job_started(datum/research_fabrication_job/job)
 	limb_manufacturer = job?.manufacturer

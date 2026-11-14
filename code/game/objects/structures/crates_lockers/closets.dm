@@ -396,9 +396,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has a linked teleporter!"))
 			return
 		var/obj/item/closet_teleporter/CT = attacking_item
-		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
+		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), vision_distance = 3)
 		if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
-			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), SPAN_NOTICE("You attach \the [CT] to \the [src]."), vision_distance = 3)
 			linked_teleporter = CT
 			CT.attached_closet = src
 			user.drop_from_inventory(CT, src)
@@ -410,9 +410,9 @@
 			return 0
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
-				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
+				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), vision_distance = 3)
 				if(do_after(user, 30, src, DO_REPAIR_CONSTRUCT))
-					user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
+					user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), vision_distance = 3)
 					linked_teleporter.attached_closet = null
 					user.put_in_hands(linked_teleporter)
 					linked_teleporter = null
@@ -603,7 +603,7 @@
 		var/turf/T = get_turf(src)
 		if(ismob(O))
 			if(large)
-				user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+				user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3)
 				O.forceMove(T)
 				close()
 			else
@@ -781,7 +781,7 @@
 	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	damage(damage)
 	return TRUE
 
@@ -816,7 +816,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start pushing the door open. (This will take about [breakout_time] minutes.)"))
-	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"), blind_message = SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 
 	var/time = 6 * breakout_time * 2
 

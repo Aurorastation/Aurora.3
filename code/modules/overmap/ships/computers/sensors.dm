@@ -92,7 +92,7 @@
 /obj/structure/machinery/computer/ship/sensors/proc/display_message(var/message)
 	if(OPERABLE(src))
 		playsound(src, 'sound/machines/triplebeep.ogg', 50)
-		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"))
+		visible_message(SPAN_NOTICE("\The [src] beeps, [SPAN_ITALIC("\"" + message + "\"")]"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/computer/ship/sensors/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -313,7 +313,7 @@
 				return
 			linked.set_new_class(new_class)
 			playsound(src, 'sound/machines/twobeep.ogg', 50)
-			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship class registered.\"</i>"))
+			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship class registered.\"</i>"), visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 
 		if(action == "change_ship_name")
@@ -329,7 +329,7 @@
 				return
 			linked.set_new_designation(new_name)
 			playsound(src, 'sound/machines/twobeep.ogg', 50)
-			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"))
+			visible_message(SPAN_NOTICE("\The [src] beeps, <i>\"IFF change to ship designation registered.\"</i>"), visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 
 	if (action == "scan_action")
@@ -387,13 +387,13 @@
 		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
 		var/mob/living/carbon/human/sender = beacon.user.resolve()
 		if(!sender)
-			visible_message(SPAN_NOTICE("\The [src] beeps unsuccessfully, signalling an error in the playback."))
+			visible_message(SPAN_NOTICE("\The [src] beeps unsuccessfully, signalling an error in the playback."), visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
-		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."))
+		visible_message(SPAN_NOTICE("\The [src] beeps a few times as it replays the distress message."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/compbeep5.ogg', 50)
-		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""))
+		visible_message(SPAN_ITALIC("[accent_icon] <b>[user_name]</b> explains, \"[beacon.distress_message]\""), visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 
 	if(action == "inbound_fire")
@@ -531,7 +531,7 @@
 		if(desired_range-range <= -max_range/2)
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
-			src.visible_message(SPAN_DANGER("\The [src] violently spews out sparks!"))
+			src.visible_message(SPAN_DANGER("\The [src] violently spews out sparks!"), visible_message_flags = LOCAL_MESSAGE)
 			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()

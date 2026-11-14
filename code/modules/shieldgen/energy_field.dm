@@ -80,7 +80,7 @@
 	if(piercing_hit)
 		hitting_projectile.pierces += round((energy_field.field_strength / 2))
 		if(hitting_projectile.pierces < hitting_projectile.penetrating)
-			visible_message(SPAN_WARNING("\The [src] flickers and fails as it is penetrated by the \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] flickers and fails as it is penetrated by the \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			damage_field(initial_damage / 20) //The shield takes less damage if it is penetrated like this.
 			return BULLET_ACT_FORCE_PIERCE
 
@@ -99,10 +99,10 @@
 		hitting_projectile.damage -= energy_field.field_strength
 		if(hitting_projectile.damage >= 0)
 			damage_field(initial_damage / 10)
-			visible_message(SPAN_WARNING("\The [src] flashes and depletes the [hitting_projectile]'s energy, but doesn't fully block it."))
+			visible_message(SPAN_WARNING("\The [src] flashes and depletes the [hitting_projectile]'s energy, but doesn't fully block it."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_FORCE_PIERCE
 		else
-			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_BLOCK
 
 	/**
@@ -122,7 +122,7 @@
 				else if(distance <= explosive_projectile.explosion_strength[3])
 					shield_tile.damage_field(1)
 			// explosive_projectile.explosion_strength = list(0, 0, 0) // Set the explosion strength to 0.
-			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."))
+			visible_message(SPAN_WARNING("\The [src] shimmers and absorbs \the [hitting_projectile]."), visible_message_flags = LOCAL_MESSAGE)
 			return BULLET_ACT_BLOCK
 
 	damage_field(initial_damage / 10)

@@ -77,7 +77,7 @@
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0
 		if(can_grab)
-			src.visible_message(SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"))
+			src.visible_message(SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"), visible_message_flags = LOCAL_MESSAGE)
 			victim.forceMove(src.loc)
 
 	//entangling people

@@ -195,7 +195,7 @@
 				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 				return
 			else
-				computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+				computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 
 // Cargo access check

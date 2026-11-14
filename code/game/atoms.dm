@@ -485,64 +485,6 @@
 		return 0
 
 
-/**
- * Show a message to all mobs and objects in sight of this one, usually used for visible actions by the `src` mob
- *
- * _Implementations differs, basically this is a shitshow, check the params without assuming the order from this description_
- *
- * * message - The message output to anyone who can see, a string
- * * self_message - A message to show to the `src` mob
- * * blind_message - A message to show to mobs or movable atoms that are in view range but blind
- * * range - The range that is considered for the view evaluation, defaults to `world.view`
- * * show_observers - Boolean, if observers sees the message
- * * intent_message - A message sent via `intent_message()`
- * * intent_range - The range considered for the evaluation of the `intent_message`
- */
-/atom/proc/visible_message(message, blind_message, range = world.view, intent_message = null, intent_range = 7)
-	SHOULD_NOT_SLEEP(TRUE)
-
-	var/list/hearers = get_hearers_in_view(range, src)
-
-	for(var/atom/movable/AM as anything in hearers)
-		if(ismob(AM))
-			var/mob/M = AM
-			if(M.see_invisible < invisibility)
-				M.show_message(blind_message, 2)
-				continue
-		AM.show_message(message, 1, blind_message, 2)
-
-	if(intent_message)
-		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
-
-// Show a message to all mobs and objects in earshot of this atom.
-// Use for objects performing audible actions.
-// "message" is the message output to anyone who can hear.
-// "deaf_message" (optional) is what deaf people will see.
-// "hearing_distance" (optional) is the range, how many tiles away the message can be heard.
-/atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
-	SHOULD_NOT_SLEEP(TRUE)
-
-	if(!hearing_distance)
-		hearing_distance = world.view
-
-	var/list/hearers = get_hearers_in_view(hearing_distance, src)
-
-	for(var/atom/movable/AM as anything in hearers)
-		AM.show_message(message, 2, deaf_message, 1)
-
-	if(intent_message)
-		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
-
-/atom/proc/intent_message(var/message, var/range = 7, var/list/hearers = list())
-	SHOULD_NOT_SLEEP(TRUE)
-	if(air_sound(src))
-		if(!hearers.len)
-			hearers = get_hearers_in_view(range, src)
-		for(var/mob/living/carbon/human/H as anything in GLOB.intent_listener)
-			if(!(H in hearers))
-				if(src.z == H.z && get_dist(src, H) <= range)
-					H.intent_listen(src, message)
-
 /proc/get_intent_listeners(var/atom/source, var/range = 7, var/list/hearers = list())
 	SHOULD_NOT_SLEEP(TRUE)
 	var/list/listeners = list()

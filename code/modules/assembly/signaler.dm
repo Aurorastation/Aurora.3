@@ -136,9 +136,9 @@
 				log_signal("[key_name(user)] has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
 		if(!found_user)
 			log_signal("A userless signaler has sent a signal to [machine.name] ([machine.x]-[machine.y]-[machine.z])")
-		machine.audible_message("[icon2html(machine, viewers(get_turf(machine)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		machine.audible_message("[icon2html(machine, viewers(get_turf(machine)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"", audible_message_flags = (ismob(machine) ? NONE : LOCAL_MESSAGE))
 	else if(!holder)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		audible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"", audible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/assembly/signaler/proc/set_frequency(new_frequency)
 	if(!frequency)
@@ -184,9 +184,9 @@
 /obj/item/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it
 		if(user)
-			visible_message(SPAN_DANGER("\The [user] releases \the [src]'s deadman switch!"))
+			visible_message(SPAN_DANGER("\The [user] releases \the [src]'s deadman switch!"), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_DANGER("\The [src]'s deadman switch is released!"))
+			visible_message(SPAN_DANGER("\The [src]'s deadman switch is released!"), visible_message_flags = LOCAL_MESSAGE)
 		signal()
 		deadman = FALSE
 		STOP_PROCESSING(SSprocessing, src)

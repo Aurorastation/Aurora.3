@@ -95,7 +95,7 @@
 /obj/structure/machinery/shieldgen/process()
 	if((stat & (BROKEN|NOPOWER)) || !anchored)
 		if(active)
-			visible_message(SPAN_WARNING("\The [src] shuts down."), SPAN_NOTICE("You hear a heavy droning fade out."))
+			visible_message(SPAN_WARNING("\The [src] shuts down."), blind_message = SPAN_NOTICE("You hear a heavy droning fade out."), visible_message_flags = LOCAL_MESSAGE)
 			shields_down()
 		check_delay = initial(check_delay)
 		return
@@ -318,7 +318,7 @@
 				if(alpha != initial(alpha))
 					animate(src, 1 SECOND, alpha = initial(alpha))
 	if(health <= 0)
-		visible_message(SPAN_NOTICE("\The [src] dissipates!"))
+		visible_message(SPAN_NOTICE("\The [src] dissipates!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 		return
 
@@ -396,7 +396,7 @@
 
 /obj/structure/machinery/shield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	//Let everyone know we've been hit!
-	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"))
+	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"), visible_message_flags = LOCAL_MESSAGE)
 
 	//Super realistic, resource-intensive, real-time damage calculations.
 	var/tforce = 0

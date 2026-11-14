@@ -55,7 +55,7 @@
 	if(!operable())
 		if(do_after(M, 1 SECOND, src))
 			// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
-			visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
+			visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].", visible_message_flags = LOCAL_MESSAGE)
 			open()
 	else
 		open()
@@ -135,7 +135,7 @@
 	src.density = FALSE
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message("[src] shatters!")
+		visible_message("[src] shatters!", visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 /obj/structure/machinery/door/window/attack_hand(mob/user as mob)
@@ -171,7 +171,7 @@
 			spark(src.loc, 5)
 			playsound(src.loc, SFX_SPARKS, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
+			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"), visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
@@ -189,7 +189,7 @@
 
 	if(isobj(attacking_item) && attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent == I_HELP)
 		if(!operable())
-			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
+			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].", visible_message_flags = LOCAL_MESSAGE)
 			if(density)
 				open(TRUE)
 			else
@@ -203,7 +203,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			add_damage(aforce, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		return TRUE
@@ -218,7 +218,7 @@
 				return TRUE
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
-			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
+			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].", visible_message_flags = LOCAL_MESSAGE)
 		if (src.density)
 			open()
 		else

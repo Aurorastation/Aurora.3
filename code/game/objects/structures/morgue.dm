@@ -176,7 +176,7 @@
 		return
 	O.forceMove(src.loc)
 	if(user != O)
-		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), range = 3)
+		user.visible_message(SPAN_DANGER("<b>[user]</b> stuffs \the [O] into \the [src]!"), SPAN_NOTICE("You stuff \the [O] into \the [src]."), vision_distance = 3)
 	add_fingerprint(user)
 	return
 /*
@@ -236,7 +236,7 @@
 	locked = TRUE
 
 	if(contents.len <= 0)
-		src.audible_message(SPAN_WARNING("You hear a hollow crackle."), 1)
+		src.audible_message(SPAN_WARNING("You hear a hollow crackle."), deaf_message = 1, audible_message_flags = LOCAL_MESSAGE)
 		flick("crema_empty", src)
 		set_light(3, 1, LIGHT_COLOR_FIRE)
 		sleep(4)
@@ -251,7 +251,7 @@
 			locked = initial(locked)
 			update_icon()
 			return
-		src.audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."), 1)
+		src.audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."), deaf_message = 1, audible_message_flags = LOCAL_MESSAGE)
 		flick("crema_start", src)
 		update_icon()
 		var/desperation = 0

@@ -442,10 +442,10 @@
 	else
 		qdel(src)
 
-/obj/item/paicard/see_emote(mob/living/M, text)
+/obj/item/paicard/see_emote(mob/living/M, text, emote_type = AUDIBLE_MESSAGE)
 	if(pai && pai.client && !pai.canmove)
 		var/rendered = span("message", "[text]")
-		pai.show_message(rendered, 2)
+		pai.show_message(rendered, emote_type, null, emote_type == VISIBLE_MESSAGE ? AUDIBLE_MESSAGE : VISIBLE_MESSAGE)
 	..()
 
 /obj/item/paicard/dropped(mob/user)
@@ -471,8 +471,8 @@
 
 	report_onmob_location(1, slotnumber, pai)
 
-/obj/item/paicard/show_message(msg, type, alt, alt_type)
+/obj/item/paicard/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	if(pai && pai.client)
 		var/rendered = span("message", "[msg]")
-		pai.show_message(rendered, type)
+		pai.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 	..()

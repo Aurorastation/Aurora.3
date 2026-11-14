@@ -306,7 +306,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
-			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			balloon_alert(user, SPAN_GREEN("CLEAR"))
 			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time

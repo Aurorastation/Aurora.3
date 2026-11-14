@@ -67,7 +67,7 @@
 /obj/effect/energy_net/proc/health_check()
 	if(health <= 0)
 		density = FALSE
-		src.visible_message(SPAN_WARNING("\The [src] is torn apart!"))
+		src.visible_message(SPAN_WARNING("\The [src] is torn apart!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(src)
 
 /obj/effect/energy_net/process()

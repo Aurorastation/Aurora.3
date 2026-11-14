@@ -94,7 +94,7 @@
 		if(primer)
 			to_chat(user, SPAN_WARNING("\The [src] already has a primer!"))
 			return
-		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), range = 3)
+		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), vision_distance = 3)
 		user.drop_from_inventory(attacking_item, src)
 		primer = attacking_item
 		SStgui.update_uis(src)
@@ -124,7 +124,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have a primer!"))
 		return FALSE
 
-	user.visible_message("\The [user] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), range = 3)
+	user.visible_message("\The [user] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), vision_distance = 3)
 	user.put_in_hands(primer)
 	primer = null
 	SStgui.update_uis(src)

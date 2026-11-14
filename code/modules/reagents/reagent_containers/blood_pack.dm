@@ -112,7 +112,7 @@
 	if(attached_mob)
 		remove_iv_mob()
 	else if(ishuman(over))
-		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."))
+		visible_message(SPAN_WARNING("\The [user] starts hooking \the [over] up to \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(do_after(user, 30))
 			to_chat(user, SPAN_NOTICE("You hook \the [over] up to \the [src]."))
 			attached_mob = WEAKREF(over)
@@ -152,7 +152,7 @@
 		var/mob/living/carbon/human/attached = attached_mob.resolve()
 		if(attached)
 			if(safe)
-				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."))
+				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			else
 				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
 				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))

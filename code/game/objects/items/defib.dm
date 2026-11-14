@@ -456,7 +456,7 @@
 
 
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
-	audible_message(SPAN_WARNING("\The [src] lets out a steadily rising hum..."))
+	audible_message(SPAN_WARNING("\The [src] lets out a steadily rising hum..."), audible_message_flags = LOCAL_MESSAGE)
 
 	if(!do_after(user, chargetime, H))
 		return
@@ -510,7 +510,7 @@
 	H.setBrainLoss(brain_damage)
 
 /obj/item/shockpaddles/proc/make_announcement(message, msg_class)
-	audible_message("<b>\The [src]</b> [message]", "\The [src] vibrates slightly.")
+	audible_message("<b>\The [src]</b> [message]", deaf_message = "\The [src] vibrates slightly.", audible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/shockpaddles/emag_act(uses, mob/user, obj/item/defibrillator/base)
 	if(istype(src, /obj/item/shockpaddles/linked))
@@ -640,7 +640,7 @@
 	return (base_unit.bcell && base_unit.bcell.checked_use(charge_amt))
 
 /obj/item/shockpaddles/linked/make_announcement(message, msg_class)
-	base_unit.audible_message("<b>\The [base_unit]</b> [message]", "\The [base_unit] vibrates slightly.")
+	base_unit.audible_message("<b>\The [base_unit]</b> [message]", deaf_message = "\The [base_unit] vibrates slightly.", audible_message_flags = LOCAL_MESSAGE)
 
 /*
 	Standalone Shockpaddles
@@ -678,7 +678,7 @@
 
 		if(EMP_HEAVY)
 			new_fail = max(fail_counter, 20)
-			visible_message("\The [src]'s reactor overloads!")
+			visible_message("\The [src]'s reactor overloads!", visible_message_flags = LOCAL_MESSAGE)
 
 		if(EMP_LIGHT)
 			new_fail = max(fail_counter, 8)

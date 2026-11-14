@@ -124,7 +124,7 @@
 	return TRUE
 
 /obj/structure/railing/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"))
+	visible_message(SPAN_WARNING("\The [src] [material.destruction_desc]!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
 	material.place_shard(get_turf(src))
 	qdel(src)
@@ -244,7 +244,7 @@
 
 			if(G.state >= GRAB_NECK)
 				if(user.a_intent == I_HURT)
-					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 					playsound(get_turf(src), 'sound/effects/grillehit.ogg', 50, TRUE)
 					if(prob(30))
 						G.affecting.Weaken(5)
@@ -252,7 +252,7 @@
 				else
 					G.affecting.forceMove(get_step(src, get_dir(user, src)))
 					G.affecting.Weaken(5)
-					visible_message(SPAN_WARNING("[G.assailant] throws \the [G.affecting] over \the [src]!"))
+					visible_message(SPAN_WARNING("[G.assailant] throws \the [G.affecting] over \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				qdel(G)
 			else
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))

@@ -41,7 +41,7 @@
 		Unwrap(user)
 
 /obj/item/reagent_containers/food/snacks/monkeycube/proc/Expand(mob/user as mob)
-	src.visible_message(SPAN_NOTICE("\The [src] expands!"))
+	src.visible_message(SPAN_NOTICE("\The [src] expands!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()

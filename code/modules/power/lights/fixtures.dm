@@ -309,7 +309,7 @@
 	if (!has_emergency_power(pwr))
 		return FALSE
 	if (cell.charge > 600) // Default mini-cell max is 500.
-		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
+		visible_message(SPAN_WARNING("\The [src] short-circuits!"), blind_message = SPAN_WARNING("You hear glass breaking."), visible_message_flags = LOCAL_MESSAGE)
 		broken()
 		return FALSE
 	cell.use(pwr)

@@ -188,7 +188,7 @@
 	if(!D)
 		return FALSE
 	if(!secured)
-		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", deaf_message = "*beep* *beep*", audible_message_flags = LOCAL_MESSAGE)
 		return FALSE
 	if(normal && a_right && a_left)
 		var/obj/item/assembly/right = a_right
@@ -204,7 +204,7 @@
 	if(master)
 		master.receive_signal()
 	else
-		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", deaf_message = "*beep* *beep*", audible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /obj/item/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)

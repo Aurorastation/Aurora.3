@@ -458,7 +458,7 @@
 		var/handled = 0
 
 		if (currently_vending.amount < 1)
-			visible_message(SPAN_WARNING("\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
+			visible_message(SPAN_WARNING("\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"), visible_message_flags = LOCAL_MESSAGE)
 			src.status_error = 1
 			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
 			currently_vending = null
@@ -573,7 +573,7 @@
 	if(cashmoney.is_bundle())
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		cashmoney.deduct_credit_value(currently_vending.price)
 
 		if(cashmoney.worth <= 0)
@@ -583,7 +583,7 @@
 		// Individual currency pieces cannot have worth different from their face value,
 		// so consume the piece and return change in the same currency.
 
-		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		var/left = credit_value - currently_vending.price
 		user.drop_from_inventory(cashmoney,get_turf(src))
 
@@ -602,7 +602,7 @@
  * successful, 0 if failed.
  */
 /obj/structure/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet, var/mob/user)
-	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
+	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
@@ -623,9 +623,9 @@
  */
 /obj/structure/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
 	if(I==ID_container || ID_container == null)
-		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	else
-		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
@@ -881,7 +881,7 @@
 				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
 		QDEL_NULL(coin)
 
-		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
+		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
 
 		R.amount--
@@ -1034,7 +1034,7 @@
 	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
 	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3))
-	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
+	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"), visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /// Screens go over the lighting layer. Sorry.

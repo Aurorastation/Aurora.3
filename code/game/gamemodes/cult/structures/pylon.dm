@@ -157,7 +157,7 @@
 					add_health(1)
 					empowered = max(0, empowered - 0.2)
 					if(prob(10))
-						visible_message(SPAN_WARNING("Cracks in the [src] gradually seal as new crystalline matter grows to fill them."))
+						visible_message(SPAN_WARNING("Cracks in the [src] gradually seal as new crystalline matter grows to fill them."), visible_message_flags = LOCAL_MESSAGE)
 
 	if(empowered && prob(4))
 		empowered = max(0, empowered - 1) //Overcharging gradually wears off over time
@@ -425,7 +425,7 @@
 		var/obj/projectile/proj = source
 		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
-				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
+				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"), visible_message_flags = LOCAL_MESSAGE)
 			empowered += damage * 0.2
 			//When shot with a laser, the pylon absorbs the beam, becoming empowered for a while, glowing brighter
 			// and firing more powerful blasts which have some armor penetration
@@ -463,7 +463,7 @@
 	start_process()
 
 /obj/structure/cult/pylon/proc/shatter()
-	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
+	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), blind_message = SPAN_WARNING("You hear a tinkle of crystal shards."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(get_turf(src), SFX_BREAK_GLASS, 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)

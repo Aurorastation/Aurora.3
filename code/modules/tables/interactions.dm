@@ -51,10 +51,10 @@
 		if(prob(chance))
 			health -= P.damage/2
 			if (health > 0)
-				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
+				visible_message(SPAN_WARNING("[P] hits \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				return 0
 			else
-				visible_message(SPAN_WARNING("[src] breaks down!"))
+				visible_message(SPAN_WARNING("[src] breaks down!"), visible_message_flags = LOCAL_MESSAGE)
 				break_to_parts()
 				return 1
 	return 1
@@ -89,7 +89,7 @@
 		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/rustle_from_crawler()
-	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."))
+	visible_message(SPAN_NOTICE("\The [src] rustles slightly."), blind_message = SPAN_NOTICE("You hear a faint rustling."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src, SFX_RUSTLE, 15, TRUE, -5)
 	var/list/rustling_atoms = list(src)
 	for(var/obj/item/item in get_turf(src))
@@ -286,7 +286,7 @@
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
@@ -305,7 +305,7 @@
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
-					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
+					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 					qdel(attacking_item)
 				return
 			else
@@ -408,7 +408,7 @@
 				if(do_after(user, 2 SECONDS) && health < maxhealth)
 					if(D.use(1))
 						health = maxhealth
-						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 	if(!attacking_item.dropsafety())
 		return

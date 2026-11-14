@@ -4,7 +4,7 @@
 		return src
 
 	var/datum/seed/S = diverge()	//Let's not modify all of the seeds.
-	T.visible_message(SPAN_NOTICE("\The [S.display_name] quivers!"))	//Mimicks the normal mutation.
+	T.visible_message(SPAN_NOTICE("\The [S.display_name] quivers!"), visible_message_flags = LOCAL_MESSAGE)	//Mimicks the normal mutation.
 	G.mutate(S, T)
 
 	return S
@@ -95,12 +95,12 @@
 	if(prob(50))
 		SET_SEED_TRAIT(S, TRAIT_BIOLUM, !GET_SEED_TRAIT(S, TRAIT_BIOLUM))
 		if(GET_SEED_TRAIT(S, TRAIT_BIOLUM))
-			T.visible_message(SPAN_NOTICE("\The [S.display_name] begins to glow!"))
+			T.visible_message(SPAN_NOTICE("\The [S.display_name] begins to glow!"), visible_message_flags = LOCAL_MESSAGE)
 			if(prob(50))
 				SET_SEED_TRAIT(S, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
-				T.visible_message("<span class='notice'>\The [S.display_name]'s glow </span><font color='[GET_SEED_TRAIT(S, TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
+				T.visible_message("<span class='notice'>\The [S.display_name]'s glow </span><font color='[GET_SEED_TRAIT(S, TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!", visible_message_flags = LOCAL_MESSAGE)
 			else
-				T.visible_message(SPAN_NOTICE("\The [S.display_name]'s glow dims..."))
+				T.visible_message(SPAN_NOTICE("\The [S.display_name]'s glow dims..."), visible_message_flags = LOCAL_MESSAGE)
 	if(prob(60))
 		SET_SEED_TRAIT(S, TRAIT_PRODUCES_POWER, !GET_SEED_TRAIT(S, TRAIT_PRODUCES_POWER))
 
@@ -121,7 +121,7 @@
 		SET_SEED_TRAIT_BOUNDED(S, TRAIT_MATURATION, GET_SEED_TRAIT(S, TRAIT_MATURATION)+rand(-1,1), 30, 0, null)
 	if(prob(55))
 		SET_SEED_TRAIT_BOUNDED(S, TRAIT_SPREAD, GET_SEED_TRAIT(S, TRAIT_SPREAD)+rand(-1,1), 2, 0, null)
-		T.visible_message(SPAN_NOTICE("\The [S.display_name] spasms visibly, shifting in the tray."))
+		T.visible_message(SPAN_NOTICE("\The [S.display_name] spasms visibly, shifting in the tray."), visible_message_flags = LOCAL_MESSAGE)
 
 /singleton/plantgene/fruit/mutate(var/datum/seed/S)
 	if(prob(65))

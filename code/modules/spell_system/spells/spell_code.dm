@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(spells, typesof(/spell))
 			else
 				user.whisper(replacetext(invocation," ","`"))
 		if(SpI_EMOTE)
-			user.visible_message("<b>[user]</b> [invocation]") //the 1 means it's for everyone in view, the me makes it an emote, and the invocation is written accordingly.
+			user.visible_message("<b>[user]</b> [invocation]", visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE)) //the 1 means it's for everyone in view, the me makes it an emote, and the invocation is written accordingly.
 
 /////////////////////
 ///UPGRADING PROCS///

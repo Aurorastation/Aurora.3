@@ -32,8 +32,8 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	if((user.mutations & HULK))
-		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
+		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(maxhealth)
 	else
-		visible_message(SPAN_DANGER("\The [user] claws at \the [src]!"))
+		visible_message(SPAN_DANGER("\The [user] claws at \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(rand(5, 10))

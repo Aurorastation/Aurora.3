@@ -108,15 +108,15 @@ Possible to do for anyone motivated enough:
 	if(user.Adjacent(src))
 		user.visible_message("<b>[user]</b> presses their foot down on \the [src]'s easy-select multi-function button.", SPAN_NOTICE("You press your foot down on \the [src]'s easy-select multi-function button."))
 	if(incoming_connection)
-		audible_message("The pad hums quietly as it establishes a connection.")
+		audible_message("The pad hums quietly as it establishes a connection.", audible_message_flags = LOCAL_MESSAGE)
 		take_call()
 		return
 	else if(connected_pad)
 		if(forced && !has_command_auth(user))
-			audible_message("Access denied. Termination of a command-level transmission requires command-level authorization.")
+			audible_message("Access denied. Termination of a command-level transmission requires command-level authorization.", audible_message_flags = LOCAL_MESSAGE)
 			return
 		end_call()
-		audible_message("Severing connection to distant holopad.")
+		audible_message("Severing connection to distant holopad.", audible_message_flags = LOCAL_MESSAGE)
 		return
 
 	if(last_request + 20 SECONDS > world.time)
@@ -220,7 +220,7 @@ Possible to do for anyone motivated enough:
 	update_icon()
 
 	if(forcing_call)
-		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"")
+		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [connected_pad.holopad_id].\"", audible_message_flags = LOCAL_MESSAGE)
 		connected_pad.notify_pdas(connected_pad.holopad_id)
 		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [connected_pad.holopad_id]."))
 		forcing_call = FALSE // Holopad needs to have forced call turned back on
@@ -228,14 +228,14 @@ Possible to do for anyone motivated enough:
 		sleep(80)
 		connected_pad.take_call()
 	else
-		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"")
+		connected_pad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [connected_pad.connected_pad.holopad_id].\"", audible_message_flags = LOCAL_MESSAGE)
 		connected_pad.notify_pdas(connected_pad.connected_pad.holopad_id) //what in the everloving fuck is connected_pad.connected_pad?
 		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected_pad.holopad_id]... Please await confirmation from recipient."))
 
 /obj/structure/machinery/hologram/holopad/proc/notify_pdas(var/requester)
 	for(var/obj/item/modular_computer/MC in linked_pdas)
 		if(!QDELETED(MC))
-			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[requester]</b> at <b>[holopad_id]</b>!\"</span></i>")
+			MC.audible_message("<b>\The [MC]</b> beeps, <i><span class='notice'>\"Incoming communications request from <b>[requester]</b> at <b>[holopad_id]</b>!\"</span></i>", audible_message_flags = LOCAL_MESSAGE)
 			playsound(MC, 'sound/machines/chime.ogg', 25)
 		else
 			linked_pdas -= MC
@@ -307,7 +307,7 @@ Possible to do for anyone motivated enough:
 		user.eyeobj.setLoc(get_turf(src))
 
 	if(!LAZYISIN(active_holograms, user)) //If there is no hologram, possibly make one.
-		visible_message("A holographic image of [user] flicks to life right before your eyes!")
+		visible_message("A holographic image of [user] flicks to life right before your eyes!", visible_message_flags = LOCAL_MESSAGE)
 		user.holo = src
 		create_holo(user)
 	else //If there is a hologram, remove it.
@@ -342,25 +342,26 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 		else
 			message = "<i><span class='game say'>Holopad received, <span class='name'>[M.get_accent_icon()] [name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
-		connected_pad.audible_message(message)
+		connected_pad.audible_message(message, audible_message_flags = LOCAL_MESSAGE)
 		connected_pad.last_message = message
 
-/obj/structure/machinery/hologram/holopad/see_emote(mob/living/M, text)
+/obj/structure/machinery/hologram/holopad/see_emote(mob/living/M, text, emote_type = AUDIBLE_MESSAGE)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
-		master.show_message(rendered, 2)
+		master.show_message(rendered, emote_type, null, emote_type == VISIBLE_MESSAGE ? AUDIBLE_MESSAGE : VISIBLE_MESSAGE)
 	if(has_established_connection())
-		connected_pad.visible_message("<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>")
+		var/relayed = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+		connected_pad.visible_message(relayed, visible_message_flags = LOCAL_MESSAGE)
 
-/obj/structure/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
+/obj/structure/machinery/hologram/holopad/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	for(var/mob/living/silicon/ai/master in active_holograms)
 		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
-		master.show_message(rendered, type)
+		master.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 	if(findtext(msg, "Holopad received,"))
 		return
 	for(var/mob/living/carbon/master in active_holograms)
 		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
-		master.show_message(rendered, type)
+		master.show_message(rendered, type, alt, alt_type, avoid_highlighting)
 
 /obj/structure/machinery/hologram/holopad/proc/create_holos()
 	for(var/mob/living/M in viewers(world.view, connected_pad))
@@ -433,9 +434,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(last_request + 20 SECONDS < world.time && incoming_connection)
 		incoming_connection = FALSE
 		clear_holos(FALSE)
-		audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
+		audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>", audible_message_flags = LOCAL_MESSAGE)
 		if(connected_pad)
-			connected_pad.audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
+			connected_pad.audible_message("<i><span class='game say'>The holopad connection timed out.</span></i>", audible_message_flags = LOCAL_MESSAGE)
 			connected_pad.connected_pad = null
 			connected_pad.update_icon()
 			connected_pad = null

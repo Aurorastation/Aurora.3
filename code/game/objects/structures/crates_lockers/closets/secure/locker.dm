@@ -76,11 +76,11 @@
 		update_icon()
 
 		if(visual_feedback)
-			visible_message(visual_feedback, audible_feedback)
+			visible_message(visual_feedback, blind_message = audible_feedback, visible_message_flags = LOCAL_MESSAGE)
 		else if(user && emag_source)
-			visible_message(SPAN_WARNING("\The [src] has been broken by \the [user] with \an [emag_source]!"), "You hear a faint electrical spark.")
+			visible_message(SPAN_WARNING("\The [src] has been broken by \the [user] with \an [emag_source]!"), blind_message = "You hear a faint electrical spark.", visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_WARNING("\The [src] sparks and breaks open!"), "You hear a faint electrical spark.")
+			visible_message(SPAN_WARNING("\The [src] sparks and breaks open!"), blind_message = "You hear a faint electrical spark.", visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/structure/closet/proc/verb_togglelock()

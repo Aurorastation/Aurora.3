@@ -4,7 +4,7 @@
 	icon_state = "personal_shield"
 
 /obj/aura/personal_shield/handle_bullet_act(datum/source, obj/projectile/projectile)
-	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [projectile] can hit them!"))
+	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [projectile] can hit them!"), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 
 	flick("shield_impact", src)
 	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)
@@ -19,7 +19,7 @@
 /obj/aura/personal_shield/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	SHOULD_CALL_PARENT(FALSE) //Ancient coders deserve the rope
 
-	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [hitting_projectile] can hit them!"))
+	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [hitting_projectile] can hit them!"), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 
 	flick("shield_impact", src)
 	playsound(user, 'sound/effects/basscannon.ogg', 35, TRUE)

@@ -130,7 +130,7 @@
 				R.cell.use(150)
 
 /obj/item/melee/hammer/powered/proc/rearm()
-	src.visible_message(SPAN_NOTICE("\The [src] hisses lowly."))
+	src.visible_message(SPAN_NOTICE("\The [src] hisses lowly."), visible_message_flags = LOCAL_MESSAGE)
 	on = TRUE
 	update_icon()
 

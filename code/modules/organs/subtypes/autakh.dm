@@ -199,12 +199,12 @@
 		return FALSE
 
 	if(zoom)
-		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses retract.", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses retract.", vision_distance = 3)
 	else
-		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as the zoom lenses begin sliding into place...", vision_distance = 3)
 		if(!do_after(user, 1.5 SECONDS))
 			return
-		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
+		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", vision_distance = 3)
 
 	zoom(owner, 6, 7, FALSE, FALSE)
 

@@ -203,13 +203,13 @@
 	. = ..()
 	if(contained)
 		if(prob(30))
-			visible_message(SPAN_DANGER("\The [src]'s lights flicker, unlocking the container!"))
+			visible_message(SPAN_DANGER("\The [src]'s lights flicker, unlocking the container!"), visible_message_flags = LOCAL_MESSAGE)
 			release()
 			broken = TRUE
 			update_icon()
 			spark(src, 1)
 			return
-	visible_message(SPAN_DANGER("\The [src] sparks violently, damaging the lid!"))
+	visible_message(SPAN_DANGER("\The [src] sparks violently, damaging the lid!"), visible_message_flags = LOCAL_MESSAGE)
 	broken = TRUE
 	spark(src, 1)
 

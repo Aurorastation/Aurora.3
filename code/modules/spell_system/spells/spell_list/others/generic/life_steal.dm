@@ -27,7 +27,7 @@
 		if(isipc(M))
 			to_chat(user, "There is no life to steal.")
 			return 0
-		M.visible_message(SPAN_DANGER("Blood flows from \the [M] into \the [user]!"))
+		M.visible_message(SPAN_DANGER("Blood flows from \the [M] into \the [user]!"), visible_message_flags = (ismob(M) ? NONE : LOCAL_MESSAGE))
 		gibs(M.loc)
 		user.adjustBruteLoss(-15)
 		user.adjustFireLoss(-15)

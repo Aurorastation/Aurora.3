@@ -267,7 +267,7 @@
 	if(istype(W) && !W.lit)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", range = 3)
+			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", vision_distance = 3)
 			W.light()
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
@@ -369,7 +369,7 @@
 				return
 		remove_from_storage(cig, get_turf(target_mob))
 		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
-		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
+		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), vision_distance = 3)
 		update_icon()
 		return
 	if(target_mob == user && target_zone == BP_R_HAND || target_zone == BP_L_HAND) // Cig packing. Because obsessive smokers do it.

@@ -96,7 +96,7 @@
 				cell = attacking_item
 				attacking_item.add_fingerprint(user)
 				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
-				SPAN_NOTICE("You insert \the [cell] into [src]."))
+				SPAN_NOTICE("You insert \the [cell] into [src]."), visible_message_flags = LOCAL_MESSAGE)
 				power_change()
 		else
 			balloon_alert("hatch still closed!")

@@ -125,7 +125,7 @@
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/dnaforensics/proc/complete_scan()
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
+	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()

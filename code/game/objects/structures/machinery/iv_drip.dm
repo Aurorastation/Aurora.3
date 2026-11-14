@@ -164,7 +164,7 @@
 		if(tipped)
 			return
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
-			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
+			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"), visible_message_flags = LOCAL_MESSAGE)
 			do_crash()
 
 /obj/structure/machinery/iv_drip/update_icon()
@@ -236,20 +236,20 @@
 /obj/structure/machinery/iv_drip/proc/breather_process()
 	if(breather)
 		if(!breather.Adjacent(src))
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps back into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 			return
 		var/mask_check = breath_mask.get_equip_slot()
 		if(mask_check != slot_wear_mask)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 			return
 		if(breath_mask.hanging)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 			return
 		if(breath_mask.loc != breather)
-			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."))
+			src.visible_message(SPAN_NOTICE("\The [src] automatically retracts \the [breath_mask]."), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 			return
 		if(!tank)
@@ -260,7 +260,7 @@
 		if(valve_open)
 			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
 			if(!L)
-				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."))
+				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				tank_off()
 				return
@@ -269,23 +269,23 @@
 
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min
-				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure."))
+				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure."), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/chime.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				tank_active = TRUE
 			if(L.checking_rupture == FALSE) // Safely retracts in case the lungs are about to rupture
-				src.visible_message(SPAN_WARNING("\The [src]'s flashes a warning light, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
+				src.visible_message(SPAN_WARNING("\The [src]'s flashes a warning light, automatically deactivating \the [tank] and retracting \the [breath_mask]."), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/twobeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
 				return
 			if(XGM_PRESSURE(tank.air_contents) <= 10)
-				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
+				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating \the [tank] and retracting \the [breath_mask]."), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
 				return
 			if(epp) // Emergency Positive Pressure system forces respiration
 				if(breather.losebreath > 0)
 					if(!epp_active)
-						src.visible_message(SPAN_WARNING("\The [src] flashes a blue light, activating it's Emergency Positive Pressure system!"))
+						src.visible_message(SPAN_WARNING("\The [src] flashes a blue light, activating it's Emergency Positive Pressure system!"), visible_message_flags = LOCAL_MESSAGE)
 						playsound(breather, 'sound/machines/windowdoor.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 						epp_active = TRUE
 						update_icon()
@@ -315,7 +315,7 @@
 				update_icon()
 			if(toggle_stop) // Automatically detaches if the blood volume is at 100%
 				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
-					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
+					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!", visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 					clear_attached()
 					blood_message_sent = FALSE
@@ -327,17 +327,17 @@
 			if(amount == 0)
 				if(world.time > last_full + 10 SECONDS)
 					last_full = world.time
-					visible_message("\The <b>[src]</b> pings.")
+					visible_message("\The <b>[src]</b> pings.", visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/ping.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 				return
 			if(attached.get_blood_volume() < 90 && !blood_message_sent)
-				visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
+				visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				blood_message_sent = TRUE
 			if(blood_message_sent)
 				if(world.time > last_warning + 5 SECONDS)
 					last_warning = world.time
-					visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
+					visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(attached.take_blood(beaker, amount))
 				update_icon()
@@ -358,7 +358,7 @@
 		switch(chosen_action)
 			if("IV drip")
 				if(attached)
-					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].")
+					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].", visible_message_flags = LOCAL_MESSAGE)
 					clear_attached()
 					blood_message_sent = FALSE
 					update_icon()
@@ -376,7 +376,7 @@
 						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
 						clear_attached()
 						return
-				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
+				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].", visible_message_flags = LOCAL_MESSAGE)
 				update_icon()
 				return
 			if("Breath mask")
@@ -384,7 +384,7 @@
 					to_chat(user, SPAN_NOTICE("There is no breath mask installed into \the [src]!"))
 					return
 				if(breather)
-					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]")
+					visible_message("[usr] removes [breather]'s mask.[valve_open ? " \The [tank]'s valve automatically closes." : ""]", visible_message_flags = LOCAL_MESSAGE)
 					breath_mask_rip()
 					return
 				breather = over
@@ -406,7 +406,7 @@
 					return
 				if(tank)
 					tank_on()
-				visible_message("<b>[user]</b> secures the mask over \the <b>[breather]'s</b> face.")
+				visible_message("<b>[user]</b> secures the mask over \the <b>[breather]'s</b> face.", visible_message_flags = LOCAL_MESSAGE)
 				playsound(breather, 'sound/effects/buckle.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
@@ -573,7 +573,7 @@
 
 /obj/structure/machinery/iv_drip/proc/do_crash()
 	ClearOverlays()
-	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
+	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"), visible_message_flags = LOCAL_MESSAGE)
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
 	playsound(src, 'sound/effects/table_slam.ogg', 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 	spill()
@@ -590,7 +590,7 @@
 			breath_mask.SpinAnimation(4, 2)
 			breath_mask = null
 		else
-			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"))
+			src.visible_message(SPAN_WARNING("\The [breath_mask] snaps away from \the [breather], retracting back into \the [src]!"), SPAN_WARNING("\The [breath_mask] snaps away from you, retracting back into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			breath_mask_rip()
 	if(beaker)
 		beaker.forceMove(dropspot)
@@ -614,7 +614,7 @@
 				tank_active = FALSE
 				epp_active = FALSE
 		else
-			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].")
+			src.visible_message("\The [tank] rattles, but remains firmly secured to \the [src].", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))

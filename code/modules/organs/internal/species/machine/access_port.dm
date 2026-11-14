@@ -56,7 +56,7 @@
 	if(access_cable.loc != src)
 		// not sure how NOT having a target and being here would work, but it's a fallback just in case things bug out
 		if(access_cable.target)
-			visible_message(SPAN_NOTICE("[owner] disconnects their [access_cable] from \the [access_cable.target]."))
+			visible_message(SPAN_NOTICE("[owner] disconnects their [access_cable] from \the [access_cable.target]."), visible_message_flags = LOCAL_MESSAGE)
 			access_cable.target.remove_cable(access_cable)
 		access_cable.clear_cable_full()
 		access_cable.forceMove(src)
@@ -226,7 +226,7 @@
  * Automatically drop the cable and then retract it to the parent.
  */
 /obj/item/access_cable/proc/retract()
-	visible_message(SPAN_NOTICE("\The [src] automatically retracts into \the [source]!"))
+	visible_message(SPAN_NOTICE("\The [src] automatically retracts into \the [source]!"), visible_message_flags = LOCAL_MESSAGE)
 	forceMove(source)
 	clear_cable_full()
 

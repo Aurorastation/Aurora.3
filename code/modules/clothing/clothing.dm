@@ -330,7 +330,7 @@
 	if(!material)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
+	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
@@ -352,7 +352,7 @@
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)

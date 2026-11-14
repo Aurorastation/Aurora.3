@@ -148,14 +148,14 @@
 		return 0	//not an ID
 
 	if (dna_hash in authorized)
-		src.visible_message("\The [src] buzzes. That ID has already been scanned.")
+		src.visible_message("\The [src] buzzes. That ID has already been scanned.", visible_message_flags = LOCAL_MESSAGE)
 		return 0
 
 	if (!(/datum/access/heads::id in access))
-		src.visible_message("\The [src] buzzes, rejecting [ident].")
+		src.visible_message("\The [src] buzzes, rejecting [ident].", visible_message_flags = LOCAL_MESSAGE)
 		return 0
 
-	src.visible_message("\The [src] beeps as it scans [ident].")
+	src.visible_message("\The [src] beeps as it scans [ident].", visible_message_flags = LOCAL_MESSAGE)
 	authorized[dna_hash] = auth_name
 	if (req_authorizations - authorized.len)
 		to_world(SPAN_NOTICE("<b>Alert: [req_authorizations - authorized.len] authorization\s needed to override the shuttle autopilot.</b>"))

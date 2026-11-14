@@ -7,7 +7,7 @@
 
 /obj/aura/radiant_aura/handle_bullet_act(datum/source, obj/projectile/projectile)
 	if(projectile.check_armor == LASER)
-		user.visible_message(SPAN_WARNING("\The [projectile] refracts, bending into \the [user]'s aura."))
+		user.visible_message(SPAN_WARNING("\The [projectile] refracts, bending into \the [user]'s aura."), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 		return COMPONENT_BULLET_BLOCKED
 
 /obj/aura/radiant_aura/added_to(mob/living/user)
@@ -24,6 +24,6 @@
 	SHOULD_CALL_PARENT(FALSE) //Ancient coders deserve the rope
 
 	if(hitting_projectile.check_armor == LASER)
-		user.visible_message(SPAN_WARNING("\The [hitting_projectile] refracts, bending into \the [user]'s aura."))
+		user.visible_message(SPAN_WARNING("\The [hitting_projectile] refracts, bending into \the [user]'s aura."), visible_message_flags = (ismob(user) ? NONE : LOCAL_MESSAGE))
 		return AURA_FALSE
 	return FALSE

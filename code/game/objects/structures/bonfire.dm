@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	update_icon()
 	GLOB.total_active_bonfires -= src
 	if(burn_out)
-		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."))
+		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."), visible_message_flags = LOCAL_MESSAGE)
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
 		qdel(src)
 
@@ -332,7 +332,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		if(fuel / max_fuel <= 0.25)
 			message_picks += list("The embers shift as a piece of wood falls into them.", "The glow of the fire pulses weakly.", "Ash dances upward with a few sparks.")
 		var/message = "<I>[pick(message_picks)]</I>"
-		visible_message(SPAN_NOTICE(message))
+		visible_message(SPAN_NOTICE(message), visible_message_flags = LOCAL_MESSAGE)
 		last_ambient_message = world.time
 
 /obj/structure/bonfire/light_up/Initialize()

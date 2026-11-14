@@ -44,10 +44,10 @@
 		total_result += results[i]
 
 	if(amount > 1)
-		visible_message(SPAN_NOTICE("The die rolls, revealing... <b>[total_result * side_mult]</b>! ([english_list(results, "", " + ", " + ", "")])"))
+		visible_message(SPAN_NOTICE("The die rolls, revealing... <b>[total_result * side_mult]</b>! ([english_list(results, "", " + ", " + ", "")])"), visible_message_flags = LOCAL_MESSAGE)
 		update_icon(results[length(results)])
 	else
-		visible_message(SPAN_NOTICE("\The [name] lands on <b>[total_result * side_mult]</b>.[get_comment(total_result)]"))
+		visible_message(SPAN_NOTICE("\The [name] lands on <b>[total_result * side_mult]</b>.[get_comment(total_result)]"), visible_message_flags = LOCAL_MESSAGE)
 		update_icon(total_result)
 
 /obj/item/stack/dice/proc/get_comment(var/result)

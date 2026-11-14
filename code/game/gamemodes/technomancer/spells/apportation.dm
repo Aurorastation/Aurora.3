@@ -37,7 +37,7 @@
 
 			spark(I, 5, GLOB.cardinals)
 			spark(user, 5, GLOB.cardinals)
-			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"))
+			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"), visible_message_flags = LOCAL_MESSAGE)
 			I.forceMove(get_turf(user))
 			user.drop_item(src)
 			src.loc = null

@@ -440,7 +440,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.update_icon()
 		W.message = message
 		W.add_hiddenprint(src)
-		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
+		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."), visible_message_flags = LOCAL_MESSAGE)
 
 /mob/abstract/ghost/observer/pointed(atom/pointing_at)
 	. = ..()
@@ -464,7 +464,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		)
 		toggle_visibility(1)
 	else
-		user.visible_message ( \
+		user.visible_message( \
 			SPAN_WARNING("\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective."), \
 			SPAN_WARNING("You get the feeling that the ghost can't become any more visible.") \
 		)
@@ -561,7 +561,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	if(step_to(choice, T))
-		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"))
+		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"), visible_message_flags = LOCAL_MESSAGE)
 
 	ghost_cooldown = world.time + 500
 

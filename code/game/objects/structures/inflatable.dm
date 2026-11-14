@@ -80,7 +80,7 @@
 		return TRUE
 
 	if(isprojectile(mover))
-		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		deflate(TRUE)
 		return TRUE
 	return FALSE
@@ -149,7 +149,7 @@
 			return
 		deflating = TRUE
 		if(msg)
-			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"))
+			visible_message(SPAN_WARNING("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		var/matrix/M = new
 		M.Scale(0.6)
 		M.Turn(pick(-40, 40))
@@ -160,7 +160,7 @@
 			return
 		deflating = TRUE
 		if(msg)
-			visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
+			visible_message(SPAN_NOTICE("\The [src] slowly deflates."), visible_message_flags = LOCAL_MESSAGE)
 		var/matrix/M = new
 		M.Scale(0.6)
 		animate(src, 2.6 SECONDS, transform = M)
@@ -235,7 +235,7 @@
 	if(istype(mover, /obj/effect/beam))
 		return !opacity
 	if(isprojectile(mover))
-		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"))
+		visible_message(SPAN_DANGER("\The [src] rapidly deflates!"), visible_message_flags = LOCAL_MESSAGE)
 		deflate(TRUE)
 		return TRUE
 	return !density

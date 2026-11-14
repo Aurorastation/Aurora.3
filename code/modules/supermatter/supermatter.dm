@@ -311,8 +311,8 @@
 		var/thermal_power = THERMAL_RELEASE_MODIFIER * device_energy
 		if (debug)
 			var/heat_capacity_new = removed.heat_capacity()
-			visible_message("[src]: Releasing [round(thermal_power)] W.")
-			visible_message("[src]: Releasing additional [round((heat_capacity_new - heat_capacity)*removed.temperature)] W with exhaust gasses.")
+			visible_message("[src]: Releasing [round(thermal_power)] W.", visible_message_flags = LOCAL_MESSAGE)
+			visible_message("[src]: Releasing additional [round((heat_capacity_new - heat_capacity)*removed.temperature)] W with exhaust gasses.", visible_message_flags = LOCAL_MESSAGE)
 
 		removed.add_thermal_energy(thermal_power)
 		removed.temperature = between(0, removed.temperature, 10000)
@@ -440,7 +440,8 @@
 	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
 		bumped_atom.visible_message(
 			SPAN_WARNING("\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash."),
-			SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat.")
+			blind_message = SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat."),
+			visible_message_flags = LOCAL_MESSAGE
 		)
 
 	Consume(bumped_atom)

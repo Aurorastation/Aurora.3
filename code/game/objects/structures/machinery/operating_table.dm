@@ -163,7 +163,7 @@
 
 /obj/structure/machinery/optable/attack_hand(mob/user)
 	if((user.mutations & HULK))
-		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
+		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		density = FALSE
 		qdel(src)
 		return
@@ -273,7 +273,7 @@
 	if(patient == giver) //Putting yourself on the table
 		giver.visible_message("\The [giver] climbs on \the [src].", "You climb on \the [src].")
 	else //Putting someone else on the table, or noone
-		visible_message(SPAN_NOTICE("\The [patient] has been laid on \the [src] by \the [giver]."))
+		visible_message(SPAN_NOTICE("\The [patient] has been laid on \the [src] by \the [giver]."), visible_message_flags = LOCAL_MESSAGE)
 
 	//Add the fingerprints and fibers of both the giver and the patient
 	add_fingerprint(giver)
@@ -321,9 +321,9 @@
 			return
 
 		if(patient == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [patient] onto \the [src]."), SPAN_NOTICE("You start putting \the [patient] onto \the [src]."), vision_distance = 3)
 
 		//Move the patient on the table after a short delay and buckle him
 		if(do_mob(user, patient, 1 SECOND, needhand = FALSE))
@@ -350,9 +350,9 @@
 			return TRUE
 
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), vision_distance = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), vision_distance = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			take_occupant(G.affecting,usr)
 			qdel(attacking_item)
@@ -382,7 +382,7 @@
 
 /obj/structure/machinery/optable/robotics/move_patient_to_table(mob/living/carbon/patient, mob/living/carbon/giver)
 	buckle(patient, giver)
-	visible_message(SPAN_NOTICE("[giver] buckles [patient] to \the [src]."))
+	visible_message(SPAN_NOTICE("[giver] buckles [patient] to \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/optable/robotics/buckle(atom/movable/buckling_atom, mob/user)
 	. = ..()

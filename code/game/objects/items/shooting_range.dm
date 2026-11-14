@@ -60,7 +60,7 @@
 	if(virtual_icon.GetPixel(p_x, p_y)) // if the located pixel isn't blank (null)
 		hp -= hitting_projectile.damage
 		if(hp <= 0)
-			visible_message(SPAN_WARNING("\The [src] breaks into tiny pieces and collapses!"))
+			visible_message(SPAN_WARNING("\The [src] breaks into tiny pieces and collapses!"), visible_message_flags = LOCAL_MESSAGE)
 			qdel(src)
 			return
 

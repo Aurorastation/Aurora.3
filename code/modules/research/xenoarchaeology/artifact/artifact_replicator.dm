@@ -88,7 +88,7 @@
 	if(spawning_types.len && powered())
 		spawn_progress_time += world.time - last_process_time
 		if(spawn_progress_time > max_spawn_time)
-			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] pings!"))
+			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] pings!"), visible_message_flags = LOCAL_MESSAGE)
 
 			var/obj/source_material = pop(stored_materials)
 			var/spawn_type = pop(spawning_types)
@@ -111,7 +111,7 @@
 				icon_state = "borgcharger0(old)"
 
 		else if(prob(5))
-			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] [pick("clicks","whizzes","whirrs","whooshes","clanks","clongs","clonks","bangs")]."))
+			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] [pick("clicks","whizzes","whirrs","whooshes","clanks","clongs","clonks","bangs")]."), visible_message_flags = LOCAL_MESSAGE)
 
 	last_process_time = world.time
 
@@ -129,7 +129,7 @@
 /obj/structure/machinery/replicator/attackby(obj/item/attacking_item, mob/user)
 	user.drop_from_inventory(attacking_item, src)
 	stored_materials.Add(attacking_item)
-	src.visible_message(SPAN_NOTICE("[user] inserts [attacking_item] into [src]."))
+	src.visible_message(SPAN_NOTICE("[user] inserts [attacking_item] into [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/replicator/Topic(href, href_list)
 
@@ -138,13 +138,13 @@
 		if(index > 0 && index <= construction.len)
 			if(stored_materials.len > spawning_types.len)
 				if(spawning_types.len)
-					src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] a [pick("light","dial","display","meter","pad")] on [src]'s front [pick("blinks","flashes")] [pick("red","yellow","blue","orange","purple","green","white")]."))
+					src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] a [pick("light","dial","display","meter","pad")] on [src]'s front [pick("blinks","flashes")] [pick("red","yellow","blue","orange","purple","green","white")]."), visible_message_flags = LOCAL_MESSAGE)
 				else
-					src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src]'s front compartment slides shut."))
+					src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src]'s front compartment slides shut."), visible_message_flags = LOCAL_MESSAGE)
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0
 				update_use_power(POWER_USE_ACTIVE)
 				icon_state = "borgcharger1(old)"
 			else
-				src.visible_message(fail_message)
+				src.visible_message(fail_message, visible_message_flags = LOCAL_MESSAGE)

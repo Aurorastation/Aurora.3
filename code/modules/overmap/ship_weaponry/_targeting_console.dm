@@ -113,7 +113,7 @@
 				LM = selected_entrypoint
 			var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
 			if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
-				visible_message(SPAN_WARNING("[usr] presses the fire button!"))
+				visible_message(SPAN_WARNING("[usr] presses the fire button!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/machines/compbeep1.ogg', 60)
 			switch(result)
 				if(SHIP_GUN_ERROR_NO_AMMO)
@@ -123,9 +123,9 @@
 					. = TRUE
 					if(issilicon(usr))
 						to_chat(usr,SPAN_WARNING("The targeting systems register, showing a successful firing sequence."))
-						visible_message(SPAN_WARNING("The console shows a neutral message: firing sequence successful, Silicon unit registered firing: [usr]"))
+						visible_message(SPAN_WARNING("The console shows a neutral message: firing sequence successful, Silicon unit registered firing: [usr]"), visible_message_flags = LOCAL_MESSAGE)
 					else
-						visible_message(SPAN_WARNING("The console shows a positive message: firing sequence successful!"))
+						visible_message(SPAN_WARNING("The console shows a positive message: firing sequence successful!"), visible_message_flags = LOCAL_MESSAGE)
 
 		if("viewing")
 			if(usr)

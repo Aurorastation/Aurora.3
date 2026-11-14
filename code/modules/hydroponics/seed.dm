@@ -273,7 +273,7 @@
 				apply_special_effect(M)
 			splatter(T,thrown)
 		if(origin_turf)
-			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] explodes!"))
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(thrown)
 		return
 
@@ -287,7 +287,7 @@
 	if(GET_SEED_TRAIT(src, TRAIT_JUICY) && splatted)
 		splatter(origin_turf,thrown)
 		if(origin_turf)
-			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] splatters against [target]!"))
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] splatters against [target]!"), visible_message_flags = LOCAL_MESSAGE)
 		qdel(thrown)
 
 	if(GET_SEED_TRAIT(src, TRAIT_TELEPORTING))
@@ -609,7 +609,7 @@
 
 	if(!degree || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
-	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"))
+	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"), visible_message_flags = LOCAL_MESSAGE)
 
 	//This looks like shit, but it's a lot easier to read/change this way.
 	var/total_mutations = rand(1,1+degree)
@@ -617,7 +617,7 @@
 		switch(rand(0,11))
 			if(0) //Plant cancer!
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE, GET_SEED_TRAIT(src, TRAIT_ENDURANCE)-rand(10,20), null, 0, null)
-				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
+				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"), visible_message_flags = LOCAL_MESSAGE)
 			if(1)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_NUTRIENT_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1), (degree*0.1)), 5, 0, null)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WATER_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION)+rand(-degree,degree), 50, 0, null)
@@ -639,7 +639,7 @@
 				if(prob(degree*5))
 					SET_SEED_TRAIT_BOUNDED(src, TRAIT_CARNIVOROUS,     GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS)+rand(-degree,degree), 2, 0, null)
 					if(GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS))
-						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."))
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."), visible_message_flags = LOCAL_MESSAGE)
 			if(6)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
 				if(prob(degree*5))
@@ -653,7 +653,7 @@
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_POTENCY,             GET_SEED_TRAIT(src, TRAIT_POTENCY)+(rand(-20,20)*degree), 200, 0, null)
 				if(prob(degree*5))
 					SET_SEED_TRAIT_BOUNDED(src, TRAIT_SPREAD,          GET_SEED_TRAIT(src, TRAIT_SPREAD)+rand(-1,1), 2, 0, null)
-					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."))
+					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."), visible_message_flags = LOCAL_MESSAGE)
 				if(prob(degree*5))
 					SET_SEED_TRAIT(src, TRAIT_SPOROUS,         !GET_SEED_TRAIT(src, TRAIT_SPOROUS))
 			if(9)
@@ -664,12 +664,12 @@
 				if(prob(degree*2))
 					SET_SEED_TRAIT(src, TRAIT_BIOLUM,         !GET_SEED_TRAIT(src, TRAIT_BIOLUM))
 					if(GET_SEED_TRAIT(src, TRAIT_BIOLUM))
-						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"))
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"), visible_message_flags = LOCAL_MESSAGE)
 						if(prob(degree*2))
 							SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
-							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
+							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!", visible_message_flags = LOCAL_MESSAGE)
 					else
-						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."))
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."), visible_message_flags = LOCAL_MESSAGE)
 			if(11)
 				SET_SEED_TRAIT(src, TRAIT_TELEPORTING, 1)
 
@@ -862,7 +862,7 @@
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))
-		product.visible_message(SPAN_NOTICE("The pod disgorges [product]!"))
+		product.visible_message(SPAN_NOTICE("The pod disgorges [product]!"), visible_message_flags = LOCAL_MESSAGE)
 		handle_living_product(product)
 		if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
 			var/mob/living/simple_animal/mushroom/mush = product

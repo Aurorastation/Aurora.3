@@ -82,7 +82,7 @@
 		desc = "It appears to be broken."
 		update_icon()
 		if(visual_feedback)
-			visible_message(SPAN_WARNING("[visual_feedback]"), SPAN_WARNING("[audible_feedback]"))
+			visible_message(SPAN_WARNING("[visual_feedback]"), blind_message = SPAN_WARNING("[audible_feedback]"), visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()

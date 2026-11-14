@@ -64,4 +64,4 @@
 /obj/item/dociler/proc/do_recharge()
 	loaded = 1
 	icon_state = "decloner"
-	src.visible_message("\The [src] beeps, refilling itself.")
+	src.visible_message("\The [src] beeps, refilling itself.", visible_message_flags = LOCAL_MESSAGE)

@@ -105,7 +105,7 @@
 						if(holder)
 							to_chat(holder, "[icon2html(src, viewers(get_turf(src)))] [src] held by [holder] shudders in your grasp.")
 						else
-							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.")
+							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.", visible_message_flags = (ismob(src.loc) ? NONE : LOCAL_MESSAGE))
 						inserted_battery.battery_effect.DoEffectTouch(holder)
 
 						//consume power
@@ -132,17 +132,17 @@
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
 				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] buzzes."),
-										SPAN_NOTICE("<span class='notice'>You hear something buzz."))
+										blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."), visible_message_flags = LOCAL_MESSAGE)
 
 				shutdown_emission()
 			else if(world.time > time_end)
 				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] chimes."),
-										SPAN_NOTICE("<span class='notice'>You hear something chime."))
+										blind_message = SPAN_NOTICE("<span class='notice'>You hear something chime."), visible_message_flags = LOCAL_MESSAGE)
 
 				shutdown_emission()
 		else
 			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] buzzes."),
-									SPAN_NOTICE("<span class='notice'>You hear something buzz."))
+									blind_message = SPAN_NOTICE("<span class='notice'>You hear something buzz."), visible_message_flags = LOCAL_MESSAGE)
 
 			shutdown_emission()
 		last_process = world.time
@@ -171,7 +171,7 @@
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
 			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] whirrs."),
-								SPAN_NOTICE("You hear something whirr."))
+								blind_message = SPAN_NOTICE("You hear something whirr."), visible_message_flags = LOCAL_MESSAGE)
 
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)

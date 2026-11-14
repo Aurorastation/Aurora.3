@@ -34,14 +34,14 @@
 						T = GET_TURF_BELOW(T)
 						damage_mod += 1
 			if(isturf(T))
-				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"))
+				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(get_turf(T), 'sound/effects/bangtaper.ogg', 80)
 				for(var/mob/living/L in range(2, T))
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)
 					if(rebecca.lying || from_above)
 						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), used_weapon = "landing", armor_pen = 30) //so true choomfie
-						T.visible_message(SPAN_DANGER("<font size=4>[H] lands on [rebecca]!</font>"))
+						T.visible_message(SPAN_DANGER("<font size=4>[H] lands on [rebecca]!</font>"), visible_message_flags = LOCAL_MESSAGE)
 						to_chat(H, SPAN_DANGER("<font size=4>You land on [rebecca]!</font>")) //since the mob won't be on the turf yet
 	user.post_maneuver()
 
@@ -124,7 +124,7 @@
 
 /singleton/maneuver/leap/areagrab/show_initial_message(mob/living/user, atom/target)
 	. = ..()
-	user.balloon_alert_to_viewers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
+	user.balloon_alert_to_hearers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
 
 	//Let them hear, let them fear
 	for(var/mob/living/carbon/human/person_in_range in get_hearers_in_LOS(world.view+5))

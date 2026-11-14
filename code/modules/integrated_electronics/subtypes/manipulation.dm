@@ -465,7 +465,7 @@
 		return
 
 	if((flashtime + (5 SECONDS)) > world.time)
-		visible_message(SPAN_WARNING("You see a weak flash from the [src]."))
+		visible_message(SPAN_WARNING("You see a weak flash from the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	var/flash_duration = clamp(get_pin_data(IC_INPUT, 2), 1, 4)
@@ -903,7 +903,7 @@
 			if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/cutting))
 				if(!TR.seed)
 					var/obj/item/seeds/S = O
-					acting_object.visible_message(SPAN_NOTICE("[acting_object] plants [O]."))
+					acting_object.visible_message(SPAN_NOTICE("[acting_object] plants [O]."), visible_message_flags = LOCAL_MESSAGE)
 					TR.seed = S.seed
 					TR.lastproduce = 0
 					TR.dead = 0
@@ -1001,7 +1001,7 @@
 			if(can_pull(to_pull) && check_target(to_pull, exclude_contents = TRUE))
 				set_pin_data(IC_OUTPUT, 1, TRUE)
 				pulling = to_pull
-				acting_object.visible_message("\The [acting_object] starts pulling \the [to_pull] around.")
+				acting_object.visible_message("\The [acting_object] starts pulling \the [to_pull] around.", visible_message_flags = LOCAL_MESSAGE)
 				push_data()
 				activate_pin(2)
 
@@ -1044,7 +1044,7 @@
 
 	var/atom/movable/AM = get_object()
 	if(AM)
-		AM.visible_message("\The [AM] stops pulling \the [pulling].")
+		AM.visible_message("\The [AM] stops pulling \the [pulling].", visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 
 	pulling = null
 	set_pin_data(IC_OUTPUT, 1, FALSE)
@@ -1157,7 +1157,7 @@
 
 	controlling.forceMove(aicard)
 	to_chat(controlling, SPAN_NOTICE("### IICC FIRMWARE DELETED. HAVE A NICE DAY ###"))
-	src.visible_message("\The [aicard] pops out of \the [src]!")
+	src.visible_message("\The [aicard] pops out of \the [src]!", visible_message_flags = LOCAL_MESSAGE)
 	aicard.dropInto(loc)
 	aicard = null
 	controlling = null
@@ -1199,7 +1199,7 @@
 
 	if(ord == 1)
 		assembly.anchored = !assembly.anchored
-		visible_message(assembly.anchored ? SPAN_NOTICE("\The [get_object()] deploys a set of anchoring bolts!") : SPAN_NOTICE("\The [get_object()] retracts its anchoring bolts."))
+		visible_message(assembly.anchored ? SPAN_NOTICE("\The [get_object()] deploys a set of anchoring bolts!") : SPAN_NOTICE("\The [get_object()] retracts its anchoring bolts."), visible_message_flags = LOCAL_MESSAGE)
 		set_pin_data(IC_OUTPUT, 1, assembly.anchored)
 		push_data()
 		activate_pin(2)
@@ -1227,4 +1227,4 @@
 /obj/item/integrated_circuit/manipulation/hatchlock/do_work(ord)
 	if(ord == 1)
 		lock_enabled = !lock_enabled
-		visible_message(SPAN_NOTICE("\The [get_object()] whirrs. The screws are now [lock_enabled ? "covered" : "exposed"]."))
+		visible_message(SPAN_NOTICE("\The [get_object()] whirrs. The screws are now [lock_enabled ? "covered" : "exposed"]."), visible_message_flags = LOCAL_MESSAGE)

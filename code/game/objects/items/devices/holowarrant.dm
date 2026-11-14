@@ -67,7 +67,7 @@
 
 /obj/item/holowarrant/proc/play_message(var/message)
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 40)
-	audible_message(message)
+	audible_message(message, audible_message_flags = LOCAL_MESSAGE)
 
 /// Called when a warrant is created
 /obj/item/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)

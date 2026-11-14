@@ -39,7 +39,7 @@
 
 /obj/structure/machinery/power/crystal_agitator/attack_hand(mob/user)
 	toggle_active()
-	visible_message("<b>[user]</b> turns \the [src] [active ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
+	visible_message("<b>[user]</b> turns \the [src] [active ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/crystal_agitator/proc/toggle_active()
 	active = !active

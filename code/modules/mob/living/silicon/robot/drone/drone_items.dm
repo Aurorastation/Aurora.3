@@ -163,7 +163,7 @@
 	//We're good to crunch them up
 	var/turf/T = get_turf(src)
 	T.visible_message(SPAN_DANGER("\The [user] sucks \the [victim] into its decompiler. There's a horrible crunching noise."),
-		SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [victim] into your decompiler. It makes a series of visceral crunching noises."))
+		SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [victim] into your decompiler. It makes a series of visceral crunching noises."), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 	playsound(get_turf(user), 'sound/effects/squelch1.ogg', 60)
 	if(wood)

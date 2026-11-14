@@ -46,7 +46,7 @@
 			var/obj/projectile/P = damage_source
 
 			if(P.starting && !P.reflected)
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				var/turf/curloc = get_turf(user)
 

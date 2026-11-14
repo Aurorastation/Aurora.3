@@ -55,7 +55,7 @@
 
 /obj/structure/bed/nest/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	var/final_message = replacetext(destroy_message, "THE STRUCTURE", "\The [src]")
-	visible_message(SPAN_WARNING(final_message))
+	visible_message(SPAN_WARNING(final_message), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 #undef NEST_RESIST_TIME

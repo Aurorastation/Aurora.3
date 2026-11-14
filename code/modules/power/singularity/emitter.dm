@@ -316,7 +316,7 @@
 	if(!locked)
 		activate(null)
 	else
-		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/emitter/proc/get_initial_fire_delay()
 	return 10 SECONDS

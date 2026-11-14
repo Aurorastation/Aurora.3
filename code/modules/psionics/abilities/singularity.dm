@@ -53,7 +53,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/singularity/Destroy()
-	visible_message(SPAN_WARNING("\The [src] dissipates harmlessly with a light 'fwoosh' sound."))
+	visible_message(SPAN_WARNING("\The [src] dissipates harmlessly with a light 'fwoosh' sound."), visible_message_flags = LOCAL_MESSAGE)
 	creator = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()

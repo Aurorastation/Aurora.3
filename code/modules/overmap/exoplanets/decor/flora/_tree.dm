@@ -66,7 +66,7 @@
 					valid_turfs += get_turf(src)
 				var/obj/item/stack/material/wood/branch/B = new(pick(valid_turfs))
 				B.amount = 1
-				visible_message(SPAN_NOTICE("\The [B] falls from \the [src]."))
+				visible_message(SPAN_NOTICE("\The [B] falls from \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 			if(chop_health <= 0)
 				timber(user)
@@ -102,7 +102,7 @@
 			continue
 		if(isliving(A))
 			var/mob/living/L = A
-			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"))
+			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"), visible_message_flags = LOCAL_MESSAGE)
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				var/obj/item/organ/external/affected = pick(H.organs)
@@ -118,7 +118,7 @@
 		if(isobj(A) && !istype(A, /obj/item/stack) && A != src)
 			var/obj/O = A
 			if(prob(fall_force * 0.75))
-				visible_message(SPAN_WARNING("\The [src] crushes \the [O] under its weight!"))
+				visible_message(SPAN_WARNING("\The [src] crushes \the [O] under its weight!"), visible_message_flags = LOCAL_MESSAGE)
 				qdel(A)
 	new /obj/structure/flora/stump/log(fall_loc)
 	var/obj/item/stack/material/wood/branch/B = new(fall_loc)

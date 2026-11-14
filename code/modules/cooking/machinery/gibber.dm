@@ -80,7 +80,7 @@
 		return FALSE
 
 	if(istype(victim_mob, /mob) && victim_mob.loc == input_plate)
-		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"))
+		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	else
 		return FALSE
 	if(victim_human.client)
@@ -217,10 +217,10 @@
 	if(operating)
 		return
 	if(!occupant)
-		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
+		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	use_power_oneoff(1000)
-	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
+	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."), visible_message_flags = LOCAL_MESSAGE)
 	operating = TRUE
 	update_icon()
 

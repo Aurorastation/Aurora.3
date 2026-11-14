@@ -19,4 +19,4 @@
 				to_chat(user, "There is already a shelf secured here!")
 				return
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."), visible_message_flags = LOCAL_MESSAGE)

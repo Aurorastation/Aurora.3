@@ -216,7 +216,7 @@
 						status = "idle"
 						action = "idle"
 						initial = 1
-						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.",blind_message = "You hear a pump spinning faster and then shutting down.", visible_message_flags = LOCAL_MESSAGE)
 				if(timediff > time_stage_1)
 					status = "stage1"
 					action_start_time = world.time
@@ -233,7 +233,7 @@
 						num_progress = 33
 						action = "idle"
 						blocked = 1
-						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.",blind_message = "You hear a pump spinning faster and then shutting down.", visible_message_flags = LOCAL_MESSAGE)
 				if(timediff > time_stage_2)
 					status = "stage2"
 					action_start_time = world.time
@@ -250,7 +250,7 @@
 						num_progress = 66
 						action = "idle"
 						blocked = 1
-						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.","You hear a pump spinning faster and then shutting down.")
+						visible_message("The hydraulic pump in [src] spins faster and shuts down a few moments later.",blind_message = "You hear a pump spinning faster and then shutting down.", visible_message_flags = LOCAL_MESSAGE)
 				if(timediff > time_stage_3)
 					status = "stage3"
 					action_start_time = world.time
@@ -363,7 +363,7 @@
 
 /obj/structure/machinery/crusher_base/proc/valve_check() //Check if the depreasurization valve is open
 	if(valve_open == 1)
-		visible_message("The hydraulic pump in [src] briefly spins up and then shuts down.","You hear a pump spinning up briefly and then shutting down.")
+		visible_message("The hydraulic pump in [src] briefly spins up and then shuts down.",blind_message = "You hear a pump spinning up briefly and then shutting down.", visible_message_flags = LOCAL_MESSAGE)
 		action = "idle"
 		return 0
 	return 1

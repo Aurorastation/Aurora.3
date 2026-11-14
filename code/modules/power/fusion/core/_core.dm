@@ -97,7 +97,7 @@
 /obj/structure/machinery/power/fusion_core/attack_hand(mob/user)
 	. = ..()
 	if(ishuman(user))
-		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"))
+		visible_message(SPAN_NOTICE("\The [user] hugs \the [src] to make it feel better!"), visible_message_flags = LOCAL_MESSAGE)
 		if(owned_field)
 			Shutdown()
 	return TRUE

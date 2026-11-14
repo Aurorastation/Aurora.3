@@ -34,7 +34,7 @@
 			T.network = teleport_rune.network
 		break
 	if(imbued_from)
-		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))
+		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"), visible_message_flags = (ismob(A) ? NONE : LOCAL_MESSAGE))
 		user.say("H'drak v'loso! Mir'kanas verbot!")
 		qdel(imbued_from)
 		qdel(new_talisman)

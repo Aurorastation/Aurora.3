@@ -82,7 +82,7 @@
 
 /singleton/surgery_step/slime/saw_core/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	target.cores--
-	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),,	\
+	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),	\
 		SPAN_NOTICE("You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left."))
 
 	if(target.cores >= 0)

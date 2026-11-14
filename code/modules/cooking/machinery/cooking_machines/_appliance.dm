@@ -370,7 +370,7 @@
 
 /obj/structure/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 	if(finish_verb)
-		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND)
+		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND, audible_message_flags = LOCAL_MESSAGE)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -527,7 +527,7 @@
 	new /obj/item/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
-	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"))
+	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)

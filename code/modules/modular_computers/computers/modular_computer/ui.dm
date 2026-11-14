@@ -5,7 +5,7 @@
 		return
 
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
+		audible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."), audible_message_flags = LOCAL_MESSAGE)
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
 	if(!ui)

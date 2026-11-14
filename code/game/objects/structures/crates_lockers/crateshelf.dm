@@ -93,14 +93,14 @@
 
 /obj/structure/crate_shelf/proc/relay_container_resist_act(mob/living/user, obj/structure/closet/crate)
 	to_chat(user, SPAN_NOTICE("You begin attempting to knock [crate] out of [src]."))
-	visible_message(SPAN_DANGER("\The [crate] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
+	visible_message(SPAN_DANGER("\The [crate] begins to shake violently!"), blind_message = SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 	crate.shake_animation()
 
 	if(do_after(user, 20 SECONDS, target = crate))
 		if(!user || user.stat != CONSCIOUS || user.loc != crate || crate.loc != src)
 			return // If the user is in a strange condition, return early.
 		crate.shake_animation()
-		visible_message(SPAN_WARNING("\The [crate] falls off the [src]!"), SPAN_NOTICE("You hear a thud."), intent_message = THUNK_SOUND)
+		visible_message(SPAN_WARNING("\The [crate] falls off the [src]!"), blind_message = SPAN_NOTICE("You hear a thud."), intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 		crate.forceMove(loc) // Drop the crate onto the shelf,
 		step_rand(crate, 1) // Then try to push it somewhere.
 		crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
@@ -130,22 +130,22 @@
 		to_chat(user, SPAN_NOTICE("The shelf is full."))
 		balloon_alert(user, "shelf full!")
 		return FALSE
-	visible_message("\The [user] starts to put \the [crate] on \the [src].")
+	visible_message("\The [user] starts to put \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	if(do_after(user, use_delay, target = crate))
 		if(shelf_contents[next_free] != null)
 			// Something has been added to the shelf while we were waiting, abort!
-			visible_message("\The [user] stops putting \the [crate] on \the [src].")
+			visible_message("\The [user] stops putting \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 			to_chat(user, SPAN_NOTICE("Something else was added to the shelf first."))
 			return FALSE
 		if(crate.opened) // If the crate is open, try to close it.
 			if(!crate.close())
-				visible_message("\The [user] stops putting \the [crate] on \the [src].")
+				visible_message("\The [user] stops putting \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 				to_chat(user, SPAN_NOTICE("The crate couldn't be closed."))
 				return FALSE // If we fail to close it, don't load it into the shelf.
 		put_in(crate, next_free)
-		visible_message("\The [user] puts \the [crate] on \the [src].")
+		visible_message("\The [user] puts \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
-	visible_message("\The [user] stops putting \the [crate] on \the [src].")
+	visible_message("\The [user] stops putting \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	return FALSE // If the do_after() is interrupted, return FALSE!
 
 /obj/structure/crate_shelf/proc/load_carried(obj/item/package/carried_crate/carrier, mob/living/carbon/human/user)
@@ -157,9 +157,9 @@
 		balloon_alert(user, "shelf full!")
 		return FALSE
 	var/obj/structure/closet/crate/crate = carrier.stored_crate
-	visible_message("\The [user] starts to put \the [crate] on \the [src].")
+	visible_message("\The [user] starts to put \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	if(!do_after(user, use_delay, target = carrier) || carrier.loc != user || carrier.stored_crate != crate || !user.Adjacent(src))
-		visible_message("\The [user] stops putting \the [crate] on \the [src].")
+		visible_message("\The [user] stops putting \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		return FALSE
 	if(shelf_contents[next_free] != null)
 		to_chat(user, SPAN_NOTICE("Something else was added to the shelf first."))
@@ -168,7 +168,7 @@
 	carrier.stored_crate = null
 	user.drop_from_inventory(carrier, src)
 	qdel(carrier)
-	visible_message("\The [user] puts \the [crate] on \the [src].")
+	visible_message("\The [user] puts \the [crate] on \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /obj/structure/crate_shelf/proc/put_in(obj/structure/closet/crate/crate, var/next_free)
@@ -187,10 +187,10 @@
 	if(!unload_turf.Enter(crate)) // If moving the crate from the shelf to the desired turf would bump, don't do it! Thanks Kapu1178 for the help here. - Generic DM
 		to_chat(user, SPAN_NOTICE("There is no room for the crate."))
 		return FALSE
-	visible_message("\The [user] starts unloading \the [crate] from \the [src].")
+	visible_message("\The [user] starts unloading \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	if(do_after(user, use_delay, target = crate))
 		if(!LAZYFIND(shelf_contents, crate))
-			visible_message("\The [user] stops unloading \the [crate] from \the [src].")
+			visible_message("\The [user] stops unloading \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 			to_chat(user, SPAN_NOTICE("The crate can't be moved."))
 			return FALSE // If something has happened to the crate while we were waiting, abort!
 		crate.layer = initial(crate.layer) // Reset the crate back to having the default layer, otherwise we might get strange interactions.
@@ -198,9 +198,9 @@
 		crate.forceMove(unload_turf)
 		shelf_contents[shelf_contents.Find(crate)] = null // We do this instead of removing it from the list to preserve the order of the shelf.
 		handle_visuals()
-		visible_message("\The [user] unloads \the [crate] from \the [src].")
+		visible_message("\The [user] unloads \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
-	visible_message("\The [user] stops unloading \the [crate] from \the [src].")
+	visible_message("\The [user] stops unloading \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	return FALSE  // If the do_after() is interrupted, return FALSE!
 
 /obj/structure/crate_shelf/proc/lift_to_hands(obj/structure/closet/crate/crate, mob/living/carbon/human/user)
@@ -212,9 +212,9 @@
 	if(user.get_lift_capacity() < crate.get_effective_mass())
 		to_chat(user, SPAN_WARNING("\The [crate] is too heavy for you to lift."))
 		return FALSE
-	visible_message("\The [user] starts lifting \the [crate] from \the [src].")
+	visible_message("\The [user] starts lifting \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	if(!do_after(user, use_delay, target = crate) || !user.Adjacent(src) || crate.loc != src || !LAZYFIND(shelf_contents, crate))
-		visible_message("\The [user] stops lifting \the [crate] from \the [src].")
+		visible_message("\The [user] stops lifting \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		return FALSE
 	if(user.get_active_hand() || user.get_inactive_hand() || user.get_lift_capacity() < crate.get_effective_mass())
 		return FALSE
@@ -229,5 +229,5 @@
 		return FALSE
 	carrier.wield(user)
 	handle_visuals()
-	visible_message("\The [user] lifts \the [crate] from \the [src].")
+	visible_message("\The [user] lifts \the [crate] from \the [src].", visible_message_flags = LOCAL_MESSAGE)
 	return TRUE

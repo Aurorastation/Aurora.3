@@ -133,6 +133,7 @@
 				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]."),
 				SPAN_WARNING("\The [src] appears to bounce off \the [hitting_projectile]. It has little effect."),
 			),
+			visible_message_flags = LOCAL_MESSAGE,
 		)
 	else if(istype(hitting_projectile, /obj/projectile/energy))
 		src.visible_message(
@@ -143,6 +144,7 @@
 				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
 				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 			),
+			visible_message_flags = LOCAL_MESSAGE,
 		)
 	else if(istype(hitting_projectile, /obj/projectile/beam))
 		var/damage = hitting_projectile.get_structure_damage()
@@ -155,6 +157,7 @@
 				SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. It has little effect."),
 				SPAN_WARNING("\The [src] appears to consume \the [hitting_projectile]. It has little effect."),
 				),
+				visible_message_flags = LOCAL_MESSAGE,
 			)
 		else
 			if(world.time - last_stage_advancement > 30 SECONDS)
@@ -172,6 +175,7 @@
 					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can hear it vibrate."),
 					SPAN_WARNING("\The [src] appears to absorb \the [hitting_projectile]. You can see it glow stronger for a few seconds."),
 				),
+				visible_message_flags = LOCAL_MESSAGE,
 			)
 
 /obj/structure/crystal_madness/attack_hand(mob/user as mob)

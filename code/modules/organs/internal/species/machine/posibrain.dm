@@ -67,7 +67,7 @@
 
 /obj/item/organ/internal/machine/posibrain/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	playsound(src, SFX_BREAK_GLASS, 100, 1)
-	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"))
+	visible_message(SPAN_DANGER("\The [src] shatters spectacularly into a million pieces!"), visible_message_flags = LOCAL_MESSAGE)
 	to_chat(owner, SPAN_DANGER("Your vision goes dark as your posibrain is destroyed, and your consciousness ceases to be."))
 	new /obj/effect/decal/cleanable/blood/gibs/robot(get_turf(src))
 	. = ..()

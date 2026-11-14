@@ -91,7 +91,7 @@
 	if(!ignore_shield_destruction && istype(A, /obj/effect/energy_field))
 		hitpwr *= 0.5
 		A.ex_act(hitpwr)
-		visible_message(SPAN_DANGER("\The [src] breaks into dust!"))
+		visible_message(SPAN_DANGER("\The [src] breaks into dust!"), visible_message_flags = LOCAL_MESSAGE)
 		make_debris()
 		msg_admin_attack("Meteor collided with shields at (<a href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 		qdel(src)

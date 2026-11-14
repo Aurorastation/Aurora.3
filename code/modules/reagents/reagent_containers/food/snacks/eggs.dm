@@ -33,7 +33,7 @@
 	..()
 	new/obj/effect/decal/cleanable/egg_smudge(src.loc)
 	src.reagents.splash(hit_atom, reagents.total_volume)
-	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), SPAN_WARNING("You hear a smack."))
+	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), blind_message = SPAN_WARNING("You hear a smack."), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/attacking_item, mob/user)
@@ -62,7 +62,7 @@
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
-			visible_message("[src] hatches with a quiet cracking sound.")
+			visible_message("[src] hatches with a quiet cracking sound.", visible_message_flags = LOCAL_MESSAGE)
 			new hatchling(get_turf(src))
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)

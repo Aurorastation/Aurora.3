@@ -43,7 +43,7 @@
 				if(!moved) // nowhere to go....
 					LM.gib()
 			else // the mob is too big to just move, so we need to give up what we're doing
-				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.")
+				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.", audible_message_flags = LOCAL_MESSAGE)
 				cur_command = null // the door will just keep trying otherwise
 				return 0
 	return ..()

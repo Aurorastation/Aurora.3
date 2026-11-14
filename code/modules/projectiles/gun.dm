@@ -571,7 +571,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	balloon_alert_to_viewers("*click*")
+	balloon_alert_to_hearers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
 	if(user)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
@@ -1123,10 +1123,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		return TRUE
 
 	if(pin && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
+		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
-				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

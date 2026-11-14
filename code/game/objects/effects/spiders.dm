@@ -161,7 +161,7 @@
 		..()
 
 /obj/effect/spider/spiderling/proc/die()
-	visible_message(SPAN_WARNING("\The [src] dies!"))
+	visible_message(SPAN_WARNING("\The [src] dies!"), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
 
@@ -201,7 +201,7 @@
 									return
 
 								if(prob(50))
-									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
+									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 								sleep(travel_time)
 								// It's possible for the grem to get qdel'd during the sleep above this line.
 								if(QDELETED(src))
@@ -224,7 +224,7 @@
 			var/target_atom = pick(nearby)
 			GLOB.move_manager.move_to(src, target_atom, 0, 5)
 			if(prob(25))
-				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
+				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."), visible_message_flags = LOCAL_MESSAGE)
 	else if(prob(5))
 		//vent crawl!
 		for(var/obj/structure/machinery/atmospherics/unary/vent_pump/v in view(7,src))
@@ -239,7 +239,7 @@
 		qdel(src)
 
 	else if(prob(1))
-		src.visible_message(SPAN_NOTICE("\The [src] skitters."))
+		src.visible_message(SPAN_NOTICE("\The [src] skitters."), visible_message_flags = LOCAL_MESSAGE)
 
 	if(can_mature)
 		growth_level += (rand(0, 1) * growth_rate)
@@ -248,12 +248,12 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	if(prob(20))
-		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
+		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"), visible_message_flags = LOCAL_MESSAGE)
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
 			GLOB.move_manager.move_to(src, pick(nearby), 0, 2)
 			return
-	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
+	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"), visible_message_flags = LOCAL_MESSAGE)
 	die()
 
 /obj/effect/spider/spiderling/attackby(obj/item/attacking_item, mob/user)
@@ -281,7 +281,7 @@
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()
-	src.visible_message(SPAN_WARNING("\The [src] splits open."))
+	src.visible_message(SPAN_WARNING("\The [src] splits open."), visible_message_flags = LOCAL_MESSAGE)
 	for(var/atom/movable/A in contents)
 		A.forceMove(src.loc)
 	return ..()

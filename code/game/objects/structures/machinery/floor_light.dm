@@ -25,7 +25,7 @@
 /obj/structure/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		anchored = !anchored
-		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_WELDER && (damaged || (stat & BROKEN)))
@@ -37,7 +37,7 @@
 			return TRUE
 		if(!src || !WT.isOn())
 			return TRUE
-		visible_message(SPAN_NOTICE("\The [user] has repaired \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] has repaired \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 		stat &= ~BROKEN
 		damaged = null
@@ -64,12 +64,12 @@
 
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
-			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src, SFX_BREAK_GLASS, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else
-			visible_message(SPAN_DANGER("\The [user] attacks \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] attacks \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 			if(isnull(damaged)) damaged = 0
 		update_brightness()
@@ -91,7 +91,7 @@
 		on = !on
 		if(on)
 			update_use_power(POWER_USE_ACTIVE)
-		visible_message(SPAN_NOTICE("\The [user] turns \the [src] [on ? "on" : "off"]."))
+		visible_message(SPAN_NOTICE("\The [user] turns \the [src] [on ? "on" : "off"]."), visible_message_flags = LOCAL_MESSAGE)
 		update_brightness()
 		return
 

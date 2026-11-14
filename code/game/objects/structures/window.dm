@@ -65,7 +65,7 @@
 	if(health < maxhealth) // Mend the damage.
 		add_health(amount * 3)
 		if(health == maxhealth)
-			visible_message(SPAN_NOTICE("The silicate fully mends the damage on \the [src]."))
+			visible_message(SPAN_NOTICE("The silicate fully mends the damage on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 	else // Reinforce.
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
@@ -81,7 +81,7 @@
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message(SPAN_WARNING("\The [src] shatters!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	if(dir == SOUTHWEST)
 		var/index = null
 		index = 0
@@ -161,10 +161,10 @@
 			M.turf_collision(src, throwingdatum.speed, SFX_GLASS_CRACK)
 			return
 		else
-			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 		tforce = 40
 	else if(isobj(hitting_atom))
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 		var/obj/item/I = hitting_atom
 		tforce = I.throwforce
 	if(reinf)
@@ -201,16 +201,16 @@
 /obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
-		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
+		visible_message(SPAN_DANGER("[user] smashes into [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(damage)
 	else
-		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1
 
 /obj/structure/window/do_simple_ranged_interaction(var/mob/user)
-	visible_message(SPAN_NOTICE("Something knocks on \the [src]."))
+	visible_message(SPAN_NOTICE("Something knocks on \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
@@ -271,7 +271,7 @@
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
-			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
+			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			dismantle_window()
 
 		return TRUE
@@ -677,7 +677,7 @@
 /obj/structure/window/full/shatter(var/display_message = 1)
 	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
-		visible_message(SPAN_WARNING("\The [src] shatters!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	if(reinf)
 		new /obj/item/stack/rods(loc, 4)
 	for(var/i = 1 to 4)

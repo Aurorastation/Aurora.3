@@ -587,7 +587,7 @@ EMAG/ILLEGAL
 /obj/structure/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
-		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."))
+		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."), visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/structure/machinery/biogenerator/Initialize()

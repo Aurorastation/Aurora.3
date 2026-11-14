@@ -32,7 +32,7 @@
 /obj/item/phylactery/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(istype(attacking_item, /obj/item/nullrod))
-		src.visible_message("\The [src] twists violently and explodes!")
+		src.visible_message("\The [src] twists violently and explodes!", visible_message_flags = LOCAL_MESSAGE)
 		gibs(src.loc)
 		qdel(src)
 		return

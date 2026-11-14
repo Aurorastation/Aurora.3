@@ -73,7 +73,8 @@
 /obj/item/flashlight/flare/proc/turn_off()
 	on = FALSE
 	visible_message(
-		SPAN_NOTICE("\The [src] sputters out.")
+		SPAN_NOTICE("\The [src] sputters out."),
+		visible_message_flags = LOCAL_MESSAGE
 	)
 	update_icon()
 	set_light_on(on)
@@ -188,6 +189,6 @@
 	update_icon()
 
 /obj/item/flashlight/flare/torch/stick/turn_off()
-	visible_message("\The [src] burns out.")
+	visible_message("\The [src] burns out.", visible_message_flags = LOCAL_MESSAGE)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
 	qdel(src)

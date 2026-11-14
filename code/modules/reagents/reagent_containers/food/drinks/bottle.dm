@@ -41,7 +41,7 @@
 		var/throw_dist = get_dist(get_turf(M), get_turf(src))
 		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"), visible_message_flags = (ismob(hit_atom) ? NONE : LOCAL_MESSAGE))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -211,7 +211,7 @@
 	var/amount_lost = intensity * 5
 	reagents.remove_any(amount_lost)
 
-	visible_message(SPAN_WARNING("Some of [name]'s contents are let loose!"))
+	visible_message(SPAN_WARNING("Some of [name]'s contents are let loose!"), visible_message_flags = LOCAL_MESSAGE)
 	var/intensity_state = null
 	switch(intensity)
 		if(1)

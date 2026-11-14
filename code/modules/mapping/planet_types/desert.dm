@@ -169,7 +169,7 @@
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
 		return
-	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"))
+	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"), visible_message_flags = LOCAL_MESSAGE)
 	name = "quicksand"
 	desc = "There is no candy at the bottom."
 	exposed = 1

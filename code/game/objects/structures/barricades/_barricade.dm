@@ -101,12 +101,12 @@
 		if(mover.throwing)
 			var/chance = (handle_barrier_chance(3))
 			if(chance)
-				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"))
+				visible_message(SPAN_WARNING("\The [mover] clips the top of \the [src] and bounces off!"), visible_message_flags = LOCAL_MESSAGE)
 				if(barricade_hitsound)
 					playsound(src, barricade_hitsound, 20, 1)
 				return !density
 			else
-				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"))
+				visible_message(SPAN_WARNING("\The [mover] sails over \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				return TRUE
 		return !density
 	else
@@ -159,11 +159,11 @@
 		return
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!"))
+	visible_message(SPAN_DANGER("[L] [attack_verb] the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(barricade_hitsound)
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
-		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
+		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"), visible_message_flags = LOCAL_MESSAGE)
 		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	add_damage(damage)
@@ -264,7 +264,7 @@
 	var/mob/living/L = user
 	L.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/message = pick(I.attack_verb)
-	visible_message(SPAN_DANGER("[L] has [message] the [src]!"))
+	visible_message(SPAN_DANGER("[L] has [message] the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	L.do_attack_animation(src)
 	add_damage(I.force, I.damage_flags(), I.damtype, I.armor_penetration, I)
 
@@ -278,7 +278,7 @@
 
 /obj/structure/barricade/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!health)
-		visible_message(SPAN_DANGER("[src] falls apart!"))
+		visible_message(SPAN_DANGER("[src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 		barricade_deconstruct()
 
 /obj/structure/barricade/proc/update_damage_state()

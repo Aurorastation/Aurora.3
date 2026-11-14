@@ -31,7 +31,7 @@
 /obj/structure/undetonated_nuke/proc/explode()
 	var/turf/T = get_turf(src)
 	can_explode = FALSE
-	visible_message(SPAN_DANGER("\The [src] explodes!"))
+	visible_message(SPAN_DANGER("\The [src] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	explosion(T, 6, 8, 10, spreading = TRUE)
 	SSradiation.radiate(src, 250)
 	new /obj/effect/decal/cleanable/greenglow(T)
@@ -53,9 +53,9 @@
 	if(istype(current_turf, /turf/simulated/floor/exoplanet))
 		var/turf/simulated/floor/exoplanet/T = current_turf
 		if(attacking_item.is_shovel() && T.diggable)
-			visible_message(SPAN_NOTICE("\The [user] begins to excavate \the [src]."))
+			visible_message(SPAN_NOTICE("\The [user] begins to excavate \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			if(attacking_item.use_tool(src, user, 100, volume = 50))
-				visible_message(SPAN_NOTICE("\The [user] finishes digging \the [src] from \the [T]!"))
+				visible_message(SPAN_NOTICE("\The [user] finishes digging \the [src] from \the [T]!"), visible_message_flags = LOCAL_MESSAGE)
 				new /obj/structure/pit(T)
 				var/obj/structure/undetonated_nuke/N = new(T)
 				N.can_explode = can_explode

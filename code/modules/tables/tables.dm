@@ -118,14 +118,14 @@
 	health -= amount
 	if(health <= 0)
 		if(msg)
-			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
+			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
 /obj/structure/table/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	take_damage(damage)
 	return TRUE
 

@@ -112,7 +112,7 @@
 		else
 			MA.visible_message(\
 				SPAN_DANGER("\The [MA] is starting to be buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 
 		if(!do_after(user, buckle_delay, src))
 			return
@@ -130,7 +130,7 @@
 		else
 			MA.visible_message(\
 				SPAN_DANGER("\The [MA] is buckled to [src] by [user.name]!"),\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/proc/user_unbuckle(mob/user)
 	var/atom/movable/MA = unbuckle()
@@ -153,6 +153,6 @@
 		else
 			MA.visible_message(\
 				"<b>[MA.name]</b> unbuckles themselves.",\
-				SPAN_NOTICE("You hear metal clanking."))
+				SPAN_NOTICE("You hear metal clanking."), visible_message_flags = LOCAL_MESSAGE)
 		add_fingerprint(user)
 	return MA
