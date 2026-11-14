@@ -1,5 +1,7 @@
 /datum/design/circuit/computer
 	p_category = "Computer Circuit Designs"
+	category = "Console Flatpaks"
+	build_type = IMPRINTER | MECHFAB
 
 /datum/design/circuit/computer/seccamera
 	name = "Security Camera Monitor"
