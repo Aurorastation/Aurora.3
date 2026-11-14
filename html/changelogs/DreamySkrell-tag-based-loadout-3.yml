@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds tag-based loadout."
+  - rscdel: "Kills category-based loadout."
