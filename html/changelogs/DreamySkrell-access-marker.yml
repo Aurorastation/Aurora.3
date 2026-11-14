@@ -1,0 +1,8 @@
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Added access map markers."
+  - rscadd: "Added the 'access marker (no access)' map marker."
+  - refactor: "Cryo outpost map now uses access markers instead of var-edited access."
