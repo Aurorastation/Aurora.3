@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed pilot movement penalties slowing mechs, missing legs causing pilots to collapse inside their cockpit, and dropped items becoming trapped inside the mech."

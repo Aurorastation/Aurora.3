@@ -68,6 +68,12 @@
 	if (istype(buckled_to, /obj/structure/bed))
 		return
 
+	// A mech cockpit supports its pilot in the same way a seat does.
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		if(src in mech.pilots)
+			return
+
 	stance_damage = species.handle_stance_damage(src)
 
 	//Standing is poor.
