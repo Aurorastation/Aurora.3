@@ -649,7 +649,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			continue
 		#endif
 
-		var/icon/I = icon(icon_file, icon_state, SOUTH)
+		var/icon/I = icon(icon_file, icon_state, SOUTH, 1)
 		var/c = initial(item.color)
 		if(!isnull(c) && c != "#FFFFFF")
 			I.Blend(c, ICON_MULTIPLY)
@@ -692,7 +692,7 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		if(!icon_file || !(icon_state in icon_states(icon_file)))
 			continue
 
-		Insert(loadout_icon_id(gear.display_name), icon(icon_file, icon_state, SOUTH))
+		Insert(loadout_icon_id(gear.display_name), icon(icon_file, icon_state, SOUTH, 1))
 
 /// The sprite name of a gear item in the loadout spritesheet.
 /proc/loadout_icon_id(gear_display_name)

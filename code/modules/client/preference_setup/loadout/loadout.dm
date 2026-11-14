@@ -487,7 +487,7 @@ GLOBAL_LIST_INIT(loadout_unrestricted_tags, list(LOADOUT_TAG_NO_FACTION, LOADOUT
 	var/icon_state = initial(preview_path.icon_state)
 	var/result = FALSE
 	if(icon_file && (icon_state in icon_states(icon_file)))
-		var/icon/preview = icon(icon_file, icon_state, SOUTH)
+		var/icon/preview = icon(icon_file, icon_state, SOUTH, 1)
 		if(preview_color)
 			preview.Blend(preview_color, ICON_MULTIPLY)
 		result = icon2base64(preview)
