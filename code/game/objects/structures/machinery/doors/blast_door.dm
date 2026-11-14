@@ -134,6 +134,11 @@
  * * mob/user - Mob which clicked this object
  */
 /obj/structure/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))

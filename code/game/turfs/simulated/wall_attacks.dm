@@ -92,6 +92,11 @@
 	if(istype(attacking_item, /obj/item/plastique))
 		return
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_wall(src, user)
+		return TRUE
+
 	if(attacking_item)
 		radiate()
 		if(is_hot(attacking_item))

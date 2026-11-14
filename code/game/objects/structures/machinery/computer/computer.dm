@@ -113,13 +113,13 @@
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		if (overlay_layer != layer)
-			AddOverlays(image(icon, icon_broken, overlay_layer))
+			AddOverlays(computer_overlay(icon_broken, overlay_layer))
 		else
-			AddOverlays(icon_broken)
+			AddOverlays(computer_overlay(icon_broken))
 	else if (icon_screen)
 		if (is_holographic)
-			var/mutable_appearance/screen_overlay = overlay_image(src.icon, icon_screen)
-			var/mutable_appearance/screen_overlay_holographic = overlay_image(src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay = computer_overlay(icon_screen)
+			var/mutable_appearance/screen_overlay_holographic = computer_overlay(icon_screen)
 			screen_overlay_holographic.filters += filter(type="color", color=list(
 				0, 0, 0, 0,
 				0, 0, 0, 0,
@@ -139,19 +139,23 @@
 			AddOverlays(screen_overlay)
 			AddOverlays(screen_overlay_emis)
 		if (icon_scanline)
-			AddOverlays(icon_scanline)
+			AddOverlays(computer_overlay(icon_scanline))
 		if (icon_keyboard)
 			if((stat & NOPOWER) && has_off_keyboards)
-				AddOverlays("[icon_keyboard]_off")
+				AddOverlays(computer_overlay("[icon_keyboard]_off"))
 			else
-				AddOverlays(icon_keyboard)
+				AddOverlays(computer_overlay(icon_keyboard))
 				if(icon_keyboard_emis)
 					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
 					AddOverlays(emis)
 		else if (overlay_layer != layer)
-			AddOverlays(image(icon, icon_screen, overlay_layer))
+			AddOverlays(computer_overlay(icon_screen, overlay_layer))
 		else
-			AddOverlays(icon_screen)
+			AddOverlays(computer_overlay(icon_screen))
+
+/// Builds an overlay that ignores the computer's paint colour, so only the frame gets tinted.
+/obj/structure/machinery/computer/proc/computer_overlay(state, overlay_layer_override)
+	return overlay_image(icon, state, null, RESET_COLOR, null, overlay_layer_override)
 
 /obj/structure/machinery/computer/power_change()
 	..()
@@ -186,6 +190,11 @@
 	. = ..()
 
 /obj/structure/machinery/computer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(circuit)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))

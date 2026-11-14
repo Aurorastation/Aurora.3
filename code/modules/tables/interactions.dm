@@ -269,6 +269,11 @@
 	if (!attacking_item)
 		return
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return
+
 	// Handle harm intent grabbing/tabling.
 	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = attacking_item
