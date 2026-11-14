@@ -34,6 +34,7 @@
 	icon = 'icons/obj/guns/faction/pra/maidhaztha.dmi'
 	icon_state = "blockbuster"
 	item_state = "blockbuster"
+	persistent_chamber = FALSE // The launcher fires directly from its warhead magazine.
 	caliber = "nuke"
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
@@ -107,6 +108,9 @@
 	return FALSE
 
 /obj/item/gun/projectile/recoilless_rifle/unload_ammo(mob/user, var/allow_dump = 1, var/drop_mag = FALSE)
+	return FALSE
+
+/obj/item/gun/projectile/recoilless_rifle/has_eject_action()
 	return FALSE
 
 /obj/item/gun/projectile/peac

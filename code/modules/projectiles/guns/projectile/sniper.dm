@@ -122,7 +122,7 @@
 	else
 		icon_state = "slugger"
 
-/obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
+/obj/item/gun/projectile/heavysniper/unathi/post_fire(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

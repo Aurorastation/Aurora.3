@@ -455,7 +455,6 @@
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
 	fire_sound = SFX_SHOOT_GAUSS
-	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
 	needspin = TRUE
@@ -473,7 +472,7 @@
 /obj/item/gun/launcher/crossbow/vaurca/consume_next_projectile(mob/user=null)
 	return bolt
 
-/obj/item/gun/launcher/crossbow/vaurca/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/launcher/crossbow/vaurca/post_fire(mob/user, atom/target)
 	bolt = null
 	tension = 1
 	..()

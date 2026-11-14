@@ -8,7 +8,6 @@
 	force = 15
 
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
-	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	throw_distance = 7
 	release_force = 5
@@ -64,15 +63,31 @@
 	user.visible_message("[user] inserts \a [G] into [src].", SPAN_NOTICE("You insert \a [G] into [src]."))
 	update_maptext()
 
-/obj/item/gun/launcher/grenade/proc/unload(mob/user)
+/obj/item/gun/launcher/grenade/proc/unload(mob/user, drop_to_ground = FALSE)
 	if(grenades.len)
 		var/obj/item/grenade/G = grenades[grenades.len]
 		grenades.len--
-		user.put_in_hands(G)
+		if(drop_to_ground)
+			G.forceMove(get_turf(src))
+		else
+			user.put_in_hands(G)
 		user.visible_message("[user] removes \a [G] from [src].", SPAN_NOTICE("You remove \a [G] from [src]."))
+	else if(drop_to_ground && chambered)
+		var/obj/item/grenade/ejected = chambered
+		chambered = null
+		ejected.forceMove(get_turf(src))
+		balloon_alert_to_viewers("*eject*")
 	else
 		to_chat(user, SPAN_WARNING("[src] is empty."))
 	update_maptext()
+	update_icon()
+
+/obj/item/gun/launcher/grenade/has_eject_action()
+	return TRUE
+
+/obj/item/gun/launcher/grenade/eject(mob/user)
+	if(get_turf(src))
+		unload(user, TRUE)
 
 /obj/item/gun/launcher/grenade/proc/can_load_grenade_type(obj/item/grenade/G, mob/user)
 	if(is_type_in_list(G, blacklisted_grenades))
@@ -107,7 +122,7 @@
 		return grenade.process_launcher_projectile(src, user, target, target_zone, params)
 	return ..()
 
-/obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
+/obj/item/gun/launcher/grenade/post_fire(mob/user)
 	if(chambered.notify_admins_on_launcher_fire)
 		message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
 	log_game("[key_name_admin(user)] used a grenade ([chambered.name]).")
@@ -176,7 +191,9 @@
 	chambered = G
 	user.visible_message("[user] load \a [G] into [src].", SPAN_NOTICE("You load \a [G] into [src]."))
 
-/obj/item/gun/launcher/grenade/underslung/unload(mob/user)
+/obj/item/gun/launcher/grenade/underslung/unload(mob/user, drop_to_ground = FALSE)
+	if(drop_to_ground)
+		return ..()
 	if(chambered)
 		user.put_in_hands(chambered)
 		user.visible_message("[user] removes \a [chambered] from [src].", SPAN_NOTICE("You remove \a [chambered] from [src]."))

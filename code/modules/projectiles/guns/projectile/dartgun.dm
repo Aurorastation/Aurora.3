@@ -47,9 +47,9 @@
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/dartgun.dmi'
 	icon_state = "dartgun-empty"
+	persistent_chamber = FALSE // The action button operates the chemical mixer.
 	caliber = "dart"
 	fire_sound = 'sound/weapons/click.ogg'
-	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
 	suppressed = TRUE

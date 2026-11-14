@@ -135,7 +135,7 @@
 	require_wield = TRUE
 	slot_flags = 0
 
-/obj/item/gun/custom_ka/frameB/handle_post_fire(mob/user)
+/obj/item/gun/custom_ka/frameB/post_fire(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -167,11 +167,11 @@
 	mod_limit_increase = 5
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
 
-/obj/item/gun/custom_ka/frameC/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
-	if(!isvaurca(user))
+/obj/item/gun/custom_ka/frameC/pre_fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, atom/controller)
+	if(user && !isvaurca(user))
 		to_chat(user, SPAN_WARNING("This frame was not designed to be operated with your type of hands!"))
 		return
-	..()
+	return ..()
 
 /obj/item/gun/custom_ka/frameD
 	name = "burst fire kinetic accelerator frame"

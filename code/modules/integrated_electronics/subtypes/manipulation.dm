@@ -103,7 +103,11 @@
 	if(!T)
 		return
 
-	installed_gun.Fire_userless(T)
+	installed_gun.fire_gun(T, controller = src)
+
+/// Only the gun physically installed in this mechanism can use its automated firing policy.
+/obj/item/integrated_circuit/manipulation/weapon_firing/can_operate_gun(obj/item/gun/gun)
+	return installed_gun == gun && gun.loc == src && !QDELETED(assembly)
 
 
 /obj/item/integrated_circuit/manipulation/locomotion
