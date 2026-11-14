@@ -243,6 +243,45 @@
 		opacity = FALSE
 	update_icon()
 
+/obj/structure/machinery/door/airlock/LateInitialize()
+	. = ..()
+	set_area_description()
+
+/**
+ * Adds the airlock's area to its description. If it borders another area, both
+ * names are included with arrows showing which side each area is on.
+ */
+/obj/structure/machinery/door/airlock/proc/set_area_description()
+	var/area/airlock_area = get_area(src)
+	if(!airlock_area?.describe_airlocks || name != initial(name))
+		return
+
+	for(var/direction in GLOB.cardinals)
+		var/turf/adjacent_turf = get_step(src, direction)
+		if(!adjacent_turf || adjacent_turf.density)
+			continue
+
+		var/area/adjacent_area = get_area(adjacent_turf)
+		if(!adjacent_area || adjacent_area == airlock_area || adjacent_area.name == airlock_area.name)
+			continue
+
+		desc = "It is between [airlock_area.name] [direction_arrow(direction)] and [direction_arrow(REVERSE_DIR(direction))] [adjacent_area.name]. [desc]"
+		return
+
+	desc = "It is in [airlock_area.name]. [desc]"
+
+/// Returns a cardinal arrow suitable for an airlock's area label.
+/obj/structure/machinery/door/airlock/proc/direction_arrow(direction)
+	switch(direction)
+		if(NORTH)
+			return "↑"
+		if(SOUTH)
+			return "↓"
+		if(EAST)
+			return "→"
+		if(WEST)
+			return "←"
+
 /obj/structure/machinery/door/airlock/Destroy()
 	if(frequency && SSradio)
 		SSradio.remove_object(src,frequency)
