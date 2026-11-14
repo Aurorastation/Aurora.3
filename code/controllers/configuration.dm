@@ -238,6 +238,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/character_slots = 10				// The number of available character slots
 	var/loadout_slots = 3					// The number of loadout slots per character
 	var/loadout_cost = 20					// The maximum cost of the loadout per slot
+	var/quirk_points = 5					// The number of quirk points available per character
+	var/quirk_slots = 5					// The number of quirk slots available per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -854,6 +856,12 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("loadout_cost")
 					GLOB.config.loadout_cost = text2num(value)
+
+				if("quirk_points")
+					GLOB.config.quirk_points = max(0, text2num(value))
+
+				if("quirk_slots")
+					GLOB.config.quirk_slots = max(0, text2num(value))
 
 				if("allow_drone_spawn")
 					GLOB.config.allow_drone_spawn = text2num(value)
