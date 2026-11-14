@@ -1,5 +1,6 @@
 /datum/citizenship/pra
 	name = CITIZENSHIP_PRA
+	assignment_suffix = "PRA"
 	description = "Lead by President Njadrasanukii Hadii, the People's Republic of Adhomai are considered the 'loyalist' faction on Adhomai and enjoy galactic recognition as the \
 	government of Adhomai. It claims to be the true keeper of Al'mari's legacy. However, the PRA can be described as a Hadiist branch of Al'mari's revolutionary ideology - that means \
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
@@ -126,6 +127,7 @@
 
 /datum/citizenship/dpra
 	name = CITIZENSHIP_DPRA
+	assignment_suffix = "DPRA"
 	description = "The most pervasive and successful rebellion came from a group calling themselves the Adhomai Liberation Army, a group made up of Tajara from almost every walk of life. \
 	Opposing corporate claims on Tajaran soil and citing mismatched development and governmental negligence as the fault of humanity, they aim \
 	to \"free Tajara from the new shackles imposed upon them by the corporate overlords and return Adhomai to a free, prosperous planet like our ancestors dreamed of.\" They named the \
@@ -253,6 +255,7 @@
 
 /datum/citizenship/nka
 	name = CITIZENSHIP_NKA
+	assignment_suffix = "NKA"
 	description = "The last major faction is the rebellious New Kingdom of Adhomai, which seceded and declared itself a nation in 2450. The New Kingdom is ruled by a Njarir'Akhran noble \
 	line that survived the previous Revolution by remaining in hiding, owing to the efforts of their supporters. Founded by King Vahzirthaamro Azunja specifically, he denounces both other \
 	factions in the civil war as illegitimate and himself as the only legitimate ruler of Adhomai. Supporters of the New Kingdom tend to be rare outside lands it controls. However, \
@@ -385,6 +388,7 @@
 
 /datum/citizenship/free_council
 	name = CITIZENSHIP_FREE_COUNCIL
+	assignment_suffix = "FTC"
 	description = "The Free Tajaran Council is the largest Tajaran community in Himeo. Its origins can be traced back to the First Revolution-era revolutionaries that fled Adhomai. Built upon \
 	radical principles of equality and communal democracy, the Free Tajaran Council remained relatively isolated from the rest of the Tajaran community until the start of the Adhomian Cold War. \
 	Its population was granted a temporary citizenship status as part of an agreement between the Tajaran nations. While the council struggles to decide its future, some of its members travel \

@@ -1,5 +1,6 @@
 /datum/citizenship/zora
 	name = CITIZENSHIP_ZORA
+	assignment_suffix = "Zo'ra"
 	description = "Zo'ra, the largest and most powerful Hive, and also the first one discovered by Humanity following their Hive-ship 'Titan Prime.' Information gained through contact \
 	with Vaurca present in Tau Ceti has lead to unconfirmed projections putting their population in Vaurca space at 77 billion (17.1 million in known space). Zo'ra believe themselves to \
 	be the Alpha of the Vaurca and the face of their species. They make up the majority of the Vaurca present in Tau Ceti and human space.Zo'ra have cold relations with other Hives. In \
@@ -110,6 +111,7 @@
 
 /datum/citizenship/klax
 	name = CITIZENSHIP_KLAX
+	assignment_suffix = "K'lax"
 	description = "The second Hive discovered by humanity,  Hiveship, Klo'zxera, appeared in the Skrellian system of Glorashi. \
 	K'lax is known as a client state of the Zo'ra, but since the Exodus from Sedantis they have struggled for political independence. \
 	Now parting their own ways, both Hives have developed differently.  the K'lax became the newest vassal of the Izweski Nation, and have largely settled in Tret. \
@@ -216,6 +218,7 @@
 
 /datum/citizenship/cthur
 	name = CITIZENSHIP_CTHUR
+	assignment_suffix = "C'thur"
 	description = "They are the third Hive that has developed relationships with other sophonts of the Orion Spur. \
 	While their arrival was kept in secret by the Nralakk Federation, the revelation has reignited diplomatic disputes between K'lax and C'thur, with outright hostility met by the K'lax towards the C'thur. \
 	Unlike all other Hives, the C'thur are led by their original Hive Queen, who, with a council of three other Lesser Queens, leads the Hive in this new age. \
@@ -322,6 +325,7 @@
 
 /datum/citizenship/liikenka
 	name = CITIZENSHIP_LIIKENKA
+	assignment_suffix = "Nralakk"
 	description = "A group of Punished C'thur residing in Phoenixport and on Mictlan, the majority of Lii'kenka opt to remain undercover as \
 	members of the C'thur brood in disguise, falsifying their Vaurca Office of Administrative Services documents in order to have fake Nralakk Federation citizenship."
 

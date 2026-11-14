@@ -685,9 +685,10 @@
 /obj/outfit/proc/get_id_assignment(mob/living/carbon/human/H, var/ignore_suffix = FALSE)
 	. = GetAssignment(H)
 
-	if (. && . != "Unassigned" && H?.mind?.selected_faction && !ignore_suffix)
-		if (H.mind.selected_faction.title_suffix)
-			. += " ([H.mind.selected_faction.title_suffix])"
+	if (. && . != "Unassigned" && !ignore_suffix)
+		var/assignment_suffix = GetAssignmentSuffix(H)
+		if (assignment_suffix)
+			. += " ([assignment_suffix])"
 
 /obj/outfit/proc/get_id_rank(mob/living/carbon/human/H)
 	return GetAssignment(H)
