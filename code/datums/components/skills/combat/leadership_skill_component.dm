@@ -65,7 +65,7 @@
 		if (!receiver_morale)
 			continue
 
-		if (astype(receiver_morale.moodlets[/datum/moodlet/leadership], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+		if (astype((locate(/datum/moodlet/leadership) in receiver_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 			receiver_morale.load_moodlet(/datum/moodlet/leadership)?.refresh_moodlet()
 			continue // Don't overwrite stronger moodlets.
 
@@ -118,7 +118,7 @@
 	if (!target_morale)
 		return
 
-	if (astype(target_morale.moodlets[/datum/moodlet/leadership], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+	if (astype((locate(/datum/moodlet/leadership) in target_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 		target_morale.load_moodlet(/datum/moodlet/leadership)?.refresh_moodlet()
 		return // Don't overwrite stronger moodlets.
 

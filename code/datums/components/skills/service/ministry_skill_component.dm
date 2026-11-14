@@ -90,7 +90,7 @@
 			if (!moodlet_value)
 				return
 
-			if (astype(target_morale.moodlets[/datum/moodlet/ministry_blessing], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+			if (astype((locate(/datum/moodlet/ministry_blessing) in target_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 				target_morale.load_moodlet(/datum/moodlet/ministry_blessing)?.refresh_moodlet()
 				return // Don't overwrite stronger moodlets.
 
