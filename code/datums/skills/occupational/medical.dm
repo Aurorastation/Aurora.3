@@ -63,12 +63,35 @@
 
 /singleton/skill/pharmacology
 	name = "Pharmacology"
-	description = "Not currently implemented."
+	description = "Governs the user's knowledge of chemicals, pharmaceuticals, and toxicology, as well as their proficiency with pharmacy machinery, chemical analysis devices, and medication administration."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = PHARMACOLOGY_SKILL_COMPONENT
+	required = TRUE
+	skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no formal training in chemistry or pharmacology.<br>" \
+			+ " - You cannot visually identify chemicals in beakers or pills, and can only roughly estimate liquid volumes.<br>" \
+			+ " - Industrial and medical chemical dispensers and ChemMasters display unfamiliar chemical cartridges and reagents as unknown compounds, and your dispensing/transferring is slightly imprecise.<br>" \
+			+ " - Unless trained in Medicine, administering injections with syringes, hyposprays, or droppers is slower and clumsier.",
+		SKILL_LEVEL_FAMILIAR = "You have basic familiarity with everyday chemicals and common over-the-counter or first-aid medications.<br>" \
+			+ " - You can visually recognize common food/drink reagents and basic first-aid medicines in open or transparent containers when adjacent.<br>" \
+			+ " - You can read all chemical labels and dispense exact amounts in Chemical Dispensers and ChemMasters.<br>" \
+			+ " - You can administer injections and eye drops at standard speed without clumsiness.",
+		SKILL_LEVEL_TRAINED = "You have formal training in pharmacology and clinical chemistry.<br>" \
+			+ " - You can visually identify standard medical reagents, psychiatric medications, and chemical precursors with approximate volumes.<br>" \
+			+ " - Health Analyzers and Breath Analyzers you use detect non-standard reagents in a patient's bloodstream/stomach and highlight active overdoses.<br>" \
+			+ " - You can produce larger pill batches in the ChemMaster 3000, grind reagents faster with 10% higher yield, and assemble Chemical Heaters from flatpaks.<br>" \
+			+ " - Pills you compound have a sugar coating that masks bitter chemical tastes and provides a small morale boost.<br>" \
+			+ " - You administer injections and IV drips faster and with a 50% chance to avoid contaminating syringes.",
+		SKILL_LEVEL_PROFESSIONAL = "You are a licensed Doctor of Pharmacy or master toxicologist.<br>" \
+			+ " - You can visually identify almost any non-concealed reagent, toxin, or compound with exact volumes.<br>" \
+			+ " - Health Analyzers, Mass Spectrometers, and Reagent Scanners you use reveal full quantitative reagent breakdowns, including concealed/spectro-hidden compounds and overdoses.<br>" \
+			+ " - You can produce up to 40 pills at once in the ChemMaster 3000, and grind reagents significantly faster with 20% higher yield.<br>" \
+			+ " - Pills you compound have a flawless pharmaceutical glaze that masks bitter chemical tastes and provides a moderate morale boost.<br>" \
+			+ " - You administer injections and IV drips at maximum speed with a 75% chance to avoid contaminating syringes."
+	)
 
 /singleton/skill/anatomy
 	name = "Anatomy"

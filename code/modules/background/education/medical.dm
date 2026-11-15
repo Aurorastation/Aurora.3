@@ -33,7 +33,8 @@
 	skills = list(
 		/singleton/skill/surgery = SKILL_LEVEL_TRAINED,
 		/singleton/skill/medicine = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
+		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED,
+		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/pharmacist_degree

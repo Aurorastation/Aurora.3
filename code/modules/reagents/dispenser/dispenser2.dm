@@ -157,15 +157,21 @@
 	data["is_beaker_loaded"] = !!container
 	data["beaker_max_volume"] = container?.reagents?.maximum_volume
 	data["beaker_current_volume"] = container?.reagents?.total_volume
+	var/pharm_skill = get_pharmacology_skill(user)
+	var/obfuscate_chems = !accept_drinking && (pharm_skill <= SKILL_LEVEL_UNFAMILIAR)
 	var/list/beakerD = list()
 	for(var/_R in container?.reagents?.reagent_volumes)
 		var/singleton/reagent/R = GET_SINGLETON(_R)
-		beakerD += list(list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
+		var/display_name = (obfuscate_chems && !is_basic_everyday_reagent(R)) ? "Unknown Reagent" : R.name
+		beakerD += list(list("name" = display_name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
 	data["beaker_contents"] = beakerD
 	var/list/chemicals = list()
+	var/cart_idx = 0
 	for(var/label in cartridges)
+		cart_idx++
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-		chemicals += list(list("label" = label, "amount" = C.reagents.total_volume))
+		var/display_label = (obfuscate_chems && !is_basic_dispenser_label(label)) ? "Unfamiliar Cartridge #[cart_idx]" : label
+		chemicals += list(list("label" = display_label, "amount" = C.reagents.total_volume))
 	data["chemicals"] = chemicals
 	return data
 
@@ -188,10 +194,19 @@
 
 		if("dispense")
 			var/label = params["dispense"]
+			if(findtext(label, "Unfamiliar Cartridge #") == 1)
+				var/idx = text2num(copytext(label, length("Unfamiliar Cartridge #") + 1))
+				if(idx >= 1 && idx <= length(cartridges))
+					label = cartridges[idx]
 			if(cartridges[label] && container?.is_open_container())
 				var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
+				var/dispense_amount = amount
+				if(!accept_drinking && get_pharmacology_skill(usr) <= SKILL_LEVEL_UNFAMILIAR)
+					var/jitter = pick(-3, -2, -1, 1, 2, 3)
+					dispense_amount = clamp(amount + jitter, 1, container?.reagents?.maximum_volume || 120)
+					to_chat(usr, SPAN_WARNING("Unfamiliar with the dispenser's calibration, you clumsily dispense [dispense_amount] units instead of [amount]!"))
 				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
-				C.reagents.trans_to(container, amount)
+				C.reagents.trans_to(container, dispense_amount)
 				. = TRUE
 
 		if("ejectBeaker")

@@ -187,14 +187,18 @@ BREATH ANALYZER
 		if(!REAGENT_DATA(reagents, /singleton/reagent/blood))
 			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
 			return
+		var/pharm_skill = get_pharmacology_skill(user)
+		var/effective_details = details || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
 		var/list/blood_traces = reagents.reagent_data[/singleton/reagent/blood]["trace_chem"]
 		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
 			var/singleton/reagent/C = GET_SINGLETON(_C)
-			if(C.spectro_hidden && !details)
+			if(C.spectro_hidden && !effective_details)
 				continue
-			if(details)
+			if(effective_details)
 				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
+			else if(pharm_skill == SKILL_LEVEL_TRAINED)
+				output_text += "- [C] (~[max(round(blood_traces[_C], 1), 1)] units)"
 			else
 				output_text += "- [C]"
 		if(length(output_text) == 1)
@@ -244,11 +248,25 @@ BREATH ANALYZER
 		to_chat(user, SPAN_WARNING("No active chemical agents found in [O]."))
 		return
 
+	var/pharm_skill = get_pharmacology_skill(user)
+	var/effective_details = details || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
 	var/dat = ""
 	var/one_percent = O.reagents.total_volume / 100
+	var/hidden_count = 0
 	for (var/_R in O.reagents.reagent_volumes)
 		var/singleton/reagent/R = GET_SINGLETON(_R)
-		dat += "\n \t [R][details ? ": [O.reagents.reagent_volumes[_R] / one_percent]%" : ""]"
+		if(R.spectro_hidden && !effective_details)
+			hidden_count++
+			continue
+		var/vol = O.reagents.reagent_volumes[_R]
+		if(effective_details)
+			dat += "\n \t [R]: [round(vol / one_percent, 0.1)]% ([round(vol, 0.1)]u)"
+		else if(pharm_skill == SKILL_LEVEL_TRAINED)
+			dat += "\n \t [R]: ~[round(vol / one_percent, 5)]%"
+		else
+			dat += "\n \t [R]"
+	if(hidden_count)
+		dat += "\n \t [SPAN_WARNING("[hidden_count] masked/unidentified trace compound[(hidden_count > 1) ? "s" : ""]")]"
 	to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 
 /obj/item/reagent_scanner/adv
@@ -429,11 +447,16 @@ BREATH ANALYZER
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
+		var/pharm_skill = get_pharmacology_skill(user)
 		var/unknown = 0
 		for(var/_R in H.breathing.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
-			if(R.scannable)
-				to_chat(user,SPAN_NOTICE("[R.name] found in subject's respiratory system."))
+			var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+			if(can_detect)
+				var/od_warning = ""
+				if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BREATHE, H.breathing))
+					od_warning = " <b>\[OVERDOSING\]</b>"
+				to_chat(user,SPAN_NOTICE("[R.name][od_warning] found in subject's respiratory system."))
 			else
 				++unknown
 		if(unknown)

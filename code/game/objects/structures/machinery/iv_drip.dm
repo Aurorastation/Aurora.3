@@ -86,7 +86,8 @@
 		. += "\The [src] is attached to [attached]'s [vein.name]."
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			. += "Attached is \a [beaker] with [adv_scan ? "<b>[beaker.reagents.total_volume] units</b> of primarily <b>[beaker.reagents.get_primary_reagent_name()]</b>" : "some liquid"]."
+			var/can_read_beaker = adv_scan || (get_medical_injection_skill(user) >= SKILL_LEVEL_TRAINED)
+			. += "Attached is \a [beaker] with [can_read_beaker ? "<b>[beaker.reagents.total_volume] units</b> of primarily <b>[beaker.reagents.get_primary_reagent_name()]</b>" : "some liquid"]."
 		else
 			. += "Attached is \a [beaker]. It is empty."
 	else
@@ -371,6 +372,13 @@
 					return
 				if(armor_check)
 					var/attach_time = attach_delay
+					switch(get_medical_injection_skill(user))
+						if(SKILL_LEVEL_UNFAMILIAR)
+							attach_time = round(attach_time * 1.4)
+						if(SKILL_LEVEL_TRAINED)
+							attach_time = round(attach_time * 0.75)
+						if(SKILL_LEVEL_PROFESSIONAL)
+							attach_time = round(attach_time * 0.5)
 					attach_time *= checking
 					if(!do_mob(user, attached, attach_time))
 						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))

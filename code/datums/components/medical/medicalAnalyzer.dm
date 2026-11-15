@@ -354,6 +354,7 @@
 		trauma_results += "No results."
 
 	var/print_reagent_default_message = TRUE
+	var/pharm_skill = get_pharmacology_skill(user)
 
 	if(device_level >= 3)
 		if(H.reagents.total_volume)
@@ -361,14 +362,18 @@
 			var/reagentdata[0]
 			for(var/_R in H.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				if(R.scannable)
+				var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+				if(can_detect)
 					print_reagent_default_message = FALSE
-					reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name]")
+					var/od_warning = ""
+					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BLOOD, H.reagents))
+						od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+					reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name][od_warning]")
 				else
 					unknown++
 			if(reagentdata.len)
 				print_reagent_default_message = FALSE
-				dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
+				dat += SPAN_NOTICE("Reagents detected in subject's blood:")
 				for(var/d in reagentdata)
 					dat += reagentdata[d]
 			if(unknown)
@@ -383,9 +388,13 @@
 
 			for(var/_R in ingested.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				if(R.scannable)
+				var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+				if(can_detect)
 					print_reagent_default_message = FALSE
-					ingesteddata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(ingested, _R), 1)]u [R.name]")
+					var/od_warning = ""
+					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_INGEST, ingested))
+						od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+					ingesteddata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(ingested, _R), 1)]u [R.name][od_warning]")
 				else
 					++unknown
 
