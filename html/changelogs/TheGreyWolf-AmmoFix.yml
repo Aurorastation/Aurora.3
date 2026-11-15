@@ -1,0 +1,4 @@
+author: ThegreyWolf
+delete-after: True
+changes:
+  - bugfix: "Fixed rapid clicking duplicating rounds inside ammo piles, guns, and magazines."
