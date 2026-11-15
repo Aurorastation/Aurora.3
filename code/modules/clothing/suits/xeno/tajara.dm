@@ -89,6 +89,8 @@
 	While the focus is improving relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist \
 	communities across the Spur."
 
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/tajaran)
+
 /obj/item/clothing/suit/storage/tajaran/messa
 	name = "sun sister robe"
 	desc = "A robe worn by the female priests of the S'rand'Marr religion."

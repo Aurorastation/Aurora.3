@@ -55,7 +55,7 @@
 /********** Chef/Cook End **********/
 
 //Security
-/obj/item/clothing/suit/storage/security
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/security)
 	name = "security jacket parent item"
 	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	contained_sprite = TRUE
@@ -69,7 +69,7 @@
 	icon_state = "hos_jacket"
 	item_state = "hos_jacket"
 
-/obj/item/clothing/suit/storage/security/officer
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/security/officer)
 	name = "corporate security jacket"
 	desc = "This jacket is for those special occasions when corporate security actually feels safe."
 
@@ -165,6 +165,8 @@
 	item_state = "detective2"
 
 //Lawyer
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/lawyer)
 
 /obj/item/clothing/suit/storage/lawyer/purpjacket
 	name = "purple suit jacket"
@@ -325,14 +327,6 @@
 	item_state = "heph_surgown"
 
 //Mime
-/obj/item/clothing/suit/suspenders
-	name = "suspenders"
-	desc = "They suspend the illusion of the mime's play."
-	icon = 'icons/obj/item/clothing/belts/belt.dmi'
-	icon_state = "suspenders"
-	blood_overlay_type = "armor" //it's the less thing that I can put here
-	body_parts_covered = 0
-
 // Bartender
 /obj/item/clothing/suit/storage/bartender
 	name = "bartender jacket"
