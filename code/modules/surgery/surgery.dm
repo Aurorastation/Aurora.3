@@ -230,6 +230,19 @@
 				if(surface)
 					success_rate += surface.surgery_odds_modifier
 
+			// Apply self-surgery penalties when the surgeon is also the patient.
+			if(user == M && !S.standing_self_surgery)
+				success_rate -= SELF_SURGERY_SUCCESS_PENALTY
+				duration *= SELF_SURGERY_TIME_MULTIPLIER
+				to_chat(user, SPAN_WARNING("Operating on yourself is awkward and difficult, slowing you down and making mistakes more likely!"))
+
+			// Apply pain penalties if the surgeon is in pain.
+			var/surgeon_pain = user.get_shock()
+			if(surgeon_pain > 0)
+				success_rate -= surgeon_pain
+				duration *= 1 + (surgeon_pain * SURGERY_PAIN_TIME_MODIFIER)
+				to_chat(user, SPAN_WARNING("Your pain makes it hard to focus on the surgery..."))
+
 			// Query the surgeon if they have any components that would like to modify the success chance.
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
