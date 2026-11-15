@@ -128,12 +128,16 @@ GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 /obj/item/stack/chainlink_fence
 	name = "rolled chainlink fencing"
 	desc = "A rolled section of chainlink fencing, complete with lightweight support posts."
-	icon = 'icons/obj/barricades.dmi'
-	icon_state = "barbed_wire"
+	icon = 'icons/obj/item/stacks/chainlink.dmi'
+	icon_state = "chainlink2"
 	singular_name = "roll"
 	max_amount = 10
 	w_class = WEIGHT_CLASS_NORMAL
 	matter = list(MATERIAL_STEEL = 4000)
+
+/obj/item/stack/chainlink_fence/update_icon()
+	icon_state = amount <= 2 ? "chainlink2" : "chainlink1"
+	return ..()
 
 /obj/item/stack/chainlink_fence/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
