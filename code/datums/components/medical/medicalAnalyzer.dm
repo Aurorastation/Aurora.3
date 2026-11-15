@@ -362,8 +362,7 @@
 			var/reagentdata[0]
 			for(var/_R in H.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
-				if(can_detect)
+				if(R.scannable)
 					print_reagent_default_message = FALSE
 					var/od_warning = ""
 					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BLOOD, H.reagents))
@@ -373,7 +372,7 @@
 					unknown++
 			if(reagentdata.len)
 				print_reagent_default_message = FALSE
-				dat += SPAN_NOTICE("Reagents detected in subject's blood:")
+				dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
 				for(var/d in reagentdata)
 					dat += reagentdata[d]
 			if(unknown)
@@ -388,8 +387,7 @@
 
 			for(var/_R in ingested.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
-				if(can_detect)
+				if(R.scannable)
 					print_reagent_default_message = FALSE
 					var/od_warning = ""
 					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_INGEST, ingested))

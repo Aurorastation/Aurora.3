@@ -451,8 +451,7 @@ BREATH ANALYZER
 		var/unknown = 0
 		for(var/_R in H.breathing.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
-			var/can_detect = R.scannable || (pharm_skill == SKILL_LEVEL_TRAINED && !R.spectro_hidden) || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
-			if(can_detect)
+			if(R.scannable)
 				var/od_warning = ""
 				if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BREATHE, H.breathing))
 					od_warning = " <b>\[OVERDOSING\]</b>"

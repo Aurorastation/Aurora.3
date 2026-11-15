@@ -54,7 +54,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/pharmacology = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/pharmacology = SKILL_LEVEL_TRAINED,
 		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
 		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED
 	)
@@ -79,7 +79,6 @@
 	)
 	skills = list(
 		/singleton/skill/leadership = SKILL_LEVEL_TRAINED,
-		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/anatomy = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/research = SKILL_LEVEL_TRAINED
@@ -105,7 +104,7 @@
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/medicine = SKILL_LEVEL_TRAINED,
 		/singleton/skill/anatomy = SKILL_LEVEL_TRAINED,
-		/singleton/skill/pharmacology = SKILL_LEVEL_TRAINED
+		/singleton/skill/pharmacology = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/paramedic
