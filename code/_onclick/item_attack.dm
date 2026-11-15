@@ -94,19 +94,9 @@ This calls [atom/proc/tool_act], among others.
 		return FALSE
 
 	var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
-	var/operating = can_operate(src)
-	if(operating == SURGERY_SUCCESS)
-		if(do_surgery(src, user, attacking_item))
-			return TRUE
-		else
-			return attacking_item.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
-	if(operating == SURGERY_FAIL)
-		if(do_surgery(src, user, attacking_item, TRUE))
-			return TRUE
-		else
-			return attacking_item.attack(src, user, selected_zone)
-	else
-		return attacking_item.attack(src, user, selected_zone)
+	if(can_operate(src) && do_surgery(src, user, attacking_item))
+		return TRUE
+	return attacking_item.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
 
 /// Handles DEVOURING THINGS! Used when on Grab intent and targeting your own mouth!
 /mob/living/carbon/human/attackby(obj/item/attacking_item, mob/user, params)

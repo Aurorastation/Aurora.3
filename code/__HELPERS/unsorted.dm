@@ -960,28 +960,25 @@ GLOBAL_LIST_INIT(common_tools, list(
 /proc/is_borg_item(obj/item/W)
 	return W && W.loc && isrobot(W.loc)
 
-/// Check if mob is lying down on something we can operate him on.
-/proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
-	var/surgery_attempt = SURGERY_IGNORE
-	var/located = FALSE
-	if(locate(/obj/structure/machinery/optable, M.loc))
-		located = TRUE
-		surgery_attempt = SURGERY_SUCCESS
-	else if(locate(/obj/structure/bed/roller, M.loc))
-		located = TRUE
-		if(prob(80))
-			surgery_attempt = SURGERY_SUCCESS
-		else
-			surgery_attempt = SURGERY_FAIL
-	else if(locate(/obj/structure/table, M.loc))
-		located = TRUE
-		if(prob(66))
-			surgery_attempt = SURGERY_SUCCESS
-		else
-			surgery_attempt = SURGERY_FAIL
-	if(!M.lying && surgery_attempt != SURGERY_SUCCESS && located)
-		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
-	return surgery_attempt
+/// Returns the best valid surgical surface structure at the mob's location, or null if none is found.
+/proc/get_surgery_surface(mob/living/carbon/M)
+	if(!istype(M) || !isturf(M.loc))
+		return null
+
+	var/obj/structure/best_surface
+	for(var/obj/structure/S in M.loc)
+		if(!S.surgery_surface)
+			continue
+		if(S.occupant_must_be_lying && !M.lying)
+			continue
+		if(!best_surface || S.surgery_odds_modifier > best_surface.surgery_odds_modifier)
+			best_surface = S
+
+	return best_surface
+
+/// Check if mob is on something we can operate on them with.
+/proc/can_operate(mob/living/carbon/M)
+	return !isnull(get_surgery_surface(M))
 
 /// Checks if that loc and dir has a item on the wall
 GLOBAL_LIST_INIT(wall_items, typecacheof(list(
