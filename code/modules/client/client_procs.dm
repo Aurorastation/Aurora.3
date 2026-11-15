@@ -1040,7 +1040,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 			// stop shooting if we drop our gun
 			if(G.loc != mob)
 				break
-			G.Fire(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
+			G.fire_gun(autofire_aiming_at[1], mob, autofire_aiming_at[2], (get_dist(mob, location) <= 1), FALSE, accuracy_dec)
 			mob.set_dir(get_dir(mob, autofire_aiming_at[1]))
 			accuracy_dec = min(accuracy_dec + 0.25, 2)
 			sleep(G.fire_delay)

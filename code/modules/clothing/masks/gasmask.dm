@@ -80,12 +80,6 @@
 	item_state = "monkeymask"
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/mask/gas/sexymime
-	name = "sexy mime mask"
-	desc = "A traditional female mime's mask."
-	icon_state = "sexymime"
-	item_state = "sexymime"
-
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
 	desc = "Beep boop"

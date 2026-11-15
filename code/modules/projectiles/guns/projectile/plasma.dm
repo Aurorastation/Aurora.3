@@ -4,6 +4,7 @@
 	icon = 'icons/obj/guns/faction/elyran_republic/slammer.dmi'
 	icon_state = "slammer"
 	item_state = "slammer"
+	persistent_chamber = FALSE // Plasma is fed from the magazine on demand.
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/plasma_slug

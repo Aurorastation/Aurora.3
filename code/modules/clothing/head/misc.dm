@@ -72,7 +72,7 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
@@ -108,11 +108,6 @@
 	icon_state = "tophat"
 	item_state = "tophat"
 	siemens_coefficient = 0.9
-
-/obj/item/clothing/head/redcoat
-	name = "redcoat's hat"
-	icon_state = "redcoat"
-	desc = "<i>'I guess it's a redhead.'</i>"
 
 /obj/item/clothing/head/mailman
 	name = "station cap"
@@ -150,6 +145,7 @@
 /obj/item/clothing/head/justice
 	name = "justice hat"
 	desc = "Fight for what's righteous!"
+	icon = 'icons/obj/item/clothing/head/head.dmi'
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
@@ -507,8 +503,8 @@
 /obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "navy_cap_senioroff"
+	item_state = "navy_cap_senioroff"
 
 //solarian army
 
@@ -560,8 +556,8 @@
 /obj/item/clothing/head/sol/army/service/general
 	name = "sol army general peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
-	icon_state = "army_cap_general"
-	item_state = "army_cap_general"
+	icon_state = "army_cap_senioroff"
+	item_state = "army_cap_senioroff"
 
 /obj/item/clothing/head/sol/army/service/garrison
 	name = "sol army garrison cap"

@@ -57,6 +57,8 @@
 
 //Seals and Signet Rings
 
+ABSTRACT_TYPE(/obj/item/clothing/ring/seal)
+
 /obj/item/clothing/ring/seal/mason
 	name = "masonic ring"
 	desc = "The Square and Compasses feature prominently on this Masonic ring."
