@@ -277,7 +277,7 @@
 	// Corpse examination for time of death and apparent cause indicators
 	if (ishuman(target))
 		var/mob/living/carbon/human/H = target
-		if (H.isSynthetic() && !H.isFBP())
+		if (H.isSynthetic())
 			return
 		if ((H.stat == DEAD || (H.status_flags & FAKEDEATH)) && H.timeofdeath)
 			if (skill_level >= SKILL_LEVEL_PROFESSIONAL)
