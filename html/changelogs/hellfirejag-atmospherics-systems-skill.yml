@@ -8,4 +8,5 @@ changes:
   - rscadd: "Unfamiliar Atmospherics Systems users now set pressure regulators with slight imprecision, take longer to configure complex atmospherics machinery and custom Air Alarm thresholds, and forget to close canister release valves when removing holding tanks."
   - rscadd: "Trained+ Atmospherics Systems unlocks flatpak assembly for Gas Heaters, Gas Coolers, Oxygen Regenerators, Area Air Control Consoles, and Atmospheric Alert Consoles."
   - rscadd: "Inflatable barrier deployment/deflation, vent welding, portable atmospherics connection, and fire extinguisher spray cooldown and reagent conservation now scale with Atmospherics Systems rank."
+  - rscadd: "Atmospherics Systems now grants a 0% / 25% / 50% / 100% chance to reflexively exhale and negate low-pressure/vacuum lung ruptures."
 

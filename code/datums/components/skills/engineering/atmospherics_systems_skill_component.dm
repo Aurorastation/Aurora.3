@@ -411,3 +411,38 @@
 		if(pressure >= TANK_LEAK_PRESSURE * 0.85)
 			. += SPAN_DANGER("The tank casing is dangerously overpressurized and near its leak threshold ([round(TANK_LEAK_PRESSURE)] kPa)!")
 
+/**
+ * Attempts to negate a low-pressure / vacuum lung rupture based on the character's Atmospherics Systems skill.
+ * Chance to negate: 0% (Unfamiliar), 25% (Familiar), 50% (Trained), 100% (Professional).
+ * Once negated, marks the lungs as exhaled for the duration of the low-pressure exposure until a normal breath is taken.
+ */
+/proc/try_negate_vacuum_lung_rupture(mob/living/carbon/human/H, obj/item/organ/internal/lungs/L)
+	if(!istype(H))
+		return FALSE
+	if(!L && H.species?.breathing_organ)
+		L = H.internal_organs_by_name[H.species.breathing_organ]
+	if(istype(L) && L.low_pressure_exhaled)
+		return TRUE
+
+	var/skill = GET_SKILL_LEVEL(H, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+	var/negate_chance = 0
+	switch(skill)
+		if(SKILL_LEVEL_UNFAMILIAR)
+			negate_chance = 0
+		if(SKILL_LEVEL_FAMILIAR)
+			negate_chance = 25
+		if(SKILL_LEVEL_TRAINED)
+			negate_chance = 50
+		else
+			negate_chance = 100
+
+	if(negate_chance > 0 && prob(negate_chance))
+		if(istype(L))
+			L.low_pressure_exhaled = TRUE
+			L.rupture_imminent = FALSE
+		to_chat(H, FONT_LARGE(SPAN_NOTICE("Your atmospherics training kicks in, and you reflexively exhale to protect your lungs from rupturing!")))
+		return TRUE
+
+	return FALSE
+
+
