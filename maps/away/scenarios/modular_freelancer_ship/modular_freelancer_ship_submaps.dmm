@@ -663,8 +663,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/mid/hallway)
 "abG" = (
-/obj/structure/machinery/vending/generic_clothing,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/crew)
 "abI" = (
@@ -16013,10 +16013,6 @@
 /obj/structure/machinery/power/apc/noid/east,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/misc/maint/aux)
-"jaE" = (
-/obj/structure/machinery/vending/generic_clothing,
-/turf/simulated/floor/tiled/dark,
-/area/ship/modular_freelancer_ship/fore/hallway)
 "jbd" = (
 /obj/structure/table/rack,
 /obj/item/tank/oxygen/brown,
@@ -20757,6 +20753,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/modular_freelancer_ship/fore/hallway)
+"oYc" = (
+/obj/structure/machinery/vending/wardrobe/generic,
+/turf/simulated/floor/tiled/dark,
+/area/ship/modular_freelancer_ship/fore/hallway)
 "oYS" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -24749,6 +24749,12 @@
 /obj/structure/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/ship/modular_freelancer_ship/aft/atmos)
+"uyG" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, center"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/modular_freelancer_shuttle/fighter)
 "uzs" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -27112,7 +27118,7 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/simulated/floor/tiled/slate,
 /area/ship/modular_freelancer_ship/fore/hallway)
 "xQr" = (
@@ -35240,7 +35246,7 @@ uFb
 ipC
 kCH
 pmT
-jaE
+oYc
 tJW
 aqs
 nUI
@@ -69855,7 +69861,7 @@ qBG
 qxt
 wWF
 azs
-wWF
+uyG
 wWF
 wWF
 wWF
