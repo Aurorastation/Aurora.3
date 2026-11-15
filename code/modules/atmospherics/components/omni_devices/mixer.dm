@@ -176,6 +176,8 @@
 			return TRUE
 
 		if("configure")
+			if(!configuring && !check_atmos_machine_config(usr, src))
+				return TRUE
 			configuring = !configuring
 			if(configuring)
 				update_use_power(POWER_USE_OFF)

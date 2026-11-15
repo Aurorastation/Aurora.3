@@ -191,5 +191,7 @@
 			update_icon()
 			return TRUE
 		if("set_power")
+			if(!check_atmos_machine_config(usr, src))
+				return TRUE
 			power_setting = clamp(text2num(params["value"]), 1, 5)
 			return TRUE

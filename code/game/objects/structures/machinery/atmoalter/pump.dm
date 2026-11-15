@@ -190,7 +190,7 @@
 				holding = null
 			. = TRUE
 		if ("pressure_set")
-			target_pressure = between(pressuremin, text2num(params["pressure_set"]), pressuremax)
+			target_pressure = apply_atmos_pressure_precision(usr, text2num(params["pressure_set"]), pressuremin, pressuremax)
 			. = TRUE
 
 	if(.)

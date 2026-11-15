@@ -513,66 +513,98 @@
 	//*
 	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
-	if(istype(attacking_item, /obj/item/pipewrench))
-		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")
-		if(action == "Yes")
-			action = tgui_input_list(user, "Change pipe type?", "Change pipe", list("Yes", "No"), "No")
-			if(action == "No")
-				if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_FUEL_BENT, PIPE_AUX_STRAIGHT, PIPE_AUX_BENT))
-					if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_AUX_STRAIGHT))
-						if(pipe_type == PIPE_SIMPLE_STRAIGHT)
-							pipe_type = PIPE_SIMPLE_BENT
-						else if(pipe_type == PIPE_SCRUBBERS_STRAIGHT)
-							pipe_type = PIPE_SCRUBBERS_BENT
-						else if(pipe_type == PIPE_FUEL_STRAIGHT)
-							pipe_type = PIPE_FUEL_BENT
-						else if(pipe_type == PIPE_AUX_STRAIGHT)
-							pipe_type = PIPE_AUX_BENT
-						else
-							pipe_type = PIPE_SUPPLY_BENT
-					else
-						if(pipe_type == PIPE_SIMPLE_BENT)
-							pipe_type = PIPE_SIMPLE_STRAIGHT
-						else if(pipe_type == PIPE_SCRUBBERS_BENT)
-							pipe_type = PIPE_SCRUBBERS_STRAIGHT
-						else if(pipe_type == PIPE_FUEL_BENT)
-							pipe_type = PIPE_FUEL_STRAIGHT
-						else if(pipe_type == PIPE_AUX_BENT)
-							pipe_type = PIPE_AUX_STRAIGHT
-						else
-							pipe_type = PIPE_SUPPLY_STRAIGHT
-				else
-					to_chat(user, SPAN_WARNING("You can not change this pipe!"))
+	var/static/list/convertible_pipes = list(
+		PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT,
+		PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT,
+		PIPE_SUPPLY_STRAIGHT, PIPE_SUPPLY_BENT,
+		PIPE_FUEL_STRAIGHT, PIPE_FUEL_BENT,
+		PIPE_AUX_STRAIGHT, PIPE_AUX_BENT
+	)
+	var/static/list/straight_pipes = list(
+		PIPE_SIMPLE_STRAIGHT,
+		PIPE_SCRUBBERS_STRAIGHT,
+		PIPE_SUPPLY_STRAIGHT,
+		PIPE_FUEL_STRAIGHT,
+		PIPE_AUX_STRAIGHT
+	)
+	if(istype(attacking_item, /obj/item/pipewrench) && (pipe_type in convertible_pipes))
+		var/skill = get_atmospherics_skill(user)
+		var/list/options
+		if(skill >= SKILL_LEVEL_TRAINED)
+			options = list("Fasten Pipe", "Toggle Straight/Bent", "Standard Layer", "Scrubber Layer", "Supply Layer", "Fuel Layer", "Aux Layer")
+		else
+			options = list("Fasten Pipe", "Toggle Straight/Bent", "Cycle Pipe Layer")
+		var/action = tgui_input_list(user, "Select pipe wrench action:", "Pipe Wrench", options, "Fasten Pipe")
+		if(!action || QDELETED(src) || !user.Adjacent(src))
+			return TRUE
+		if(action != "Fasten Pipe")
+			var/convert_delay = get_pipe_convert_delay(user)
+			if(convert_delay > 0)
+				if(!attacking_item.use_tool(src, user, convert_delay, volume = 50))
 					return TRUE
+				if(QDELETED(src))
+					return TRUE
+			else
+				attacking_item.play_tool_sound(get_turf(src), 50)
 
-			else if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
-				if(pipe_type in list(PIPE_SIMPLE_BENT, PIPE_SIMPLE_STRAIGHT))
-					if(pipe_type == PIPE_SIMPLE_BENT)
-						pipe_type = PIPE_SCRUBBERS_BENT
-					else
-						pipe_type =PIPE_SCRUBBERS_STRAIGHT
-				else if(pipe_type in list(PIPE_SCRUBBERS_BENT, PIPE_SCRUBBERS_STRAIGHT))
-					if(pipe_type == PIPE_SCRUBBERS_BENT)
-						pipe_type = PIPE_SUPPLY_BENT
-					else
-						pipe_type = PIPE_SUPPLY_STRAIGHT
-				else if(pipe_type in list(PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
-					if(pipe_type == PIPE_SUPPLY_BENT)
-						pipe_type = PIPE_FUEL_BENT
-					else
-						pipe_type = PIPE_FUEL_STRAIGHT
-				else if(pipe_type in list(PIPE_FUEL_BENT, PIPE_FUEL_STRAIGHT))
-					if(pipe_type == PIPE_FUEL_BENT)
-						pipe_type = PIPE_AUX_BENT
-					else
-						pipe_type = PIPE_AUX_STRAIGHT
-				else if(pipe_type in list(PIPE_AUX_BENT, PIPE_AUX_STRAIGHT))
-					if(pipe_type == PIPE_AUX_BENT)
-						pipe_type = PIPE_SIMPLE_BENT
-					else
-						pipe_type = PIPE_SIMPLE_STRAIGHT
+			var/is_straight = (pipe_type in straight_pipes)
+			switch(action)
+				if("Toggle Straight/Bent")
+					switch(pipe_type)
+						if(PIPE_SIMPLE_STRAIGHT)
+							pipe_type = PIPE_SIMPLE_BENT
+						if(PIPE_SIMPLE_BENT)
+							pipe_type = PIPE_SIMPLE_STRAIGHT
+						if(PIPE_SCRUBBERS_STRAIGHT)
+							pipe_type = PIPE_SCRUBBERS_BENT
+						if(PIPE_SCRUBBERS_BENT)
+							pipe_type = PIPE_SCRUBBERS_STRAIGHT
+						if(PIPE_SUPPLY_STRAIGHT)
+							pipe_type = PIPE_SUPPLY_BENT
+						if(PIPE_SUPPLY_BENT)
+							pipe_type = PIPE_SUPPLY_STRAIGHT
+						if(PIPE_FUEL_STRAIGHT)
+							pipe_type = PIPE_FUEL_BENT
+						if(PIPE_FUEL_BENT)
+							pipe_type = PIPE_FUEL_STRAIGHT
+						if(PIPE_AUX_STRAIGHT)
+							pipe_type = PIPE_AUX_BENT
+						if(PIPE_AUX_BENT)
+							pipe_type = PIPE_AUX_STRAIGHT
+				if("Cycle Pipe Layer")
+					switch(pipe_type)
+						if(PIPE_SIMPLE_STRAIGHT)
+							pipe_type = PIPE_SCRUBBERS_STRAIGHT
+						if(PIPE_SIMPLE_BENT)
+							pipe_type = PIPE_SCRUBBERS_BENT
+						if(PIPE_SCRUBBERS_STRAIGHT)
+							pipe_type = PIPE_SUPPLY_STRAIGHT
+						if(PIPE_SCRUBBERS_BENT)
+							pipe_type = PIPE_SUPPLY_BENT
+						if(PIPE_SUPPLY_STRAIGHT)
+							pipe_type = PIPE_FUEL_STRAIGHT
+						if(PIPE_SUPPLY_BENT)
+							pipe_type = PIPE_FUEL_BENT
+						if(PIPE_FUEL_STRAIGHT)
+							pipe_type = PIPE_AUX_STRAIGHT
+						if(PIPE_FUEL_BENT)
+							pipe_type = PIPE_AUX_BENT
+						if(PIPE_AUX_STRAIGHT)
+							pipe_type = PIPE_SIMPLE_STRAIGHT
+						if(PIPE_AUX_BENT)
+							pipe_type = PIPE_SIMPLE_BENT
+				if("Standard Layer")
+					pipe_type = is_straight ? PIPE_SIMPLE_STRAIGHT : PIPE_SIMPLE_BENT
+				if("Scrubber Layer")
+					pipe_type = is_straight ? PIPE_SCRUBBERS_STRAIGHT : PIPE_SCRUBBERS_BENT
+				if("Supply Layer")
+					pipe_type = is_straight ? PIPE_SUPPLY_STRAIGHT : PIPE_SUPPLY_BENT
+				if("Fuel Layer")
+					pipe_type = is_straight ? PIPE_FUEL_STRAIGHT : PIPE_FUEL_BENT
+				if("Aux Layer")
+					pipe_type = is_straight ? PIPE_AUX_STRAIGHT : PIPE_AUX_BENT
 			update()
-		return TRUE
+			return TRUE
 
 	if (!isturf(src.loc))
 		return TRUE
@@ -590,6 +622,18 @@
 			to_chat(user, SPAN_WARNING("There is already a pipe of the same type at this location."))
 			return TRUE
 	// no conflicts found
+
+	var/fasten_delay = get_pipe_fasten_delay(user, attacking_item)
+	if(fasten_delay > 0)
+		to_chat(user, SPAN_NOTICE("You begin fastening \the [src]..."))
+		if(!attacking_item.use_tool(src, user, fasten_delay, volume = 50))
+			return TRUE
+		if(QDELETED(src) || !isturf(src.loc))
+			return TRUE
+		for(var/obj/structure/machinery/atmospherics/M in src.loc)
+			if((M.initialize_directions & pipe_dir) && M.check_connect_types_construction(M,src))
+				to_chat(user, SPAN_WARNING("There is already a pipe of the same type at this location."))
+				return TRUE
 
 	var/pipefailtext = SPAN_WARNING("There's nothing to connect this pipe section to!") //(with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
 
@@ -1561,12 +1605,20 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.tool_behaviour == TOOL_WRENCH)
+	if (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/pipewrench))
 		if(!locate(/obj/structure/machinery/atmospherics/pipe, src.loc))
 			to_chat(user, SPAN_WARNING("You need to fasten it to a pipe"))
 			return 1
+		var/fasten_delay = get_pipe_fasten_delay(user, attacking_item)
+		if(fasten_delay > 0)
+			to_chat(user, SPAN_NOTICE("You begin fastening \the [src] to the pipe..."))
+			if(!attacking_item.use_tool(src, user, fasten_delay, volume = 50))
+				return TRUE
+			if(QDELETED(src) || !locate(/obj/structure/machinery/atmospherics/pipe, src.loc))
+				return TRUE
+		else
+			attacking_item.play_tool_sound(get_turf(src), 50)
 		new/obj/structure/machinery/meter( src.loc )
-		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You have fastened the meter to the pipe"))
 		qdel(src)
 		return TRUE

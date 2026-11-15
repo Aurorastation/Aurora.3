@@ -746,6 +746,9 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(MATERIAL_STEEL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	usesound = 'sound/items/wrench.ogg'
+	drop_sound = 'sound/items/drop/wrench.ogg'
+	pickup_sound = 'sound/items/pickup/wrench.ogg'
 	tool_behaviour = TOOL_PIPEWRENCH
 
 /obj/item/pipewrench/Initialize()

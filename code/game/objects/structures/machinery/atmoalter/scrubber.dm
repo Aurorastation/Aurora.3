@@ -233,13 +233,20 @@
 		update_connected_network()
 
 /obj/structure/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.tool_behaviour == TOOL_WRENCH)
+	if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/pipewrench))
 		if(on)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return TRUE
 
+		var/connect_delay = get_portable_connect_delay(user)
+		if(connect_delay > 0)
+			if(!attacking_item.use_tool(src, user, connect_delay, volume = 50))
+				return TRUE
+			if(QDELETED(src) || on)
+				return TRUE
+		else
+			attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
-		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 
 		return TRUE

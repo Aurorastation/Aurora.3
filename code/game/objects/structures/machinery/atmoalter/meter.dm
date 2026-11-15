@@ -142,16 +142,27 @@
 	return ..()
 
 /obj/structure/machinery/meter/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.tool_behaviour != TOOL_WRENCH)
+	if(attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
+	var/unfasten_delay = 40
+	switch(get_atmospherics_skill(user))
+		if(SKILL_LEVEL_UNFAMILIAR)
+			unfasten_delay = 60
+		if(SKILL_LEVEL_FAMILIAR)
+			unfasten_delay = 40
+		if(SKILL_LEVEL_TRAINED)
+			unfasten_delay = 25
+		else
+			unfasten_delay = 15
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(attacking_item.use_tool(src, user, 40, volume = 50))
+	if(attacking_item.use_tool(src, user, unfasten_delay, volume = 50))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)
+	return TRUE
 
 // TURF METER - REPORTS A TILE'S AIR CONTENTS
 
