@@ -140,6 +140,38 @@
 /obj/item/paper/proc/is_unused()
 	return is_blank() && !crumpled && !old_name && !rigged
 
+/// Serializes this paper for storage inside another persistent paperwork object.
+/obj/item/paper/proc/get_persistent_document_data()
+	if(is_blank())
+		return
+	var/list/paper_content = persistent_objects_get_content()
+	paper_content["filing_cabinet_id"] = null
+	return list(
+		"type" = "[type]",
+		"content" = paper_content
+	)
+
+/// Restores a paper serialized by get_persistent_document_data() inside a paperwork container.
+/proc/restore_persistent_document_paper(list/data, atom/location)
+	if(!islist(data) || !islist(data["content"]))
+		return
+	var/paper_type = text2path(data["type"])
+	if(!ispath(paper_type, /obj/item/paper))
+		return
+	var/list/paper_content = data["content"]
+	var/obj/item/paper/paper = new paper_type(location)
+	paper.set_content(paper_content["title"], paper_content["text"], adddefaultfont = FALSE)
+	paper.persistent_filing_cabinet_id = null
+	if(isnum(paper_content["pixel_x"]))
+		paper.pixel_x = paper_content["pixel_x"]
+	if(isnum(paper_content["pixel_y"]))
+		paper.pixel_y = paper_content["pixel_y"]
+	if(istype(paper, /obj/item/paper/stickynotes))
+		var/obj/item/paper/stickynotes/sticky_note = paper
+		sticky_note.color = paper_content["color"]
+		sticky_note.persistent_placement = FALSE
+	return paper
+
 /// Updates tracking after this paper's contents change while it is in a persistence-supporting location.
 /obj/item/paper/proc/update_persistence_tracking(mob/user)
 	if(is_blank())
@@ -876,6 +908,8 @@
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
 	if(persistent_filing_cabinet_id)
 		content["filing_cabinet_id"] = persistent_filing_cabinet_id
 	return content
@@ -886,6 +920,10 @@
 	src.x = x
 	src.y = y
 	src.z = z
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
 	if(!persistent_filing_cabinet_id)
 		for(var/obj/object in loc) // Pin to noticeboard
 			if(istype(object, /obj/structure/noticeboard))
@@ -1084,6 +1122,8 @@
 	var/list/content = ..()
 	content["papers"] = papers
 	content["color"] = color
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
 	return content
 
 /obj/item/stickynote_pad/persistent_objects_apply_content(content, x, y, z)
@@ -1094,6 +1134,10 @@
 		papers = clamp(content["papers"], 1, initial(papers))
 	if(content["color"])
 		color = content["color"]
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
 	update_icon()
 
 /obj/item/stickynote_pad/random/Initialize()

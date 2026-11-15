@@ -8,6 +8,10 @@
 	maxhealth = OBJECT_HEALTH_LOW
 	var/max_paper = 10
 	var/paperamount = 0
+	/// Whether this initially mapped Horizon shredder's contents persist between rounds.
+	var/persistent_contents = TRUE
+	/// Original map identity used to persist contents without persisting the shredder itself.
+	var/tmp/contents_persistence_id
 	var/list/shred_amounts = list(
 		/obj/item/photo = -1,
 		/obj/item/shreddedp = 1,
@@ -16,6 +20,60 @@
 		/obj/item/card/id = -1,
 		/obj/item/paper_bundle = 3
 		)// use -1 if it doesn't generate paper
+
+/singleton/persistent_type/generic/papershredder_contents
+	/// Persistent paper shredders present on the Horizon when the round's map finished loading.
+	var/list/papershredder_register = list()
+	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved contents.
+	var/contents_initialized = FALSE
+
+/** Loads saved contents into paper shredders mapped onto the Horizon. */
+/singleton/persistent_type/generic/papershredder_contents/initialization_hook()
+	papershredder_register = list()
+	contents_initialized = FALSE
+	if(!SSpersistence.map_supports_persistence)
+		return
+
+	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/papershredder_contents)
+	var/list/saved_contents = saved_generic?.content
+	for(var/obj/structure/machinery/papershredder/shredder in world)
+		CHECK_TICK
+		var/turf/shredder_turf = get_turf(shredder)
+		if(!shredder_turf || !is_station_level(shredder_turf.z) || !shredder.persistent_contents)
+			continue
+
+		papershredder_register += shredder
+		shredder.contents_persistence_id = "[shredder_turf.x],[shredder_turf.y],[shredder_turf.z],[shredder.type]"
+		var/saved_amount = saved_contents?[shredder.contents_persistence_id]
+		if(isnum(saved_amount))
+			shredder.paperamount = clamp(saved_amount, 0, shredder.max_paper)
+			shredder.update_icon()
+	contents_initialized = TRUE
+
+/** Saves contents for the initially mapped paper shredders without considering their current locations. */
+/singleton/persistent_type/generic/papershredder_contents/finalization_hook()
+	if(!contents_initialized)
+		return
+
+	var/list/all_contents = list()
+	for(var/obj/structure/machinery/papershredder/shredder as anything in papershredder_register)
+		CHECK_TICK
+		if(QDELETED(shredder))
+			continue
+		all_contents[shredder.contents_persistence_id] = shredder.paperamount
+
+	var/obj/item/paper/paper_type = /obj/item/paper
+	var/expiration_days = initial(paper_type.persistent_objects_expiration_time_days)
+	SSpersistence.genericSave(/singleton/persistent_type/generic/papershredder_contents, all_contents, expires_in_days = expiration_days)
+
+/obj/structure/machinery/papershredder/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(contents_persistence_id)
+		var/obj/item/paper/paper_type = /obj/item/paper
+		var/persistence_days = initial(paper_type.persistent_objects_expiration_time_days)
+		var/persistence_duration = "[persistence_days] day[(persistence_days != 1) ? "s" : ""]"
+		var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+		. += SPAN_TOOLTIP("This is a persistence mechanic. Shredded paper left inside this machine remains available between rounds aboard the SCCV Horizon and expires after [persistence_duration].", persistence_label)
 
 /obj/structure/machinery/papershredder/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/storage))

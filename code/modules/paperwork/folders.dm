@@ -8,6 +8,13 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_write = FALSE
+	/// Stable ID of the filing cabinet whose long-term storage contains this folder.
+	var/tmp/persistent_filing_cabinet_id
+
+/obj/item/folder/Initialize(mapload)
+	var/obj/item/paper/paper_type = /obj/item/paper
+	persistent_objects_expiration_time_days = initial(paper_type.persistent_objects_expiration_time_days)
+	return ..()
 
 /obj/item/folder/blue
 	desc = "A blue folder."
@@ -41,6 +48,14 @@
 
 /obj/item/folder/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo) || istype(attacking_item, /obj/item/paper_bundle) || istype(attacking_item, /obj/item/sample))
+		if(istype(attacking_item, /obj/item/paper))
+			var/obj/item/paper/paper = attacking_item
+			paper.persistent_filing_cabinet_id = null
+			SSpersistence.objectsDeregisterTrack(paper)
+		else if(istype(attacking_item, /obj/item/paper_bundle))
+			var/obj/item/paper_bundle/bundle = attacking_item
+			bundle.persistent_filing_cabinet_id = null
+			SSpersistence.objectsDeregisterTrack(bundle)
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, SPAN_NOTICE("You put the [attacking_item] into \the [src]."))
 		update_icon()
@@ -131,6 +146,95 @@
 
 /obj/item/folder/proc/handle_post_remove()
 	return
+
+/// Whether this folder contains anything which cannot safely be serialized as paperwork.
+/obj/item/folder/proc/has_unsupported_persistent_content()
+	if(istype(src, /obj/item/folder/embedded))
+		return TRUE
+	for(var/obj/item/item in src)
+		if(istype(item, /obj/item/paper))
+			continue
+		if(istype(item, /obj/item/paper_bundle))
+			var/obj/item/paper_bundle/bundle = item
+			if(!bundle.has_unsupported_persistent_content())
+				continue
+		return TRUE
+	return FALSE
+
+/// Whether this folder contains at least one nonblank document and can enter long-term storage.
+/obj/item/folder/can_persist_in_filing_cabinet()
+	if(has_unsupported_persistent_content())
+		return FALSE
+	for(var/obj/item/item in src)
+		if(istype(item, /obj/item/paper))
+			var/obj/item/paper/paper = item
+			if(!paper.is_blank())
+				return TRUE
+		else if(istype(item, /obj/item/paper_bundle))
+			var/obj/item/paper_bundle/bundle = item
+			if(bundle.can_persist_in_filing_cabinet())
+				return TRUE
+	return FALSE
+
+/// Serializes the folder and its supported nonblank document contents.
+/obj/item/folder/proc/get_persistent_document_content()
+	var/list/content = list(
+		"name" = name,
+		"color" = color,
+		"filing_cabinet_id" = persistent_filing_cabinet_id
+	)
+
+	var/list/documents = list()
+	for(var/obj/item/item in src)
+		if(istype(item, /obj/item/paper))
+			var/obj/item/paper/paper = item
+			var/list/paper_data = paper.get_persistent_document_data()
+			if(paper_data)
+				documents += list(list("kind" = "paper", "data" = paper_data))
+		else if(istype(item, /obj/item/paper_bundle))
+			var/obj/item/paper_bundle/bundle = item
+			if(bundle.can_persist_in_filing_cabinet())
+				var/list/bundle_content = bundle.get_persistent_document_content()
+				bundle_content["filing_cabinet_id"] = null
+				documents += list(list(
+					"kind" = "bundle",
+					"type" = "[bundle.type]",
+					"content" = bundle_content
+				))
+	content["documents"] = documents
+	return content
+
+/obj/item/folder/proc/apply_persistent_document_content(list/content)
+	if(!islist(content))
+		return
+	for(var/obj/item/item in src)
+		qdel(item)
+
+	if(istext(content["name"]))
+		name = content["name"]
+	color = content["color"]
+	persistent_filing_cabinet_id = content["filing_cabinet_id"]
+	for(var/list/document as anything in content["documents"])
+		switch(document["kind"])
+			if("paper")
+				restore_persistent_document_paper(document["data"], src)
+			if("bundle")
+				var/bundle_type = text2path(document["type"])
+				if(!ispath(bundle_type, /obj/item/paper_bundle))
+					continue
+				var/obj/item/paper_bundle/bundle = new bundle_type(src)
+				bundle.apply_persistent_document_content(document["content"])
+				bundle.persistent_filing_cabinet_id = null
+	update_icon()
+
+/obj/item/folder/persistent_objects_get_content()
+	return get_persistent_document_content()
+
+/obj/item/folder/persistent_objects_apply_content(content, x, y, z)
+	apply_persistent_document_content(content)
+	src.x = x
+	src.y = y
+	src.z = z
 
 /obj/item/folder/blue/nka/Initialize()
 	. = ..()

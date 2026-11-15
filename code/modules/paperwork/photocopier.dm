@@ -351,6 +351,8 @@
 /obj/item/toner/persistent_objects_get_content()
 	var/list/content = ..()
 	content["toner_amount"] = toner_amount
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
 	return content
 
 /obj/item/toner/persistent_objects_apply_content(content, x, y, z)
@@ -359,3 +361,7 @@
 	src.z = z
 	if(isnum(content["toner_amount"]))
 		toner_amount = clamp(content["toner_amount"], 0, initial(toner_amount))
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]

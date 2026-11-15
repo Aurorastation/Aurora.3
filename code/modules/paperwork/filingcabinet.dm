@@ -9,6 +9,40 @@
 /*
  * Filing Cabinets
  */
+
+/// Whether this item is eligible for a filing cabinet's long-term paperwork storage.
+/obj/item/proc/can_persist_in_filing_cabinet()
+	return FALSE
+
+/obj/item/paper/can_persist_in_filing_cabinet()
+	return !is_blank()
+
+/// Returns the stable ID of the filing cabinet containing this persistent item, if any.
+/obj/item/proc/get_persistent_filing_cabinet_id()
+	return
+
+/obj/item/paper/get_persistent_filing_cabinet_id()
+	return persistent_filing_cabinet_id
+
+/obj/item/paper_bundle/get_persistent_filing_cabinet_id()
+	return persistent_filing_cabinet_id
+
+/obj/item/folder/get_persistent_filing_cabinet_id()
+	return persistent_filing_cabinet_id
+
+/// Associates this persistent item with a filing cabinet's long-term storage.
+/obj/item/proc/set_persistent_filing_cabinet_id(storage_id)
+	return
+
+/obj/item/paper/set_persistent_filing_cabinet_id(storage_id)
+	persistent_filing_cabinet_id = storage_id
+
+/obj/item/paper_bundle/set_persistent_filing_cabinet_id(storage_id)
+	persistent_filing_cabinet_id = storage_id
+
+/obj/item/folder/set_persistent_filing_cabinet_id(storage_id)
+	persistent_filing_cabinet_id = storage_id
+
 /obj/structure/filingcabinet
 	name = "filing cabinet"
 	desc = "A large cabinet with drawers."
@@ -55,30 +89,26 @@
 	. = ..()
 	if(mapload && SSpersistence.map_supports_persistence && is_station_level(z))
 		persistent_storage_id = "[x],[y],[z],[type]"
-		for(var/obj/item/paper/paper in SSpersistence.object_track_register)
-			if(paper.persistent_filing_cabinet_id == persistent_storage_id)
-				paper.forceMove(src)
+		for(var/obj/item/item in SSpersistence.object_track_register)
+			if(item.get_persistent_filing_cabinet_id() == persistent_storage_id)
+				item.forceMove(src)
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/paper))
-			var/obj/item/paper/tracked_paper = I
-			if(tracked_paper.persistent_objects_track_active && !is_long_term_paper(tracked_paper))
-				continue
+		if(I.persistent_objects_track_active && !is_long_term_item(I))
+			continue
 		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
 
-/// Whether a paper's saved persistence data associates it with this cabinet's long-term storage.
-/obj/structure/filingcabinet/proc/is_long_term_paper(obj/item/item)
-	if(!persistent_storage_id || !istype(item, /obj/item/paper))
+/// Whether an item's saved persistence data associates it with this cabinet's long-term storage.
+/obj/structure/filingcabinet/proc/is_long_term_item(obj/item/item)
+	if(!persistent_storage_id)
 		return FALSE
-	var/obj/item/paper/paper = item
-	return paper.persistent_filing_cabinet_id == persistent_storage_id
+	return item.get_persistent_filing_cabinet_id() == persistent_storage_id
 
 /obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, accepted_items))
-		if(istype(attacking_item, /obj/item/paper))
-			var/obj/item/paper/paper = attacking_item
-			paper.persistent_filing_cabinet_id = null
-			SSpersistence.objectsDeregisterTrack(paper)
+		if(attacking_item.get_persistent_filing_cabinet_id())
+			attacking_item.set_persistent_filing_cabinet_id(null)
+			SSpersistence.objectsDeregisterTrack(attacking_item)
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 		user.drop_from_inventory(attacking_item, src)
 		flick("[initial(icon_state)]-open", src)
@@ -122,16 +152,12 @@
 	var/list/long_term = list()
 
 	for(var/obj/item/item in contents)
-		var/can_archive = FALSE
-		if(istype(item, /obj/item/paper))
-			var/obj/item/paper/paper = item
-			can_archive = !paper.is_blank()
 		var/list/item_data = list(
 			"name" = item.name,
 			"ref" = REF(item),
-			"can_archive" = can_archive
+			"can_archive" = item.can_persist_in_filing_cabinet()
 		)
-		if(is_long_term_paper(item))
+		if(is_long_term_item(item))
 			long_term += list(item_data)
 		else
 			general += list(item_data)
@@ -156,10 +182,9 @@
 
 	switch(action)
 		if("retrieve")
-			if(is_long_term_paper(item))
-				var/obj/item/paper/retrieved_paper = item
-				retrieved_paper.persistent_filing_cabinet_id = null
-				SSpersistence.objectsDeregisterTrack(retrieved_paper)
+			if(is_long_term_item(item))
+				item.set_persistent_filing_cabinet_id(null)
+				SSpersistence.objectsDeregisterTrack(item)
 			usr.put_in_hands(item)
 			flick("[initial(icon_state)]-open", src)
 			playsound(loc, 'sound/items/bureaucracy/filingcabinet.ogg', 50, 1)
@@ -167,22 +192,20 @@
 			return TRUE
 
 		if("archive")
-			if(!persistent_storage_id || !istype(item, /obj/item/paper) || is_long_term_paper(item))
+			if(!persistent_storage_id || is_long_term_item(item))
 				return
-			var/obj/item/paper/archived_paper = item
-			if(archived_paper.is_blank())
-				to_chat(usr, SPAN_NOTICE("Blank paper cannot be placed in long-term storage."))
+			if(!item.can_persist_in_filing_cabinet())
+				to_chat(usr, SPAN_NOTICE("[item] does not contain supported nonblank paperwork for long-term storage."))
 				return
-			archived_paper.persistent_filing_cabinet_id = persistent_storage_id
-			SSpersistence.objectsRegisterTrack(archived_paper, ckey(usr.key))
+			item.set_persistent_filing_cabinet_id(persistent_storage_id)
+			SSpersistence.objectsRegisterTrack(item, ckey(usr.key))
 			return TRUE
 
 		if("unarchive")
-			if(!is_long_term_paper(item))
+			if(!is_long_term_item(item))
 				return
-			var/obj/item/paper/unarchived_paper = item
-			unarchived_paper.persistent_filing_cabinet_id = null
-			SSpersistence.objectsDeregisterTrack(unarchived_paper)
+			item.set_persistent_filing_cabinet_id(null)
+			SSpersistence.objectsDeregisterTrack(item)
 			return TRUE
 
 /obj/structure/filingcabinet/proc/reset_icon_state()

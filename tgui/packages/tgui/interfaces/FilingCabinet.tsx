@@ -56,7 +56,7 @@ export const FilingCabinet = (props) => {
             >
               Long-Term ({data.long_term.length})
               <Tooltip
-                content={`This is a persistence mechanic. Papers stored here remain available between rounds and expire after ${persistenceDuration}. Use it only for documents intended to remain part of the setting.`}
+                content={`This is a persistence mechanic. Paperwork stored here remains available between rounds and expires after ${persistenceDuration}. Use it only for documents intended to remain part of the setting.`}
               >
                 <Box inline ml={1} color="label">
                   <Icon name="calendar-days" mr={0.5} />
@@ -91,8 +91,8 @@ export const FilingCabinet = (props) => {
                             disabled={!item.can_archive}
                             tooltip={
                               item.can_archive
-                                ? 'Preserve this paper between rounds.'
-                                : 'Only individual papers can be stored long-term.'
+                                ? 'Preserve this paperwork between rounds.'
+                                : 'Long-term storage accepts nonblank papers, paper bundles, and folders containing only supported paperwork.'
                             }
                             onClick={() => act('archive', { ref: item.ref })}
                           />

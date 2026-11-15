@@ -142,6 +142,8 @@
 /obj/item/paper_bin/persistent_objects_get_content()
 	var/list/content = ..()
 	content["amount"] = amount
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
 	return content
 
 /obj/item/paper_bin/persistent_objects_apply_content(content, x, y, z)
@@ -150,6 +152,10 @@
 	src.z = z
 	if(isnum(content["amount"]))
 		amount = clamp(content["amount"], 0, max_amount)
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
 	update_icon()
 
 /obj/item/paper_bin_refill
@@ -176,6 +182,8 @@
 /obj/item/paper_bin_refill/persistent_objects_get_content()
 	var/list/content = ..()
 	content["paper_amount"] = paper_amount
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
 	return content
 
 /obj/item/paper_bin_refill/persistent_objects_apply_content(content, x, y, z)
@@ -184,3 +192,7 @@
 	src.z = z
 	if(isnum(content["paper_amount"]))
 		paper_amount = clamp(content["paper_amount"], 0, initial(paper_amount))
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
