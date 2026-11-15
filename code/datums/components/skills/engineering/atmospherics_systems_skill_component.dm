@@ -214,7 +214,8 @@
 	var/pressure = SAFE_XGM_PRESSURE(int_air)
 	var/temp_k = int_air ? int_air.temperature : T20C
 	var/temp_c = temp_k - T0C
-	var/env_pressure = SAFE_XGM_PRESSURE(P.loc?.return_air())
+	var/datum/gas_mixture/env_air = P.loc?.return_air()
+	var/env_pressure = SAFE_XGM_PRESSURE(env_air)
 	var/pressure_diff = max(0, pressure - env_pressure)
 	var/exerted = (pressure_diff > PRESSURE_EXERTED)
 
@@ -373,5 +374,4 @@
 		return TRUE
 
 	return FALSE
-
 
