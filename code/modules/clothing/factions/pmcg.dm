@@ -103,6 +103,8 @@
 	icon_state = "phalanx_med"
 	item_state = "phalanx_med"
 
+ABSTRACT_TYPE(/obj/item/clothing/under/rank/pmc)
+
 /obj/item/clothing/under/rank/pmc/vekatak_phalanx
 	name = "\improper Ve'katak Phalanx representative uniform"
 	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has ice blue shoulder stripes, identifying it as belonging to a Phalanx member that is representing the direct interests of the Phalanx and their immediate employers."
@@ -173,7 +175,7 @@
 	item_state = "amapola_ftg"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/armor/kog/
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/armor/kog)
 	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
 	contained_sprite = TRUE
 	opened = FALSE

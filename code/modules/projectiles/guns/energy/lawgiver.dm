@@ -116,7 +116,9 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/gun/energy/acp/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
+/obj/item/gun/energy/acp/pre_fire(atom/target, mob/living/user, params, pointblank=0, reflex = 0, atom/controller)
+	if(!user)
+		return ..()
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -135,7 +137,7 @@
 			else
 				RA.droplimb(0,DROPLIMB_BLUNT)
 		return 0
-	..()
+	return ..()
 
 /obj/item/gun/energy/acp/proc/Emag(mob/user as mob)
 	to_chat(usr, SPAN_WARNING("You short out [src]'s id check"))
