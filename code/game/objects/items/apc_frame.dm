@@ -38,6 +38,9 @@
 		to_chat(user, SPAN_WARNING("APC cannot be placed in this area."))
 		return
 
+	if(try_merge_maintenance_panel_frame(src, user_turf, ndir, user))
+		return
+
 	if(A.get_apc())
 		to_chat(user, SPAN_WARNING("This area already has an APC."))
 		return //only one APC per area
