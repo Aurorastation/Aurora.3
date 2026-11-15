@@ -580,7 +580,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
 	if(user && recoil)
-		if(user)
 		shake_camera(user, recoil + 1, recoil)
 
 	if(ishuman(user))
