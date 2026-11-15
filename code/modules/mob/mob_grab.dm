@@ -48,7 +48,8 @@
 	var/dancing //determines if assailant and affecting keep looking at each other. Basically a wrestling position
 	/// Prevents routine fireman-carry positioning from overriding a bench press animation.
 	var/bench_pressing = FALSE
-	var/has_choked = FALSE //Used as a counter for choking people.
+	/// Prevents multiple concurrent choke-out timers without exposing a transient grab state.
+	var/has_choked = FALSE
 
 	var/obj/item/grab/linked_grab
 	var/wielded = FALSE
@@ -179,13 +180,15 @@
 			if(!(A.species.flags & NO_BREATHE))
 				A.losebreath = max(A.losebreath + 3, 5)
 				A.adjustOxyLoss(3)
-				if(affecting.stat == CONSCIOUS)
-					state = GRAB_UPGRADING
-					if(do_mob(assailant, affecting, 150))
+				if(affecting.stat == CONSCIOUS && !has_choked)
+					has_choked = TRUE
+					var/choked_out = do_mob(assailant, affecting, 150)
+					if(QDELETED(src))
+						return PROCESS_KILL
+					if(choked_out && state == GRAB_KILL && affecting == A)
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
-					if(state == GRAB_UPGRADING)
-						state = GRAB_KILL
+					has_choked = FALSE
 		else if(istype(affecting, /mob/living/simple_animal))
 			if(affecting.stat != DEAD)
 				affecting.health -= 1
@@ -253,6 +256,7 @@
 				assailant.set_dir(get_dir(assailant, affecting))
 		if(GRAB_AGGRESSIVE)
 			shift = 12
+			affecting.update_canmove()
 		if(GRAB_NECK, GRAB_UPGRADING)
 			shift = -10
 			adir = assailant.dir
@@ -450,6 +454,8 @@
 	if(affecting)
 		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
+		if(!QDELETED(affecting))
+			affecting.update_canmove()
 		affecting = null
 	if(assailant)
 		if(assailant.client)

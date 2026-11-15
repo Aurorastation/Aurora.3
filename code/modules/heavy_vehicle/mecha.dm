@@ -54,7 +54,7 @@
 	var/remote_type = /obj/item/remote_mecha
 	var/does_hardpoint_lock = TRUE
 	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
-	var/dummy_type = /mob/living/simple_animal/spiderbot
+	var/dummy_type = /mob/living/simple_animal/spiderbot/remote_mech
 	var/dummy_colour
 
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
@@ -375,7 +375,7 @@
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
 	// Give dummy a blank encryption key for later editing if spiderbot
-	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
+	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai) && !istype(dummy, /mob/living/simple_animal/spiderbot/remote_mech/ai))
 		dummy.radio.keyslot = new /obj/item/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)

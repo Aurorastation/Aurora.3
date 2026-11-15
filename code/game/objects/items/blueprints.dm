@@ -14,6 +14,15 @@
 	///Vending machine wires
 	var/datum/wires/vending/blueprint/vending_wires
 
+/obj/item/blueprints/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use the blueprints while holding them in your active hand to enter the blueprint view."
+	. += "Left-click a turf to set the first corner of a selection, then left-click again to add the rectangle between the two corners. Shift-left-click removes a rectangle, and Ctrl-click clears the selection."
+	. += "The Mark New Area action converts a contiguous selection of constructed background turfs into a new area. A selection cannot exceed 300 turfs or overlap an existing area."
+	. += "Move the blueprint view over an existing area to rename or remove that area with the corresponding actions. Areas containing an APC cannot be removed."
+	if(show_wires)
+		. += "These blueprints can also display airlock and vending machine wire schematics."
+
 /obj/item/blueprints/Initialize(mapload, ...)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
@@ -80,6 +89,10 @@
 	icon_state = "blueprints2"
 	show_wires = FALSE
 
+/obj/item/blueprints/outpost/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These blueprints can create and modify areas on exoplanets and some away sites."
+
 /obj/item/blueprints/outpost/attack_self(mob/user)
 	if(!length(valid_z_levels) || !valid_z_levels) //Outpost blueprints can initialize before exoplanets, so put this in here to doublecheck it.
 		set_valid_z_levels()
@@ -89,8 +102,11 @@
 			area_prefix = E.planet_name
 		else
 			area_prefix = E.name
+	else if(SSodyssey.scenario && (GET_Z(user) in SSodyssey.scenario_zlevels))
+		area_prefix = SSodyssey.scenario.name
 	else
-		area_prefix = E.name
+		var/area/current_area = get_area(user)
+		area_prefix = current_area?.name || "Unknown Location"
 	. = ..()
 
 /obj/item/blueprints/outpost/set_valid_z_levels()
@@ -114,7 +130,7 @@
 /obj/item/blueprints/shuttle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level."
-	. += "Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
+	. += "Newly-created areas are automatically added to the shuttle. The shuttle's final remaining area cannot be removed."
 
 /obj/item/blueprints/shuttle/set_valid_z_levels()
 	if(SSatlas.current_map.use_overmap)

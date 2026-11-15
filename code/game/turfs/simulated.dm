@@ -152,6 +152,7 @@
 	//WET_TYPE_WATER = water
 	//WET_TYPE_LUBE = lube
 	//WET_TYPE_ICE = ice
+	var/previous_wet_type = wet_type
 
 	if(!wet_type)
 		wet_type = apply_type
@@ -164,8 +165,16 @@
 	if(wet_amount <= 0)
 		wet_amount = 0 //Just in case
 
+	if(wet_overlay && previous_wet_type != wet_type)
+		CutOverlays(wet_overlay, ATOM_ICON_CACHE_PROTECTED)
+		wet_overlay = null
+
 	if(!wet_overlay)
-		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
+		var/wet_icon_state = wet_type == WET_TYPE_LUBE ? "lubed_floor" : "wet_floor"
+		wet_overlay = image('icons/effects/water.dmi', src, wet_icon_state)
+		if(wet_type == WET_TYPE_LUBE)
+			var/singleton/reagent/lube/lube_reagent = GET_SINGLETON(/singleton/reagent/lube)
+			wet_overlay.color = lube_reagent.color
 		AddOverlays(wet_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 	wet_amount += amount

@@ -180,6 +180,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/list/disabilities = list()
 
 	var/economic_status = ECONOMICALLY_AVERAGE
+	var/starting_funds_location = STARTING_FUNDS_BANK_ACCOUNT
 
 	var/uplinklocation = "PDA"
 
@@ -319,7 +320,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	. = ..()
 	show_character_slots = FALSE
 	character_setup_loading = FALSE
-	if(client)
+	if(client && user?.client)
 		for(var/map_id in preview_map_ids)
 			winset(client, preview_map_ids[map_id], "is-visible=false")
 	clear_character_previews()
@@ -811,6 +812,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		psionics = list()
 
 		economic_status = ECONOMICALLY_AVERAGE
+		starting_funds_location = STARTING_FUNDS_BANK_ACCOUNT
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
