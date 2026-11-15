@@ -19,35 +19,34 @@
 	return level
 
 /**
+ * Returns the user's Atmospherics Systems ranks above Unfamiliar (0 for Unfamiliar, up to 3 for Professional).
+ */
+/proc/get_effective_atmospherics_skill(mob/user)
+	return max(0, get_atmospherics_skill(user) - SKILL_LEVEL_UNFAMILIAR)
+
+/**
  * Returns the tool delay (in deciseconds) for fastening a pipe or pipe meter.
  */
 /proc/get_pipe_fasten_delay(mob/user, obj/item/tool)
-	var/skill = get_atmospherics_skill(user)
-	var/is_pipewrench = istype(tool, /obj/item/pipewrench)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 30
-		if(SKILL_LEVEL_FAMILIAR)
-			return 15
-		if(SKILL_LEVEL_TRAINED)
-			return is_pipewrench ? 5 : 8
-		else
-			return is_pipewrench ? 0 : 5
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	var/base_delay = 30 - (10 * effective_skill)
+	return istype(tool, /obj/item/pipewrench) ? max(0, base_delay) : max(5, base_delay + 5)
 
 /**
  * Returns the tool delay (in deciseconds) for converting a pipe's shape or layer with a pipe wrench.
  */
 /proc/get_pipe_convert_delay(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 20
-		if(SKILL_LEVEL_FAMILIAR)
-			return 10
-		if(SKILL_LEVEL_TRAINED)
-			return 5
-		else
-			return 0
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(0, round(20 * (1 - (effective_skill / 3))))
+
+/**
+ * Returns the tool delay (in deciseconds) for unfastening a pipe, meter, or inline atmospherics device.
+ */
+/proc/get_pipe_unfasten_delay(mob/user, exerted = FALSE)
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	if(exerted)
+		return max(30, 105 - (25 * effective_skill))
+	return max(15, 60 - (15 * effective_skill))
 
 /**
  * Shared helper for unfastening pipes and inline atmospherics devices with a wrench or pipe wrench.
@@ -69,9 +68,9 @@
 	var/datum/gas_mixture/env_air = loc.return_air()
 	var/env_pressure = SAFE_XGM_PRESSURE(env_air)
 	var/skill = get_atmospherics_skill(user)
-	var/unfasten_delay = 40
+	var/exerted = ((int_pressure - env_pressure) > PRESSURE_EXERTED)
 
-	if((int_pressure - env_pressure) > PRESSURE_EXERTED)
+	if(exerted)
 		if(!istype(attacking_item, /obj/item/pipewrench))
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
@@ -82,24 +81,8 @@
 			return FALSE
 
 		to_chat(user, SPAN_WARNING("You brace \the [src] with your pipe wrench against the internal pressure..."))
-		switch(skill)
-			if(SKILL_LEVEL_FAMILIAR)
-				unfasten_delay = 80
-			if(SKILL_LEVEL_TRAINED)
-				unfasten_delay = 50
-			else
-				unfasten_delay = 30
-	else
-		switch(skill)
-			if(SKILL_LEVEL_UNFAMILIAR)
-				unfasten_delay = 60
-			if(SKILL_LEVEL_FAMILIAR)
-				unfasten_delay = 40
-			if(SKILL_LEVEL_TRAINED)
-				unfasten_delay = 25
-			else
-				unfasten_delay = 15
 
+	var/unfasten_delay = get_pipe_unfasten_delay(user, exerted)
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, unfasten_delay, volume = 50))
 		if(QDELETED(src) || !loc)
@@ -111,31 +94,15 @@
  * Returns the tool delay (in deciseconds) for connecting or disconnecting portable atmospherics to a connector port.
  */
 /proc/get_portable_connect_delay(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 25
-		if(SKILL_LEVEL_FAMILIAR)
-			return 15
-		if(SKILL_LEVEL_TRAINED)
-			return 5
-		else
-			return 0
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(0, round(25 * (1 - (effective_skill / 3))))
 
 /**
  * Returns the tool delay (in deciseconds) for welding or unwelding a vent or scrubber.
  */
 /proc/get_vent_weld_delay(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 35
-		if(SKILL_LEVEL_FAMILIAR)
-			return 20
-		if(SKILL_LEVEL_TRAINED)
-			return 10
-		else
-			return 5
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(5, 35 - (10 * effective_skill))
 
 /**
  * Applies regulator dial imprecision for Unfamiliar users when setting pressure targets on canisters, pumps, or tanks.
@@ -143,9 +110,9 @@
 /proc/apply_atmos_pressure_precision(mob/user, target_val, min_val, max_val)
 	if(!isnum(target_val))
 		return min_val
-	var/skill = get_atmospherics_skill(user)
-	if(skill <= SKILL_LEVEL_UNFAMILIAR && target_val > min_val)
-		var/jitter = target_val * (rand(-8, 8) / 100)
+	var/max_jitter_pct = max(0, (SKILL_LEVEL_FAMILIAR - get_atmospherics_skill(user)) * 8)
+	if(max_jitter_pct > 0 && target_val > min_val)
+		var/jitter = target_val * (rand(-max_jitter_pct, max_jitter_pct) / 100)
 		target_val = round(target_val + jitter, 5)
 	return clamp(target_val, min_val, max_val)
 
@@ -157,10 +124,10 @@
 	if(!istype(user) || issilicon(user) || isghost(user))
 		return TRUE
 	var/skill = get_atmospherics_skill(user)
-	if(skill >= SKILL_LEVEL_TRAINED)
+	var/config_delay = max(0, (SKILL_LEVEL_TRAINED - skill) * 15)
+	if(!config_delay)
 		return TRUE
 
-	var/config_delay = (skill <= SKILL_LEVEL_UNFAMILIAR) ? 30 : 15
 	if(skill <= SKILL_LEVEL_UNFAMILIAR)
 		to_chat(user, SPAN_WARNING("You take a moment to puzzle over \the [machinery]'s atmospheric controls..."))
 	else
@@ -174,16 +141,8 @@
  * Returns the deployment delay (in deciseconds) for an inflatable barrier dispenser.
  */
 /proc/get_inflatable_deploy_delay(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 40
-		if(SKILL_LEVEL_FAMILIAR)
-			return 30
-		if(SKILL_LEVEL_TRAINED)
-			return 20
-		else
-			return 10
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(10, 40 - (10 * effective_skill))
 
 /**
  * Returns the deflation time (in deciseconds) when manually deflating an inflatable wall or door.
@@ -191,44 +150,22 @@
 /proc/get_inflatable_deflate_delay(mob/user)
 	if(!user)
 		return 2.6 SECONDS
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 3.5 SECONDS
-		if(SKILL_LEVEL_FAMILIAR)
-			return 2.6 SECONDS
-		if(SKILL_LEVEL_TRAINED)
-			return 1.5 SECONDS
-		else
-			return 0.8 SECONDS
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(0.8 SECONDS, (3.5 SECONDS) - (0.9 SECONDS * effective_skill))
 
 /**
  * Returns the spray cooldown (in deciseconds) for a fire extinguisher.
  */
 /proc/get_extinguisher_cooldown(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			return 25
-		if(SKILL_LEVEL_FAMILIAR)
-			return 20
-		if(SKILL_LEVEL_TRAINED)
-			return 15
-		else
-			return 10
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return max(10, 25 - (5 * effective_skill))
 
 /**
- * Returns the reagent consumption multiplier for a fire extinguisher spray (Trained: 0.75, Professional: 0.6).
+ * Returns the reagent consumption multiplier for a fire extinguisher spray (15% reduction per rank above Unfamiliar).
  */
 /proc/get_extinguisher_consumption_mult(mob/user)
-	var/skill = get_atmospherics_skill(user)
-	switch(skill)
-		if(SKILL_LEVEL_TRAINED)
-			return 0.75
-		if(SKILL_LEVEL_PROFESSIONAL)
-			return 0.6
-		else
-			return 1.0
+	var/effective_skill = get_effective_atmospherics_skill(user)
+	return clamp(1 - (0.15 * effective_skill), 0.55, 1)
 
 /**
  * Checks whether a gas ID is a common everyday atmospheric gas recognizable by an Unfamiliar user on a Gas Analyzer.
@@ -425,16 +362,8 @@
 		return TRUE
 
 	var/skill = GET_SKILL_LEVEL(H, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
-	var/negate_chance = 0
-	switch(skill)
-		if(SKILL_LEVEL_UNFAMILIAR)
-			negate_chance = 0
-		if(SKILL_LEVEL_FAMILIAR)
-			negate_chance = 25
-		if(SKILL_LEVEL_TRAINED)
-			negate_chance = 50
-		else
-			negate_chance = 100
+	var/effective_skill = max(0, skill - SKILL_LEVEL_UNFAMILIAR)
+	var/negate_chance = effective_skill ? min(100, 25 * (2 ** (effective_skill - 1))) : 0
 
 	if(negate_chance > 0 && prob(negate_chance))
 		if(istype(L))
