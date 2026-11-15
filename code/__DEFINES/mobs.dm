@@ -622,11 +622,6 @@
 #define TRIAGE_RED "Red"
 #define TRIAGE_BLACK "Black"
 
-// Surgery Stuff
-#define SURGERY_SUCCESS 2 // Proceed with surgery
-#define SURGERY_FAIL 1 // Autofail surgery
-#define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
-
 #define STASIS_MISC     "misc"
 #define STASIS_CRYOBAG  "cryobag"
 #define STASIS_COLD     "cold"

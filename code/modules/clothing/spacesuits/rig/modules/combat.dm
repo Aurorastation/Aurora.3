@@ -169,7 +169,7 @@
 		gun.toggle_firing_mode(user, extra_mobs)
 		return TRUE
 
-	gun.Fire(target, user)
+	gun.fire_gun(target, user)
 	return TRUE
 
 /obj/item/rig_module/mounted/egun
@@ -303,7 +303,7 @@
 	if(target)
 		// Don't prevent the player from trying to shoot someone who is up in their face if needs be.
 		if(isliving(target) || !target.Adjacent(user))
-			gun.Fire(target, user)
+			gun.fire_gun(target, user)
 		else
 			target.attackby(gun, user)
 	return TRUE

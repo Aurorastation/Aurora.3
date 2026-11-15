@@ -1,0 +1,12 @@
+author: GeneralCamo
+delete-after: True
+changes:
+  - refactor: "Handheld guns and guns operated by integrated circuits now share the same firing logic."
+  - bugfix: "Removing a gun from its firing circuit stops the rest of its burst."
+  - rscdel: "Routine gunshots no longer print firing messages in chat."
+  - qol: "Gun safeties, cooldowns, missing firing pins, and jams give short alerts near the weapon."
+  - rscadd: "Self-loading guns with standard detachable magazines retain chambered rounds when their magazines are removed. Use Rack to chamber a round after reloading an empty gun."
+  - qol: "On supported pistols, an empty seated magazine blocks racking when the chamber has no live round. Remove the magazine to rack it, or replace it to chamber a new round."
+  - qol: "Pistols with slide-lock art show the slide locking back after the last shot."
+  - qol: "Racking, pumping, and cycling supported guns show a brief text cue to the operator and nearby players."
+  - rscadd: "Added the Eject Ammo action. It drops a seated magazine first, then clears a chambered round if there is no seated magazine."

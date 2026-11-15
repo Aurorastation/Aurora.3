@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/under/uniform)
+
 /obj/item/clothing/under/uniform/gadpathur
 	name = "gadpathurian fatigues"
 	desc = "A simple black cloth shirt and brown NBC-treated pants commonly worn by Gadpathurians."

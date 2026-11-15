@@ -38,6 +38,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
+ABSTRACT_TYPE(/obj/item/clothing/under/fluff)
+
 /obj/item/clothing/under/fluff/ana_uniform //Retired Uniform - Ana Roh'hi'tin - suethecake
 	name = "retired uniform"
 	desc = "A silken blouse paired with dark-colored slacks. It has the words \"Chief Investigator\" embroidered into the shoulder bar."
@@ -46,6 +48,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ana_uniform"
 	item_state = "ana_uniform"
 	contained_sprite = TRUE
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/forensics)
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/forensics/fluff)
 
 /obj/item/clothing/suit/storage/toggle/forensics/fluff/ana_jacket //CSI Jacket - Ana Roh'hi'tin - suethecake
 	name = "CSI jacket"
@@ -81,6 +87,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/brianne_items.dmi'
 	icon_state = "brianne_teapot"
 
+
+ABSTRACT_TYPE(/obj/item/clothing/mask/fluff)
 
 /obj/item/clothing/mask/fluff/corvo_cigarette //Vaporizer Pen - Nathan Corvo - jkjudgex
 	name = "vaporizer pen"
@@ -191,6 +199,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "resolve_antennae"
 	item_state = "resolve_antennae"
 	contained_sprite = TRUE
+
+ABSTRACT_TYPE(/obj/item/clothing/shoes/fluff)
 
 /obj/item/clothing/shoes/fluff/resolve_shoes //Treads - Decisive Resolve - itanimulli
 	name = "treads"
@@ -340,6 +350,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "likho_labcoat"
 
 
+ABSTRACT_TYPE(/obj/item/clothing/head/fluff)
+
 /obj/item/clothing/head/fluff/djikstra_hood //Stellar Hood - Msizi Djikstra - happyfox
 	name = "stellar hood"
 	desc = "A more encompassing version of the Starveil, made from a resilient xeno-silk, intended to protect not just the eyes but also the soul of the wearer."
@@ -350,6 +362,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|BLOCKHAIR|BLOCKHEADHAIR|HIDEEARS|HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/fluff)
 
 /obj/item/clothing/suit/fluff/djikstra_robe //Stellar Robe - Msizi Djikstra - happyfox
 	name = "stellar robe"
@@ -392,6 +406,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	can_hold = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband)
 	starts_with = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband = 4, /obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt = 4)
 	storage_slots = 8
+
+ABSTRACT_TYPE(/obj/item/clothing/accessory/armband/fluff)
 
 /obj/item/clothing/accessory/armband/fluff/ioraks_armband
 	name = "azszau armband"
@@ -599,6 +615,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
+
 /obj/item/clothing/suit/storage/toggle/fluff/sezrak_coat //Red Domelkoan Coat - Sezrak Han'san - captaingecko
 	name = "red Domelkoan Coat"
 	desc = "A warm coat made in Domelkos. This red coat is stuffed with yupmi fur and made out of reinforced cloth-like synthetic materials, both to keep the wearer warm in the cold winters of \
@@ -721,6 +739,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "quoro_hat"
 	item_state = "quoro_hat"
 	contained_sprite = TRUE
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/fluff)
 
 /obj/item/clothing/suit/storage/fluff/quoro_suit //Skrellian Fancy Robes - Quoro Wurri'Til - witchbells
 	name = "skrellian fancy robes"

@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Reworked improper surgery surfaces such as rollerbeds to no longer bypass the skill check on surgery success chances. They instead provide their own modifier that can be offset by a highly skilled surgeon."
