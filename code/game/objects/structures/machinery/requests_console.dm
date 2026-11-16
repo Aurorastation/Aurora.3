@@ -451,7 +451,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 					"body" = message
 				))
 			else
-				audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING("NOTICE: No server detected!")]")
+				audible_message("[SPAN_BOLD("The Requests Console")] beeps, [SPAN_WARNING("NOTICE: No server detected!")]")
 			return TRUE
 
 		if("set_screen")
@@ -605,7 +605,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		user.drop_from_inventory(refill, console_turf)
 		new /obj/item/trash/paper_ream(console_turf)
 		qdel(refill)
-		audible_message("<b>The Requests Console</b> beeps, \"[refill_amount] sheet[refill_amount == 1 ? "" : "s"] of paper added.\"")
+		audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"[refill_amount] sheet[refill_amount == 1 ? "" : "s"] of paper added.\"")
 		SStgui.update_uis(src)
 		return TRUE
 	else if(istype(attacking_item, /obj/item/paper_bundle))
@@ -617,7 +617,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			paperstock += paper_bundle.amount
 			user.drop_from_inventory(paper_bundle, get_turf(src))
 			qdel(paper_bundle)
-			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
+			audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(attacking_item, user)
 		return TRUE
@@ -630,7 +630,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			user.drop_from_inventory(paper_item, get_turf(src))
 			qdel(paper_item)
 			paperstock++
-			audible_message("<b>The Requests Console</b> beeps, \"Paper added.\"")
+			audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"Paper added.\"")
 		else if(screen == RCS_MAINMENU)	//Faxing them papers
 			fax_send(attacking_item, user)
 		return TRUE
@@ -662,7 +662,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		return
 	if(!can_send())
 		var/msg = "NOTICE: No server detected!"
-		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
+		audible_message("[SPAN_BOLD("The Requests Console")] beeps, [SPAN_WARNING(msg)]")
 		return
 	for(var/obj/structure/machinery/requests_console/console in GLOB.allConsoles)
 		if(console == sendto)
@@ -672,7 +672,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 				var/obj/item/paper_bundle/fax_bundle = fax_item
 				paperstock_usage = fax_bundle.amount
 			if(console.paperstock < paperstock_usage)
-				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
+				audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"Error! Receiving console out of paper! Aborting!\"")
 				return
 			playsound(console.loc, 'sound/machines/twobeep.ogg', 40)
 			playsound(console.loc, 'sound/items/polaroid1.ogg', 40)
@@ -682,13 +682,13 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			else
 				var/obj/item/paper_bundle/bundle_copy = bundlecopy(console, fax_item, FALSE, 15, FALSE)
 				bundle_copy.forceMove(console.loc)
-			console.audible_message("<b>The Requests Console</b> beeps, \"Fax received.\"")
+			console.audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"Fax received.\"")
 			for(var/datum/weakref/ref in console.alert_pdas)
 				var/obj/item/modular_computer/pda = ref.resolve()
 				if(pda)
 					pda.get_notification("A fax has arrived!", 1, "[console.department] Requests Console")
 			console.paperstock -= paperstock_usage
-			audible_message("<b>The Requests Console</b> beeps, \"Fax sent.\"")
+			audible_message("[SPAN_BOLD("The Requests Console")] beeps, \"Fax sent.\"")
 			return
 
 /obj/structure/machinery/requests_console/proc/reset_message(mainmenu = FALSE)
