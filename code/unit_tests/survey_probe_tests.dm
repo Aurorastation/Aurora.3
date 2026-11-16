@@ -1,5 +1,6 @@
 /datum/unit_test/survey_probe_data
 	name = "SURVEY: Survey Data Disk Integrity"
+	groups = list("generic")
 
 /datum/unit_test/survey_probe_data/start_test()
 	var/obj/item/disk/survey_data/atmosphere = new(null, "atmosphere", "Test Planet")
@@ -30,6 +31,7 @@
 
 /datum/unit_test/research_tech_nodes
 	name = "RESEARCH: Tech Nodes and Point Unlocks"
+	groups = list("generic")
 
 /datum/unit_test/research_tech_nodes/start_test()
 	if(!GLOB.tech_nodes || !GLOB.tech_nodes.len)
@@ -109,11 +111,12 @@
 
 /datum/unit_test/research_firearm_bounties
 	name = "RESEARCH: Corporate Firearm Bounties"
+	groups = list("generic")
 
 /datum/unit_test/research_firearm_bounties/start_test()
 	var/datum/research/R = new(null)
-	if(length(R.active_bounties) != 15)
-		fail("Expected 15 active bounties (3 firearm, 3 xenobiology, 3 circuit, 3 survey, 3 xenoarch) on research initialization")
+	if(length(R.active_bounties) != 18)
+		fail("Expected 18 active bounties (3 firearm, 3 xenobotany, 3 xenobiology, 3 circuit, 3 survey, 3 xenoarch) on research initialization")
 		qdel(R)
 		return 1
 
@@ -231,6 +234,7 @@
 
 /datum/unit_test/research_persistence_decay
 	name = "RESEARCH: Persistence Outermost Decay and Maintenance"
+	groups = list("generic")
 
 /datum/unit_test/research_persistence_decay/start_test()
 	var/singleton/persistent_type/generic/research_tech_nodes/P = new /singleton/persistent_type/generic/research_tech_nodes()
@@ -293,6 +297,7 @@
 
 /datum/unit_test/research_tech_processor_scaling
 	name = "RESEARCH: Logarithmic Tech Processor Scaling"
+	groups = list("generic")
 
 /datum/unit_test/research_tech_processor_scaling/start_test()
 	var/obj/structure/machinery/r_n_d/server/S = new(null)
@@ -323,6 +328,7 @@
 
 /datum/unit_test/xenoarch_artifact_persistence
 	name = "XENOARCH: Artifact Persistence Serialization and Container Spawn"
+	groups = list("generic")
 
 /datum/unit_test/xenoarch_artifact_persistence/start_test()
 	var/singleton/persistent_type/generic/xenoarch_artifacts/XA = GET_SINGLETON(/singleton/persistent_type/generic/xenoarch_artifacts)
