@@ -161,6 +161,8 @@
 	var/list/paper_content = data["content"]
 	var/obj/item/paper/paper = new paper_type(location)
 	paper.set_content(paper_content["title"], paper_content["text"], adddefaultfont = FALSE)
+	if("color" in paper_content)
+		paper.color = paper_content["color"]
 	paper.persistent_filing_cabinet_id = null
 	if(isnum(paper_content["pixel_x"]))
 		paper.pixel_x = paper_content["pixel_x"]
@@ -168,7 +170,6 @@
 		paper.pixel_y = paper_content["pixel_y"]
 	if(istype(paper, /obj/item/paper/stickynotes))
 		var/obj/item/paper/stickynotes/sticky_note = paper
-		sticky_note.color = paper_content["color"]
 		sticky_note.persistent_placement = FALSE
 	return paper
 
@@ -908,6 +909,7 @@
 	var/list/content = list()
 	content["title"] = name
 	content["text"] = info
+	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	if(persistent_filing_cabinet_id)
@@ -916,6 +918,8 @@
 
 /obj/item/paper/persistent_objects_apply_content(content, x, y, z)
 	set_content(content["title"], content["text"], adddefaultfont = FALSE)
+	if("color" in content)
+		color = content["color"]
 	persistent_filing_cabinet_id = content["filing_cabinet_id"]
 	src.x = x
 	src.y = y
@@ -961,7 +965,6 @@
 
 /obj/item/paper/stickynotes/persistent_objects_get_content()
 	var/list/content = ..()
-	content["color"] = color
 	content["pixel_x"] = pixel_x
 	content["pixel_y"] = pixel_y
 	return content
@@ -970,7 +973,8 @@
 	src.name = content["title"]
 	src.info = content["text"]
 	src.persistent_filing_cabinet_id = content["filing_cabinet_id"]
-	src.color = content["color"]
+	if("color" in content)
+		src.color = content["color"]
 	src.pixel_x = content["pixel_x"]
 	src.pixel_y = content["pixel_y"]
 	persistent_placement = TRUE
