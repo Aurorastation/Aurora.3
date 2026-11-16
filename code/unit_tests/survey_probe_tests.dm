@@ -3,23 +3,23 @@
 	groups = list("generic")
 
 /datum/unit_test/survey_probe_data/start_test()
-	var/obj/item/disk/survey_data/atmosphere = new(null, "atmosphere", "Test Planet")
-	var/obj/item/disk/survey_data/ground = new(null, "ground", "Test Planet")
-	var/obj/item/disk/survey_data/geomagnetic = new(null, "geomagnetic", "Test Planet")
+	var/obj/item/disk/survey_data/atmosphere = new(null, null, "atmospheric")
+	var/obj/item/disk/survey_data/ground = new(null, null, "ground")
+	var/obj/item/disk/survey_data/geomagnetic = new(null, null, "geomagnetic")
 
 	if(!atmosphere.origin_tech || !ground.origin_tech || !geomagnetic.origin_tech)
 		fail("Survey data disks missing origin_tech")
 		return 1
 
-	if(atmosphere.origin_tech[TECH_BIO] != 4 || atmosphere.origin_tech[TECH_DATA] != 4 || atmosphere.origin_tech[TECH_ENGINEERING] != 4)
+	if(atmosphere.origin_tech[TECH_BIO] != 4 || atmosphere.origin_tech[TECH_DATA] != 3 || atmosphere.origin_tech[TECH_ENGINEERING] != 3)
 		fail("Atmosphere survey disk has invalid origin_tech values")
 		return 1
 
-	if(ground.origin_tech[TECH_MATERIAL] != 4 || ground.origin_tech[TECH_ENGINEERING] != 4 || ground.origin_tech[TECH_DATA] != 4)
+	if(ground.origin_tech[TECH_MATERIAL] != 4 || ground.origin_tech[TECH_ENGINEERING] != 3 || ground.origin_tech[TECH_DATA] != 3)
 		fail("Ground survey disk has invalid origin_tech values")
 		return 1
 
-	if(geomagnetic.origin_tech[TECH_MAGNET] != 4 || geomagnetic.origin_tech[TECH_POWER] != 4 || geomagnetic.origin_tech[TECH_DATA] != 4)
+	if(geomagnetic.origin_tech[TECH_MAGNET] != 4 || geomagnetic.origin_tech[TECH_POWER] != 3 || geomagnetic.origin_tech[TECH_DATA] != 3)
 		fail("Geomagnetic survey disk has invalid origin_tech values")
 		return 1
 
@@ -120,7 +120,7 @@
 		qdel(R)
 		return 1
 
-	var/obj/item/disk/survey_data/SD = new(null, "atmospheric", "Test Planet")
+	var/obj/item/disk/survey_data/SD = new(null, null, "atmospheric")
 	if(!R.get_matching_bounty(SD))
 		fail("Expected atmospheric survey disk to match an active survey bounty")
 		qdel(SD)

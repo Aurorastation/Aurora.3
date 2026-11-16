@@ -378,7 +378,7 @@
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
 
-	if(sector)
+	if(istype(sector))
 		planet_name = sector.name
 	if(survey_category)
 		survey_type = survey_category
