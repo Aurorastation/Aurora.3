@@ -458,6 +458,7 @@
 #include "code\controllers\subsystems\persistence\persistence_types_history_sql.dm"
 #include "code\controllers\subsystems\persistence\persistence_types_sql.dm"
 #include "code\controllers\subsystems\persistence\persistence_vending.dm"
+#include "code\controllers\subsystems\persistence\persistence_grime.dm"
 #include "code\controllers\subsystems\processing\airflow.dm"
 #include "code\controllers\subsystems\processing\calamity.dm"
 #include "code\controllers\subsystems\processing\disease.dm"
