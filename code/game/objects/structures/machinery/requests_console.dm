@@ -127,8 +127,18 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	///List of PDAs we alert upon a request receipt
 	var/list/datum/weakref/alert_pdas = list()
 
+/datum/persistent_request_console_paperstock
+	/// The initially mapped request console. Its current location is deliberately irrelevant.
+	var/obj/structure/machinery/requests_console/console
+
+/** Returns current paper stock, or null when the console no longer exists so its prior generic is left untouched. */
+/datum/persistent_request_console_paperstock/proc/get_final_paperstock()
+	if(QDELETED(console))
+		return
+	return list("paper_stock" = console.paperstock)
+
 /singleton/persistent_type/generic/request_console_paperstock
-	/// Persistent request consoles present on the Horizon when the round's map finished loading.
+	/// Persistent request consoles present on the Horizon, keyed by their generic attribute.
 	var/list/request_console_register = list()
 	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved paper stock.
 	var/paperstock_initialized = FALSE
@@ -140,19 +150,34 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	if(!SSpersistence.map_supports_persistence)
 		return
 
-	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/request_console_paperstock)
-	var/list/saved_paperstock = saved_generic?.content
 	for(var/obj/structure/machinery/requests_console/console in world)
 		CHECK_TICK
 		var/turf/console_turf = get_turf(console)
 		if(!console_turf || !is_station_level(console_turf.z) || !console.persistent_paperstock)
 			continue
 
-		request_console_register += console
-		console.paperstock_persistence_id = "[console_turf.x],[console_turf.y],[console_turf.z],[console.type]"
-		var/saved_amount = saved_paperstock?[console.paperstock_persistence_id]
+		var/paperstock_persistence_id = "[console.type]-[console_turf.x]-[console_turf.y]-[console_turf.z]"
+		console.paperstock_persistence_id = paperstock_persistence_id
+		var/datum/persistent_request_console_paperstock/paperstock_record = new
+		paperstock_record.console = console
+		if(request_console_register[paperstock_persistence_id])
+			log_subsystem_persistence_error("Duplicate persistent request console paper stock attribute '[paperstock_persistence_id]' at [console_turf].")
+			continue
+		request_console_register[paperstock_persistence_id] = paperstock_record
+
+	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/request_console_paperstock)
+	for(var/paperstock_persistence_id in saved_attributes)
+		CHECK_TICK
+		if(!length(paperstock_persistence_id))
+			continue
+		var/datum/persistent_request_console_paperstock/paperstock_record = request_console_register[paperstock_persistence_id]
+		if(!paperstock_record)
+			continue
+		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/request_console_paperstock, paperstock_persistence_id, skip_caching = TRUE)
+		var/list/saved_paperstock = saved_generic?.content
+		var/saved_amount = saved_paperstock?["paper_stock"]
 		if(isnum(saved_amount))
-			console.paperstock = max(saved_amount, 0)
+			paperstock_record.console.paperstock = max(saved_amount, 0)
 	paperstock_initialized = TRUE
 
 /** Saves paper stock for the initially mapped request consoles without considering their current locations. */
@@ -160,16 +185,14 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	if(!paperstock_initialized)
 		return
 
-	var/list/all_paperstock = list()
-	for(var/obj/structure/machinery/requests_console/console as anything in request_console_register)
-		CHECK_TICK
-		if(QDELETED(console))
-			continue
-		all_paperstock[console.paperstock_persistence_id] = console.paperstock
-
 	var/obj/item/paper/paper_type = /obj/item/paper
 	var/expiration_days = initial(paper_type.persistent_objects_expiration_time_days)
-	SSpersistence.genericSave(/singleton/persistent_type/generic/request_console_paperstock, all_paperstock, expires_in_days = expiration_days)
+	for(var/paperstock_persistence_id in request_console_register)
+		CHECK_TICK
+		var/datum/persistent_request_console_paperstock/paperstock_record = request_console_register[paperstock_persistence_id]
+		var/list/saved_paperstock = paperstock_record.get_final_paperstock()
+		if(islist(saved_paperstock))
+			SSpersistence.genericSave(/singleton/persistent_type/generic/request_console_paperstock, saved_paperstock, paperstock_persistence_id, expires_in_days = expiration_days)
 
 /obj/structure/machinery/requests_console/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

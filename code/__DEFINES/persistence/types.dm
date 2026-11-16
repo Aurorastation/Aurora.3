@@ -17,9 +17,9 @@
 // ##### Persistent generics
 
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_overmap_position, "SCCV Horizon sector position", "Position of the SCCV Horizon on the overmap.", FALSE)
-CREATE_PERSISTENT_TYPE_GENERIC(photocopier_toner, "Photocopier toner levels", "Remaining toner in photocopiers mapped onto the SCCV Horizon.", FALSE)
-CREATE_PERSISTENT_TYPE_GENERIC(papershredder_contents, "Paper shredder contents", "Shredded paper in paper shredders mapped onto the SCCV Horizon.", FALSE)
-CREATE_PERSISTENT_TYPE_GENERIC(request_console_paperstock, "Request console paper stock", "Remaining paper in request consoles mapped onto the SCCV Horizon.", FALSE)
+CREATE_PERSISTENT_TYPE_GENERIC(photocopier_toner, "Photocopier toner levels", "Remaining toner in photocopiers mapped onto the SCCV Horizon.", TRUE)
+CREATE_PERSISTENT_TYPE_GENERIC(papershredder_contents, "Paper shredder contents", "Shredded paper in paper shredders mapped onto the SCCV Horizon.", TRUE)
+CREATE_PERSISTENT_TYPE_GENERIC(request_console_paperstock, "Request console paper stock", "Remaining paper in request consoles mapped onto the SCCV Horizon.", TRUE)
 CREATE_PERSISTENT_TYPE_GENERIC(horizon_vending_stock, "SCCV Horizon vending stock", "Remaining normal stock in vending machines mapped onto the SCCV Horizon.", FALSE)
 
 // ##### Persistent history

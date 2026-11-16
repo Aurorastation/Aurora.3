@@ -29,8 +29,18 @@
 	/// Original map identity used to persist toner without persisting the photocopier itself.
 	var/tmp/toner_persistence_id
 
+/datum/persistent_photocopier_toner
+	/// The initially mapped photocopier. Its current location is deliberately irrelevant.
+	var/obj/structure/machinery/photocopier/copier
+
+/** Returns current toner, or null when the photocopier no longer exists so its prior generic is left untouched. */
+/datum/persistent_photocopier_toner/proc/get_final_toner()
+	if(QDELETED(copier))
+		return
+	return list("toner" = copier.toner)
+
 /singleton/persistent_type/generic/photocopier_toner
-	/// Persistent photocopiers present on the Horizon when the round's map finished loading.
+	/// Persistent photocopiers present on the Horizon, keyed by their generic attribute.
 	var/list/photocopier_register = list()
 	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved toner.
 	var/toner_initialized = FALSE
@@ -42,19 +52,34 @@
 	if(!SSpersistence.map_supports_persistence)
 		return
 
-	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner)
-	var/list/saved_toner = saved_generic?.content
 	for(var/obj/structure/machinery/photocopier/copier in world)
 		CHECK_TICK
 		var/turf/copier_turf = get_turf(copier)
 		if(!copier_turf || !is_station_level(copier_turf.z) || !copier.persistent_toner)
 			continue
 
-		photocopier_register += copier
-		copier.toner_persistence_id = "[copier_turf.x],[copier_turf.y],[copier_turf.z],[copier.type]"
-		var/saved_level = saved_toner?[copier.toner_persistence_id]
+		var/toner_persistence_id = "[copier.type]-[copier_turf.x]-[copier_turf.y]-[copier_turf.z]"
+		copier.toner_persistence_id = toner_persistence_id
+		var/datum/persistent_photocopier_toner/toner_record = new
+		toner_record.copier = copier
+		if(photocopier_register[toner_persistence_id])
+			log_subsystem_persistence_error("Duplicate persistent photocopier toner attribute '[toner_persistence_id]' at [copier_turf].")
+			continue
+		photocopier_register[toner_persistence_id] = toner_record
+
+	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/photocopier_toner)
+	for(var/toner_persistence_id in saved_attributes)
+		CHECK_TICK
+		if(!length(toner_persistence_id))
+			continue
+		var/datum/persistent_photocopier_toner/toner_record = photocopier_register[toner_persistence_id]
+		if(!toner_record)
+			continue
+		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/photocopier_toner, toner_persistence_id, skip_caching = TRUE)
+		var/list/saved_toner = saved_generic?.content
+		var/saved_level = saved_toner?["toner"]
 		if(isnum(saved_level))
-			copier.toner = clamp(saved_level, 0, copier.max_toner)
+			toner_record.copier.toner = clamp(saved_level, 0, toner_record.copier.max_toner)
 	toner_initialized = TRUE
 
 /** Saves toner for the initially mapped photocopiers without considering their current locations. */
@@ -62,14 +87,12 @@
 	if(!toner_initialized)
 		return
 
-	var/list/all_toner = list()
-	for(var/obj/structure/machinery/photocopier/copier as anything in photocopier_register)
+	for(var/toner_persistence_id in photocopier_register)
 		CHECK_TICK
-		if(QDELETED(copier))
-			continue
-		all_toner[copier.toner_persistence_id] = copier.toner
-
-	SSpersistence.genericSave(/singleton/persistent_type/generic/photocopier_toner, all_toner)
+		var/datum/persistent_photocopier_toner/toner_record = photocopier_register[toner_persistence_id]
+		var/list/toner_content = toner_record.get_final_toner()
+		if(islist(toner_content))
+			SSpersistence.genericSave(/singleton/persistent_type/generic/photocopier_toner, toner_content, toner_persistence_id)
 
 /obj/structure/machinery/photocopier/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
