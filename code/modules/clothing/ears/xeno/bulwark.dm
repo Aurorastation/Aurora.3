@@ -1,4 +1,4 @@
-/obj/item/clothing/ears/bulwark
+ABSTRACT_TYPE(/obj/item/clothing/ears/bulwark)
 	name = "bulwark horn wear"
 	desc = "Some stuff worn by Bulwarks to adorn their horns."
 	icon = 'icons/obj/vaurca_items.dmi'

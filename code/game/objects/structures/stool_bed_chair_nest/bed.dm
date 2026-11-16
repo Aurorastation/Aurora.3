@@ -276,9 +276,12 @@
 	if(buckled && !istype(src, /obj/structure/bed/roller))
 		var/mob/living/occupant = buckled
 		if(!driving)
+			var/footfall_trait_source = REF(src)
+			ADD_TRAIT(occupant, TRAIT_NO_FOOTFALL, footfall_trait_source)
 			occupant.buckled_to = null
 			occupant.Move(src.loc)
 			occupant.buckled_to = src
+			REMOVE_TRAIT(occupant, TRAIT_NO_FOOTFALL, footfall_trait_source)
 			if (occupant && (src.loc != occupant.loc))
 				if (propelled)
 					for (var/mob/O in src.loc)
@@ -409,6 +412,8 @@
 		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
 	slowdown = 0
+	surgery_surface = TRUE
+	surgery_odds_modifier = -20
 
 /obj/structure/bed/roller/Initialize()
 	. = ..()

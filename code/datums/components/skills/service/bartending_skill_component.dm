@@ -63,7 +63,7 @@
 	if (!morale_comp)
 		return
 
-	if (!overwrite_moodlet && astype(morale_comp.moodlets[/datum/moodlet/bartender_drink], /datum/moodlet)?.get_morale_modifier() > moodlet_value)
+	if (!overwrite_moodlet && astype((locate(/datum/moodlet/bartender_drink) in morale_comp.moodlets), /datum/moodlet)?.get_morale_modifier() > moodlet_value)
 		// Return if they already have a better drink moodlet.
 		return
 

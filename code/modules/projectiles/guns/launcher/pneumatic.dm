@@ -7,7 +7,6 @@
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
 	needspin = FALSE
@@ -120,7 +119,7 @@
 	else
 		release_force = 0
 
-/obj/item/gun/launcher/pneumatic/handle_post_fire()
+/obj/item/gun/launcher/pneumatic/post_fire()
 	if(tank)
 		var/lost_gas_amount = tank.air_contents.total_moles*(pressure_setting/100)
 		var/datum/gas_mixture/removed = tank.air_contents.remove(lost_gas_amount)

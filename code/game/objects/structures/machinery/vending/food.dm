@@ -7,6 +7,8 @@
 /obj/structure/machinery/vending/mredispenser
 	name = "MRE dispenser"
 	desc = "A vending machine filled with MRE's."
+	persistent_stock = TRUE
+	vend_id = "mre"
 	icon_state = "mrevend"
 	icon_deny = "mrevend-deny"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
@@ -57,6 +59,7 @@
 /obj/structure/machinery/vending/ramen
 	name = "\improper ramen vendor"
 	desc = "A generic brand vending machine capable of cooking tonkotsu ramen at the push of a button. Truly a pinnacle of human engineering!"
+	persistent_stock = TRUE
 	icon_state = "ramen"
 	icon_vend = "ramen-vend"
 	icon_deny = "ramen-deny"
@@ -75,6 +78,8 @@
 /obj/structure/machinery/vending/quick_e_meals
 	name = "\improper quick-e-meals vendor"
 	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
+	persistent_stock = TRUE
+	vend_id = "quick-meals"
 	icon_state = "quick_e"
 	icon_screen = "quick_e-screen"
 	icon_vend = "quick_e-vend"
@@ -121,6 +126,8 @@
 /obj/structure/machinery/vending/idris_delights
 	name = "\improper idris delights vendor"
 	desc = "A selection of delicious cold ice creams and popsicles, brought to you by the Idris corporation. The various colors form the ice creams on offer stand out from the monochromatic Idris color scheme."
+	persistent_stock = TRUE
+	vend_id = "idris_delights"
 	icon_state = "idrisdelight"
 	icon_screen = "idrisdelight-screen"
 	icon_vend = "idrisdelight-vend"

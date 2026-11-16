@@ -42,6 +42,8 @@
 	item_state = "strongman"
 	contained_sprite = TRUE
 
+ABSTRACT_TYPE(/obj/item/clothing/shoes/sandal)
+
 /obj/item/clothing/shoes/sandal/strongman
 	name = "strongzhan sandals"
 	desc = "Reinforced leather sandals made for strong feet."

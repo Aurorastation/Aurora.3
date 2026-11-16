@@ -3,7 +3,7 @@
 //
 
 // Shorts Parent Item
-/obj/item/clothing/pants/shorts
+ABSTRACT_TYPE(/obj/item/clothing/pants/shorts)
 	name = "shorts parent item"
 	desc = DESC_PARENT
 	body_parts_covered = LOWER_TORSO
@@ -84,7 +84,7 @@
 
 /********** Athletic Shorts Start **********/
 // Athletic Shorts
-/obj/item/clothing/pants/shorts/athletic
+ABSTRACT_TYPE(/obj/item/clothing/pants/shorts/athletic)
 	name = "athletic shorts parent item"
 	desc = DESC_PARENT
 

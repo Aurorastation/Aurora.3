@@ -53,7 +53,7 @@
 		return "Could not add [M] as [title]."
 
 /datum/crime_incident/proc/missingSentenceReq()
-	var/mob/living/carbon/human/C = criminal.resolve()
+	var/mob/living/carbon/human/C = criminal?.resolve()
 	if( !istype( C ))
 		return "No criminal selected!"
 
@@ -91,6 +91,75 @@
 		max = 0
 
 	return max
+
+/// Validates whether this incident can currently be resolved with its fine.
+/datum/crime_incident/proc/validateFine()
+	var/list/result = list("error" = null)
+	var/error = missingSentenceReq()
+	if(error)
+		result["error"] = error
+		return result
+
+	if(fine <= 0)
+		result["error"] = "No fine has been entered!"
+		return result
+
+	var/minimum_fine = getMinFine()
+	var/maximum_fine = getMaxFine()
+	if(fine < minimum_fine || fine > maximum_fine)
+		result["error"] = "The fine must be between [minimum_fine] and [maximum_fine] credits."
+		return result
+
+	for(var/datum/law/L in charges)
+		if(L.felony)
+			result["error"] = "The crimes are too severe to apply a fine!"
+			return result
+		if(!L.can_fine())
+			result["error"] = "It is not possible to fine for [L.name]."
+			return result
+
+	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
+	if(!security_account)
+		result["error"] = "Could not get the security account!"
+		return result
+
+	var/obj/item/card/id/suspect_card = card?.resolve()
+	if(!istype(suspect_card))
+		result["error"] = "Could not get the suspect's ID card!"
+		return result
+
+	var/datum/money_account/suspect_account = SSeconomy.get_account(suspect_card.associated_account_number)
+	if(!suspect_account)
+		result["error"] = "Could not get the suspect's account!"
+		return result
+
+	if(suspect_account.money < fine)
+		result["error"] = "There is not enough money in the account to pay the fine!"
+		return result
+
+	return result
+
+/**
+ * Validates, collects, and records a fine.
+ *
+ * Returns an associative list containing either `error` or the rendered
+ * `report`. Keeping this here ensures every device which issues fines uses
+ * the same regulation, account, and record handling.
+ */
+/datum/crime_incident/proc/processFine(var/mob/living/user, var/transaction_source = "Sentencing Console", var/report_criminal_name)
+	var/list/result = validateFine()
+	result["report"] = null
+	if(result["error"])
+		return result
+
+	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
+	var/obj/item/card/id/suspect_card = card.resolve()
+	var/datum/money_account/suspect_account = SSeconomy.get_account(suspect_card.associated_account_number)
+
+	SSeconomy.charge_to_account(suspect_account.account_number, security_account.owner_name, "Incident: [UID]", transaction_source, -fine)
+	SSeconomy.charge_to_account(security_account.account_number, suspect_account.owner_name, "Incident: [UID] Fine", transaction_source, fine)
+	result["report"] = renderGuilty(user, 1, report_criminal_name)
+	return result
 
 /datum/crime_incident/proc/getMinBrigSentence()
 	var/min = 0
@@ -133,7 +202,7 @@
 	return max
 
 //type: 0 - brig sentence, 1 - fine, 2 - prison sentence
-/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0 )
+/datum/crime_incident/proc/renderGuilty( var/mob/living/user, var/type=0, var/report_criminal_name )
 	var/mob/living/carbon/human/C = criminal.resolve()
 	if( !C )
 		return
@@ -151,18 +220,19 @@
 		fine = 0
 
 	saveCharInfraction()
-	return generateReport()
+	return generateReport(report_criminal_name)
 
-/datum/crime_incident/proc/generateReport()
+/datum/crime_incident/proc/generateReport(var/report_criminal_name)
 	var/mob/living/carbon/human/C = criminal.resolve()
 	if( !C )
 		return
+	var/criminal_display_name = report_criminal_name || "[C]"
 	. = "<center>Security Incident Report</center><hr>"
 
 	. += "<br>"
-	. += "<b>CRIMINAL</b>: <i>[C]</i><br><br>"
+	. += "<b>CRIMINAL</b>: <i>[criminal_display_name]</i><br><br>"
 
-	. += "[C] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
+	. += "[criminal_display_name] was found guilty of the following crimes on [GLOB.game_year]-[time2text(world.realtime, "MMM-DD")].<br>"
 
 	if( brig_sentence != 0 )
 		. += "As decided by the arbiter(s), they will serve the following sentence:<br>"

@@ -8,7 +8,6 @@ ABSTRACT_TYPE(/obj/item/gun/launcher)
 	var/release_force = 0
 	var/throw_distance = 10
 	muzzle_flash = 0
-	fire_sound_text = "a launcher firing"
 
 /obj/item/gun/launcher/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -31,6 +30,6 @@ ABSTRACT_TYPE(/obj/item/gun/launcher)
 
 /obj/item/gun/launcher/process_projectile(obj/item/projectile, mob/user, atom/target, var/target_zone, var/params=null, var/pointblank=0, var/reflex=0)
 	update_release_force(projectile)
-	projectile.forceMove(get_turf(user))
+	projectile.forceMove(get_turf(src))
 	projectile.throw_at(target, throw_distance, release_force, user)
 	return 1

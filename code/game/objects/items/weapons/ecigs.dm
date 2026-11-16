@@ -1,4 +1,4 @@
-/obj/item/clothing/mask/smokable/ecig
+ABSTRACT_TYPE(/obj/item/clothing/mask/smokable/ecig)
 	name = "electronic cigarette"
 	desc = "A battery powered cigarette."
 	icon = 'icons/obj/ecig.dmi'

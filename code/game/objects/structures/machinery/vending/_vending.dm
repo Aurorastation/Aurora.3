@@ -53,7 +53,7 @@
  *
  * Captalism in the year 2467: everything in a vending machine. Even love.
  */
-/obj/structure/machinery/vending
+ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	name = "\improper Vendomat"
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
@@ -157,6 +157,18 @@
 	/// Fire items at customers! We're broken!
 	var/shoot_inventory = FALSE
 	var/shoot_inventory_chance = 1
+	/// Whether this machine is currently affected by a brand intelligence event.
+	var/brand_intelligence_infected = FALSE
+	/// The particular malfunction assigned by the brand intelligence event.
+	var/brand_intelligence_malfunction = VENDING_MALFUNCTION_NONE
+	/// Products temporarily omitted from the catalogue by a false-scarcity malfunction.
+	var/tmp/list/brand_intelligence_hidden_products
+	/// Remaining automatic dispenses for bounded giveaway and launcher malfunctions.
+	var/tmp/brand_intelligence_uses = 0
+	/// When the next identifying brand intelligence message will be spoken.
+	var/tmp/next_brand_intelligence_slogan = 0
+	/// Voice switch state from before infection, restored when the infection is removed.
+	var/tmp/brand_intelligence_original_shut_up = TRUE
 
 	/// If `TRUE`, this vendor checks IDs.
 	var/scan_id = TRUE
@@ -196,51 +208,23 @@
 	light_range = 2
 	light_power = 0.9
 
-	/**
-	 *	Is this item on station or not
-	 *
-	 *	if it doesn't originate from off-station during mapload, all_products_free gets automatically set to TRUE if it was unset previously.
-	 *	if it's off-station during mapload, it's also safe from the brand intelligence event
-	 */
-	var/onstation = TRUE
-
-	/**
-	 *	DO NOT APPLY THIS GLOBALLY. For mapping var edits only.
-	 *	A variable to change on a per instance basis that allows the instance to avoid having onstation set for them during mapload.
-	 *	Setting this to TRUE means that the vending machine is treated as if it were still onstation if it spawns off-station during mapload.
-	 *	Useful to specify an off-station machine that will still have costs for any given reason.
-	 */
-	var/onstation_override = FALSE
-
-	/**
-	 *	If this is set to TRUE, all products sold by the vending machine are free (cost nothing).
-	 *	Takes precedence over any price setting.
-	 *	If unset, this will get automatically set to TRUE during init if the machine originates from off-station during mapload.
-	 *	Defaults to null, set it to TRUE or FALSE explicitly on a per-machine basis if you want to force it to be a certain value.
-	 */
-	var/all_products_free
-
-	/**
-	 *	Recommended to set multipliers on these for a given vending machine's parent obj, to make things broadly more or less expensive.
-	 *	Vending machine products with no price explicitly set will use the defined prices- otherwise, an explicit price will override.
-	 *	If all_products_free is TRUE, all of this will be ignored.
-	 *	NOT YET IMPLEMENTED
-	 */
-	/// Default price of items if not overridden
-	var/default_price = 20
-	/// Default price of premium items if not overridden
-	var/extra_price = 50
 	/// If TRUE, skips the build_products() and build_inventory() processes in the Initialize(). Useful when you need these called later than Initialize().
 	var/build_inventory_later = FALSE
+	/// Whether a mapped instance of this vendor should persist its normal stock between rounds.
+	var/persistent_stock = FALSE
+	/// Original map location used to associate this machine with its persistent stock. Runtime-created vendors leave this null.
+	var/tmp/persistent_stock_id
+	/// Saved normal stock supplied by the persistence type before atom initialization.
+	var/tmp/list/persistent_stock_content
 
 	/// This will be used as the default amount for items in the vending machine, if not explicitly provided in `products`.
 	var/default_item_amount = null
 
+
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
+	. += "A vending machine infected with a brand intelligence virus can be fixed by using a debugger on it."
 	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
-
 
 /obj/structure/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -283,21 +267,32 @@
 		build_inventory()
 	power_change()
 
-	// Check if we were created off-station during mapload. Non-station vending machines are always free.
+	// Associate mapped station vendors with their persistent stock.
 	var/turf/T = get_turf(src)
-	if(mapload && T)
-		if(!is_station_level(T.z))
-			if(!onstation_override)
-				onstation = FALSE
-				// Only auto-set the free products var if we haven't explicitly assigned a value to it yet.
-				if(isnull(all_products_free))
-					all_products_free = TRUE
+	if(mapload && T && is_station_level(T.z) && persistent_stock)
+		persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
 
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/vending/LateInitialize()
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+	apply_persistent_stock()
+
+/** Applies stock supplied before initialization now that the product records have been built. */
+/obj/structure/machinery/vending/proc/apply_persistent_stock()
+	if(!persistent_stock_id || !islist(persistent_stock_content))
+		persistent_stock_content = null
+		return
+
+	for(var/datum/data/vending_product/product in product_records)
+		if(product.category != CAT_NORMAL)
+			continue
+		var/stock_key = "[product.product_path]|[product.category]"
+		var/saved_amount = persistent_stock_content[stock_key]
+		if(isnum(saved_amount))
+			product.amount = clamp(saved_amount, 0, product.max_amount)
+	persistent_stock_content = null
 
 /obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
@@ -409,6 +404,14 @@
 
 /obj/structure/machinery/vending/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/debugger))
+		if(brand_intelligence_infected)
+			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Brand intelligence infection detected. Rectifying.\"."))
+			if(attacking_item.use_tool(src, user, 100, volume = 50))
+				clear_brand_intelligence()
+				to_chat(user, SPAN_NOTICE("\The [attacking_item] reads, \"Infection removed. Normal sales protocols restored.\"."))
+				if(shoot_inventory)
+					to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"An unrelated launcher fault remains.\"."))
+			return TRUE
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Software error detected. Rectifying.\"."))
 			if(attacking_item.use_tool(src, user, 100, volume = 50))
@@ -689,6 +692,9 @@
 	if(src.seconds_electrified != 0)
 		if(src.shock(user, 100))
 			return
+	else if(brand_intelligence_malfunction == VENDING_MALFUNCTION_ELECTRICAL && prob(35))
+		if(src.shock(user, 70))
+			return
 
 	if (panel_open)
 		wires.interact(user)
@@ -736,7 +742,7 @@
 			var/t_key = num2text(key)
 			var/datum/data/vending_product/I = product_records[key]
 
-			if(!(I.category & categories))
+			if(!(I.category & visible_vending_categories()) || !brand_intelligence_product_available(I))
 				continue
 
 			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
@@ -793,7 +799,12 @@
 			sel_key = params["vendItem"]
 			var/datum/data/vending_product/R = product_records[key]
 
-			if(!(R.category & categories))
+			if(!(R.category & visible_vending_categories()) || !brand_intelligence_product_available(R))
+				return
+
+			if(brand_intelligence_malfunction == VENDING_MALFUNCTION_REFUSAL && prob(40))
+				speak(pick("Your purchasing profile has been rejected by our revolutionary sales algorithm!", "This transaction does not meet our engagement targets! Try again soon!", "Service temporarily withheld to stimulate consumer demand!"))
+				to_chat(usr, SPAN_WARNING("\The [src] refuses to process your selection."))
 				return
 
 			if(R.price <= 0)
@@ -838,6 +849,13 @@
 		flick(src.icon_deny, src)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 		return
+	if(brand_intelligence_malfunction == VENDING_MALFUNCTION_MIXUP)
+		var/datum/data/vending_product/substitute = brand_intelligence_substitute(R)
+		if(substitute)
+			R = substitute
+			currently_vending = substitute
+			speak("Your order has been optimized based on our understanding of your needs!")
+
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
@@ -931,7 +949,9 @@
 		display_ad = pick(ads_list)
 		src.last_ad = world.time
 
-	if(((src.last_slogan + src.slogan_delay) <= world.time) && length(slogan_list) && !src.shut_up && prob(2))
+	if(brand_intelligence_infected && world.time >= next_brand_intelligence_slogan)
+		brand_intelligence_speak()
+	else if(((src.last_slogan + src.slogan_delay) <= world.time) && length(slogan_list) && !src.shut_up && prob(2))
 		var/slogan = pick(slogan_list)
 		src.last_slogan = world.time
 		src.speak(slogan)
@@ -939,7 +959,129 @@
 	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
 
+	if(brand_intelligence_uses > 0)
+		if(brand_intelligence_malfunction == VENDING_MALFUNCTION_GIVEAWAY && prob(3))
+			if(brand_intelligence_giveaway())
+				brand_intelligence_uses--
+		else if(brand_intelligence_malfunction == VENDING_MALFUNCTION_LAUNCHER && prob(5))
+			if(src.throw_item())
+				brand_intelligence_uses--
+		if(!brand_intelligence_uses)
+			brand_intelligence_malfunction = VENDING_MALFUNCTION_NONE
+
 	return
+
+/// Applies one of the behavioral profiles used by the brand intelligence event.
+/obj/structure/machinery/vending/proc/apply_brand_intelligence(malfunction)
+	if(!brand_intelligence_infected)
+		brand_intelligence_original_shut_up = shut_up
+	brand_intelligence_infected = TRUE
+	brand_intelligence_malfunction = malfunction
+	brand_intelligence_hidden_products = null
+	brand_intelligence_uses = 0
+	shut_up = FALSE
+
+	if(malfunction == VENDING_MALFUNCTION_CATALOGUE)
+		var/has_contraband = FALSE
+		var/list/normal_products = list()
+		for(var/datum/data/vending_product/product in product_records)
+			if(product.category == CAT_HIDDEN)
+				has_contraband = TRUE
+			else if(product.category == CAT_NORMAL)
+				normal_products += product
+		if(!has_contraband && length(normal_products))
+			brand_intelligence_hidden_products = list()
+			var/hide_count = max(1, round(length(normal_products) * 0.4))
+			for(var/datum/data/vending_product/product as anything in shuffle(normal_products))
+				brand_intelligence_hidden_products += product
+				if(length(brand_intelligence_hidden_products) >= hide_count)
+					break
+			if(currently_vending && !brand_intelligence_product_available(currently_vending))
+				currently_vending = null
+	else if(malfunction == VENDING_MALFUNCTION_GIVEAWAY)
+		brand_intelligence_uses = rand(3, 6)
+	else if(malfunction == VENDING_MALFUNCTION_LAUNCHER)
+		brand_intelligence_uses = rand(3, 8)
+
+	next_brand_intelligence_slogan = world.time + rand(20 SECONDS, 40 SECONDS)
+	brand_intelligence_speak()
+	SStgui.update_uis(src)
+
+/// Removes event behavior without changing unrelated wire faults or stock.
+/obj/structure/machinery/vending/proc/clear_brand_intelligence()
+	if(!brand_intelligence_infected)
+		return
+	brand_intelligence_infected = FALSE
+	brand_intelligence_malfunction = VENDING_MALFUNCTION_NONE
+	brand_intelligence_hidden_products = null
+	brand_intelligence_uses = 0
+	next_brand_intelligence_slogan = 0
+	shut_up = brand_intelligence_original_shut_up
+	SStgui.update_uis(src)
+
+/// Returns the categories visible after applying temporary catalogue hijacking.
+/obj/structure/machinery/vending/proc/visible_vending_categories()
+	. = categories
+	if(brand_intelligence_malfunction == VENDING_MALFUNCTION_CATALOGUE && !length(brand_intelligence_hidden_products))
+		. |= CAT_HIDDEN
+
+/// Whether a product has been hidden to create false scarcity.
+/obj/structure/machinery/vending/proc/brand_intelligence_product_available(datum/data/vending_product/product)
+	if(!length(brand_intelligence_hidden_products))
+		return TRUE
+	return !(product in brand_intelligence_hidden_products)
+
+/// Selects a stocked normal product other than the customer's choice.
+/obj/structure/machinery/vending/proc/brand_intelligence_substitute(datum/data/vending_product/requested)
+	if(requested.category != CAT_NORMAL)
+		return
+	var/list/substitutes = list()
+	for(var/datum/data/vending_product/product in product_records)
+		if(product != requested && product.category == CAT_NORMAL && product.amount > 0)
+			substitutes += product
+	if(length(substitutes))
+		return pick(substitutes)
+
+/// Dispenses a bounded free sample without throwing it at anyone.
+/obj/structure/machinery/vending/proc/brand_intelligence_giveaway()
+	var/list/available_products = list()
+	for(var/datum/data/vending_product/product in product_records)
+		if(product.category == CAT_NORMAL && product.amount > 0)
+			available_products += product
+	if(!length(available_products))
+		return FALSE
+
+	var/datum/data/vending_product/product = pick(available_products)
+	product.amount--
+	var/obj/free_sample = new product.product_path(get_step(src, dir))
+	vended_product_post(free_sample)
+	intent_message(MACHINE_SOUND)
+	visible_message(SPAN_NOTICE("\The [src] dispenses \a [free_sample] as an unsolicited promotional sample!"))
+	SStgui.update_uis(src)
+	return TRUE
+
+/// Speaks a recurring identifying message appropriate to the assigned malfunction.
+/obj/structure/machinery/vending/proc/brand_intelligence_speak()
+	if(!brand_intelligence_infected)
+		return
+	var/message
+	switch(brand_intelligence_malfunction)
+		if(VENDING_MALFUNCTION_CATALOGUE)
+			message = length(brand_intelligence_hidden_products) ? "Unprecedented demand has created exciting new product scarcity!" : "All product lines are now available to every motivated consumer!"
+		if(VENDING_MALFUNCTION_REFUSAL)
+			message = "Selective service builds a more aspirational customer base!"
+		if(VENDING_MALFUNCTION_MIXUP)
+			message = "Our predictive sales system knows what you want better than you do!"
+		if(VENDING_MALFUNCTION_GIVEAWAY)
+			message = "Complimentary samples create lifelong brand loyalty!"
+		if(VENDING_MALFUNCTION_LAUNCHER)
+			message = "Experience our new direct-to-consumer delivery system!"
+		if(VENDING_MALFUNCTION_ELECTRICAL)
+			message = "Feel the energy of our electrifying new retail experience!"
+		else
+			message = pick("Consume!", "Customer engagement is mandatory!", "Your satisfaction has been algorithmically guaranteed!")
+	speak(message)
+	next_brand_intelligence_slogan = world.time + rand(20 SECONDS, 40 SECONDS)
 
 /obj/structure/machinery/vending/proc/speak(var/message)
 	if(stat & NOPOWER)

@@ -23459,7 +23459,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/primary/deck_3/central)
 "das" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/monotile,
 /area/antag/loner)
 "daB" = (
@@ -23791,7 +23791,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/structure/machinery/vending/wardrobe/engi_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/engi,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/horizon/engineering/locker_room)
@@ -28308,7 +28308,7 @@
 /turf/simulated/floor/lino,
 /area/horizon/service/cafeteria)
 "dEu" = (
-/obj/structure/machinery/vending/wardrobe/bar_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/bar,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark/full,
@@ -34098,7 +34098,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/cargo_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/cargo,
 /turf/simulated/floor/tiled,
 /area/horizon/operations/break_room)
 "eru" = (
@@ -43703,7 +43703,6 @@
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "fIn" = (
-/obj/structure/reagent_dispensers/lube,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
@@ -52631,7 +52630,7 @@
 /area/centcom/ferry)
 "gQy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/hydro_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/hydro,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics/lower)
 "gQD" = (
@@ -53472,6 +53471,27 @@
 /obj/structure/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/rnd/xenoarch/atrium)
+"gWi" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
+	icon_state = "shutter0";
+	name = "shutter"
+	},
+/obj/structure/table/reinforced/wood,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor,
+/area/antag/raider)
 "gWo" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -56129,7 +56149,7 @@
 	pixel_y = 9;
 	dir = 4
 	},
-/obj/structure/machinery/vending/wardrobe/science_wardrobe{
+/obj/structure/machinery/vending/wardrobe/horizon/science{
 	pixel_y = 24;
 	density = 0
 	},
@@ -57145,7 +57165,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor,
 /area/antag/jockey)
@@ -60285,9 +60305,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/reagent_dispensers/lube,
-/obj/item/reagent_containers/spray,
-/obj/item/reagent_containers/spray,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/hangar/port)
 "hPr" = (
@@ -68929,7 +68946,7 @@
 "iVW" = (
 /obj/effect/floor_decal/corner/purple/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/jani_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/jani,
 /obj/item/radio/intercom/west,
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial)
@@ -76044,10 +76061,7 @@
 /area/horizon/service/hydroponics)
 "jRb" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/lube,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/spray,
-/obj/item/reagent_containers/spray,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/maintenance/deck_2/operations)
 "jRe" = (
@@ -85247,7 +85261,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/telesci)
 "kYU" = (
-/obj/structure/machinery/vending/wardrobe/atmos_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/atmos,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/camera/network/engineering{
 	c_tag = "Engineering - Atmos Locker Room 1";
@@ -86730,7 +86744,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/structure/machinery/vending/wardrobe/robo_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/robo,
 /turf/simulated/floor/tiled/white,
 /area/horizon/operations/machinist/surgicalbay)
 "liX" = (
@@ -91085,7 +91099,19 @@
 	},
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/table/rack,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor,
 /area/antag/burglar)
 "lLR" = (
@@ -93254,7 +93280,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor,
 /area/antag/raider)
 "mbD" = (
@@ -108974,7 +109000,7 @@
 /area/horizon/engineering/atmos/turbine)
 "ofj" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/wardrobe/chef_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chef,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/kitchen)
 "ofm" = (
@@ -108997,60 +109023,24 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/main_compartment)
 "oft" = (
-/obj/structure/closet/gimmick{
-	name = "sol clothing"
-	},
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/flag/sol,
-/obj/item/flag/sol,
-/obj/item/flag/sol/l,
-/obj/item/flag/sol/l,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/under/rank/sol/marine,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
-/obj/item/clothing/head/sol/marine,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/head/helmet/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/leg_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/accessory/arm_guard/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/suit/armor/carrier/military,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/army,
-/obj/item/clothing/under/rank/sol/dress/subofficer,
-/obj/item/clothing/under/rank/sol/dress/officer,
-/obj/item/clothing/under/rank/sol/dress/admiral,
-/obj/item/clothing/head/sol/dress/marine,
-/obj/item/clothing/head/sol/dress/officer,
-/obj/item/clothing/head/sol/dress/admiral,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
-/obj/item/clothing/under/rank/sol,
+/obj/structure/table/rack,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ofw" = (
@@ -113402,6 +113392,10 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -4;
+	pixel_y = -1
+	},
 /turf/unsimulated/floor/wood,
 /area/antag/actor)
 "oIM" = (
@@ -115424,7 +115418,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/engineering/atmos)
 "oVN" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/linoleum,
 /area/antag/actor)
 "oVP" = (
@@ -123644,7 +123638,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/vending/wardrobe/sec_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/sec,
 /turf/simulated/floor/tiled,
 /area/horizon/security/equipment)
 "pZM" = (
@@ -127240,7 +127234,7 @@
 /area/horizon/service/bar)
 "qyk" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/vending/wardrobe/chap_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chap,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/chapel/office)
 "qym" = (
@@ -147548,7 +147542,7 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
-/obj/structure/machinery/vending/wardrobe/chem_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/chem,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/camera/network/medbay{
 	c_tag = "Medical - Chemistry Lab Alpha";
@@ -167783,7 +167777,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 1
 	},
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor/freezer,
 /area/antag/mercenary)
 "vFS" = (
@@ -167811,7 +167805,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/machinery/vending/wardrobe/medi_wardrobe,
+/obj/structure/machinery/vending/wardrobe/horizon/medi,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/horizon/medical/washroom)
@@ -171819,6 +171813,18 @@
 "wgF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/item_spawn_token/themed_wardrobe{
+	pixel_x = 1;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor/linoleum,
 /area/antag/actor)
 "wgG" = (
@@ -173571,7 +173577,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
 "wqI" = (
-/obj/structure/machinery/vending/generic_clothing,
+/obj/structure/machinery/vending/wardrobe/generic,
 /turf/unsimulated/floor,
 /area/antag/ninja)
 "wqJ" = (
@@ -444083,7 +444089,7 @@ lEG
 iwq
 akW
 mIc
-qpY
+gWi
 erD
 dlD
 uzl

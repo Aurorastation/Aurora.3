@@ -89,7 +89,7 @@
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
 	req_access = list(/datum/access/security::id)
-	vend_id = "ert" // Refill cartridge DNE 2025/07
+	vend_id = "ert"
 	products = list(
 		/obj/item/storage/box/shells/slugs = 2,
 		/obj/item/storage/box/shells/buckshot = 2,
