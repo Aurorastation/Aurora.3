@@ -3,9 +3,9 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "Filing cabinets now provide separate short-term and persistent long-term persistent paper storage."
+  - rscadd: "Filing cabinets now provide separate short-term and persistent long-term persistent storage for folders and papers."
   - rscadd: "Paper bins, paper reams, toner cartridges, and mapped photocopier toner levels can now persist between rounds."
   - rscadd: "Stickynote pads were reworked slightly and are also properly persistent."
-  - rscadd: "Paper bundles and folders can now be placed in filing cabinet long-term storage with their paperwork inside."
-  - rscadd: "Shredded paper left inside mapped SCCV Horizon paper shredders now persists between rounds."
+  - rscadd: "Paper shredders now have persistent contents."
+  - rscadd: "Request consoles now retain their paper stock between rounds and can be refilled with paper reams."
   - qol: "Unused regular and carbon paper can now be returned to paper bins, while blank paper and sticky notes are excluded from persistence."

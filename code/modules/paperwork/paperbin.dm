@@ -119,9 +119,13 @@
 		var/obj/item/paper_bin_refill/refill = attacking_item
 		var/refill_amount = min(refill.paper_amount, max_amount - amount)
 		amount += refill_amount
+		refill.paper_amount -= refill_amount
 		to_chat(user, SPAN_NOTICE("You refill [src] with [refill_amount] sheet[refill_amount == 1 ? "" : "s"] of paper."))
-		user.drop_from_inventory(refill, get_turf(src))
-		qdel(refill)
+		if(refill.paper_amount <= 0)
+			var/turf/refill_turf = get_turf(src)
+			user.drop_from_inventory(refill, refill_turf)
+			new /obj/item/trash/paper_ream(refill_turf)
+			qdel(refill)
 		update_icon()
 
 /obj/item/paper_bin/proc/consume_generic_paper(amount_to_consume)
@@ -162,7 +166,7 @@
 	name = "paper ream"
 	desc = "A wrapped ream of blank paper used to refill paper bins."
 	icon = 'icons/obj/bureaucracy.dmi'
-	icon_state = "paper_stack"
+	icon_state = "paper_ream"
 	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -196,3 +200,11 @@
 		pixel_x = content["pixel_x"]
 	if(isnum(content["pixel_y"]))
 		pixel_y = content["pixel_y"]
+
+/obj/item/trash/paper_ream
+	name = "empty paper ream wrapper"
+	desc = "The crumpled remains of a paper ream's packaging."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_ream_trash"
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'

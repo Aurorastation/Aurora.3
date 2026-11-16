@@ -116,12 +116,69 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	//Form intregration
 	var/sql_filter_dept = ""
 	var/paperstock = 20
+	/// Whether this initially mapped Horizon console's paper stock persists between rounds.
+	var/persistent_paperstock = TRUE
+	/// Original map identity used to persist paper stock without persisting the console itself.
+	var/tmp/paperstock_persistence_id
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
 
 	///List of PDAs we alert upon a request receipt
 	var/list/datum/weakref/alert_pdas = list()
+
+/singleton/persistent_type/generic/request_console_paperstock
+	/// Persistent request consoles present on the Horizon when the round's map finished loading.
+	var/list/request_console_register = list()
+	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved paper stock.
+	var/paperstock_initialized = FALSE
+
+/** Loads saved paper stock into request consoles mapped onto the Horizon. */
+/singleton/persistent_type/generic/request_console_paperstock/initialization_hook()
+	request_console_register = list()
+	paperstock_initialized = FALSE
+	if(!SSpersistence.map_supports_persistence)
+		return
+
+	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/request_console_paperstock)
+	var/list/saved_paperstock = saved_generic?.content
+	for(var/obj/structure/machinery/requests_console/console in world)
+		CHECK_TICK
+		var/turf/console_turf = get_turf(console)
+		if(!console_turf || !is_station_level(console_turf.z) || !console.persistent_paperstock)
+			continue
+
+		request_console_register += console
+		console.paperstock_persistence_id = "[console_turf.x],[console_turf.y],[console_turf.z],[console.type]"
+		var/saved_amount = saved_paperstock?[console.paperstock_persistence_id]
+		if(isnum(saved_amount))
+			console.paperstock = max(saved_amount, 0)
+	paperstock_initialized = TRUE
+
+/** Saves paper stock for the initially mapped request consoles without considering their current locations. */
+/singleton/persistent_type/generic/request_console_paperstock/finalization_hook()
+	if(!paperstock_initialized)
+		return
+
+	var/list/all_paperstock = list()
+	for(var/obj/structure/machinery/requests_console/console as anything in request_console_register)
+		CHECK_TICK
+		if(QDELETED(console))
+			continue
+		all_paperstock[console.paperstock_persistence_id] = console.paperstock
+
+	var/obj/item/paper/paper_type = /obj/item/paper
+	var/expiration_days = initial(paper_type.persistent_objects_expiration_time_days)
+	SSpersistence.genericSave(/singleton/persistent_type/generic/request_console_paperstock, all_paperstock, expires_in_days = expiration_days)
+
+/obj/structure/machinery/requests_console/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(paperstock_persistence_id)
+		var/obj/item/paper/paper_type = /obj/item/paper
+		var/persistence_days = initial(paper_type.persistent_objects_expiration_time_days)
+		var/persistence_duration = "[persistence_days] day[(persistence_days != 1) ? "s" : ""]"
+		var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+		. += SPAN_TOOLTIP("This is a persistence mechanic. Paper left inside this console remains available between rounds aboard the SCCV Horizon and expires after [persistence_duration].", persistence_label)
 
 /obj/structure/machinery/requests_console/north
 	PRESET_NORTH
@@ -507,6 +564,26 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 			var/obj/item/stamp/used_stamp = attacking_item
 			msgStamped = used_stamp.name
 			SStgui.update_uis(src)
+		return TRUE
+	else if(istype(attacking_item, /obj/item/paper_bin_refill))
+		if(!lid)
+			to_chat(user, SPAN_WARNING("You need to open [src]'s paper tray before refilling it."))
+			return TRUE
+
+		var/obj/item/paper_bin_refill/refill = attacking_item
+		if(refill.paper_amount <= 0)
+			to_chat(user, SPAN_WARNING("[refill] is empty."))
+			return TRUE
+
+		var/refill_amount = refill.paper_amount
+		paperstock += refill_amount
+		refill.paper_amount = 0
+		var/turf/console_turf = get_turf(src)
+		user.drop_from_inventory(refill, console_turf)
+		new /obj/item/trash/paper_ream(console_turf)
+		qdel(refill)
+		audible_message("<b>The Requests Console</b> beeps, \"[refill_amount] sheet[refill_amount == 1 ? "" : "s"] of paper added.\"")
+		SStgui.update_uis(src)
 		return TRUE
 	else if(istype(attacking_item, /obj/item/paper_bundle))
 		var/obj/item/paper_bundle/paper_bundle = attacking_item
