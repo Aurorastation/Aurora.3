@@ -81,6 +81,7 @@
 		if(z)
 			var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
 			map_origin.add_landmark(src, shuttle_restricted)
+			dbg_assert(!ispath(base_turf, /turf/space/transit), "auto_register is enabled for a transit landmark: [name], [landmark_tag]")
 		else
 			LAZYDISTINCTADD(SSshuttle.landmarks_awaiting_sector, src)
 
