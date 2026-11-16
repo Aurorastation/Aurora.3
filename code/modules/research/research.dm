@@ -51,6 +51,15 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
 	var/list/known_designs = list()			//List of available designs.
+	var/list/uploaded_designs = list()		//List of designs manually uploaded from disks.
+	var/research_points = 0				//Available research data points to spend on tech nodes
+	var/list/unlocked_nodes = list()		//List of unlocked /datum/tech_node IDs
+	var/list/invested_points = list()		//node_id -> current invested points (decays on outermost nodes across rounds)
+	var/sync_persistence = TRUE
+	var/list/active_bounties = list()		//List of active /datum/research_bounty datums
+	var/list/completed_bounty_types = list()	//Bounty datum types already completed this round
+	var/bounty_counter = 0
+	var/bounty_rerolls = 3				//Remaining contract rerolls; +1 granted per completed bounty
 
 	var/standard_start_level				// The level non-antag techs are set at
 	var/antag_start_level					// ditto but antag
@@ -70,6 +79,8 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 					T.level = antag_start_level
 	if(load_designs && isnull(GLOB.designs))
 		InitializeDesigns()
+	InitializeTechNodes()
+	InitializeBounties()
 	RefreshResearch()
 
 /datum/research/techonly
@@ -77,6 +88,183 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 
 /datum/research/hightech
 	standard_start_level = 3
+	research_points = 0
+
+/datum/research/proc/InitializeTechNodes()
+	for(var/node_id in GLOB.tech_nodes)
+		var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+		if(node.starts_unlocked)
+			unlocked_nodes |= node.id
+	var/singleton/persistent_type/generic/research_tech_nodes/RP = GET_SINGLETON(/singleton/persistent_type/generic/research_tech_nodes)
+	if(sync_persistence && RP && length(RP.node_investments))
+		for(var/node_id in RP.node_investments)
+			var/datum/tech_node/N = GLOB.tech_nodes[node_id]
+			var/pts = RP.node_investments[node_id]
+			if(N && !N.antag_tech && pts > 0)
+				unlocked_nodes |= node_id
+				invested_points[node_id] = min(N.cost, pts)
+
+/datum/research/proc/can_unlock_node(node_id)
+	if(!GLOB.tech_nodes[node_id])
+		return FALSE
+	if(node_id in unlocked_nodes)
+		return FALSE
+	var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+	for(var/prereq in node.prereq_ids)
+		if(!(prereq in unlocked_nodes))
+			return FALSE
+	return TRUE
+
+/datum/research/proc/unlock_node(node_id, charge_points = TRUE)
+	var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+	if(!node)
+		return FALSE
+	if(charge_points)
+		if(!can_unlock_node(node_id))
+			return FALSE
+		if(research_points < node.cost)
+			return FALSE
+		research_points -= node.cost
+
+	unlocked_nodes |= node_id
+	if(node.cost > 0)
+		invested_points[node_id] = node.cost
+	if(sync_persistence && !node.antag_tech)
+		var/singleton/persistent_type/generic/research_tech_nodes/RP = GET_SINGLETON(/singleton/persistent_type/generic/research_tech_nodes)
+		RP?.record_investment(node_id, node.cost)
+	RefreshResearch()
+	return TRUE
+
+/datum/research/proc/is_outermost_node(node_id)
+	if(!(node_id in unlocked_nodes))
+		return FALSE
+	var/datum/tech_node/N = GLOB.tech_nodes[node_id]
+	if(!N || N.starts_unlocked || N.cost <= 0)
+		return FALSE
+	for(var/other_id in unlocked_nodes)
+		if(other_id == node_id)
+			continue
+		var/datum/tech_node/other = GLOB.tech_nodes[other_id]
+		if(other && (node_id in other.prereq_ids))
+			return FALSE
+	return TRUE
+
+/datum/research/proc/maintain_node(node_id)
+	if(!(node_id in unlocked_nodes))
+		return 0
+	var/datum/tech_node/N = GLOB.tech_nodes[node_id]
+	if(!N || N.starts_unlocked || N.cost <= 0 || research_points <= 0)
+		return 0
+	var/current = invested_points[node_id] || 0
+	var/needed = N.cost - current
+	if(needed <= 0)
+		return 0
+	var/to_spend = min(research_points, needed)
+	research_points -= to_spend
+	invested_points[node_id] = current + to_spend
+	if(sync_persistence && !N.antag_tech)
+		var/singleton/persistent_type/generic/research_tech_nodes/RP = GET_SINGLETON(/singleton/persistent_type/generic/research_tech_nodes)
+		RP?.record_investment(node_id, invested_points[node_id])
+	return to_spend
+
+/datum/research/proc/add_research_points(amount)
+	if(amount > 0)
+		research_points += amount
+
+/datum/research/proc/InitializeBounties()
+	active_bounties.Cut()
+	for(var/i in 1 to 3)
+		var/datum/research_bounty/F = create_bounty("firearms")
+		if(F)
+			active_bounties += F
+		var/datum/research_bounty/XB = create_bounty("xenobotany")
+		if(XB)
+			active_bounties += XB
+		var/datum/research_bounty/X = create_bounty("xenobiology")
+		if(X)
+			active_bounties += X
+		var/datum/research_bounty/C = create_bounty("circuits")
+		if(C)
+			active_bounties += C
+		var/datum/research_bounty/S = create_bounty("survey")
+		if(S)
+			active_bounties += S
+		var/datum/research_bounty/A = create_bounty("xenoarch")
+		if(A)
+			active_bounties += A
+
+/datum/research/proc/create_bounty(category, exclude_type = null)
+	var/base_type = /datum/research_bounty/firearm
+	if(category == "xenobotany")
+		base_type = /datum/research_bounty/xenobotany
+	else if(category == "xenobiology")
+		base_type = /datum/research_bounty/xenobiology
+	else if(category == "circuits")
+		base_type = /datum/research_bounty/circuit
+	else if(category == "survey")
+		base_type = /datum/research_bounty/survey
+	else if(category == "xenoarch")
+		base_type = /datum/research_bounty/xenoarch
+	var/list/all_types = subtypesof(base_type)
+	if(!length(all_types))
+		return null
+	var/list/existing_types = list()
+	for(var/datum/research_bounty/existing in active_bounties)
+		existing_types |= existing.type
+	if(exclude_type)
+		existing_types |= exclude_type
+	var/list/candidates = all_types - existing_types - completed_bounty_types
+	if(!length(candidates))
+		return null
+	var/chosen_type = pick(candidates)
+	var/datum/research_bounty/B = new chosen_type
+	bounty_counter++
+	B.id = "bounty_[bounty_counter]"
+	return B
+
+/datum/research/proc/reroll_bounty(bounty_id)
+	if(bounty_rerolls <= 0)
+		return FALSE
+	for(var/i in 1 to length(active_bounties))
+		var/datum/research_bounty/B = active_bounties[i]
+		if(B.id == bounty_id)
+			var/cat = B.category
+			var/datum/research_bounty/replacement = create_bounty(cat, B.type)
+			if(!replacement)
+				return FALSE
+			qdel(B)
+			active_bounties[i] = replacement
+			bounty_rerolls--
+			return TRUE
+	return FALSE
+
+/datum/research/proc/get_matching_bounty(obj/item/I)
+	if(!I)
+		return null
+	var/datum/research_bounty/best = null
+	for(var/datum/research_bounty/B in active_bounties)
+		if(B.matches_item(I))
+			if(!best || B.reward_points > best.reward_points)
+				best = B
+	return best
+
+/datum/research/proc/complete_bounty(datum/research_bounty/target_bounty)
+	if(!target_bounty)
+		return 0
+	var/reward = target_bounty.reward_points
+	var/cat = target_bounty.category
+	completed_bounty_types |= target_bounty.type
+	for(var/i in 1 to length(active_bounties))
+		if(active_bounties[i] == target_bounty)
+			qdel(target_bounty)
+			var/datum/research_bounty/replacement = create_bounty(cat)
+			if(replacement)
+				active_bounties[i] = replacement
+			else
+				active_bounties.Cut(i, i + 1)
+			bounty_rerolls++
+			break
+	return reward
 
 /datum/research/proc/InitializeDesigns()
 	GLOB.designs = list()
@@ -124,6 +312,9 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 		known.next_level_progress = T.next_level_progress
 
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
+	if(!D)
+		return
+	uploaded_designs[D.type] = D
 	known_designs[D.type] = D
 
 //Refreshes known_tech and known_designs list
@@ -131,10 +322,18 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 /datum/research/proc/RefreshResearch()
 	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
 	if(load_designs)
-		for(var/path in GLOB.designs)
-			var/datum/design/PD = GLOB.designs[path]
-			if(DesignHasReqs(PD))
-				AddDesign2Known(PD)
+		for(var/node_id in unlocked_nodes)
+			var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+			if(!node)
+				continue
+			for(var/design_path in node.unlocked_designs)
+				var/datum/design/D = GLOB.designs[design_path]
+				if(D)
+					known_designs[D.type] = D
+		for(var/design_path in uploaded_designs)
+			var/datum/design/D = uploaded_designs[design_path]
+			if(D)
+				known_designs[D.type] = D
 	for(var/id in known_tech)
 		var/datum/tech/T = known_tech[id]
 		T.level = between(0, T.level, MAX_TECH_LEVEL)
