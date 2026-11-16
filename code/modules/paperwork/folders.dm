@@ -82,7 +82,9 @@
 	return
 
 /obj/item/folder/Topic(href, href_list)
-	..()
+	. = ..()
+	if(.)
+		return
 	if((usr.stat || usr.restrained()))
 		return
 
