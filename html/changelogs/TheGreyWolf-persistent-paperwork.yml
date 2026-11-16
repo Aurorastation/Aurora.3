@@ -9,3 +9,4 @@ changes:
   - rscadd: "Paper shredders now have persistent contents."
   - rscadd: "Request consoles now retain their paper stock between rounds and can be refilled with paper reams."
   - qol: "Unused regular and carbon paper can now be returned to paper bins, while blank paper and sticky notes are excluded from persistence."
+  - rscdel: "Removed every paper bin on the ship as they are now persistent."
