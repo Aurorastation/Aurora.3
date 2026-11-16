@@ -35,7 +35,7 @@
 /singleton/persistent_type/generic/horizon_floor_grime/proc/on_atoms_initialized(datum/source)
 	SIGNAL_HANDLER
 	UnregisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE)
-	apply_saved_grime()
+	INVOKE_ASYNC(src, PROC_REF(apply_saved_grime))
 
 /** Checks whether a turf is a valid public station floor for grime/vomit persistence. */
 /singleton/persistent_type/generic/horizon_floor_grime/proc/is_valid_persistent_floor(turf/simulated/floor/floor_turf)
