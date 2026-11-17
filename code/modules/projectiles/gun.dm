@@ -564,17 +564,12 @@ ABSTRACT_TYPE(/obj/item/gun)
 	play_fire_sound()
 	if(!suppressed)
 		if(user && announce_reflex)
-				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
-					"You hear a [fire_sound_text]!"
-				)
-			else
-				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
-					"You hear a [fire_sound_text]!"
-				)
+			user.visible_message(
+				SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
+				SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!")
+			)
+		else
+			visible_message(SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range

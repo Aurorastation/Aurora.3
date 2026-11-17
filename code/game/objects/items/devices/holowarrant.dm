@@ -58,7 +58,7 @@
 /obj/item/holowarrant/proc/load_warrant(var/datum/record/warrant/warrant)
 	if(selected_warrant == warrant)
 		return
-		unload_warrant()
+	unload_warrant()
 	selected_warrant = warrant
 	RegisterSignal(selected_warrant, COMSIG_QDELETING, PROC_REF(handle_warrant_delete))
 	RegisterSignal(selected_warrant, COMSIG_RECORD_MODIFIED, PROC_REF(handle_warrant_modify))
@@ -98,7 +98,7 @@
 /obj/item/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(display_mode == "warrants")
 	if(!selected_warrant)
-			to_chat(user, SPAN_WARNING("There is no warrant loaded."))
+		to_chat(user, SPAN_WARNING("There is no warrant loaded."))
 		return
 
 	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))

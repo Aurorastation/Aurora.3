@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(persistent_chamber)
 		QDEL_NULL(chambered)
 	else
-	chambered = null
+		chambered = null
 	QDEL_NULL(ammo_magazine)
 	QDEL_LIST(loaded)
 	. = ..()
@@ -195,9 +195,9 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 			update_icon()
 	if(ammo_magazine && !length(ammo_magazine.stored_ammo) && (!persistent_chamber || !chambered))
 		if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.check_weapon_affinity(src))
-			unload_ammo(user, TRUE, TRUE)
+			var/mob/living/carbon/human/H = user
+			if(H.check_weapon_affinity(src))
+				unload_ammo(user, TRUE, TRUE)
 		if(persistent_chamber && auto_eject && ammo_magazine)
 			eject_empty_magazine(user)
 	update_maptext()
@@ -364,7 +364,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 			if(drop_mag)
 				C.forceMove(get_turf(src))
 			else
-			user.put_in_hands(C)
+				user.put_in_hands(C)
 			balloon_alert_to_viewers("casing ejected!")
 	else
 		balloon_alert(user, "already empty!")
