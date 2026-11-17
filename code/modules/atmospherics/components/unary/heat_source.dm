@@ -1,11 +1,10 @@
-//TODO: Put this under a common parent type with freezers to cut down on the copypasta
 #define HEATER_PERF_MULT 2.5
 
 /obj/structure/machinery/atmospherics/unary/temperature/heater
 	name = "gas heating system"
 	desc = "Heats gas when connected to a pipe network."
-	icon = 'icons/obj/machinery/sleeper.dmi'
-	icon_state = "heater_0"
+	icon = 'icons/obj/machinery/atmospherics/heater.dmi'
+	icon_state = "heater"
 
 /obj/structure/machinery/atmospherics/unary/temperature/heater/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

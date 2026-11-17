@@ -1,6 +1,7 @@
 ABSTRACT_TYPE(/singleton/fabricator_recipe/pipe/heat_exchanging)
 	connect_types = CONNECT_TYPE_HE
 	pipe_color = PIPE_COLOR_DARK_GREY
+	build_icon_state = "he"
 	category = "Heat Exchanging Pipes"
 	constructed_path = /obj/structure/machinery/atmospherics/pipe/simple/heat_exchanging
 

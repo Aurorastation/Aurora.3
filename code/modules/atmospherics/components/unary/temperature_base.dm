@@ -35,12 +35,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/atmospherics/unary/temperature)
 	parts_power_mgmt = FALSE
 
 /obj/structure/machinery/atmospherics/unary/temperature/update_icon()
-	if(!LAZYLEN(nodes_to_networks))
-		icon_state = "[icon_state]_0"
-	else if(use_power && is_modifying_gas)
-		icon_state = "[icon_state]_1"
+	if(LAZYLEN(nodes_to_networks) && powered() && use_power)
+		if(is_modifying_gas)
+			icon_state = "[initial(icon_state)]_1"
+		else
+			icon_state = "[initial(icon_state)]_0"
 	else
-		icon_state = icon_state
+		icon_state = initial(icon_state)
 
 	build_device_underlays()
 
@@ -66,7 +67,12 @@ ABSTRACT_TYPE(/obj/structure/machinery/atmospherics/unary/temperature)
 
 	update_icon()
 
-/obj/structure/machinery/atmospherics/unary/temperature/ui_interact(mob/user, var/datum/tgui/ui)
+/obj/structure/machinery/atmospherics/unary/temperature/attack_hand(mob/user)
+	if(..())
+		return TRUE
+	ui_interact(user)
+
+/obj/structure/machinery/atmospherics/unary/temperature/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Freezer", "[capitalize_first_letters(name)]", 440, 300)

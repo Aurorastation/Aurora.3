@@ -2456,6 +2456,7 @@
 #include "code\modules\fabrication\designs\pipe\designs_pipe.dm"
 #include "code\modules\fabrication\designs\pipe\designs_pipe_devices.dm"
 #include "code\modules\fabrication\designs\pipe\designs_pipe_disposals.dm"
+#include "code\modules\fabrication\designs\pipe\designs_pipe_heat.dm"
 #include "code\modules\fabrication\designs\pipe\~pipe_singleton_base.dm"
 #include "code\modules\fabrication\fabricators\fabricator_autolathe.dm"
 #include "code\modules\fabrication\fabricators\fabricator_hacked.dm"

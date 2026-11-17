@@ -3,8 +3,8 @@
 /obj/structure/machinery/atmospherics/unary/temperature/freezer
 	name = "gas cooling system"
 	desc = "Cools gas when connected to pipe network."
-	icon = 'icons/obj/machinery/sleeper.dmi'
-	icon_state = "freezer_0"
+	icon = 'icons/obj/machinery/atmospherics/freezer.dmi'
+	icon_state = "freezer"
 	density = 1
 	anchored = 1
 	use_power = POWER_USE_OFF
