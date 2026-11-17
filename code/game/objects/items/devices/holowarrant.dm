@@ -97,12 +97,12 @@
 
 /obj/item/holowarrant/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(display_mode == "warrants")
-	if(!selected_warrant)
-		to_chat(user, SPAN_WARNING("There is no warrant loaded."))
-		return
+		if(!selected_warrant)
+			to_chat(user, SPAN_WARNING("There is no warrant loaded."))
+			return
 
-	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
-	show_content(target_mob)
+		user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
+		show_content(target_mob)
 
 	if(awaiting_payment && fine_incident)
 		user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You show the pending fine on \the [src] to \the [target_mob]."))
