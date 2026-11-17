@@ -473,8 +473,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		ClearOverlays()
 		if(src.panel_open)
-			update_icon()
+			AddOverlays("[initial(icon_state)]-panel")
+		if(!src.panel_open)
 			reset_light()
+			update_icon()
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL||attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(src.panel_open)
@@ -501,7 +503,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 			power_change()
-			reset_light()
 		return TRUE
 
 	else if(istype(attacking_item,/obj/item/vending_refill))
@@ -1114,6 +1115,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
+		reset_light() // Sanity check
 		update_icon()
 	else
 		icon_state = icon_off

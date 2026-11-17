@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Added unique spriteset for refill vendor, found in custodial closet."
-  - qol: "Vendors now provide a little more feedback when refilled and unscrewed."
-  - bugfix: "Fixed bug preventing vendors from rendering lighting after being unwrenched and wrenched back to the floor."
+  - imageadd: "Added unique spriteset for the refill vendor, found in the custodial closet."
+  - qol: "Vendors now provide a little more feedback when refilled and screwdriver'd."
+  - bugfix: "Fixed bug preventing vendors from rendering lighting after being screwdriver'd."
   - bugfix: "Fixed a bug preventing refill inhands from being visible."
