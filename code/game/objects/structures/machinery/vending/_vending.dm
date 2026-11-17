@@ -511,7 +511,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
 					user.visible_message(SPAN_NOTICE("<b>[usr]</b> has restocked \the [src] with \the [VR]!"),
 						SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
 					playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 10, 1)
