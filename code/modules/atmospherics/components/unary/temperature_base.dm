@@ -46,7 +46,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/atmospherics/unary/temperature)
 	build_device_underlays()
 
 // Modify air_contents in this proc.
-/obj/structure/machinery/atmospherics/unary/temperature/proc/modify_gas()
+/obj/structure/machinery/atmospherics/unary/temperature/proc/modify_gas(seconds_per_tick)
 
 /obj/structure/machinery/atmospherics/unary/temperature/proc/should_modify_gas()
 	return FALSE
@@ -60,7 +60,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/atmospherics/unary/temperature)
 		return
 
 	if(LAZYLEN(nodes_to_networks) && air_contents.total_moles && should_modify_gas())
-		modify_gas()
+		modify_gas(seconds_per_tick)
 		is_modifying_gas = TRUE
 		use_power_oneoff(power_rating)
 		update_networks()
@@ -89,10 +89,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/atmospherics/unary/temperature)
 	data["targetGasTemperature"] = round(set_temperature)
 	data["powerSetting"] = power_setting
 
-	data["gasTemperatureBadTop"] = (T20C + 40)
-	data["gasTemperatureBadBottom"] = null
-	data["gasTemperatureAvgTop"] = null
-	data["gasTemperatureAvgBottom"] = null
+	data["gasTemperatureBadTop"] = gas_temperature_bad_top
+	data["gasTemperatureBadBottom"] = gas_temperature_bad_bottom
+	data["gasTemperatureAvgTop"] = gas_temperature_average_top
+	data["gasTemperatureAvgBottom"] = gas_temperature_average_bottom
 
 	return data
 

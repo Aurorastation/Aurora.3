@@ -51,12 +51,12 @@
 /obj/structure/machinery/atmospherics/unary/temperature/freezer/should_modify_gas()
 	return air_contents.temperature > set_temperature
 
-/obj/structure/machinery/atmospherics/unary/temperature/freezer/modify_gas()
+/obj/structure/machinery/atmospherics/unary/temperature/freezer/modify_gas(seconds_per_tick)
 	var/heat_transfer = min(air_contents.get_thermal_energy_change(set_temperature - 5), 0)
 
 	//Assume the heat is being pumped into the hull which is fixed at heatsink_temperature
 	//not /really/ proper thermodynamics but whatever
 	var/cop = performance_multiplier * air_contents.temperature/heatsink_temperature	//heatpump coefficient of performance from thermodynamics -> power used = heat_transfer/cop
-	heat_transfer = min(heat_transfer, cop * power_rating)	//limit heat transfer by available power
+	heat_transfer = max(heat_transfer, -cop * power_rating * seconds_per_tick)	//limit heat transfer by available power
 
 	air_contents.add_thermal_energy(heat_transfer)		//remove the heat

@@ -18,10 +18,10 @@
 /obj/structure/machinery/atmospherics/unary/temperature/heater/should_modify_gas()
 	return air_contents.temperature < set_temperature
 
-/obj/structure/machinery/atmospherics/unary/temperature/heater/modify_gas()
+/obj/structure/machinery/atmospherics/unary/temperature/heater/modify_gas(seconds_per_tick)
 	// amount of heat needed to heat air_contents to set_temperature + 5
 	var/heat_transfer = max(air_contents.get_thermal_energy_change(set_temperature + 5), 0)
-	heat_transfer = min(heat_transfer, performance_multiplier * power_rating) // don't overshoot
+	heat_transfer = min(heat_transfer, performance_multiplier * power_rating * seconds_per_tick) // don't overshoot
 	air_contents.add_thermal_energy(heat_transfer)
 
 //upgrading parts
