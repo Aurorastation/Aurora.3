@@ -470,6 +470,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		ClearOverlays()
 		if(src.panel_open)
 			AddOverlays("[initial(icon_state)]-panel")
@@ -499,6 +500,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 			power_change()
+			reset_light()
 		return TRUE
 
 	else if(istype(attacking_item,/obj/item/vending_refill))
@@ -508,14 +510,21 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
 					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
+					user.visible_message(SPAN_NOTICE("<b>[usr]</b> has restocked \the [src] with \the [VR]!"),
+						SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
+					playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 10, 1)
+
 					if(!VR.charges)
 						to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 				else
 					to_chat(user, SPAN_WARNING("\The [VR] is not stocked for this type of vendor!"))
+					playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 			else
 				to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
+				playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("You must open \the [src]'s maintenance panel first!"))
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 		return TRUE
 
 	else if(!is_borg_item(attacking_item))
@@ -1172,6 +1181,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	name = "resupply canister"
 	desc = "A vending machine restock cart."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
 	force = 16
