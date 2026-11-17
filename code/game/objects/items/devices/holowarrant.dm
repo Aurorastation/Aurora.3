@@ -103,7 +103,6 @@
 
 	user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
 	show_content(target_mob)
-		return
 
 	if(awaiting_payment && fine_incident)
 		user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You show the pending fine on \the [src] to \the [target_mob]."))

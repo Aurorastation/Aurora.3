@@ -474,7 +474,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/dispersion_increase = 0
 	var/mob/living/accuracy_user = accuracy_user_override ? accuracy_user_override : user
 	if(!QDELETED(accuracy_user))
-	SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -554,7 +554,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		balloon_alert_to_viewers("*click*", ignored_mobs = list(user))
 		balloon_alert(user, reason)
 	else
-	balloon_alert_to_hearers("*click*")
+		balloon_alert_to_hearers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
 	if(user && notify_empty)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)

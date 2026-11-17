@@ -70,7 +70,7 @@
 		if(drop_to_ground)
 			G.forceMove(get_turf(src))
 		else
-		user.put_in_hands(G)
+			user.put_in_hands(G)
 		user.visible_message("[user] removes \a [G] from [src].", SPAN_NOTICE("You remove \a [G] from [src]."))
 	else if(drop_to_ground && chambered)
 		var/obj/item/grenade/ejected = chambered
