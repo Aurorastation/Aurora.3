@@ -25,6 +25,10 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/H = hit_atom
+	var/psi_blocked = H.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 	H.adjustHalLoss(20)
 	H.adjustFireLoss(20)
 	H.flash_pain(20)

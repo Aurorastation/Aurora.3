@@ -35,6 +35,10 @@
 	if(!length(get_line(user, victim)) || rangecheck > 8)
 		to_chat(user, SPAN_WARNING("You need to have direct line of sight to your target!"))
 		return
+	var/psi_blocked = victim.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 	. = ..()
 	if(!.)
 		return
@@ -48,7 +52,6 @@
 	to_chat(victim, SPAN_DANGER(FONT_HUGE("You are crushed by an invisible force!")))
 	victim.apply_damage(20, DAMAGE_BRUTE, armor_pen = 15, def_zone = BP_HEAD)
 	victim.SetStunned(2)
-	apply_cooldown(user)
 	next_squeeze_time = world.time + 2 SECONDS
 
 /obj/item/spell/grip/on_ranged_cast(atom/hit_atom, mob/user, bypass_psi_check)
@@ -62,6 +65,10 @@
 		return
 
 	var/mob/living/M = hit_atom
+	var/psi_blocked = M.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 
 	if(!is_in_sight(user, M))
 		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [M]!"))

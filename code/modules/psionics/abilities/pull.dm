@@ -26,6 +26,12 @@
 		return
 	var/atom/movable/AM = hit_atom
 	var/mob/living/carbon/human/H = user
+	if(isliving(hit_atom))
+		var/mob/living/living_target = hit_atom
+		var/psi_blocked = living_target.is_psi_blocked(user, FALSE)
+		if(psi_blocked)
+			to_chat(user, psi_blocked)
+			return
 	if(isobj(hit_atom) && w_class < WEIGHT_CLASS_GIGANTIC)
 		var/obj/object = hit_atom
 		if(object.anchored)
@@ -39,4 +45,3 @@
 		to_chat(hit_atom, SPAN_WARNING("A psychic force pulls you!"))
 	AM.throw_at(user, 10, 7)
 	playsound(user, 'sound/effects/psi/power_evoke.ogg', 40)
-

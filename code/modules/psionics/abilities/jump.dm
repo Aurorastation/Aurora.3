@@ -1,6 +1,6 @@
 /singleton/psionic_power/jump
 	name = "Jump"
-	desc = "Teleport to a destination you click on."
+	desc = "Teleport to a destination you click on. You cannot use this while buckled."
 	icon_state = "tech_dispel"
 	point_cost = 3
 	ability_flags = PSI_FLAG_LONER
@@ -15,6 +15,9 @@
 	psi_cost = 15
 
 /obj/item/spell/jump/on_ranged_cast(atom/hit_atom, mob/user, bypass_psi_check)
+	if(user.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot jump while buckled down!"))
+		return
 	. = ..()
 	if(!.)
 		return

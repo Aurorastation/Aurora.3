@@ -1,6 +1,6 @@
 /singleton/psionic_power/warp
 	name = "Warp"
-	desc = "Warp through objects."
+	desc = "Warp through objects. You cannot use this while buckled."
 	icon_state = "tech_blink"
 	point_cost = 4
 	ability_flags = PSI_FLAG_LONER
@@ -17,6 +17,9 @@
 	var/busy = FALSE
 
 /obj/item/spell/warp/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+	if(user.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot warp while buckled down!"))
+		return
 	. = ..()
 	if(!.)
 		return

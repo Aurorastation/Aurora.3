@@ -1,6 +1,6 @@
 /singleton/psionic_power/psi_sword
 	name = "Psi-Sword"
-	desc = "Create a psionic sword."
+	desc = "Create a psionic sword in a free, unrestricted hand."
 	icon_state = "psiblade"
 	point_cost = 3
 	ability_flags = PSI_FLAG_ANTAG
@@ -16,6 +16,9 @@
 
 /obj/item/spell/psi_sword/on_innate_cast(mob/user)
 	if(!ishuman(user))
+		return
+	if(!user.can_use_hands())
+		to_chat(user, SPAN_WARNING("You need an unrestricted hand to form a psionic sword!"))
 		return
 	. = ..()
 	if(!.)

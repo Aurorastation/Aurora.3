@@ -1,7 +1,7 @@
 /singleton/psionic_power/shockwave
 	name = "Shockwave"
 	desc = "Create a wave of telekinetic energy to pummel the ground in a straight line in the direction you're facing. \
-			Anyone caught in it falls over unless wearing magboots."
+			Anyone caught in it falls over unless wearing magboots. You must be standing, unbuckled, and have at least one functional leg and foot."
 	icon_state = "tech_haste"
 	point_cost = 2
 	ability_flags = PSI_FLAG_ANTAG
@@ -16,6 +16,24 @@
 	psi_cost = 20
 
 /obj/item/spell/shockwave/on_use_cast(mob/user, bypass_psi_check)
+	if(user.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot stomp the ground while buckled down!"))
+		return
+	if(user.lying)
+		to_chat(user, SPAN_WARNING("You need to be standing to stomp the ground!"))
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/external/left_leg = H.get_organ(BP_L_LEG)
+		var/obj/item/organ/external/right_leg = H.get_organ(BP_R_LEG)
+		var/obj/item/organ/external/left_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/right_foot = H.get_organ(BP_R_FOOT)
+		var/left_side_usable = left_leg?.is_usable() && left_foot?.is_usable()
+		var/right_side_usable = right_leg?.is_usable() && right_foot?.is_usable()
+		if(!left_side_usable && !right_side_usable)
+			to_chat(user, SPAN_WARNING("You need at least one functional leg and foot to stomp the ground!"))
+			return
+
 	. = ..()
 	if(!.)
 		return
