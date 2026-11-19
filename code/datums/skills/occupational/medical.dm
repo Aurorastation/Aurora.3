@@ -88,8 +88,8 @@
 			+ " - Pills you compound have a sugar coating that masks bitter chemical tastes and provides a small morale boost.<br>" \
 			+ " - You administer injections and IV drips faster and with a 50% chance to avoid contaminating syringes.",
 		SKILL_LEVEL_PROFESSIONAL = "You are a licensed Doctor of Pharmacy or master toxicologist.<br>" \
-			+ " - You can visually identify almost any non-concealed reagent, toxin, or compound with exact volumes.<br>" \
-			+ " - Mass Spectrometers and Reagent Scanners you use reveal full quantitative reagent breakdowns, including concealed/spectro-hidden compounds.<br>" \
+			+ " - You can visually identify almost any non-concealed reagent, toxin, or compound with exact volumes, and notice when open dispenser cartridges do not match their labels.<br>" \
+			+ " - Health Analyzers and Breath Analyzers you use pinpoint active overdoses on specific scannable medications, and Mass Spectrometers and Reagent Scanners reveal full quantitative reagent breakdowns, including concealed/spectro-hidden compounds.<br>" \
 			+ " - You can produce up to 40 pills at once in the ChemMaster 3000, and grind reagents significantly faster with 20% higher yield.<br>" \
 			+ " - Pills you compound have a flawless pharmaceutical glaze that masks bitter chemical tastes and provides a moderate morale boost.<br>" \
 			+ " - You administer injections and IV drips at maximum speed with a 75% chance to avoid contaminating syringes."
