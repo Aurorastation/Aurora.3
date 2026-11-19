@@ -381,3 +381,94 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/playingcards
+	category = "recreation"
+	name = "deck of cards"
+	supplier = "getmore"
+	description = "A simple deck of playing cards."
+	price = 3
+	items = list(
+		/obj/item/deck/cards
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tarotdeck
+	category = "recreation"
+	name = "deck of tarot cards"
+	supplier = "getmore"
+	description = "A deck of tarot cards, for fortune-telling or parlor games."
+	price = 10
+	items = list(
+		/obj/item/deck/tarot
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/kotahideck
+	category = "recreation"
+	name = "KOTAHI deck"
+	supplier = "getmore"
+	description = "A deck of KOTAHI cards. House rules to argue over not included."
+	price = 6
+	items = list(
+		/obj/item/deck/kotahi
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dicepack
+	category = "recreation"
+	name = "pack of dice"
+	supplier = "getmore"
+	description = "A small pack containing a dozen six-sided dice and four twenty-sided dice."
+	price = 8
+	items = list(
+		/obj/item/storage/pill_bottle/dice
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/gamingdicepack
+	category = "recreation"
+	name = "pack of gaming dice"
+	supplier = "getmore"
+	description = "A small pack containing a set of polyhedral dice for tabletop games."
+	price = 12
+	items = list(
+		/obj/item/storage/pill_bottle/dice/gaming
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chessset
+	category = "recreation"
+	name = "chess set"
+	supplier = "getmore"
+	description = "A simple chess set with magnetic pieces."
+	price = 25
+	items = list(
+		/obj/item/chessboard
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chalkbox
+	category = "recreation"
+	name = "box of drafting chalk"
+	supplier = "getmore"
+	description = "A box of chalk, for drafting floor plans or drawing on floors."
+	price = 22
+	items = list(
+		/obj/item/storage/box/fancy/crayons/chalkbox
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

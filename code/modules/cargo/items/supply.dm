@@ -389,3 +389,55 @@
 	spawn_amount = 1
 
 
+
+/singleton/cargo_item/penbox
+	category = "supply"
+	name = "box of pens (x7)"
+	supplier = "nanotrasen"
+	description = "A box of seven black ink ballpoint pens."
+	price = 15
+	items = list(
+		/obj/item/storage/box/pens
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/penbox_blue
+	category = "supply"
+	name = "box of blue pens (x7)"
+	supplier = "nanotrasen"
+	description = "A box of seven blue ink ballpoint pens."
+	price = 15
+	items = list(
+		/obj/item/storage/box/pens/blue
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/penbox_red
+	category = "supply"
+	name = "box of red pens (x7)"
+	supplier = "nanotrasen"
+	description = "A box of seven red ink ballpoint pens."
+	price = 15
+	items = list(
+		/obj/item/storage/box/pens/red
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/fountainpenbox
+	category = "supply"
+	name = "box of fountain pens (x7)"
+	supplier = "nanotrasen"
+	description = "A box of seven fountain pens, for those who like their signatures to be noticed."
+	price = 315
+	items = list(
+		/obj/item/storage/box/fountainpens
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
