@@ -7,7 +7,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/mining
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +21,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/mining
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -30,12 +30,12 @@
 	category = "mining"
 	name = "Class A Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a tactical KA frame, an experimental core KA power converter, a recoil reloading KA cell, and a upgrade chip - damage increase."
+	description = "Contains a tactical KA frame, an experimental core KA power converter, a recoil reloading KA cell, and an upgrade chip - damage increase."
 	price = 3200
 	items = list(
 		/obj/item/gun/custom_ka/frame05/prebuilt
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -44,12 +44,12 @@
 	category = "mining"
 	name = "Class B Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a heavy KA frame, a planet core KA power converter, a uranium recharging KA cell, and a upgrade chip - efficiency increase."
+	description = "Contains a heavy KA frame, a planet core KA power converter, a uranium recharging KA cell, and an upgrade chip - efficiency increase."
 	price = 2850
 	items = list(
 		/obj/item/gun/custom_ka/frame04/prebuilt
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -58,12 +58,12 @@
 	category = "mining"
 	name = "Class C Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and a upgrade chip - focusing."
+	description = "Contains a medium KA frame, a meteor core KA power converter, a kinetic KA cell, and an upgrade chip - focusing."
 	price = 2200
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -72,12 +72,12 @@
 	category = "mining"
 	name = "Class D Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a light KA frame, a professional core KA power converter, an advanced pump recharging KA cell, and a upgrade chip - firedelay increase."
+	description = "Contains a light KA frame, a professional core KA power converter, an advanced pump recharging KA cell, and an upgrade chip - firedelay increase."
 	price = 1850
 	items = list(
 		/obj/item/gun/custom_ka/frame02/prebuilt
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -86,12 +86,12 @@
 	category = "mining"
 	name = "Class E Kinetic Accelerator"
 	supplier = "hephaestus"
-	description = "Contains a compact KA frame, a standard core KA power converter, a pump recharging KA cell, and a upgrade chip - focusing."
+	description = "Contains a compact KA frame, a standard core KA power converter, a pump recharging KA cell, and an upgrade chip - focusing."
 	price = 1400
 	items = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -107,7 +107,7 @@
 		/obj/structure/machinery/mining/brace,
 		/obj/structure/machinery/mining/brace
 	)
-	access = /datum/access/mining::id
+	access = list(/datum/access/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -121,7 +121,6 @@
 	items = list(
 		/obj/structure/ore_box
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1

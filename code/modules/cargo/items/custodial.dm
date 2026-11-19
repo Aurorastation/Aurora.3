@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/reagent_containers/spray/cleaner
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +20,6 @@
 	items = list(
 		/obj/item/soap
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +33,6 @@
 	items = list(
 		/obj/random/soap
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -49,7 +46,6 @@
 	items = list(
 		/obj/item/storage/bag/trash
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -63,7 +59,6 @@
 	items = list(
 		/obj/item/lightreplacer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -77,7 +72,6 @@
 	items = list(
 		/obj/item/storage/box/lights/mixed
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -91,7 +85,6 @@
 	items = list(
 		/obj/item/clothing/suit/caution
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -105,7 +98,6 @@
 	items = list(
 		/obj/item/mop
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -119,7 +111,6 @@
 	items = list(
 		/obj/structure/mopbucket
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -133,7 +124,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/cleaner
 	)
-	access = /datum/access/janitor::id
+	access = list(/datum/access/janitor::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -147,7 +138,33 @@
 	items = list(
 		/obj/structure/cart/storage/janitorialcart/full
 	)
-	access = /datum/access/janitor::id
+	access = list(/datum/access/janitor::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/tubebox
+	category = "custodial"
+	name = "box of replacement light tubes"
+	supplier = "blam"
+	description = "A box of light tubes, shaped on the inside so that only tubes fit."
+	price = 20
+	items = list(
+		/obj/item/storage/box/lights/tubes
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/bulbbox
+	category = "custodial"
+	name = "box of replacement light bulbs"
+	supplier = "blam"
+	description = "A box of light bulbs, shaped on the inside so that only bulbs fit."
+	price = 20
+	items = list(
+		/obj/item/storage/box/lights/bulbs
+	)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

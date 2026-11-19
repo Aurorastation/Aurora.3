@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/storage/box
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -21,7 +20,6 @@
 	items = list(
 		/obj/item/stack/packageWrap
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -35,7 +33,6 @@
 	items = list(
 		/obj/item/stack/wrapping_paper
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -49,7 +46,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bucket
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +59,6 @@
 	items = list(
 		/obj/structure/filingcabinet/chestdrawer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -77,7 +72,6 @@
 	items = list(
 		/obj/item/clipboard
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -91,7 +85,6 @@
 	items = list(
 		/obj/item/folder/blue
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -105,7 +98,6 @@
 	items = list(
 		/obj/item/folder/yellow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -119,7 +111,6 @@
 	items = list(
 		/obj/item/folder/red
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -133,7 +124,6 @@
 	items = list(
 		/obj/item/folder/white
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -147,7 +137,6 @@
 	items = list(
 		/obj/item/hand_labeler
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -161,7 +150,6 @@
 	items = list(
 		/obj/item/inflatable_duck
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -175,7 +163,6 @@
 	items = list(
 		/obj/item/paper_bin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -189,7 +176,6 @@
 	items = list(
 		/obj/item/paper/stickynotes/pad
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -203,7 +189,6 @@
 	items = list(
 		/obj/item/pen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -217,7 +202,6 @@
 	items = list(
 		/obj/item/pen/blue
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -231,7 +215,6 @@
 	items = list(
 		/obj/item/pen/red
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -245,7 +228,6 @@
 	items = list(
 		/obj/item/pen/multi
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -259,7 +241,6 @@
 	items = list(
 		/obj/item/pen/fountain
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -273,7 +254,6 @@
 	items = list(
 		/obj/item/tape_roll
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -287,7 +267,6 @@
 	items = list(
 		/obj/item/toner
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -301,7 +280,6 @@
 	items = list(
 		/obj/item/camera
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -315,12 +293,11 @@
 	items = list(
 		/obj/item/camera_film
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/pda
+/singleton/cargo_item/pda_supply
 	category = "supply"
 	name = "PDA"
 	supplier = "nanotrasen"
@@ -329,7 +306,6 @@
 	items = list(
 		/obj/item/modular_computer/handheld/pda
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -343,7 +319,6 @@
 	items = list(
 		/obj/item/taperecorder
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -357,7 +332,6 @@
 	items = list(
 		/obj/item/paper_scanner
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -371,7 +345,6 @@
 	items = list(
 		/obj/item/computer_hardware/hard_drive/portable
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -385,7 +358,6 @@
 	items = list(
 		/obj/item/computer_hardware/hard_drive/portable/advanced
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -399,7 +371,6 @@
 	items = list(
 		/obj/random/pottedplant_small
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -413,7 +384,6 @@
 	items = list(
 		/obj/random/pottedplant
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1

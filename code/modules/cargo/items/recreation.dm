@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/crayons
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -24,7 +23,6 @@
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/reagent_containers/glass/rag,
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -38,7 +36,6 @@
 	items = list(
 		/obj/item/canvas
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -52,7 +49,6 @@
 	items = list(
 		/obj/item/canvas/nineteen_nineteen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -66,7 +62,6 @@
 	items = list(
 		/obj/item/canvas/twentythree_twentythree
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -80,7 +75,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/trumpet
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -94,7 +88,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/guitar
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -108,7 +101,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/violin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -122,7 +114,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/guitar/multi
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -136,7 +127,6 @@
 	items = list(
 		/obj/structure/synthesized_instrument/synthesizer/piano
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -150,7 +140,6 @@
 	items = list(
 		/obj/structure/synthesized_instrument/synthesizer
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -164,7 +153,6 @@
 	items = list(
 		/obj/structure/machinery/media/jukebox
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -178,7 +166,6 @@
 	items = list(
 		/obj/structure/machinery/media/jukebox/phonograph
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -192,7 +179,6 @@
 	items = list(
 		/obj/item/toy/waterballoon
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 10
@@ -206,7 +192,6 @@
 	items = list(
 		/obj/item/toy/balloon
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 10
@@ -220,7 +205,6 @@
 	items = list(
 		/obj/item/toy/sword
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -234,7 +218,6 @@
 	items = list(
 		/obj/item/toy/katana
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -248,7 +231,6 @@
 	items = list(
 		/obj/item/toy/ammo/crossbow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -262,7 +244,6 @@
 	items = list(
 		/obj/item/toy/crossbow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -276,7 +257,6 @@
 	items = list(
 		/obj/item/toy/spinningtoy
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -290,7 +270,6 @@
 	items = list(
 		/obj/random/plushie
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 4
@@ -304,7 +283,6 @@
 	items = list(
 		/obj/item/toy/plushie/therapy
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -318,7 +296,6 @@
 	items = list(
 		/obj/item/toy/snappop
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -334,7 +311,6 @@
 		/obj/item/clothing/suit/armor/riot/laser_tag,
 		/obj/item/gun/energy/lasertag/red
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -350,7 +326,6 @@
 		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
 		/obj/item/gun/energy/lasertag/blue
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -364,7 +339,6 @@
 	items = list(
 		/obj/item/storage/box/lyodii
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -378,7 +352,6 @@
 	items = list(
 		/obj/item/gamehelm
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -392,7 +365,6 @@
 	items = list(
 		/obj/structure/whiteboard
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -406,7 +378,6 @@
 	items = list(
 		/obj/item/portable_whiteboard
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

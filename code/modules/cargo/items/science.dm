@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes/stokcubes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +20,6 @@
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes/vkrexicubes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +33,6 @@
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes/farwacubes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -49,7 +46,6 @@
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +59,6 @@
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes/neaeracubes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -76,7 +71,6 @@
 	items = list(
 		/obj/item/clothing/head/hazmat/general
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -90,7 +84,6 @@
 	items = list(
 		/obj/item/clothing/suit/hazmat/general
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -104,7 +97,7 @@
 	items = list(
 		/obj/item/firing_pin/implant/loyalty
 	)
-	access = /datum/access/heads::id
+	access = list(/datum/access/heads::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -118,7 +111,7 @@
 	items = list(
 		/mob/living/carbon/human
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -132,7 +125,7 @@
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -146,7 +139,7 @@
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -160,7 +153,7 @@
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -174,7 +167,7 @@
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -188,7 +181,6 @@
 	items = list(
 		/obj/item/assembly/prox_sensor
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -202,7 +194,7 @@
 	items = list(
 		/obj/item/firing_pin/test_range
 	)
-	access = /datum/access/research::id
+	access = list(/datum/access/research::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -216,7 +208,6 @@
 	items = list(
 		/obj/item/assembly/timer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -230,7 +221,6 @@
 	items = list(
 		/obj/item/assembly/igniter
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

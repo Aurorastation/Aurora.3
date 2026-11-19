@@ -9,7 +9,6 @@
 		/obj/item/organ/external/hand/right/autakh/tool/mining,
 		/obj/item/organ/external/hand/right/autakh/medical
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -23,7 +22,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -37,7 +36,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -51,7 +50,6 @@
 	items = list(
 		/obj/structure/coatrack
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -65,7 +63,6 @@
 	items = list(
 		/obj/item/eftpos
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -74,12 +71,11 @@
 	category = "operations"
 	name = "empty spray bottle"
 	supplier = "blam"
-	description = "A empty spray bottle."
+	description = "An empty spray bottle."
 	price = 5
 	items = list(
 		/obj/item/reagent_containers/spray
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -93,7 +89,6 @@
 	items = list(
 		/obj/structure/machinery/photocopier/faxmachine
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -107,7 +102,6 @@
 	items = list(
 		/obj/item/flashlight/flare
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -131,7 +125,6 @@
 		/obj/item/clothing/shoes/laceup/grey,
 		/obj/item/clothing/suit/wcoat
 	)
-	access = 0
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -145,7 +138,6 @@
 	items = list(
 		/obj/item/stack/wrapping_paper
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -171,7 +163,6 @@
 		/obj/item/grenade/chem_grenade/cleaner,
 		/obj/item/soap/nanotrasen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -185,7 +176,6 @@
 	items = list(
 		/obj/item/clothing/accessory/storage
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -199,7 +189,6 @@
 	items = list(
 		/obj/item/stack/packageWrap
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -213,7 +202,6 @@
 	items = list(
 		/obj/item/modular_computer/handheld/pda
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -227,7 +215,6 @@
 	items = list(
 		/obj/item/storage/photo_album
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -241,7 +228,6 @@
 	items = list(
 		/obj/structure/machinery/photocopier
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -258,7 +244,7 @@
 		/obj/item/mech_component/sensors/pra_egg,
 		/obj/item/mech_component/chassis/pra_egg
 	)
-	access = /datum/access/robotics::id
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -275,7 +261,7 @@
 		/obj/item/mech_component/sensors/pra_egg/armored,
 		/obj/item/mech_component/chassis/pra_egg/armored/nuclear
 	)
-	access = /datum/access/robotics::id
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -289,7 +275,6 @@
 	items = list(
 		/obj/item/contraband/poster
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -303,7 +288,7 @@
 	items = list(
 		/obj/item/clothing/accessory/holster
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -317,7 +302,6 @@
 	items = list(
 		/obj/vehicle/bike
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -331,7 +315,6 @@
 	items = list(
 		/obj/vehicle/bike/snow
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -345,7 +328,6 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley/sled
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -359,7 +341,6 @@
 	items = list(
 		/obj/vehicle/bike/monowheel
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -373,7 +354,6 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/webbing
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -387,7 +367,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/black
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -401,7 +380,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/blue
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -415,7 +393,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/white
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -429,7 +406,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/yellow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -443,7 +419,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/purple
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -457,7 +432,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/paint/red
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -466,12 +440,11 @@
 	category = "operations"
 	name = "green paint"
 	supplier = "orion"
-	description = "Green paint, a aesthetic replacement for grass."
+	description = "Green paint, an aesthetic replacement for grass."
 	price = 10
 	items = list(
 		/obj/item/reagent_containers/glass/paint/green
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -480,12 +453,11 @@
 	category = "operations"
 	name = "battlemonsters resupply canister"
 	supplier = "nanotrasen"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling battlemonsters vending machines."
 	price = 2250
 	items = list(
 		/obj/item/vending_refill/battlemonsters
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -494,12 +466,11 @@
 	category = "operations"
 	name = "booze resupply canister"
 	supplier = "orion"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling booze vending machines."
 	price = 4500
 	items = list(
 		/obj/item/vending_refill/booze
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -508,12 +479,11 @@
 	category = "operations"
 	name = "zora soda resupply canister"
 	supplier = "zora"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling zora soda vending machines."
 	price = 1255
 	items = list(
 		/obj/item/vending_refill/zora
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -522,12 +492,11 @@
 	category = "operations"
 	name = "tools resupply canister"
 	supplier = "hephaestus"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling tools vending machines."
 	price = 2450
 	items = list(
 		/obj/item/vending_refill/tools
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -536,12 +505,11 @@
 	category = "operations"
 	name = "smokes resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling smokes vending machines."
 	price = 2250
 	items = list(
 		/obj/item/vending_refill/smokes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -550,12 +518,11 @@
 	category = "operations"
 	name = "snacks resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling snacks vending machines."
 	price = 1255
 	items = list(
 		/obj/item/vending_refill/snack
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -564,12 +531,11 @@
 	category = "operations"
 	name = "robo-tools resupply canister"
 	supplier = "blam"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling robo-tools vending machines."
 	price = 2500
 	items = list(
 		/obj/item/vending_refill/robo
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -578,12 +544,11 @@
 	category = "operations"
 	name = "security resupply canister"
 	supplier = "blam"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling security vending machines."
 	price = 4500
 	items = list(
 		/obj/item/vending_refill/robust
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -592,12 +557,11 @@
 	category = "operations"
 	name = "meds resupply canister"
 	supplier = "zeng_hu"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling meds vending machines."
 	price = 5500
 	items = list(
 		/obj/item/vending_refill/meds
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -606,12 +570,11 @@
 	category = "operations"
 	name = "hydro resupply canister"
 	supplier = "nanotrasen"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling hydro vending machines."
 	price = 2500
 	items = list(
 		/obj/item/vending_refill/hydro
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -620,12 +583,11 @@
 	category = "operations"
 	name = "coffee resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling coffee vending machines."
 	price = 1350
 	items = list(
 		/obj/item/vending_refill/coffee
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -634,12 +596,11 @@
 	category = "operations"
 	name = "cola resupply canister"
 	supplier = "idris"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling cola vending machines."
 	price = 1250
 	items = list(
 		/obj/item/vending_refill/cola
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -648,12 +609,11 @@
 	category = "operations"
 	name = "cutlery resupply canister"
 	supplier = "nanotrasen"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling cutlery vending machines."
 	price = 850
 	items = list(
 		/obj/item/vending_refill/cutlery
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -662,12 +622,11 @@
 	category = "operations"
 	name = "Toximate resupply canister"
 	supplier = "orion"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling Toximate vending machines."
 	price = 3000
 	items = list(
 		/obj/item/vending_refill/bomba
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -676,12 +635,11 @@
 	category = "operations"
 	name = "FrontierVend resupply canister"
 	supplier = "orion"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling FrontierVend vending machines."
 	price = 1255
 	items = list(
 		/obj/item/vending_refill/frontiervend
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -690,12 +648,11 @@
 	category = "operations"
 	name = "encryption key resupply canister"
 	supplier = "orion"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling encryption key vending machines."
 	price = 5000
 	items = list(
 		/obj/item/vending_refill/encryption
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -704,12 +661,11 @@
 	category = "operations"
 	name = "games resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling games vending machines."
 	price = 2000
 	items = list(
 		/obj/item/vending_refill/games
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -718,12 +674,11 @@
 	category = "operations"
 	name = "Idris Delights resupply canister"
 	supplier = "idris"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling Idris Delights vending machines."
 	price = 1500
 	items = list(
 		/obj/item/vending_refill/idris_delights
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -732,12 +687,11 @@
 	category = "operations"
 	name = "lavatory supplies resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling lavatory supplies vending machines."
 	price = 1200
 	items = list(
 		/obj/item/vending_refill/lavatory
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -746,12 +700,11 @@
 	category = "operations"
 	name = "MRE resupply canister"
 	supplier = "orion"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling MRE vending machines."
 	price = 2500
 	items = list(
 		/obj/item/vending_refill/mre
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -760,12 +713,11 @@
 	category = "operations"
 	name = "overloader resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling overloader vending machines."
 	price = 2500
 	items = list(
 		/obj/item/vending_refill/overloaders
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -774,12 +726,11 @@
 	category = "operations"
 	name = "quick meals resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling quick meals vending machines."
 	price = 1750
 	items = list(
 		/obj/item/vending_refill/quick_meals
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -788,12 +739,11 @@
 	category = "operations"
 	name = "ramen resupply canister"
 	supplier = "getmore"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling ramen vending machines."
 	price = 1500
 	items = list(
 		/obj/item/vending_refill/ramen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -802,12 +752,11 @@
 	category = "operations"
 	name = "pharmacy resupply canister"
 	supplier = "nanotrasen"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling pharmacy vending machines."
 	price = 3500
 	items = list(
 		/obj/item/vending_refill/wallpharm
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -816,12 +765,11 @@
 	category = "operations"
 	name = "wardrobe resupply canister"
 	supplier = "idris"
-	description = "A vending machine restock cart."
+	description = "A vending machine restock cart for refilling wardrobe vending machines."
 	price = 1000
 	items = list(
 		/obj/item/vending_refill/wardrobe
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -830,12 +778,12 @@
 	category = "operations"
 	name = "commissary cigarette restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of cigarette stock for the commissary."
 	price = 240
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -844,12 +792,12 @@
 	category = "operations"
 	name = "commissary tobacco leaves restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of tobacco leaves stock for the commissary."
 	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -858,12 +806,12 @@
 	category = "operations"
 	name = "commissary chewing tobacco restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of chewing tobacco stock for the commissary."
 	price = 240
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -872,12 +820,12 @@
 	category = "operations"
 	name = "commissary smoking accessories restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of smoking accessories stock for the commissary."
 	price = 140
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -886,12 +834,12 @@
 	category = "operations"
 	name = "commissary electronic cigarette restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of electronic cigarette stock for the commissary."
 	price = 80
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -900,12 +848,12 @@
 	category = "operations"
 	name = "commissary snack restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of snack stock for the commissary."
 	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -914,12 +862,12 @@
 	category = "operations"
 	name = "commissary xeno snack restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of xeno snack stock for the commissary."
 	price = 60
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -928,12 +876,12 @@
 	category = "operations"
 	name = "commissary candy restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of candy stock for the commissary."
 	price = 65
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -942,12 +890,12 @@
 	category = "operations"
 	name = "commissary microwave meal restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of microwave meal stock for the commissary."
 	price = 220
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -956,12 +904,12 @@
 	category = "operations"
 	name = "commissary drink restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of drink stock for the commissary."
 	price = 150
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -970,12 +918,12 @@
 	category = "operations"
 	name = "commissary beer restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of beer stock for the commissary."
 	price = 100
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -984,12 +932,12 @@
 	category = "operations"
 	name = "commissary toy restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of toy stock for the commissary."
 	price = 110
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -998,12 +946,12 @@
 	category = "operations"
 	name = "commissary dice and card restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of dice and card stock for the commissary."
 	price = 120
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1012,12 +960,12 @@
 	category = "operations"
 	name = "commissary toy mech restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of toy mech stock for the commissary."
 	price = 200
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/mech
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1026,12 +974,12 @@
 	category = "operations"
 	name = "commissary comic restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of comic stock for the commissary."
 	price = 25
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1040,12 +988,12 @@
 	category = "operations"
 	name = "commissary az'marian comic series restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of az'marian comic series stock for the commissary."
 	price = 50
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1054,12 +1002,12 @@
 	category = "operations"
 	name = "commissary music restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of music stock for the commissary."
 	price = 50
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/music
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1068,13 +1016,13 @@
 	category = "operations"
 	name = "commissary tea restock"
 	supplier = "getmore"
-	description = "A box full of stock for the commissary."
+	description = "A box full of tea stock for the commissary."
 	// Bulk commissary orders are at a discount, so cheaper per tin of tea than regularly ordering tea
 	price = 75
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

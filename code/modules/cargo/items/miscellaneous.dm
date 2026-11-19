@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/autochisel
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +20,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/watertank
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +33,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/cookingoil
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -49,7 +46,6 @@
 	items = list(
 		/obj/structure/sculpting_block
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -63,7 +59,6 @@
 	items = list(
 		/obj/structure/machinery/space_heater
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -82,7 +77,6 @@
 		/obj/item/material/stool/chair/folding/camping,
 		/obj/item/material/folding_table,
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -96,7 +90,6 @@
 	items = list(
 		/obj/item/stack/material/wood/log/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -110,7 +103,6 @@
 	items = list(
 		/obj/item/sleeping_bag,
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -124,7 +116,6 @@
 	items = list(
 		/obj/structure/bed/stool/hover
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -154,7 +145,6 @@
 	items = list(
 		/obj/structure/bed/stool/hover
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 4
