@@ -14,6 +14,7 @@
 	vend_id = "security"
 	products = list(
 		/obj/item/handcuffs = 8,
+		/obj/item/handcuffs/legcuffs = 6,
 		/obj/item/grenade/chem_grenade/teargas = 4,
 		/obj/item/flash = 5,
 		/obj/item/reagent_containers/spray/pepper = 5,
@@ -45,6 +46,7 @@
 /obj/structure/machinery/vending/security/low_supply
 	products = list(
 		/obj/item/handcuffs = 2,
+		/obj/item/handcuffs/legcuffs = 1,
 		/obj/item/grenade/chem_grenade/teargas = 1,
 		/obj/item/flash = 2,
 		/obj/item/reagent_containers/spray/pepper = 2,
