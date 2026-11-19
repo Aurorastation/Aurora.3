@@ -7,7 +7,7 @@
 	/// Last world.time the ability was triggered.
 	var/last_use = 0
 	/// Base cooldown between surveys.
-	var/cooldown = 6 SECONDS
+	var/cooldown = 4 SECONDS
 	/// List of active client highlight images currently displayed to the owner.
 	var/list/image/active_highlights = list()
 	/// Timer ID for clearing active highlights.
@@ -49,19 +49,18 @@
 		return
 
 	var/arch_skill = GET_SKILL_LEVEL(owner, ARCHAOLOGY_SKILL_COMPONENT)
-	if(arch_skill < SKILL_LEVEL_TRAINED)
+	if(arch_skill < SKILL_LEVEL_PROFESSIONAL)
 		return
 
-	var/effective_cooldown = (arch_skill >= SKILL_LEVEL_PROFESSIONAL) ? 4 SECONDS : cooldown
-	if(last_use && (world.time < last_use + effective_cooldown))
+	if(last_use && (world.time < last_use + cooldown))
 		to_chat(owner, SPAN_WARNING("You need a moment to refocus before surveying the terrain again."))
 		return
 
 	last_use = world.time
 	clear_highlights()
 
-	var/scan_range = (arch_skill >= SKILL_LEVEL_PROFESSIONAL) ? world.view : 5
-	var/highlight_duration = (arch_skill >= SKILL_LEVEL_PROFESSIONAL) ? 12 SECONDS : 8 SECONDS
+	var/scan_range = world.view
+	var/highlight_duration = 12 SECONDS
 	var/list/found_names = list()
 	var/revealed_hidden = 0
 
@@ -109,10 +108,7 @@
 		owner.client.images += active_highlights
 		clear_timer_id = addtimer(CALLBACK(src, PROC_REF(clear_highlights)), highlight_duration, TIMER_UNIQUE | TIMER_STOPPABLE)
 		var/reveal_msg = revealed_hidden ? " and uncover [revealed_hidden] camouflaged trap\s" : ""
-		if(arch_skill >= SKILL_LEVEL_PROFESSIONAL)
-			to_chat(owner, SPAN_WARNING("Your expert survey picks out [length(active_highlights)] hazard\s nearby[reveal_msg]: [english_list(found_names)]."))
-		else
-			to_chat(owner, SPAN_WARNING("Your trained eyes pick out [length(active_highlights)] hazard\s in the surrounding area[reveal_msg]!"))
+		to_chat(owner, SPAN_WARNING("Your expert survey picks out [length(active_highlights)] hazard\s nearby[reveal_msg]: [english_list(found_names)]."))
 	else
 		to_chat(owner, SPAN_NOTICE("You carefully scan the surrounding terrain and spot no concealed traps or mines."))
 
@@ -122,15 +118,21 @@
  * xenoarchaeological instrument and lab machine efficiency, relic/anomaly handling, and trapfinding.
  */
 /datum/component/skill/archaology
-	/// Action button granted at Trained+ for surveying and highlighting nearby traps.
+	/// Action button granted at Professional (maximum rank) as a capstone for surveying and highlighting nearby traps.
 	var/datum/action/trapfinding/trapfinding_action
+	/// Situational bonus to trap disarming / landmine defusal success chance per rank above Unfamiliar.
+	var/trap_disarm_chance_per_rank = 5
+	/// Situational bonus to trap disarming / landmine defusal speed (as a fractional duration reduction) per rank above Unfamiliar.
+	var/trap_disarm_speed_mod_per_rank = 0.05
 
 /datum/component/skill/archaology/Initialize(level)
 	. = ..()
 	if(!parent)
 		return
 
-	if(skill_level >= SKILL_LEVEL_TRAINED)
+	RegisterSignal(parent, COMSIG_GET_TRAP_DISARM_MODIFIERS, PROC_REF(handle_trap_disarm_modifiers), override = TRUE)
+
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
 		trapfinding_action = new /datum/action/trapfinding()
 		trapfinding_action.SetTarget(trapfinding_action)
 		trapfinding_action.Grant(parent)
@@ -140,10 +142,20 @@
 	if(!parent)
 		return ..()
 
+	UnregisterSignal(parent, COMSIG_GET_TRAP_DISARM_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_MOB_AFTER_LOGIN)
 	trapfinding_action?.Remove(parent)
 	QDEL_NULL(trapfinding_action)
 	return ..()
+
+/datum/component/skill/archaology/proc/handle_trap_disarm_modifiers(mob/living/user, atom/trap, disarm_chance, disarm_duration)
+	SIGNAL_HANDLER
+	if(skill_level <= SKILL_LEVEL_UNFAMILIAR)
+		return
+
+	var/effective_skill = skill_level - SKILL_LEVEL_UNFAMILIAR
+	*disarm_chance = *disarm_chance + trap_disarm_chance_per_rank * effective_skill
+	*disarm_duration = *disarm_duration * (1 - trap_disarm_speed_mod_per_rank * effective_skill)
 
 /datum/component/skill/archaology/proc/setup_action_button()
 	astype(parent, /mob)?.update_action_buttons()
@@ -154,14 +166,11 @@
 /proc/get_xenoarch_dig_multiplier(mob/user)
 	if(!user)
 		return 1
-	switch(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT))
-		if(SKILL_LEVEL_FAMILIAR)
-			return 0.85
-		if(SKILL_LEVEL_TRAINED)
-			return 0.7
-		if(SKILL_LEVEL_PROFESSIONAL)
-			return 0.5
-	return 1
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT)
+	if(isnull(arch_skill))
+		return 1
+	var/effective_skill = max(0, arch_skill - SKILL_LEVEL_UNFAMILIAR)
+	return max(0.25, 1 - (0.15 * effective_skill) - (0.05 * max(0, effective_skill - 2)))
 
 /**
  * Checks whether a living mob's Xenoarchaeology trapfinding instincts allow them to spot and avoid
@@ -176,19 +185,9 @@
 
 	var/evade_chance = 0
 	if(L.m_intent == M_WALK)
-		switch(arch_skill)
-			if(SKILL_LEVEL_FAMILIAR)
-				evade_chance = 25
-			if(SKILL_LEVEL_TRAINED)
-				evade_chance = 60
-			if(SKILL_LEVEL_PROFESSIONAL)
-				evade_chance = 90
+		evade_chance = clamp((arch_skill - SKILL_LEVEL_UNFAMILIAR) * 30, 0, 95)
 	else
-		switch(arch_skill)
-			if(SKILL_LEVEL_TRAINED)
-				evade_chance = 25
-			if(SKILL_LEVEL_PROFESSIONAL)
-				evade_chance = 50
+		evade_chance = clamp((arch_skill - SKILL_LEVEL_FAMILIAR) * 25, 0, 90)
 
 	if(evade_chance && prob(evade_chance))
 		if(reveal_trap && trap.invisibility > 0)

@@ -35,9 +35,8 @@
 			+ " - Delicate finds are 15% less likely to crumble without a suspension field, and strange rocks are less likely to crumble when struck.<br>" \
 			+ " - You gain +5% passive Anomaly Protection and halve the chance of accidentally triggering touch artifacts when bumping them.<br>" \
 			+ " - Examining excavated relics, mounds, and sarcophagi warns you of rigged power cells, buried mines, booby traps, and anomalous properties.<br>" \
-			+ " - You disarm traps and defuse landmines faster (+25% landmine defusal chance), and have a chance to spot and avoid traps and tripwires when walking.",
+			+ " - You gain a +5% situational bonus to trap disarming and landmine defusal (5% faster), and have a chance to spot and avoid traps and tripwires when walking.",
 		SKILL_LEVEL_TRAINED = "You have formal training and field experience in Xenoarchaeology.<br>" \
-			+ " - Grants the <b>Survey for Traps</b> active ability, highlighting nearby landmines, tripwires, concealed punji traps, and booby-trapped sarcophagi on screen and uncovering hidden traps.<br>" \
 			+ " - You excavate and measure rock faces, boulders, and asteroid soil 30% faster.<br>" \
 			+ " - Precision picks automatically stop and warn you before over-excavating a buried find or collapsing a boulder.<br>" \
 			+ " - You have a +30% chance to harvest bonus ore from mineral deposits, and a 65% chance to preserve unexcavated artifact boulders when mining.<br>" \
@@ -45,9 +44,9 @@
 			+ " - Depth scanners display the exact Suspension Field type required, and Alden-Saraspova counters indicate the direction to the nearest artifact with no distance noise.<br>" \
 			+ " - The Anomaly Analyzer and Radiocarbon Spectrometer complete scans 25% faster when you initiate them.<br>" \
 			+ " - You gain +10% passive Anomaly Protection and never accidentally trigger touch artifacts when bumping them bare-handed.<br>" \
-			+ " - You have a high chance to spot and avoid traps and mines while moving, gain +50% landmine defusal chance (including defusing standstill mines beneath your own feet), safely unprime buried mines when digging open mounds, and disarm sarcophagus traps.",
+			+ " - You have a high chance to spot and avoid traps and mines while moving, gain a +10% situational bonus to trap disarming and landmine defusal (10% faster, including defusing standstill mines beneath your own feet), safely unprime buried mines when digging open mounds, and disarm sarcophagus traps.",
 		SKILL_LEVEL_PROFESSIONAL = "You have extensive experience and academic mastery in Xenoarchaeology.<br>" \
-			+ " - <b>Survey for Traps</b> scans your full visual range on a shorter cooldown, highlights hazards for longer, and identifies each detected trap by type.<br>" \
+			+ " - Grants the <b>Survey for Traps</b> active ability, scanning your full visual range to highlight nearby landmines, tripwires, concealed punji traps, and booby-trapped sarcophagi on screen by type and uncovering hidden traps.<br>" \
 			+ " - You excavate and measure rock faces, boulders, and asteroid soil 50% faster.<br>" \
 			+ " - You automatically estimate exact excavation depth when examining or using precision picks on rock faces and boulders without needing a measuring tape.<br>" \
 			+ " - You have a +45% chance to harvest bonus ore from mineral deposits, and a 90% chance to preserve unexcavated artifact boulders when mining.<br>" \
@@ -55,7 +54,7 @@
 			+ " - Depth scanners reveal the true excavation depth of boulders and whether they contain an artifact.<br>" \
 			+ " - The Anomaly Analyzer scans 50% faster, detects dormant secondary effects, and identifies exact activation stimuli.<br>" \
 			+ " - The Radiocarbon Spectrometer scans 50% faster and suffers 50% less vacuum seal degradation.<br>" \
-			+ " - You gain +15% passive Anomaly Protection, never trip on tripwires, have a 90% chance while walking (50% while running) to avoid stepping on traps or mines, and defuse landmines with 100% reliability.",
+			+ " - You gain +15% passive Anomaly Protection, never trip on tripwires, have a 90% chance while walking (50% while running) to avoid stepping on traps or mines, and gain a +15% situational bonus to trap disarming and landmine defusal (15% faster).",
 	)
 
 /singleton/skill/xenobiology

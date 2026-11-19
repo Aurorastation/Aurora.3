@@ -521,14 +521,8 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		display_name = X.name
 
 	//many finds are ancient and thus very delicate - luckily there is a specialised energy suspension field which protects them when they're being extracted
-	var/delicate_chance = F.prob_delicate
-	switch(arch_skill)
-		if(SKILL_LEVEL_FAMILIAR)
-			delicate_chance = max(0, delicate_chance - 15)
-		if(SKILL_LEVEL_TRAINED)
-			delicate_chance = max(0, delicate_chance - 40)
-		if(SKILL_LEVEL_PROFESSIONAL)
-			delicate_chance = max(0, delicate_chance - 65)
+	var/delicate_reduction = max(0, (arch_skill - SKILL_LEVEL_UNFAMILIAR) * 25 - 10)
+	var/delicate_chance = max(0, F.prob_delicate - delicate_reduction)
 
 	if(prob(delicate_chance))
 		var/obj/effect/suspension_field/S = locate() in src

@@ -95,8 +95,17 @@
 	..()
 
 /obj/item/trap/proc/disarm_trap(var/mob/user)
+	var/disarm_duration = 6 SECONDS
+	var/disarm_chance = 100
+	SEND_SIGNAL(user, COMSIG_GET_TRAP_DISARM_MODIFIERS, src, &disarm_chance, &disarm_duration)
+	disarm_duration = max(1 SECOND, round(disarm_duration))
+	disarm_chance = clamp(disarm_chance, 0, 100)
+
 	user.visible_message("[SPAN_BOLD("[user]")] starts disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
-	if(do_after(user, round((6 SECONDS) * get_xenoarch_dig_multiplier(user))))
+	if(do_after(user, disarm_duration))
+		if(!prob(disarm_chance))
+			to_chat(user, SPAN_WARNING("You fumble with \the [src] and fail to disarm it!"))
+			return
 		user.visible_message("[SPAN_BOLD("[user]")] disarms \the [src]!", SPAN_NOTICE("You disarm \the [src]!"))
 		deployed = FALSE
 		if(unsecure_on_disarm)
@@ -212,8 +221,17 @@
 	return FALSE
 
 /obj/item/trap/tripwire/disarm_trap(var/mob/user)
+	var/disarm_duration = 6 SECONDS
+	var/disarm_chance = 100
+	SEND_SIGNAL(user, COMSIG_GET_TRAP_DISARM_MODIFIERS, src, &disarm_chance, &disarm_duration)
+	disarm_duration = max(1 SECOND, round(disarm_duration))
+	disarm_chance = clamp(disarm_chance, 0, 100)
+
 	user.visible_message(SPAN_NOTICE("\The [user] starts to take \the [src] down..."), SPAN_NOTICE("You begin taking \the [src] down..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
-	if(do_after(user, round((6 SECONDS) * get_xenoarch_dig_multiplier(user))))
+	if(do_after(user, disarm_duration))
+		if(!prob(disarm_chance))
+			to_chat(user, SPAN_WARNING("You fumble with \the [src] and fail to take it down!"))
+			return
 		deployed = FALSE
 		if(unsecure_on_disarm)
 			anchored = FALSE
@@ -229,7 +247,7 @@
 
 	var/arch_skill = GET_SKILL_LEVEL(L, ARCHAOLOGY_SKILL_COMPONENT)
 	if(!L.lying && arch_skill >= SKILL_LEVEL_FAMILIAR)
-		var/step_over_chance = (L.m_intent == M_WALK) ? 100 : (arch_skill == SKILL_LEVEL_PROFESSIONAL ? 100 : (arch_skill == SKILL_LEVEL_TRAINED ? 70 : 35))
+		var/step_over_chance = (L.m_intent == M_WALK) ? 100 : clamp((arch_skill - SKILL_LEVEL_UNFAMILIAR) * 35, 0, 100)
 		if(prob(step_over_chance))
 			to_chat(L, SPAN_NOTICE("You spot \the [src] in time and deftly step over it."))
 			return

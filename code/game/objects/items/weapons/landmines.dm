@@ -165,16 +165,11 @@
 			return
 	else if(deployed && istype(attacking_item, /obj/item/wirecutters))
 		var/obj/item/wirecutters/W = attacking_item
-		var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT)
-		var/defusal_time = round(150 * get_xenoarch_dig_multiplier(user))
+		var/defusal_time = 15 SECONDS
 		var/defusal_chance = W.bomb_defusal_chance
-		switch(arch_skill)
-			if(SKILL_LEVEL_FAMILIAR)
-				defusal_chance = min(100, defusal_chance + 25)
-			if(SKILL_LEVEL_TRAINED)
-				defusal_chance = min(100, defusal_chance + 50)
-			if(SKILL_LEVEL_PROFESSIONAL)
-				defusal_chance = 100
+		SEND_SIGNAL(user, COMSIG_GET_TRAP_DISARM_MODIFIERS, src, &defusal_chance, &defusal_time)
+		defusal_time = max(1 SECOND, round(defusal_time))
+		defusal_chance = clamp(defusal_chance, 0, 100)
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
 							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
 		if(attacking_item.use_tool(src, user, defusal_time, volume = 50))

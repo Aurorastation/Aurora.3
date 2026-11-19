@@ -149,6 +149,12 @@
 	/// The maximum possible positive or negative (percentage as decimal) contribution to surgery speed from morale modifiers.
 	var/surgery_speed_contribution = 0.1
 
+	/// The maximum possible positive or negative contribution to trap disarming / landmine defusal success chance from morale modifiers.
+	var/trap_disarm_chance_contribution = 15.0
+
+	/// The maximum possible positive or negative (percentage as decimal) contribution to trap disarming / landmine defusal speed from morale modifiers.
+	var/trap_disarm_speed_contribution = 0.1
+
 	/**
 	 * The increase in effective morale ratio for psychic damage. This makes it so that the psi-panic condition
 	 * has a greater effect on penalizing skills than positive morale gives bonuses to them.
@@ -226,6 +232,7 @@
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS, PROC_REF(handle_crafting_speed), override = TRUE)
 	RegisterSignal(parent, COMSIG_PLANT_HARVESTER, PROC_REF(modify_yield), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_TRAP_DISARM_MODIFIERS, PROC_REF(handle_trap_disarm_modifiers), override = TRUE)
 	UPDATE_MORALE
 
 /datum/component/morale/Destroy()
@@ -251,6 +258,7 @@
 	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
+	UnregisterSignal(parent, COMSIG_GET_TRAP_DISARM_MODIFIERS)
 	return ..()
 
 /**
@@ -435,5 +443,16 @@
 
 	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
 	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
+
+/// Positive morale makes trap disarming easier/faster. Psi-panic from negative morale makes it much harder and slower.
+/datum/component/morale/proc/handle_trap_disarm_modifiers(mob/living/user, atom/trap, disarm_chance, disarm_duration)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes your hands shake as you work on \the [trap]..."))
+
+	*disarm_chance = *disarm_chance + trap_disarm_chance_contribution * effective_morale
+	*disarm_duration = *disarm_duration * (1 - trap_disarm_speed_contribution * effective_morale)
 
 #undef UPDATE_MORALE

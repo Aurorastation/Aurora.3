@@ -151,3 +151,7 @@
 
 /// Signal raised on a person attempting to repair a mech.
 #define COMSIG_GET_MECH_WELD_MODIFIERS "mech_weld_modifiers"
+
+// Trap Disarming Signals
+/// Signal raised against a mob attempting to disarm a trap or defuse a landmine, to query components for chance and duration modifiers.
+#define COMSIG_GET_TRAP_DISARM_MODIFIERS "get_trap_disarm_modifiers"
