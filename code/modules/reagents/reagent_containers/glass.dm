@@ -42,7 +42,7 @@
 				. += SPAN_NOTICE("You see something solid in the beaker.")
 				break
 
-		if(distance <= 1 && pharm_skill >= SKILL_LEVEL_FAMILIAR)
+		if(distance <= 1 && pharm_skill >= SKILL_LEVEL_FAMILIAR && is_open_container())
 			var/list/identified_parts = list()
 			var/unidentified_count = 0
 			for(var/_R in reagents.reagent_volumes)

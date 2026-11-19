@@ -166,12 +166,9 @@
 		beakerD += list(list("name" = display_name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
 	data["beaker_contents"] = beakerD
 	var/list/chemicals = list()
-	var/cart_idx = 0
 	for(var/label in cartridges)
-		cart_idx++
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
-		var/display_label = (obfuscate_chems && !is_basic_dispenser_label(label)) ? "Unfamiliar Cartridge #[cart_idx]" : label
-		chemicals += list(list("label" = display_label, "amount" = C.reagents.total_volume))
+		chemicals += list(list("label" = label, "amount" = C.reagents.total_volume))
 	data["chemicals"] = chemicals
 	return data
 
@@ -194,10 +191,6 @@
 
 		if("dispense")
 			var/label = params["dispense"]
-			if(findtext(label, "Unfamiliar Cartridge #") == 1)
-				var/idx = text2num(copytext(label, length("Unfamiliar Cartridge #") + 1))
-				if(idx >= 1 && idx <= length(cartridges))
-					label = cartridges[idx]
 			if(cartridges[label] && container?.is_open_container())
 				var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
 				var/dispense_amount = amount

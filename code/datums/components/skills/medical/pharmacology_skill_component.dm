@@ -28,39 +28,10 @@
 	return max(pharm || SKILL_LEVEL_UNFAMILIAR, med || SKILL_LEVEL_UNFAMILIAR)
 
 /**
- * Checks whether a reagent is an everyday household/food/drink chemical that even an Unfamiliar user in aChemMaster or Chemical Dispenser wouldn't be confused by.
+ * Checks whether a reagent is an everyday household/food/drink chemical that even an Unfamiliar user in a ChemMaster or Chemical Dispenser wouldn't be confused by.
  */
 /proc/is_basic_everyday_reagent(singleton/reagent/R)
-	if(!istype(R))
-		return FALSE
-	if(istype(R, /singleton/reagent/water) || istype(R, /singleton/reagent/sugar) || istype(R, /singleton/reagent/drink) || istype(R, /singleton/reagent/nutriment) || istype(R, /singleton/reagent/alcohol))
-		return TRUE
-	var/static/list/everyday_types = list(
-		/singleton/reagent/iron,
-		/singleton/reagent/carbon,
-		/singleton/reagent/copper,
-		/singleton/reagent/sodium,
-		/singleton/reagent/sodiumchloride,
-		/singleton/reagent/enzyme,
-		/singleton/reagent/frostoil,
-		/singleton/reagent/capsaicin
-	)
-	return is_type_in_list(R, everyday_types)
-
-/**
- * Checks whether a Chemical Dispenser cartridge label is a basic everyday label recognizable at Unfamiliar (1).
- */
-/proc/is_basic_dispenser_label(label)
-	var/static/list/basic_labels = list(
-		"Water",
-		"Sugar",
-		"Ethanol",
-		"Iron",
-		"Carbon",
-		"Copper",
-		"Sodium"
-	)
-	return (label in basic_labels)
+	return istype(R) && (R.pharmacology_skill_required == SKILL_LEVEL_UNFAMILIAR)
 
 /**
  * Determines whether a user can visually identify a specific reagent inside an open/transparent container or pill.
@@ -76,61 +47,8 @@
 		skill_level = get_pharmacology_skill(user)
 	if(skill_level <= SKILL_LEVEL_UNFAMILIAR)
 		return FALSE
-	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
-		return TRUE
-
-	// Familiar (2): Common food/drinks, everyday chemicals, and basic first-aid / OTC meds
-	if(is_basic_everyday_reagent(R))
-		return TRUE
-	var/static/list/familiar_reagents = list(
-		/singleton/reagent/blood,
-		/singleton/reagent/inaprovaline,
-		/singleton/reagent/dylovene,
-		/singleton/reagent/bicaridine,
-		/singleton/reagent/kelotane,
-		/singleton/reagent/dexalin,
-		/singleton/reagent/tricordrazine,
-		/singleton/reagent/perconol,
-		/singleton/reagent/mortaphenyl,
-		/singleton/reagent/tramarine,
-		/singleton/reagent/antidexafen,
-		/singleton/reagent/cetahydramine,
-		/singleton/reagent/sterilizine,
-		/singleton/reagent/spacecleaner
-	)
-	if(is_type_in_list(R, familiar_reagents))
-		return TRUE
-
-	if(skill_level == SKILL_LEVEL_FAMILIAR)
-		return FALSE
-
-	// Trained (3): All scannable medical reagents, psychiatric medications (except unethical truth serum), and standard dispenser elements/compounds
-	if(R.scannable)
-		return TRUE
-	if(istype(R, /singleton/reagent/mental) && !istype(R, /singleton/reagent/mental/truthserum))
-		return TRUE
-	var/static/list/trained_dispenser_reagents = list(
-		/singleton/reagent/acetone,
-		/singleton/reagent/aluminum,
-		/singleton/reagent/ammonia,
-		/singleton/reagent/boron,
-		/singleton/reagent/hydrazine,
-		/singleton/reagent/lithium,
-		/singleton/reagent/mercury,
-		/singleton/reagent/phosphorus,
-		/singleton/reagent/potassium,
-		/singleton/reagent/radium,
-		/singleton/reagent/acid,
-		/singleton/reagent/silicon,
-		/singleton/reagent/sulfur,
-		/singleton/reagent/tungsten,
-		/singleton/reagent/diethylamine,
-		/singleton/reagent/glycerol
-	)
-	if(is_type_in_list(R, trained_dispenser_reagents))
-		return TRUE
-
-	return FALSE
+	var/required_skill = R.pharmacology_skill_required || (R.scannable ? SKILL_LEVEL_TRAINED : SKILL_LEVEL_PROFESSIONAL)
+	return skill_level >= required_skill
 
 /**
  * Applies the effects of the Pharmacology skill to a freshly compounded pill in the ChemMaster 3000.

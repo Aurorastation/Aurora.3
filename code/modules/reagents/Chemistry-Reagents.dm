@@ -22,6 +22,8 @@
 	var/scannable = 0
 	/// Doesn't show up on basic mass spectrometers, only shows on the advanced variant
 	var/spectro_hidden = FALSE
+	/// Minimum Pharmacology skill level required to recognize this reagent (defaults to TRAINED if scannable, PROFESSIONAL otherwise).
+	var/pharmacology_skill_required = null
 	var/affects_dead = 0
 	var/glass_icon_state = null
 	var/glass_name = null

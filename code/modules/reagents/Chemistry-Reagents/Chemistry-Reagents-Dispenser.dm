@@ -2,6 +2,7 @@
 	name = "Acetone"
 	description = "A colorless liquid solvent used in chemical synthesis."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = COLOR_GRAY
 	metabolism = REM * 0.2
 	taste_description = "acid"
@@ -34,6 +35,7 @@
 	name = "Aluminum"
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#A8A8A8"
 	taste_description = "metal"
 	taste_mult = 1.1
@@ -44,6 +46,7 @@
 	name = "Ammonia"
 	description = "A caustic substance commonly used in fertilizer or household cleaners. Poisonous to most lifeforms, lingers for a while if inhaled."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#404030"
 	metabolism = REM * 0.5
 	taste_description = "mordant"
@@ -83,6 +86,7 @@
 	name = "Boron"
 	description = "A dark, silvery metalloid with a small handful of industrial applications."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#888888"
 	taste_description = "metal"
 	taste_mult = 1.1
@@ -100,6 +104,7 @@
 	name = "Carbon"
 	description = "A chemical element, the building block of life."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#1C1300"
 	ingest_met = REM * 5
 	taste_description = "sour chalk"
@@ -130,6 +135,7 @@
 	name = "Copper"
 	description = "A highly ductile metal."
 	color = "#6E3B08"
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	taste_description = "copper"
 	fallback_specific_heat = 1.148
 	value = 0.02
@@ -160,6 +166,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of coder fuckups"
 	glass_desc = "A glass of distilled maintainer tears."
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 
 	accelerant_quality = 5
 	fire_color = COLOR_CYAN_BLUE
@@ -303,6 +310,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Hydrazine"
 	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = COLOR_GRAY
 	metabolism = REM * 0.2
 	touch_met = 5
@@ -335,6 +343,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Iron"
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#353535"
 	taste_description = "metal"
 	scannable = TRUE
@@ -350,6 +359,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Lithium"
 	description = "A chemical element, used as an antidepressant."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = COLOR_GRAY
 	taste_description = "metal"
 
@@ -366,6 +376,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Mercury"
 	description = "A poisonous chemical element, one of two that is a liquid at human room temperature and pressure."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#484848"
 	ingest_met = REM*0.1
 	breathe_met = REM*0.4
@@ -401,6 +412,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Phosphorus"
 	description = "A chemical element, the backbone of biological energy carriers."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#832828"
 	taste_description = "vinegar"
 
@@ -411,6 +423,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Potassium"
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#A0A0A0"
 	taste_description = "sweetness" //potassium is bitter in higher doses but sweet in lower ones.
 
@@ -427,6 +440,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Radium"
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#C7C7C7"
 	taste_description = "the color blue, and regret"
 	unaffected_species = IS_MACHINE
@@ -451,6 +465,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Sulphuric Acid"
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#DB5008"
 	metabolism = REM * 2
 	touch_met = 50 // It's acid!
@@ -581,6 +596,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Silicon"
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#A8A8A8"
 	taste_description = "metal"
 	fallback_specific_heat = 2.650
@@ -589,6 +605,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Sodium"
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = COLOR_GRAY
 	taste_description = "salty metal"
 	fallback_specific_heat = 0.483
@@ -598,6 +615,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Sugar"
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#FFFFFF"
 	taste_description = "sugar"
 	taste_mult = 1.8
@@ -620,6 +638,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Sulfur"
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
 	scannable = TRUE
@@ -635,6 +654,7 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = "Tungsten"
 	description = "A chemical element, and a strong oxidising agent."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
 

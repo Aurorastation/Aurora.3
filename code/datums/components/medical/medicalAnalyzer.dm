@@ -359,14 +359,18 @@
 	if(device_level >= 3)
 		if(H.reagents.total_volume)
 			var/unknown = 0
+			var/has_overdose = FALSE
 			var/reagentdata[0]
 			for(var/_R in H.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
 				if(R.scannable)
 					print_reagent_default_message = FALSE
 					var/od_warning = ""
-					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BLOOD, H.reagents))
-						od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+					if(R.is_overdosing(H, CHEM_BLOOD, H.reagents))
+						if(pharm_skill >= SKILL_LEVEL_TRAINED)
+							od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+						else
+							has_overdose = TRUE
 					reagentdata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(H.reagents, _R), 1)]u [R.name][od_warning]")
 				else
 					unknown++
@@ -375,6 +379,9 @@
 				dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
 				for(var/d in reagentdata)
 					dat += reagentdata[d]
+			if(has_overdose)
+				print_reagent_default_message = FALSE
+				dat += SPAN_SCAN_WARNING("Warning: Abnormal reagent concentration detected in subject's blood.")
 			if(unknown)
 				print_reagent_default_message = FALSE
 				dat += SPAN_WARNING("Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.")
@@ -383,6 +390,7 @@
 		var/datum/reagents/ingested = H.get_ingested_reagents()
 		if(ingested && ingested.total_volume)
 			var/unknown = 0
+			var/has_overdose = FALSE
 			var/ingesteddata[0]
 
 			for(var/_R in ingested.reagent_volumes)
@@ -390,8 +398,11 @@
 				if(R.scannable)
 					print_reagent_default_message = FALSE
 					var/od_warning = ""
-					if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_INGEST, ingested))
-						od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+					if(R.is_overdosing(H, CHEM_INGEST, ingested))
+						if(pharm_skill >= SKILL_LEVEL_TRAINED)
+							od_warning = " [SPAN_SCAN_DANGER("\[OVERDOSING\]")]"
+						else
+							has_overdose = TRUE
 					ingesteddata["[_R]"] = SPAN_NOTICE("    [round(REAGENT_VOLUME(ingested, _R), 1)]u [R.name][od_warning]")
 				else
 					++unknown
@@ -401,6 +412,9 @@
 				dat += SPAN_NOTICE("Reagents detected in subject's stomach:")
 				for(var/d in ingesteddata)
 					dat += ingesteddata[d]
+			if(has_overdose)
+				print_reagent_default_message = FALSE
+				dat += SPAN_SCAN_WARNING("Warning: Abnormal reagent concentration detected in subject's stomach.")
 
 			if(unknown)
 				print_reagent_default_message = FALSE

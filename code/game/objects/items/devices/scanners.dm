@@ -449,15 +449,21 @@ BREATH ANALYZER
 	if(H.breathing && H.breathing.total_volume)
 		var/pharm_skill = get_pharmacology_skill(user)
 		var/unknown = 0
+		var/has_overdose = FALSE
 		for(var/_R in H.breathing.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			if(R.scannable)
 				var/od_warning = ""
-				if(pharm_skill >= SKILL_LEVEL_TRAINED && R.is_overdosing(H, CHEM_BREATHE, H.breathing))
-					od_warning = " <b>\[OVERDOSING\]</b>"
+				if(R.is_overdosing(H, CHEM_BREATHE, H.breathing))
+					if(pharm_skill >= SKILL_LEVEL_TRAINED)
+						od_warning = " <b>\[OVERDOSING\]</b>"
+					else
+						has_overdose = TRUE
 				to_chat(user,SPAN_NOTICE("[R.name][od_warning] found in subject's respiratory system."))
 			else
 				++unknown
+		if(has_overdose)
+			to_chat(user,SPAN_WARNING("Warning: Abnormal reagent concentration detected in subject's respiratory system."))
 		if(unknown)
 			to_chat(user,SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system."))
 
