@@ -294,6 +294,7 @@
 					cause_hints += "exsanguination"
 				var/cause_text = length(cause_hints) ? " Signs point to [english_list(cause_hints)]." : ""
 				to_chat(user, SPAN_NOTICE("<b>Forensic assessment:</b> Estimated time of death is <b>[worldtime2text(H.timeofdeath)]</b>.[cause_text]"))
+				user.playsound_local(null, pick('sound/effects/clue1.ogg', 'sound/effects/clue2.ogg'), 50, FALSE)
 			else
 				var/elapsed = world.time - H.timeofdeath
 				var/tod_estimate
@@ -335,6 +336,8 @@
 
 	if (length(traces))
 		to_chat(user, SPAN_NOTICE("Your forensic training reveals [english_list(traces)] on \the [target]."))
+		if (skill_level >= SKILL_LEVEL_PROFESSIONAL)
+			user.playsound_local(null, pick('sound/effects/clue1.ogg', 'sound/effects/clue2.ogg'), 50, FALSE)
 
 /datum/component/skill/forensics/proc/handle_collect_sample(mob/user, atom/target, delay, preserve_evidence, reconstruct_prints, botch_sample)
 	SIGNAL_HANDLER
