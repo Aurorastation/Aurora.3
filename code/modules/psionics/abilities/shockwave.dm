@@ -1,7 +1,7 @@
 /singleton/psionic_power/shockwave
 	name = "Shockwave"
 	desc = "Create a wave of telekinetic energy to pummel the ground in a straight line in the direction you're facing. \
-            Anyone caught in it falls over unless wearing magboots."
+			Anyone caught in it falls over unless wearing magboots."
 	icon_state = "tech_haste"
 	point_cost = 2
 	ability_flags = PSI_FLAG_ANTAG
