@@ -1,6 +1,6 @@
 /singleton/psionic_power/time_stop
 	name = "Time Stop"
-    desc = "Freeze living beings around you in a 5x5 area. This ability is very expensive, so be careful."
+	desc = "Freeze living beings around you in a 5x5 area. This ability is very expensive, so be careful."
 	icon_state = "tech_control"
 	point_cost = 2
 	ability_flags = PSI_FLAG_ANTAG

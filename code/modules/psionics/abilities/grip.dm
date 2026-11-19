@@ -35,10 +35,6 @@
 	if(!length(get_line(user, victim)) || rangecheck > 8)
 		to_chat(user, SPAN_WARNING("You need to have direct line of sight to your target!"))
 		return
-	var/psi_blocked = victim.is_psi_blocked(user, FALSE)
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
-		return
 	. = ..()
 	if(!.)
 		return
@@ -65,11 +61,6 @@
 		return
 
 	var/mob/living/M = hit_atom
-	var/psi_blocked = M.is_psi_blocked(user, FALSE)
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
-		return
-
 	if(!is_in_sight(user, M))
 		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [M]!"))
 		return

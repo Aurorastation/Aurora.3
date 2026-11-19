@@ -52,12 +52,21 @@
 
 	return TRUE
 
+/obj/item/spell/proc/is_caster_psi_blocked(mob/user)
+	var/psi_blocked = user.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return TRUE
+	return FALSE
+
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
 // Description: Override this for clicking the spell in your hands.
 /obj/item/spell/proc/on_use_cast(mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -68,6 +77,8 @@
 /obj/item/spell/proc/on_throw_cast(atom/hit_atom, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(owner))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -78,6 +89,8 @@
 /obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -88,6 +101,8 @@
 /obj/item/spell/proc/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -98,6 +113,8 @@
 /obj/item/spell/proc/on_combine_cast(obj/item/I, mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -108,6 +125,8 @@
 /obj/item/spell/proc/on_innate_cast(mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE

@@ -31,10 +31,6 @@
 	if(!.)
 		return
 	var/mob/living/M = hit_atom
-	var/psi_blocked = M.is_psi_blocked(user, FALSE)
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
-		return
 	var/obj/effect/energy_net/EN = locate() in get_turf(M)
 	if(EN)
 		qdel(EN)
