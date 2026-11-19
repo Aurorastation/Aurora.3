@@ -73,15 +73,17 @@
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no formal training in chemistry or pharmacology.<br>" \
 			+ " - You cannot visually identify chemicals in beakers or pills, and can only roughly estimate liquid volumes.<br>" \
-			+ " - Industrial and medical chemical dispensers and ChemMasters display unfamiliar chemical cartridges and reagents as unknown compounds, and your dispensing/transferring is slightly imprecise.<br>" \
+			+ " - Industrial and medical chemical dispensers and ChemMasters display unfamiliar reagents in containers or buffers as unknown compounds, and your dispensing/transferring is slightly imprecise.<br>" \
+			+ " - Health Analyzers and Breath Analyzers only display a general abnormal reagent concentration warning rather than pinpointing which medication is overdosing.<br>" \
 			+ " - Unless trained in Medicine, administering injections with syringes, hyposprays, or droppers is slower and clumsier.",
 		SKILL_LEVEL_FAMILIAR = "You have basic familiarity with everyday chemicals and common over-the-counter or first-aid medications.<br>" \
 			+ " - You can visually recognize common food/drink reagents and basic first-aid medicines in open or transparent containers when adjacent.<br>" \
-			+ " - You can read all chemical labels and dispense exact amounts in Chemical Dispensers and ChemMasters.<br>" \
+			+ " - You can read all reagent names and dispense exact amounts in Chemical Dispensers and ChemMasters.<br>" \
+			+ " - Health Analyzers and Breath Analyzers still only display a general abnormal reagent concentration warning rather than pinpointing which specific medication is overdosing.<br>" \
 			+ " - You can administer injections and eye drops at standard speed without clumsiness.",
 		SKILL_LEVEL_TRAINED = "You have formal training in pharmacology and clinical chemistry.<br>" \
-			+ " - You can visually identify standard medical reagents, psychiatric medications, and chemical precursors with approximate volumes.<br>" \
-			+ " - Health Analyzers and Breath Analyzers you use highlight active overdoses on scannable medications, and Mass Spectrometers and Reagent Scanners provide approximate reagent quantities.<br>" \
+			+ " - You can visually identify standard medical reagents, psychiatric medications, and chemical precursors with approximate volumes, and notice when open dispenser cartridges do not match their labels.<br>" \
+			+ " - Health Analyzers and Breath Analyzers you use pinpoint active overdoses on specific scannable medications, and Mass Spectrometers and Reagent Scanners provide approximate reagent quantities.<br>" \
 			+ " - You can produce larger pill batches in the ChemMaster 3000, grind reagents faster with 10% higher yield, and assemble Chemical Heaters from flatpaks.<br>" \
 			+ " - Pills you compound have a sugar coating that masks bitter chemical tastes and provides a small morale boost.<br>" \
 			+ " - You administer injections and IV drips faster and with a 50% chance to avoid contaminating syringes.",
