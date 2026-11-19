@@ -104,6 +104,7 @@
 	if(!grime_initialized || !SSpersistence.map_supports_persistence)
 		return
 
+	var/save_blood_as_grime = SSticker.round_canon?.antagonist_actions_canon >= ANTAGONIST_ACTIONS_CANON
 	var/list/all_grime = list()
 	var/list/all_vomit = list()
 	var/list/station_z_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
@@ -123,13 +124,14 @@
 				var/decal_dirt = clamp(50 + max(1, round(dirt_overlay.alpha / 5)), 51, 101)
 				dirt_level = max(dirt_level, decal_dirt)
 
-			for(var/obj/effect/decal/cleanable/blood/blood_decal in floor_turf)
-				if(blood_decal.invisibility >= 100)
-					continue
-				if(istype(blood_decal, /obj/effect/decal/cleanable/blood/gibs))
-					continue
-				var/blood_dirt = (istype(blood_decal, /obj/effect/decal/cleanable/blood/drip) || istype(blood_decal, /obj/effect/decal/cleanable/blood/tracks)) ? 65 : 85
-				dirt_level = max(dirt_level, blood_dirt)
+			if(save_blood_as_grime)
+				for(var/obj/effect/decal/cleanable/blood/blood_decal in floor_turf)
+					if(blood_decal.invisibility >= 100)
+						continue
+					if(istype(blood_decal, /obj/effect/decal/cleanable/blood/gibs))
+						continue
+					var/blood_dirt = (istype(blood_decal, /obj/effect/decal/cleanable/blood/drip) || istype(blood_decal, /obj/effect/decal/cleanable/blood/tracks)) ? 65 : 85
+					dirt_level = max(dirt_level, blood_dirt)
 
 			if(dirt_level > 50)
 				all_grime += list(list(floor_turf.x, floor_turf.y, floor_turf.z, dirt_level))
