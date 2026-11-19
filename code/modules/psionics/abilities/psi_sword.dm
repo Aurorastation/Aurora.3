@@ -1,6 +1,6 @@
 /singleton/psionic_power/psi_sword
 	name = "Psi-Sword"
-	desc = "Create a psionic sword in a free, unrestricted hand."
+	desc = "Create a psionic sword."
 	icon_state = "psiblade"
 	point_cost = 3
 	ability_flags = PSI_FLAG_ANTAG

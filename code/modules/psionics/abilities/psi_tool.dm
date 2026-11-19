@@ -1,6 +1,6 @@
 /singleton/psionic_power/psi_tool
 	name = "Psi-Tool"
-	desc = "Create a psionic tool in a free, unrestricted hand that can change into a screwdriver, crowbar, wrench or wirecutters."
+    desc = "Create a psionic tool that can change into a screwdriver, crowbar, wrench or wirecutters."
 	icon_state = "psitool"
 	point_cost = 1
 	ability_flags = PSI_FLAG_ANTAG

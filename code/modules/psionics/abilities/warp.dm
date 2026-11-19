@@ -1,6 +1,6 @@
 /singleton/psionic_power/warp
 	name = "Warp"
-	desc = "Warp through objects. You cannot use this while buckled."
+	desc = "Warp through objects."
 	icon_state = "tech_blink"
 	point_cost = 4
 	ability_flags = PSI_FLAG_LONER

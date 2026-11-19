@@ -1,6 +1,6 @@
 /singleton/psionic_power/jump
 	name = "Jump"
-	desc = "Teleport to a destination you click on. You cannot use this while buckled."
+	desc = "Teleport to a destination you click on."
 	icon_state = "tech_dispel"
 	point_cost = 3
 	ability_flags = PSI_FLAG_LONER
