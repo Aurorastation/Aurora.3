@@ -53,9 +53,8 @@
 	return TRUE
 
 /obj/item/spell/proc/is_caster_psi_blocked(mob/user)
-	var/psi_blocked = user.is_psi_blocked(user, FALSE)
-	if(psi_blocked)
-		to_chat(user, psi_blocked)
+	if(user.is_psi_blocked(user, FALSE))
+		to_chat(user, SPAN_WARNING("Something prevents your mind from reaching out and projecting its psionic power."))
 		return TRUE
 	return FALSE
 
