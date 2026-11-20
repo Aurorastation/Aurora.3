@@ -814,7 +814,7 @@
 		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
 	)
 
-/singleton/cargo_item/roller_bed/hover
+/singleton/cargo_item/hover_rollerbed
 	category = "medical"
 	name = "hover rollerbed (x2)"
 	supplier = "zeng_hu"
