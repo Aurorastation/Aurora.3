@@ -434,6 +434,7 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/blackgloves
 	category = "security"
 	name = "work gloves"
@@ -646,16 +647,44 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/autopsy_scanner
+/singleton/cargo_item/shoulderholster
 	category = "security"
-	name = "autopsy scanner"
-	supplier = "nanotrasen"
-	description = "A handheld autopsy scanner that extracts information on wounds."
-	price = 250
+	name = "shoulder holster"
+	supplier = "zavodskoi"
+	description = "A handgun holster."
+	price = 15
 	items = list(
-		/obj/item/autopsy_scanner
+		/obj/item/clothing/accessory/holster
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/mindshieldfiringpin
+	category = "security"
+	name = "mindshield firing pin"
+	supplier = "nanotrasen"
+	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
+	price = 800
+	items = list(
+		/obj/item/firing_pin/implant/loyalty
+	)
+	access = list(/datum/access/heads::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/testrange_firingpin
+	category = "security"
+	name = "test - range firing pin"
+	supplier = "nanotrasen"
+	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
+	price = 200
+	items = list(
+		/obj/item/firing_pin/test_range
+	)
+	access = list(/datum/access/research::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

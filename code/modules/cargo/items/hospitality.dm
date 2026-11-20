@@ -680,19 +680,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/dryrag
-	category = "hospitality"
-	name = "dry rags (x5)"
-	supplier = "blam"
-	description = "For cleaning up messes, you suppose."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/rag,
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 5
-
 /singleton/cargo_item/flask
 	category = "hospitality"
 	name = "flask"
@@ -822,6 +809,7 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
 	name = "pizza box, vegetable"
@@ -856,19 +844,6 @@
 	price = 10
 	items = list(
 		/obj/random/pizzabox
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/redlipstick
-	category = "hospitality"
-	name = "red lipstick"
-	supplier = "nanotrasen"
-	description = "A generic brand of lipstick."
-	price = 5
-	items = list(
-		/obj/item/lipstick/random
 	)
 	container_type = "crate"
 	groupable = TRUE
@@ -1321,18 +1296,6 @@
 	container_type = "crate"
 	groupable = TRUE
 
-/singleton/cargo_item/dental_hygiene
-	category = "hospitality"
-	name = "Dental Hygiene Kit"
-	supplier = "getmore"
-	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
-	price = 25
-	items = list(
-		/obj/item/storage/box/toothpaste
-	)
-	container_type = "crate"
-	groupable = TRUE
-
 /singleton/cargo_item/sencha
 	category = "hospitality"
 	name = "Sencha Tins (x7)"
@@ -1573,5 +1536,18 @@
 		/obj/item/reagent_containers/food/drinks/bottle/ogogoro
 	)
 	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cookingoil
+	category = "hospitality"
+	name = "cooking oil tank"
+	supplier = "orion"
+	description = "A tank filled with cooking oil."
+	price = 450
+	items = list(
+		/obj/structure/reagent_dispensers/cookingoil
+	)
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1

@@ -37,19 +37,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/bucket
-	category = "supply"
-	name = "bucket"
-	supplier = "blam"
-	description = "It's a bucket."
-	price = 8
-	items = list(
-		/obj/item/reagent_containers/glass/bucket
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/chestdrawer
 	category = "supply"
 	name = "chest drawer"
@@ -271,45 +258,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/camera
-	category = "supply"
-	name = "camera"
-	supplier = "nanotrasen"
-	description = "A polaroid camera. 10 photos left."
-	price = 45
-	items = list(
-		/obj/item/camera
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/filmcartridge
-	category = "supply"
-	name = "film cartridge"
-	supplier = "nanotrasen"
-	description = "A camera film cartridge. Insert it into a camera to reload it."
-	price = 8
-	items = list(
-		/obj/item/camera_film
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/pda_supply
-	category = "supply"
-	name = "PDA"
-	supplier = "nanotrasen"
-	description = "A personal data assistant. Useful for replacing lost ones, or ordering for new crew."
-	price = 200
-	items = list(
-		/obj/item/modular_computer/handheld/pda
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/taperecorder
 	category = "supply"
 	name = "universal recorder"
@@ -362,34 +310,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/potted_plant_small
-	category = "supply"
-	name = "small potted plant"
-	supplier = "nanotrasen"
-	description = "A random small potted plant, for when you want to add some greenery to your desk."
-	price = 35
-	items = list(
-		/obj/random/pottedplant_small
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/potted_plant
-	category = "supply"
-	name = "large potted plant"
-	supplier = "nanotrasen"
-	description = "A random large potted plant, for when you want to add some greenery to your office space."
-	price = 70
-	items = list(
-		/obj/random/pottedplant
-	)
-	container_type = "box"
-	groupable = FALSE
-	spawn_amount = 1
-
-
-
 /singleton/cargo_item/penbox
 	category = "supply"
 	name = "box of pens (x7)"
@@ -437,6 +357,277 @@
 	price = 315
 	items = list(
 		/obj/item/storage/box/fountainpens
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/brownwebbingvest
+	category = "supply"
+	name = "brown webbing vest"
+	supplier = "hephaestus"
+	description = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
+	price = 15
+	items = list(
+		/obj/item/clothing/accessory/storage/brown_vest
+	)
+	access = list(/datum/access/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/coathanger
+	category = "supply"
+	name = "Coat Hanger"
+	supplier = "nanotrasen"
+	description = "To hang your coat."
+	price = 12
+	items = list(
+		/obj/structure/coatrack
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/eftposscanner
+	category = "supply"
+	name = "EFTPOS scanner"
+	supplier = "orion"
+	description = "Swipe your ID card to make purchases electronically."
+	price = 35
+	items = list(
+		/obj/item/eftpos
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/faxmachine
+	category = "supply"
+	name = "fax machine"
+	supplier = "nanotrasen"
+	description = "Needed office equipment for any space based corporation to function."
+	price = 300
+	items = list(
+		/obj/structure/machinery/photocopier/faxmachine
+	)
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/formalwearcrate
+	category = "supply"
+	name = "formal wear crate"
+	supplier = "nanotrasen"
+	description = "Formalwear for the best occasions."
+	price = 350
+	items = list(
+		/obj/item/clothing/head/bowler,
+		/obj/item/clothing/head/that,
+		/obj/item/clothing/under/suit_jacket,
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/red,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy,
+		/obj/item/clothing/shoes/sneakers/black,
+		/obj/item/clothing/shoes/laceup,
+		/obj/item/clothing/shoes/laceup/grey,
+		/obj/item/clothing/suit/wcoat
+	)
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/loadbearingequipment
+	category = "supply"
+	name = "load bearing equipment"
+	supplier = "orion"
+	description = "Used to hold things when you don't have enough hands."
+	price = 83
+	items = list(
+		/obj/item/clothing/accessory/storage
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pda
+	category = "supply"
+	name = "PDA"
+	supplier = "nanotrasen"
+	description = "The latest in portable microcomputer solutions from Thinktronic Systems, LTD."
+	price = 90
+	items = list(
+		/obj/item/modular_computer/handheld/pda
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/photoalbum
+	category = "supply"
+	name = "Photo album"
+	supplier = "nanotrasen"
+	description = "A place to store fond memories you made in space."
+	price = 45
+	items = list(
+		/obj/item/storage/photo_album
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/photocopier
+	category = "supply"
+	name = "photo copier"
+	supplier = "nanotrasen"
+	description = "When you're too lazy to write a copy yourself."
+	price = 300
+	items = list(
+		/obj/structure/machinery/photocopier
+	)
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/poster19
+	category = "supply"
+	name = "random poster"
+	supplier = "orion"
+	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
+	price = 3.50
+	items = list(
+		/obj/item/contraband/poster
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/webbing
+	category = "supply"
+	name = "webbing"
+	supplier = "nanotrasen"
+	description = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
+	price = 43
+	items = list(
+		/obj/item/clothing/accessory/storage/webbing
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/blackpaint
+	category = "supply"
+	name = "black paint"
+	supplier = "hephaestus"
+	description = "Black paint, the color of space."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/black
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/bluepaint
+	category = "supply"
+	name = "blue paint"
+	supplier = "hephaestus"
+	description = "Blue paint, for when you're on a mission from god."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/blue
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whitepaint
+	category = "supply"
+	name = "white paint"
+	supplier = "nanotrasen"
+	description = "White paint, perfect for sterile boring lab environments."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/white
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/yellowpaint
+	category = "supply"
+	name = "yellow paint"
+	supplier = "orion"
+	description = "Yellow paint, for when you need to make eyes sore."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/yellow
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/purplepaint
+	category = "supply"
+	name = "purple paint"
+	supplier = "orion"
+	description = "Purple paint, it makes you feel like royalty."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/purple
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/redpaint
+	category = "supply"
+	name = "red paint"
+	supplier = "orion"
+	description = "Red paint, its not blood we promise."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/red
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/greenpaint
+	category = "supply"
+	name = "green paint"
+	supplier = "orion"
+	description = "Green paint, an aesthetic replacement for grass."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/paint/green
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard
+	category = "supply"
+	name = "whiteboard"
+	supplier = "orion"
+	description = "A standard whiteboard."
+	price = 100
+	items = list(
+		/obj/structure/whiteboard
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/whiteboard_portable
+	category = "supply"
+	name = "portable whiteboard"
+	supplier = "orion"
+	description = "A portable whiteboard, smaller than the standard alternatives."
+	price = 75
+	items = list(
+		/obj/item/portable_whiteboard
 	)
 	container_type = "crate"
 	groupable = TRUE

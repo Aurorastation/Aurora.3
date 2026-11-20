@@ -168,3 +168,67 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/dryrag
+	category = "custodial"
+	name = "dry rags (x5)"
+	supplier = "blam"
+	description = "For cleaning up messes, you suppose."
+	price = 10
+	items = list(
+		/obj/item/reagent_containers/glass/rag,
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 5
+
+/singleton/cargo_item/emptyspraybottle
+	category = "custodial"
+	name = "empty spray bottle"
+	supplier = "blam"
+	description = "An empty spray bottle."
+	price = 5
+	items = list(
+		/obj/item/reagent_containers/spray
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/janitorialresupplyset
+	category = "custodial"
+	name = "janitorial resupply set"
+	supplier = "blam"
+	description = "A set of items to restock the janitors closet."
+	price = 2000
+	items = list(
+		/obj/structure/cart/storage/janitorialcart,
+		/obj/structure/mopbucket,
+		/obj/item/mop,
+		/obj/item/storage/bag/trash,
+		/obj/item/reagent_containers/spray/cleaner,
+		/obj/item/reagent_containers/glass/rag,
+		/obj/item/clothing/suit/caution,
+		/obj/item/clothing/suit/caution,
+		/obj/item/clothing/suit/caution,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/grenade/chem_grenade/cleaner,
+		/obj/item/soap/nanotrasen
+	)
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/bucket
+	category = "custodial"
+	name = "bucket"
+	supplier = "blam"
+	description = "It's a bucket."
+	price = 8
+	items = list(
+		/obj/item/reagent_containers/glass/bucket
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

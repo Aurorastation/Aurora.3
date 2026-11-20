@@ -62,6 +62,7 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/hazmathood
 	category = "science"
 	name = "hazmat hood"
@@ -84,20 +85,6 @@
 	items = list(
 		/obj/item/clothing/suit/hazmat/general
 	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/mindshieldfiringpin
-	category = "science"
-	name = "mindshield firing pin"
-	supplier = "nanotrasen"
-	description = "This implant - locked firing pin authorizes the weapon for only mindshield-implanted users."
-	price = 800
-	items = list(
-		/obj/item/firing_pin/implant/loyalty
-	)
-	access = list(/datum/access/heads::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -185,20 +172,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/testrange_firingpin
-	category = "science"
-	name = "test - range firing pin"
-	supplier = "nanotrasen"
-	description = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	price = 200
-	items = list(
-		/obj/item/firing_pin/test_range
-	)
-	access = list(/datum/access/research::id)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/timer
 	category = "science"
 	name = "timer"
@@ -247,6 +220,20 @@
 	price = 500
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/sci
+	)
+	access = list(/datum/access/research::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/researchshuttleconsoleboard
+	category = "science"
+	name = "research shuttle console board"
+	supplier = "hephaestus"
+	description = "A replacement board for the research shuttle console, in case the original console is destroyed."
+	price = 125
+	items = list(
+		/obj/item/circuitboard/research_shuttle
 	)
 	access = list(/datum/access/research::id)
 	container_type = "crate"

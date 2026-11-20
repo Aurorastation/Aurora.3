@@ -220,20 +220,6 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/paint_sprayer
-	category = "atmos"
-	name = "paint sprayer"
-	supplier = "hephaestus"
-	description = "It's said that green pipes are safe to travel through."
-	price = 25
-	items = list(
-		/obj/item/paint_sprayer
-	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/rpd
 	category = "atmos"
 	name = "Rapid Fabrication Device P-Class"
@@ -382,5 +368,31 @@
 		/obj/item/clothing/mask/breath
 	)
 	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/gasmask
+	category = "atmos"
+	name = "gas mask"
+	supplier = "hephaestus"
+	description = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
+	price = 15
+	items = list(
+		/obj/item/clothing/mask/gas
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/spaceac
+	category = "atmos"
+	name = "space air conditioner"
+	supplier = "nanotrasen"
+	description = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
+	price = 150
+	items = list(
+		/obj/structure/machinery/space_heater
+	)
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1

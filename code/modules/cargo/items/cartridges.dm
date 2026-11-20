@@ -26,7 +26,7 @@
 
 /singleton/cargo_item/chemicalcartridge_beer
 	category = "cartridges"
-	name = "chemical cartridge - beer"
+	name = "drink cartridge - beer"
 	supplier = "getmore"
 	description = "A metal canister containing 500 units of beer. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
 	price = 22

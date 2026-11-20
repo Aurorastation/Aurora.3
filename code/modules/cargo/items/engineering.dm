@@ -115,20 +115,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/brownwebbingvest
-	category = "engineering"
-	name = "brown webbing vest"
-	supplier = "hephaestus"
-	description = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
-	price = 15
-	items = list(
-		/obj/item/clothing/accessory/storage/brown_vest
-	)
-	access = list(/datum/access/engine::id)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/circuitboard_bubbleshield
 	category = "engineering"
 	name = T_BOARD("bubble shield generator")
@@ -472,19 +458,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/gasmask
-	category = "engineering"
-	name = "gas mask"
-	supplier = "hephaestus"
-	description = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
-	price = 15
-	items = list(
-		/obj/item/clothing/mask/gas
-	)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/dosimeter
 	category = "engineering"
 	name = "combination dosimeter"
@@ -744,20 +717,6 @@
 		/obj/item/clothing/suit/radiation
 	)
 	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/researchshuttleconsoleboard
-	category = "engineering"
-	name = "research shuttle console board"
-	supplier = "hephaestus"
-	description = "A replacement board for the research shuttle console, in case the original console is destroyed."
-	price = 125
-	items = list(
-		/obj/item/circuitboard/research_shuttle
-	)
-	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1062,6 +1021,32 @@
 		/obj/item/module/power_control
 	)
 	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/watertank
+	category = "engineering"
+	name = "water tank"
+	supplier = "orion"
+	description = "A tank filled with water."
+	price = 350
+	items = list(
+		/obj/structure/reagent_dispensers/watertank
+	)
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/flare
+	category = "engineering"
+	name = "flare"
+	supplier = "hephaestus"
+	description = "Good for illuminating dark areas or burning someones face off."
+	price = 8
+	items = list(
+		/obj/item/flashlight/flare
+	)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

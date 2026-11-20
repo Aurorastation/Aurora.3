@@ -65,7 +65,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-
 /singleton/cargo_item/torso_bishop
 	category = "robotics"
 	name = "Torso - Bishop Cybernetics"
@@ -203,4 +202,53 @@
 	access = list(/datum/access/robotics::id, /datum/access/rd::id)
 	container_type = "crate"
 	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/autakhlimbs
+	category = "robotics"
+	name = "autakh limbs"
+	supplier = "hephaestus"
+	description = "A box with various autakh limbs."
+	price = 1000
+	items = list(
+		/obj/item/organ/external/hand/right/autakh/tool,
+		/obj/item/organ/external/hand/right/autakh/tool/mining,
+		/obj/item/organ/external/hand/right/autakh/medical
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2
+
+/singleton/cargo_item/pkus_exosuit_parts
+	category = "robotics"
+	name = "ADEPT P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 3000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg,
+		/obj/item/mech_component/chassis/pra_egg
+	)
+	access = list(/datum/access/robotics::id)
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/pkus_exosuit_parts_heavy
+	category = "robotics"
+	name = "ADEPT armored P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 5000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg/armored,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg/armored,
+		/obj/item/mech_component/chassis/pra_egg/armored/nuclear
+	)
+	access = list(/datum/access/robotics::id)
+	container_type = "crate"
+	groupable = FALSE
 	spawn_amount = 1

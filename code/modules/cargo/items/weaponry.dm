@@ -167,6 +167,7 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/marksmanenergyrifle
 	category = "weaponry"
 	name = "marksman energy rifle"
@@ -618,7 +619,7 @@
 	spawn_amount = 1
 
 /singleton/cargo_item/tranquilizerdarts_50cal_pps
-	category = "security"
+	category = "weaponry"
 	name = "tranquilizer darts (.50 cal PPS)"
 	supplier = "nanotrasen"
 	description = "A box of 50-caliber tranquilizer darts."

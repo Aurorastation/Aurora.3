@@ -416,4 +416,3 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-

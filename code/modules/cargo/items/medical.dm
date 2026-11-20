@@ -925,3 +925,29 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/dental_hygiene
+	category = "medical"
+	name = "Dental Hygiene Kit"
+	supplier = "getmore"
+	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
+	price = 25
+	items = list(
+		/obj/item/storage/box/toothpaste
+	)
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/autopsy_scanner
+	category = "medical"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
+	)
+	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
