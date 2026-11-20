@@ -218,7 +218,7 @@
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -232,7 +232,7 @@
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -246,7 +246,7 @@
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -494,7 +494,7 @@
 	items = list(
 		/obj/item/geiger/dosimeter
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -508,7 +508,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -535,7 +535,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -603,7 +603,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -617,7 +617,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -631,7 +631,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -659,7 +659,7 @@
 	items = list(
 		/obj/item/powerdrill
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -729,7 +729,7 @@
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -743,7 +743,7 @@
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -910,7 +910,7 @@
 	items = list(
 		/obj/item/weldingtool
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -924,7 +924,7 @@
 	items = list(
 		/obj/item/wrench
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -938,7 +938,7 @@
 	items = list(
 		/obj/item/crowbar
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -952,7 +952,7 @@
 	items = list(
 		/obj/item/screwdriver
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -966,7 +966,7 @@
 	items = list(
 		/obj/item/wirecutters
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -980,7 +980,7 @@
 	items = list(
 		/obj/item/multitool
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1033,7 +1033,7 @@
 	items = list(
 		/obj/item/airlock_electronics
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1047,7 +1047,7 @@
 	items = list(
 		/obj/item/airlock_electronics/secure
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1061,7 +1061,7 @@
 	items = list(
 		/obj/item/module/power_control
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/engine::id, /datum/access/atmospherics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

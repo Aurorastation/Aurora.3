@@ -124,3 +124,140 @@
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/pickaxe
+	category = "mining"
+	name = "pickaxe"
+	supplier = "nanotrasen"
+	description = "The most basic of mining implements."
+	price = 20
+	items = list(
+		/obj/item/pickaxe
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/handdrill
+	category = "mining"
+	name = "mining drill (handheld)"
+	supplier = "nanotrasen"
+	description = "A handheld drill for piercing through rock walls. Can dig sand as well."
+	price = 95
+	items = list(
+		/obj/item/pickaxe/drill
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/jackhammer
+	category = "mining"
+	name = "sonic jackhammer"
+	supplier = "nanotrasen"
+	description = "Cracks rocks with sonic blasts."
+	price = 220
+	items = list(
+		/obj/item/pickaxe/jackhammer
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/miningsledgehammer
+	category = "mining"
+	name = "sledgehammer"
+	supplier = "nanotrasen"
+	description = "A mining hammer made of reinforced metal."
+	price = 45
+	items = list(
+		/obj/item/pickaxe/hammer
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/shovel
+	category = "mining"
+	name = "shovel"
+	supplier = "nanotrasen"
+	description = "A large tool for digging and moving dirt."
+	price = 12
+	items = list(
+		/obj/item/shovel
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/spade
+	category = "mining"
+	name = "spade"
+	supplier = "nanotrasen"
+	description = "A small tool for digging and moving dirt."
+	price = 8
+	items = list(
+		/obj/item/shovel/spade
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/miningsatchel
+	category = "mining"
+	name = "mining satchel"
+	supplier = "nanotrasen"
+	description = "A satchel for storing and transporting ore."
+	price = 25
+	items = list(
+		/obj/item/storage/bag/ore
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/resonator
+	category = "mining"
+	name = "resonator"
+	supplier = "nanotrasen"
+	description = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. More effective in a vacuum."
+	price = 180
+	items = list(
+		/obj/item/resonator
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/deeporescanner
+	category = "mining"
+	name = "deep ore scanner"
+	supplier = "nanotrasen"
+	description = "A handheld device used to locate ore deep underground."
+	price = 150
+	items = list(
+		/obj/item/mining_scanner
+	)
+	access = list(/datum/access/mining::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/mininggps
+	category = "mining"
+	name = "mining GPS"
+	supplier = "nanotrasen"
+	description = "A GPS unit tagged for mining teams."
+	price = 60
+	items = list(
+		/obj/item/gps/mining
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

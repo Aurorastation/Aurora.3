@@ -1026,3 +1026,31 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/opsvoidsuit
+	category = "operations"
+	name = "operations voidsuit"
+	supplier = "orion"
+	description = "A special suit that protects against hazardous, low pressure environments. Standard issue for Orion personnel doing EVA deliveries."
+	price = 800
+	items = list(
+		/obj/item/clothing/suit/space/void/ops
+	)
+	access = list(/datum/access/cargo::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/opsvoidsuithelmet
+	category = "operations"
+	name = "operations voidsuit helmet"
+	supplier = "orion"
+	description = "A special helmet designed for work in a hazardous, low pressure environment. Standard issue for Orion personnel doing EVA deliveries."
+	price = 500
+	items = list(
+		/obj/item/clothing/head/helmet/space/void/ops
+	)
+	access = list(/datum/access/cargo::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

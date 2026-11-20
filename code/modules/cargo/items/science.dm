@@ -224,3 +224,31 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/sciencevoidsuit
+	category = "science"
+	name = "research voidsuit"
+	supplier = "nanotrasen"
+	description = "A special suit designed for research personnel working in hazardous, low pressure environments."
+	price = 800
+	items = list(
+		/obj/item/clothing/suit/space/void/sci
+	)
+	access = list(/datum/access/research::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/sciencevoidsuithelmet
+	category = "science"
+	name = "research voidsuit helmet"
+	supplier = "nanotrasen"
+	description = "A special helmet designed for research personnel working in hazardous, low pressure environments."
+	price = 500
+	items = list(
+		/obj/item/clothing/head/helmet/space/void/sci
+	)
+	access = list(/datum/access/research::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
