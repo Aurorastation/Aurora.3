@@ -92,7 +92,7 @@
 		return
 
 	noir_active = TRUE
-	user.add_client_color(/datum/client_color/noir)
+	user.add_client_color(/datum/client_color/forensics_noir)
 	if (noir_action)
 		noir_action.background_icon_state = "bg_mime"
 		noir_action.button?.update_icon()
@@ -100,7 +100,7 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_parent_moved), override = TRUE)
 	START_PROCESSING(SSprocessing, src)
 	update_noir_highlights()
-	to_chat(user, SPAN_NOTICE("<i>The colors of the world fade into stark monochrome. Only the crimson of spilled blood and the brass glint of spent casings stand out in the gloom...</i>"))
+	to_chat(user, SPAN_NOTICE("<i>The colors of the world wash out into muted tones. Only the crimson of spilled blood and the brass glint of spent casings stand out in the gloom...</i>"))
 
 /datum/component/skill/forensics/proc/disable_noir_mode(silent = FALSE)
 	if (!noir_active)
@@ -114,7 +114,7 @@
 		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 		var/mob/user = parent
 		if (istype(user))
-			user.remove_client_color(/datum/client_color/noir)
+			user.remove_client_color(/datum/client_color/forensics_noir)
 			if (!silent)
 				to_chat(user, SPAN_NOTICE("<i>Color slowly bleeds back into your surroundings as you relax your forensic focus.</i>"))
 
@@ -160,7 +160,7 @@
 				continue
 
 			if (istype(A, /obj/effect/decal/cleanable/blood) || istype(A, /obj/effect/rune))
-				var/image/I = create_noir_highlight_image(A, "#ff1111cc")
+				var/image/I = create_noir_highlight_image(A)
 				noir_images += I
 			else if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_pile))
 				var/image/I = create_noir_highlight_image(A, "#ffcc00ee")

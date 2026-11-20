@@ -145,6 +145,6 @@
 			+ " - Identify hidden trace chemicals and exact reagent volumes even with a standard mass spectrometer.<br>" \
 			+ " - Determine exact time of death and apparent cause indicators when examining a corpse up close, and scan surface weapon wounds with an autopsy scanner without requiring a surgical incision.<br>" \
 			+ " - Identify the exact number of distinct fingerprint sets, fiber samples, and residue traces when examining objects up close.<br>" \
-			+ " - Toggle <b>Noir Vision</b>, greying out your vision while highlighting blood and spent bullet casings in view.",
+			+ " - Toggle <b>Noir Vision</b>, desaturating your vision while highlighting blood and spent bullet casings in view.",
 	)
 	required = TRUE
