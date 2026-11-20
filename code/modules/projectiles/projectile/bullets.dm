@@ -581,6 +581,17 @@
 	heavy_impact_range = 2
 	light_impact_range = 4
 
+/obj/projectile/bullet/peac_practice
+	name = "polymer practice projectile"
+	icon_state = "peac_practice"
+	damage = 15
+	armor_penetration = 0
+	anti_materiel_potential = 0
+	embed = FALSE
+	sharp = FALSE
+	penetrating = 0
+	projectile_piercing = NONE
+
 /obj/projectile/bullet/peac/shrapnel
 	name = "fragmentation missile"
 	armor_penetration = 0
