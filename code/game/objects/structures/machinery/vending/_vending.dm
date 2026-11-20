@@ -64,6 +64,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	clicksound = SFX_BUTTON
 	manufacturer = "idris"
 	maxhealth = OBJECT_HEALTH_HIGH
+	supports_painting = TRUE
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
@@ -309,7 +310,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		var/image/E = emissive_appearance(icon, light_mask)
 		AddOverlays(E)
 	if(src.icon_screen)
-		var/image/I = image(icon, icon_screen)
+		var/image/I = overlay_image(icon, icon_screen, null, RESET_COLOR) // Paint only tints the casing, not the screen.
 		AddOverlays(I)
 
 /**
@@ -403,6 +404,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		return 1
 
 /obj/structure/machinery/vending/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/debugger))
 		if(brand_intelligence_infected)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Brand intelligence infection detected. Rectifying.\"."))
