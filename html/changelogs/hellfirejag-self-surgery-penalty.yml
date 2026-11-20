@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Self Surgery now inflicts a -50 surgery success rate penalty, as well as increasing surgery time by 50%."
+  - rscadd: "Surgeons in pain now take a -painshock penalty to surgery, as well as 1% increased surgery time per point of pain. This penalty can be mitigated or removed by sufficient painkillers."
