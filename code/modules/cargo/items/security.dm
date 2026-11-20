@@ -572,7 +572,7 @@
 	items = list(
 		/obj/item/storage/briefcase/crimekit
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -586,7 +586,7 @@
 	items = list(
 		/obj/item/reagent_containers/spray/luminol
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -600,7 +600,7 @@
 	items = list(
 		/obj/item/storage/box/slides
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -614,7 +614,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -628,7 +628,7 @@
 	items = list(
 		/obj/item/forensics/sample_kit/powder
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -642,7 +642,7 @@
 	items = list(
 		/obj/item/storage/box/swabs
 	)
-	access = list(/datum/access/forensics_lockers::id, /datum/access/security::id)
+	access = list(/datum/access/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

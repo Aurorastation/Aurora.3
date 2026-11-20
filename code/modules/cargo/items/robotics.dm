@@ -46,7 +46,7 @@
 	items = list(
 		/obj/item/mmi/digital/posibrain
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -60,7 +60,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -74,7 +74,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/bishop
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -88,7 +88,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/industrial
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -102,7 +102,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/hephaestus
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -116,7 +116,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -130,7 +130,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/synthskin
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -144,7 +144,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/xion
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -158,7 +158,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/zenghu
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -185,7 +185,7 @@
 	items = list(
 		/obj/item/robotanalyzer
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -199,7 +199,7 @@
 	items = list(
 		/obj/item/aicard
 	)
-	access = list(/datum/access/robotics::id, /datum/access/rd::id)
+	access = list(/datum/access/robotics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

@@ -33,7 +33,7 @@
 	items = list(
 		/obj/item/tank/phoron
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -47,7 +47,7 @@
 	items = list(
 		/obj/item/tank/hydrogen
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -61,7 +61,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/powered/pump
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -75,7 +75,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/powered/scrubber
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -89,7 +89,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/air
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -103,7 +103,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/heliumfuel
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -117,7 +117,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/carbon_dioxide
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -131,7 +131,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/hydrogen
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -145,7 +145,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/helium
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -159,7 +159,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/nitrogen
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -173,7 +173,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/sleeping_agent
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -187,7 +187,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/oxygen
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -201,7 +201,7 @@
 	items = list(
 		/obj/structure/machinery/portable_atmospherics/canister/phoron
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -215,7 +215,7 @@
 	items = list(
 		/obj/structure/machinery/pipedispenser/orderable
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -229,7 +229,7 @@
 	items = list(
 		/obj/item/rfd/piping
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -243,7 +243,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/atmos
 	)
-	access = list(/datum/access/atmospherics::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -257,7 +257,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/atmos
 	)
-	access = list(/datum/access/atmospherics::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -284,7 +284,7 @@
 	items = list(
 		/obj/item/clothing/suit/fire/atmos
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -298,7 +298,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat/atmos
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -325,7 +325,7 @@
 	items = list(
 		/obj/item/pipe_painter
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -339,7 +339,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/atmostech
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -353,7 +353,7 @@
 	items = list(
 		/obj/item/clothing/shoes/magboots
 	)
-	access = list(/datum/access/atmospherics::id, /datum/access/engine::id)
+	access = list(/datum/access/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

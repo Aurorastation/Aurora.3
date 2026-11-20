@@ -7,7 +7,7 @@ delete-after: True
 changes:
   - refactor: "Cargo item access is now a list. Any one of the listed accesses is enough to open the crate, and orders combine single-access and any-of requirements."
   - rscadd: "Cargo order reports and the cargo order UI now list every access an item accepts."
-  - balance: "Many cargo items can now be opened by additional logical accesses, such as atmospherics or engineering for shared gear, medical or paramedic for medical supplies, medical or surgery for surgical tools, medical or pharmacy for cartridges and bottles, security or forensics for forensics kits, and robotics or the research director for robotics parts."
+  - balance: "Several cargo items now use their department-wide access instead of a narrow sub-department one, so everyone in the department can open them. Atmospherics gear uses engineering access, paramedic, pharmacy and cartridge supplies use medical access, and forensics kits use security access."
   - rscadd: "Added new cargo items for engineering tools, electronics and materials, medical dressings, splints, health analyzers and defibrillators, and boxes of replacement light tubes and bulbs."
   - rscadd: "Added boxes of pens, blue pens, and red pens, as well as orderable boxes of fountain pens."
   - rscadd: "Added decks of cards, tarot and KOTAHI decks, dice packs, a chess set, and a box of drafting chalk to cargo."
