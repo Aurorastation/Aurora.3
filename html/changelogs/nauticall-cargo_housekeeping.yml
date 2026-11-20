@@ -1,0 +1,22 @@
+# Your name.
+author: nauticall
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes:
+  - refactor: "Cargo item access is now a list. Any one of the listed accesses is enough to open the crate, and orders combine single-access and any-of requirements."
+  - rscadd: "Cargo order reports and the cargo order UI now list every access an item accepts."
+  - balance: "Many cargo items can now be opened by additional logical accesses, such as atmospherics or engineering for shared gear, medical or paramedic for medical supplies, medical or surgery for surgical tools, medical or pharmacy for cartridges and bottles, security or forensics for forensics kits, and robotics or the research director for robotics parts."
+  - rscadd: "Added new cargo items for engineering tools, electronics and materials, medical dressings, splints, health analyzers and defibrillators, and boxes of replacement light tubes and bulbs."
+  - rscadd: "Added boxes of pens, blue pens, and red pens, as well as orderable boxes of fountain pens."
+  - rscadd: "Added decks of cards, tarot and KOTAHI decks, dice packs, a chess set, and a box of drafting chalk to cargo."
+  - rscadd: "Added research and operations voidsuits to cargo."
+  - rscadd: "Added firesuits, gas analyzers, pipe painters, magboots and other gear to the atmospherics cargo category."
+  - rscadd: "Added pickaxes, drills, shovels, satchels, resonators, ore scanners, and other tools to the mining cargo category."
+  - rscdel: "Removed duplicate cargo listings for PDAs, wrapping paper, and the paint sprayer."
+  - refactor: "Reorganized misplaced cargo items into more fitting categories."
+  - spellcheck: "Cleaned up cargo item descriptions and names, including cartridges, restock carts, and several grammar mistakes."
+  - bugfix: "Fixed a stray generic cargo item appearing in the miscellaneous cargo category."
+  - bugfix: "Fixed several duplicate cargo item definitions that overwrote each other."
+  - code_imp: "Added boxes of pens to the storage box definitions."
