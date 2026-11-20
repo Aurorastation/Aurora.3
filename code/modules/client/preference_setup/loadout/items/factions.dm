@@ -572,7 +572,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+	allowed_roles = list("Medical Intern", "Medical Orderly", "Paramedic", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Medical Personnel")
 
 /datum/gear/faction/kog_jacket_med
 	display_name = "Kazarrhaldiye Operations Group medical jacket"
@@ -580,7 +580,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_wear_suit
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+	allowed_roles = list("Medical Intern", "Medical Orderly", "Paramedic", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_para_med
 	display_name = "PMCG/EPMC paramedic uniform"
@@ -973,4 +973,3 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	faction = "Independent"
 	allowed_roles = list("Diplomatic Bodyguard")
 	flags = null
-
