@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Issued PDAs now automatically connect to the ringer terminals relevant to their owner's job."

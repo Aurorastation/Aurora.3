@@ -14,6 +14,9 @@ pixel_x = -8;
 dir = EAST; \
 pixel_x = 8;
 
+/// Job titles mapped to weak references of their initialized ringer terminals.
+GLOBAL_LIST_EMPTY(ringers_by_job)
+
 /obj/structure/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
@@ -26,6 +29,8 @@ pixel_x = 8;
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
+	/// Jobs (including alternate titles) whose issued devices automatically link here.
+	var/list/autolink_jobs = list()
 
 	///A list of PDAs to alert upon someone touching the machine
 	var/list/obj/item/modular_computer/rings_pdas = list()
@@ -42,17 +47,176 @@ pixel_x = 8;
 /obj/structure/machinery/ringer/north
 	PRESET_NORTH
 
+/obj/structure/machinery/ringer/north/medical
+	autolink_jobs = list(
+		"Chief Medical Officer",
+		"Physician",
+		"Surgeon",
+		"Medical Intern",
+		"Resident Physician",
+		"Resident Surgeon"
+	)
+	department = "Medbay"
+	id = "medbay_ringer"
+	req_access = list(/datum/access/medical::id)
+
+/obj/structure/machinery/ringer/north/engineering
+	autolink_jobs = list(
+		"Chief Engineer",
+		"Ship Engineer",
+		"Reactor Operator",
+		"Maintenance Technician",
+		"Systems Engineer",
+		"Atmospheric Technician",
+		"Environmental Systems Engineer",
+		"Propulsion Engineer",
+		"Damage Control Technician",
+		"Engineering Apprentice",
+		"Atmospherics Apprentice"
+	)
+	department = "Engineering"
+	id = "engie_ringer"
+	pixel_y = 30
+	req_access = null
+	req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id)
+
 /obj/structure/machinery/ringer/south
 	PRESET_SOUTH
+
+/obj/structure/machinery/ringer/south/custodial
+	autolink_jobs = list("Janitor")
+	department = "Custodial"
+	id = "ringers_custodial"
+	name = "\improper Custodial Ringer Terminal"
+	req_access = list(/datum/access/janitor::id)
+
+/obj/structure/machinery/ringer/south/investigations
+	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(/datum/access/security::id)
+
+/obj/structure/machinery/ringer/south/pharmacy
+	autolink_jobs = list("Pharmacist", "Pharmacy Intern")
+	department = "Pharmacy Frontdesk"
+	id = "pharmacy_ringer"
+	req_access = list(/datum/access/pharmacy::id)
 
 /obj/structure/machinery/ringer/west
 	PRESET_WEST
 
+/obj/structure/machinery/ringer/west/custodial
+	autolink_jobs = list("Janitor")
+	department = "Custodial"
+	id = "ringers_custodial"
+	name = "\improper Custodial Ringer Terminal"
+	pixel_y = 5
+	req_access = list(/datum/access/janitor::id)
+
+/obj/structure/machinery/ringer/west/custodial_auxiliary
+	autolink_jobs = list("Janitor")
+	department = "Auxiliary Custodial"
+	id = "ringers_custodialaux"
+	name = "\improper Auxiliary Custodial Ringer Terminal"
+	pixel_y = 5
+	req_access = list(/datum/access/janitor::id)
+
+/obj/structure/machinery/ringer/west/consular_a
+	autolink_jobs = list(
+		"Consular Officer",
+		"Civil Service Functionaire",
+		"Foreign Service Officer",
+		"Party Representative",
+		"Kreshwan",
+		"Diplomatic Aide",
+		"Civil Service Aide",
+		"Diplomatic Bodyguard",
+		"Civil Service Bodyguard"
+	)
+	department = "Consular A"
+	id = "consular_a_ringer"
+	pixel_x = -10
+	req_access = null
+	req_one_access = list(/datum/access/consular::id)
+
+/obj/structure/machinery/ringer/west/investigations
+	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(/datum/access/security::id)
+
+/obj/structure/machinery/ringer/west/hydroponics
+	autolink_jobs = list("Gardener", "Hydroponicist")
+	department = "Hydroponics"
+	id = "ringer_hydroponics"
+	pixel_x = -10
+	pixel_y = -31
+	req_access = list(/datum/access/hydroponics::id)
+
 /obj/structure/machinery/ringer/east
 	PRESET_EAST
 
+/obj/structure/machinery/ringer/east/operations_office
+	autolink_jobs = list("Operations Manager", "Hangar Technician")
+	department = "Cargo"
+	id = "cargo_ringer"
+	pixel_y = 17
+	req_access = list(/datum/access/cargo::id)
+
+/obj/structure/machinery/ringer/east/security_lobby
+	autolink_jobs = list(
+		"Head of Security",
+		"Warden",
+		"Security Officer",
+		"Security Cadet",
+		"Warden Cadet"
+	)
+	department = "Security"
+	id = "security_ringer"
+	pixel_x = 10
+	req_access = null
+	req_one_access = list(/datum/access/security::id)
+
+/obj/structure/machinery/ringer/east/consular_b
+	autolink_jobs = list(
+		"Consular Officer",
+		"Civil Service Functionaire",
+		"Foreign Service Officer",
+		"Party Representative",
+		"Kreshwan",
+		"Diplomatic Aide",
+		"Civil Service Aide",
+		"Diplomatic Bodyguard",
+		"Civil Service Bodyguard"
+	)
+	department = "Consular B"
+	id = "consular_b_ringer"
+	pixel_x = 10
+	req_access = null
+	req_one_access = list(/datum/access/consular::id)
+
+/obj/structure/machinery/ringer/east/investigations
+	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	department = "Security"
+	id = "investigation_ringer"
+	req_access = list(/datum/access/security::id)
+
+/obj/structure/machinery/ringer/east/hydroponics
+	autolink_jobs = list("Gardener", "Hydroponicist")
+	department = "Hydroponics"
+	id = "ringer_hydroponics"
+	req_access = list(/datum/access/hydroponics::id)
+
+/obj/structure/machinery/ringer/east/machinist
+	autolink_jobs = list("Machinist")
+	department = "Operations"
+	id = "workshop_ringer"
+	req_access = list(/datum/access/robotics::id)
+
 /obj/structure/machinery/ringer/Initialize(mapload)
 	. = ..()
+	for(var/job_title in autolink_jobs)
+		LAZYADD(GLOB.ringers_by_job[job_title], WEAKREF(src))
 	if(id)
 		ringers = new(id, src)
 
@@ -72,6 +236,10 @@ pixel_x = 8;
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/structure/machinery/ringer/Destroy()
+	for(var/job_title in autolink_jobs)
+		LAZYREMOVE(GLOB.ringers_by_job[job_title], weak_reference)
+		if(!length(GLOB.ringers_by_job[job_title]))
+			GLOB.ringers_by_job -= job_title
 	QDEL_NULL(ringers)
 	return ..()
 
@@ -136,9 +304,7 @@ pixel_x = 8;
 		remove_pda(pda)
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You link \the [pda] to \the [src], it will now ring upon someone using \the [src]."))
-	rings_pdas += pda
-	RegisterSignal(pda, COMSIG_QDELETING, PROC_REF(remove_pda))
-	update_icon()
+	add_pda(pda)
 	return TRUE
 
 /obj/structure/machinery/ringer/attack_hand(mob/user as mob)
@@ -185,6 +351,14 @@ pixel_x = 8;
 		UnregisterSignal(P, COMSIG_QDELETING)
 		rings_pdas -= P
 		update_icon()
+
+/// Links a PDA if it is not already receiving this ringer's notifications.
+/obj/structure/machinery/ringer/proc/add_pda(obj/item/modular_computer/P)
+	if(!istype(P) || (P in rings_pdas))
+		return
+	rings_pdas += P
+	RegisterSignal(P, COMSIG_QDELETING, PROC_REF(remove_pda))
+	update_icon()
 
 /obj/structure/machinery/ringer_button
 	name = "ringer button"
