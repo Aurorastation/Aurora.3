@@ -285,7 +285,7 @@
 			rating += P.rating
 
 	heal_level = rating * 10 - 20
-	heal_rate = round(rating / 4)
+	heal_rate = max(0.25, rating / 4)
 
 /obj/structure/machinery/clonepod/verb/eject()
 	set name = "Eject Cloner"

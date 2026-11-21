@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added Persistence for machine parts upgrading. Machines with upgraded parts retain their upgrades between rounds, but lose part ratings at a rate of 1/day down to a minimum of level 0.5."

@@ -47,9 +47,9 @@
 		else if(ismicrolaser(P))
 			power_rating -= (0.05 * P.rating) - 0.05
 
-	carbon_efficiency = clamp(carbon_efficiency, initial(carbon_efficiency), 5)
-	intake_power_efficiency = clamp(intake_power_efficiency, 0.1, initial(intake_power_efficiency))
-	power_rating = clamp(power_rating, 0.1, 1)
+	carbon_efficiency = clamp(carbon_efficiency, 0.25, 5)
+	intake_power_efficiency = clamp(intake_power_efficiency, 0.1, 1.5)
+	power_rating = clamp(power_rating, 0.1, 1.5)
 	power_rating *= initial(power_rating)
 	..()
 
