@@ -7,11 +7,10 @@
 #define COOLING_POWER_MEDIUM "medium"
 #define COOLING_POWER_HIGH "high"
 
-// Low power reduces cooling output and prioritizes efficiency with a larger reduction to power draw.
+// Low power reduces cooling output and uses the cooler type's efficiency multiplier.
 // Medium power increases cooling speed while drawing slightly less than the base power rate.
 // High power trades efficiency for additional cooling speed.
 #define COOLING_POWER_LOW_OUTPUT_MULTIPLIER 0.8
-#define COOLING_POWER_LOW_DRAW_MULTIPLIER 0.7
 #define COOLING_POWER_MEDIUM_OUTPUT_MULTIPLIER 1.5
 #define COOLING_POWER_MEDIUM_DRAW_MULTIPLIER 0.9
 #define COOLING_POWER_HIGH_OUTPUT_MULTIPLIER 2.2
@@ -38,6 +37,8 @@
 
 	/// The maximum power consumed per second while cooling at the preset's base rate.
 	var/base_power_consumption = 8
+	/// The fraction of base power consumed while cooling on Low.
+	var/low_power_draw_multiplier = 0.616
 	/**
 	 * The base cooling rate in degrees Kelvin per second. The selected power setting,
 	 * atmosphere, clothing, and organ damage can all modify the effective rate.
@@ -258,7 +259,7 @@
 /obj/item/organ/internal/machine/cooling_unit/proc/get_maximum_power_draw()
 	switch(power_setting)
 		if(COOLING_POWER_LOW)
-			return base_power_consumption * COOLING_POWER_LOW_DRAW_MULTIPLIER
+			return base_power_consumption * low_power_draw_multiplier
 		if(COOLING_POWER_MEDIUM)
 			return base_power_consumption * COOLING_POWER_MEDIUM_DRAW_MULTIPLIER
 		if(COOLING_POWER_HIGH)
@@ -361,7 +362,6 @@
 #undef COOLING_POWER_MEDIUM
 #undef COOLING_POWER_HIGH
 #undef COOLING_POWER_LOW_OUTPUT_MULTIPLIER
-#undef COOLING_POWER_LOW_DRAW_MULTIPLIER
 #undef COOLING_POWER_MEDIUM_OUTPUT_MULTIPLIER
 #undef COOLING_POWER_MEDIUM_DRAW_MULTIPLIER
 #undef COOLING_POWER_HIGH_OUTPUT_MULTIPLIER

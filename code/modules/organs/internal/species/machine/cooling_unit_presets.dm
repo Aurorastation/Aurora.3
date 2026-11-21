@@ -12,6 +12,8 @@
 	var/passive_temp_change = 3
 	/// The maximum power consumed per second while cooling on the medium setting.
 	var/base_power_consumption = 10.6
+	/// The fraction of base power consumed while cooling on Low.
+	var/low_power_draw_multiplier = 0.616
 	/// The maximum health the cooling unit's plating will have.
 	var/plating_max_health = 20
 	/// Whether exposed internal damage produces cosmetic coolant leaks.
@@ -22,6 +24,7 @@
 	var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = organ
 	cooling_unit.passive_temp_change = passive_temp_change
 	cooling_unit.base_power_consumption = base_power_consumption
+	cooling_unit.low_power_draw_multiplier = low_power_draw_multiplier
 	cooling_unit.plating.replace_health(plating_max_health)
 	cooling_unit.leaks_coolant = leaks_coolant
 
@@ -42,6 +45,7 @@
 
 	passive_temp_change = 3
 	base_power_consumption = 14.5
+	low_power_draw_multiplier = 0.596
 	plating_max_health = 40
 	leaks_coolant = TRUE
 
@@ -55,6 +59,7 @@
 
 	passive_temp_change = 1
 	base_power_consumption = 8.2
+	low_power_draw_multiplier = 0.632
 	plating_max_health = 100
 
 /obj/item/organ/internal/machine/cooling_unit/passive
@@ -80,6 +85,7 @@
 
 	passive_temp_change = 3
 	base_power_consumption = 14.5
+	low_power_draw_multiplier = 0.596
 	plating_max_health = 55
 	leaks_coolant = TRUE
 
@@ -93,6 +99,7 @@
 
 	passive_temp_change = 1
 	base_power_consumption = 8.2
+	low_power_draw_multiplier = 0.632
 	plating_max_health = 120
 
 /obj/item/organ/internal/machine/cooling_unit/passive/xion
@@ -119,6 +126,7 @@
 
 	passive_temp_change = 5
 	base_power_consumption = 14.5
+	low_power_draw_multiplier = 0.596
 	plating_max_health = 30
 	leaks_coolant = TRUE
 
@@ -132,6 +140,7 @@
 
 	passive_temp_change = 2
 	base_power_consumption = 8.2
+	low_power_draw_multiplier = 0.632
 	plating_max_health = 75
 
 /obj/item/organ/internal/machine/cooling_unit/passive/zenghu
