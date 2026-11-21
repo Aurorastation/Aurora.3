@@ -232,3 +232,5 @@
 #define TRAIT_SOURCE_MOB_CATEGORY "mob_category"
 /// All "Space Fauna" EG: Space Carp
 #define TRAIT_MC_SPACE_FAUNA "space_fauna"
+/// All living plant/fungal fauna EG: Pine Trees, Walking Mushrooms, Killer Tomatoes
+#define TRAIT_MC_PLANT "plant_fauna"

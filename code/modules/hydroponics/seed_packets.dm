@@ -98,6 +98,29 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 
 	. += SPAN_NOTICE("This grows optimally between <b>[lower_heat_preference] and [higher_heat_preference] kelvin</b>, and between <b>[lower_light_preference] and [higher_light_preference] lumens.</b> It is capable of any growth at all between <b>[lower_heat_tolerance] and [higher_heat_tolerance] kelvin</b>, and between <b>[lower_light_tolerance] and [higher_light_tolerance] lumens.</b>")
 
+	if(seed)
+		var/botany_skill = GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT)
+		if(botany_skill >= SKILL_LEVEL_FAMILIAR)
+			if(modified > 0)
+				. += SPAN_WARNING("Genetic modification decay: <b>[modified]%</b>.")
+			if(botany_skill >= SKILL_LEVEL_TRAINED)
+				. += SPAN_NOTICE("Your xenobotanical eye estimates: Potency <b>[GET_SEED_TRAIT(seed, TRAIT_POTENCY)]</b> | Yield <b>[GET_SEED_TRAIT(seed, TRAIT_YIELD)]</b> | Endurance <b>[GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)]</b> | Maturation/Production <b>[GET_SEED_TRAIT(seed, TRAIT_MATURATION)]/[GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)]</b>.")
+				var/list/hazards = list()
+				if(GET_SEED_TRAIT(seed, TRAIT_STINGS))
+					hazards += "stinging spines"
+				if(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS) == 2)
+					hazards += "aggressive carnivory"
+				if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS))
+					hazards += "volatile spore sacs"
+				if(GET_SEED_TRAIT(seed, TRAIT_EXPLOSIVE))
+					hazards += "explosive fruit"
+				if(GET_SEED_TRAIT(seed, TRAIT_TELEPORTING))
+					hazards += "bluespace instability"
+				if(GET_SEED_TRAIT(seed, TRAIT_SPREAD) == 2)
+					hazards += "invasive vine growth"
+				if(length(hazards))
+					. += SPAN_WARNING("Detected genetic hazards: <b>[english_list(hazards)]</b>.")
+
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS
 	desc = "Some plant cuttings."

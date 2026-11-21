@@ -27,6 +27,7 @@
 
 /mob/living/simple_animal/mushroom/Initialize()
 	. = ..()
+	ADD_TRAIT(src, TRAIT_MC_PLANT, TRAIT_SOURCE_MOB_CATEGORY)
 	harvest_time = world.time
 	var/count = 0
 	for (var/mob/living/simple_animal/mushroom in GLOB.living_mob_list)
@@ -64,7 +65,10 @@
 	spore_explode()
 
 /mob/living/simple_animal/mushroom/death()
-	if(prob(30))
+	var/hazard_avoid_chance = 0
+	if(ismob(usr))
+		SEND_SIGNAL(usr, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
+	if(!(hazard_avoid_chance > 0 && prob(hazard_avoid_chance)) && prob(30))
 		spore_explode()
 		return
 	else

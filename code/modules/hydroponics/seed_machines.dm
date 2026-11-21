@@ -25,6 +25,41 @@
 			genes = list()
 			genesource = "unknown"
 
+/obj/item/disk/botany/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!length(genes))
+		return
+	var/botany_skill = GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT)
+	if(botany_skill < SKILL_LEVEL_TRAINED)
+		return
+	for(var/datum/plantgene/P in genes)
+		if(can_decode_plant_gene(user, P.genetype))
+			. += SPAN_NOTICE("Your xenobotanical training identifies the encoded locus as <b>[P.genetype]</b> (Mask: [SSplants.get_gene_mask(P.genetype)]).")
+		if(botany_skill >= SKILL_LEVEL_PROFESSIONAL && islist(P.values))
+			var/list/trait_details = list()
+			for(var/trait_key in P.values)
+				var/val = P.values[trait_key]
+				if(isnull(val))
+					continue
+				if(trait_key == "[TRAIT_CHEMS]" && islist(val))
+					var/list/chem_names = list()
+					for(var/rid in val)
+						var/singleton/reagent/R = GET_SINGLETON(rid)
+						if(R)
+							chem_names += R.name
+					if(length(chem_names))
+						trait_details += "Reagents: [english_list(chem_names)]"
+				else if(trait_key == "[TRAIT_EXUDE_GASSES]" && islist(val) && length(val))
+					trait_details += "Exudes: [english_list(val)]"
+				else if(trait_key == "[TRAIT_CONSUME_GASSES]" && islist(val) && length(val))
+					trait_details += "Consumes: [english_list(val)]"
+				else if(trait_key == "product_type")
+					continue
+				else
+					trait_details += "[trait_key]: [val]"
+			if(length(trait_details))
+				. += SPAN_NOTICE("Encoded genetic traits: [jointext(trait_details, ", ")].")
+
 /obj/item/storage/box/botanydisk
 	name = "flora disk box"
 	desc = "A box of flora data disks, apparently."
@@ -207,7 +242,13 @@
 	var/list/data = ..()
 
 	data["degradation"] = degradation
-	data["geneMasks"] = SSplants.gene_masked_list
+	var/list/formatted_masks = list()
+	for(var/list/entry in SSplants.gene_masked_list)
+		formatted_masks += list(list(
+			"tag" = entry["tag"],
+			"mask" = format_plant_gene_mask(user, entry["tag"], entry["mask"])
+		))
+	data["geneMasks"] = formatted_masks
 
 	if(genetics)
 		data["hasGeneticsData"] = TRUE
@@ -245,7 +286,8 @@
 			var/gene_tag = params["gene"]
 			if(!gene_tag)
 				return TRUE
-			var/gene_label = params["gene_label"] || SSplants.get_gene_mask(gene_tag)
+			var/raw_mask = SSplants.get_gene_mask(gene_tag)
+			var/gene_label = format_plant_gene_mask(usr, gene_tag, raw_mask)
 
 			last_action = world.time
 			active = TRUE
@@ -264,7 +306,11 @@
 			loaded_disk.desc += " The label reads 'gene [gene_label], sampled from [genetics.display_name]'."
 			eject_disk = TRUE
 
-			degradation += rand(20,60)
+			var/degradation_increase = rand(20, 60)
+			if(ismob(usr))
+				SEND_SIGNAL(usr, COMSIG_BOTANY_EXTRACT_GENE, src, &degradation_increase)
+			degradation += max(0, degradation_increase)
+
 			if(degradation >= 100)
 				failed_task = TRUE
 				genetics = null
@@ -313,7 +359,7 @@
 		for(var/datum/plantgene/P in loaded_disk.genes)
 			if(data["locus"] != "")
 				data["locus"] += ", "
-			data["locus"] += "[SSplants.get_gene_mask(P.genetype)]"
+			data["locus"] += "[format_plant_gene_mask(user, P.genetype)]"
 
 	data["loadedseed"] = seed ? "[seed.name]" : null
 
@@ -332,13 +378,20 @@
 			seed.seed_type = seed.seed.name
 			seed.update_seed()
 
-		if(prob(seed.modified))
+		var/fail_chance = seed.modified
+		if(ismob(usr))
+			SEND_SIGNAL(usr, COMSIG_BOTANY_APPLY_GENE, seed.seed, &fail_chance, null, null, null)
+
+		if(prob(clamp(fail_chance, 0, 100)))
 			failed_task = TRUE
 			seed.modified = 101
 
 		for(var/datum/plantgene/gene in loaded_disk.genes)
-			seed.seed.apply_gene(gene)
-			seed.modified += rand(5,10)
+			seed.seed.apply_gene(gene, usr)
+			var/decay_increase = rand(5, 10)
+			if(ismob(usr))
+				SEND_SIGNAL(usr, COMSIG_BOTANY_APPLY_GENE, seed.seed, null, &decay_increase, null, null)
+			seed.modified += max(0, decay_increase)
 
 		return TRUE
 

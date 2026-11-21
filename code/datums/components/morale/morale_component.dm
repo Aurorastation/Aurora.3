@@ -149,6 +149,28 @@
 	/// The maximum possible positive or negative (percentage as decimal) contribution to surgery speed from morale modifiers.
 	var/surgery_speed_contribution = 0.1
 
+	/// The maximum possible positive or negative percent modifier to plant sampling damage.
+	var/sample_damage_contribution = 0.125
+
+	/// The maximum possible positive or negative modifier to plant sample exhaustion chance.
+	var/sample_exhaust_contribution = 10.0
+
+	/// The maximum possible positive or negative percent modifier to gene centrifuge degradation.
+	var/gene_degradation_contribution = 0.15
+
+	/// The maximum possible positive or negative modifier to gene splicing failure chance.
+	var/gene_fail_chance_contribution = 10.0
+
+	/// The maximum possible positive or negative modifier to somatoray trigger probability.
+	var/somatoray_prob_contribution = 10.0
+
+	/// The maximum possible positive or negative percent modifier to vine damage and escape/evasion chances.
+	var/vine_damage_contribution = 0.125
+	var/vine_escape_contribution = 10.0
+
+	/// The maximum possible positive or negative modifier to flora hazard avoidance and wild seed salvage chances.
+	var/flora_hazard_avoid_contribution = 20.0
+
 	/**
 	 * The increase in effective morale ratio for psychic damage. This makes it so that the psi-panic condition
 	 * has a greater effect on penalizing skills than positive morale gives bonuses to them.
@@ -226,6 +248,12 @@
 	RegisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, PROC_REF(handle_surgery_modifiers), override = TRUE)
 	RegisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS, PROC_REF(handle_crafting_speed), override = TRUE)
 	RegisterSignal(parent, COMSIG_PLANT_HARVESTER, PROC_REF(modify_yield), override = TRUE)
+	RegisterSignal(parent, COMSIG_PLANT_SAMPLER, PROC_REF(handle_plant_sampler), override = TRUE)
+	RegisterSignal(parent, COMSIG_BOTANY_EXTRACT_GENE, PROC_REF(handle_extract_gene), override = TRUE)
+	RegisterSignal(parent, COMSIG_BOTANY_APPLY_GENE, PROC_REF(handle_apply_gene), override = TRUE)
+	RegisterSignal(parent, COMSIG_BOTANY_SOMATORAY, PROC_REF(handle_somatoray), override = TRUE)
+	RegisterSignal(parent, COMSIG_BOTANY_VINE_INTERACT, PROC_REF(handle_vine_interact), override = TRUE)
+	RegisterSignal(parent, COMSIG_BOTANY_FLORA_HANDLING, PROC_REF(handle_flora_handling), override = TRUE)
 	UPDATE_MORALE
 
 /datum/component/morale/Destroy()
@@ -251,6 +279,12 @@
 	UnregisterSignal(parent, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_GET_CRAFTING_MODIFIERS)
 	UnregisterSignal(parent, COMSIG_PLANT_HARVESTER)
+	UnregisterSignal(parent, COMSIG_PLANT_SAMPLER)
+	UnregisterSignal(parent, COMSIG_BOTANY_EXTRACT_GENE)
+	UnregisterSignal(parent, COMSIG_BOTANY_APPLY_GENE)
+	UnregisterSignal(parent, COMSIG_BOTANY_SOMATORAY)
+	UnregisterSignal(parent, COMSIG_BOTANY_VINE_INTERACT)
+	UnregisterSignal(parent, COMSIG_BOTANY_FLORA_HANDLING)
 	return ..()
 
 /**
@@ -435,5 +469,91 @@
 
 	*total_yield = *total_yield + plant_yield_contribution * morale_ratio
 	*doafter = *doafter * (1 - (harvest_speed_contribution * morale_ratio))
+
+/// Positive morale steadies the user's hand when taking plant cuttings. Psi-panic from negative morale makes cuttings rougher.
+/datum/component/morale/proc/handle_plant_sampler(mob/user, datum/seed/plant, sample_damage, exhaust_chance, bonus_seed_chance, wild_destroy_chance)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes your hands tremble as you take the cutting..."))
+
+	if (!isnull(sample_damage))
+		*sample_damage = max(1, round(*sample_damage * (1 - sample_damage_contribution * effective_morale)))
+	if (!isnull(exhaust_chance))
+		*exhaust_chance = clamp(*exhaust_chance - sample_exhaust_contribution * effective_morale, 0, 100)
+	if (!isnull(bonus_seed_chance))
+		*bonus_seed_chance = clamp(*bonus_seed_chance + sample_exhaust_contribution * effective_morale, 0, 100)
+	if (!isnull(wild_destroy_chance))
+		*wild_destroy_chance = clamp(*wild_destroy_chance - sample_exhaust_contribution * effective_morale, 0, 100)
+
+/// Positive morale improves precision when operating the gene centrifuge. Psi-panic from negative morale worsens degradation.
+/datum/component/morale/proc/handle_extract_gene(mob/user, obj/structure/machinery/botany/extractor/machine, degradation_increase)
+	SIGNAL_HANDLER
+	if (isnull(degradation_increase))
+		return
+
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to calibrate the centrifuge..."))
+
+	*degradation_increase = max(1, round(*degradation_increase * (1 - gene_degradation_contribution * effective_morale)))
+
+/// Positive morale reduces gene splicing failure and decay. Psi-panic from negative morale increases failure risk.
+/datum/component/morale/proc/handle_apply_gene(mob/user, datum/seed/plant, fail_chance, decay_increase, trait_retention, gas_retention)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		if (!isnull(fail_chance))
+			to_chat(user, SPAN_WARNING("The pressure on your mind makes it hard to align the bioballistic delivery..."))
+
+	if (!isnull(fail_chance))
+		*fail_chance = clamp(*fail_chance - gene_fail_chance_contribution * effective_morale, 0, 100)
+	if (!isnull(decay_increase))
+		*decay_increase = max(1, round(*decay_increase * (1 - gene_degradation_contribution * effective_morale)))
+	if (!isnull(trait_retention))
+		*trait_retention = clamp(*trait_retention + 0.025 * effective_morale, 0.1, 1.0)
+	if (!isnull(gas_retention))
+		*gas_retention = clamp(*gas_retention + 0.025 * effective_morale, 0.1, 1.0)
+
+/// Positive morale improves somatoray focus on trays. Psi-panic from negative morale reduces its effectiveness.
+/datum/component/morale/proc/handle_somatoray(mob/firer, obj/structure/machinery/portable_atmospherics/hydroponics/tray, proc_chance, yield_boost)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+
+	if (!isnull(proc_chance))
+		*proc_chance = clamp(*proc_chance + somatoray_prob_contribution * effective_morale, 0, 100)
+
+/// Positive morale helps clear and escape spreading vines. Psi-panic from negative morale makes entanglement harder to escape.
+/datum/component/morale/proc/handle_vine_interact(mob/user, obj/effect/plant/vine, damage, escape_chance, evade_chance)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+		if ((!isnull(escape_chance) || !isnull(evade_chance)) && prob(25))
+			to_chat(user, SPAN_WARNING("The pressure on your mind makes it harder to untangle yourself from \the [vine]..."))
+
+	if (!isnull(damage))
+		*damage = *damage * (1 + vine_damage_contribution * effective_morale)
+	if (!isnull(escape_chance))
+		*escape_chance = clamp(*escape_chance + vine_escape_contribution * effective_morale, 0, 100)
+	if (!isnull(evade_chance))
+		*evade_chance = clamp(*evade_chance + vine_escape_contribution * effective_morale, 0, 100)
+
+/// Positive morale improves care around hazardous flora and wild seed salvaging. Psi-panic from negative morale makes mishaps more likely.
+/datum/component/morale/proc/handle_flora_handling(mob/user, datum/seed/plant, hazard_avoid_chance, salvage_seed_chance)
+	SIGNAL_HANDLER
+	var/effective_morale = morale_ratio
+	if (effective_morale < 0)
+		effective_morale *= psi_panic_effect_modifier
+
+	if (!isnull(hazard_avoid_chance))
+		*hazard_avoid_chance = clamp(*hazard_avoid_chance + flora_hazard_avoid_contribution * effective_morale, 0, 100)
+	if (!isnull(salvage_seed_chance))
+		*salvage_seed_chance = clamp(*salvage_seed_chance + flora_hazard_avoid_contribution * effective_morale, 0, 100)
 
 #undef UPDATE_MORALE
