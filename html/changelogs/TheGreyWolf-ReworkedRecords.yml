@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Reworked the record programs into the employee directory."
+  - rscadd: "Added persistent comments to the records."
