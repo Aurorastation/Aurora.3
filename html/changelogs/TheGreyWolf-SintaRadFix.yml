@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed queendom and wastelander unathi losing their natural armor."

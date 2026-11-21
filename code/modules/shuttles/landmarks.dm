@@ -78,10 +78,12 @@
 				LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 	if(auto_register)
-		var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
-		map_origin.add_landmark(src, shuttle_restricted)
-		if(ispath(base_turf, /turf/space/transit))
-			crash_with("auto_register is enabled for a transit landmark: [name], [landmark_tag]")
+		if(z)
+			var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
+			map_origin.add_landmark(src, shuttle_restricted)
+			dbg_assert(!ispath(base_turf, /turf/space/transit), "auto_register is enabled for a transit landmark: [name], [landmark_tag]")
+		else
+			LAZYDISTINCTADD(SSshuttle.landmarks_awaiting_sector, src)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
 	var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
@@ -100,8 +102,9 @@
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
 		return FALSE
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
@@ -112,8 +115,9 @@
 
 /obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
 	LAZYINITLIST(landing_indicators)
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		for(var/target_turf in list_values(translation))
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 

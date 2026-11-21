@@ -1,6 +1,6 @@
 /// Resolves how clearly this listener perceives the message.
-/mob/proc/get_clarity(datum/say_message/msg)
-	var/mob/speaker = msg.speaker
+/mob/proc/get_clarity(datum/say_message/msg, feedback = TRUE)
+	var/atom/movable/speaker = msg.speaker
 
 	if(msg.say_mode == SAYMODE_SIGN)
 		if(isghost(src))
@@ -15,7 +15,7 @@
 			var/datum/gas_mixture/air = T.return_air()
 			var/pressure = SAFE_XGM_PRESSURE(air)
 			if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
-				if(get_dist(speaker, src) <= 4 && !msg.italics)
+				if(feedback && get_dist(speaker, src) <= 4 && !msg.italics)
 					to_chat(src, SPAN_NOTICE("[speaker?.name] talks, but you're in a vacuum. Maybe if you were close enough for the sound to transmit through touch..."))
 				return CLARITY_NONE
 
@@ -26,13 +26,15 @@
 	if(isdeaf(src))
 		// INNATE is an audible emote. Gives no 'cannot hear' message.
 		if(!(msg.single_language?.flags & INNATE))
+			if(!feedback)
+				return CLARITY_NONE
 			if(msg.say_mode == SAYMODE_RADIO)
 				if(prob(20))
 					to_chat(src, SPAN_WARNING("You feel your headset vibrate but can hear nothing from it!"))
 			else if(speaker == src)
 				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 			else
-				to_chat(src, "<span class='name'>[speaker?.name]</span>[msg.alt_name] talks but you cannot hear them.")
+				to_chat(src, "<span class='name'>[speaker?.name]</span>[msg.message_mods[SAY_MOD_NAME_SUFFIX]] talks but you cannot hear them.")
 			return CLARITY_NONE
 		return msg.base_clarity
 
@@ -73,11 +75,8 @@
 		return ""
 	var/emote_led = rendered[2]
 
-	var/mob/speaker = msg.speaker
-	var/speaker_name = speaker?.name
-	if(ishuman(speaker))
-		var/mob/living/carbon/human/H = speaker
-		speaker_name = H.GetVoice()
+	var/atom/movable/speaker = msg.speaker
+	var/speaker_name = msg.message_mods[MODE_SPEAKER_NAME_OVERRIDE] || speaker?.GetVoice()
 
 	var/datum/language/accent_language
 	for(var/datum/say_segment/segment as anything in msg.segments)
@@ -91,29 +90,29 @@
 
 	var/track = null
 	if(isghost(src))
-		if(speaker_name != speaker.real_name && speaker.real_name)
-			speaker_name = "[speaker.real_name] ([speaker_name])"
+		if(ismob(speaker))
+			var/mob/speaker_mob = speaker
+			if(speaker_name != speaker_mob.real_name && speaker_mob.real_name)
+				speaker_name = "[speaker_mob.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
 		if((client.prefs.toggles & CHAT_GHOSTEARS) && (get_turf(speaker) in view(src)))
 			body = "<b>[body]</b>"
 
-	var/leading = emote_led ? "" : "[msg.verb], "
+	var/leading = emote_led ? "" : "[msg.message_mods[SAY_MOD_VERB]], "
 	var/font_open = msg.font_size ? "<font size='[msg.font_size]'>" : ""
 	var/font_close = msg.font_size ? "</font>" : ""
-	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[msg.alt_name] [leading]<span class='message'>[body]</span></span>[font_close]"
+	return "[track][accent_icon ? accent_icon + " " : ""][font_open]<span class='game say'><span class='name'>[speaker_name]</span>[msg.message_mods[SAY_MOD_NAME_SUFFIX]] [leading]<span class='message'>[body]</span></span>[font_close]"
 
 /// Wraps a radio envelope around the message body.
 /mob/proc/format_envelope_radio(datum/say_message/msg, clarity = CLARITY_CLEAR)
-	var/mob/speaker = msg.speaker
+	var/atom/movable/speaker = msg.speaker
 	var/hard_to_hear = (msg.base_clarity == CLARITY_FAINT)
 	var/list/radio_parts = msg.radio_parts
 	var/part_a = LAZYACCESS(radio_parts, 1)
 	var/part_b = LAZYACCESS(radio_parts, 2)
 	var/part_c = LAZYACCESS(radio_parts, 3)
 
-	var/speaker_name = speaker ? speaker.name : "Unknown"
-	if(ishuman(speaker))
-		speaker_name = speaker.GetVoice()
+	var/speaker_name = msg.message_mods[MODE_SPEAKER_NAME_OVERRIDE] || (speaker ? speaker.GetVoice() : "Unknown")
 	if(hard_to_hear)
 		speaker_name = "Unknown"
 
@@ -165,15 +164,17 @@
 
 	if(isghost(src))
 		if(speaker != null)
-			if(speaker_name != speaker.real_name && !isAI(speaker))
-				speaker_name = "[speaker.real_name] ([speaker_name])"
+			if(ismob(speaker) && !isAI(speaker))
+				var/mob/speaker_mob = speaker
+				if(speaker_name != speaker_mob.real_name)
+					speaker_name = "[speaker_mob.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
 
 	var/list/rendered = msg.render_body(src, clarity)
 	var/body = rendered[1]
 	if(!length(body))
 		return ""
-	var/leading = rendered[2] ? "" : "[msg.verb], "
+	var/leading = rendered[2] ? "" : "[msg.message_mods[SAY_MOD_VERB]], "
 	var/formatted = "[leading]<span class='message'>[body]</span>[part_c]"
 
 	if(istype(src, /mob/living/silicon/ai) && track && !hard_to_hear)
@@ -183,9 +184,9 @@
 	return "[part_a][speaker_name][part_b][formatted]"
 
 /mob/proc/format_envelope_sign(datum/say_message/msg, body)
-	var/mob/speaker = msg.speaker
+	var/atom/movable/speaker = msg.speaker
 	if(say_understands(speaker, msg.single_language))
-		return "<B>[speaker]</B> [msg.verb], \"[body]\""
+		return "<B>[speaker]</B> [msg.message_mods[SAY_MOD_VERB]], \"[body]\""
 	var/list/sign_adv_length = msg.single_language?.sign_adv_length
 	if(length(sign_adv_length) <= 4)
 		sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message")
@@ -197,7 +198,7 @@
 		if(30 to 48)	adverb = sign_adv_length[3]
 		if(48 to 90)	adverb = sign_adv_length[4]
 		else			adverb = sign_adv_length[5]
-	return "<B>[speaker]</B> [msg.verb][adverb]."
+	return "<B>[speaker]</B> [msg.message_mods[SAY_MOD_VERB]][adverb]."
 
 /// Handles a mob receiving a say.
 /mob/proc/hear_message(datum/say_message/msg)
@@ -216,9 +217,9 @@
 
 /// Renders the body for this listener, then decorates and outputs it.
 /mob/proc/display_message(datum/say_message/msg, clarity)
-	var/mob/speaker = msg.speaker
+	var/atom/movable/speaker = msg.speaker
 	// Ghosts skip clientless out-of-view chatter.
-	if(msg.say_mode != SAYMODE_RADIO && isghost(src) && speaker && !speaker.client && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
+	if(msg.say_mode != SAYMODE_RADIO && isghost(src) && speaker && !speaker.has_speech_client() && (client?.prefs.toggles & CHAT_GHOSTEARS) && !(speaker in view(src)))
 		return
 
 	if(clarity == CLARITY_DROWSY)
@@ -241,6 +242,8 @@
 	var/envelope = format_envelope(msg, muffled, clarity)
 	if(!length(envelope))
 		return
+	if(length(msg.spans))
+		envelope = "<span class='[html_encode(jointext(msg.spans, " "))]'>[envelope]</span>"
 	on_hear_message(envelope)
 	// This is a special case for internal mobs like cortical borers.
 	// They see through the eyes of their host so we must relay the message.
@@ -254,7 +257,7 @@
 
 /// Plays the speech sound for a given message.
 /mob/proc/play_speech_sound(datum/say_message/msg, sound_vol)
-	var/mob/speaker = msg.speaker
+	var/atom/movable/speaker = msg.speaker
 	if(msg.speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker?.z))
 		var/turf/source = speaker ? get_turf(speaker) : get_turf(src)
 		playsound(source, msg.speech_sound, sound_vol, vary = TRUE)

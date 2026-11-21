@@ -251,7 +251,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	langchat_speech("[chosen_sentence]", get_hearers_in_view(7, src))
 	var/datum/say_message/msg = new
 	msg.speaker = src
-	msg.verb = "says"
+	msg.message_mods[SAY_MOD_VERB] = "says"
 	msg.collapse_to(GLOB.all_languages[language], "[chosen_sentence]")
 	for(var/mob/living/L in get_hearers_in_view(7, src))
 		L.hear_message(msg)

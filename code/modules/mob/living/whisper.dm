@@ -68,10 +68,10 @@
 
 	msg.whisper = TRUE
 	msg.say_mode = SAYMODE_SPOKEN
-	msg.verb = whisper_text
+	msg.message_mods[SAY_MOD_VERB] = whisper_text
 	msg.italics = TRUE
 	msg.message_range = 1
-	msg.alt_name = ""
+	msg.message_mods[SAY_MOD_NAME_SUFFIX] = ""
 
 	if(!from_say && !finalize_say_message(msg, say_verb))
 		return
@@ -86,7 +86,7 @@
 	// Sign language is visual and whole-message. It routes separately.
 	if(msg.single_language?.flags & SIGNLANG)
 		msg.say_mode = SAYMODE_SIGN
-		msg.verb = pick(msg.single_language.signlang_verb)
+		msg.message_mods[SAY_MOD_VERB] = pick(msg.single_language.signlang_verb)
 		return say_signlang(msg)
 
 	var/eavesdropping_range = 2
@@ -152,7 +152,7 @@
 	if(!(msg.single_language && (msg.single_language.flags & PASSLISTENOBJ)))
 		for(var/obj/O as anything in inner)
 			if(O)
-				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, msg.to_string(), msg.verb, primary)
+				INVOKE_ASYNC(O, TYPE_PROC_REF(/obj, hear_talk), src, msg.to_string(), msg.message_mods[SAY_MOD_VERB], primary)
 
 	if(mind)
 		mind.last_words = msg.to_string()
