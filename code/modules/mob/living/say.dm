@@ -203,8 +203,8 @@ var/list/channel_to_radio_key = new
 				msg.message_range = hsp_params[HSP_MSGRANGE] || msg.message_range
 	return ..()
 
-/// Builds and animates the speech bubble over the speaker for the given clients.
-/mob/living/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
+/// Builds and animates the speech bubble over the speaker for the given listeners' clients.
+/mob/living/show_speech_bubble(datum/say_message/msg, message, list/mob/listeners)
 	var/speech_bubble_state = check_speech_punctuation_state(message)
 	var/speech_state_modifier = get_speech_bubble_state_modifier()
 	if(speech_bubble_state && speech_state_modifier)
@@ -216,6 +216,10 @@ var/list/channel_to_radio_key = new
 	speech_bubble.layer = layer
 	speech_bubble.plane = plane
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
+	var/list/client/show_to = list()
+	for(var/mob/listener in listeners)
+		if(listener.client)
+			show_to += listener.client
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
 /mob/living/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)

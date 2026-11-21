@@ -97,16 +97,17 @@
 			msg.sound_vol *= 0.5
 
 	var/list/listening = get_speech_listeners(msg, used_radios, ghost_hearing)
-	var/list/hear_clients = deliver_say_message(msg, listening)
+	var/list/mob/heard_mobs = deliver_say_message(msg, listening)
 	if(QDELETED(src))
 		return FALSE
-	present_say_message(msg, get_hearers_in_view(msg.message_range, src), hear_clients)
+	present_say_message(msg, get_hearers_in_view(msg.message_range, src) & heard_mobs, heard_mobs)
 	finish_say_message(msg)
 	return TRUE
 
-/// Render speech at this emitter. Radio playback reuses presentation without repeating local delivery.
-/atom/movable/proc/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
-	show_speech_bubble(msg, msg.to_string(), hear_clients)
+/// Render speech at this emitter. `listeners` receive Langchat; `heard_mobs` receive the speech bubble.
+/// Radio playback reuses presentation without repeating local delivery.
+/atom/movable/proc/present_say_message(datum/say_message/msg, list/listeners, list/heard_mobs)
+	show_speech_bubble(msg, msg.to_string(), heard_mobs)
 	var/list/styles = list()
 	if(istype(msg.single_language, /datum/language/noise))
 		styles = list("emote", "langchat_small")
@@ -123,17 +124,16 @@
 	var/list/listening = get_hearers_in_view(msg.message_range, src)
 	return mergelists(listening, get_intent_listeners(src, msg.message_range + 1), TRUE)
 
-/// Consume the local recipient list so older whisper adapters cannot dispatch it twice.
+/// Delivers to and consumes the local recipient list so older whisper adapters cannot dispatch it twice.
+/// Returns the mobs that successfully heard the message.
 /atom/movable/proc/deliver_say_message(datum/say_message/msg, list/listeners)
-	var/list/heard = list()
+	var/list/mob/heard = list()
 	for(var/atom/movable/listener as anything in listeners.Copy())
 		if(QDELETED(listener))
 			continue
 		var/received = listener.Hear(msg)
 		if(received && ismob(listener))
-			var/mob/hearing_mob = listener
-			if(hearing_mob.client)
-				heard |= hearing_mob.client
+			heard |= listener
 	listeners.Cut()
 	return heard
 
@@ -147,7 +147,10 @@
 /mob/Hear(datum/say_message/msg)
 	if(!..())
 		return FALSE
-	return hear_message(msg)
+	if(hear_message(msg))
+		return TRUE
+	msg.delivered_to -= src
+	return FALSE
 
 /obj/Hear(datum/say_message/msg)
 	if(!..())

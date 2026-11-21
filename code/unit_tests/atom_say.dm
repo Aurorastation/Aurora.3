@@ -31,7 +31,7 @@
 	var/presented = 0
 	var/list/presentation_listeners
 
-/obj/item/radio/atom_say_test_radio/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
+/obj/item/radio/atom_say_test_radio/present_say_message(datum/say_message/msg, list/listeners, list/heard_mobs)
 	presented++
 	presentation_listeners = listeners.Copy()
 	return ..()
@@ -50,7 +50,7 @@
 	// Use existing screen art to exercise the independent scanline layer without new assets.
 	overlay_screen_scanlines = "intercom_screen"
 
-/obj/item/radio/intercom/atom_say_test_intercom/present_say_message(datum/say_message/msg, list/listeners, list/hear_clients)
+/obj/item/radio/intercom/atom_say_test_intercom/present_say_message(datum/say_message/msg, list/listeners, list/heard_mobs)
 	presented++
 	presentation_listeners = listeners.Copy()
 	presented_message = msg
