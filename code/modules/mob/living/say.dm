@@ -206,18 +206,18 @@ var/list/channel_to_radio_key = new
 		segment.text = process_chat_markup(segment.text, list("~", "_"))
 	return length(msg.to_string()) ? TRUE : FALSE
 
-/// Delivers message to each listener. Returns clients that heard it.
+/// Delivers message to each listener. Returns mobs that heard it.
 /// Removes delivered mobs from the listeners list.
 /mob/living/proc/deliver_say_message(datum/say_message/msg, list/listeners)
-	var/list/client/heard = list()
+	var/list/mob/heard = list()
 	for(var/mob/M in listeners)
-		if(M.hear_message(msg) && M.client)
-			heard += M.client
+		if(M.hear_message(msg))
+			heard += M
 		listeners -= M
 	return heard
 
-/// Builds and animates the speech bubble over the speaker for the given clients.
-/mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/client/show_to)
+/// Builds and animates the speech bubble over the speaker for the given listeners' clients.
+/mob/living/proc/show_speech_bubble(datum/say_message/msg, message, list/mob/listeners)
 	var/speech_bubble_state = check_speech_punctuation_state(message)
 	var/speech_state_modifier = get_speech_bubble_state_modifier()
 	if(speech_bubble_state && speech_state_modifier)
@@ -229,6 +229,10 @@ var/list/channel_to_radio_key = new
 	speech_bubble.layer = layer
 	speech_bubble.plane = plane
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
+	var/list/client/show_to = list()
+	for(var/mob/listener in listeners)
+		if(listener.client)
+			show_to += listener.client
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, show_to, 30)
 
 /mob/living/say(var/text, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
@@ -374,9 +378,9 @@ var/list/channel_to_radio_key = new
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTEARS)
 				listening |= player_mob
 
-	var/list/hear_clients = deliver_say_message(msg, listening)
+	var/list/mob/heard_mobs = deliver_say_message(msg, listening)
 
-	show_speech_bubble(msg, text, hear_clients)
+	show_speech_bubble(msg, text, heard_mobs)
 
 	var/list/langchat_styles = list()
 	if(istype(primary, /datum/language/noise))
@@ -388,7 +392,7 @@ var/list/channel_to_radio_key = new
 	if(is_broadcast)
 		langchat_styles += "radio"
 
-	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = langchat_styles)
+	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src) & heard_mobs, additional_styles = langchat_styles)
 
 	var/bypass_listen_obj = (msg.single_language && (msg.single_language.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)

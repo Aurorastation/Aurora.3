@@ -174,3 +174,51 @@
   - rscadd: Reworked improper surgery surfaces such as rollerbeds to no longer bypass
       the skill check on surgery success chances. They instead provide their own modifier
       that can be offset by a highly skilled surgeon.
+2026-11-17:
+  DreamySkrell:
+  - rscadd: Adds the modular freelancer ship odyssey scenario.
+2026-11-21:
+  FabianK3:
+  - bugfix: Fixed langchat being visible through vacuum borders.
+  Hellfirejag:
+  - rscadd: Fully implemented the Forensics skill.
+  - rscadd: 'The following can now be painted with a paint gun: Walls, Windows, Window
+      Frames, Computers, Chairs, Windoors, Tables, Grates, Vending Machines, Smartfridges.'
+  - rscadd: Skills can now selectively change their displayed name and description
+      depending on a player character's selected options.
+  - rscadd: Tenacity now has an IPC-only variant called Fault-Tolerant Architecture.
+      It effectively increases the amount of time for an IPC to permanently die when
+      fully disabled.
+  - rscadd: Carousing now has an IPC-only variant called Thermal Conditioning. It
+      improves the energy efficiency of an IPCs cooling systems.
+  - rscadd: Conditioning now has its name and description changed for IPCs to better
+      match their concept, displaying its skill name as High-Torque Servos.
+  - rscadd: Self Surgery now inflicts a -50 surgery success rate penalty, as well
+      as increasing surgery time by 50%.
+  - rscadd: Surgeons in pain now take a -painshock penalty to surgery, as well as
+      1% increased surgery time per point of pain. This penalty can be mitigated or
+      removed by sufficient painkillers.
+  TheGreyWolf:
+  - balance: Various psionics now account for the user having a psionic blocker such
+      as mindshield, being restrained and a couple if the target is protected.
+  - rscadd: Added a case of mindshield implants to the warden's office.
+  - rscadd: Added legcuffs to the SecTech.
+  - rscadd: Added colorable folders to the loadout.
+  - rscadd: Added persistence to the booze-o-mat, the dinnerware vending machines
+      and the dispensers, including the booze dispenser, soda dispenser and coffee
+      master 3000.
+  - bugfix: Taj PMCG pharmacists and orderlies can now select the KOG outfit in the
+      loadout.
+  - rscadd: Machinists can now make console flatpaks.
+  - rscadd: Made chainlink fences constructable from steel.
+  - rscadd: Added the report editor program.
+  - rscadd: Command PDAs now start with better internal storage.
+  - rscdel: Removed the gun tracker and news browser from the default program sets.
+      They can still be downloaded as usual.
+  rattydew:
+  - imageadd: Added unique spriteset for the refill vendor, found in the custodial
+      closet.
+  - qol: Vendors now provide a little more feedback when refilled and screwdriver'd.
+  - bugfix: Fixed bug preventing vendors from rendering lighting after being screwdriver'd.
+  - bugfix: Fixed a bug preventing refill inhands from being visible.
+  - rscadd: Implemented a remap of the kitchen counter.
