@@ -68607,14 +68607,6 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
-/obj/item/storage/box/chemimp{
-	pixel_x = -6;
-	pixel_y = -6
-	},
-/obj/item/storage/box/tactical/trackimp{
-	pixel_x = -6;
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
@@ -68624,6 +68616,18 @@
 	dir = 2;
 	pixel_x = 0;
 	pixel_y = -19
+	},
+/obj/item/storage/lockbox/anti_psionic{
+	pixel_x = 4;
+	pixel_y = -6
+	},
+/obj/item/storage/box/chemimp{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/storage/box/tactical/trackimp{
+	pixel_x = -6;
+	pixel_y = 6
 	},
 /obj/item/storage/box/led_collars{
 	pixel_x = 8;

@@ -24,6 +24,10 @@
 	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
 		return
+	var/psi_blocked = L.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 
 	. = ..()
 	if(!.)
@@ -38,6 +42,10 @@
 	var/mob/living/L = hit_atom
 	if(!L.has_zona_bovinae())
 		to_chat(user, SPAN_WARNING("This being doesn't have a Zona Bovinae."))
+		return
+	var/psi_blocked = L.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
 		return
 
 	. = ..()

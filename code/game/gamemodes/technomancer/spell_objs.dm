@@ -52,12 +52,20 @@
 
 	return TRUE
 
+/obj/item/spell/proc/is_caster_psi_blocked(mob/user)
+	if(user.is_psi_blocked(user, FALSE))
+		to_chat(user, SPAN_WARNING("Something prevents your mind from reaching out and projecting its psionic power."))
+		return TRUE
+	return FALSE
+
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
 // Description: Override this for clicking the spell in your hands.
 /obj/item/spell/proc/on_use_cast(mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -68,6 +76,8 @@
 /obj/item/spell/proc/on_throw_cast(atom/hit_atom, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(owner))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -78,6 +88,8 @@
 /obj/item/spell/proc/on_ranged_cast(atom/hit_atom, mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -88,6 +100,8 @@
 /obj/item/spell/proc/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -98,16 +112,20 @@
 /obj/item/spell/proc/on_combine_cast(obj/item/I, mob/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(aspect == ASPECT_PSIONIC)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
 
 // Proc: on_innate_cast()
-// Parameters: 1 (user - the entity who is casting innately (without using hands).)
+// Parameters: 2 (user - the entity who is casting innately (without using hands), bypass_psi_check - whether to skip psionic checks.)
 // Description: Override this for casting without using hands (and as a result not using spell objects).
-/obj/item/spell/proc/on_innate_cast(mob/user)
+/obj/item/spell/proc/on_innate_cast(mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
-	if(aspect == ASPECT_PSIONIC)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
+		if(is_caster_psi_blocked(user))
+			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
 			return FALSE
 	return TRUE
@@ -276,7 +294,8 @@
 // Description: Tries to call on_use_cast() if it is allowed to do so.  Don't override this, override on_use_cast() instead.
 /obj/item/spell/attack_self(mob/user)
 	if(run_checks() && (cast_methods & CAST_USE))
-		on_use_cast(user)
+		if(on_use_cast(user) && cooldown)
+			apply_cooldown(user)
 	..()
 
 // Proc: attackby()

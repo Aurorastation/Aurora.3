@@ -27,6 +27,10 @@
 	if(L.psi && L.psi.get_rank() >= PSI_RANK_HARMONIOUS)
 		to_chat(user, SPAN_WARNING("This wouldn't do anything on them."))
 		return
+	var/psi_blocked = L.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 
 	. = ..()
 	if(!.)

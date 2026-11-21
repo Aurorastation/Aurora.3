@@ -16,6 +16,28 @@
 	psi_cost = 20
 
 /obj/item/spell/shockwave/on_use_cast(mob/user, bypass_psi_check)
+	if(user.lying)
+		to_chat(user, SPAN_WARNING("You need to be standing to stomp the ground!"))
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.legcuffed)
+			to_chat(user, SPAN_WARNING("You cannot stomp the ground while your legs are cuffed together!"))
+			return
+		var/obj/item/clothing/shoes/sneakers/orange/cuffed_shoes = H.shoes
+		if(istype(cuffed_shoes) && cuffed_shoes.chained)
+			to_chat(user, SPAN_WARNING("You cannot stomp the ground while your shoes are chained together!"))
+			return
+		var/obj/item/organ/external/left_leg = H.get_organ(BP_L_LEG)
+		var/obj/item/organ/external/right_leg = H.get_organ(BP_R_LEG)
+		var/obj/item/organ/external/left_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/right_foot = H.get_organ(BP_R_FOOT)
+		var/left_side_usable = left_leg?.is_usable() && left_foot?.is_usable()
+		var/right_side_usable = right_leg?.is_usable() && right_foot?.is_usable()
+		if(!left_side_usable && !right_side_usable)
+			to_chat(user, SPAN_WARNING("You need at least one functional leg and foot to stomp the ground!"))
+			return
+
 	. = ..()
 	if(!.)
 		return

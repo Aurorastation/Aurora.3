@@ -47,6 +47,10 @@
 	if(target.stat == DEAD)
 		to_chat(user, SPAN_WARNING("The total lack of psionic energy flowing through this person can only mean one thing: they are dead."))
 		return
+	var/psi_blocked = target.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 
 	. = ..()
 	if(!.)
