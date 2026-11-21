@@ -24,6 +24,7 @@
 	name = "Horizon (PARENT AREA - DON'T USE)"
 	icon_state = "horizon"
 	station_area = TRUE
+	describe_airlocks = TRUE
 	ambience = AMBIENCE_GENERIC
 	// Remember to set this for new areas!!
 	// horizon_deck = 1, 2, or 3
