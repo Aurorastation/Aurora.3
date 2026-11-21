@@ -644,7 +644,7 @@
 
 /obj/item/clothing/suit/space/void/dominia/voidsman
 	name = "dominian voidsman suit"
-	desc = "A Dominian voidsuit helmet issued to imperial fleet voidsmen. Not as flashy as most Dominian equipment tends to be."
+	desc = "A Dominian voidsuit issued to imperial fleet voidsmen. Not as flashy as most Dominian equipment tends to be."
 	icon_state = "voidsman"
 	item_state = "voidsman"
 	species_restricted = list(BODYTYPE_HUMAN)

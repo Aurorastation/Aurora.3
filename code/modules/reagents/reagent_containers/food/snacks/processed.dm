@@ -24,6 +24,7 @@
 	var/monkey_type = SPECIES_MONKEY
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 10)
+	volume = 20
 
 /obj/item/reagent_containers/food/snacks/monkeycube/afterattack(obj/O as obj, var/mob/living/carbon/human/user as mob, proximity)
 	if(!proximity) return
@@ -32,14 +33,14 @@
 		if(istype(user))
 			user.unEquip(src)
 		src.forceMove(get_turf(src))
-		return Expand()
+		return Expand(user)
 	..()
 
 /obj/item/reagent_containers/food/snacks/monkeycube/attack_self(mob/user as mob)
 	if(wrapped)
 		Unwrap(user)
 
-/obj/item/reagent_containers/food/snacks/monkeycube/proc/Expand()
+/obj/item/reagent_containers/food/snacks/monkeycube/proc/Expand(mob/user as mob)
 	src.visible_message(SPAN_NOTICE("\The [src] expands!"))
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
@@ -48,6 +49,8 @@
 	H.set_species(monkey_type)
 	H.real_name = H.species.get_random_name()
 	H.name = H.real_name
+	if(user)
+		H.LAssailant = user
 	src.forceMove(null)
 	qdel(src)
 	return 1
@@ -56,6 +59,7 @@
 	icon_state = "monkeycube"
 	desc = "Just add water!"
 	to_chat(user, "You unwrap the cube.")
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	wrapped = 0
 	return
 

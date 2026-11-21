@@ -53,6 +53,9 @@
 	light_color = LIGHT_COLOR_GREEN
 	manufacturer = "zenghu"
 
+/obj/structure/machinery/vending/medical/noid
+	req_access = null
+
 /obj/structure/machinery/vending/medical/low_supply
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -161,6 +164,7 @@
 /obj/structure/machinery/vending/wallpharm
 	name = "NanoPharm Mini"
 	desc = "A wall-mounted pharmaceuticals vending machine packed with over-the-counter bottles. For the sick salaried worker in you."
+	vend_id = "wallpharm"
 	icon_state = "wallpharm"
 	density = FALSE
 	products = list(

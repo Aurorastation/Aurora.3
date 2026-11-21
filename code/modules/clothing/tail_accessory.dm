@@ -1,4 +1,4 @@
-/obj/item/clothing/tail_accessory
+ABSTRACT_TYPE(/obj/item/clothing/tail_accessory)
 	name = "tail accessory"
 	desc = DESC_PARENT
 	w_class = WEIGHT_CLASS_SMALL

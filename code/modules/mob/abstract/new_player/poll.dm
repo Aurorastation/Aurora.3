@@ -3,6 +3,21 @@
 	var/optionid
 	var/optiontext
 
+/mob/abstract/new_player/proc/check_for_unvoted_polls()
+	if(!SSdbcore.Connect())
+		return
+
+	var/isadmin = client && client.holder
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey) LIMIT 0,1", list("ckey" = ckey))
+	query.SetSuccessCallback(CALLBACK(src, PROC_REF(_unvoted_polls_check_cb)))
+	query.SetFailCallback(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(qdel)))
+	query.ExecuteNoSleep(TRUE)
+
+/mob/abstract/new_player/proc/_unvoted_polls_check_cb(datum/db_query/query)
+	if(client && query.NextRow())
+		to_chat(src, SPAN_NOTICE("There is an active poll you have not voted in. <a href='byond://?src=[REF(src)];showpoll=1'><b>\[View Polls\]</b></a>"))
+	qdel(query)
+
 /mob/abstract/new_player/proc/handle_player_polling()
 	if(establish_db_connection(GLOB.dbcon))
 		var/isadmin = 0

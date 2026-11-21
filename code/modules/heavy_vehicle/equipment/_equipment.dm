@@ -133,6 +133,9 @@
 			var/obj/item/gun/G = holding
 			G.has_safety = FALSE
 			G.safety_state = FALSE
+			// A hard-mounted weapon is mechanically supported by the exosuit.
+			G.wielded = TRUE
+			G.update_firing_delays()
 		desc = "[holding.desc] This one is suitable for installation on an exosuit."
 
 /obj/item/mecha_equipment/mounted_system/Destroy()

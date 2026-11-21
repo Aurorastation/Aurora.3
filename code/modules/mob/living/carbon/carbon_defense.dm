@@ -1,7 +1,7 @@
 
 //Called when the mob is hit with an item in combat.
 /mob/living/carbon/resolve_item_attack(obj/item/I, mob/living/user, var/hit_zone)
-	if(check_attack_throat(I, user))
+	if(check_attack_throat(I, user, hit_zone))
 		return null
 	return ..()
 
@@ -125,8 +125,8 @@
 	return 1
 
 // Attacking someone with a weapon while they are neck-grabbed
-/mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user)
-	if(user.a_intent == I_HURT)
+/mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user, hit_zone)
+	if(user.a_intent == I_HURT && hit_zone == BP_HEAD)
 		for(var/obj/item/grab/G in src.grabbed_by)
 			if(G.assailant == user && G.state >= GRAB_NECK)
 				if(attack_throat(W, G, user))
@@ -168,6 +168,10 @@
 	adjustOxyLoss(min(oxyloss, 100 - getOxyLoss())) //don't put them over 100 oxyloss
 
 	if(total_damage)
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			W.add_blood(H)
+
 		if(getOxyLoss() >= 40)
 			user.visible_message(SPAN_DANGER("\The [user] slices [src]'s throat open with \the [W]!"))
 		else
@@ -205,4 +209,3 @@
 /mob/living/carbon/Sleeping(amount)
 	help_up_offer = 0
 	..()
-

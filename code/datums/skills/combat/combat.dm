@@ -94,9 +94,14 @@
 
 /singleton/skill/tenacity
 	name = "Tenacity"
+	/// Alternate displayed name when configuring an IPC character.
+	var/ipc_name = "Fault-Tolerant Architecture"
 	description = "Tenacity represents a character's \"Will to Live\". It affects a character's ability to cling to life when in critical condition, effectively allowing them to live for a little bit longer before medics can reach them. " \
 		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down.<br>" \
-		+ "This skill does nothing for characters that do not have a heart."
+		+ "This skill does nothing for organic characters that do not have a heart."
+	/// Alternate general description displayed when configuring an IPC character.
+	var/ipc_description = "Fault-Tolerant Architecture represents a synthetic's fault-tolerance and redundancy protocols. It affects a chassis's ability to resist cascading internal failures when critically damaged, effectively allowing it to remain recoverable for a little bit longer before machinists can reach it. " \
+		+ "It does not affect a character's external armor or difficulty to take down in a fight, only how resilient their internal components are to cascading failure."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_SUPPORT
@@ -122,9 +127,70 @@
 			+ " - You bleed out 22.5% slower from (non-arterial) wounds.<br>" \
 			+ " - You bleed out 11.25% slower from severed arteries.",
 	)
+	/// Alternate skill level descriptions displayed when configuring an IPC character.
+	var/alist/ipc_skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Fault-Tolerant Architecture.",
+		SKILL_LEVEL_FAMILIAR = "Your internal components are slightly more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 10 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 3 seconds.<br>" \
+			+ " - Your internal organs have +10% maximum wiring and electronics integrity.",
+		SKILL_LEVEL_TRAINED = "Your internal components are a little bit more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 20 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 6 seconds.<br>" \
+			+ " - Your internal organs have +20% maximum wiring and electronics integrity.",
+		SKILL_LEVEL_PROFESSIONAL = "Your internal components are more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 30 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 9 seconds.<br>" \
+			+ " - Your internal organs have +30% maximum wiring and electronics integrity.",
+	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
 		SKILL_LEVEL_FAMILIAR = 1,
 		SKILL_LEVEL_TRAINED = 2,
 		SKILL_LEVEL_PROFESSIONAL = 4
 	)
+	/// Bonus to an IPC's internal organ integrity event cooldown per rank above Unfamiliar.
+	var/ipc_bonus_integrity_cooldown_per_rank = 10 SECONDS
+	/// Reduction to an IPC's positronic brain self-patching cooldown per rank above Unfamiliar.
+	var/ipc_bonus_patching_cooldown_per_rank = 3 SECONDS
+	/// Multiplier bonus to an IPC's internal organ wiring and electronics health pools per rank above Unfamiliar.
+	var/ipc_bonus_internals_health_per_rank = 0.1
+
+/singleton/skill/tenacity/get_name(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_name
+	return ..()
+
+/singleton/skill/tenacity/get_description(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_description
+	return ..()
+
+/singleton/skill/tenacity/get_skill_level_descriptions(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_skill_level_descriptions
+	return ..()
+
+/singleton/skill/tenacity/on_spawn(mob/owner, skill_level)
+	if(!isipc(owner))
+		return ..()
+
+	var/mob/living/carbon/human/character = owner
+	if(!istype(character))
+		return
+
+	var/offset_skill = max(skill_level - 1, 0)
+	for(var/obj/item/organ/internal/machine/organ in character.internal_organs)
+		organ.integrity_event_cooldown = initial(organ.integrity_event_cooldown) + (ipc_bonus_integrity_cooldown_per_rank * offset_skill)
+		if(organ.wiring)
+			organ.wiring.replace_health(round(initial(organ.wiring.max_wires) * (1 + (ipc_bonus_internals_health_per_rank * offset_skill)), 1))
+		if(organ.electronics)
+			organ.electronics.replace_health(round(initial(organ.electronics.max_integrity) * (1 + (ipc_bonus_internals_health_per_rank * offset_skill)), 1))
+
+	var/obj/item/organ/internal/machine/posibrain/posibrain = character.internal_organs_by_name[BP_BRAIN]
+	if(istype(posibrain))
+		posibrain.patching_cooldown = initial(posibrain.patching_cooldown) - (ipc_bonus_patching_cooldown_per_rank * offset_skill)
+
