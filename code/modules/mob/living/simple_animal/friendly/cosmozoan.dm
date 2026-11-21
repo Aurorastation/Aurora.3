@@ -1,4 +1,7 @@
+/datum/ai_holder/simple_animal/passive/cosmozoan
+
 /mob/living/simple_animal/cosmozoan
+	ai_holder_type = /datum/ai_holder/simple_animal/passive/cosmozoan
 	name = "cosmozoan"
 	desc = "These jellyfish-like entities drift through asteroid fields, emitting a soft glow."
 	desc_extended = "Schools of Cosmozoans often congregate in asteroid fields, though they have rarely been witnessed in greater number and size in the Frontier. Their origin remains a mystery but it is believed they predate early man. This belief landed them the name Cosmozoa."
@@ -37,15 +40,3 @@
 /mob/living/simple_animal/cosmozoan/Initialize()
 	. = ..()
 	set_light(1.4, 3, COLOR_CRYSTAL)
-
-// run away when attacked
-/mob/living/simple_animal/cosmozoan/handle_attack_by(var/mob/M)
-	var/list/valid_dirs = GLOB.alldirs.Copy()
-	valid_dirs -= get_dir(src, M)
-	var/turf/target_turf = get_ranged_target_turf(src, pick(valid_dirs), 5)
-	if(target_turf)
-		for(var/i = 1 to 5)
-			if(loc == target_turf)
-				break
-			step_to(src, target_turf)
-			sleep(6)

@@ -1,4 +1,17 @@
+/datum/ai_holder/simple_animal/hostile/faithless
+
+/datum/ai_holder/simple_animal/hostile/faithless/on_target_acquired(atom/new_target, atom/old_target)
+	holder.AIAudibleEmote("wails at [new_target]")
+
+/datum/ai_holder/simple_animal/hostile/faithless/post_melee_attack(atom/the_target)
+	. = ..()
+	if(isliving(the_target) && prob(12))
+		var/mob/living/living_target = the_target
+		living_target.Weaken(3)
+		living_target.visible_message(SPAN_DANGER("\the [holder] knocks down \the [living_target]!"))
+
 /mob/living/simple_animal/hostile/faithless
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/faithless
 	name = "faithless"
 	desc = "A creature. Darkness incarnate?"
 	icon = 'icons/mob/npc/human.dmi'
@@ -43,20 +56,6 @@
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
-
-/mob/living/simple_animal/hostile/faithless/FindTarget()
-	var/my_target = last_found_target
-	. = ..()
-	if(. && (prob(30) || (. != my_target)))
-		audible_emote("wails at [.]")
-
-/mob/living/simple_animal/hostile/faithless/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(12))
-			L.Weaken(3)
-			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"

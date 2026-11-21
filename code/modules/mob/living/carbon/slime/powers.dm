@@ -14,16 +14,16 @@
 
 	Feedon(M)
 
-/mob/living/carbon/slime/proc/invalidFeedTarget(var/mob/living/M)
+/mob/living/carbon/slime/proc/invalidFeedTarget(var/mob/living/M, require_adjacent = TRUE)
 	if(!M || !istype(M) || istype(M, /mob/living/bot))
 		return "This subject is incompatible.."
 	if(istype(M, /mob/living/carbon/slime)) // No cannibalism... yet
 		return "I cannot feed on other slimes..."
-	if(!Adjacent(M))
+	if(require_adjacent && !Adjacent(M))
 		return "This subject is too far away..."
 	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
 		return "I'm already content..."
-	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxhealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
+	if((istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxhealth * 2) || (istype(M, /mob/living/simple_animal) && M.stat == DEAD))
 		return "This subject does not have any edible life energy..."
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/human/H = M
@@ -35,76 +35,83 @@
 	return FALSE
 
 /mob/living/carbon/slime/proc/Feedon(var/mob/living/M)
+	if(victim || invalidFeedTarget(M))
+		return FALSE
+
 	victim = M
 	loc = M.loc
 	canmove = FALSE
 	anchored = TRUE
 	visible_message(SPAN_DANGER("\The [src] leaps onto [victim], feeding on them!"), SPAN_WARNING("You start feeding on [victim]."))
-
 	regenerate_icons()
+	process_feed()
+	return TRUE
 
-	while(victim && !invalidFeedTarget(M) && stat != DEAD && nutrition != get_max_nutrition())
-		canmove = FALSE
+/mob/living/carbon/slime/proc/process_feed()
+	feeding_timer = null
+	var/mob/living/food = victim
+	if(!food || stat == DEAD || invalidFeedTarget(food) || nutrition >= get_max_nutrition())
+		Feedstop()
+		return
 
-		if(Adjacent(M))
-			UpdateFeed(M)
+	canmove = FALSE
+	anchored = TRUE
+	UpdateFeed(food)
 
-			if(istype(M, /mob/living/carbon))
-				victim.adjustCloneLoss(rand(5,6))
-				victim.adjustToxLoss(rand(3,6))
-				victim.adjustBruteLoss(is_adult ? rand(2, 4) : rand(1, 3))
-				if(victim.health <= 0)
-					victim.adjustToxLoss(rand(6,9))
-				if(prob(20) && !isSynthetic(victim))
-					victim.emote(pick("scream", "whimper", "gasp", "choke", "twitch"))
+	if(istype(food, /mob/living/carbon))
+		food.adjustCloneLoss(rand(5,6))
+		food.adjustToxLoss(rand(3,6))
+		food.adjustBruteLoss(is_adult ? rand(2, 4) : rand(1, 3))
+		if(food.health <= 0)
+			food.adjustToxLoss(rand(6,9))
+		if(prob(20) && !food.isSynthetic())
+			food.emote(pick("scream", "whimper", "gasp", "choke", "twitch"))
+	else if(istype(food, /mob/living/simple_animal))
+		food.adjustBruteLoss(is_adult ? rand(9, 17) : rand(6, 14))
+	else
+		to_chat(src, SPAN_WARNING("[pick("This subject is incompatible", "This subject does not have a life energy", "This subject is empty", "I am not satisfied", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
+		Feedstop()
+		return
 
-			else if(istype(M, /mob/living/simple_animal))
-				victim.adjustBruteLoss(is_adult ? rand(9, 17) : rand(6, 14))
-
-			else
-				to_chat(src, SPAN_WARNING("[pick("This subject is incompatible", "This subject does not have a life energy", "This subject is empty", "I am not satisfied", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
-				Feedstop()
-				break
-
-			if(prob(15) && M.client && istype(M, /mob/living/carbon))
-				var/painMes = pick("You can feel your body becoming weak!", "You feel like you're about to die!", "You feel every part of your body screaming in agony!", "A low, rolling pain passes through your body!", "Your body feels as if it's falling apart!", "You feel extremely weak!", "A sharp, deep pain bathes every inch of your body!")
-				if(ishuman(M))
-					var/mob/living/carbon/human/H = M
-					H.custom_pain(painMes, 100)
-				else if (istype(M, /mob/living/carbon))
-					var/mob/living/carbon/C = M
-					if(!(C.species && (C.species.flags & NO_PAIN)))
-						to_chat(M, SPAN_DANGER("[painMes]"))
-
-			gain_nutrition(rand(20,25))
-
-			adjustOxyLoss(-10) //Heal yourself
-			adjustBruteLoss(-10)
-			adjustFireLoss(-10)
-			adjustCloneLoss(-10)
-			updatehealth()
-			if(victim)
-				victim.updatehealth()
-
-			if(nutrition >= get_max_nutrition())
-				visible_message(SPAN_WARNING("\The [src] releases [victim], content and full."), SPAN_WARNING("You are full."))
-				check_friendship_increase() // increase our friendship with the person who fed us
-				break
-
-			sleep(30) // Deal damage every 3 seconds
+	if(prob(15) && food.client && istype(food, /mob/living/carbon))
+		var/pain_message = pick("You can feel your body becoming weak!", "You feel like you're about to die!", "You feel every part of your body screaming in agony!", "A low, rolling pain passes through your body!", "Your body feels as if it's falling apart!", "You feel extremely weak!", "A sharp, deep pain bathes every inch of your body!")
+		if(ishuman(food))
+			var/mob/living/carbon/human/human_food = food
+			human_food.custom_pain(pain_message, 100)
 		else
-			break
+			var/mob/living/carbon/carbon_food = food
+			if(!(carbon_food.species && (carbon_food.species.flags & NO_PAIN)))
+				to_chat(food, SPAN_DANGER("[pain_message]"))
 
-	canmove = TRUE
-	anchored = FALSE
+	gain_nutrition(rand(20,25))
+	adjustOxyLoss(-10)
+	adjustBruteLoss(-10)
+	adjustFireLoss(-10)
+	adjustCloneLoss(-10)
+	updatehealth()
+	food.updatehealth()
 
-	victim = null
+	if(nutrition >= get_max_nutrition())
+		visible_message(SPAN_WARNING("\The [src] releases [food], content and full."), SPAN_WARNING("You are full."))
+		check_friendship_increase()
+		Feedstop()
+		return
+
+	feeding_timer = addtimer(CALLBACK(src, PROC_REF(process_feed)), 3 SECONDS, TIMER_STOPPABLE)
 
 /mob/living/carbon/slime/proc/Feedstop()
-	if(victim)
-		if(victim.client)
-			to_chat(victim, SPAN_WARNING("\The [src] has let go of your head!"))
-		victim = null
+	if(feeding_timer)
+		deltimer(feeding_timer)
+		feeding_timer = null
+	var/mob/living/old_victim = victim
+	if(old_victim?.client)
+		to_chat(old_victim, SPAN_WARNING("\The [src] has let go of your head!"))
+	victim = null
+	canmove = TRUE
+	anchored = FALSE
+	regenerate_icons()
+	if(ai_holder?.target == old_victim)
+		ai_holder.remove_target(FALSE)
 
 /mob/living/carbon/slime/proc/UpdateFeed(var/mob/M)
 	if(victim)

@@ -1,4 +1,17 @@
+/datum/ai_holder/simple_animal/hostile/scarybat
+
+/datum/ai_holder/simple_animal/hostile/scarybat/on_target_acquired(atom/new_target, atom/old_target)
+	holder.AIVisualEmote("flutters towards [new_target]")
+
+/datum/ai_holder/simple_animal/hostile/scarybat/post_melee_attack(atom/the_target)
+	. = ..()
+	if(isliving(the_target) && prob(15))
+		var/mob/living/living_target = the_target
+		living_target.Stun(1)
+		living_target.visible_message(SPAN_DANGER("\the [holder] scares \the [living_target]!"))
+
 /mob/living/simple_animal/hostile/scarybat
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile/scarybat
 	name = "space bats"
 	desc = "A swarm of cute little blood sucking bats that looks pretty upset."
 	icon = 'icons/mob/npc/bats.dmi'
@@ -58,19 +71,6 @@
 /mob/living/simple_animal/hostile/scarybat/Destroy()
 	owner = null
 	return ..()
-
-/mob/living/simple_animal/hostile/scarybat/FindTarget()
-	. = ..()
-	if(.)
-		emote("flutters towards [.]")
-
-/mob/living/simple_animal/hostile/scarybat/AttackingTarget()
-	. =..()
-	var/mob/living/L = .
-	if(istype(L))
-		if(prob(15))
-			L.Stun(1)
-			L.visible_message(SPAN_DANGER("\the [src] scares \the [L]!"))
 
 /mob/living/simple_animal/hostile/scarybat/cult
 	faction = "cult"

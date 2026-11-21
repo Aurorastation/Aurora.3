@@ -1,5 +1,6 @@
 ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	faction = "hostile"
+	ai_holder_type = /datum/ai_holder/simple_animal/hostile
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 
 	/**
@@ -39,8 +40,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 	var/smart_ranged = FALSE // This makes ranged mob check for friendly fire and obstacles
 	var/hostile_nameable = FALSE //If we can rename this hostile mob. Mostly to prevent repeat checks with guard dogs and hostile/retaliate farm animals
-
-	var/is_fast_processing = FALSE
 
 	// actions measured in deciseconds
 	var/hostile_time_between_attacks = 10
@@ -124,6 +123,9 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 // This proc is used when one hostile mob targets another hostile mob.
 /mob/living/simple_animal/hostile/proc/being_targeted(var/mob/living/simple_animal/hostile/H)
+	if(has_AI())
+		ai_holder.give_target(H, TRUE)
+		return
 	if(!H || last_found_target == H)
 		return
 	set_last_found_target(H)
@@ -136,18 +138,27 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(. != BULLET_ACT_HIT)
 		return .
 
+	if(ai_holder && ismob(hitting_projectile.firer))
+		ai_holder.react_to_attack(hitting_projectile.firer)
+		return .
+
 	if (ismob(hitting_projectile.firer) && last_found_target != hitting_projectile.firer)
 		set_last_found_target(hitting_projectile.firer)
 		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/handle_attack_by(var/mob/user)
 	..()
+	if(ai_holder)
+		return
 	if(last_found_target != user)
 		set_last_found_target(user)
 		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
+	if(ai_holder && ismob(throwingdatum?.thrower?.resolve()))
+		ai_holder.react_to_attack(throwingdatum.thrower.resolve())
+		return
 	if(isobj(hitting_atom))
 		if((last_found_target != throwingdatum?.thrower?.resolve()) && ismob(throwingdatum?.thrower?.resolve()))
 			var/atom/tmp_target_mob = throwingdatum.thrower.resolve()
@@ -157,12 +168,17 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 
 /mob/living/simple_animal/hostile/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
+	if(ai_holder)
+		ai_holder.react_to_attack(user)
+		return
 	if(last_found_target != user)
 		set_last_found_target(user)
 		change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	if(ai_holder)
+		return
 	if(last_found_target != M)
 		set_last_found_target(M)
 		change_stance(HOSTILE_STANCE_ATTACK)
@@ -238,7 +254,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		limb.add_autopsy_data("Mauling by [src.name]")
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
-	if(QDELETED(last_found_target) || !see_target(last_found_target) || !Adjacent(last_found_target))
+	if(QDELETED(last_found_target) || !see_target(last_found_target) || get_dist(src, last_found_target) > melee_reach)
 		LoseTarget()
 		return
 
@@ -299,6 +315,8 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	facing_dir = null
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
+	if(has_AI())
+		return ai_holder.remove_target(FALSE)
 	change_stance(HOSTILE_STANCE_IDLE)
 	unset_last_found_target()
 	GLOB.move_manager.stop_looping(src)
@@ -310,13 +328,11 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
 	return get_hearers_in_LOS(dist, src)
 
-/mob/living/simple_animal/hostile/death()
-	..()
-	GLOB.move_manager.stop_looping(src)
-	LoseTarget() //Ensure we always stop chasing upon death
-
 /mob/living/simple_animal/hostile/think()
 	..()
+
+	if(ai_holder)
+		return
 
 	if(stop_thinking)
 		return
@@ -342,6 +358,29 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				attacked_times = 0
 
 /mob/living/simple_animal/hostile/proc/change_stance(var/new_stance)
+	if(has_AI())
+		switch(new_stance)
+			if(HOSTILE_STANCE_IDLE)
+				if(ai_holder.target)
+					ai_holder.remove_target(FALSE)
+				else
+					ai_holder.set_stance(AI_STANCE_IDLE)
+			if(HOSTILE_STANCE_ALERT)
+				if(last_found_target && ai_holder.target != last_found_target)
+					ai_holder.give_target(last_found_target)
+				ai_holder.set_stance(AI_STANCE_ALERT)
+			if(HOSTILE_STANCE_ATTACK)
+				if(last_found_target && ai_holder.target != last_found_target)
+					ai_holder.give_target(last_found_target, TRUE)
+				ai_holder.set_stance(AI_STANCE_APPROACH)
+			if(HOSTILE_STANCE_ATTACKING)
+				if(last_found_target && ai_holder.target != last_found_target)
+					ai_holder.give_target(last_found_target, TRUE)
+				ai_holder.set_stance(AI_STANCE_FIGHT)
+			if(HOSTILE_STANCE_TIRED)
+				ai_holder.set_stance(AI_STANCE_SPECIAL)
+		return TRUE
+
 	if(new_stance == stance)
 		return FALSE
 
@@ -627,6 +666,8 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	SIGNAL_HANDLER
 	SHOULD_CALL_PARENT(TRUE)
 	last_found_target = null
+	if(ai_holder?.target)
+		ai_holder.clear_target()
 
 /*######################################
 	END LAST_FOUND_TARGET HANDLING
