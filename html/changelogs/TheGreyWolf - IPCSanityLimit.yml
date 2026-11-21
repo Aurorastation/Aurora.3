@@ -1,0 +1,10 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed IPC overheating to insane levels."
+  - balance: "Reworked some of the IPC cooler logic."
+  - balance: "Buffed the durability of IPC plating."
+  - balance: "Increased the durability of the various internal IPC coolers."
+  - rscadd: "IPC liquid coolers now have a bleed effect when heavily damaged. This is a cosmetic effect only."
