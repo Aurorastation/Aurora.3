@@ -272,7 +272,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	..()
 
 // Allows portals to transfer speech.
-/obj/effect/map_effect/portal/master/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/effect/map_effect/portal/master/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(!counterpart)
 		return
 	var/turf/T = counterpart.get_focused_turf()
