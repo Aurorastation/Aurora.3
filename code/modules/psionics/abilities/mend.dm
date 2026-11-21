@@ -28,7 +28,6 @@
 	if(H.stat == DEAD || H.status_flags & FAKEDEATH)
 		to_chat(user, SPAN_WARNING("Psionic power does not flow through a dead person."))
 		return
-
 	. = ..()
 	if(!.)
 		return

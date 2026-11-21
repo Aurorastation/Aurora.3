@@ -13,6 +13,7 @@
 	max_hardware_size = 1
 	w_class = WEIGHT_CLASS_SMALL
 	looping_sound = FALSE
+	var/default_hard_drive_type = /obj/item/computer_hardware/hard_drive/small
 
 	light_system = MOVABLE_LIGHT
 
