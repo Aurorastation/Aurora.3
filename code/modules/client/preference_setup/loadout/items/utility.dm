@@ -43,6 +43,12 @@
 	folders["yellow folder"] = /obj/item/folder/yellow
 	gear_tweaks += new /datum/gear_tweak/path(folders)
 
+/datum/gear/utility/colorable_folder
+	display_name = "colorable folder"
+	description = "Holds loose sheets of paper and is a bureaucrat's best friend."
+	path = /obj/item/folder/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."

@@ -6,22 +6,27 @@
 	var/list/source
 	var/label_text = ""
 
-/obj/item/sample/Initialize(var/newloc, var/atom/supplied)
+/obj/item/sample/Initialize(var/newloc, var/atom/supplied, var/preserve_evidence = FALSE, var/reconstruct_prints = FALSE, var/botch_sample = FALSE)
 	. = ..(newloc)
 	if(supplied)
-		copy_evidence(supplied)
+		copy_evidence(supplied, preserve_evidence, reconstruct_prints, botch_sample)
 		name = "[initial(name)] ([supplied.get_swab_name()])"
 		LAZYADD(source, supplied.get_swab_name())
 
-/obj/item/sample/print/Initialize(var/newloc, var/atom/supplied)
-	. = ..(newloc, supplied)
+/obj/item/sample/print/Initialize(var/newloc, var/atom/supplied, var/preserve_evidence = FALSE, var/reconstruct_prints = FALSE, var/botch_sample = FALSE)
+	. = ..(newloc, supplied, preserve_evidence, reconstruct_prints, botch_sample)
 	if(LAZYLEN(evidence))
 		icon_state = "fingerprint1"
 
-/obj/item/sample/proc/copy_evidence(var/atom/supplied)
+/obj/item/sample/proc/copy_evidence(var/atom/supplied, var/preserve_evidence = FALSE, var/reconstruct_prints = FALSE, var/botch_sample = FALSE)
 	if(supplied.suit_fibers && supplied.suit_fibers.len)
-		LAZYADD(evidence, supplied.suit_fibers.Copy())
-		supplied.suit_fibers.Cut()
+		var/list/copied_fibers = supplied.suit_fibers.Copy()
+		if(botch_sample && length(copied_fibers))
+			copied_fibers -= pick(copied_fibers)
+		if(length(copied_fibers))
+			LAZYADD(evidence, copied_fibers)
+		if(!preserve_evidence)
+			supplied.suit_fibers.Cut()
 
 /obj/item/sample/proc/merge_evidence(var/obj/item/sample/supplied, var/mob/user)
 	if(!supplied.evidence || !supplied.evidence.len)
@@ -157,11 +162,32 @@
 		return 1
 	return 0
 
-/obj/item/sample/print/copy_evidence(var/atom/supplied)
+/obj/item/sample/print/copy_evidence(var/atom/supplied, var/preserve_evidence = FALSE, var/reconstruct_prints = FALSE, var/botch_sample = FALSE)
 	if(supplied.fingerprints && supplied.fingerprints.len)
 		for(var/print in supplied.fingerprints)
-			LAZYSET(evidence, print, supplied.fingerprints[print])
-		supplied.fingerprints.Cut()
+			var/partial = supplied.fingerprints[print]
+			if(botch_sample)
+				partial = stars(partial, rand(40, 80))
+			else if(reconstruct_prints)
+				partial = reconstruct_partial_print(print, partial, 4)
+			LAZYSET(evidence, print, partial)
+		if(!preserve_evidence)
+			supplied.fingerprints.Cut()
+
+/obj/item/sample/print/proc/reconstruct_partial_print(full_print, partial_print, max_restore = 4)
+	if(!full_print || !partial_print || full_print == partial_print)
+		return partial_print
+	var/len = min(length(full_print), length(partial_print))
+	var/restored = 0
+	var/result = ""
+	for(var/i = 1 to len)
+		var/ch = copytext(partial_print, i, i + 1)
+		if(ch == "*" && restored < max_restore)
+			result += copytext(full_print, i, i + 1)
+			restored++
+		else
+			result += ch
+	return result
 
 /obj/item/forensics/sample_kit
 	name = "fiber collection kit"
@@ -180,8 +206,14 @@
 /obj/item/forensics/sample_kit/proc/can_take_sample(var/mob/user, var/atom/supplied)
 	return (supplied.suit_fibers && supplied.suit_fibers.len)
 
-/obj/item/forensics/sample_kit/proc/take_sample(var/mob/user, var/atom/supplied)
-	var/obj/item/sample/S = new evidence_path(get_turf(user), supplied)
+/obj/item/forensics/sample_kit/proc/take_sample(var/mob/user, var/atom/supplied, var/preserve_evidence = FALSE, var/reconstruct_prints = FALSE, var/botch_sample = FALSE)
+	if(botch_sample)
+		to_chat(user, SPAN_WARNING("Your clumsy handling smudges or scatters some of the [evidence_type]s on \the [supplied]!"))
+	var/obj/item/sample/S = new evidence_path(get_turf(user), supplied, preserve_evidence, reconstruct_prints, botch_sample)
+	if(!LAZYLEN(S.evidence))
+		to_chat(user, SPAN_WARNING("You fail to recover any usable [evidence_type]s from \the [supplied]."))
+		qdel(S)
+		return
 	to_chat(user, SPAN_NOTICE("You transfer [S.evidence.len] [evidence_type]\s to \the [S]."))
 
 /obj/item/forensics/sample_kit/afterattack(var/atom/A, var/mob/user, var/proximity)
@@ -196,7 +228,16 @@
 			A = bag.stored_item
 
 	if(can_take_sample(user, A))
-		take_sample(user,A)
+		var/delay = 1.5 SECONDS
+		var/preserve_evidence = TRUE
+		var/reconstruct_prints = FALSE
+		var/botch_sample = FALSE
+		SEND_SIGNAL(user, COMSIG_FORENSICS_COLLECT_SAMPLE, A, &delay, &preserve_evidence, &reconstruct_prints, &botch_sample)
+		if(delay > 0 && !do_after(user, delay, A))
+			return 0
+		if(!can_take_sample(user, A))
+			return 0
+		take_sample(user, A, preserve_evidence, reconstruct_prints, botch_sample)
 		return 1
 	else
 		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [A]."))

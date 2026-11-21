@@ -130,3 +130,95 @@
   - bugfix: Fixed copied AI holograms missing the target's hair and clothing.
   - bugfix: Allowed AIs to remotely operate the engine control console.
   - bugfix: Fixed AI shells suffering excessive movement delay after pushing objects.
+2026-11-16:
+  DreamySkrell:
+  - rscadd: Adds `/obj/item/clothing` to `whitelisted_check_types` in `/proc/validate_atom_icon`.
+  - bugfix: Fixed several clothing items with missing or wrong inventory icons (cyborg
+      boots, Santa suit, justice hats, Weishii robe, Jensen shades, glare dampeners,
+      and a few others).
+  - bugfix: Fixed some maps and ghost roles spawning an invisible, non-existent sandal
+      type instead of regular sandals.
+  - bugfix: Fixed changeling-fabricated backpacks and belts not falling apart when
+      dropped, unlike the rest of their clothing.
+  - rscdel: Removed several unused, broken clothing items with no sprites (some heavy
+      armor vests, a few dresses, and some other old items).
+  - code_imp: Marked many abstract clothing base types as abstract, so they are skipped
+      by the icon validation check.
+  ElorgRHG:
+  - bugfix: Fixed the G2 lights marking.
+  FabianK3:
+  - bugfix: Fixed a few instances of TGUI alerts causing exceptions.
+  GeneralCamo:
+  - refactor: Handheld guns and guns operated by integrated circuits now share the
+      same firing logic.
+  - bugfix: Removing a gun from its firing circuit stops the rest of its burst.
+  - rscdel: Routine gunshots no longer print firing messages in chat.
+  - qol: Gun safeties, cooldowns, missing firing pins, and jams give short alerts
+      near the weapon.
+  - rscadd: Self-loading guns with standard detachable magazines retain chambered
+      rounds when their magazines are removed. Use Rack to chamber a round after reloading
+      an empty gun.
+  - qol: On supported pistols, an empty seated magazine blocks racking when the chamber
+      has no live round. Remove the magazine to rack it, or replace it to chamber
+      a new round.
+  - qol: Pistols with slide-lock art show the slide locking back after the last shot.
+  - qol: Racking, pumping, and cycling supported guns show a brief text cue to the
+      operator and nearby players.
+  - rscadd: Added the Eject Ammo action. It drops a seated magazine first, then clears
+      a chambered round if there is no seated magazine.
+  Hellfirejag:
+  - rscadd: Both the Mechanical Engineering and Electrical Engineering skills now
+      provide situational modifiers to performing surgeries on an IPC.
+  - rscdel: Both the Anatomy and Xenobiology skills can no longer provide their situational
+      modifier to IPC surgery.
+  - rscadd: Reworked improper surgery surfaces such as rollerbeds to no longer bypass
+      the skill check on surgery success chances. They instead provide their own modifier
+      that can be offset by a highly skilled surgeon.
+2026-11-17:
+  DreamySkrell:
+  - rscadd: Adds the modular freelancer ship odyssey scenario.
+2026-11-21:
+  FabianK3:
+  - bugfix: Fixed langchat being visible through vacuum borders.
+  Hellfirejag:
+  - rscadd: Fully implemented the Forensics skill.
+  - rscadd: 'The following can now be painted with a paint gun: Walls, Windows, Window
+      Frames, Computers, Chairs, Windoors, Tables, Grates, Vending Machines, Smartfridges.'
+  - rscadd: Skills can now selectively change their displayed name and description
+      depending on a player character's selected options.
+  - rscadd: Tenacity now has an IPC-only variant called Fault-Tolerant Architecture.
+      It effectively increases the amount of time for an IPC to permanently die when
+      fully disabled.
+  - rscadd: Carousing now has an IPC-only variant called Thermal Conditioning. It
+      improves the energy efficiency of an IPCs cooling systems.
+  - rscadd: Conditioning now has its name and description changed for IPCs to better
+      match their concept, displaying its skill name as High-Torque Servos.
+  - rscadd: Self Surgery now inflicts a -50 surgery success rate penalty, as well
+      as increasing surgery time by 50%.
+  - rscadd: Surgeons in pain now take a -painshock penalty to surgery, as well as
+      1% increased surgery time per point of pain. This penalty can be mitigated or
+      removed by sufficient painkillers.
+  TheGreyWolf:
+  - balance: Various psionics now account for the user having a psionic blocker such
+      as mindshield, being restrained and a couple if the target is protected.
+  - rscadd: Added a case of mindshield implants to the warden's office.
+  - rscadd: Added legcuffs to the SecTech.
+  - rscadd: Added colorable folders to the loadout.
+  - rscadd: Added persistence to the booze-o-mat, the dinnerware vending machines
+      and the dispensers, including the booze dispenser, soda dispenser and coffee
+      master 3000.
+  - bugfix: Taj PMCG pharmacists and orderlies can now select the KOG outfit in the
+      loadout.
+  - rscadd: Machinists can now make console flatpaks.
+  - rscadd: Made chainlink fences constructable from steel.
+  - rscadd: Added the report editor program.
+  - rscadd: Command PDAs now start with better internal storage.
+  - rscdel: Removed the gun tracker and news browser from the default program sets.
+      They can still be downloaded as usual.
+  rattydew:
+  - imageadd: Added unique spriteset for the refill vendor, found in the custodial
+      closet.
+  - qol: Vendors now provide a little more feedback when refilled and screwdriver'd.
+  - bugfix: Fixed bug preventing vendors from rendering lighting after being screwdriver'd.
+  - bugfix: Fixed a bug preventing refill inhands from being visible.
+  - rscadd: Implemented a remap of the kitchen counter.

@@ -31,20 +31,11 @@
 		return FALSE
 
 	var/obj/item/gun/G = aiming_with
-	if(istype(G) && G.safety())
-		if(owner.a_intent == I_HURT)
-			G.toggle_safety()
-		else
-			G.handle_click_empty(owner)
-			to_chat(owner, SPAN_WARNING("Your [G]'s safety prevents firing."))
+	if(!istype(G))
+		return FALSE
 
 	owner.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
-	owner.visible_message(
-		SPAN_DANGER("\The [owner] pulls the trigger reflexively!"),
-		SPAN_DANGER("You pull the trigger reflexively!")
-	)
-
-	G.Fire(aiming_at, owner)
+	G.fire_gun(aiming_at, owner, reflex = TRUE)
 
 	cancel_aiming()
 	aim_cooldown(3)

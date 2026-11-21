@@ -551,7 +551,6 @@ var/list/worths = list(
 					/obj/item/clothing/under/tactical = 15,
 					/obj/item/clothing/under/ert = 20,
 					/obj/item/clothing/under/ccpolice = 25,
-					/obj/item/clothing/under/space = 40,
 					/obj/item/clothing = 5,
 //DEVICES,
 					/obj/item/magnetic_lock = 70,

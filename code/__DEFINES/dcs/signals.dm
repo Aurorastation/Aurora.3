@@ -163,3 +163,15 @@
 
 /// Signal raised on a person attempting to repair a mech.
 #define COMSIG_GET_MECH_WELD_MODIFIERS "mech_weld_modifiers"
+
+// Forensics Skill Signals
+/// Signal raised on a mob attempting to collect a forensic sample (fibers, prints, swabs): (atom/target, &delay, &preserve_evidence, &reconstruct_prints, &botch_sample)
+#define COMSIG_FORENSICS_COLLECT_SAMPLE "forensics_collect_sample"
+/// Signal raised on a mob attempting to examine a sample in a microscope: (obj/structure/machinery/microscope/microscope, &cancelled, &delay)
+#define COMSIG_FORENSICS_USE_MICROSCOPE "forensics_use_microscope"
+/// Signal raised on a mob initiating a DNA analyzer scan: (obj/structure/machinery/dnaforensics/scanner, &rate_multiplier)
+#define COMSIG_FORENSICS_USE_DNASCANNER "forensics_use_dnascanner"
+/// Signal raised on a mob attempting to scan a body part with an autopsy scanner: (mob/living/carbon/human/target, obj/item/organ/external/limb, &cancelled, &require_open_limb)
+#define COMSIG_FORENSICS_USE_AUTOPSY "forensics_use_autopsy"
+/// Signal raised on a mob using a mass spectrometer: (obj/item/mass_spectrometer/scanner, &show_details)
+#define COMSIG_FORENSICS_USE_SPECTROMETER "forensics_use_spectrometer"

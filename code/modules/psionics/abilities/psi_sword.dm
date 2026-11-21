@@ -17,6 +17,9 @@
 /obj/item/spell/psi_sword/on_innate_cast(mob/user)
 	if(!ishuman(user))
 		return
+	if(!user.can_use_hands())
+		to_chat(user, SPAN_WARNING("You need an unrestricted hand to form a psionic sword!"))
+		return
 	. = ..()
 	if(!.)
 		return

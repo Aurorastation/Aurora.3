@@ -188,14 +188,15 @@ BREATH ANALYZER
 			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
 			return
 		var/pharm_skill = get_pharmacology_skill(user)
-		var/effective_details = details || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+		var/show_details = details || (pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+		SEND_SIGNAL(user, COMSIG_FORENSICS_USE_SPECTROMETER, src, &show_details)
 		var/list/blood_traces = reagents.reagent_data[/singleton/reagent/blood]["trace_chem"]
 		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
 			var/singleton/reagent/C = GET_SINGLETON(_C)
-			if(C.spectro_hidden && !effective_details)
+			if(C.spectro_hidden && !show_details)
 				continue
-			if(effective_details)
+			if(show_details)
 				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
 			else if(pharm_skill == SKILL_LEVEL_TRAINED)
 				output_text += "- [C] (~[max(round(blood_traces[_C], 1), 1)] units)"

@@ -154,7 +154,7 @@
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE, var/standing_self_surgery_only = FALSE)
+/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/standing_self_surgery_only = FALSE)
 	// Check for the Hippocratic oath.
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
@@ -224,6 +224,25 @@
 			// This should eventually be reworked to use ToolQualityComponents when we add that.
 			var/success_rate = S.tool_quality(tool)
 
+			// Apply any modifier from the surgical surface being used.
+			if(!standing_self_surgery_only)
+				var/obj/structure/surface = get_surgery_surface(M)
+				if(surface)
+					success_rate += surface.surgery_odds_modifier
+
+			// Apply self-surgery penalties when the surgeon is also the patient.
+			if(user == M && !S.standing_self_surgery)
+				success_rate -= SELF_SURGERY_SUCCESS_PENALTY
+				duration *= SELF_SURGERY_TIME_MULTIPLIER
+				to_chat(user, SPAN_WARNING("Operating on yourself is awkward and difficult, slowing you down and making mistakes more likely!"))
+
+			// Apply pain penalties if the surgeon is in pain.
+			var/surgeon_pain = user.get_shock()
+			if(surgeon_pain > 0)
+				success_rate -= surgeon_pain
+				duration *= 1 + (surgeon_pain * SURGERY_PAIN_TIME_MODIFIER)
+				to_chat(user, SPAN_WARNING("Your pain makes it hard to focus on the surgery..."))
+
 			// Query the surgeon if they have any components that would like to modify the success chance.
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
@@ -236,7 +255,7 @@
 					success_rate += (skill_level - required_level) * S.skill_diff_fail_modifier
 			// End of skill modifier checks
 
-			if(prob(success_rate) && do_mob(user, M, duration) && !autofail)
+			if(prob(success_rate) && do_mob(user, M, duration))
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
 				S.fail_step(user, M, zone, tool)
