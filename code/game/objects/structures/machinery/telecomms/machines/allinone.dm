@@ -91,6 +91,7 @@
 	. += "This device does not need to be linked to other telecommunications equipment; it will receive and broadcast on its own. It only needs to be powered."
 
 /obj/structure/machinery/telecomms/allinone/ship/station_relay/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	desc = replacetext(desc, "%STATIONNAME", SSatlas.current_map.station_name)
 	for(var/ch in AWAY_FREQS_ASSIGNED)

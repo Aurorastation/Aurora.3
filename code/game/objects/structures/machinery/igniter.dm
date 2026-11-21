@@ -155,6 +155,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/button/ignition/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	for (var/obj/structure/machinery/M in SSmachinery.machinery)
 		var/obj/structure/machinery/sparker/S = M

@@ -85,6 +85,7 @@
 	var/use_common = FALSE
 
 /obj/structure/machinery/telecomms/bus/preset_map/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = get_map_sector(src)
@@ -195,6 +196,7 @@
 	var/use_common = FALSE
 
 /obj/structure/machinery/telecomms/server/preset_map/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = get_map_sector(src)
@@ -285,6 +287,7 @@
 //--PRESET LEFT--//
 
 /obj/structure/machinery/telecomms/broadcaster/preset_map/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = get_map_sector(src)

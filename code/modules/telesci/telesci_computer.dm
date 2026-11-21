@@ -115,6 +115,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/computer/telescience/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)

@@ -124,6 +124,7 @@
 	var/list/key_data_snow = list()
 
 /obj/structure/machinery/vending/rental_bikes/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	var/obj/effect/landmark/rental_bikes_helper/anchor_helper = locate(/obj/effect/landmark/rental_bikes_helper) in get_turf(src)
 	if(!istype(anchor_helper))

@@ -383,6 +383,7 @@ pixel_x = 10;
 	return ..()
 
 /obj/structure/machinery/alarm/LateInitialize()
+	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	apply_mode()
 
