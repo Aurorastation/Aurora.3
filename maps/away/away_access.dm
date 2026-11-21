@@ -502,6 +502,10 @@ ABSTRACT_TYPE(/datum/access/away)
 /datum/access/away/abandoned_casino
 	id = 257
 
+/obj/effect/map_effect/marker/access/req_one/abandoned_casino
+	name = "access marker (req_one: abandoned_casino)"
+	req_one_access = list(/datum/access/away/abandoned_casino::id)
+
 /datum/access/away/crevus_rhan_cresh
 	id = 258
 	desc = "Rhan-Cresh Charities', Highway Patrol Office Access"

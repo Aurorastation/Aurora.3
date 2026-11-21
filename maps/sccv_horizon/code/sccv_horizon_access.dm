@@ -35,6 +35,10 @@ ABSTRACT_TYPE(/datum/access/horizon)
 	desc = "Armory"
 	region = ACCESS_REGION_SECURITY
 
+/obj/effect/map_effect/marker/access/req_one/armory
+	name = "access marker (req_one: armory)"
+	req_one_access = list(/datum/access/horizon/armory::id)
+
 /obj/effect/map_effect/marker/access/req_all/armory
 	name = "access marker (req_all: armory)"
 	req_access = list(/datum/access/horizon/armory::id)
