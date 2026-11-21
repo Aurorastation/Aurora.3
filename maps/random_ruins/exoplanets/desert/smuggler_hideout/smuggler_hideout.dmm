@@ -89,9 +89,7 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/template_noop)
 "t" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(242)
-	},
+/obj/structure/closet/crate/secure,
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
@@ -103,6 +101,7 @@
 	name = "duckboard"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/template_noop)
 "u" = (

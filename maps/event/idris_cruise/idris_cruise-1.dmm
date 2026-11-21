@@ -2,9 +2,9 @@
 "aaa" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "aab" = (
@@ -18,9 +18,9 @@
 "aac" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "aae" = (
@@ -337,9 +337,9 @@
 "amx" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -554,9 +554,9 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -1019,10 +1019,11 @@
 /area/cruise/pool/sauna1)
 "aMt" = (
 /obj/structure/machinery/door/window/northright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -2366,10 +2367,10 @@
 "bME" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -2652,9 +2653,9 @@
 /area/cruise/virtual_reality)
 "ccJ" = (
 /obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Armory";
-	req_access = list(101)
+	name = "Ship Armory"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -3611,9 +3612,9 @@
 "cQK" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Lift";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -4687,9 +4688,9 @@
 "dWM" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Upper Deck Security";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -5126,9 +5127,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -6930,10 +6931,11 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/dropper,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8723,9 +8725,9 @@
 "hnK" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small"
 	},
@@ -12645,10 +12647,10 @@
 "kFQ" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "wood-broken6"
 	},
@@ -13410,10 +13412,10 @@
 "lky" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -13907,9 +13909,9 @@
 "lHS" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Brig";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -14552,10 +14554,10 @@
 "mif" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Hangar Oversight";
-	req_access = list(101);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -15733,12 +15735,12 @@
 /area/cruise/hydroponics)
 "nlR" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	name = "VR Preparation Room Passage"
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -16505,10 +16507,11 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastleft{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -17127,9 +17130,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	name = "VR Preparation Room Passage"
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -19268,9 +19271,9 @@
 "qkI" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Armory";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -21323,9 +21326,9 @@
 /area/cruise/beach)
 "sej" = (
 /obj/structure/machinery/door/airlock/centcom{
-	name = "VR Checkpoint";
-	req_access = list(101)
+	name = "VR Checkpoint"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "sek" = (
@@ -22478,9 +22481,9 @@
 "tci" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Ship Security Chief Office";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -23124,10 +23127,11 @@
 /area/cruise/beach)
 "tAO" = (
 /obj/structure/machinery/door/window/northright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -25163,11 +25167,11 @@
 "vbV" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Living Hall Reception Desk";
-	req_access = list(101);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "floor7"
 	},
@@ -26453,9 +26457,9 @@
 "wkx" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Teleporter Room";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -27720,9 +27724,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"

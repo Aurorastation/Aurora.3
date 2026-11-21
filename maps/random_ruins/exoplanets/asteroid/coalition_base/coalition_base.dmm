@@ -293,9 +293,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer,
 /area/coalition_base/bathroom)
 "ge" = (
@@ -490,14 +490,14 @@
 "iZ" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 1;
-	name = "Main Storage";
-	req_access = list(66)
+	name = "Main Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/medical_equip,
 /turf/simulated/floor/tiled/white,
 /area/coalition_base/medbay)
 "jj" = (
@@ -606,15 +606,14 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/door/window{
-	req_access = list(202)
-	},
+/obj/structure/machinery/door/window,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
 /obj/item/clothing/suit/space/void/coalition,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/coalition_base/eva_prep)
 "ko" = (
@@ -1085,11 +1084,10 @@
 "vv" = (
 /obj/structure/table/rack,
 /obj/item/clothing/head/helmet/space/void/coalition,
-/obj/structure/machinery/door/window{
-	req_access = list(202)
-	},
+/obj/structure/machinery/door/window,
 /obj/item/clothing/head/helmet/space/void/coalition,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/coalition_base/eva_prep)
 "vH" = (
@@ -1103,9 +1101,8 @@
 	dir = 8;
 	maxhealth = 140
 	},
-/obj/structure/machinery/door/window{
-	req_access = list(202)
-	},
+/obj/structure/machinery/door/window,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/coalition_base/eva_prep)
 "we" = (
@@ -2297,12 +2294,11 @@
 	dir = 8;
 	maxhealth = 140
 	},
-/obj/structure/machinery/door/window{
-	req_access = list(202)
-	},
+/obj/structure/machinery/door/window,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/coalition_base/engineering)
 "WJ" = (
@@ -2442,8 +2438,7 @@
 "ZS" = (
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
-	name = "Kitchen";
-	req_access = list(28)
+	name = "Kitchen"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2454,6 +2449,7 @@
 /obj/structure/machinery/door/firedoor{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/galley,
 /turf/simulated/floor/plating,
 /area/coalition_base/kitchen)
 "ZY" = (

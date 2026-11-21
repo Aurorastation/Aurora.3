@@ -125,9 +125,9 @@
 "aF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -293,7 +293,6 @@
 "bo" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -308,6 +307,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -380,9 +380,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "bB" = (
@@ -544,7 +544,6 @@
 /area/peoples_station/hangar)
 "ck" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
@@ -556,6 +555,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -678,7 +678,6 @@
 "cF" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -690,6 +689,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -966,9 +966,9 @@
 /area/peoples_station/hangar)
 "dG" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(209)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1231,7 +1231,6 @@
 "eM" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1242,6 +1241,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1311,9 +1311,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Crew Hangar";
-	req_access = list(209);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1895,7 +1895,6 @@
 "gU" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Firing Range";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1909,6 +1908,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2198,7 +2198,6 @@
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
@@ -2209,6 +2208,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -2371,9 +2371,9 @@
 "iD" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2454,7 +2454,6 @@
 "iT" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
@@ -2467,6 +2466,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2514,12 +2514,12 @@
 "jl" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2612,7 +2612,6 @@
 "jL" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
@@ -2623,6 +2622,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2664,7 +2664,6 @@
 "jO" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Power Room";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -2682,6 +2681,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2822,13 +2822,13 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Defenses";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3322,12 +3322,12 @@
 "lC" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Ammunition";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3339,7 +3339,6 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Armory Distribution";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3353,6 +3352,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3448,7 +3448,6 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "peoples_station_armory";
 	name = "Armory Blastdoor";
-	req_access = list(209);
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3457,13 +3456,13 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
 "mp" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 4
 	},
@@ -3482,6 +3481,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -3492,7 +3492,6 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3502,6 +3501,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4171,9 +4171,9 @@
 "oU" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4295,7 +4295,6 @@
 "pw" = (
 /obj/structure/machinery/door/airlock/service{
 	name = "Custodial Closet";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -4308,6 +4307,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4391,9 +4391,9 @@
 	dir = 10
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(209)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4470,9 +4470,9 @@
 "pZ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4632,9 +4632,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "qJ" = (
@@ -4880,7 +4880,6 @@
 "rL" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Checkpoint";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
@@ -4888,6 +4887,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5275,7 +5275,6 @@
 /area/shuttle/peoples_station_transport)
 "ta" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Commissar's Quarters";
 	dir = 4
 	},
@@ -5294,6 +5293,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -5523,9 +5523,9 @@
 "tS" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5766,7 +5766,6 @@
 /area/peoples_station/barracks)
 "uR" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
@@ -5785,6 +5784,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -6178,7 +6178,6 @@
 "wU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/door/airlock/freezer{
-	req_access = list(209);
 	name = "Freezer";
 	dir = 1
 	},
@@ -6186,6 +6185,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -6572,13 +6572,13 @@
 /area/peoples_station/ammo_storage)
 "yq" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -6942,7 +6942,6 @@
 /area/peoples_station/fang)
 "zJ" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
@@ -6951,6 +6950,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7147,9 +7147,9 @@
 "AB" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fang)
 "AD" = (
@@ -7295,7 +7295,6 @@
 "Bq" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Firing Range";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7308,6 +7307,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7428,9 +7428,8 @@
 "BH" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window/southright{
-	req_access = list(209)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7450,12 +7449,12 @@
 /area/peoples_station)
 "BN" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang{
-	dir = 8;
-	req_access = list(209)
+	dir = 8
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7808,12 +7807,12 @@
 /obj/structure/table/steel,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "peoples_station_hangar";
-	name = "Hangar Lockdown";
-	req_access = list(209)
+	name = "Hangar Lockdown"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8011,9 +8010,9 @@
 "DM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8081,7 +8080,6 @@
 "Eg" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -8099,6 +8097,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8337,9 +8336,9 @@
 "Fe" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8704,20 +8703,20 @@
 /area/peoples_station/hangar)
 "Go" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(209)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/peoples_station_transport)
 "Gq" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8750,7 +8749,6 @@
 "GH" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Robotic Bay";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
@@ -8763,6 +8761,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8941,17 +8940,16 @@
 /area/peoples_station/captain_quarters)
 "Hp" = (
 /obj/structure/machinery/door/window/westleft{
-	req_access = list(209);
 	name = "Kitchen"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
 "Hr" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Captain's Quarters";
 	dir = 1
 	},
@@ -8965,6 +8963,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -9085,9 +9084,8 @@
 "Ia" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window/southleft{
-	req_access = list(209)
-	},
+/obj/structure/machinery/door/window/southleft,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9193,13 +9191,13 @@
 "IE" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9426,7 +9424,6 @@
 "JG" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -9439,6 +9436,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9657,7 +9655,6 @@
 "KF" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Ammunition";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9670,6 +9667,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9826,9 +9824,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/machinery/door/window/southright{
-	req_access = list(209)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
 "Lq" = (
@@ -9842,7 +9839,6 @@
 /area/peoples_station/living_quarters)
 "Ls" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
-	req_access = list(209);
 	name = "EVA Storage";
 	dir = 1
 	},
@@ -9851,6 +9847,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9968,9 +9965,9 @@
 "LH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -10316,13 +10313,13 @@
 "Ni" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10579,9 +10576,9 @@
 "Ok" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -10998,9 +10995,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ammunition Storage";
-	req_access = list(209);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -11268,9 +11265,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "QX" = (
@@ -11409,7 +11406,6 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Station Hatch";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11419,6 +11415,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -11488,9 +11485,9 @@
 "RM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(209)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -11735,7 +11732,6 @@
 "SM" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -11746,6 +11742,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -12288,7 +12285,6 @@
 "UH" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
@@ -12296,6 +12292,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -12468,7 +12465,6 @@
 "Vn" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Training Wing";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -12481,6 +12477,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -12896,7 +12893,6 @@
 "Xo" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Crew Hangar";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -12909,6 +12905,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -12961,12 +12958,12 @@
 /area/peoples_station/fang)
 "Xy" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -13037,9 +13034,9 @@
 /obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "peoples_station_transport_dock";
-	pixel_y = 25;
-	req_access = list(209)
+	pixel_y = 25
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -13462,7 +13459,6 @@
 "Zp" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Fang Preparation";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13475,6 +13471,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -13512,7 +13509,6 @@
 "Zw" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
@@ -13530,6 +13526,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

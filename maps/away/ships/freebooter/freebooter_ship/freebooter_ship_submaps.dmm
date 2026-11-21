@@ -2588,9 +2588,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod6)
 "pik" = (

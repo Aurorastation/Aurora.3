@@ -135,3 +135,769 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	name = "access marker (no access)"
 	icon_state = "access_marker_none"
 	clear_access = TRUE
+
+// ----------------------------------- generated from map var-edits, to be sorted out
+
+/// Adds one access to `req_one_access` of the objects under it.
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_one)
+	name = "access marker (req_one)"
+
+/// Adds one access to `req_access` of the objects under it.
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
+	name = "access marker (req_all)"
+
+/obj/effect/map_effect/marker/access/req_one/abandoned_casino
+	name = "access marker (req_one: abandoned_casino)"
+	req_one_access = list(/datum/access/abandoned_casino::id)
+
+/obj/effect/map_effect/marker/access/req_one/armory
+	name = "access marker (req_one: armory)"
+	req_one_access = list(/datum/access/armory::id)
+
+/obj/effect/map_effect/marker/access/req_one/atmospherics
+	name = "access marker (req_one: atmospherics)"
+	req_one_access = list(/datum/access/atmospherics::id)
+
+/obj/effect/map_effect/marker/access/req_one/bar
+	name = "access marker (req_one: bar)"
+	req_one_access = list(/datum/access/bar::id)
+
+/obj/effect/map_effect/marker/access/req_one/bridge_crew
+	name = "access marker (req_one: bridge_crew)"
+	req_one_access = list(/datum/access/bridge_crew::id)
+
+/obj/effect/map_effect/marker/access/req_one/canary
+	name = "access marker (req_one: canary)"
+	req_one_access = list(/datum/access/canary::id)
+
+/obj/effect/map_effect/marker/access/req_one/captain
+	name = "access marker (req_one: captain)"
+	req_one_access = list(/datum/access/captain::id)
+
+/obj/effect/map_effect/marker/access/req_one/cargo
+	name = "access marker (req_one: cargo)"
+	req_one_access = list(/datum/access/cargo::id)
+
+/obj/effect/map_effect/marker/access/req_one/ce
+	name = "access marker (req_one: ce)"
+	req_one_access = list(/datum/access/ce::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_ccia
+	name = "access marker (req_one: cent_ccia)"
+	req_one_access = list(/datum/access/cent_ccia::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_creed
+	name = "access marker (req_one: cent_creed)"
+	req_one_access = list(/datum/access/cent_creed::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_general
+	name = "access marker (req_one: cent_general)"
+	req_one_access = list(/datum/access/cent_general::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_medical
+	name = "access marker (req_one: cent_medical)"
+	req_one_access = list(/datum/access/cent_medical::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_storage
+	name = "access marker (req_one: cent_storage)"
+	req_one_access = list(/datum/access/cent_storage::id)
+
+/obj/effect/map_effect/marker/access/req_one/cent_thunder
+	name = "access marker (req_one: cent_thunder)"
+	req_one_access = list(/datum/access/cent_thunder::id)
+
+/obj/effect/map_effect/marker/access/req_one/chapel_office
+	name = "access marker (req_one: chapel_office)"
+	req_one_access = list(/datum/access/chapel_office::id)
+
+/obj/effect/map_effect/marker/access/req_one/coalition
+	name = "access marker (req_one: coalition)"
+	req_one_access = list(/datum/access/coalition::id)
+
+/obj/effect/map_effect/marker/access/req_one/coalition_navy
+	name = "access marker (req_one: coalition_navy)"
+	req_one_access = list(/datum/access/coalition_navy::id)
+
+/obj/effect/map_effect/marker/access/req_one/consular
+	name = "access marker (req_one: consular)"
+	req_one_access = list(/datum/access/consular::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_artisan_shop
+	name = "access marker (req_one: crevus_artisan_shop)"
+	req_one_access = list(/datum/access/crevus_artisan_shop::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_azaula_enforcer
+	name = "access marker (req_one: crevus_azaula_enforcer)"
+	req_one_access = list(/datum/access/crevus_azaula_enforcer::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_casino
+	name = "access marker (req_one: crevus_casino)"
+	req_one_access = list(/datum/access/crevus_casino::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_clothing_store
+	name = "access marker (req_one: crevus_clothing_store)"
+	req_one_access = list(/datum/access/crevus_clothing_store::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store
+	name = "access marker (req_one: crevus_firearm_store)"
+	req_one_access = list(/datum/access/crevus_firearm_store::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_general_store
+	name = "access marker (req_one: crevus_general_store)"
+	req_one_access = list(/datum/access/crevus_general_store::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_nt_pharmacy
+	name = "access marker (req_one: crevus_nt_pharmacy)"
+	req_one_access = list(/datum/access/crevus_nt_pharmacy::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_rhan_cresh
+	name = "access marker (req_one: crevus_rhan_cresh)"
+	req_one_access = list(/datum/access/crevus_rhan_cresh::id)
+
+/obj/effect/map_effect/marker/access/req_one/crevus_the_lock
+	name = "access marker (req_one: crevus_the_lock)"
+	req_one_access = list(/datum/access/crevus_the_lock::id)
+
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff
+	name = "access marker (req_one: decrepit_shipyard_staff)"
+	req_one_access = list(/datum/access/decrepit_shipyard_staff::id)
+
+/obj/effect/map_effect/marker/access/req_one/dpra
+	name = "access marker (req_one: dpra)"
+	req_one_access = list(/datum/access/dpra::id)
+
+/obj/effect/map_effect/marker/access/req_one/engine
+	name = "access marker (req_one: engine)"
+	req_one_access = list(/datum/access/engine::id)
+
+/obj/effect/map_effect/marker/access/req_one/engine_equip
+	name = "access marker (req_one: engine_equip)"
+	req_one_access = list(/datum/access/engine_equip::id)
+
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec
+	name = "access marker (req_one: enviro_testing_facility_access_sec)"
+	req_one_access = list(/datum/access/enviro_testing_facility_access_sec::id)
+
+/obj/effect/map_effect/marker/access/req_one/eva
+	name = "access marker (req_one: eva)"
+	req_one_access = list(/datum/access/eva::id)
+
+/obj/effect/map_effect/marker/access/req_one/exress_ship
+	name = "access marker (req_one: exress_ship)"
+	req_one_access = list(/datum/access/exress_ship::id)
+
+/obj/effect/map_effect/marker/access/req_one/external_airlocks
+	name = "access marker (req_one: external_airlocks)"
+	req_one_access = list(/datum/access/external_airlocks::id)
+
+/obj/effect/map_effect/marker/access/req_one/forensics_lockers
+	name = "access marker (req_one: forensics_lockers)"
+	req_one_access = list(/datum/access/forensics_lockers::id)
+
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy
+	name = "access marker (req_one: gadpathur_navy)"
+	req_one_access = list(/datum/access/gadpathur_navy::id)
+
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer
+	name = "access marker (req_one: gadpathur_navy_officer)"
+	req_one_access = list(/datum/access/gadpathur_navy_officer::id)
+
+/obj/effect/map_effect/marker/access/req_one/galley
+	name = "access marker (req_one: galley)"
+	req_one_access = list(/datum/access/galley::id)
+
+/obj/effect/map_effect/marker/access/req_one/generic_away_site
+	name = "access marker (req_one: generic_away_site)"
+	req_one_access = list(/datum/access/generic_away_site::id)
+
+/obj/effect/map_effect/marker/access/req_one/golden_deep
+	name = "access marker (req_one: golden_deep)"
+	req_one_access = list(/datum/access/golden_deep::id)
+
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned
+	name = "access marker (req_one: golden_deep_owned)"
+	req_one_access = list(/datum/access/golden_deep_owned::id)
+
+/obj/effect/map_effect/marker/access/req_one/guest_room_1
+	name = "access marker (req_one: guest_room_1)"
+	req_one_access = list(/datum/access/guest_room_1::id)
+
+/obj/effect/map_effect/marker/access/req_one/guest_room_2
+	name = "access marker (req_one: guest_room_2)"
+	req_one_access = list(/datum/access/guest_room_2::id)
+
+/obj/effect/map_effect/marker/access/req_one/guest_room_3
+	name = "access marker (req_one: guest_room_3)"
+	req_one_access = list(/datum/access/guest_room_3::id)
+
+/obj/effect/map_effect/marker/access/req_one/guest_room_4
+	name = "access marker (req_one: guest_room_4)"
+	req_one_access = list(/datum/access/guest_room_4::id)
+
+/obj/effect/map_effect/marker/access/req_one/guest_rooms
+	name = "access marker (req_one: guest_rooms)"
+	req_one_access = list(/datum/access/guest_rooms::id)
+
+/obj/effect/map_effect/marker/access/req_one/heads
+	name = "access marker (req_one: heads)"
+	req_one_access = list(/datum/access/heads::id)
+
+/obj/effect/map_effect/marker/access/req_one/hephaestus
+	name = "access marker (req_one: hephaestus)"
+	req_one_access = list(/datum/access/hephaestus::id)
+
+/obj/effect/map_effect/marker/access/req_one/holding
+	name = "access marker (req_one: holding)"
+	req_one_access = list(/datum/access/holding::id)
+
+/obj/effect/map_effect/marker/access/req_one/hop
+	name = "access marker (req_one: hop)"
+	req_one_access = list(/datum/access/hop::id)
+
+/obj/effect/map_effect/marker/access/req_one/hydroponics
+	name = "access marker (req_one: hydroponics)"
+	req_one_access = list(/datum/access/hydroponics::id)
+
+/obj/effect/map_effect/marker/access/req_one/idris
+	name = "access marker (req_one: idris)"
+	req_one_access = list(/datum/access/idris::id)
+
+/obj/effect/map_effect/marker/access/req_one/imperial_fleet_voidsman_ship
+	name = "access marker (req_one: imperial_fleet_voidsman_ship)"
+	req_one_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
+
+/obj/effect/map_effect/marker/access/req_one/intrepid
+	name = "access marker (req_one: intrepid)"
+	req_one_access = list(/datum/access/intrepid::id)
+
+/obj/effect/map_effect/marker/access/req_one/janitor
+	name = "access marker (req_one: janitor)"
+	req_one_access = list(/datum/access/janitor::id)
+
+/obj/effect/map_effect/marker/access/req_one/journalist
+	name = "access marker (req_one: journalist)"
+	req_one_access = list(/datum/access/journalist::id)
+
+/obj/effect/map_effect/marker/access/req_one/kataphract
+	name = "access marker (req_one: kataphract)"
+	req_one_access = list(/datum/access/kataphract::id)
+
+/obj/effect/map_effect/marker/access/req_one/kataphract_knight
+	name = "access marker (req_one: kataphract_knight)"
+	req_one_access = list(/datum/access/kataphract/knight::id)
+
+/obj/effect/map_effect/marker/access/req_one/lawyer
+	name = "access marker (req_one: lawyer)"
+	req_one_access = list(/datum/access/lawyer::id)
+
+/obj/effect/map_effect/marker/access/req_one/library
+	name = "access marker (req_one: library)"
+	req_one_access = list(/datum/access/library::id)
+
+/obj/effect/map_effect/marker/access/req_one/maint_tunnels
+	name = "access marker (req_one: maint_tunnels)"
+	req_one_access = list(/datum/access/maint_tunnels::id)
+
+/obj/effect/map_effect/marker/access/req_one/medical
+	name = "access marker (req_one: medical)"
+	req_one_access = list(/datum/access/medical::id)
+
+/obj/effect/map_effect/marker/access/req_one/medical_equip
+	name = "access marker (req_one: medical_equip)"
+	req_one_access = list(/datum/access/medical_equip::id)
+
+/obj/effect/map_effect/marker/access/req_one/mining
+	name = "access marker (req_one: mining)"
+	req_one_access = list(/datum/access/mining::id)
+
+/obj/effect/map_effect/marker/access/req_one/morgue
+	name = "access marker (req_one: morgue)"
+	req_one_access = list(/datum/access/morgue::id)
+
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access
+	name = "access marker (req_one: nuclear_missile_silo_access)"
+	req_one_access = list(/datum/access/nuclear_missile_silo_access::id)
+
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high
+	name = "access marker (req_one: nuclear_missile_silo_access_high)"
+	req_one_access = list(/datum/access/nuclear_missile_silo_access_high::id)
+
+/obj/effect/map_effect/marker/access/req_one/paramedic
+	name = "access marker (req_one: paramedic)"
+	req_one_access = list(/datum/access/paramedic::id)
+
+/obj/effect/map_effect/marker/access/req_one/pharmacy
+	name = "access marker (req_one: pharmacy)"
+	req_one_access = list(/datum/access/pharmacy::id)
+
+/obj/effect/map_effect/marker/access/req_one/portofcall_police
+	name = "access marker (req_one: portofcall_police)"
+	req_one_access = list(/datum/access/portofcall_police::id)
+
+/obj/effect/map_effect/marker/access/req_one/portofcall_vendors
+	name = "access marker (req_one: portofcall_vendors)"
+	req_one_access = list(/datum/access/portofcall_vendors::id)
+
+/obj/effect/map_effect/marker/access/req_one/pra
+	name = "access marker (req_one: pra)"
+	req_one_access = list(/datum/access/pra::id)
+
+/obj/effect/map_effect/marker/access/req_one/qm
+	name = "access marker (req_one: qm)"
+	req_one_access = list(/datum/access/qm::id)
+
+/obj/effect/map_effect/marker/access/req_one/quark
+	name = "access marker (req_one: quark)"
+	req_one_access = list(/datum/access/quark::id)
+
+/obj/effect/map_effect/marker/access/req_one/rd
+	name = "access marker (req_one: rd)"
+	req_one_access = list(/datum/access/rd::id)
+
+/obj/effect/map_effect/marker/access/req_one/research
+	name = "access marker (req_one: research)"
+	req_one_access = list(/datum/access/research::id)
+
+/obj/effect/map_effect/marker/access/req_one/robotics
+	name = "access marker (req_one: robotics)"
+	req_one_access = list(/datum/access/robotics::id)
+
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access
+	name = "access marker (req_one: ruined_propellant_depot_access)"
+	req_one_access = list(/datum/access/ruined_propellant_depot_access::id)
+
+/obj/effect/map_effect/marker/access/req_one/sec_doors
+	name = "access marker (req_one: sec_doors)"
+	req_one_access = list(/datum/access/sec_doors::id)
+
+/obj/effect/map_effect/marker/access/req_one/security
+	name = "access marker (req_one: security)"
+	req_one_access = list(/datum/access/security::id)
+
+/obj/effect/map_effect/marker/access/req_one/sol_ships
+	name = "access marker (req_one: sol_ships)"
+	req_one_access = list(/datum/access/sol_ships::id)
+
+/obj/effect/map_effect/marker/access/req_one/spark
+	name = "access marker (req_one: spark)"
+	req_one_access = list(/datum/access/spark::id)
+
+/obj/effect/map_effect/marker/access/req_one/splf_access
+	name = "access marker (req_one: splf_access)"
+	req_one_access = list(/datum/access/splf_access::id)
+
+/obj/effect/map_effect/marker/access/req_one/surgery
+	name = "access marker (req_one: surgery)"
+	req_one_access = list(/datum/access/surgery::id)
+
+/obj/effect/map_effect/marker/access/req_one/syndicate
+	name = "access marker (req_one: syndicate)"
+	req_one_access = list(/datum/access/syndicate::id)
+
+/obj/effect/map_effect/marker/access/req_one/tcaf
+	name = "access marker (req_one: tcaf)"
+	req_one_access = list(/datum/access/tcaf::id)
+
+/obj/effect/map_effect/marker/access/req_one/tox
+	name = "access marker (req_one: tox)"
+	req_one_access = list(/datum/access/tox::id)
+
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access
+	name = "access marker (req_one: tramp_freighter_access)"
+	req_one_access = list(/datum/access/tramp_freighter_access::id)
+
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate
+	name = "access marker (req_one: unathi_pirate)"
+	req_one_access = list(/datum/access/unathi_pirate::id)
+
+/obj/effect/map_effect/marker/access/req_one/xenoarch
+	name = "access marker (req_one: xenoarch)"
+	req_one_access = list(/datum/access/xenoarch::id)
+
+/obj/effect/map_effect/marker/access/req_one/xenobiology
+	name = "access marker (req_one: xenobiology)"
+	req_one_access = list(/datum/access/xenobiology::id)
+
+/obj/effect/map_effect/marker/access/req_one/xenobotany
+	name = "access marker (req_one: xenobotany)"
+	req_one_access = list(/datum/access/xenobotany::id)
+
+/obj/effect/map_effect/marker/access/req_all/ai_upload
+	name = "access marker (req_all: ai_upload)"
+	req_access = list(/datum/access/ai_upload::id)
+
+/obj/effect/map_effect/marker/access/req_all/armory
+	name = "access marker (req_all: armory)"
+	req_access = list(/datum/access/armory::id)
+
+/obj/effect/map_effect/marker/access/req_all/atmospherics
+	name = "access marker (req_all: atmospherics)"
+	req_access = list(/datum/access/atmospherics::id)
+
+/obj/effect/map_effect/marker/access/req_all/autakh
+	name = "access marker (req_all: autakh)"
+	req_access = list(/datum/access/autakh::id)
+
+/obj/effect/map_effect/marker/access/req_all/bar
+	name = "access marker (req_all: bar)"
+	req_access = list(/datum/access/bar::id)
+
+/obj/effect/map_effect/marker/access/req_all/captain
+	name = "access marker (req_all: captain)"
+	req_access = list(/datum/access/captain::id)
+
+/obj/effect/map_effect/marker/access/req_all/cargo
+	name = "access marker (req_all: cargo)"
+	req_access = list(/datum/access/cargo::id)
+
+/obj/effect/map_effect/marker/access/req_all/ce
+	name = "access marker (req_all: ce)"
+	req_access = list(/datum/access/ce::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_ccia
+	name = "access marker (req_all: cent_ccia)"
+	req_access = list(/datum/access/cent_ccia::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_creed
+	name = "access marker (req_all: cent_creed)"
+	req_access = list(/datum/access/cent_creed::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_general
+	name = "access marker (req_all: cent_general)"
+	req_access = list(/datum/access/cent_general::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_living
+	name = "access marker (req_all: cent_living)"
+	req_access = list(/datum/access/cent_living::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_specops
+	name = "access marker (req_all: cent_specops)"
+	req_access = list(/datum/access/cent_specops::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_storage
+	name = "access marker (req_all: cent_storage)"
+	req_access = list(/datum/access/cent_storage::id)
+
+/obj/effect/map_effect/marker/access/req_all/cent_thunder
+	name = "access marker (req_all: cent_thunder)"
+	req_access = list(/datum/access/cent_thunder::id)
+
+/obj/effect/map_effect/marker/access/req_all/chapel_office
+	name = "access marker (req_all: chapel_office)"
+	req_access = list(/datum/access/chapel_office::id)
+
+/obj/effect/map_effect/marker/access/req_all/cmo
+	name = "access marker (req_all: cmo)"
+	req_access = list(/datum/access/cmo::id)
+
+/obj/effect/map_effect/marker/access/req_all/coalition
+	name = "access marker (req_all: coalition)"
+	req_access = list(/datum/access/coalition::id)
+
+/obj/effect/map_effect/marker/access/req_all/coalition_navy
+	name = "access marker (req_all: coalition_navy)"
+	req_access = list(/datum/access/coalition_navy::id)
+
+/obj/effect/map_effect/marker/access/req_all/consular
+	name = "access marker (req_all: consular)"
+	req_access = list(/datum/access/consular::id)
+
+/obj/effect/map_effect/marker/access/req_all/distress
+	name = "access marker (req_all: distress)"
+	req_access = list(/datum/access/distress::id)
+
+/obj/effect/map_effect/marker/access/req_all/dpra
+	name = "access marker (req_all: dpra)"
+	req_access = list(/datum/access/dpra::id)
+
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship
+	name = "access marker (req_all: ee_spy_ship)"
+	req_access = list(/datum/access/ee_spy_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship
+	name = "access marker (req_all: elyran_naval_infantry_ship)"
+	req_access = list(/datum/access/elyran_naval_infantry_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/engine
+	name = "access marker (req_all: engine)"
+	req_access = list(/datum/access/engine::id)
+
+/obj/effect/map_effect/marker/access/req_all/engine_equip
+	name = "access marker (req_all: engine_equip)"
+	req_access = list(/datum/access/engine_equip::id)
+
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec
+	name = "access marker (req_all: enviro_testing_facility_access_sec)"
+	req_access = list(/datum/access/enviro_testing_facility_access_sec::id)
+
+/obj/effect/map_effect/marker/access/req_all/eva
+	name = "access marker (req_all: eva)"
+	req_access = list(/datum/access/eva::id)
+
+/obj/effect/map_effect/marker/access/req_all/exress_ship
+	name = "access marker (req_all: exress_ship)"
+	req_access = list(/datum/access/exress_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/external_airlocks
+	name = "access marker (req_all: external_airlocks)"
+	req_access = list(/datum/access/external_airlocks::id)
+
+/obj/effect/map_effect/marker/access/req_all/forensics_lockers
+	name = "access marker (req_all: forensics_lockers)"
+	req_access = list(/datum/access/forensics_lockers::id)
+
+/obj/effect/map_effect/marker/access/req_all/gadpathur_navy
+	name = "access marker (req_all: gadpathur_navy)"
+	req_access = list(/datum/access/gadpathur_navy::id)
+
+/obj/effect/map_effect/marker/access/req_all/gadpathur_navy_officer
+	name = "access marker (req_all: gadpathur_navy_officer)"
+	req_access = list(/datum/access/gadpathur_navy_officer::id)
+
+/obj/effect/map_effect/marker/access/req_all/galley
+	name = "access marker (req_all: galley)"
+	req_access = list(/datum/access/galley::id)
+
+/obj/effect/map_effect/marker/access/req_all/generic_away_site
+	name = "access marker (req_all: generic_away_site)"
+	req_access = list(/datum/access/generic_away_site::id)
+
+/obj/effect/map_effect/marker/access/req_all/genetics
+	name = "access marker (req_all: genetics)"
+	req_access = list(/datum/access/genetics::id)
+
+/obj/effect/map_effect/marker/access/req_all/golden_deep
+	name = "access marker (req_all: golden_deep)"
+	req_access = list(/datum/access/golden_deep::id)
+
+/obj/effect/map_effect/marker/access/req_all/heads
+	name = "access marker (req_all: heads)"
+	req_access = list(/datum/access/heads::id)
+
+/obj/effect/map_effect/marker/access/req_all/hephaestus
+	name = "access marker (req_all: hephaestus)"
+	req_access = list(/datum/access/hephaestus::id)
+
+/obj/effect/map_effect/marker/access/req_all/holding
+	name = "access marker (req_all: holding)"
+	req_access = list(/datum/access/holding::id)
+
+/obj/effect/map_effect/marker/access/req_all/hop
+	name = "access marker (req_all: hop)"
+	req_access = list(/datum/access/hop::id)
+
+/obj/effect/map_effect/marker/access/req_all/hos
+	name = "access marker (req_all: hos)"
+	req_access = list(/datum/access/hos::id)
+
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship
+	name = "access marker (req_all: house_volvalaad_ship)"
+	req_access = list(/datum/access/house_volvalaad_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/hydroponics
+	name = "access marker (req_all: hydroponics)"
+	req_access = list(/datum/access/hydroponics::id)
+
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit
+	name = "access marker (req_all: iac_rescue_shit)"
+	req_access = list(/datum/access/iac_rescue_shit::id)
+
+/obj/effect/map_effect/marker/access/req_all/idris
+	name = "access marker (req_all: idris)"
+	req_access = list(/datum/access/idris::id)
+
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship
+	name = "access marker (req_all: imperial_fleet_voidsman_ship)"
+	req_access = list(/datum/access/imperial_fleet_voidsman_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/intrepid
+	name = "access marker (req_all: intrepid)"
+	req_access = list(/datum/access/intrepid::id)
+
+/obj/effect/map_effect/marker/access/req_all/janitor
+	name = "access marker (req_all: janitor)"
+	req_access = list(/datum/access/janitor::id)
+
+/obj/effect/map_effect/marker/access/req_all/journalist
+	name = "access marker (req_all: journalist)"
+	req_access = list(/datum/access/journalist::id)
+
+/obj/effect/map_effect/marker/access/req_all/kataphract
+	name = "access marker (req_all: kataphract)"
+	req_access = list(/datum/access/kataphract::id)
+
+/obj/effect/map_effect/marker/access/req_all/lawyer
+	name = "access marker (req_all: lawyer)"
+	req_access = list(/datum/access/lawyer::id)
+
+/obj/effect/map_effect/marker/access/req_all/library
+	name = "access marker (req_all: library)"
+	req_access = list(/datum/access/library::id)
+
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access
+	name = "access marker (req_all: lone_spacer_access)"
+	req_access = list(/datum/access/lone_spacer_access::id)
+
+/obj/effect/map_effect/marker/access/req_all/mailsorting
+	name = "access marker (req_all: mailsorting)"
+	req_access = list(/datum/access/mailsorting::id)
+
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels
+	name = "access marker (req_all: maint_tunnels)"
+	req_access = list(/datum/access/maint_tunnels::id)
+
+/obj/effect/map_effect/marker/access/req_all/medical
+	name = "access marker (req_all: medical)"
+	req_access = list(/datum/access/medical::id)
+
+/obj/effect/map_effect/marker/access/req_all/medical_equip
+	name = "access marker (req_all: medical_equip)"
+	req_access = list(/datum/access/medical_equip::id)
+
+/obj/effect/map_effect/marker/access/req_all/merchant
+	name = "access marker (req_all: merchant)"
+	req_access = list(/datum/access/merchant::id)
+
+/obj/effect/map_effect/marker/access/req_all/merchants_guild
+	name = "access marker (req_all: merchants_guild)"
+	req_access = list(/datum/access/merchants_guild::id)
+
+/obj/effect/map_effect/marker/access/req_all/mining
+	name = "access marker (req_all: mining)"
+	req_access = list(/datum/access/mining::id)
+
+/obj/effect/map_effect/marker/access/req_all/moghes_wasteland_ozeuoi
+	name = "access marker (req_all: moghes_wasteland_ozeuoi)"
+	req_access = list(/datum/access/moghes_wasteland_ozeuoi::id)
+
+/obj/effect/map_effect/marker/access/req_all/morgue
+	name = "access marker (req_all: morgue)"
+	req_access = list(/datum/access/morgue::id)
+
+/obj/effect/map_effect/marker/access/req_all/nka
+	name = "access marker (req_all: nka)"
+	req_access = list(/datum/access/nka::id)
+
+/obj/effect/map_effect/marker/access/req_all/nuclear_missile_silo_access
+	name = "access marker (req_all: nuclear_missile_silo_access)"
+	req_access = list(/datum/access/nuclear_missile_silo_access::id)
+
+/obj/effect/map_effect/marker/access/req_all/paramedic
+	name = "access marker (req_all: paramedic)"
+	req_access = list(/datum/access/paramedic::id)
+
+/obj/effect/map_effect/marker/access/req_all/pharmacy
+	name = "access marker (req_all: pharmacy)"
+	req_access = list(/datum/access/pharmacy::id)
+
+/obj/effect/map_effect/marker/access/req_all/portofcall_police
+	name = "access marker (req_all: portofcall_police)"
+	req_access = list(/datum/access/portofcall_police::id)
+
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors
+	name = "access marker (req_all: portofcall_vendors)"
+	req_access = list(/datum/access/portofcall_vendors::id)
+
+/obj/effect/map_effect/marker/access/req_all/pra
+	name = "access marker (req_all: pra)"
+	req_access = list(/datum/access/pra::id)
+
+/obj/effect/map_effect/marker/access/req_all/psychiatrist
+	name = "access marker (req_all: psychiatrist)"
+	req_access = list(/datum/access/psychiatrist::id)
+
+/obj/effect/map_effect/marker/access/req_all/qm
+	name = "access marker (req_all: qm)"
+	req_access = list(/datum/access/qm::id)
+
+/obj/effect/map_effect/marker/access/req_all/rd
+	name = "access marker (req_all: rd)"
+	req_access = list(/datum/access/rd::id)
+
+/obj/effect/map_effect/marker/access/req_all/research
+	name = "access marker (req_all: research)"
+	req_access = list(/datum/access/research::id)
+
+/obj/effect/map_effect/marker/access/req_all/robotics
+	name = "access marker (req_all: robotics)"
+	req_access = list(/datum/access/robotics::id)
+
+/obj/effect/map_effect/marker/access/req_all/sec_doors
+	name = "access marker (req_all: sec_doors)"
+	req_access = list(/datum/access/sec_doors::id)
+
+/obj/effect/map_effect/marker/access/req_all/security
+	name = "access marker (req_all: security)"
+	req_access = list(/datum/access/security::id)
+
+/obj/effect/map_effect/marker/access/req_all/ship_weapons
+	name = "access marker (req_all: ship_weapons)"
+	req_access = list(/datum/access/ship_weapons::id)
+
+/obj/effect/map_effect/marker/access/req_all/skrell
+	name = "access marker (req_all: skrell)"
+	req_access = list(/datum/access/skrell::id)
+
+/obj/effect/map_effect/marker/access/req_all/sol_ships
+	name = "access marker (req_all: sol_ships)"
+	req_access = list(/datum/access/sol_ships::id)
+
+/obj/effect/map_effect/marker/access/req_all/splf_access
+	name = "access marker (req_all: splf_access)"
+	req_access = list(/datum/access/splf_access::id)
+
+/obj/effect/map_effect/marker/access/req_all/surgery
+	name = "access marker (req_all: surgery)"
+	req_access = list(/datum/access/surgery::id)
+
+/obj/effect/map_effect/marker/access/req_all/syndicate
+	name = "access marker (req_all: syndicate)"
+	req_access = list(/datum/access/syndicate::id)
+
+/obj/effect/map_effect/marker/access/req_all/tcaf
+	name = "access marker (req_all: tcaf)"
+	req_access = list(/datum/access/tcaf::id)
+
+/obj/effect/map_effect/marker/access/req_all/tcomsat
+	name = "access marker (req_all: tcomsat)"
+	req_access = list(/datum/access/tcomsat::id)
+
+/obj/effect/map_effect/marker/access/req_all/tech_storage
+	name = "access marker (req_all: tech_storage)"
+	req_access = list(/datum/access/tech_storage::id)
+
+/obj/effect/map_effect/marker/access/req_all/tox
+	name = "access marker (req_all: tox)"
+	req_access = list(/datum/access/tox::id)
+
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access
+	name = "access marker (req_all: tramp_freighter_access)"
+	req_access = list(/datum/access/tramp_freighter_access::id)
+
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate
+	name = "access marker (req_all: unathi_pirate)"
+	req_access = list(/datum/access/unathi_pirate::id)
+
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access
+	name = "access marker (req_all: unathi_trawler_access)"
+	req_access = list(/datum/access/unathi_trawler_access::id)
+
+/obj/effect/map_effect/marker/access/req_all/virology
+	name = "access marker (req_all: virology)"
+	req_access = list(/datum/access/virology::id)
+
+/obj/effect/map_effect/marker/access/req_all/voidtamer_ship
+	name = "access marker (req_all: voidtamer_ship)"
+	req_access = list(/datum/access/voidtamer_ship::id)
+
+/obj/effect/map_effect/marker/access/req_all/xenoarch
+	name = "access marker (req_all: xenoarch)"
+	req_access = list(/datum/access/xenoarch::id)
+
+/obj/effect/map_effect/marker/access/req_all/xenobiology
+	name = "access marker (req_all: xenobiology)"
+	req_access = list(/datum/access/xenobiology::id)
+
+/obj/effect/map_effect/marker/access/req_all/xenobotany
+	name = "access marker (req_all: xenobotany)"
+	req_access = list(/datum/access/xenobotany::id)

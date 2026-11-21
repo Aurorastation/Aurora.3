@@ -644,9 +644,9 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/port_airlock)
 "eM" = (
@@ -840,9 +840,9 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/starboard_airlock)
 "rr" = (
@@ -1160,9 +1160,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,48)
+	pixel_x = 28
 	},
+/obj/effect/map_effect/marker/access/req_one/mining,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/resting_area)
 "FG" = (
@@ -1499,9 +1499,9 @@
 	dir = 9
 	},
 /obj/structure/machinery/alarm/east{
-	alarm_id = 1601;
-	req_one_access = list(11,24,52)
+	alarm_id = 1601
 	},
+/obj/effect/map_effect/marker/access/req_one/xenobotany,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/mystery_ship/equipment)
 "Uf" = (

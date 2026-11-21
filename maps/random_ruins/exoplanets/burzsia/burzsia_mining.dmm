@@ -301,7 +301,6 @@
 /area/burzsia_mining/mining)
 "jg" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
 	name = "Foreman Office";
 	dir = 1
 	},
@@ -316,6 +315,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/foreman)
 "jk" = (
@@ -387,10 +387,10 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(209)
+	dir = 8
 	},
 /obj/structure/curtain/open/shower,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "kd" = (
@@ -438,7 +438,6 @@
 /area/burzsia_mining/dormitories)
 "lr" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
 	name = "Engine";
 	dir = 1
 	},
@@ -451,6 +450,7 @@
 	req_one_access = list(202)
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor,
 /area/burzsia_mining/engineering)
 "lO" = (
@@ -468,11 +468,11 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(209)
+	dir = 8
 	},
 /obj/structure/curtain/open/shower,
 /obj/item/soap/brown_soap,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "mc" = (
@@ -586,14 +586,14 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	dir = 1;
-	req_access = list(202)
+	dir = 1
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/suit_cooling_unit,
 /obj/item/gps/mining,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/steel,
 /area/burzsia_mining/mining)
 "oN" = (
@@ -665,7 +665,6 @@
 /area/burzsia_mining)
 "pT" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
 	name = "Atmospherics";
 	dir = 4
 	},
@@ -685,6 +684,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/engineering)
 "pY" = (
@@ -850,7 +850,6 @@
 /area/burzsia_mining/mining)
 "uU" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(202);
 	name = "Mess Room";
 	dir = 4
 	},
@@ -869,6 +868,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining)
 "vh" = (
@@ -887,10 +887,10 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
 /obj/structure/curtain/open/shower,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "vt" = (
@@ -1402,7 +1402,6 @@
 /area/burzsia_mining/mess_hall)
 "GW" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(202);
 	name = "Mining Bay";
 	dir = 4
 	},
@@ -1421,11 +1420,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/mess_hall)
 "Ht" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(202);
 	name = "Dormitories";
 	dir = 4
 	},
@@ -1444,6 +1443,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/burzsia_mining/dormitories)
 "Hv" = (
@@ -1775,9 +1775,9 @@
 /area/burzsia_mining)
 "Os" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	spawn_grille = 1;
-	req_one_access = list(202)
+	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/plating,
 /area/burzsia_mining/foreman)
 "OA" = (

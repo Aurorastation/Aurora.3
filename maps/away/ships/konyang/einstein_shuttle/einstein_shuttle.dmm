@@ -145,10 +145,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/multi_tile{
-	req_access = list(205);
 	name = "Bathrooms";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/bathroom)
 "dY" = (
@@ -359,9 +359,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock{
-	name = "Private Room";
-	req_access = list(205)
+	name = "Private Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
 "kI" = (
@@ -434,9 +434,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock{
-	name = "Private Room";
-	req_access = list(205)
+	name = "Private Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room)
 "mo" = (
@@ -644,9 +644,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	name = "Docking Port";
-	req_access = list(205)
+	name = "Docking Port"
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/dock)
 "qH" = (
@@ -984,9 +984,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock{
-	name = "Private Room";
-	req_access = list(205)
+	name = "Private Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/three)
 "zo" = (
@@ -1039,9 +1039,9 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "AJ" = (
@@ -1106,9 +1106,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock{
-	name = "Private Room";
-	req_access = list(205)
+	name = "Private Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/two)
 "Cf" = (
@@ -1374,12 +1374,12 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(205);
 	name = "Starboard Propulsion"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/starbeng)
 "Hd" = (
@@ -1527,9 +1527,9 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Conference Room";
-	req_access = list(205);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled,
 /area/shuttle/einstein_shuttle/conference)
 "LE" = (
@@ -1766,9 +1766,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/porteng)
 "TM" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(205)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
 "Uv" = (
@@ -1783,12 +1782,12 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(205);
 	name = "Port Propulsion"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/porteng)
 "Ux" = (

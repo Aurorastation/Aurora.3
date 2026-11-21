@@ -421,12 +421,12 @@
 /obj/structure/machinery/light/small,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "scrapper_bridge";
-	name = "Bridge Shutters";
-	req_access = list(202)
+	name = "Bridge Shutters"
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/scrapper_ship/bridge)
 "eZ" = (
@@ -857,9 +857,9 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "jW" = (
@@ -1010,7 +1010,6 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Bridge";
 	dir = 4
 	},
@@ -1020,6 +1019,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1400,11 +1400,11 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Bridge";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1426,11 +1426,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Workshop";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -1573,7 +1573,6 @@
 "sJ" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Storage";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1584,6 +1583,7 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/quarters)
 "sR" = (
@@ -1797,13 +1797,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Solars";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2025,12 +2025,12 @@
 	icon_state = "door_locked";
 	id_tag = "scrapper_station_door";
 	locked = 1;
-	req_access = list(202);
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/tajara_scrapper/hangar{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base)
 "xN" = (
@@ -2631,7 +2631,6 @@
 "Gq" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Living Quarters";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -2641,6 +2640,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/storage)
 "Gr" = (
@@ -3338,11 +3338,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Engine";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4023,7 +4023,6 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Engine";
 	dir = 1
 	},
@@ -4033,6 +4032,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4110,7 +4110,6 @@
 /area/shuttle/scrapper_ship/starboard_engines)
 "Xg" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Atmos";
 	dir = 1
 	},
@@ -4122,6 +4121,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "Xh" = (
@@ -4186,7 +4186,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Workshop";
 	dir = 1
 	},
@@ -4196,6 +4195,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

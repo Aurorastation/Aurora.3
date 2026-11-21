@@ -109,7 +109,6 @@
 "p" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
-	req_access = list(209);
 	name = "Hostile Specimen Containment";
 	pixel_y = -32;
 	id = "evil_schlorrgo"
@@ -117,6 +116,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete/square,
 /area/adhomai_schlorrgo_cage)
 "q" = (
@@ -160,10 +160,10 @@
 "t" = (
 /obj/structure/machinery/door/airlock/research{
 	name = "Animal Storage";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/cee,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete,
 /area/adhomai_schlorrgo_cage)
 "u" = (
@@ -278,9 +278,8 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
-/obj/structure/machinery/vending/robotics{
-	req_access = list(209)
-	},
+/obj/structure/machinery/vending/robotics,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete/square,
 /area/adhomai_schlorrgo_cage)
 "S" = (

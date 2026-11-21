@@ -32,12 +32,12 @@
 /area/nka_merchant/hangar)
 "ac" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(213);
 	name = "Warehouse";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/warehouse)
 "ae" = (
@@ -770,7 +770,6 @@
 /area/nka_merchant/warehouse)
 "ck" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
 	name = "Hangar";
 	dir = 1
 	},
@@ -783,6 +782,7 @@
 	},
 /obj/structure/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/hangar)
 "cl" = (
@@ -896,7 +896,6 @@
 /area/nka_merchant/merchant)
 "cG" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(213);
 	name = "Engine";
 	dir = 1
 	},
@@ -909,6 +908,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engine)
 "cH" = (
@@ -1289,7 +1289,6 @@
 /area/shuttle/nka_merchant_shuttle)
 "dN" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
 	name = "Captain's Quarters";
 	dir = 4
 	},
@@ -1308,6 +1307,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/captain_quarters)
 "dO" = (
@@ -1777,7 +1777,6 @@
 /area/nka_merchant/eva)
 "fQ" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(213);
 	name = "Airlock Access";
 	dir = 4
 	},
@@ -1785,6 +1784,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/eva)
 "fY" = (
@@ -2453,7 +2453,6 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "merchant_navy_office";
 	name = "Office Blastdoor";
-	req_access = list(213);
 	dir = 4;
 	pixel_x = 21
 	},
@@ -2463,6 +2462,7 @@
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
 /obj/item/hand_labeler,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3031,11 +3031,11 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
 	name = "Bridge";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3206,11 +3206,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(213);
 	name = "Armory";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3349,10 +3349,10 @@
 /area/nka_merchant/hangar)
 "nq" = (
 /obj/structure/machinery/door/window/eastright{
-	dir = 2;
-	req_access = list(213)
+	dir = 2
 	},
 /obj/effect/floor_decal/spline/plain,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
@@ -3419,7 +3419,6 @@
 /area/nka_merchant/mess)
 "nE" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
 	name = "Mess Hall";
 	dir = 4
 	},
@@ -3438,6 +3437,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/mess)
 "nP" = (
@@ -3635,12 +3635,11 @@
 	},
 /area/nka_merchant/mess)
 "qt" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(213)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3778,14 +3777,14 @@
 /area/shuttle/nka_merchant_shuttle)
 "sQ" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(213)
+	dir = 1
 	},
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4040,7 +4039,6 @@
 /area/nka_merchant)
 "vV" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(213);
 	name = "EVA Storage";
 	dir = 4
 	},
@@ -4059,6 +4057,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/eva)
 "wi" = (
@@ -4279,9 +4278,7 @@
 "xX" = (
 /obj/structure/machinery/atmospherics/portables_connector/aux,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window{
-	req_one_access = list(212)
-	},
+/obj/structure/machinery/door/window,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -4291,6 +4288,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4467,10 +4465,10 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
 	name = "Lounge";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant)
 "AB" = (
@@ -4604,13 +4602,13 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(213);
 	name = "Merchant Office";
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4696,12 +4694,12 @@
 /area/nka_merchant/mess)
 "DL" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 8;
-	req_access = list(213)
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4758,12 +4756,12 @@
 /area/nka_merchant/mess)
 "Ed" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
 	name = "Crew Quarters";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -5306,7 +5304,6 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(213);
 	name = "Warehouse";
 	dir = 4
 	},
@@ -5314,6 +5311,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/warehouse)
 "JO" = (
@@ -5321,7 +5319,6 @@
 /area/nka_merchant/captain_quarters)
 "JX" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(213);
 	name = "Restroom";
 	dir = 1
 	},
@@ -5334,6 +5331,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/barracks)
 "Ka" = (
@@ -5366,9 +5364,9 @@
 /area/nka_merchant/merchant)
 "Ki" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(213)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "Ko" = (
@@ -5510,7 +5508,6 @@
 /area/nka_merchant/engineering)
 "No" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(213);
 	name = "Engineering";
 	dir = 4
 	},
@@ -5529,6 +5526,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engineering)
 "Nq" = (
@@ -5664,19 +5662,19 @@
 	pixel_y = -32
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle{
-	dir = 4;
-	req_access = list(213)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "OT" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(213)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

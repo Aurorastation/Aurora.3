@@ -71,10 +71,10 @@
 /area/hailstorm_ship/torpedo_bay)
 "ad" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 4;
-	req_access = list(214)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -116,9 +116,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Habitation Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -201,8 +201,7 @@
 /area/hailstorm_ship/kitchen)
 "ax" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 8;
-	req_access = list(214)
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light/colored/decayed{
@@ -211,6 +210,7 @@
 /obj/structure/sign/painting_frame/almari{
 	pixel_x = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -344,14 +344,14 @@
 /area/hailstorm_ship/torpedo_bay)
 "bb" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 1;
-	req_access = list(214)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -627,9 +627,9 @@
 	id = "hailstorm_torpedo_shuttle";
 	dir = 1;
 	pixel_x = -27;
-	pixel_y = -4;
-	req_access = list(243)
+	pixel_y = -4
 	},
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -689,12 +689,12 @@
 /area/hailstorm_ship/propulsion)
 "dF" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 8;
-	req_access = list(214)
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -936,9 +936,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Port Gunnery Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1029,10 +1029,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Docking Module"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1173,9 +1173,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Helm Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1268,10 +1268,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Atmospherics"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1320,10 +1320,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Engineering Module"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1357,9 +1357,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Head"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1401,10 +1401,10 @@
 /area/hailstorm_ship/engineering)
 "iT" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(214)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1489,7 +1489,6 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Propulsion Management";
 	dir = 4
 	},
@@ -1499,6 +1498,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1753,9 +1753,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Utility Closet"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1866,10 +1866,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(214);
 	dir = 4;
 	name = "Advisor's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -1995,8 +1995,7 @@
 /area/hailstorm_ship/command_maint)
 "mM" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(214)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light/colored/decayed{
@@ -2005,6 +2004,7 @@
 /obj/structure/sign/painting_frame/nated{
 	pixel_x = -32
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2078,13 +2078,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(214);
 	name = "Nuclear Reactor Compartment"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "hailstorm_reactor"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2121,10 +2121,10 @@
 /area/hailstorm_ship/advisor_quarters)
 "nk" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(214)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2298,11 +2298,10 @@
 	},
 /area/hailstorm_ship/docking_arm)
 "pk" = (
-/obj/structure/machinery/computer/ship/engines/terminal{
-	req_access = list(214)
-	},
+/obj/structure/machinery/computer/ship/engines/terminal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2475,10 +2474,10 @@
 	id = "hailstorm_kitchen";
 	name = "Kitchen Shutters";
 	pixel_y = -1;
-	pixel_x = -20;
-	req_access = list(214)
+	pixel_x = -20
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -2614,10 +2613,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(214);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2695,9 +2694,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(214);
 	name = "Captain's Cabin"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2782,11 +2781,10 @@
 	},
 /area/hailstorm_ship/torpedo_bay)
 "sw" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(214)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -2846,9 +2844,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Crew Barracks"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3034,13 +3032,13 @@
 	pixel_x = -4;
 	id = "hailstorm_reactor";
 	name = "Reactor Blast Doors";
-	req_one_access = list(214);
 	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_one/dpra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3069,10 +3067,10 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Engineering";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3171,9 +3169,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Central Maintenance"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3193,24 +3191,24 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Engineering";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
 /area/hailstorm_ship/engineering)
 "vP" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(214)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3261,10 +3259,10 @@
 /area/hailstorm_ship/atmospherics)
 "vW" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 1;
-	req_access = list(214)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3532,9 +3530,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Armory Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3594,9 +3592,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Torpedo Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3826,9 +3824,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Kitchen"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3840,9 +3838,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 8;
-	name = "Kitchen";
-	req_access = list(214)
+	name = "Kitchen"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -3980,9 +3978,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Habitation Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -4115,9 +4113,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Helm Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -4237,13 +4235,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/secure{
-	req_access = list(214);
 	name = "Fuel Storage";
 	pixel_x = -32
 	},
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5271,9 +5269,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(214);
 	name = "Advisor's Cabin"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -5316,9 +5314,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Port Gunnery Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -5369,9 +5367,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Habitation Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -5929,9 +5927,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/external{
-	req_access = list(214);
 	name = "Engineering Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -6118,9 +6116,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Command Module"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -6138,10 +6136,10 @@
 /area/hailstorm_ship/atmospherics)
 "QA" = (
 /obj/structure/machinery/computer/ship/engines/terminal{
-	dir = 8;
-	req_access = list(214)
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -6437,13 +6435,13 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Armoury Module"
 	},
 /obj/effect/map_effect/door_helper/lock,
 /obj/effect/landmark/entry_point/port{
 	name = "port, armory"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -6706,10 +6704,10 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	dir = 4;
-	req_access = list(214);
 	name = "Command Module"
 	},
 /obj/effect/map_effect/door_helper/lock,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},
@@ -6812,12 +6810,12 @@
 	},
 /obj/structure/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
-	dir = 8;
-	req_access = list(214)
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 278.15
 	},
@@ -7072,13 +7070,13 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_access = list(214);
 	name = "Propulsion Management";
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/full{
 	temperature = 278.15
 	},

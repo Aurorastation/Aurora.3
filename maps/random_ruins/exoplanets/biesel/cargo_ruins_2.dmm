@@ -43,7 +43,6 @@
 /area/template_noop)
 "k" = (
 /obj/structure/closet/crate/secure/phoron{
-	req_access = list(112);
 	name = "secure crate"
 	},
 /obj/item/stack/material/steel/full,
@@ -62,6 +61,7 @@
 /obj/item/stack/material/uranium{
 	amount = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/distress,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "l" = (

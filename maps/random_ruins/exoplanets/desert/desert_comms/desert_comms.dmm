@@ -89,9 +89,9 @@
 	id = "comms_site_windows";
 	name = "Window Shutters";
 	dir = 6;
-	pixel_y = 3;
-	req_access = list(203)
+	pixel_y = 3
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/desert_comms)
 "cP" = (

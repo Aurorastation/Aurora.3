@@ -3742,7 +3742,6 @@
 /obj/structure/machinery/door/urban{
 	dir = 1;
 	name = "Office";
-	req_one_access = list(257);
 	support_ids = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3754,6 +3753,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/abandoned_casino,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/the_bank)
 "je" = (
@@ -7559,13 +7559,13 @@
 	id = "abandoned_casino_vault";
 	name = "Secure Storage Bolt Control";
 	pixel_y = 28;
-	specialfunctions = 4;
-	req_one_access = list(257)
+	specialfunctions = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/abandoned_casino,
 /turf/simulated/floor/lino,
 /area/abandoned_casino/the_bank/office)
 "xK" = (
@@ -9848,7 +9848,6 @@
 /obj/structure/machinery/door/urban{
 	dir = 1;
 	name = "The Bank";
-	req_one_access = list(257);
 	support_ids = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9863,6 +9862,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/abandoned_casino,
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_casino/the_bank)
 "Jc" = (

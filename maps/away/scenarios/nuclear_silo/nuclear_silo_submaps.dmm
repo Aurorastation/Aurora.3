@@ -301,14 +301,13 @@
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "fw" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "fI" = (
@@ -349,24 +348,22 @@
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "gy" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/x9,
 /obj/item/gun/projectile/automatic/x9,
 /obj/item/gun/projectile/automatic/x9,
 /obj/item/gun/projectile/automatic/x9,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "gz" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /obj/item/gun/projectile/automatic/rifle/sts35,
 /obj/item/gun/projectile/automatic/rifle/sts35,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "gB" = (
@@ -407,13 +404,12 @@
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/template_noop)
 "hx" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /obj/item/gun/energy/rifle/laser/sniper,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "hC" = (
@@ -617,9 +613,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "mS" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -628,13 +622,13 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "mX" = (
@@ -753,13 +747,12 @@
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "pa" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "pf" = (
@@ -869,9 +862,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qB" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -884,9 +875,9 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qI" = (
@@ -1052,17 +1043,14 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "sB" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine,
 /obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "sM" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/gun/projectile/revolver/detective,
@@ -1072,9 +1060,9 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "sS" = (
@@ -1333,14 +1321,13 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "xC" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "xE" = (
@@ -1372,9 +1359,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "yo" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -1382,6 +1367,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "zr" = (
@@ -1488,11 +1474,10 @@
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "AW" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/energy/laser/shotgun,
 /obj/item/gun/energy/laser/shotgun,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "AZ" = (
@@ -1577,11 +1562,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "CG" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/mini_uzi,
 /obj/item/gun/projectile/automatic/mini_uzi,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "CH" = (
@@ -1705,9 +1689,7 @@
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "Eh" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -1720,9 +1702,9 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ei" = (
@@ -1768,13 +1750,12 @@
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "ES" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /obj/item/gun/projectile/automatic/rifle/adhomian,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Fk" = (
@@ -1847,12 +1828,11 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Gv" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/energy/rifle/icelance,
 /obj/item/gun/energy/rifle/icelance,
 /obj/item/gun/energy/rifle/icelance,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "GK" = (
@@ -1919,9 +1899,7 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "HH" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
@@ -1934,9 +1912,9 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "HI" = (
@@ -2030,10 +2008,9 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "IW" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/dragunov,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "IZ" = (
@@ -2106,9 +2083,7 @@
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "Ko" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/sec/wood,
 /obj/item/gun/projectile/sec/wood,
 /obj/item/gun/projectile/sec/wood,
@@ -2121,9 +2096,9 @@
 	id = "bunker_lower_armoury";
 	pixel_x = -24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "KG" = (
@@ -2385,11 +2360,10 @@
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/template_noop)
 "OZ" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/energy/blaster/guardian,
 /obj/item/gun/energy/blaster/guardian,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ps" = (
@@ -2554,11 +2528,10 @@
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
 "SH" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/shotgun/pump/combat,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ti" = (
@@ -2805,12 +2778,11 @@
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
 "Xn" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(247)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/projectile/tanto,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Xx" = (
