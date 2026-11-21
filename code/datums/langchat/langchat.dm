@@ -128,7 +128,9 @@
 	for(var/mob/listener in listeners)
 		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
 			continue
-		var/perceived = msg.plain_text_for(listener)
+		// Maptext must stay plain before truncation; otherwise a cut HTML tag can
+		// appear literally above the speaker or expose hidden chat-only content.
+		var/perceived = strip_html_full(msg.plain_text_for(listener))
 		if(!length(perceived))
 			continue
 		var/list/group = groups[perceived]
