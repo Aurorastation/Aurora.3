@@ -3,6 +3,8 @@
 	var/list/random_icon_states
 	var/swept_away
 	var/cleanable_by_basic_cleaners = TRUE
+	persistent_objects_expiration_time_days = 7
+	var/persistence_type_requires_canon_round = FALSE
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
@@ -46,3 +48,38 @@
 	icon = 'icons/turf/overlays.dmi'
 	icon_state = "snowfloor_transparent"
 	anchored = TRUE
+
+/obj/effect/decal/cleanable/persistent_objects_get_content()
+	var/list/content = list()
+	if(persistence_get_type() == /obj/effect/decal/cleanable/dirt && type != /obj/effect/decal/cleanable/dirt)
+		content["icon_state"] = /obj/effect/decal/cleanable/dirt::icon_state
+		content["color"] = /obj/effect/decal/cleanable/dirt::color
+	else
+		content["icon_state"] = icon_state
+		content["color"] = color
+	return content
+
+/obj/effect/decal/cleanable/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	src.icon_state = content["icon_state"]
+	src.color = content["color"]
+
+/obj/effect/decal/cleanable/proc/try_make_persistent_dirt()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	PROTECTED_PROC(TRUE)
+	// Cleanables should become only persistent when they are not in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_DIRT
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_DIRT))
+			SSpersistence.objectsRegisterTrack(src, null)
+
+/obj/effect/decal/cleanable/persistence_get_type()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// Some cleanable types are only to be made persistent in canon rounds, otherwise they get replaced with generic dirt
+	if(src.persistence_type_requires_canon_round && SSticker.round_canon.round_canon != ROUND_FULL_CANON)
+		return text2path("/obj/effect/decal/cleanable/dirt")
+	else
+		return src.type
