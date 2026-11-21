@@ -119,11 +119,11 @@
 	return TRUE
 
 // Proc: on_innate_cast()
-// Parameters: 1 (user - the entity who is casting innately (without using hands).)
+// Parameters: 2 (user - the entity who is casting innately (without using hands), bypass_psi_check - whether to skip psionic checks.)
 // Description: Override this for casting without using hands (and as a result not using spell objects).
-/obj/item/spell/proc/on_innate_cast(mob/user)
+/obj/item/spell/proc/on_innate_cast(mob/user, var/bypass_psi_check)
 	SHOULD_CALL_PARENT(TRUE)
-	if(aspect == ASPECT_PSIONIC)
+	if(aspect == ASPECT_PSIONIC && !bypass_psi_check)
 		if(is_caster_psi_blocked(user))
 			return FALSE
 		if(!owner.psi.spend_power(psi_cost))
