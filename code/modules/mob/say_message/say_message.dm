@@ -36,6 +36,9 @@
 	/// Optional range limit for hearing the message.
 	var/message_range
 
+	/// player mobs that aren't on the screen that overheard the message
+	var/list/offscreen_listeners
+
 	/// The requested mode for this message.
 	var/message_mode
 
@@ -178,6 +181,7 @@
 	copy.italics = italics
 	copy.font_size = font_size
 	copy.message_range = message_range
+	copy.offscreen_listeners = offscreen_listeners
 	copy.message_mode = message_mode
 	copy.speech_sound = speech_sound
 	copy.sound_vol = sound_vol
