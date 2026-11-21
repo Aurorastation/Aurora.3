@@ -474,7 +474,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/dispersion_increase = 0
 	var/mob/living/accuracy_user = accuracy_user_override ? accuracy_user_override : user
 	if(!QDELETED(accuracy_user))
-		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase, src)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -559,8 +559,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 	if(user && notify_empty)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
 
-/// Called after successfully firing
-/obj/item/gun/proc/post_fire(mob/user, atom/target, pointblank = FALSE, announce_reflex = FALSE)
+//called after successfully firing
+/obj/item/gun/proc/post_fire(mob/user, atom/target, var/pointblank = FALSE, var/announce_reflex = FALSE)
+	SEND_SIGNAL(user, COMSIG_GUN_FIRED)
 	play_fire_sound()
 	if(!suppressed)
 		if(user && announce_reflex)
@@ -795,6 +796,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 // Safety Procs
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_SAFETY, src, &cancelled)
+	if(cancelled)
+		return
 	safety_state = !safety_state
 	update_icon()
 	if(user)
