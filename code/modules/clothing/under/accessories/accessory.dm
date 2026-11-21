@@ -252,7 +252,7 @@
 	name = "tie with a silver clip"
 	worn_overlay = "sclip"
 
-/obj/item/clothing/accessory/tie/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/accessory/tie/ribbon)
 	name = "neck ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/accessory/neck_ribbons.dmi'
@@ -761,6 +761,7 @@
 	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
+	icon = 'icons/obj/item/clothing/accessory/weishii_robe.dmi'
 	icon_state = "weishii_robe"
 	item_state = "weishii_robe"
 	flippable = FALSE

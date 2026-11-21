@@ -37,8 +37,7 @@
 /obj/item/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
 	if(adjacent_flag && istype(target,/obj/structure/machinery/portable_atmospherics/hydroponics))
-		user.visible_message(SPAN_DANGER("\The [user] fires \the [src] into \the [target]!"))
-		Fire(target,user)
+		fire_gun(target,user)
 		return
 	..()
 
@@ -223,7 +222,7 @@
 	. += ..()
 	. += "This gun can be emagged to make it fire damaging beams and get more max shots. It doesn't do a lot of damage, but it is concealable."
 
-/obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/energy/mousegun/post_fire(mob/user, atom/target, pointblank, announce_reflex)
 	var/T = get_turf(user)
 	spark(T, 3, GLOB.alldirs)
 	..()

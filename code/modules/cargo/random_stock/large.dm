@@ -37,9 +37,6 @@ STOCK_ITEM_LARGE(bubbleshield, 0.5)
 			break
 	new /obj/structure/machinery/shield_capacitor(T)
 
-STOCK_ITEM_LARGE(lubetank, 2)
-	new /obj/structure/reagent_dispensers/lube(L)
-
 STOCK_ITEM_LARGE(airpump, 1)
 	var/obj/structure/machinery/portable_atmospherics/powered/M = new /obj/structure/machinery/portable_atmospherics/powered/pump/filled(L)
 	if (prob(60) && M.cell)

@@ -34,6 +34,9 @@
 #define BASE_SKILL_POINTS_OCCUPATIONAL				8
 #define BASE_SKILL_POINTS_EVERYDAY					8
 
+/// How much morale each rank of the Cooking skill adds to the moodlet provided by food that character prepares.
+#define COOKING_MOODLET_VALUE_PER_RANK 5
+
 /// Critical success on a difficulty class. Obtained by rolling a nat 20 or +10 over the DC. Used for skills at the moment, will be used for more later.
 #define ROLL_RESULT_CRITICAL_SUCCESS 2
 /// Normal success on a difficulty class. Obtained by rolling equal or higher than the DC. Used for skills at the moment, will be used for more later.
