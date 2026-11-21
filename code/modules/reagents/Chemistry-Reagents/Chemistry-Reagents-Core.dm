@@ -1,6 +1,7 @@
 /singleton/reagent/blood
 	name = "Blood"
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	metabolism = REM * 5
 	color = "#C80000"
 	taste_description = "iron"
@@ -108,6 +109,7 @@
 	name = "Water"
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#0064C877"
 	metabolism = REM * 2
 	ingest_met = REM * 10

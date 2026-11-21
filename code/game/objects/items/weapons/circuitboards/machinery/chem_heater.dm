@@ -6,3 +6,4 @@
 	req_components = list(
 		"/obj/item/stock_parts/manipulator" = 3
 	)
+	flatpak_required_skills = list(PHARMACOLOGY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)

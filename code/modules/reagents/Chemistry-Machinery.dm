@@ -121,20 +121,28 @@
 	data["analysis"] = analysis
 
 
+	var/pharm_skill = get_pharmacology_skill(user)
+	var/obfuscate_chems = !condi && (pharm_skill <= SKILL_LEVEL_UNFAMILIAR)
+
 	// Process the beaker
 	if(beaker)
 		var/datum/reagents/beaker_reagents = beaker.reagents
+		var/beaker_idx = 0
 		for(var/reagent in beaker_reagents.reagent_volumes)
-
+			beaker_idx++
 			var/singleton/reagent/reagent_singleton = GET_SINGLETON(reagent)
-			reagents_in_beaker += list(list("name" = reagent_singleton.name, "volume" = REAGENT_VOLUME(beaker_reagents, reagent), "typepath" = reagent_singleton.type))
+			var/display_name = (obfuscate_chems && !is_basic_everyday_reagent(reagent_singleton)) ? "Unknown Compound #[beaker_idx]" : reagent_singleton.name
+			reagents_in_beaker += list(list("name" = display_name, "volume" = REAGENT_VOLUME(beaker_reagents, reagent), "typepath" = reagent_singleton.type))
 
 	data["reagents_in_beaker"] = reagents_in_beaker
 
 	//Process the machine content
+	var/buffer_idx = 0
 	for(var/reagent in src.reagents.reagent_volumes)
+		buffer_idx++
 		var/singleton/reagent/reagent_singleton = GET_SINGLETON(reagent)
-		reagents_in_internal_storage += list(list("name" = reagent_singleton.name, "volume" = REAGENT_VOLUME(reagents, reagent), "typepath" = reagent_singleton.type))
+		var/display_name = (obfuscate_chems && !is_basic_everyday_reagent(reagent_singleton)) ? "Unknown Compound #[buffer_idx]" : reagent_singleton.name
+		reagents_in_internal_storage += list(list("name" = display_name, "volume" = REAGENT_VOLUME(reagents, reagent), "typepath" = reagent_singleton.type))
 	data["reagents_in_internal_storage"] = reagents_in_internal_storage
 
 
@@ -217,6 +225,9 @@
 			if(params["amount"])
 				var/rtype = text2path(params["add"])
 				var/amount = clamp((text2num(params["amount"])), 0, 200)
+				if(!condi && get_pharmacology_skill(usr) <= SKILL_LEVEL_UNFAMILIAR && amount < 200)
+					amount = clamp(amount + pick(-2, -1, 1, 2), 1, 200)
+					to_chat(usr, SPAN_WARNING("You clumsily misjudge the transfer valve controls!"))
 				beaker.reagents.trans_type_to(src, rtype, amount)
 			return TRUE
 
@@ -224,6 +235,9 @@
 			if(params["amount"])
 				var/rtype = text2path(params["remove"])
 				var/amount = clamp((text2num(params["amount"])), 0, 200)
+				if(!condi && get_pharmacology_skill(usr) <= SKILL_LEVEL_UNFAMILIAR && amount < 200)
+					amount = clamp(amount + pick(-2, -1, 1, 2), 1, 200)
+					to_chat(usr, SPAN_WARNING("You clumsily misjudge the buffer valve controls!"))
 				if(mode)
 					reagents.trans_type_to(beaker, rtype, amount)
 				else
@@ -258,13 +272,19 @@
 
 	else if (action == "createpill" || action == "createpill_multiple")
 		var/count = 1
+		var/pharm_skill = get_pharmacology_skill(usr)
+		var/effective_max_pills = max_pill_count
+		if(pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+			effective_max_pills = 40
+		else if(pharm_skill == SKILL_LEVEL_TRAINED)
+			effective_max_pills = 30
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE
 
 		if (action == "createpill_multiple")
-			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, max_pill_count, 1)
-			count = clamp(count, 1, max_pill_count)
+			count = tgui_input_number(usr, "Select the number of pills to make.", src.name, pillamount, effective_max_pills, 1)
+			count = clamp(count, 1, effective_max_pills)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE
@@ -272,18 +292,21 @@
 		var/amount_per_pill = reagents.total_volume/count
 		if (amount_per_pill > 60) amount_per_pill = 60
 
-		var/name = tgui_input_text(usr, "Name your pill.", src.name, "[reagents.get_primary_reagent_name()] ([amount_per_pill] units)", MAX_NAME_LEN)
+		var/default_pill_name = (!condi && pharm_skill <= SKILL_LEVEL_UNFAMILIAR) ? "Unknown ([amount_per_pill] units)" : "[reagents.get_primary_reagent_name()] ([amount_per_pill] units)"
+		var/name = tgui_input_text(usr, "Name your pill.", src.name, default_pill_name, MAX_NAME_LEN)
 
 		if(reagents.total_volume/count < 1) //Sanity checking.
 			return TRUE
 		while (count-- && count >= 0)
 			var/obj/item/reagent_containers/pill/P = new/obj/item/reagent_containers/pill(get_turf(src))
-			if(!name) name = reagents.get_primary_reagent_name()
+			if(!name)
+				name = (!condi && pharm_skill <= SKILL_LEVEL_UNFAMILIAR) ? "Unknown" : reagents.get_primary_reagent_name()
 			P.name = "[name] pill"
 			P.pixel_x = rand(-7, 7) //random position
 			P.pixel_y = rand(-7, 7)
 			P.icon_state = pillsprite
 			reagents.trans_to_obj(P,amount_per_pill)
+			apply_pharmacology_skill_to_pill(P, pharm_skill)
 			if(src.loaded_pill_bottle)
 				loaded_pill_bottle.insert_into_storage(P)
 		CHEMMASTER_DISPENSE_SOUND
@@ -539,8 +562,18 @@
 	intent_message(MACHINE_SOUND)
 	inuse = TRUE
 
+	var/pharm_skill = get_pharmacology_skill(user)
+	var/grind_delay = 60
+	var/yield_mult = 1
+	if(pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+		grind_delay = 40
+		yield_mult = 1.2
+	else if(pharm_skill == SKILL_LEVEL_TRAINED)
+		grind_delay = 50
+		yield_mult = 1.1
+
 	// Reset the machine.
-	addtimer(CALLBACK(src, PROC_REF(grind_reset)), 60)
+	addtimer(CALLBACK(src, PROC_REF(grind_reset)), grind_delay)
 
 	// Process.
 	for (var/obj/item/O in holdingitems)
@@ -561,13 +594,13 @@
 					if(islist(sheet_components))
 						amount_to_take = (amount_to_take/(sheet_components.len))
 						for(var/i in sheet_components)
-							beaker.reagents.add_reagent(i, (amount_to_take*REAGENTS_PER_SHEET))
+							beaker.reagents.add_reagent(i, (amount_to_take * REAGENTS_PER_SHEET * yield_mult))
 					else
-						beaker.reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET))
+						beaker.reagents.add_reagent(sheet_components, (amount_to_take * REAGENTS_PER_SHEET * yield_mult))
 					continue
 
 		if(O.reagents)
-			O.reagents.trans_to(beaker, min(O.reagents.total_volume, remaining_volume))
+			O.reagents.trans_to(beaker, min(O.reagents.total_volume, remaining_volume), yield_mult)
 			if(O.reagents.total_volume == 0)
 				holdingitems -= O
 				qdel(O)

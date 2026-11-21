@@ -57,6 +57,14 @@
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		var/inj_time = time
+		if(inj_time > 0)
+			switch(get_medical_injection_skill(user))
+				if(SKILL_LEVEL_UNFAMILIAR)
+					inj_time = round(inj_time * 1.33)
+				if(SKILL_LEVEL_TRAINED)
+					inj_time = round(inj_time * 0.75)
+				if(SKILL_LEVEL_PROFESSIONAL)
+					inj_time = round(inj_time * 0.5)
 		var/mod_time = L.can_inject(user, TRUE, target_zone, armorcheck)
 		if(!mod_time)
 			return
