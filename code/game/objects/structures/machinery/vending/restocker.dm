@@ -6,8 +6,8 @@
 /obj/structure/machinery/vending/vendors
 	name = "Omni-Restocker"
 	desc = "The mother of all vendors, from which vending itself comes!"
-	icon_state = "engivend"
-	icon_vend = "engivend-vend"
+	icon_state = "refill"
+	icon_vend = "refill-vend"
 	vend_id = "admin"
 	persistent_stock = FALSE
 	req_access = list(/datum/access/janitor::id)
@@ -39,8 +39,8 @@
 		/obj/item/vending_refill/wardrobe = 2
 	)
 	random_itemcount = 0
-	light_color = COLOR_GOLD
-	light_mask = "engivend-light-mask"
+	light_color = COLOR_PALE_BLUE_GRAY
+	light_mask = "refill-lightmask"
 
 /obj/structure/machinery/vending/vendors/low_supply
 	products = list(

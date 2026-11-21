@@ -8,12 +8,11 @@
 /area/cryo_outpost/inside/canteen)
 "aby" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_aux_west)
 "abG" = (
@@ -159,9 +158,7 @@
 /area/cryo_outpost/inside/warehouse)
 "ajz" = (
 /obj/structure/table/steel,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -173,6 +170,7 @@
 	pixel_y = 1;
 	pixel_x = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_atmos)
 "ajG" = (
@@ -585,11 +583,11 @@
 	dir = 4;
 	id = "cryo_outpost_armory_door_bolts";
 	pixel_x = 24;
-	specialfunctions = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	specialfunctions = 4
 	},
 /obj/item/clothing/mask/balaclava/grey,
 /obj/item/clothing/head/helmet/security/generic,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "aES" = (
@@ -780,9 +778,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_entrance)
 "aOC" = (
@@ -851,12 +848,11 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/security{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/airlock/security,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
 "aVZ" = (
@@ -1034,9 +1030,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_warehouse)
 "bdd" = (
@@ -1054,9 +1050,8 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "bdL" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/labs_cryo_n)
 "bdV" = (
@@ -1069,15 +1064,14 @@
 /area/cryo_outpost/inside/entrance_aux_east)
 "bej" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "beC" = (
@@ -1094,9 +1088,8 @@
 /area/cryo_outpost/inside/habitation_west)
 "beS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/alarm/cold/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/cold/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -1144,9 +1137,8 @@
 "biz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/botany)
 "biE" = (
@@ -1276,11 +1268,11 @@
 	dir = 8;
 	id = "cryo_outpost_armory_door_bolts";
 	pixel_x = -24;
-	specialfunctions = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	specialfunctions = 4
 	},
 /obj/random/civgun,
 /obj/random/civgun/rifle,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "bqn" = (
@@ -1366,9 +1358,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/medical)
 "bsY" = (
@@ -1446,15 +1438,14 @@
 /turf/simulated/floor/wood/ebony,
 /area/cryo_outpost/inside/habitation_west)
 "byg" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
 "byo" = (
@@ -1607,9 +1598,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1617,6 +1606,7 @@
 	pixel_x = 1;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "bIf" = (
@@ -1745,12 +1735,11 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/engineering{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/airlock/engineering,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_atmos)
 "bTB" = (
@@ -1845,18 +1834,17 @@
 	id = "cryo_outpost_shutter_entrance_aux_east_in";
 	pixel_x = 28;
 	pixel_y = 32;
-	dir = 1;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
 "bXi" = (
 /obj/structure/machinery/smartfridge/drinks{
 	opacity = 1
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/canteen)
 "bXr" = (
@@ -1892,9 +1880,9 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/machinery/door/airlock/engineering{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "bYp" = (
@@ -2041,15 +2029,14 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/surface)
 "chM" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_west)
 "cij" = (
@@ -2102,12 +2089,11 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "ckv" = (
@@ -2185,15 +2171,14 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "crv" = (
@@ -2360,9 +2345,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/security{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "cDl" = (
@@ -2507,13 +2492,12 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "cNn" = (
@@ -2618,9 +2602,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
 "cTv" = (
@@ -3028,15 +3012,14 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "drA" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/engineering)
 "drH" = (
@@ -3092,9 +3075,8 @@
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
 "duO" = (
@@ -3175,9 +3157,8 @@
 /area/cryo_outpost/inside/entrance_aux_west)
 "dzI" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/labs_cryo_s)
 "dzJ" = (
@@ -3216,10 +3197,10 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access);
 	id_tag = "cryo_outpost_armory_door_bolts"
 	},
 /obj/effect/map_effect/door_helper/lock,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "dDj" = (
@@ -3423,9 +3404,8 @@
 "dNk" = (
 /obj/structure/table/rack,
 /obj/random/loot,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "dNM" = (
@@ -3557,9 +3537,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
 "dVP" = (
@@ -3748,9 +3728,8 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "eik" = (
@@ -3868,9 +3847,8 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_medbay)
 "epQ" = (
@@ -4205,9 +4183,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
 "eCr" = (
@@ -4273,15 +4251,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
 "eHg" = (
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/east,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_surgery)
 "eHB" = (
@@ -4398,9 +4375,8 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "eQr" = (
@@ -4453,9 +4429,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/eva)
 "eSG" = (
@@ -4554,13 +4529,12 @@
 /obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/outfit/admin/generic/engineer,
 /obj/item/stack/cable_coil/random,
 /obj/item/stack/cable_coil/random,
 /obj/item/storage/belt/utility/full,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "eWL" = (
@@ -4620,10 +4594,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/west,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_pods)
 "fcE" = (
@@ -4757,9 +4730,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "flr" = (
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/west,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_pods)
 "flY" = (
@@ -4812,9 +4784,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
 "fnD" = (
@@ -4866,15 +4838,14 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_west)
 "fpD" = (
@@ -4921,12 +4892,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_east)
 "fuA" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_w)
 "fuG" = (
@@ -5040,12 +5010,11 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "fxV" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_entrance)
 "fyI" = (
@@ -5426,12 +5395,11 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
 "fVh" = (
@@ -5479,10 +5447,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/warehouse)
 "fWk" = (
@@ -5567,13 +5534,12 @@
 /area/cryo_outpost/inside/labs_maint_w)
 "gac" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/junk,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_east)
 "gaF" = (
@@ -5706,9 +5672,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
 "gkB" = (
@@ -5791,33 +5756,30 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
 "gpH" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_west)
 "gqZ" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
 "grf" = (
@@ -5891,12 +5853,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "gsM" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/airless,
 /area/cryo_outpost/inside/sensors_iff)
 "gtP" = (
@@ -6009,9 +5970,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = -20;
-	dir = 8;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
 "gAO" = (
@@ -6067,9 +6028,7 @@
 /area/cryo_outpost/outside/surface)
 "gHq" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/east,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -6079,6 +6038,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
 "gHB" = (
@@ -6424,9 +6384,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_east_out";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
 "hgY" = (
@@ -6488,6 +6448,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_pharmacy)
 "hoe" = (
@@ -6511,13 +6474,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/warehouse)
 "hpg" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_engineering)
 "hpJ" = (
@@ -6856,9 +6818,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "hGI" = (
@@ -6874,13 +6836,12 @@
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/flashlight/maglight,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/outfit/admin/generic/security,
 /obj/item/handcuffs{
 	pixel_y = -5
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "hHi" = (
@@ -7040,9 +7001,8 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/machinery/portable_atmospherics/canister/air,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/habitation_east)
 "hRz" = (
@@ -7548,9 +7508,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/west,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_rnd)
 "iAa" = (
@@ -7739,9 +7698,8 @@
 /obj/item/clothing/glasses/sunglasses/aviator,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
 "iOf" = (
@@ -7971,24 +7929,22 @@
 /area/cryo_outpost/inside/maint_habitation)
 "jaq" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/warehouse)
 "jaC" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "jaV" = (
@@ -8464,9 +8420,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_west_in";
 	pixel_x = 28;
-	pixel_y = -20;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_west)
 "jDE" = (
@@ -8477,9 +8433,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "jEc" = (
@@ -8494,9 +8450,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "jEn" = (
@@ -8575,9 +8530,8 @@
 /area/cryo_outpost/inside/labs_surgery)
 "jIJ" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "jIU" = (
@@ -8816,9 +8770,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_east_in";
 	pixel_x = 28;
-	pixel_y = -20;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_east)
 "jTC" = (
@@ -8895,9 +8849,8 @@
 "jYb" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
 "jYM" = (
@@ -8944,9 +8897,8 @@
 /area/cryo_outpost/inside/labs_offices)
 "kay" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_engineering)
 "kaM" = (
@@ -9009,9 +8961,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "kcC" = (
@@ -9477,6 +9429,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
 "kDR" = (
@@ -9521,9 +9474,8 @@
 	pixel_y = 1;
 	pixel_x = 8
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "kGe" = (
@@ -9629,12 +9581,11 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
 "kLE" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_habitation)
 "kLT" = (
@@ -9874,13 +9825,12 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/cave)
 "kXH" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/botany)
 "kXX" = (
@@ -9999,9 +9949,8 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/security{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/airlock/security,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
 "lcx" = (
@@ -10072,12 +10021,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "lgR" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_botany)
 "lgT" = (
@@ -10144,15 +10092,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/warehouse)
 "ljg" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
 "ljm" = (
@@ -10188,9 +10135,8 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/glass{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/airlock/glass,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "llt" = (
@@ -10239,6 +10185,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_habitation)
+"lnq" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/labs_surgery)
 "lnS" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/light,
@@ -10440,15 +10396,14 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
 "lAG" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "lAW" = (
@@ -10559,12 +10514,11 @@
 "lJl" = (
 /obj/structure/machinery/washing_machine,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
 "lJy" = (
@@ -10599,9 +10553,8 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_e)
 "lLg" = (
@@ -10873,9 +10826,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_aux_west_out";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
 "mec" = (
@@ -11256,10 +11209,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/habitation_east)
 "mHU" = (
@@ -11302,10 +11254,9 @@
 /area/cryo_outpost/inside/entrance_main)
 "mKq" = (
 /obj/structure/table/rack,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/random/loot,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_botany)
 "mKr" = (
@@ -11420,9 +11371,8 @@
 /area/cryo_outpost/inside/entrance_main)
 "mQJ" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_botany)
 "mQP" = (
@@ -11548,12 +11498,11 @@
 /obj/item/clothing/head/helmet/space/emergency{
 	pixel_x = -5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
 "naa" = (
@@ -11807,9 +11756,9 @@
 	id = "cryo_outpost_shutter_entrance_aux_west_in";
 	pixel_x = 28;
 	pixel_y = 32;
-	dir = 1;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
 "noY" = (
@@ -12135,9 +12084,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
 "nJO" = (
@@ -12839,9 +12788,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/blue{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
 "oCC" = (
@@ -12932,6 +12881,7 @@
 /obj/structure/machinery/alarm/cold/north{
 	req_one_access = null
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -12989,9 +12939,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = -20;
-	dir = 8;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
 "oHE" = (
@@ -13030,9 +12980,8 @@
 /area/cryo_outpost/inside/maint_entrance)
 "oIC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_west)
 "oIL" = (
@@ -13368,22 +13317,20 @@
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
 "paq" = (
-/obj/structure/machinery/door/window/southright{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/window/southright,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "pau" = (
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
 "paE" = (
@@ -13516,10 +13463,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/eva)
 "pkO" = (
@@ -13689,9 +13635,8 @@
 /area/cryo_outpost/inside/habitation_west)
 "psE" = (
 /obj/structure/closet/crate/freezer,
-/obj/structure/machinery/alarm/cold/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/cold/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -13713,12 +13658,11 @@
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
 "pvi" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
 "pvl" = (
@@ -13757,24 +13701,22 @@
 	},
 /area/cryo_outpost/inside/labs_surgery)
 "pxp" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_surgery)
 "pxE" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_powergen)
 "pyW" = (
@@ -13928,12 +13870,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_atmos)
 "pHD" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/labs_cryo_s)
 "pHF" = (
@@ -13999,9 +13940,8 @@
 "pMM" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
 "pNl" = (
@@ -14080,9 +14020,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
 "pRj" = (
@@ -14481,15 +14420,14 @@
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
 "qlx" = (
-/obj/structure/machinery/power/apc/west{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/west,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_rnd)
 "qmj" = (
@@ -14641,9 +14579,8 @@
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/corner_wide/green,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "qvw" = (
@@ -14670,13 +14607,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_east)
 "qvS" = (
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
 "qwc" = (
@@ -14793,13 +14729,12 @@
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/habitation_west)
 "qAD" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/labs_cryo_n)
 "qBu" = (
@@ -14827,6 +14762,9 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/research,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_pharmacy)
 "qCL" = (
@@ -14908,10 +14846,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "qGr" = (
@@ -15002,13 +14940,12 @@
 /area/cryo_outpost/inside/engi_atmos)
 "qMx" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_aux_east)
 "qNj" = (
@@ -15052,6 +14989,9 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_surgery)
 "qSm" = (
@@ -15075,9 +15015,8 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/cave)
 "qTd" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_w)
 "qTt" = (
@@ -15095,6 +15034,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/cryo_outpost/inside/sensors_iff)
+"qUp" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/structure/machinery/power/apc/north,
+/obj/effect/map_effect/marker/access/none,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "qUv" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/sign/biohazard{
@@ -15202,9 +15153,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "qXz" = (
@@ -15348,9 +15299,8 @@
 /area/cryo_outpost/inside/labs_maint_e)
 "rgp" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
 "rgX" = (
@@ -15857,15 +15807,14 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/cave)
 "rIg" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
 "rII" = (
@@ -15950,25 +15899,22 @@
 	id = "cryo_outpost_shutter_entrance_main_in";
 	pixel_y = 36;
 	dir = 1;
-	pixel_x = 6;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	pixel_x = 6
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_shutter_entrance_main_out";
 	pixel_y = 24;
 	dir = 1;
-	pixel_x = 6;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	pixel_x = 6
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
 "rOx" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -15979,6 +15925,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "rPw" = (
@@ -16152,15 +16099,14 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/obj/structure/machinery/power/apc/east{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/east,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
 "san" = (
@@ -16444,12 +16390,11 @@
 	dir = 4
 	},
 /obj/structure/bed/stool/chair,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "sny" = (
@@ -16607,15 +16552,14 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "svg" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
 "svP" = (
@@ -16661,9 +16605,9 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/machinery/door/airlock/research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "swO" = (
@@ -16699,9 +16643,7 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
 "sxQ" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -16711,6 +16653,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
 "sxU" = (
@@ -17276,12 +17219,11 @@
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
 "toa" = (
@@ -17403,13 +17345,12 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/airlock/glass_engineering{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/airlock/glass_engineering,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "tti" = (
@@ -17667,9 +17608,8 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "tGy" = (
@@ -17731,9 +17671,8 @@
 "tJU" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/appliance/cooker/grill,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/canteen)
 "tKe" = (
@@ -17782,13 +17721,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/cryo_outpost/inside/warehouse)
 "tOn" = (
-/obj/structure/machinery/door/window/southleft{
-	req_one_access = list(/datum/access/cryo_outpost_access)
-	},
+/obj/structure/machinery/door/window/southleft,
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white,
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "tOR" = (
@@ -17896,18 +17834,16 @@
 	pixel_y = 7;
 	pixel_x = -2
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "tUp" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/structure/machinery/alarm/west{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/west,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
 "tVk" = (
@@ -18421,9 +18357,8 @@
 "uxC" = (
 /obj/structure/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/botany)
 "uxI" = (
@@ -18662,9 +18597,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
 "uLs" = (
@@ -18746,15 +18680,14 @@
 /area/cryo_outpost/inside/warehouse)
 "uOV" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
 "uQv" = (
@@ -18969,9 +18902,8 @@
 	pixel_y = 7
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_w)
 "vcd" = (
@@ -19087,13 +19019,12 @@
 /area/cryo_outpost/inside/labs_rnd)
 "vfP" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/item/trash/cigbutt{
 	pixel_y = -12;
 	pixel_x = 10
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_botany)
 "vgp" = (
@@ -19117,11 +19048,10 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/random/civgun,
 /obj/random/civgun/rifle,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "viK" = (
@@ -19168,23 +19098,21 @@
 /area/cryo_outpost/outside/surface)
 "vjI" = (
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "vlL" = (
 /obj/structure/machinery/optable,
 /mob/living/carbon/human/vatgrown,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "vmu" = (
@@ -19542,12 +19470,11 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "vJJ" = (
@@ -19715,9 +19642,8 @@
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "vRI" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "vRY" = (
@@ -19912,9 +19838,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/east,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_hallway)
 "whs" = (
@@ -20141,9 +20066,8 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "wwF" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
 "wwZ" = (
@@ -20226,9 +20150,8 @@
 "wAM" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/table/standard,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
 "wBu" = (
@@ -20766,9 +20689,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
 "xec" = (
@@ -20996,13 +20918,12 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/landing)
 "xpC" = (
-/obj/structure/machinery/power/apc/north{
-	req_access = null
-	},
+/obj/structure/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "xqQ" = (
@@ -21241,15 +21162,14 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_w)
 "xFl" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
 "xFn" = (
@@ -21585,9 +21505,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass_research{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "xXR" = (
@@ -21704,9 +21624,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cryo_outpost_blastdoor_labs";
 	pixel_x = 20;
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
 "yiy" = (
@@ -21730,15 +21650,14 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
 "yjq" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/structure/machinery/alarm/north,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/none,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
 "yjz" = (
@@ -21786,9 +21705,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	dir = 4;
-	req_one_access = list(/datum/access/cryo_outpost_access)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/cryo_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "ylR" = (
@@ -66801,7 +66720,7 @@ rXJ
 rXJ
 tyD
 noY
-jCm
+lnq
 qPD
 qCa
 hmQ
@@ -67061,7 +66980,7 @@ noY
 hKy
 lSq
 gQn
-bDq
+qUp
 kVy
 kCd
 sqF

@@ -187,7 +187,7 @@
 	name = "Special Operations Officer"
 
 	uniform = /obj/item/clothing/under/syndicate/combat
-	suit = /obj/item/clothing/suit/armor/swat/officer
+	suit = /obj/item/clothing/suit/armor/swat
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/radio/headset/ert

@@ -43,6 +43,8 @@
 	for(var/mob/living/M in get_hearers_in_LOS(4, src))
 		if(M == creator)
 			continue
+		if(M.is_psi_blocked(creator, TRUE))
+			continue
 		to_chat(M, SPAN_DANGER("Your eyes can't move away from \the [src]... you feel compelled to move towards it!"))
 		M.AdjustStunned(1)
 		step_towards(M, src)

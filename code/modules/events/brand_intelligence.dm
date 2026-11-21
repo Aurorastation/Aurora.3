@@ -24,8 +24,8 @@
 
 	originMachine = pick(vendingMachines)
 	vendingMachines.Remove(originMachine)
-	originMachine.shut_up = 0
-	originMachine.shoot_inventory = 1
+	infectedVendingMachines.Add(originMachine)
+	infect_machine(originMachine)
 
 
 /datum/event/brand_intelligence/tick()
@@ -39,8 +39,7 @@
 			var/obj/structure/machinery/vending/infectedMachine = pick(vendingMachines)
 			vendingMachines.Remove(infectedMachine)
 			infectedVendingMachines.Add(infectedMachine)
-			infectedMachine.shut_up = 0
-			infectedMachine.shoot_inventory = 1
+			infect_machine(infectedMachine)
 
 			if(IsMultiple(activeFor, 12))
 				originMachine.speak(pick(
@@ -58,5 +57,16 @@
 	..()
 
 	for(var/obj/structure/machinery/vending/infectedMachine in infectedVendingMachines)
-		infectedMachine.shut_up = 1
-		infectedMachine.shoot_inventory = 0
+		infectedMachine.clear_brand_intelligence()
+
+/// Assigns an infected vendor a weighted malfunction profile. Speech is common to every profile.
+/datum/event/brand_intelligence/proc/infect_machine(obj/structure/machinery/vending/vendor)
+	var/alist/malfunction_weights = alist()
+	malfunction_weights[VENDING_MALFUNCTION_CATALOGUE] = 35
+	malfunction_weights[VENDING_MALFUNCTION_REFUSAL] = 20
+	malfunction_weights[VENDING_MALFUNCTION_MIXUP] = 15
+	malfunction_weights[VENDING_MALFUNCTION_GIVEAWAY] = 15
+	malfunction_weights[VENDING_MALFUNCTION_LAUNCHER] = 10
+	malfunction_weights[VENDING_MALFUNCTION_ELECTRICAL] = 5
+	var/malfunction = pickweight(malfunction_weights)
+	vendor.apply_brand_intelligence(malfunction)

@@ -17,7 +17,7 @@
 			distance = get_dist(source_turf, target_turf)
 		is_adjacent = user.Adjacent(target)
 
-	SEND_SIGNAL(user, COMSIG_MOB_EXAMINATE, target)
-
 	if(!target.examine(user, distance, is_adjacent, show_extended = show_extended))
 		crash_with("Improper /examine() override: [log_info_line(target)]")
+
+	SEND_SIGNAL(user, COMSIG_MOB_EXAMINATE, target, distance, is_adjacent)
