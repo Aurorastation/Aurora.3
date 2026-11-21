@@ -86,7 +86,7 @@
 	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
 		RegisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_CHANGE, PROC_REF(relay_weather_change))
 		addtimer(CALLBACK(src, PROC_REF(read_initial_weather)), 2 SECONDS)
-		output_spoken_message("Initializing weather detection subsystem...")
+		say("Initializing weather detection subsystem...", message_mods = list(SAY_MOD_VERB = "transmits"))
 
 /// Reads the current weather status aloud when deployed on a planet with weather
 /obj/structure/survey_probe/proc/read_initial_weather()
@@ -94,12 +94,12 @@
 
 	var/obj/abstract/weather_system/weather = current_turf.weather || SSweather.weather_by_z["[current_turf.z]"]
 	if(!weather)
-		output_spoken_message("No weather conditions detected.")
+		say("No weather conditions detected.", message_mods = list(SAY_MOD_VERB = "transmits"))
 		return
 
 	var/singleton/state/weather/current_weather_state = weather.weather_system.current_state
 	if(current_weather_state)
-		output_spoken_message("Reading current weather conditions as \"[current_weather_state.name]\".")
+		say("Reading current weather conditions as \"[current_weather_state.name]\".", message_mods = list(SAY_MOD_VERB = "transmits"))
 
 /obj/structure/survey_probe/proc/undeploy()
 	anchored = FALSE
@@ -119,7 +119,7 @@
 
 	var/singleton/state/weather/expected_weather_state = weather_transition.target
 	var/broadcast_message = "Expecting shift to new weather condition, \"[expected_weather_state.name]\", in approximately [DisplayTimeText(time_to_transition)]."
-	output_spoken_message(broadcast_message)
+	say(broadcast_message, message_mods = list(SAY_MOD_VERB = "transmits"))
 
 	// received the message, now broadcast it to receivers
 	// also send over other data, so unique receivers can have their own handling

@@ -15,7 +15,7 @@
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/structure/machinery/button/distress/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/structure/machinery/button/distress/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	recorded_message = text
 
 /obj/structure/machinery/button/distress/attack_hand(var/mob/user)

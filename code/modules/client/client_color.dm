@@ -116,3 +116,9 @@
 
 /datum/client_color/oversaturated/New()
 	client_color = color_saturation(40)
+
+/datum/client_color/forensics_noir
+	priority = 200
+
+/datum/client_color/forensics_noir/New()
+	client_color = color_saturation(-75)
