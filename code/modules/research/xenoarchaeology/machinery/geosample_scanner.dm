@@ -64,6 +64,7 @@
 	/// is FALSE; reaches 0 → flips spike_active TRUE.
 	var/t_to_next_spike = 0
 	var/rad_shield = FALSE
+	var/operator_skill = SKILL_LEVEL_UNFAMILIAR
 
 /obj/structure/machinery/radiocarbon_spectrometer/Initialize()
 	. = ..()
@@ -244,11 +245,17 @@
 
 			//make some scan progress
 			if(!rad_shield)
-				scanner_progress = min(100, scanner_progress + scanner_rate * maser_efficiency * deltaT)
+				var/rate_mult = 1
+				if(operator_skill >= SKILL_LEVEL_PROFESSIONAL)
+					rate_mult = 1.5
+				else if(operator_skill >= SKILL_LEVEL_TRAINED)
+					rate_mult = 1.25
+				scanner_progress = min(100, scanner_progress + scanner_rate * rate_mult * maser_efficiency * deltaT)
 
 				//degrade the seal over time according to temperature
 				//i want temperature of 50K to degrade at 1%/sec
-				scanner_seal_integrity -= (max(scanner_temperature, 1) / 1000) * deltaT
+				var/seal_degrade_mult = (operator_skill >= SKILL_LEVEL_PROFESSIONAL) ? 0.5 : 1
+				scanner_seal_integrity -= (max(scanner_temperature, 1) / 1000) * deltaT * seal_degrade_mult
 
 			//emergency stop if seal integrity reaches 0
 			if(scanner_seal_integrity <= 0 || (scanner_temperature >= 1273 && !rad_shield))
@@ -360,6 +367,7 @@
 					if(scanner_seal_integrity > 0)
 						scanner_progress = 0
 						scanning = TRUE
+						operator_skill = GET_SKILL_LEVEL(usr, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
 						t_to_next_spike = rand(RC_SPIKE_INTERVAL_LO, RC_SPIKE_INTERVAL_HI)
 						to_chat(usr, SPAN_NOTICE("Scan initiated."))
 					else

@@ -17,14 +17,26 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/structure/pit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!open && (locate(/obj/item/landmine) in contents) && GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_WARNING("The soil over \the [src] has been disturbed in a circular pattern — a landmine appears to be buried inside!")
+
 /obj/structure/pit/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/shovel))
 		visible_message(SPAN_NOTICE("\The [user] starts [open ? "filling" : "digging open"] \the [src]"))
-		if(attacking_item.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, round(50 * get_xenoarch_dig_multiplier(user)), volume = 50))
 			visible_message(SPAN_NOTICE("\The [user] [open ? "fills" : "digs open"] \the [src]!"))
 			if(open)
 				close(user)
 			else
+				if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_TRAINED)
+					for(var/obj/item/landmine/M in contents)
+						if(M.deployed)
+							M.deployed = FALSE
+							M.anchored = FALSE
+							M.update_icon()
+							to_chat(user, SPAN_NOTICE("You carefully unearth and unprime \the [M] buried inside \the [src]."))
 				open()
 		else
 			to_chat(user, SPAN_NOTICE("You stop shoveling."))

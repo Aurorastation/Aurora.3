@@ -118,11 +118,29 @@
 /obj/structure/machinery/replicator/attack_hand(mob/user as mob)
 	interact(user)
 
+/obj/structure/machinery/replicator/proc/get_deciphered_hint(atom/spawn_path, arch_skill)
+	if(!spawn_path || arch_skill < SKILL_LEVEL_TRAINED)
+		return ""
+	if(arch_skill >= SKILL_LEVEL_PROFESSIONAL)
+		return " <i>(Deciphered: [initial(spawn_path.name)])</i>"
+	if(ispath(spawn_path, /mob/living))
+		return " <i>(Glyphs indicate: Autonomous Construct — CAUTION)</i>"
+	if(ispath(spawn_path, /obj/item/surgery) || ispath(spawn_path, /obj/item/healthanalyzer) || ispath(spawn_path, /obj/item/autopsy_scanner) || ispath(spawn_path, /obj/item/roller) || ispath(spawn_path, /obj/item/breath_analyzer))
+		return " <i>(Glyphs indicate: Medical Apparatus)</i>"
+	if(ispath(spawn_path, /obj/item/grenade) || ispath(spawn_path, /obj/item/handcuffs) || ispath(spawn_path, /obj/item/flash))
+		return " <i>(Glyphs indicate: Tactical/Ordnance Device)</i>"
+	if(ispath(spawn_path, /obj/structure/closet))
+		return " <i>(Glyphs indicate: Storage Receptacle)</i>"
+	return " <i>(Glyphs indicate: Utility/Handheld Tool)</i>"
+
 /obj/structure/machinery/replicator/interact(mob/user)
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
 	var/dat = "The control panel displays an incomprehensible selection of controls, many with unusual markings or text around them.<br>"
 	dat += "<br>"
 	for(var/index=1, index<=construction.len, index++)
-		dat += "<A href='byond://?src=[REF(src)];activate=[index]'>\[[construction[index]]\]</a><br>"
+		var/button_key = construction[index]
+		var/atom/spawn_path = construction[button_key]
+		dat += "<A href='byond://?src=[REF(src)];activate=[index]'>\[[button_key]\]</a>[get_deciphered_hint(spawn_path, arch_skill)]<br>"
 
 	user << browse(HTML_SKELETON(dat), "window=alien_replicator")
 

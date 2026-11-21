@@ -18,6 +18,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
+/obj/item/reagent_containers/glass/replenishing/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_NOTICE("The interior lining exhibits anomalous matter-synthesis properties, continuously generating fluid.")
+
 //a talking gas mask!
 /obj/item/clothing/mask/gas/poltergeist
 	var/list/heard_talk = list()
@@ -32,6 +37,11 @@
 /obj/item/clothing/mask/gas/poltergeist/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/clothing/mask/gas/poltergeist/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_NOTICE("Subtle vocal resonators and audio-capture filaments are woven into the mask's filter assembly.")
 
 /obj/item/clothing/mask/gas/poltergeist/process()
 	if(heard_talk.len && istype(src.loc, /mob/living) && prob(10))
@@ -76,6 +86,11 @@
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/vampiric/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_WARNING("You recognize the archaic iconography—this statuette is a hazardous blood-draining relic.")
 
 /obj/item/vampiric/process()
 	//see if we've identified anyone nearby

@@ -109,3 +109,24 @@
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/xenobiology = SKILL_LEVEL_PROFESSIONAL
 	)
+
+/singleton/education/xenoarchaeology_degree
+	name = "Xenoarchaeology Degree"
+	description = "You are at least 30 years of age, with a PhD in Xenoarchaeology. Your specialization is with excavating, dating, and analyzing ancient alien relics and anomalous phenomena."
+	jobs = list("Xenoarchaeologist")
+	minimum_character_age = list(
+		SPECIES_HUMAN = 30,
+		SPECIES_TAJARA = 30,
+		SPECIES_TAJARA_MSAI = 30,
+		SPECIES_TAJARA_ZHAN = 30,
+		SPECIES_UNATHI = 30,
+		SPECIES_UNATHI_URAWANI = 30,
+		SPECIES_UNATHI_ZIRALIXI = 30,
+		SPECIES_SKRELL = 60,
+		SPECIES_SKRELL_AXIORI = 60
+	)
+	skills = list(
+		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/archaeology = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
+	)

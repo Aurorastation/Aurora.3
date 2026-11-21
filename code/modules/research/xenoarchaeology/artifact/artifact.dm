@@ -49,6 +49,11 @@
 		color = coloration
 	excavation_level = rand(5,50)
 
+/obj/structure/boulder/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) >= SKILL_LEVEL_PROFESSIONAL)
+		. += SPAN_NOTICE("You estimate it has been excavated to a depth of <b>[2 * excavation_level]cm</b>.")
+
 /obj/structure/boulder/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/core_sampler))
 		src.geologic_data.artifact_distance = rand(-100,100) / 100
@@ -68,22 +73,27 @@
 		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
 								SPAN_NOTICE("You extend [P] towards [src]."))
 
-		if(do_after(user,40))
+		if(do_after(user, 40 * get_xenoarch_dig_multiplier(user)))
 			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm."))
 		return
 
 	if (istype(attacking_item, /obj/item/pickaxe))
 		var/obj/item/pickaxe/P = attacking_item
+		var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+		var/effective_digspeed = P.digspeed * get_xenoarch_dig_multiplier(user)
 
-		if(last_act + P.digspeed > world.time)//prevents message spam
+		if(last_act + effective_digspeed > world.time)//prevents message spam
 			return
+
+		if(excavation_level + P.excavation_amount > 100 && arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
+			to_chat(user, SPAN_WARNING("You stop before striking \the [src]—your training tells you \the [attacking_item] would shatter the remaining rock and destroy anything inside!"))
+			return
+
 		last_act = world.time
 
 		to_chat(user, SPAN_WARNING("You start [P.drill_verb] [src]."))
 
-
-
-		if(!do_after(user,P.digspeed))
+		if(!do_after(user, effective_digspeed))
 			return
 
 		to_chat(user, SPAN_NOTICE("You finish [P.drill_verb] [src]."))
@@ -110,6 +120,10 @@
 				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
 				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
 			qdel(src)
+			return
+
+		if(arch_skill >= SKILL_LEVEL_PROFESSIONAL && P.excavation_amount <= 15)
+			to_chat(user, SPAN_NOTICE("You estimate \the [src] has now been excavated to a depth of <b>[2 * excavation_level]cm</b>."))
 
 /obj/structure/boulder/CollidedWith(atom/bumped_atom)
 	. = ..()

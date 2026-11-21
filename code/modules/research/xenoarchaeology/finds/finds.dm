@@ -71,7 +71,13 @@
 		return
 
 	..()
-	if(prob(33))
+	var/arch_skill = GET_SKILL_LEVEL(user, ARCHAOLOGY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
+	var/crumble_chance = 33
+	if(arch_skill >= SKILL_LEVEL_TRAINED)
+		crumble_chance = 0
+	else if(arch_skill == SKILL_LEVEL_FAMILIAR)
+		crumble_chance = 20
+	if(prob(crumble_chance))
 		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
 		qdel(src)
 
