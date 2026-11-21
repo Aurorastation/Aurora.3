@@ -404,6 +404,188 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/chemicalcartridge_brownstar
+	category = "cartridges"
+	name = "drink cartridge - Brown Star"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 18
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/brownstar
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_chaitea
+	category = "cartridges"
+	name = "drink cartridge - chai tea"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/chaitea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_ciderhot
+	category = "cartridges"
+	name = "drink cartridge - hot cider"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/ciderhot
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_cleankois
+	category = "cartridges"
+	name = "drink cartridge - Clean K'ois"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 25
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/clean_kois
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_espresso
+	category = "cartridges"
+	name = "drink cartridge - espresso"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 24
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/espresso
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_greentea
+	category = "cartridges"
+	name = "drink cartridge - green tea"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/greentea
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_grenadine
+	category = "cartridges"
+	name = "drink cartridge - grenadine"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 22
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/grenadine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_hotcoco
+	category = "cartridges"
+	name = "drink cartridge - hot chocolate"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/hot_coco
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_milk
+	category = "cartridges"
+	name = "drink cartridge - milk"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 18
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/milk
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_ricebeer
+	category = "cartridges"
+	name = "drink cartridge - rice beer"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 24
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/rice_beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_rootbeer
+	category = "cartridges"
+	name = "drink cartridge - root beer"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 18
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/root_beer
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_soymilk
+	category = "cartridges"
+	name = "drink cartridge - soy milk"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 20
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/soymilk
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chemicalcartridge_triplesec
+	category = "cartridges"
+	name = "drink cartridge - triple sec"
+	supplier = "getmore"
+	description = "A metal canister containing 500 units of a substance. Mostly for use in liquid dispensers, though you can also pour it straight out of the can."
+	price = 35
+	items = list(
+		/obj/item/reagent_containers/chem_disp_cartridge/triplesec
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 // Chemicals
 
 /singleton/cargo_item/chemicalcartridge_acetone

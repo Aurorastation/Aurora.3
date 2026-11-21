@@ -24,6 +24,10 @@
 	if(HAS_TRAIT(L, TRAIT_ZONA_BOVINAE_ABSORBED))
 		to_chat(user, SPAN_WARNING("You already absorbed points from this creature!"))
 		return
+	var/psi_blocked = L.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 	. = ..()
 	if(!.)
 		return

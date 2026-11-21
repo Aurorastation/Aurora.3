@@ -1706,6 +1706,28 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -8
 
+/// APC preset with no access requirement.
+/// Intended for offships, away sites, and the like.
+/obj/structure/machinery/power/apc/noid
+	req_access = null
+	req_one_access = null
+
+/obj/structure/machinery/power/apc/noid/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/structure/machinery/power/apc/noid/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/structure/machinery/power/apc/noid/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/structure/machinery/power/apc/noid/south
+	dir = SOUTH
+	pixel_y = -8
+
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1
 #undef UPDATE_OPENED2

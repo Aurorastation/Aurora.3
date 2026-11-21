@@ -8,6 +8,7 @@
 /obj/structure/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A vending machine that dispenses alcoholic beverages and cocktail ingredients."
+	persistent_stock = TRUE
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_vend = "boozeomat-vend"
 	light_mask = "boozeomat-lightmask"
@@ -198,3 +199,6 @@
 
 /obj/structure/machinery/vending/boozeomat/bar
 	layer = BELOW_TABLE_LAYER
+
+/obj/structure/machinery/vending/boozeomat/noid
+	req_access = list()

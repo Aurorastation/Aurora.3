@@ -19,6 +19,8 @@
 	var/build_amt = 2
 	/// Amount that pulling mobs have their movement delayed by
 	var/slowdown = 0
+	/// Whether this structure can be painted with a paint sprayer.
+	var/supports_painting = FALSE
 	/// Whether this structure can be used as a surface for surgical procedures.
 	var/surgery_surface = FALSE
 	/// Flat percent modifier (bonus or penalty) applied to surgical success chances when operating on this surface.
