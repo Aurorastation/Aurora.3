@@ -97,7 +97,7 @@
 /datum/signal/subspace/vocal
 	var/datum/weakref/speaker
 	var/datum/language/language
-	/// The speaker's say_message, if any. Null for the announcer, etc.
+	/// The speaker's processed, potentially multilingual message, if supplied.
 	var/datum/say_message/say_message
 
 /datum/signal/subspace/vocal/New(obj/source, frequency, datum/weakref/speaker, datum/language/language, message, say_verb, datum/say_message/say_message)
@@ -118,11 +118,11 @@
 		origin_level = levels[1]
 		sector = get_map_sector(levels[1])
 
-	var/mob/M = speaker.resolve()
+	var/atom/movable/M = speaker.resolve()
 
 	data = list(
-		"name" = M.GetVoice(),
-		"job" = M.job,
+		"name" = say_message?.message_mods[MODE_SPEAKER_NAME_OVERRIDE] || (M ? M.GetVoice() : "Unknown"),
+		"job" = ismob(M) ? astype(M, /mob).job : "Device",
 		"message" = message,
 		"compression" = rand(35, 65),
 		"language" = language,
@@ -212,7 +212,7 @@
 
 
 	// --- Filter the message; place it in quotes apply a verb ---
-	var/mob/M = speaker.resolve()
+	var/atom/movable/M = speaker.resolve()
 
 	var/quotedmsg = null
 	if(M)
@@ -224,23 +224,31 @@
 
 	// Carry the original message if untouched in transit, else build one from the flat text.
 	var/datum/say_message/radio_msg
-	if(say_message && say_message.to_string() == data["message"])
+	if(say_message && say_message.to_string() == message)
 		radio_msg = say_message.copy()
 	else
 		radio_msg = new
+		if(say_message)
+			radio_msg.spans = say_message.spans.Copy()
 		radio_msg.speaker = M
-		radio_msg.verb = data["say_verb"]
+		radio_msg.message_mods[SAY_MOD_VERB] = data["say_verb"]
 		radio_msg.collapse_to(language, message)
 	radio_msg.say_mode = SAYMODE_RADIO
+	// Snapshot identity, as tgstation's virtualspeaker does; autosay can override it.
+	radio_msg.message_mods[MODE_SPEAKER_NAME_OVERRIDE] = data["name"]
 	radio_msg.base_clarity = compression ? CLARITY_FAINT : CLARITY_CLEAR
 	radio_msg.radio_parts = list(part_a, part_b, part_c)
 
-	for (var/mob/hearer in receive)
+	for (var/atom/movable/hearer as anything in receive)
 		if(!hearer)
 			crash_with("null found in the hearers list returned by the spatial grid")
 			continue
 
-		hearer.hear_message(radio_msg)
+		hearer.Hear(radio_msg)
+
+	// Chat is delivered once above; each receiver provides its own in-world speech origin.
+	for(var/obj/item/radio/receiver as anything in radios)
+		receiver.on_receive_message(data, radio_msg, receive)
 
 	// --- This following recording is intended for research and feedback in the use of department radio channels ---
 

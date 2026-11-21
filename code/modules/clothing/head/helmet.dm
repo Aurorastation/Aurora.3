@@ -77,8 +77,12 @@
 	if(has_storage)
 		hold.emp_act(severity)
 
-/obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
+/obj/item/clothing/head/helmet/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(has_storage)
+		if(say_message)
+			hold.Hear(say_message)
+		else
+			hold.hear_talk(M, msg, verb, speaking)
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()

@@ -58,8 +58,11 @@
 	else
 		return ..()
 
-/obj/item/spy_bug/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	radio.hear_talk(M, msg, verb, speaking)
+/obj/item/spy_bug/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(say_message)
+		radio.Hear(say_message)
+	else
+		radio.hear_talk(M, msg, verb, speaking)
 
 
 /obj/item/spy_monitor
@@ -152,8 +155,10 @@
 
 	return 1
 
-/obj/item/spy_monitor/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	return radio.hear_talk(M, msg, speaking)
+/obj/item/spy_monitor/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(say_message)
+		return radio.Hear(say_message)
+	return radio.hear_talk(M, msg, verb, speaking)
 
 
 /obj/structure/machinery/camera/spy
@@ -173,6 +178,7 @@
 	return FALSE
 
 /obj/item/radio/spy
+	shortwave_overlays = FALSE
 	canhear_range = 7
 	name = "spy device"
 	icon_state = "syn_cypherkey"

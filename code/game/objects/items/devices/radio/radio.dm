@@ -62,6 +62,12 @@ var/global/list/default_interrogation_channels = list(
 	var/obj/item/cell/cell = /obj/item/cell/device
 	var/last_radio_sound = -INFINITY
 
+	/// Whether to show screen overlays or not.
+	var/shortwave_overlays = TRUE
+	/// Optional icon state or mutable appearance shown when on; art can be supplied by subtypes.
+	var/overlay_power_on = "shortwave-on"
+	var/overlay_power_emissive = "shortwave-emis"
+
 	/// If FALSE, broadcasting and listening don't matter and this radio does nothing
 	VAR_PRIVATE/on = TRUE
 
@@ -90,8 +96,6 @@ var/global/list/default_interrogation_channels = list(
 	var/last_transmission
 	/// tune to frequency to unlock traitor supplies
 	var/traitor_frequency = 0
-	/// used in autosay, held by the radio for re-use
-	var/mob/living/announcer/announcer = null
 	var/datum/wires/radio/wires = null
 	var/show_modify_on_examine = TRUE
 	var/b_stat = 0
@@ -152,9 +156,20 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/radio/Destroy()
 	SSradio.remove_object_all(src)
-	QDEL_NULL(announcer)
 	QDEL_NULL(wires)
 	return ..()
+
+/obj/item/radio/update_icon()
+	if(!shortwave_overlays)
+		return ..()
+	ClearOverlays()
+	if(is_on())
+		var/mutable_appearance/powered_overlay = mutable_appearance(icon, overlay_power_on)
+		if(powered_overlay)
+			AddOverlays(powered_overlay)
+		var/mutable_appearance/emissive_overlay = mutable_appearance(icon, overlay_power_emissive);
+		if(emissive_overlay)
+			AddOverlays(emissive_appearance(emissive_overlay.icon, emissive_overlay.icon_state))
 
 /obj/item/radio/proc/is_on()
 	return on
@@ -218,6 +233,7 @@ var/global/list/default_interrogation_channels = list(
 	else
 		set_broadcasting(FALSE, actual_setting = FALSE)//fake set them to off
 		set_listening(FALSE, actual_setting = FALSE)
+	update_icon()
 
 /obj/item/radio/attack_self(mob/user as mob)
 	user.set_machine(src)
@@ -412,17 +428,12 @@ var/global/list/default_interrogation_channels = list(
 	if (!istype(connection))
 		return
 
-	if(!istype(announcer))
-		announcer = new()
-
-	announcer.PrepareBroadcast(from)
-	var/datum/weakref/speaker_weakref = WEAKREF(announcer)
-	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, speaker_weakref, announcer.default_language, message, "states")
+	var/datum/signal/subspace/vocal/signal = new(src, connection.frequency, WEAKREF(src), get_default_language(), message, "states")
+	signal.data["name"] = from
 	signal.send_to_receivers()
-	announcer.ResetAfterBroadcast()
 
 // Interprets the message mode when talking into a radio, possibly returning a connection datum
-/obj/item/radio/proc/handle_message_mode(mob/living/M as mob, message, message_mode)
+/obj/item/radio/proc/handle_message_mode(atom/movable/M, message, message_mode)
 	// If a channel isn't specified, send to common.
 	if(!message_mode || message_mode == "headset")
 		return radio_connection
@@ -443,13 +454,15 @@ var/global/list/default_interrogation_channels = list(
 	// If we were to send to a channel we don't have, drop it.
 	return null
 
-/obj/item/radio/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
+/obj/item/radio/talk_into(atom/movable/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
 	if(!on)
 		return FALSE
 	if(!M || !message)
 		return FALSE
 	if(wires.is_cut(WIRE_TRANSMIT)) // The device has to have all its wires and shit intact
 		return FALSE
+	if(!speaking)
+		speaking = M.get_default_language()
 
 	if (iscarbon(M))
 		var/mob/living/carbon/C = M
@@ -460,11 +473,12 @@ var/global/list/default_interrogation_channels = list(
 			to_chat(M, SPAN_WARNING("Try as you might, you cannot will your decaying body into operating \the [src]."))
 			return FALSE
 
-	if(istype(M))
-		if(M.restrained() && !ignore_restrained)
+	if(ismob(M))
+		var/mob/speaker_mob = M
+		if(speaker_mob.restrained() && !ignore_restrained)
 			to_chat(M, SPAN_WARNING("You can't speak into \the [src.name] while restrained."))
 			return FALSE
-		M.trigger_aiming(TARGET_CAN_RADIO)
+		speaker_mob.trigger_aiming(TARGET_CAN_RADIO)
 
 	if(!radio_connection)
 		set_frequency(frequency)
@@ -511,11 +525,39 @@ var/global/list/default_interrogation_channels = list(
 	signal.levels = GetConnectedZlevels(T.z)
 	signal.broadcast()
 
-/obj/item/radio/hear_talk(mob/M as mob, msg, var/verb = "says", var/datum/language/speaking = null)
-	if (!broadcasting || get_dist(src, M) > canhear_range)
+/obj/item/radio/hear_talk(atom/movable/M, msg, var/verb = "says", var/datum/language/speaking = null, datum/say_message/say_message = null)
+	if (say_message?.say_mode == SAYMODE_RADIO || !broadcasting || get_dist(src, M) > canhear_range)
 		return
 
-	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE)
+	return talk_into(M, msg, null, verb, speaking, ignore_restrained = TRUE, say_message = say_message)
+
+/// Received speech is presented at the receiver, while the payload retains the original speaker.
+/obj/item/radio/proc/on_receive_message(list/data, datum/say_message/msg, list/recipients)
+	if(!on || !listening || !get_turf(src))
+		return
+	SEND_SIGNAL(src, COMSIG_RADIO_RECEIVE_MESSAGE, data)
+	if(QDELETED(src))
+		return
+	// Carried radios anchor Langchat to their holder, where this speech is already shown locally.
+	if(ismob(msg.speaker) && recursive_holder_check(src) == msg.speaker)
+		return
+	// Use this receiver's range and LOS, and retain the broadcast's preference/access filtering.
+	var/list/local_listeners = get_hearers_in_radio_ranges(list(src)) & recipients
+	present_say_message(msg, local_listeners)
+
+/// Resolve a radio screen appearance, allowing subtypes to apply their own treatment.
+/obj/item/radio/proc/get_radio_overlay(overlay)
+	return resolve_radio_overlay(overlay)
+
+/// Resolve raw art without subtype-specific screen effects, for independent layers such as scanlines.
+/obj/item/radio/proc/resolve_radio_overlay(overlay)
+	if(!overlay)
+		return null
+	if(istext(overlay))
+		if(!(overlay in icon_states(icon)))
+			return null
+		return mutable_appearance(icon, overlay)
+	return overlay
 
 /obj/item/radio/proc/can_receive(input_frequency, list/levels)
 	// check if the radio can receive on the given frequency
@@ -578,6 +620,7 @@ var/global/list/default_interrogation_channels = list(
 //
 
 /obj/item/radio/borg
+	shortwave_overlays = FALSE
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
 	var/obj/item/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
 	var/shut_up = 1
@@ -595,7 +638,7 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/borg/list_channels(var/mob/user)
 	return list_secure_channels(user)
 
-/obj/item/radio/borg/talk_into(mob/living/M, message, channel, verb, datum/language/speaking, var/ignore_restrained, var/datum/say_message/say_message = null)
+/obj/item/radio/borg/talk_into(atom/movable/M, message, channel, verb, datum/language/speaking, var/ignore_restrained, var/datum/say_message/say_message = null)
 	. = ..()
 	if (isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
@@ -828,6 +871,7 @@ var/global/list/default_interrogation_channels = list(
 
 // Phone
 /obj/item/radio/phone
+	shortwave_overlays = FALSE
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	name = "phone"
