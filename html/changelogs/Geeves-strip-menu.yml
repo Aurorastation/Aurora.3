@@ -1,0 +1,7 @@
+author: Geeves
+delete-after: True
+changes:
+  - qol: "Replaced the human stripping menu with a compact TGUI equipment grid, with separate buttons for item interactions."
+  - rscadd: "You can remove individual uniform accessories, access equipped storage, adjust another person's radio, and activate or deactivate their unlocked RIG through the stripping menu. These interactions take time to perform."
+  - qol: "Searching pockets or Skrell headtail storage reveals the contents without dumping items onto the floor, letting you choose what to remove."
+  - qol: "Once started, RIG deployment and seal adjustments run automatically. People can move during the process, and an unconscious wearer does not prevent the suit from finishing."
