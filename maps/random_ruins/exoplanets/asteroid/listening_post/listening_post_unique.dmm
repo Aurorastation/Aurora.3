@@ -1272,7 +1272,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/listening_post/entrance)
 "Ie" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4;
 	start_pressure = 6000
 	},

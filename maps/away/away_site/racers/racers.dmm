@@ -677,7 +677,7 @@
 /turf/simulated/wall/rusty,
 /area/racers)
 "cHq" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/plating,
 /area/racers)
 "cJe" = (
@@ -3011,7 +3011,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "owK" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/racers)
 "owN" = (
@@ -3257,7 +3257,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/racers)
 "pPd" = (
-/obj/structure/machinery/atmospherics/pipe/tank/phoron,
+/obj/structure/machinery/atmospherics/unary/tank/phoron,
 /turf/simulated/floor/tiled/rust/airless,
 /area/racers)
 "pPW" = (
@@ -3540,7 +3540,7 @@
 /turf/simulated/floor/tiled/rust,
 /area/racers)
 "qWG" = (
-/obj/structure/machinery/atmospherics/pipe/tank/oxygen,
+/obj/structure/machinery/atmospherics/unary/tank/oxygen,
 /turf/simulated/floor/plating,
 /area/racers)
 "qZQ" = (
@@ -3574,7 +3574,7 @@
 /turf/simulated/floor/carpet/art,
 /area/racers)
 "riz" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/rust,
 /area/racers)

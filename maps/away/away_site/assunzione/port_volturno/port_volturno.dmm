@@ -13881,7 +13881,7 @@
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "jUi" = (
-/obj/structure/machinery/atmospherics/unary/freezer{
+/obj/structure/machinery/atmospherics/unary/temperature/freezer{
 	icon_state = "freezer"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,

@@ -3409,7 +3409,7 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
 "dNM" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
@@ -10017,7 +10017,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/warehouse)
 "lgL" = (
-/obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/atmospherics/unary/temperature/freezer,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "lgR" = (
@@ -14934,7 +14934,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "qLX" = (
-/obj/structure/machinery/pipedispenser/disposal,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
@@ -16971,7 +16971,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
 "sXR" = (
-/obj/structure/machinery/atmospherics/unary/freezer,
+/obj/structure/machinery/atmospherics/unary/temperature/freezer,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "sYn" = (
@@ -17650,14 +17650,14 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
 "tIq" = (
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = -5;
 	pixel_y = 1
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 11
 	},
-/obj/item/pipe_meter{
+/obj/item/machine_chassis/pipe_meter{
 	pixel_x = 2;
 	pixel_y = 3
 	},

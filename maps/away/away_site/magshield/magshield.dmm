@@ -3158,14 +3158,14 @@
 /turf/simulated/floor/tiled,
 /area/magshield/south)
 "jx" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /turf/simulated/floor/airless,
 /area/magshield/engine)
 "jy" = (
 /obj/structure/machinery/light_construct{
 	dir = 8
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3958,7 +3958,7 @@
 /turf/simulated/floor/airless,
 /area/magshield/north)
 "Iv" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/airless,

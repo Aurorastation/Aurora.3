@@ -827,7 +827,7 @@
 /turf/simulated/floor/plating,
 /area/burzsia_mining/mining)
 "uN" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -974,7 +974,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/burzsia_mining)
 "yB" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /turf/simulated/floor/plating,

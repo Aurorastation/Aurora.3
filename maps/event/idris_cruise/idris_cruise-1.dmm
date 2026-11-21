@@ -6478,7 +6478,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/nitrogen{
+/obj/structure/machinery/atmospherics/unary/tank/nitrogen{
 	dir = 4
 	},
 /obj/structure/machinery/light/small{
@@ -7348,7 +7348,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/nitrous_oxide{
+/obj/structure/machinery/atmospherics/unary/tank/nitrous_oxide{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -8839,7 +8839,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/unsimulated/floor{
@@ -11617,7 +11617,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -14573,7 +14573,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -21713,7 +21713,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/unsimulated/floor/plating,
@@ -22089,7 +22089,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/structure/machinery/light/small{
@@ -24513,7 +24513,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /turf/unsimulated/floor{

@@ -52,7 +52,8 @@
 		if(!temp_vent)
 			continue
 		if(is_station_level(temp_vent.z))
-			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
+			var/datum/pipe_network/net = temp_vent.nodes_to_networks[temp_vent.nodes_to_networks[1]]
+			if(net.normal_members.len > 50)
 				vents += temp_vent
 	if(!vents.len)
 		return kill() // TODO: this doesn't get a TRUE until pipenets are fixed

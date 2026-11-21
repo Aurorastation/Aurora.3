@@ -18,7 +18,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 		/obj/effect,
 		/obj/structure/machinery/computer,
 		/obj/structure/machinery/hologram,
-		/obj/structure/machinery/atmospherics/pipe/tank,
+		/obj/structure/machinery/atmospherics/unary/tank,
 		/obj/structure/machinery/atmospherics/unary,
 		/obj/structure/machinery/embedded_controller,
 		/obj/structure/machinery/airlock_sensor,

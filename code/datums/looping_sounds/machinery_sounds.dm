@@ -224,3 +224,10 @@
 	end_sound = 'sound/mecha/mech-shutdown.ogg'
 	end_volume = 100
 	volume = 50
+
+/datum/looping_sound/pipe_leak
+	mid_sounds = list('sound/machines/pipeleak.ogg' = 1)
+	mid_length = 2624 MILLISECONDS
+	volume = 75
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE

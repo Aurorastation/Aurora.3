@@ -158,7 +158,8 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 			vent_trap_check("departing", vent_found)
 
 			if(vent_found)
-				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
+				var/datum/pipe_network/net = vent_found.nodes_to_networks[vent_found.nodes_to_networks[1]]
+				if(net.normal_members.len || net.line_members.len)
 
 					visible_message(SPAN_WARNING("[src] begins to climb into the ventilation system!"),
 									SPAN_NOTICE("You begin climbing into the ventilation system..."))
@@ -196,7 +197,7 @@ GLOBAL_LIST_INIT(can_enter_vent_with, list(
 					visible_message("<B>[src] scrambles into the ventilation ducts!</B>", "You climb into the ventilation system.")
 
 					forceMove(vent_found)
-					add_ventcrawl(vent_found.node)
+					add_ventcrawl(vent_found.nodes_to_networks[0])
 					sight = (SEE_TURFS|BLIND)
 
 				else

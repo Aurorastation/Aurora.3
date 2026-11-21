@@ -132,21 +132,54 @@
 #define GAS_HEAT                "heat" //Not a real gas, used for visual effects
 #define GAS_COLD                "cold" //Not a real gas, used for visual effects
 
-#define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
-#define	PIPE_COLOR_RED		"#ff0000"
-#define	PIPE_COLOR_BLUE		"#0000ff"
-#define	PIPE_COLOR_CYAN		"#00ffff"
-#define	PIPE_COLOR_GREEN	"#00ff00"
-#define	PIPE_COLOR_YELLOW	"#ffcc00"
-#define	PIPE_COLOR_BLACK	"#444444"
-#define	PIPE_COLOR_PURPLE	"#bb25af"
+#define	PIPE_COLOR_GREY "#808080"
+#define	PIPE_COLOR_RED "#ff0000"
+#define	PIPE_COLOR_BLUE "#0000ff"
+#define	PIPE_COLOR_CYAN "#00ffff"
+#define	PIPE_COLOR_GREEN "#00ff00"
+#define	PIPE_COLOR_YELLOW "#ffcc00"
+#define	PIPE_COLOR_BLACK "#444444"
+#define PIPE_COLOR_ORANGE "#b95a00"
+#define PIPE_COLOR_WHITE "#ffffff"
+#define	PIPE_COLOR_PURPLE "#bb25af"
+#define PIPE_COLOR_DARK_GREY "#404040"
 
+//Connection Type Definitions
 #define CONNECT_TYPE_REGULAR	1
 #define CONNECT_TYPE_SUPPLY		2
 #define CONNECT_TYPE_SCRUBBER	4
 #define CONNECT_TYPE_HE			8
 #define CONNECT_TYPE_FUEL		16
 #define CONNECT_TYPE_AUX		32
+
+// For use with pipe rotate verb
+#define PIPE_ROTATE_STANDARD 0 // usual rotate
+#define PIPE_ROTATE_TWODIR   1 // Sanitizes cardinal directions to just two, leaves corner directions alone
+#define PIPE_ROTATE_ONEDIR   2 // Only has one dir, south
+
+#define PIPE_PLACEMENT_SIMPLE     1
+#define PIPE_PLACEMENT_ORTHOGONAL 2
+#define PIPE_PLACEMENT_DIAGONAL   3
+
+#define DISPOSAL_FLIP_NONE          0
+#define DISPOSAL_FLIP_FLIP          1
+#define DISPOSAL_FLIP_LEFT          2
+#define DISPOSAL_FLIP_RIGHT         4
+
+//Pipe classifications
+/// Pipe is otherwise unclassified
+#define PIPE_CLASS_OTHER            0
+/// Pipe has one connection
+#define PIPE_CLASS_UNARY            1
+/// Pipe has two connections
+#define PIPE_CLASS_BINARY           2
+/// Pipe has three connections
+#define PIPE_CLASS_TRINARY          3
+/// Pipe has four connections
+#define PIPE_CLASS_QUATERNARY       4
+/// Pipe has variable connections
+#define PIPE_CLASS_OMNI             5
+
 
 GLOBAL_LIST_INIT(pipe_colors, list(
 	"grey" = PIPE_COLOR_GREY,
@@ -156,7 +189,11 @@ GLOBAL_LIST_INIT(pipe_colors, list(
 	"green" = PIPE_COLOR_GREEN,
 	"yellow" = PIPE_COLOR_YELLOW,
 	"black" = PIPE_COLOR_BLACK,
-	"purple" = PIPE_COLOR_PURPLE
+	"orange" = PIPE_COLOR_ORANGE,
+	"white" = PIPE_COLOR_WHITE,
+	"purple" = PIPE_COLOR_PURPLE,
+	"black" = PIPE_COLOR_BLACK,
+	"dark grey" = PIPE_COLOR_DARK_GREY
 ))
 
 #define CMB_LIQUID_FUEL (1 << 1)

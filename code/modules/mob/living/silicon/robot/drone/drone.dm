@@ -59,7 +59,7 @@
 	var/list/pull_list = list(
 					/obj/structure/disposalconstruct,
 					/obj/item/pipe,
-					/obj/item/pipe_meter
+					/obj/item/machine_chassis/pipe_meter
 					)
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone

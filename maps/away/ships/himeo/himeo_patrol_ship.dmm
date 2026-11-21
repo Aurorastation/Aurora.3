@@ -2932,7 +2932,7 @@
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "mo" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 1
 	},
 /obj/structure/railing/mapped,
@@ -3237,7 +3237,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/blaster)
 "ny" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/himeo_patrol_ship/distribution)
@@ -5800,7 +5800,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/generator)
 "yC" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -6169,7 +6169,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/thruster_aft)
 "zR" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -9722,7 +9722,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/himeo_patrol_ship/deck_2_office)
 "Pv" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -11062,7 +11062,7 @@
 /turf/simulated/open,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "Uf" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,

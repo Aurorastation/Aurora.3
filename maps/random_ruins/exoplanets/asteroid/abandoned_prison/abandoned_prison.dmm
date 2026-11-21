@@ -822,7 +822,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/kitchen)
 "lh" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
@@ -901,7 +901,7 @@
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "lQ" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,

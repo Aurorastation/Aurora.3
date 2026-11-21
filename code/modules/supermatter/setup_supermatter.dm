@@ -315,7 +315,7 @@
 
 /obj/effect/landmark/engine_setup/freezer/activate()
 	..()
-	var/obj/structure/machinery/atmospherics/unary/freezer/F = locate() in get_turf(src)
+	var/obj/structure/machinery/atmospherics/unary/temperature/freezer/F = locate() in get_turf(src)
 	if(!F)
 		log_and_message_admins("## WARNING: Unable to locate freezer at [x] [y] [z]!")
 		return SETUP_WARNING

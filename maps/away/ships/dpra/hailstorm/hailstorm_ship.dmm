@@ -4420,7 +4420,7 @@
 /area/hailstorm_ship/atmospherics)
 "DQ" = (
 /obj/effect/floor_decal/industrial/hatch/blue,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},
@@ -6294,7 +6294,7 @@
 /area/hailstorm_ship/atmospherics)
 "Sp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8;
 	start_pressure = 6000
 	},

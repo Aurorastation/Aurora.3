@@ -3393,7 +3393,7 @@
 /area/ship/sol_frigate/port_battery)
 "oM" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/item/pipe_meter,
+/obj/item/machine_chassis/pipe_meter,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_thrusters)
 "oN" = (
@@ -3931,7 +3931,7 @@
 /turf/space/dynamic,
 /area/ship/sol_frigate/hangar)
 "ro" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -9887,7 +9887,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/crew_lounge)
 "Tg" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{

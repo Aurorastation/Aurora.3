@@ -307,7 +307,7 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 9
 	},
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/structure/window/reinforced{

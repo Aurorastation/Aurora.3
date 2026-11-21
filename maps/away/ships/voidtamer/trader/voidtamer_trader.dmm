@@ -676,7 +676,7 @@
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/autocannon_gun)
 "eP" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
@@ -685,7 +685,7 @@
 /turf/template_noop,
 /area/voidtamer/trader/bridge)
 "eX" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/structure/diona/bulb,
@@ -3559,7 +3559,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering/starboard)
 "Di" = (
@@ -4333,7 +4333,7 @@
 /area/voidtamer/trader/autocannon_gun)
 "IV" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,

@@ -1059,7 +1059,7 @@
 	},
 /area/idris_wreck/kitchen)
 "jF" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "jU" = (
@@ -1133,7 +1133,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/armory)
 "kX" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/structure/machinery/light{
 	dir = 1
 	},
@@ -3564,7 +3564,7 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "Jo" = (
-/obj/structure/machinery/atmospherics/pipe/tank,
+/obj/structure/machinery/atmospherics/unary/tank,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "Jr" = (

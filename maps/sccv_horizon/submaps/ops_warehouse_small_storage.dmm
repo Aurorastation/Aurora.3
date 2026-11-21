@@ -748,7 +748,7 @@
 /turf/template_noop,
 /area/template_noop)
 "rB" = (
-/obj/structure/machinery/pipedispenser/orderable,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/template_noop,
 /area/template_noop)
 "rC" = (

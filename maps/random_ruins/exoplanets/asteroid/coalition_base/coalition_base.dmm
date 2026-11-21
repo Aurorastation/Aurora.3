@@ -655,7 +655,7 @@
 /turf/simulated/floor/tiled,
 /area/coalition_base/hydroponics)
 "lw" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,

@@ -4409,7 +4409,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "vo" = (
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/equipment)
 "vr" = (
@@ -5650,7 +5650,7 @@
 	},
 /area/ihss_reclamation/captain)
 "Ba" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

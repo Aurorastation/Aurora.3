@@ -201,7 +201,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/atmospherics)
 "aEB" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/machinery/light/small/emergency{
 	dir = 1
@@ -582,7 +582,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/machinery/pipedispenser,
+/obj/structure/machinery/fabricator/pipe_dispenser,
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
@@ -3013,7 +3013,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
 "gcq" = (
-/obj/structure/machinery/atmospherics/pipe/tank/carbon_dioxide{
+/obj/structure/machinery/atmospherics/unary/tank/carbon_dioxide{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7066,7 +7066,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/bunks)
 "pBl" = (
-/obj/structure/machinery/atmospherics/pipe/tank{
+/obj/structure/machinery/atmospherics/unary/tank{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -7709,7 +7709,7 @@
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/starboard_thrusters)
 "rdB" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/structure/machinery/atmospherics/unary/tank/air,
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
@@ -8035,7 +8035,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/garage)
 "sof" = (
-/obj/structure/machinery/atmospherics/pipe/tank/air{
+/obj/structure/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
