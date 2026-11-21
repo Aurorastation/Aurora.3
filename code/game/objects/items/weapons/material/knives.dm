@@ -21,6 +21,7 @@
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
+	use_material_sound = FALSE
 
 /obj/item/material/knife/bloody/Initialize()
 	. = ..()
@@ -28,7 +29,10 @@
 
 /obj/item/material/knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(active == 1)
-		if((target_zone != BP_EYES && target_zone != BP_HEAD) || target_mob.eyes_protected(src, FALSE))
+		var/mob/living/carbon/carbon_target = target_mob
+		if(istype(carbon_target) && carbon_target.check_attack_throat(src, user, target_zone))
+			return
+		if(target_zone != BP_EYES || target_mob.eyes_protected(src, FALSE))
 			return ..()
 		if((user.is_clumsy()) && prob(50))
 			target_mob = user

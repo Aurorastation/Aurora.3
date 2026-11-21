@@ -31,7 +31,7 @@
 	add_fingerprint(user)
 	if(coat && hat)
 		var/response = ""
-		response = alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", "Coat", "Hat", "Cancel")
+		response = tgui_alert(user, "Do you remove the coat, or the hat?", "Coat Rack Selection", list("Coat", "Hat", "Cancel"))
 		if(response == "Coat")
 			remove_coat(user)
 			return

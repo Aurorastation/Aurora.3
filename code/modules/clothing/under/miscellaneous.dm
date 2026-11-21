@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/under/pj)
+
 /obj/item/clothing/under/pj/red
 	name = "red pyjamas"
 	desc = "Slightly old-fashioned sleepwear."
@@ -115,19 +117,6 @@
 	item_state = "bl_suit"
 	worn_state = "centcom"
 
-/obj/item/clothing/under/space
-	name = "\improper NASA jumpsuit"
-	desc = "It has a NASA logo on it and is made of space-proofed materials."
-	icon_state = "black"
-	item_state = "bl_suit"
-	worn_state = "black"
-	w_class = WEIGHT_CLASS_BULKY//bulky item
-	gas_transfer_coefficient = 0.01
-	permeability_coefficient = 0.02
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS //Needs gloves and shoes with cold protection to be fully protected.
-	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
-
 /obj/item/clothing/under/acj
 	name = "administrative cybernetic jumpsuit"
 	icon_state = "syndicate"
@@ -165,13 +154,6 @@
 	worn_state = "psysuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 
-/obj/item/clothing/under/gimmick/rank/captain/suit
-	name = "captain's suit"
-	desc = "A green suit and yellow necktie. Exemplifies authority."
-	icon_state = "green_suit"
-	item_state = "dg_suit"
-	worn_state = "green_suit"
-
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
 	desc = "A set of durable overalls for getting the job done."
@@ -179,39 +161,34 @@
 	item_state = "lb_suit"
 	worn_state = "overalls"
 
-/obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
-	name = "head of personnel's suit"
-	desc = "A teal suit and yellow necktie. An authoritative yet tacky ensemble."
-	icon_state = "teal_suit"
-	item_state = "g_suit"
-	worn_state = "teal_suit"
-
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
 	desc = "A black suit and red tie. Very formal."
+	icon = 'icons/obj/item/clothing/under/colored_suit_jackets.dmi'
 	icon_state = "black_suit"
-	item_state = "bl_suit"
+	item_state = "black_suit"
 	worn_state = "black_suit"
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/suit_jacket/really_black
 	name = "executive suit"
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
-	item_state = "jensensuit"
+	item_state = "really_black_suit"
 	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
 	desc = "A red suit and blue tie. Somewhat formal."
 	icon_state = "red_suit"
-	item_state = "r_suit"
+	item_state = "red_suit"
 	worn_state = "red_suit"
 
 /obj/item/clothing/under/suit_jacket/nt_skirtsuit
 	name = "nanotrasen skirtsuit"
 	desc = "A black coat with an NT blue kerchief accompanied by a swept skirt with a tasteful blue stripe. Works for every occasion."
 	icon_state = "nt_skirtsuit"
-	item_state = "bl_suit"
+	item_state = "nt_skirtsuit"
 	worn_state = "nt_skirtsuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
@@ -223,14 +200,6 @@
 	worn_state = "kilt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|FEET
 
-/obj/item/clothing/under/sexymime
-	name = "sexy mime outfit"
-	desc = "The only time when you DON'T enjoy looking at someone's rack."
-	icon_state = "sexymime"
-	item_state = "w_suit"
-	worn_state = "sexymime"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
 /obj/item/clothing/under/gladiator
 	name = "gladiator uniform"
 	desc = "Are you not entertained? Is that not why you are here?"
@@ -240,7 +209,7 @@
 	body_parts_covered = LOWER_TORSO
 
 //dress
-/obj/item/clothing/under/dress
+ABSTRACT_TYPE(/obj/item/clothing/under/dress)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/dress/dress_fire
@@ -250,13 +219,6 @@
 	item_state = "bl_suit"
 	worn_state = "dress_fire"
 
-/obj/item/clothing/under/dress/dress_green
-	name = "green dress"
-	desc = "A simple, tight fitting green dress."
-	icon_state = "dress_green"
-	item_state = "g_suit"
-	worn_state = "dress_green"
-
 /obj/item/clothing/under/dress/dress_orange
 	name = "orange dress"
 	desc = "A fancy orange gown for those who like to show leg."
@@ -264,27 +226,12 @@
 	item_state = "y_suit"
 	worn_state = "dress_orange"
 
-/obj/item/clothing/under/dress/dress_pink
-	name = "pink dress"
-	desc = "A simple, tight fitting pink dress."
-	icon_state = "dress_pink"
-	item_state = "p_suit"
-	worn_state = "dress_pink"
-
 /obj/item/clothing/under/dress/dress_yellow
 	name = "yellow dress"
 	desc = "A flirty, little yellow dress."
 	icon_state = "dress_yellow"
 	item_state = "y_suit"
 	worn_state = "dress_yellow"
-
-/obj/item/clothing/under/dress/dress_hop
-	name = "head of personnel dress uniform"
-	desc = "Feminine fashion for the style concious HoP."
-	icon_state = "dress_hop"
-	item_state = "b_suit"
-	worn_state = "dress_hop"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/sundress
 	name = "sundress"
@@ -349,53 +296,39 @@
 	worn_state = "crskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/under/hosformalmale
-	name = "head of security's formal uniform"
-	desc = "A male head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_male"
-	item_state = "r_suit"
-	worn_state = "hos_formal_male"
-
-/obj/item/clothing/under/hosformalfem
-	name = "head of security's formal uniform"
-	desc = "A female head of security's formal-wear, for special occasions."
-	icon_state = "hos_formal_fem"
-	item_state = "r_suit"
-	worn_state = "hos_formal_fem"
-
 /obj/item/clothing/under/suit_jacket/charcoal
 	name = "charcoal suit"
 	desc = "A charcoal suit and red tie. Very professional."
 	icon_state = "charcoal_suit"
-	item_state = "bl_suit"
+	item_state = "charcoal_suit"
 	worn_state = "charcoal_suit"
 
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
 	desc = "A navy suit and red tie, intended for the station's finest."
 	icon_state = "navy_suit"
-	item_state = "bl_suit"
+	item_state = "navy_suit"
 	worn_state = "navy_suit"
 
 /obj/item/clothing/under/suit_jacket/burgundy
 	name = "burgundy suit"
 	desc = "A burgundy suit and black tie. Somewhat formal."
 	icon_state = "burgundy_suit"
-	item_state = "r_suit"
+	item_state = "burgundy_suit"
 	worn_state = "burgundy_suit"
 
 /obj/item/clothing/under/suit_jacket/checkered
 	name = "checkered suit"
 	desc = "That's a very nice suit you have there. Shame if something were to happen to it, eh?"
 	icon_state = "checkered_suit"
-	item_state = "gy_suit"
+	item_state = "checkered_suit"
 	worn_state = "checkered_suit"
 
 /obj/item/clothing/under/suit_jacket/tan
 	name = "tan suit"
 	desc = "A tan suit with a yellow tie. Smart, but casual."
 	icon_state = "tan_suit"
-	item_state = "lb_suit"
+	item_state = "tan_suit"
 	worn_state = "tan_suit"
 
 /obj/item/clothing/under/service_overalls
@@ -408,12 +341,12 @@
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
-	icon = 'icons/obj/clothing/cheongsams.dmi'
+	icon = 'icons/obj/item/clothing/under/cheongsams.dmi'
 	icon_state = "cheongsamwhite"
 	item_state = "cheongsamwhite"
 	worn_state = "cheongsamwhite"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	contained_sprite = 1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/cheongsam/red
 	name = "red cheongsam"
@@ -443,7 +376,7 @@
 	item_state = "cheongsampurple"
 
 //swimsuit
-/obj/item/clothing/under/swimsuit
+ABSTRACT_TYPE(/obj/item/clothing/under/swimsuit)
 	siemens_coefficient = 1
 	body_parts_covered = 0
 
@@ -889,6 +822,8 @@
 	desc = "Tough synthetic fibres make up the bulk of this Himean planetary guard naval uniform, dyed a deep navy blue. It is embellished with red detailing, signalling the wearer as a fighter pilot."
 	icon_state = "himeo_coveralls_pilot"
 	item_state = "himeo_coveralls_pilot"
+
+ABSTRACT_TYPE(/obj/item/clothing/under/rank/assunzione)
 
 // Assunzione
 /obj/item/clothing/under/rank/assunzione/stafylia

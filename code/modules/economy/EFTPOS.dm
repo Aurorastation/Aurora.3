@@ -166,7 +166,7 @@
 					if(trycode >= 1000 && trycode <= 999999)
 						access_code = trycode
 					else
-						alert("That is not a valid code!")
+						tgui_alert(usr, "That is not a valid code!")
 					print_reference()
 				else
 					to_chat(usr, "[icon2html(src, usr)]<span class='warning'>Incorrect code entered.</span>")
@@ -194,7 +194,7 @@
 			if("trans_value")
 				var/try_num = input("Enter amount for EFTPOS transaction", "Transaction amount") as num
 				if(try_num < 0)
-					alert("That is not a valid amount!")
+					tgui_alert(usr, "That is not a valid amount!")
 				else
 					transaction_amount = try_num
 			if("toggle_lock")

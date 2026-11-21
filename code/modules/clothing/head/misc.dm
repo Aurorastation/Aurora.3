@@ -1,13 +1,3 @@
-/obj/item/clothing/head/centhat
-	name = "\improper CentComm. hat"
-	icon_state = "centcom"
-	item_state_slots = list(
-		slot_l_hand_str = "centhat",
-		slot_r_hand_str = "centhat"
-		)
-	desc = "It's good to be emperor."
-	siemens_coefficient = 0.9
-
 /obj/item/clothing/head/pin
 	name = "hair pin"
 	desc = "A nice hair pin."
@@ -82,7 +72,7 @@
 	name = "silversun flower pin"
 	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
 
-/obj/item/clothing/head/pin/ribbon
+ABSTRACT_TYPE(/obj/item/clothing/head/pin/ribbon)
 	name = "hair ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/head/hair_ribbons.dmi'
@@ -118,11 +108,6 @@
 	icon_state = "tophat"
 	item_state = "tophat"
 	siemens_coefficient = 0.9
-
-/obj/item/clothing/head/redcoat
-	name = "redcoat's hat"
-	icon_state = "redcoat"
-	desc = "<i>'I guess it's a redhead.'</i>"
 
 /obj/item/clothing/head/mailman
 	name = "station cap"
@@ -160,6 +145,7 @@
 /obj/item/clothing/head/justice
 	name = "justice hat"
 	desc = "Fight for what's righteous!"
+	icon = 'icons/obj/item/clothing/head/head.dmi'
 	icon_state = "justicered"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
@@ -199,11 +185,6 @@
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "pirate"
-
-/obj/item/clothing/head/hgpiratecap
-	name = "pirate hat"
-	desc = "Yarr."
-	icon_state = "hgpiratecap"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -296,12 +277,12 @@
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
-	icon = 'icons/obj/clothing/hijabs.dmi'
+	icon = 'icons/obj/item/clothing/head/hijabs.dmi'
 	icon_state = "hijab"
 	item_state = "hijab"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_EARS  | SLOT_HEAD
 
 /obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
@@ -522,8 +503,8 @@
 /obj/item/clothing/head/sol/dress/marine
 	name = "sol marine peaked cap"
 	desc = "A green cap issued as part of the Sol Alliance marine service and dress uniforms."
-	icon_state = "whitepeakcap"
-	item_state = "whitepeakcap"
+	icon_state = "navy_cap_senioroff"
+	item_state = "navy_cap_senioroff"
 
 //solarian army
 
@@ -575,8 +556,8 @@
 /obj/item/clothing/head/sol/army/service/general
 	name = "sol army general peaked cap"
 	desc = "A green peaked cap issued as part of Solarian Army service uniforms. A large gold pin of the ASSN seal is attached to the peak and leaf-shaped embellishments rap around the visor. A Brigadier General, Major General, Lieutenant General or full General should wear this."
-	icon_state = "army_cap_general"
-	item_state = "army_cap_general"
+	icon_state = "army_cap_senioroff"
+	item_state = "army_cap_senioroff"
 
 /obj/item/clothing/head/sol/army/service/garrison
 	name = "sol army garrison cap"
@@ -776,7 +757,7 @@
 /obj/item/clothing/head/qeburger_visor
 	name = "Quick-E-Burger Food Technician Visor"
 	desc = "For stylish employees on the retail grind, the Quick-E-Burger Food Technician Visor is the latest in form-first fashion! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Visor is equipped with an innovative easy-to-use velcro headstrap to keep the company's prime product sky-high, and its light-resistant plastic visor is perfect for keeping sun, lights, and disappointed family-members alike out of employees' eyes!"
-	icon = 'icons/obj/clothing/hats/orion.dmi'
+	icon = 'icons/obj/item/clothing/hats/orion.dmi'
 	icon_state = "quickeburger_visorcap"
 	item_state = "quickeburger_visorcap"
 	contained_sprite = TRUE

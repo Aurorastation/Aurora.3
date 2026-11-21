@@ -271,7 +271,7 @@
 			if (open)
 				close()
 			else
-				if (alert(admin, "The valve is currently closed. Do you want to open it?", "Open the valve?", "Yes", "No") == "No")
+				if (tgui_alert(admin, "The valve is currently closed. Do you want to open it?", "Open the valve?", list("Yes", "No")) == "No")
 					return
 				open()
 

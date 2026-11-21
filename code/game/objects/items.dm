@@ -387,6 +387,10 @@
 		return 100
 	return clamp(round((T0C - min_cold_protection_temperature) / (T0C - WINTER_MIN_COLD_PROTECTION_TEMPERATURE) * 80, 1), 0, 80)
 
+/// Returns the flash protection this item provides while equipped by the given human.
+/obj/item/proc/get_equipped_flash_protection(mob/living/carbon/human/wearer)
+	return FLASH_PROTECTION_NONE
+
 /obj/item/Topic(href, href_list)
 	if(href_list["examine_armor"])
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
@@ -1354,7 +1358,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 /obj/item/proc/get_belt_overlay() //Returns the icon used for overlaying the object on a belt
-	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', icon_state)
+	return mutable_appearance('icons/obj/item/clothing/belts/belt_overlays.dmi', icon_state)
 
 /obj/item/proc/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] [ear_text] ear"

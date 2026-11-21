@@ -48,7 +48,6 @@
 	to_chat(victim, SPAN_DANGER(FONT_HUGE("You are crushed by an invisible force!")))
 	victim.apply_damage(20, DAMAGE_BRUTE, armor_pen = 15, def_zone = BP_HEAD)
 	victim.SetStunned(2)
-	apply_cooldown(user)
 	next_squeeze_time = world.time + 2 SECONDS
 
 /obj/item/spell/grip/on_ranged_cast(atom/hit_atom, mob/user, bypass_psi_check)
@@ -62,7 +61,6 @@
 		return
 
 	var/mob/living/M = hit_atom
-
 	if(!is_in_sight(user, M))
 		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [M]!"))
 		return

@@ -1,6 +1,6 @@
 
 //Hat Station 13
-/obj/item/clothing/head/collectable
+ABSTRACT_TYPE(/obj/item/clothing/head/collectable)
 	name = "collectable hat"
 	desc = "A rare collectable hat."
 
@@ -49,18 +49,21 @@
 /obj/item/clothing/head/collectable/captain
 	name = "collectable captain's hat"
 	desc = "A Collectable Hat that'll make you look just like a real comdom!"
-	icon_state = "captain"
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
+	icon_state = "caphat"
 	item_state = "caphat"
 
 /obj/item/clothing/head/collectable/police
 	name = "collectable police officer's hat"
 	desc = "A Collectable Police Officer's Hat. This hat emphasizes that you are THE LAW."
-	icon_state = "policehelm"
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
+	icon_state = "konyang_police_hat"
+	item_state = "konyang_police_hat"
 
 /obj/item/clothing/head/collectable/beret
 	name = "collectable beret"
 	desc = "A Collectable red Beret. It smells faintly of garlic."
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret_red"
 	item_state = "beret_red"
 	contained_sprite = TRUE
@@ -80,6 +83,8 @@
 /obj/item/clothing/head/collectable/flatcap
 	name = "collectable flat cap"
 	desc = "A Collectible farmer's Flat Cap!"
+	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
+	contained_sprite = TRUE
 	icon_state = "flat_cap"
 	item_state_slots = list(
 		slot_l_hand_str = "detective",
@@ -105,12 +110,9 @@
 /obj/item/clothing/head/collectable/hardhat
 	name = "collectable hard hat"
 	desc = "WARNING! Offers no real protection, or luminosity, but it is damn fancy!"
+	icon = 'icons/obj/item/clothing/hats/hardhats.dmi'
+	contained_sprite = TRUE
 	icon_state = "hardhat_yellow"
-
-/obj/item/clothing/head/collectable/HoS
-	name = "collectable HoS hat"
-	desc = "Now you can beat prisoners, set silly sentences and arrest for no reason too!"
-	icon_state = "hoscap"
 
 /obj/item/clothing/head/collectable/thunderdome
 	name = "collectable Thunderdome helmet"

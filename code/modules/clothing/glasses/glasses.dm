@@ -9,13 +9,10 @@ SEE_PIXELS// if an object is located on an unlit area, but some of its pixels ar
 			// in a lit area (via pixel_x,y or smooth movement), can see those pixels
 BLIND     // can't see anything
 */
-/obj/item/clothing/glasses
+ABSTRACT_TYPE(/obj/item/clothing/glasses)
 	name = "glasses"
-	icon = 'icons/obj/clothing/glasses.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
-		)
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
+	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
@@ -45,6 +42,9 @@ BLIND     // can't see anything
 	. = ..()
 	if(brand_name)
 		desc += " This pair has been made in [brand_name] colors."
+
+/obj/item/clothing/glasses/get_equipped_flash_protection(mob/living/carbon/human/wearer)
+	return active ? ..() : FLASH_PROTECTION_NONE
 
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
@@ -514,8 +514,10 @@ BLIND     // can't see anything
 	src.flipped = !src.flipped
 	if(src.flipped)
 		src.icon_state = "[icon_state]_r"
+		src.item_state = "[item_state]_r"
 	else
 		src.icon_state = initial(icon_state)
+		src.item_state = initial(item_state)
 	to_chat(usr, "You change \the [src] to cover the [src.flipped ? "left" : "right"] eye.")
 	update_clothing_icon()
 	update_icon()
@@ -590,6 +592,7 @@ BLIND     // can't see anything
 	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "scanning"
+	item_state = "scanning"
 
 /obj/item/clothing/glasses/regular/scanners/glasses_examine_atom(var/atom/A, var/user)
 	if(isobj(A))
@@ -657,6 +660,8 @@ BLIND     // can't see anything
 	item_state = "monocle"
 	body_parts_covered = 0
 
+ABSTRACT_TYPE(/obj/item/clothing/glasses/aug)
+
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
 	desc = "Corrective lenses made for those who have trouble seeing."
@@ -700,7 +705,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/sunglasses/big
 	icon_state = "bigsunglasses"
-	item_state = "sun"
+	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/sunglasses/visor
 	name = "visor sunglasses"
@@ -738,7 +743,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/fakesunglasses/big
 	icon_state = "bigsunglasses"
-	item_state = "sun"
+	item_state = "bigsunglasses"
 
 /obj/item/clothing/glasses/fakesunglasses/visor
 	name = "stylish visor sunglasses"
@@ -749,6 +754,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
 	desc = "Protects the eyes from welders, approved by the mad scientist association."
+	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "welding-g"
 	item_state = "welding-g"
 	sprite_sheets = list(
@@ -826,7 +832,6 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/welding/emergency
 	name = "emergency welding goggles"
 	desc = "A cheaper version of standard welding goggles, approved for emergency use by the NanoTrasen Safety Board."
-	icon = 'icons/obj/item/clothing/eyes/welding_goggles.dmi'
 	icon_state = "ewelding-g"
 	item_state = "ewelding-g"
 	contained_sprite = TRUE
@@ -1166,10 +1171,10 @@ BLIND     // can't see anything
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
 			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-	mob_overlay = mutable_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay = mutable_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay_emis = emissive_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
+	mob_overlay_emis = emissive_appearance('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_eye")
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
@@ -1204,7 +1209,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
 	ClearOverlays()
 	if(active)
-		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
+		var/image/eye = image('icons/obj/item/clothing/eyes/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
 		AddOverlays(eye)

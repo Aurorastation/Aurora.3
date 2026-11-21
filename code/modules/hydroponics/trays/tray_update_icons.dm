@@ -45,7 +45,7 @@
 /obj/structure/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
 	. = list()
 	if (needed_state & TRAY_PLANT_DEAD)
-		var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)]"
+		var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)]-dead"
 		var/image/dead_overlay = SSplants.plant_icon_cache["[ikey]"]
 		if(!dead_overlay)
 			dead_overlay = image('icons/obj/hydroponics_growing.dmi', "[ikey]")

@@ -104,8 +104,6 @@
 		/obj/item/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
 		/obj/item/grenade/fake                           = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
-		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
 		/obj/item/gun/bang/deagle                               = TRADER_SUBTYPES_ONLY
 	)
@@ -141,7 +139,6 @@
 	possible_trading_items = list(
 		/obj/item/clothing/head/wizard/magus            = TRADER_THIS_TYPE,
 		/obj/item/shield/buckler                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
@@ -149,9 +146,6 @@
 		/obj/item/clothing/head/helmet/amohda           = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/wizrobe/magusblue       = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/unathi            = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/armor/amohda            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
@@ -177,7 +171,6 @@
 	origin = "Azazi Bulk Supply Guild"
 	possible_trading_items = list(
 		/obj/item/rig/unathi                    = TRADER_ALL,
-		/obj/item/rig/internalaffairs           = TRADER_THIS_TYPE,
 		/obj/item/rig/industrial                = TRADER_THIS_TYPE,
 		/obj/item/rig/eva                       = TRADER_THIS_TYPE,
 		/obj/item/rig/ce                        = TRADER_THIS_TYPE,

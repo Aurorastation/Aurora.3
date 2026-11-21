@@ -113,22 +113,38 @@
 
 /singleton/skill/forensics
 	name = "Forensics"
-	description = "Governs your knowledge of evidence gathering and analyzing."
+	description = "Governs your knowledge of crime scene evidence preservation, sample collection, forensic laboratory equipment, and post-mortem examination."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_TRAINED
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_MEDICAL
 	component_type = FORENSICS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of forensic principles.",
+		SKILL_LEVEL_UNFAMILIAR = "You have zero training or knowledge of forensic principles.<br>" \
+			+ " - You have a 25% chance to contaminate items with your fingerprints when placing them into evidence bags.<br>" \
+			+ " - Taking forensic samples (prints, fibers, swabs) takes 4 seconds and has a 30% chance to smudge, scatter, or contaminate the sample.<br>" \
+			+ " - You cannot operate the electron microscope or autopsy scanner, and DNA analyzer scans run at 0.5x speed.",
 		SKILL_LEVEL_FAMILIAR = "You have minimal training on the basics of forensics and evidence preservation.<br>" \
 			+ "You can do the following: <br>" \
-			+ " - Automatically record time, place and gathering person on evidence bags and photos.",
+			+ " - Automatically record time, place, and gathering person on evidence bags and photos.<br>" \
+			+ " - Safely collect prints, fibers, and swabs in 2.5 seconds without risking contamination.<br>" \
+			+ " - Operate the electron microscope (3.5 seconds), DNA analyzer (1x speed), and autopsy scanner.<br>" \
+			+ " - Estimate approximate time since death when examining a corpse up close.",
 		SKILL_LEVEL_TRAINED = "You have years of formal training and experience with forensic principles.<br>" \
 			+ "You can do the following: <br>" \
-			+ " - Automatically record time, place and gathering person on evidence bags and photos.",
+			+ " - Automatically record time, place, and gathering person on evidence bags and photos.<br>" \
+			+ " - Collect prints, fibers, and swabs in 1.5 seconds while preserving the original evidence on the scene.<br>" \
+			+ " - Operate the electron microscope faster (2.5 seconds) and run DNA analyzer scans at 1.5x speed.<br>" \
+			+ " - Spot faint fingerprints, cloth fibers, and gunshot residue when examining objects up close.<br>" \
+			+ " - Estimate approximate time since death when examining a corpse up close.",
 		SKILL_LEVEL_PROFESSIONAL = "You have extensive training and experience with forensics.<br>" \
 			+ "You can do the following: <br>" \
-			+ " - Automatically record time, place and gathering person on evidence bags and photos.",
+			+ " - Automatically record time, place, and gathering person on evidence bags and photos.<br>" \
+			+ " - Rapidly collect prints, fibers, and swabs in 0.75 seconds while preserving scene evidence and partially reconstructing smudged fingerprints.<br>" \
+			+ " - Operate the electron microscope rapidly (1 second) and run DNA analyzer scans at 2x speed.<br>" \
+			+ " - Identify hidden trace chemicals and exact reagent volumes even with a standard mass spectrometer.<br>" \
+			+ " - Determine exact time of death and apparent cause indicators when examining a corpse up close, and scan surface weapon wounds with an autopsy scanner without requiring a surgical incision.<br>" \
+			+ " - Identify the exact number of distinct fingerprint sets, fiber samples, and residue traces when examining objects up close.<br>" \
+			+ " - Toggle <b>Noir Vision</b>, desaturating your vision while highlighting blood and spent bullet casings in view.",
 	)
 	required = TRUE

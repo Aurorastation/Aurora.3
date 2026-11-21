@@ -23,7 +23,7 @@
 		message_admins("Admin [key_name_admin(usr)] renamed [key_name_admin(mob_to_rename)] to [new_name].")
 		mob_to_rename.fully_replace_character_name(mob_to_rename.real_name, new_name)
 
-		if (issilicon(mob_to_rename) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
+		if (issilicon(mob_to_rename) && tgui_alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?", , list("Yes", "No")) == "Yes")
 			var/mob/living/silicon/S = mob_to_rename
 			S.SetName(new_name)
 			to_chat(usr, SPAN_NOTICE("Silicon properly renamed."))
@@ -165,15 +165,15 @@
 			to_chat(usr, "This can only be used on instances of type /obj")
 			return
 
-		var/action_type = alert("Strict type ([O.type]) or type and all subtypes?",,"Strict type","Type and subtypes","Cancel")
+		var/action_type = tgui_alert(usr, "Strict type ([O.type]) or type and all subtypes?", , list("Strict type", "Type and subtypes", "Cancel"))
 		if(action_type == "Cancel" || !action_type)
 			return
 
-		var/del_action = alert("Are you really sure you want to delete all objects of type [O.type]?",,"Yes","No", "Hard Delete")
+		var/del_action = tgui_alert(usr, "Are you really sure you want to delete all objects of type [O.type]?", , list("Yes", "No", "Hard Delete"))
 		if (del_action == "No" || !del_action)
 			return
 
-		if(alert("Second confirmation required. Delete?",,"Yes","No") != "Yes")
+		if(tgui_alert(usr, "Second confirmation required. Delete?", , list("Yes", "No")) != "Yes")
 			return
 
 		var/O_type = O.type
@@ -263,7 +263,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")	return
+		if(tgui_alert(usr, "Confirm mob type change?", , list("Transform", "Cancel")) != "Transform")	return
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
 			return
@@ -277,7 +277,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")	return
+		if(tgui_alert(usr, "Confirm mob type change?", , list("Transform", "Cancel")) != "Transform")	return
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
 			return
@@ -291,7 +291,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")	return
+		if(tgui_alert(usr, "Confirm mob type change?", , list("Transform", "Cancel")) != "Transform")	return
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
 			return
@@ -305,7 +305,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		if(alert("Confirm mob type change?",,"Transform","Cancel") != "Transform")	return
+		if(tgui_alert(usr, "Confirm mob type change?", , list("Transform", "Cancel")) != "Transform")	return
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
 			return

@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/shoes/tajara)
+
 /obj/item/clothing/shoes/tajara/footwraps
 	name = "kah'romra"
 	desc = "Native foot and leg wear worn by Tajara, completely covering the legs in wraps and the feet in adhomian fabric."

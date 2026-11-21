@@ -154,7 +154,7 @@
 	if(user.a_intent != I_HURT)
 		return
 	if(target_mob == user)  //A check so you don't accidentally smash your brains out while trying to get your drink on.
-		var/confirm = alert("Do you want to smash the bottle on yourself?","Hit yourself?","No", "Yeah!", "Splash Reagents")
+		var/confirm = tgui_alert(usr, "Do you want to smash the bottle on yourself?", "Hit yourself?", list("No", "Yeah!", "Splash Reagents"))
 		if(confirm == "No")
 			return 1 //prevents standard_splash_mob on return
 		if(confirm == "Splash Reagents")
@@ -455,7 +455,7 @@
 			if (!receiver_morale)
 				continue
 
-			if (astype(receiver_morale.moodlets[/datum/moodlet/bartender_sabrage], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+			if (astype((locate(/datum/moodlet/bartender_sabrage) in receiver_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 				receiver_morale.load_moodlet(/datum/moodlet/bartender_sabrage)?.refresh_moodlet()
 				continue // Don't overwrite stronger moodlets.
 

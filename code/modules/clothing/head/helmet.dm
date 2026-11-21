@@ -148,20 +148,6 @@
 	icon_state = "helm_skrell_commander"
 	item_state = "helm_skrell_commander"
 
-/obj/item/clothing/head/helmet/hos/dermal
-	name = "dermal armor patch"
-	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
-	icon_state = "dermal"
-	has_storage = FALSE
-	allow_hair_covering = FALSE
-
-/obj/item/clothing/head/helmet/hop
-	name = "crew resource's hat"
-	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
-	icon_state = "hopcap"
-	has_storage = FALSE
-	flags_inv = 0
-
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
 	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
@@ -366,23 +352,6 @@
 	siemens_coefficient = 0.35
 
 
-/obj/item/clothing/head/helmet/augment
-	name = "augment array"
-	desc = "A helmet with optical and cranial augments coupled to it."
-	icon_state = "v62"
-	armor = list(
-		MELEE = ARMOR_MELEE_VERY_HIGH,
-		BULLET = ARMOR_BALLISTIC_MEDIUM,
-		LASER = ARMOR_LASER_PISTOL,
-		ENERGY = ARMOR_ENERGY_RESISTANT,
-		BOMB = ARMOR_BOMB_PADDED
-	)
-	flags_inv = HIDEEARS|HIDEEYES
-	body_parts_covered = HEAD|EYES
-	cold_protection = HEAD
-	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.1
-
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"
 	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."
@@ -506,7 +475,7 @@
 /obj/item/clothing/head/helmet/legion
 	name = "foreign legion helmet"
 	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
-	icon_state = "legion_helmet"
+	icon_state = "swat"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(
