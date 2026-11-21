@@ -8,6 +8,8 @@
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 	var/can_write = FALSE
+	/// Customized name without a pen-applied label. Set when the folder is first labelled.
+	var/tmp/unlabelled_name
 	/// Stable ID of the filing cabinet whose long-term storage contains this folder.
 	var/tmp/persistent_filing_cabinet_id
 
@@ -77,7 +79,9 @@
 	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/n_name = sanitizeSafe( tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == 0)
-			name = "folder[(n_name ? "- '[n_name]'" : null)]"
+			if(isnull(unlabelled_name))
+				unlabelled_name = name
+			name = "[unlabelled_name][(n_name ? "- '[n_name]'" : null)]"
 	return
 
 /obj/item/folder/attack_self(mob/user as mob)
@@ -197,7 +201,10 @@
 /obj/item/folder/proc/get_persistent_document_content()
 	var/list/content = list(
 		"name" = name,
+		"description" = desc,
 		"color" = color,
+		"accent_color" = accent_color,
+		"unlabelled_name" = unlabelled_name,
 		"filing_cabinet_id" = persistent_filing_cabinet_id
 	)
 
@@ -229,7 +236,14 @@
 
 	if(istext(content["name"]))
 		name = content["name"]
-	color = content["color"]
+	if("description" in content)
+		desc = content["description"]
+	if("color" in content)
+		color = content["color"]
+	if("accent_color" in content)
+		accent_color = content["accent_color"]
+	if("unlabelled_name" in content)
+		unlabelled_name = content["unlabelled_name"]
 	persistent_filing_cabinet_id = content["filing_cabinet_id"]
 	for(var/list/document as anything in content["documents"])
 		switch(document["kind"])
