@@ -137,10 +137,10 @@
 	if(health <= 0)
 		deflate(TRUE)
 
-/obj/structure/inflatable/CtrlClick()
+/obj/structure/inflatable/CtrlClick(mob/user)
 	hand_deflate()
 
-/obj/structure/inflatable/proc/deflate(var/violent = FALSE, msg = TRUE)
+/obj/structure/inflatable/proc/deflate(var/violent = FALSE, msg = TRUE, mob/user = null)
 	if(deflating)
 		return
 	playsound(loc, 'sound/machines/hiss.ogg', 75, TRUE)
@@ -159,12 +159,13 @@
 		if(!undeploy_path)
 			return
 		deflating = TRUE
+		var/deflate_time = get_inflatable_deflate_delay(user)
 		if(msg)
-			visible_message(SPAN_NOTICE("\The [src] slowly deflates."))
+			visible_message(SPAN_NOTICE("\The [src] [deflate_time <= 1.5 SECONDS ? "quickly" : "slowly"] deflates."))
 		var/matrix/M = new
 		M.Scale(0.6)
-		animate(src, 2.6 SECONDS, transform = M)
-		addtimer(CALLBACK(src, PROC_REF(post_deflate)), 2.6 SECONDS)
+		animate(src, deflate_time, transform = M)
+		addtimer(CALLBACK(src, PROC_REF(post_deflate)), deflate_time)
 
 /obj/structure/inflatable/proc/post_deflate()
 	var/obj/item/inflatable/R = new undeploy_path(loc)
@@ -185,7 +186,7 @@
 		return
 
 	verbs -= /obj/structure/inflatable/verb/hand_deflate
-	deflate()
+	deflate(FALSE, TRUE, usr)
 
 /obj/structure/inflatable/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	health -= damage

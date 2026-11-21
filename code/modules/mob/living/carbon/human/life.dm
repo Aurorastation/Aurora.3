@@ -345,7 +345,8 @@
 		var/check_pressure = XGM_PRESSURE(breath)
 		if(check_pressure < ONE_ATMOSPHERE / 5 || check_pressure > ONE_ATMOSPHERE * 5)
 			if(!is_lung_ruptured() && prob(5))
-				rupture_lung()
+				if(check_pressure >= ONE_ATMOSPHERE / 5 || !try_negate_vacuum_lung_rupture(src))
+					rupture_lung()
 
 	return breath
 

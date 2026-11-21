@@ -75,7 +75,7 @@
 
 /singleton/skill/atmospherics_systems
 	name = "Atmospherics Systems"
-	description = "Not currently implemented."
+	description = "Atmospherics Systems encompasses pipework and pressurized fitting maintenance, gas analysis and pressure diagnostics, canister and regulator handling, stationary atmospheric machinery configuration, and emergency breach/fire control."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_FAMILIAR
 	category =  /singleton/skill_category/occupational
@@ -84,13 +84,31 @@
 	component_type = ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with atmospherics systems.<br>" \
-			+ " - No mechanical changes implemented at this skill level.",
+			+ " - You fasten, unfasten, and convert pipes slowly, and cannot safely unfasten overpressurized (>200 kPa) fittings even with a pipe wrench.<br>" \
+			+ " - Gas Analyzers you use only identify common everyday gases, grouping industrial or hazardous gases as unidentified.<br>" \
+			+ " - You set pressure regulators with slight imprecision, take longer to configure complex atmospherics machinery, and forget to close canister release valves when pulling holding tanks.<br>" \
+			+ " - You deploy/deflate inflatable barriers, weld vents, and operate fire extinguishers more slowly.",
 		SKILL_LEVEL_FAMILIAR = "You have some experience working with atmospherics systems, though are not formally trained.<br>" \
-			+ " - You can recognize what a few wires do in atmospherics devices by sight.",
-		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
-			+ " - You can recognize what some wires do in atmospherics devices by sight.",
-		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
-			+ " - You can recognize what many wires do in atmospherics devices by sight." \
+			+ " - You can recognize what a few wires do in atmospherics devices by sight.<br>" \
+			+ " - You can unfasten overpressurized pipes with a pipe wrench, and feel temperature and pressure vibrations when examining pipes, canisters, and tanks.<br>" \
+			+ " - Gas Analyzers you use display standard molar and percentage breakdowns for all gases.<br>" \
+			+ " - You set pressure regulators accurately and automatically close canister release valves when removing holding tanks.<br>" \
+			+ " - You deploy/deflate inflatable barriers and weld vents faster, and use fire extinguishers with a shorter cooldown and 15% better reagent conservation.<br>" \
+			+ " - You have a 25% chance to reflexively exhale and negate lung ruptures when exposed to low pressure or vacuum.",
+		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree.<br>" \
+			+ " - You can recognize what some wires do in atmospherics devices by sight.<br>" \
+			+ " - You fasten, unfasten, and bleed pressurized pipes faster, and can directly select pipe layers in a single step with a pipe wrench.<br>" \
+			+ " - Examining pipes, canisters, and tanks estimates their pressure and temperature brackets, and Gas Analyzers display partial pressures (kPa) and hazard tags.<br>" \
+			+ " - You configure complex atmospherics machinery without delay, connect portables faster, and can assemble atmospherics machinery and consoles from flatpaks.<br>" \
+			+ " - You deploy/deflate inflatable barriers and weld vents faster, and use fire extinguishers with a shorter cooldown and 30% better reagent conservation.<br>" \
+			+ " - You have a 50% chance to reflexively exhale and negate lung ruptures when exposed to low pressure or vacuum.",
+		SKILL_LEVEL_PROFESSIONAL = "You have many years of specialized training in Atmospherics Systems, equivalent to a Master's Degree or better.<br>" \
+			+ " - You can recognize what many wires do in atmospherics devices by sight.<br>" \
+			+ " - You fasten and convert pipes and connect portable canisters/pumps instantaneously with a pipe wrench, and unfasten pressurized lines rapidly.<br>" \
+			+ " - Examining pipes, canisters, and tanks reveals near-exact pressures, temperatures, and structural fatigue warnings.<br>" \
+			+ " - Gas Analyzers you use display full molar breakdowns, heat capacity (J/K), and fuel/oxidizer combustion and auto-ignition assessments.<br>" \
+			+ " - You deploy/deflate inflatable barriers and weld vents at maximum speed, and use fire extinguishers with minimal cooldown and 45% better reagent conservation.<br>" \
+			+ " - You have a 100% chance to reflexively exhale and negate lung ruptures when exposed to low pressure or vacuum."
 	)
 
 /singleton/skill/reactor_systems

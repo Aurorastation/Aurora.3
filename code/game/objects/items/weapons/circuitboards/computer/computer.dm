@@ -25,6 +25,7 @@
 /obj/item/circuitboard/atmos_alert
 	name = T_BOARD("atmospheric alert console")
 	build_path = /obj/structure/machinery/computer/atmos_alert
+	flatpak_required_skills = list(ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /obj/item/circuitboard/pod
 	name = T_BOARD("massdriver control")
@@ -96,6 +97,7 @@
 	name = T_BOARD("area air control console")
 	build_path = /obj/structure/machinery/computer/area_atmos
 	origin_tech = list(TECH_DATA = 2)
+	flatpak_required_skills = list(ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /obj/item/circuitboard/telesci_console
 	name = T_BOARD("Telescience Console")

@@ -13,6 +13,11 @@
 	var/maximum_pressure = 90 * ONE_ATMOSPHERE
 	var/connect_automatically = TRUE
 
+/obj/structure/machinery/portable_atmospherics/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += get_portable_atmos_feedback(src, user)
+
 /obj/structure/machinery/portable_atmospherics/Destroy()
 	disconnect()
 	QDEL_NULL(air_contents)
@@ -129,20 +134,33 @@
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		return TRUE
 
-	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/pipewrench))
+		var/connect_delay = get_portable_connect_delay(user)
 		if(connected_port)
+			if(connect_delay > 0)
+				if(!attacking_item.use_tool(src, user, connect_delay, volume = 50))
+					return TRUE
+				if(QDELETED(src) || !connected_port)
+					return TRUE
+			else
+				attacking_item.play_tool_sound(get_turf(src), 50)
 			disconnect()
 			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
-			attacking_item.play_tool_sound(get_turf(src), 50)
 			update_icon()
 			SStgui.update_uis(src)
 			return TRUE
 		else
 			var/obj/structure/machinery/atmospherics/portables_connector/possible_port = locate(/obj/structure/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
+				if(connect_delay > 0)
+					if(!attacking_item.use_tool(src, user, connect_delay, volume = 50))
+						return TRUE
+					if(QDELETED(src) || QDELETED(possible_port) || possible_port.loc != loc)
+						return TRUE
+				else
+					attacking_item.play_tool_sound(get_turf(src), 50)
 				if(connect(possible_port))
 					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
-					attacking_item.play_tool_sound(get_turf(src), 50)
 					update_icon()
 					SStgui.update_uis(src)
 					return TRUE

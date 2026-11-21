@@ -117,10 +117,14 @@
 			update_icon()
 			. = TRUE
 		if("temp")
+			if(!check_atmos_machine_config(usr, src))
+				return TRUE
 			var/amount = text2num(params["temp"])
 			set_temperature = between(0, amount, 1000)
 			. = TRUE
 		if("setPower") //setting power to 0 is redundant anyways
+			if(!check_atmos_machine_config(usr, src))
+				return TRUE
 			var/new_setting = between(0, text2num(params["setPower"]), 100)
 			set_power_level(new_setting)
 			. = TRUE

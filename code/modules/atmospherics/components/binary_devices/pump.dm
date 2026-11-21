@@ -209,13 +209,11 @@ Thus, the two variables affect pump operation are set in New():
 		if("pressure")
 			var/pressure = params["pressure"]
 			if(pressure == "max")
-				pressure = ATMOS_PUMP_MAX_PRESSURE
+				target_pressure = ATMOS_PUMP_MAX_PRESSURE
 				. = TRUE
 			else if(text2num(pressure) != null)
-				pressure = text2num(pressure)
+				target_pressure = apply_atmos_pressure_precision(usr, text2num(pressure), 0, ATMOS_PUMP_MAX_PRESSURE)
 				. = TRUE
-			if(.)
-				target_pressure = clamp(pressure, 0, ATMOS_PUMP_MAX_PRESSURE)
 		if("toggle_measure")
 			measure_enabled = !measure_enabled
 		if("reset_measure")
@@ -277,21 +275,13 @@ Thus, the two variables affect pump operation are set in New():
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], turn it off first."))
 		return TRUE
-	var/datum/gas_mixture/int_air = return_air()
-	if (!loc) return FALSE
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED && !istype(attacking_item, /obj/item/pipewrench))
-		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], it's too exerted due to internal pressure."))
-		add_fingerprint(user)
-		return TRUE
-	else
-		to_chat(user, SPAN_WARNING("You struggle to unwrench \the [src] with your pipe wrench."))
-	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if (!loc)
+		return FALSE
+	if(attempt_unfasten(attacking_item, user))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
-		return TRUE
+	return TRUE

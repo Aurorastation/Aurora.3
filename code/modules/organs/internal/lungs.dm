@@ -20,6 +20,7 @@
 	// Handles rupture grace period
 	var/rupture_imminent = FALSE // If this is true and the pressure is too high or low, our lungs will rupture
 	var/checking_rupture = TRUE // If this is false, the rupture check won't run, granting a grace period
+	var/low_pressure_exhaled = FALSE // True while the owner has reflexively exhaled to protect against a low-pressure rupture
 
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
@@ -120,10 +121,13 @@
 
 	var/high_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5
 	var/low_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5
+	if(!low_pressure)
+		low_pressure_exhaled = FALSE
 	//exposure to extreme pressures can rupture lungs
-	if(checking_rupture && damage < min_bruised_damage && (high_pressure || low_pressure))
+	if(checking_rupture && damage < min_bruised_damage && (high_pressure || (low_pressure && !low_pressure_exhaled)))
 		if(rupture_imminent)
-			rupture()
+			if(!low_pressure || !try_negate_vacuum_lung_rupture(owner, src))
+				rupture()
 		else
 			if(low_pressure)
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel air rapidly beginning to exit your lungs!")))

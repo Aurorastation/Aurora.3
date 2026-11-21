@@ -386,7 +386,7 @@
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
-			if(attacking_item.use_tool(src, user, 30, volume = 50))
+			if(attacking_item.use_tool(src, user, get_vent_weld_delay(user), volume = 50))
 				if(!src || !WT.isOn())
 					return TRUE
 				welded = !welded
@@ -422,7 +422,7 @@
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
 
-	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/pipewrench))
 
 		if(!(stat & NOPOWER) && use_power)
 			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
@@ -434,23 +434,12 @@
 			if(node && node.level==1 && isturf(T) && !T.is_plating())
 				to_chat(user, SPAN_WARNING("You must remove the plating first."))
 
-			else if(loc)
-				var/datum/gas_mixture/int_air = return_air()
-				var/datum/gas_mixture/env_air = loc.return_air()
-
-				if((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
-					to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
-					add_fingerprint(user)
-
-				else
-					to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-
-					if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
-						user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
-												SPAN_NOTICE("You have unfastened \the [src]."), \
-												"You hear a ratchet.")
-						new /obj/item/pipe(loc, make_from=src)
-						qdel(src)
+			else if(loc && attempt_unfasten(attacking_item, user))
+				user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+										SPAN_NOTICE("You have unfastened \the [src]."), \
+										"You hear a ratchet.")
+				new /obj/item/pipe(loc, make_from=src)
+				qdel(src)
 
 		return ..()
 
