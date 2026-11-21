@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Dirty floors now persist between rounds, giving janitors something to do."
