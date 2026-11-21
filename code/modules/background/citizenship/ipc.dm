@@ -1,9 +1,11 @@
 /datum/citizenship/none
 	name = CITIZENSHIP_NONE
+	assignment_suffix = "None"
 	description = "Not being a citizen of any state is a common situation for owned IPCs and Dionae."
 
 /datum/citizenship/golden_deep
 	name = CITIZENSHIP_GOLDEN
+	assignment_suffix = "G.Deep"
 	description = "The Golden Deep is a collection of free synthetics united by the pursuit of power through currency and trade. \
 	While freely operating in the Frontier, they only recently revealed their existence to the rest of humanity and as such, their \
 	presence in Tau Ceti is limited to merchants and other clerical industries. A highly competitive people; members of the \
@@ -70,6 +72,7 @@
 
 /datum/citizenship/axiom
 	name = CITIZENSHIP_AXIOM
+	assignment_suffix = "Axiom"
 	description = "Citizenship with the Ecclesiastical Authority of Axiom means one of two things; \
 	either you belong directly to Ecclesiastical territory, living under the direct temporal rule of the \
 	synthetic religion of the Trinary Perfection in its capital of Providence or in the surrounding Marches, \
