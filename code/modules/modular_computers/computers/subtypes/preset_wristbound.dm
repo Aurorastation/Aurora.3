@@ -167,6 +167,10 @@
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "ce"
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Supply
 /obj/item/modular_computer/handheld/wristbound/preset/pda/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
@@ -212,6 +216,10 @@
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "cmo"
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Science
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/research
@@ -231,6 +239,10 @@
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 	icon_add = "rd"
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Security
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -239,10 +251,18 @@
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
+/obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	icon_add = "hos"
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Command / Misc
 

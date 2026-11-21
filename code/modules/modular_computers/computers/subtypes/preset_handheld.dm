@@ -71,6 +71,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
+/obj/item/modular_computer/handheld/preset/engineering/ce/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Supply
 /obj/item/modular_computer/handheld/preset/supply
 	_app_preset_type = /datum/modular_computer_app_presets/supply
@@ -126,6 +130,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
+/obj/item/modular_computer/handheld/preset/medical/cmo/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Science
 
 /obj/item/modular_computer/handheld/preset/research
@@ -143,6 +151,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
+/obj/item/modular_computer/handheld/preset/research/rd/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 // Security
 
 /obj/item/modular_computer/handheld/preset/security
@@ -156,9 +168,17 @@
 /obj/item/modular_computer/handheld/preset/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
 
+/obj/item/modular_computer/handheld/preset/security/detective/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
+
 /obj/item/modular_computer/handheld/preset/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/security/hos/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Command / Misc
 
