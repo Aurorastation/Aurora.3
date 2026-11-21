@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - balance: "Various psionics now account for the user having a psionic blocker such as mindshield, being restrained and a couple if the target is protected."
-  - rscadd: "Added a case of mindshield implants to the warden's office."
-  - rscadd: "Added legcuffs to the SecTech."
