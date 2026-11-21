@@ -15,11 +15,11 @@
 	psi_cost = 5
 
 /obj/item/spell/psi_suppression/on_innate_cast(mob/user)
-	. = ..()
+	var/suppression_comp = user.GetComponent(PSI_SUPPRESSION_COMPONENT)
+	. = ..(user, suppression_comp ? TRUE : FALSE)
 	if(!.)
 		return
 
-	var/suppression_comp = user.GetComponent(PSI_SUPPRESSION_COMPONENT)
 	if (suppression_comp)
 		to_chat(user, SPAN_NOTICE("You are no longer suppressing your psi-signature!"))
 		qdel(suppression_comp)

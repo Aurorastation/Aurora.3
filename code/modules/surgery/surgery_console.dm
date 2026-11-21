@@ -424,6 +424,13 @@
 	var/obj/structure/surface = get_surgery_surface(patient)
 	if(surface)
 		success_modifier += surface.surgery_odds_modifier
+	// Surgeries are harder when the surgeon is in pain
+	if(isliving(user))
+		var/mob/living/living_user = user
+		var/surgeon_pain = living_user.get_shock()
+		if(surgeon_pain > 0)
+			success_modifier -= surgeon_pain
+			duration_multiplier *= 1 + (surgeon_pain * SURGERY_PAIN_TIME_MODIFIER)
 	SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, patient, &success_modifier, &duration_multiplier)
 
 	for(var/decl in all_surgeries)
@@ -516,7 +523,12 @@
 /datum/surgery_planner/proc/get_surgery_step_viewer_data(mob/user, mob/living/carbon/human/patient, singleton/surgery_step/S, list/metadata, success_modifier, duration_multiplier, list/effective_skill_requirements)
 	var/list/viewer_data = metadata.Copy()
 	var/skill_modifier = success_modifier
+	var/step_duration_multiplier = duration_multiplier
 	var/list/skill_names = list()
+
+	if(user == patient && !S.standing_self_surgery)
+		skill_modifier -= SELF_SURGERY_SUCCESS_PENALTY
+		step_duration_multiplier *= SELF_SURGERY_TIME_MULTIPLIER
 
 	for(var/skill_component, required_level in effective_skill_requirements)
 		var/skill_level = GET_SKILL_LEVEL(user, skill_component)
@@ -532,7 +544,7 @@
 
 	viewer_data["tools"] = viewer_tools
 	viewer_data["skills"] = length(skill_names) ? skill_names : list("None")
-	viewer_data["estimated_time"] = round((S.get_surgery_time(user, patient) / 10) * duration_multiplier, 0.1)
+	viewer_data["estimated_time"] = round((S.get_surgery_time(user, patient) / 10) * step_duration_multiplier, 0.1)
 	return viewer_data
 
 /datum/surgery_planner/proc/get_surgery_skill_name(skill_component)
