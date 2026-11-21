@@ -43,6 +43,16 @@
 		reagents.add_reagent(spawn_reagent, saved_amount, temperature = temperature_override)
 	update_icon()
 
+/** Applies object-persistence data once this cartridge has initialized. */
+/obj/item/reagent_containers/chem_disp_cartridge/proc/apply_loaded_persistent_data()
+	if(!persistent_stock_loaded || !reagents)
+		return
+	apply_persistent_stock(persistent_loaded_amount)
+	if(!isnull(persistent_loaded_label))
+		setLabel(persistent_loaded_label)
+	persistent_stock_loaded = FALSE
+	return TRUE
+
 /obj/item/reagent_containers/chem_disp_cartridge/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It has a capacity of [volume] units."
@@ -64,11 +74,7 @@
 			setLabel(label)
 		else
 			setLabel(R.name)
-	if(persistent_stock_loaded)
-		apply_persistent_stock(persistent_loaded_amount)
-		if(!isnull(persistent_loaded_label))
-			setLabel(persistent_loaded_label)
-		persistent_stock_loaded = FALSE
+	apply_loaded_persistent_data()
 	var/obj/structure/machinery/chemical_dispenser/dispenser = loc
 	if(istype(dispenser) && dispenser.persistent_cartridges)
 		dispenser.add_cartridge(src)
@@ -92,11 +98,15 @@
 	persistent_stock_loaded = TRUE
 	persistent_loaded_amount = content["amount"]
 	persistent_loaded_label = content["label"]
+	var/applied_persistent_data = apply_loaded_persistent_data()
 	var/saved_dispenser_id = content["dispenser"]
 	if(saved_dispenser_id)
 		for(var/obj/structure/machinery/chemical_dispenser/dispenser in world)
 			if(dispenser.get_persistent_cartridge_map_id() == saved_dispenser_id)
-				forceMove(dispenser)
+				if(applied_persistent_data)
+					dispenser.add_cartridge(src)
+				else
+					forceMove(dispenser)
 				return
 	src.x = x
 	src.y = y

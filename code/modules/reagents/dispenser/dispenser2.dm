@@ -71,6 +71,21 @@
 		if(cartridge.type == cartridge_type)
 			return cartridge
 
+/** Creates empty replacements for original cartridge types which object persistence did not restore into this dispenser. */
+/obj/structure/machinery/chemical_dispenser/proc/restore_missing_persistent_cartridges()
+	if(!persistent_cartridge_id || !spawn_cartridges)
+		return
+	var/list/installed_types = list()
+	for(var/obj/item/reagent_containers/chem_disp_cartridge/cartridge in contents)
+		installed_types[cartridge.type] = TRUE
+	for(var/cartridge_path in spawn_cartridges)
+		var/cartridge_type = initial(cartridge_path:type)
+		if(installed_types[cartridge_type])
+			continue
+		var/obj/item/reagent_containers/chem_disp_cartridge/replacement = new cartridge_path(src)
+		replacement.apply_persistent_stock(0)
+		installed_types[cartridge_type] = TRUE
+
 /obj/structure/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
 		if(user)
