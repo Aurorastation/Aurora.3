@@ -1,5 +1,4 @@
 ABSTRACT_TYPE(/datum/gear/accessory)
-	sort_category = "Accessories"
 
 /datum/gear/accessory/locket
 	display_name = "silver locket"

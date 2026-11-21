@@ -3,7 +3,6 @@
 	path = /obj/item/clothing/head/headchain
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/goldenchains/New()
@@ -19,7 +18,6 @@
 	path = /obj/item/clothing/head/crest
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/goldencrests/New()
@@ -34,7 +32,6 @@
 	display_name = "golden deep armchains"
 	path = /obj/item/clothing/wrists/armchain
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/armchains/New()
@@ -49,7 +46,6 @@
 	display_name = "golden deep bracers"
 	path = /obj/item/clothing/wrists/goldbracer
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/wrists/bracers/New()
@@ -65,7 +61,6 @@
 	path = /obj/item/clothing/ears/antenna
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/antennas/New()
@@ -88,7 +83,6 @@
 	path = /obj/item/clothing/ears/antenna/trinary_halo
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/headlights
@@ -96,13 +90,11 @@
 	path = /obj/item/flashlight/headlights
 	cost = 2
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
 	display_name = "Idris Unit coats"
 	path = /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Investigator", "Security Cadet", "Security Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -128,7 +120,6 @@
 	description = "A selection of formal outfits worn by members of the Golden Deep."
 	path = /obj/item/clothing/under/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/uniform/goldendeep/New()
 	..()
@@ -148,7 +139,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/organ/internal/augment/gustatorial
 	cost = 1
 	whitelisted = list(SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/augment/machine/gustatorial/hands
 	display_name = "gustatorial centre (hands)"
@@ -181,7 +171,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	display_name = "Burzsian mantle"
 	description = "A uniform mantle identifying Hephaestus IPC's from Burzsia. Operation history and specifications are printed underneath the tarp."
 	path = /obj/item/clothing/accessory/poncho/burzsian_mantle
-	sort_category = "Xenowear - IPC"
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
@@ -190,7 +179,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	description = "A colorable coat worn by members of Golden Deep who feel particularly like a boss fight."
 	path = /obj/item/clothing/suit/storage/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/goldendeepshirt
@@ -198,7 +186,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	description = "A selection of shirts and other tops worn by members of the Golden Deep."
 	path = /obj/item/clothing/accessory/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/goldendeepshirt/New()
@@ -214,7 +201,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	description = "A selection of tops suited for use as outer layers worn by members of the Golden Deep."
 	path = /obj/item/clothing/accessory/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	slot = slot_tie
 
@@ -232,7 +218,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	description = "A selection of cloaks and capes worn by members of the Golden Deep."
 	path = /obj/item/clothing/accessory/poncho/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/accessory/goldendeepcloak/New()
@@ -251,7 +236,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/clothing/head/goldendeep
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeep/New()
 	..()
@@ -267,7 +251,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	description = "An ornate piece of clothing usually worn by members of the Hoplan, but known to circulate elsewhere."
 	path = /obj/item/clothing/under/goldendeep/hoplan
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Consular Officer", "Diplomatic Aide", "Diplomatic Bodyguard")
 	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
 
@@ -277,7 +260,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/clothing/head/goldendeep/hoplan
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 	allowed_roles = list("Consular Officer", "Diplomatic Aide", "Diplomatic Bodyguard")
 	culture_restriction = list(/singleton/origin_item/culture/golden_deep)
 
@@ -287,7 +269,6 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/clothing/under/goldendeep/porter
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeepporter
 	display_name = "golden deep porter hat"
@@ -295,14 +276,12 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/clothing/head/goldendeep/porter
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeepchainjewelry
 	display_name = "golden deep chain jewelry"
 	path = /obj/item/clothing/head/goldendeep/chainjewelry
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/head/goldendeepchainjewelry/New()
 	..()
@@ -316,14 +295,12 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	path = /obj/item/clothing/accessory/storage/goldendeep
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/goldendeep
 	display_name = "golden deep sacred icon"
 	path = /obj/item/storage/backpack/goldendeep
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/goldendeep/New()
 	..()
@@ -339,10 +316,8 @@ ABSTRACT_TYPE(/datum/gear/augment/machine)
 	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/ipc_assunzione)
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
-	sort_category = "Xenowear - IPC"
 
 /datum/gear/accessory/goldendeeppassport
 	display_name = "golden deep passport"
 	path = /obj/item/clothing/accessory/badge/passport/goldendeep
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
-	sort_category = "Xenowear - IPC"

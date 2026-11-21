@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Icon,
+  Image,
   Input,
   Section,
   Stack,
@@ -171,15 +172,38 @@ type LoadoutItem = {
   available: boolean;
   cost: number;
   description: string;
+  icon?: string;
+  icon_image?: string;
   name: string;
   restrictions: string[];
   selected: boolean;
+  tags: string[];
   tweaks: PreferenceAction[];
+};
+
+type LoadoutTag = {
+  count: number;
+  /** No gear would be shown if this tag was selected */
+  empty: boolean;
+  has_selected: boolean;
+  /** Makes no sense for the character, eg. a tag of another faction */
+  irrelevant: boolean;
+  name: string;
+  selected: boolean;
+};
+
+type LoadoutTagGroup = {
+  name: string;
+  tags: LoadoutTag[];
 };
 
 type LoadoutPreferenceItem = BasePreferenceItem & {
   kind: 'loadout';
-  categories: { has_selected: boolean; name: string; selected: boolean }[];
+  tag_groups: LoadoutTagGroup[];
+  filtering: boolean;
+  show_all_items: boolean;
+  show_item_info: boolean;
+  show_hidden_tags: boolean;
   cost: number;
   cost_limit: number;
   gear_reset: boolean | number;
@@ -241,6 +265,68 @@ type CharacterSetupData = {
   };
   categories: Category[];
   items: PreferenceItem[];
+};
+
+const getLoadoutTagTooltip = (tag: LoadoutTag) => {
+  const parts: string[] = [];
+  const items = `${tag.count} ${tag.count === 1 ? 'item' : 'items'}`;
+
+  if (tag.selected) {
+    parts.push(
+      `Selected: showing items with this tag (and any other selected tags), ${items}. Click to deselect.`,
+    );
+  } else if (tag.count > 0) {
+    parts.push(
+      `${items} you can pick with this tag (and any other selected tags). Click to select.`,
+    );
+  } else {
+    parts.push(
+      'No items you can pick have this tag together with the currently selected tags.',
+    );
+  }
+  if (tag.has_selected) {
+    parts.push('You have already chosen some items with this tag.');
+  }
+  if (tag.irrelevant) {
+    parts.push("This tag doesn't apply to your character.");
+  }
+  return (
+    <>
+      {parts.map((part, index) => (
+        <Box key={part} mt={index > 0 ? 0.5 : 0}>
+          {part}
+        </Box>
+      ))}
+    </>
+  );
+};
+
+const LoadoutTagGroupRow = (props: {
+  group: LoadoutTagGroup;
+  onToggle: (tag: string) => void;
+}) => {
+  const { group, onToggle } = props;
+
+  return (
+    <Box className="loadout-tag-group">
+      <Box className="loadout-tag-group__title">{group.name}</Box>
+      <Box className="loadout-tag-group__tags">
+        {group.tags.map((tag) => (
+          <Button
+            className={`loadout-tag${tag.irrelevant ? ' loadout-tag--irrelevant' : tag.empty ? ' loadout-tag--empty' : ''}${tag.selected ? ' loadout-tag--selected' : ''}`}
+            color={tag.has_selected ? 'average' : undefined}
+            compact
+            key={tag.name}
+            onClick={() => onToggle(tag.name)}
+            selected={tag.selected}
+            tooltip={getLoadoutTagTooltip(tag)}
+          >
+            {tag.name} ({tag.count})
+          </Button>
+        ))}
+      </Box>
+    </Box>
+  );
 };
 
 const categoryIcons: Record<string, string> = {
@@ -1270,19 +1356,58 @@ export const CharacterSetup = () => {
           </Button>
         </Stack.Item>
       </Stack>
-      <Box className="loadout-categories">
-        {item.categories.map((category) => (
-          <Button
-            color={category.has_selected ? 'average' : undefined}
-            key={category.name}
-            onClick={() =>
-              sendPreferenceAction(item, 'select_category', category.name)
+      <Box className="loadout-tag-groups">
+        {item.tag_groups.map((group) => (
+          <LoadoutTagGroupRow
+            group={group}
+            key={group.name}
+            onToggle={(tag) =>
+              sendPreferenceTopic(item, {
+                toggle_tag: tag,
+                tag_group: group.name,
+              })
             }
-            selected={category.selected}
-          >
-            {category.name}
-          </Button>
+          />
         ))}
+        <Stack justify="center">
+          <Stack.Item>
+            <Button
+              icon="list-check"
+              onClick={() => sendPreferenceAction(item, 'clear_tags')}
+              selected={!item.filtering}
+              tooltip="Deselect all tags and show only the items you have selected"
+            >
+              Show only the selected items
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={item.show_item_info ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_item_info')}
+              tooltip="Restrictions and tags of the items"
+            >
+              {item.show_item_info ? 'Less info...' : 'More info...'}
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={item.show_all_items ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_all_items')}
+              tooltip="Items that your character cannot take, eg. of other factions or roles"
+            >
+              {item.show_all_items ? 'Fewer items...' : 'More items...'}
+            </Button>
+          </Stack.Item>
+          <Stack.Item>
+            <Button
+              icon={item.show_hidden_tags ? 'eye-slash' : 'eye'}
+              onClick={() => sendPreferenceAction(item, 'toggle_hidden_tags')}
+              tooltip="Tags that make no sense for your character, eg. of other factions"
+            >
+              {item.show_hidden_tags ? 'Fewer tags...' : 'More tags...'}
+            </Button>
+          </Stack.Item>
+        </Stack>
       </Box>
       <Input
         fluid
@@ -1291,7 +1416,7 @@ export const CharacterSetup = () => {
           sendPreferenceAction(item, 'search_input_refresh', value)
         }
         onMouseDown={(event) => event.stopPropagation()}
-        placeholder="Search this category"
+        placeholder="Search the filtered items"
         value={item.search}
       />
       <Box className="loadout-items">
@@ -1301,6 +1426,20 @@ export const CharacterSetup = () => {
             key={gear.name}
           >
             <Stack align="center">
+              {!!(gear.icon_image || gear.icon) && (
+                <Stack.Item>
+                  {gear.icon_image ? (
+                    <Image
+                      height="32px"
+                      src={`data:image/png;base64,${gear.icon_image}`}
+                      style={{ imageRendering: 'pixelated' }}
+                      width="32px"
+                    />
+                  ) : (
+                    <Box className={gear.icon} />
+                  )}
+                </Stack.Item>
+              )}
               <Stack.Item grow>
                 <Button
                   color={gear.selected ? 'average' : 'transparent'}
@@ -1323,6 +1462,11 @@ export const CharacterSetup = () => {
             {!!gear.restrictions.length && (
               <Box fontSize={0.85} mt={0.5}>
                 {gear.restrictions.join(' · ')}
+              </Box>
+            )}
+            {!!gear.tags.length && (
+              <Box color="label" fontSize={0.85} mt={0.5}>
+                Tags: {gear.tags.join(' · ')}
               </Box>
             )}
             {!!gear.tweaks.length && (
