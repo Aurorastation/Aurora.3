@@ -1,0 +1,10 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Overhauled the R&D system with a branching Technology Tree featuring 7 branches, corporate sponsor metadata, and a two-pane R&D Console UI."
+  - rscadd: "Added Destructive Analyzer corporate research bounties across 6 categories: Prototype Weapons, Xenobotany (plant seeds), Xenobiology (slime cores), Custom Circuits (verified by automated unit tests), Planetary Survey Data (exoplanet probe disks), and Xenoarchaeology (drag-and-drop alien artifacts)."
+  - rscadd: "Added limited bounty contract rerolls (3 at roundstart, +1 per completed bounty) and restricted each bounty contract type to single completion per round."
+  - rscadd: "Added Research Persistence with maintenance decay on outermost unlocked nodes (1x node cost per IRL day), allowing points to be reinvested to maintain unlocks."
+  - rscadd: "Added Xenoarchaeology Artifact Persistence for alien artifacts placed on anomaly scanner pads or inside anomaly containers on top of scanner pads."
+  - rscadd: "Added exoplanet Survey Probes (Atmosphere, Ground, and Geomagnetic) and planetary survey data disks for overmap exploration."
+  - balance: "Rebalanced tech node costs for multi-round progression, set roundstart research points to 0 with baseline Machinist/starter nodes unlocked, and nerfed Tech Processors with logarithmic multi-unit scaling."

@@ -246,6 +246,7 @@ var/list/worths = list(
 					/obj/item/cane/concealed = 25,
 					/obj/item/cane = 4,
 					/obj/item/disk/nuclear = 1000,
+					/obj/item/disk/survey_data = 750,
 					/obj/item/disk = 9,
 					/obj/item/clothing/suit/caution = 15,
 					/obj/item/module = 10,

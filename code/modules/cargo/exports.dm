@@ -166,3 +166,9 @@ then the player gets the profit from selling his own wasted time.
 		var/datum/export/E = new subtype
 		if(E.export_types && E.export_types.len) // Exports without a type are invalid/base types
 			exports_list += E
+
+/datum/export/survey_data
+	cost = 750
+	unit_name = "planetary survey data disk"
+	export_types = list(/obj/item/disk/survey_data)
+

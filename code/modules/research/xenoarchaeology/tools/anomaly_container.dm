@@ -46,4 +46,26 @@
 		var/obj/structure/anomaly_container/box = over
 		box.contain(src)
 		return TRUE
+	if(istype(over, /obj/structure/machinery/r_n_d/destructive_analyzer))
+		if(!user || !Adjacent(user) || !over.Adjacent(user))
+			return FALSE
+		var/obj/structure/machinery/r_n_d/destructive_analyzer/DA = over
+		return DA.load_object(src, user)
+	. = ..()
+
+/obj/structure/anomaly_container/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(istype(over, /obj/structure/machinery/r_n_d/destructive_analyzer))
+		if(!user || !Adjacent(user) || !over.Adjacent(user))
+			return FALSE
+		if(!contained)
+			to_chat(user, SPAN_WARNING("\The [src] is empty."))
+			return FALSE
+		var/obj/structure/machinery/r_n_d/destructive_analyzer/DA = over
+		var/obj/structure/machinery/artifact/A = contained
+		if(DA.load_object(A, user))
+			contained = null
+			underlays.Cut()
+			desc = initial(desc)
+			return TRUE
+		return FALSE
 	. = ..()

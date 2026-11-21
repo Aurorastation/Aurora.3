@@ -9,9 +9,12 @@
 	var/datum/artifact_effect/my_effect
 	var/datum/artifact_effect/secondary_effect
 	var/being_used = 0
+	var/persisted_loaded = FALSE
 
 /obj/structure/machinery/artifact/Initialize()
 	. = ..()
+	if(persisted_loaded)
+		return
 
 	//setup primary effect - these are the main ones (mixed)
 	var/effecttype = pick(subtypesof(/datum/artifact_effect))
