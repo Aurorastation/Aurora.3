@@ -4,6 +4,6 @@ delete-after: True
 
 changes:
   - refactor: "Refactored access defines: moved them out of code/__DEFINES/access.dm and split them into separate horizon/centcomm/away files and subtypes."
-  - maptweak: "Added access markers to all maps, replacing hard-coded door access vars."
+  - refactor: "Added access markers to all maps, replacing hard-coded door access vars."
   - code_imp: "Added a unit test for access."
   - code_imp: "Added dmm helper scripts in tools/dmm_py_scripts for searching and editing maps."
