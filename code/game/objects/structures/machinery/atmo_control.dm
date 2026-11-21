@@ -212,16 +212,6 @@
 	var/max_pressure_setting = MAX_VENT_PRESSURE
 	circuit = /obj/item/circuitboard/air_management/tank_control
 
-/obj/structure/machinery/computer/general_air_control/large_tank_control/terminal
-	icon = 'icons/obj/modular_computers/modular_terminal.dmi'
-	icon_screen = "tank"
-	icon_keyboard = "atmos_key"
-	icon_keyboard_emis = "atmos_key_mask"
-	is_connected = TRUE
-	has_off_keyboards = TRUE
-	can_pass_under = FALSE
-	light_power_on = 1
-
 /obj/structure/machinery/computer/general_air_control/large_tank_control/wall
 	icon = 'icons/obj/modular_computers/modular_telescreen.dmi'
 	icon_state = "telescreen"

@@ -128,7 +128,7 @@
 				inner |= player_mob
 
 	msg.base_clarity = CLARITY_CLEAR
-	var/list/hear_clients = deliver_say_message(msg, inner)
+	var/list/mob/heard_mobs = deliver_say_message(msg, inner)
 
 	// Nearby ghosts without ghost ears hear it clearly.
 	for(var/mob/M in observers)
@@ -146,8 +146,8 @@
 		for(var/mob/M in watching)
 			M.show_message(rendered, 2)
 
-	show_speech_bubble(msg, msg.to_string(), hear_clients)
-	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src), additional_styles = list("langchat_italic"))
+	show_speech_bubble(msg, msg.to_string(), heard_mobs)
+	langchat_say_message(msg, get_hearers_in_view(msg.message_range, src) & heard_mobs, additional_styles = list("langchat_italic"))
 
 	if(!(msg.single_language && (msg.single_language.flags & PASSLISTENOBJ)))
 		for(var/obj/O as anything in inner)

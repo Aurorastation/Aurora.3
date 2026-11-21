@@ -48,6 +48,8 @@
 	icon_state = "psyamp"
 	item_state = "psyamp"
 
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/wizrobe)
+
 /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
 	name = "gentlemans coat"
 	desc = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."

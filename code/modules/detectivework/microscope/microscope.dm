@@ -66,9 +66,15 @@
 		to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
 		return
 
+	var/cancelled = FALSE
+	var/delay = 2.5 SECONDS
+	SEND_SIGNAL(user, COMSIG_FORENSICS_USE_MICROSCOPE, src, &cancelled, &delay)
+	if(cancelled)
+		return
+
 	to_chat(user, SPAN_NOTICE("The microscope whirrs as you examine \the [sample]."))
 
-	if(!do_after(user, 25) || !sample)
+	if(!do_after(user, delay) || !sample)
 		return
 
 	to_chat(user, SPAN_NOTICE("Printing findings now..."))
