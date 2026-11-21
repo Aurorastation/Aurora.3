@@ -1,5 +1,8 @@
 macro "borghotkeymode"
 	elem
+		name = "ESCAPE"
+		command = ".output mapwindow.escape_menu:update %7B%22type%22%3A%22toggle%22%2C%22payload%22%3Anull%7D"
+	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=borgmacro hotkey_toggle.is-checked=false input.focus=true \""
 	elem
@@ -231,6 +234,9 @@ macro "borghotkeymode"
 
 macro "macro"
 	elem
+		name = "ESCAPE"
+		command = ".output mapwindow.escape_menu:update %7B%22type%22%3A%22toggle%22%2C%22payload%22%3Anull%7D"
+	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
 	elem
@@ -416,6 +422,9 @@ macro "macro"
 
 
 macro "hotkeymode"
+	elem
+		name = "ESCAPE"
+		command = ".output mapwindow.escape_menu:update %7B%22type%22%3A%22toggle%22%2C%22payload%22%3Anull%7D"
 	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true \""
@@ -662,6 +671,9 @@ macro "hotkeymode"
 
 
 macro "borgmacro"
+	elem
+		name = "ESCAPE"
+		command = ".output mapwindow.escape_menu:update %7B%22type%22%3A%22toggle%22%2C%22payload%22%3Anull%7D"
 	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
@@ -985,6 +997,16 @@ window "mapwindow"
 		background-color = #222222
 		text-color = #ffffff
 		border = line
+	elem "escape_menu"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		inner-background-color = transparent
+		is-visible = false
+		saved-params = ""
 
 window "info_and_buttons"
 	elem "info_and_buttons"
