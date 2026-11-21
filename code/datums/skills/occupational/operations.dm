@@ -103,7 +103,9 @@
 
 /singleton/skill/pilot_mechs
 	name = "Pilot: Exosuits"
-	description = "Governs the user's ability to pilot mechs of any kind."
+	description = "Governs the user's ability to maneuver mechs, operate their weapons, and protect the cockpit with evasive torso twists. " \
+		+ "Higher ranks improve maneuvering, melee damage, melee attack speed, and the chance to divert incoming pilot hits onto the mech. " \
+		+ "Torso twists require a conscious pilot and a responsive mech, and cannot protect against environmental effects."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
@@ -111,13 +113,20 @@
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "What's a mech?<br>" \
 			+ " - You have a 10% chance to move in a wrong direction when controlling mechs.<br>" \
-			+ " - It takes you 5 seconds to find the power switch when turning on a mech.",
+			+ " - It takes you 5 additional seconds to find the power switch when toggling a mech's power.<br>" \
+			+ " - You receive no melee damage or melee attack delay bonuses, and cannot perform protective torso twists.",
 		SKILL_LEVEL_FAMILIAR = "You have a license to pilot mechs, but are relatively inexperienced.<br>" \
-			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
+			+ " - You have 0.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.<br>" \
+			+ " - Mech punches and hydraulic-clamp slams deal 10% more damage and have 10% shorter attack delays.<br>" \
+			+ " - When an incoming attack would hit a pilot, you have a 10% chance to execute a torso twist, making the attack hit the mech instead.",
 		SKILL_LEVEL_TRAINED = "You have a decent amount of experience piloting mechs.<br>" \
-			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
+			+ " - You have 1 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.<br>" \
+			+ " - Mech punches and hydraulic-clamp slams deal 20% more damage and have 20% shorter attack delays.<br>" \
+			+ " - When an incoming attack would hit a pilot, you have a 20% chance to execute a torso twist, making the attack hit the mech instead.",
 		SKILL_LEVEL_PROFESSIONAL = "Look on the bright side kid, you get to keep all the money.<br>" \
-			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.",
+			+ " - You have 1.5 second faster movement delays when Strafing, Reversing, or Turning a mech. This can never let you move faster than a mech's forward speed.<br>" \
+			+ " - Mech punches and hydraulic-clamp slams deal 30% more damage and have 30% shorter attack delays.<br>" \
+			+ " - When an incoming attack would hit a pilot, you have a 30% chance to execute a torso twist, making the attack hit the mech instead.",
 	)
 	required = TRUE
 	component_type = PILOT_MECHS_SKILL_COMPONENT
