@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a Kick maneuver that can be used on harm intent to damage and knock back adjacent targets, including movable objects."

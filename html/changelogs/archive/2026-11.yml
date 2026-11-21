@@ -180,6 +180,14 @@
 2026-11-21:
   FabianK3:
   - bugfix: Fixed langchat being visible through vacuum borders.
+  Geeves:
+  - rscadd: Added a Kick maneuver that can be used on harm intent to damage and knock
+      back adjacent targets, including movable objects.
+  Geeves, Dreamy:
+  - rscadd: Shuttles can now rotate to match differently oriented docking landmarks,
+      allowing them to use docks that face another direction.
+  GeneralCamo:
+  - refactor: Refactored say code to live at the atom level.
   Hellfirejag:
   - rscadd: Fully implemented the Forensics skill.
   - rscadd: 'The following can now be painted with a paint gun: Walls, Windows, Window
@@ -215,6 +223,13 @@
   - rscadd: Command PDAs now start with better internal storage.
   - rscdel: Removed the gun tracker and news browser from the default program sets.
       They can still be downloaded as usual.
+  - rscadd: Command and investigators now have fountain pens in their PDA instead
+      of regular pens.
+  - bugfix: Fixed queendom and wastelander unathi losing their natural armor.
+  notagonk:
+  - rscadd: A Gunnery Wing has been created in place of the Grauwolf and Secure Ammunition
+      Storage, with the Longbow joining them in a new, dedicated area.
+  - rscadd: The Longbow's old location by the Port Docking Arm has been slightly updated.
   rattydew:
   - imageadd: Added unique spriteset for the refill vendor, found in the custodial
       closet.
