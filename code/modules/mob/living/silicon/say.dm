@@ -165,31 +165,35 @@
 	var/list/emote_viewers = list()
 
 	if(m_type == VISIBLE_MESSAGE)
-		emote_viewers = viewers(world.view, H)
-		for(var/mob/M in emote_viewers)
-			M.show_message(rendered, VISIBLE_MESSAGE)
+		for(var/mob/M in viewers(world.view, H))
+			var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+			if(perceived && perceived[2] == VISIBLE_MESSAGE)
+				emote_viewers |= M
 		if(T.has_established_connection())
 			for(var/mob/M in viewers(world.view, T.connected_pad))
-				M.show_message(rendered, VISIBLE_MESSAGE)
-				emote_viewers |= M
+				if(M in emote_viewers)
+					continue
+				var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+				if(perceived && perceived[2] == VISIBLE_MESSAGE)
+					emote_viewers |= M
 	else
 		var/list/hearers = get_hearers_in_view(world.view, H)
 		for(var/atom/movable/hearer as anything in hearers)
 			if(hearer == T)
 				continue
-			hearer.show_message(rendered, AUDIBLE_MESSAGE)
-			if(ismob(hearer))
+			var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+			if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
 				emote_viewers |= hearer
 		if(T.has_established_connection())
 			for(var/atom/movable/hearer as anything in get_hearers_in_view(world.view, T.connected_pad))
-				if(hearer == T.connected_pad)
+				if(hearer == T.connected_pad || (hearer in emote_viewers))
 					continue
-				hearer.show_message(rendered, AUDIBLE_MESSAGE)
-				if(ismob(hearer))
+				var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+				if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
 					emote_viewers |= hearer
 
 	to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='message'>[rendered]</span></span></i>")
-	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
+	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"), check_hearing = FALSE)
 	return TRUE
 
 #undef IS_AI

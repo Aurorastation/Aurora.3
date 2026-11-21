@@ -413,7 +413,7 @@
  */
 /atom/movable/proc/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
-		"You hear a whoosh of displaced air.")
+		blind_message = "You hear a whoosh of displaced air.", visible_message_flags = LOCAL_MESSAGE)
 
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
@@ -449,7 +449,7 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
-	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
+	visible_message("\The [src] falls and lands on \the [loc]!", blind_message = "You hear a thud!", visible_message_flags = LOCAL_MESSAGE)
 
 	return TRUE
 

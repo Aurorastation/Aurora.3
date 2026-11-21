@@ -132,6 +132,7 @@
 		// message
 		src.visible_message(
 			SPAN_NOTICE("\The [src] finishes the surveying process, and prints out a report."),
+			visible_message_flags = LOCAL_MESSAGE,
 			)
 
 		// turf

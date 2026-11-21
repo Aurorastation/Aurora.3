@@ -16,7 +16,7 @@
 
 /// Create balloon alerts (text that floats up) to everything within range.
 /// Will only display to people who can see.
-/atom/proc/balloon_alert_to_viewers(message, self_message, vision_distance = 7, list/ignored_mobs)
+/atom/proc/balloon_alert_to_viewers(message, self_message, vision_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	// This has to be unlinted because the linter thinks that oranges ears will add reagents and call send_asset
@@ -24,8 +24,22 @@
 	var/list/hearers = UNLINT(get_hearers_in_view(vision_distance, src))
 	hearers -= ignored_mobs
 
-	for(var/mob/hearer in hearers - src)
+	for(var/mob/hearer in hearers)
 		if(hearer.is_blind())
+			continue
+
+		balloon_alert(hearer, (hearer == src && self_message) || message)
+
+/// Create balloon alerts (text that floats up) to everything within range.
+/// Will only display to people who can hear.
+/atom/proc/balloon_alert_to_hearers(message, self_message, hearing_distance = DEFAULT_MESSAGE_RANGE, list/ignored_mobs)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/list/hearers = UNLINT(get_hearers_in_view(hearing_distance, src))
+	hearers -= ignored_mobs
+
+	for(var/mob/hearer in hearers)
+		if(isdeaf(hearer))
 			continue
 
 		balloon_alert(hearer, (hearer == src && self_message) || message)
@@ -37,6 +51,10 @@
 /atom/proc/balloon_alert_perform(mob/viewer, text)
 	var/client/viewer_client = viewer?.client
 	if (isnull(viewer_client))
+		return
+
+	if(!runechat_prefs_check(viewer, is_emote = TRUE))
+		to_chat(viewer, span("emote", "[icon2html(src, viewer)] [src.name]: [text]"))
 		return
 
 	var/bound_width = ICON_SIZE_X

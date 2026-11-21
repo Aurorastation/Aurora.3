@@ -250,7 +250,7 @@
 		mode = 1	//Ensures worklocation() continues to work
 		worklocation()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)	//Plays a beep
-		visible_message("Shuttle Locator active.")			//Lets the mob holding it know that the mode has changed
+		visible_message("Shuttle Locator active.", visible_message_flags = LOCAL_MESSAGE)			//Lets the mob holding it know that the mode has changed
 		return		//Get outta here
 	if(!the_disk)
 		the_disk = locate()
@@ -280,7 +280,7 @@
 		mode = 0
 		workdisk()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
-		visible_message(SPAN_NOTICE("Authentication Disk Locator active."))
+		visible_message(SPAN_NOTICE("Authentication Disk Locator active."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	if(!home)
 		home = locate()

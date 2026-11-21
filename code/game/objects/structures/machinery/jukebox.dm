@@ -155,13 +155,13 @@
 	if(!emagged)
 		emagged = 1
 		StopPlaying()
-		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."))
+		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."), visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 		return 1
 
 /obj/structure/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
-	visible_message(SPAN_DANGER("\the [src] blows apart!"))
+	visible_message(SPAN_DANGER("\the [src] blows apart!"), visible_message_flags = LOCAL_MESSAGE)
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 

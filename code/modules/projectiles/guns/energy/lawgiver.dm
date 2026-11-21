@@ -99,7 +99,7 @@
 
 /obj/item/gun/energy/acp/proc/play_message()
 	while (message_enabled && !message_disable) //Shut down command issued. Inform user that boardcasting has been stopped
-		usr.audible_message(SPAN_WARNING("[usr]'s [src.name] broadcasts: [message]"),"")
+		usr.audible_message(SPAN_WARNING("[usr]'s [src.name] broadcasts: [message]"),deaf_message = "")
 		playsound(get_turf(src), 'sound/voice/halt.ogg', 100, 1, vary = 0)
 		sleep(message_delay)
 	to_chat(usr, SPAN_WARNING("Broadcasting Message disabled"))

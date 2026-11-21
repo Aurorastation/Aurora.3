@@ -66,7 +66,7 @@
 	timer -= 2
 
 	if (timer == 10)
-		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"))
+		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"), visible_message_flags = LOCAL_MESSAGE)
 
 	if (timer <= 0)
 		dump_contents()
@@ -144,7 +144,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
+	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 	check_health()
 
 /obj/structure/closet/statue/mouse_drop_receive(atom/dropped, mob/user, params)
@@ -169,7 +169,7 @@
 		user.frozen = FALSE
 		user.dust()
 	dump_contents()
-	visible_message(SPAN_WARNING("[src] shatters!."))
+	visible_message(SPAN_WARNING("[src] shatters!."), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 
@@ -194,5 +194,5 @@
 			L.bodytemperature -= 150
 
 	dump_contents()
-	visible_message(SPAN_WARNING("\The [src] shatters!"))
+	visible_message(SPAN_WARNING("\The [src] shatters!"), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)

@@ -101,9 +101,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		emergency_power_window = null
 		if(!powered())
 			stat |= NOPOWER
-			visible_message(SPAN_DANGER("\The [src] flickers, its power bypass depleted."))
+			visible_message(SPAN_DANGER("\The [src] flickers, its power bypass depleted."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("\The [src] hums as it transitions from emergency power to main."))
+			visible_message(SPAN_NOTICE("\The [src] hums as it transitions from emergency power to main."), visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 	// Snowflake case for checking player characters for a Pilot Spacecraft Skill.
 	// Only player characters will have the component. Which will both always be present on them, and will only enable its own return logic if it exists.

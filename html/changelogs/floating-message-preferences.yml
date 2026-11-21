@@ -1,0 +1,12 @@
+author: GeneralCamo
+delete-after: True
+changes:
+  - rscadd: "Added separate floating-message settings for objects, ghosts, and emotes."
+  - rscadd: "Runechat and balloon alert length is now configurable, with the maximum (and default) length increasing from 64 to 110 characters."
+  - qol: "Balloon alerts now appear in chat when disabled by your floating-message settings."
+  - bugfix: "Balloon alerts to viewers now properly includes the source mob, if applicable."
+  - rscadd: "Added the ability for balloon alerts to appear to hearers, instead of viewers."
+  - qol: "Runechat now uses outlines instead of drop shadows, for superior performance."
+  - refactor: "Unified visible and audible message delivery for mobs and objects, with consistent message, self message, sensory fallback, and distance arguments."
+  - rscadd: "Ported TG's emote, forced self feedback, emphasis, and self-highlight suppression flags. Added an explicit flag for global ghost sight and ears."
+  - bugfix: "Emote overhead text now follows the same sensory checks as its chat message, including visual emotes for deaf viewers and sensory fallbacks."

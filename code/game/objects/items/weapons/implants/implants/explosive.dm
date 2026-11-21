@@ -165,7 +165,7 @@
 
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
-		audible_message(SPAN_WARNING("[src] beeps ominously!"))
+		audible_message(SPAN_WARNING("[src] beeps ominously!"), audible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
 		imp_in.audible_message(SPAN_WARNING(message))

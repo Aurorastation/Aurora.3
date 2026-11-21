@@ -48,7 +48,7 @@
 /obj/item/lore_radio/CtrlClick(mob/user)
 	if(Adjacent(user))
 		low_volume = !low_volume
-		user.visible_message("<b>[user]</b> turns \the [src]'s volume [low_volume ? "down" : "up"].", SPAN_NOTICE("You turn \the [src]'s volume [low_volume ? "down" : "up"]."), range = 3)
+		user.visible_message("<b>[user]</b> turns \the [src]'s volume [low_volume ? "down" : "up"].", SPAN_NOTICE("You turn \the [src]'s volume [low_volume ? "down" : "up"]."), vision_distance = 3)
 		return
 
 /obj/item/lore_radio/format_spoken_chat_message(var/message)
@@ -64,12 +64,12 @@
 	if(!receiving)
 		receiving = TRUE
 		if(user)
-			user.visible_message("<b>[user]</b> flicks \the [src] on.", SPAN_NOTICE("You flick \the [src] on."), range = 3)
+			user.visible_message("<b>[user]</b> flicks \the [src] on.", SPAN_NOTICE("You flick \the [src] on."), vision_distance = 3)
 		RegisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_BROADCAST, PROC_REF(relay_weather_broadcast))
 	else
 		receiving = FALSE
 		if(user)
-			user.visible_message("<b>[user]</b> flicks \the [src] off.", SPAN_NOTICE("You flick \the [src] off."), range = 3)
+			user.visible_message("<b>[user]</b> flicks \the [src] off.", SPAN_NOTICE("You flick \the [src] off."), vision_distance = 3)
 		UnregisterSignal(SSdcs, COMSIG_GLOB_Z_WEATHER_BROADCAST, PROC_REF(relay_weather_broadcast))
 
 /obj/item/lore_radio/proc/relay_lore_radio(var/datum/source, var/radio_station, var/radio_message, var/datum/language/language)
@@ -82,7 +82,7 @@
 		output_spoken_message(radio_message, display_chat = !low_volume, language = language)
 	else
 		if(!low_volume)
-			audible_message(SPAN_LORE_RADIO("The [SPAN_BOLD("[name]")] only emits white noise...")) // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays
+			audible_message(SPAN_LORE_RADIO("The [SPAN_BOLD("[name]")] only emits white noise..."), audible_message_flags = LOCAL_MESSAGE) // using name instead of src so it doesn't add a bolded The or whatever, better control of what displays
 
 /// Listens to when a weather change on this Z-level is broadcasted from a configured weather reader (survey probe), and reads it aloud
 /obj/item/lore_radio/proc/relay_weather_broadcast(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition, var/broadcast_message)

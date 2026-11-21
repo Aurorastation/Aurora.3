@@ -273,7 +273,7 @@ Frequency:
 
 /obj/item/hand_tele/proc/pad_destroyed()
 	linked_pad = null
-	audible_message("\The [src] beeps, \"Connected pad destroyed, resetting to no-pad.\"", null, 3)
+	audible_message("\The [src] beeps, \"Connected pad destroyed, resetting to no-pad.\"", deaf_message = null, hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	LAZYREMOVE(active_teleporters, P)
@@ -329,7 +329,7 @@ Frequency:
 	else
 		if(user.client)
 			user.client.eye = target_closet
-		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
+		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."), visible_message_flags = LOCAL_MESSAGE)
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)

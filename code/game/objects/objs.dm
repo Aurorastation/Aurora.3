@@ -312,7 +312,7 @@
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"), visible_message_flags = LOCAL_MESSAGE)
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
@@ -325,7 +325,7 @@
 	being_shocked = 0
 
 
-/obj/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/obj/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return
 
 //To be called from things that spill objects on the floor.
@@ -439,7 +439,7 @@
 		else
 			var/rendered_message = "\The <b>[src.name]</b> [message_verb], \"[message]\""
 			rendered_message = format_spoken_chat_message(rendered_message)
-			audible_message(rendered_message)
+			audible_message(rendered_message, audible_message_flags = LOCAL_MESSAGE)
 	if(display_overhead)
 		var/list/hearers = get_hearers_in_view(7, src)
 		if(spoken_message)
