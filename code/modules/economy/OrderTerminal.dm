@@ -21,7 +21,7 @@
 	var/ticket = ""
 	var/destinationact = "Service"
 	var/ticket_number = 1
-	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id) // Access to change the menu
+	req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id) // Access to change the menu
 
 /obj/structure/machinery/orderterminal/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

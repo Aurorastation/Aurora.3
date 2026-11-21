@@ -357,7 +357,7 @@
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
 
 /obj/item/storage/lockbox/cciaa
-	req_access = list(/datum/access/cent_ccia::id)
+	req_access = list(/datum/access/centcomm/cent_ccia::id)
 	name = "CCIA agent briefcase"
 	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8

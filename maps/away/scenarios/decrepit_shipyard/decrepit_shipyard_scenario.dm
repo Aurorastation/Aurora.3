@@ -22,7 +22,7 @@
 		/singleton/role/generic_business,
 	)
 	default_outfit = /obj/outfit/admin/generic
-	actor_accesses = list(/datum/access/decrepit_shipyard_staff)
+	actor_accesses = list(/datum/access/other/decrepit_shipyard_staff)
 	radio_frequency_name = "Shipyard #117-B"
 
 	base_area = /area/decrepit_shipyard

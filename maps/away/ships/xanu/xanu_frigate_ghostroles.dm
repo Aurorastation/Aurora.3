@@ -75,4 +75,4 @@
 	head = /obj/item/clothing/head/xanu/senior
 
 /obj/outfit/admin/xanufrigate_crewman/get_id_access()
-	return list(/datum/access/coalition::id, /datum/access/coalition_navy::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/other/coalition::id, /datum/access/other/coalition_navy::id, /datum/access/horizon/external_airlocks::id)

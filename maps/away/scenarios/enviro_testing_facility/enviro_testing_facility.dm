@@ -105,13 +105,13 @@
 	origin_tech = list(TECH_MATERIAL = 7, TECH_MAGNET = 4, TECH_DATA = 4, TECH_ENGINEERING = 6, TECH_COMBAT = 6)
 
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/control
-	req_access = /datum/access/enviro_testing_facility_access_control::id
+	req_access = /datum/access/other/enviro_testing_facility_access_control::id
 
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/medres
-	req_access = /datum/access/enviro_testing_facility_access_medres::id
+	req_access = /datum/access/other/enviro_testing_facility_access_medres::id
 
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/engops
-	req_access = /datum/access/enviro_testing_facility_access_engops::id
+	req_access = /datum/access/other/enviro_testing_facility_access_engops::id
 
 /obj/effect/map_effect/door_helper/access_req/enviro_testing_facility/sec
-	req_access = /datum/access/enviro_testing_facility_access_sec::id
+	req_access = /datum/access/other/enviro_testing_facility_access_sec::id

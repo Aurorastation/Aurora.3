@@ -57,8 +57,8 @@
 			tag.modify_tag_data(TRUE) // Allows for untagged synthetics.
 
 /obj/outfit/admin/lone_spacer/get_id_access()
-	return list(/datum/access/external_airlocks::id, /datum/access/lone_spacer_access::id)
+	return list(/datum/access/horizon/external_airlocks::id, /datum/access/other/lone_spacer_access::id)
 
 /obj/item/card/id/lone_spacer_ship
 	name = "independent ship id"
-	access = list(/datum/access/external_airlocks::id, /datum/access/lone_spacer_access::id)
+	access = list(/datum/access/horizon/external_airlocks::id, /datum/access/other/lone_spacer_access::id)

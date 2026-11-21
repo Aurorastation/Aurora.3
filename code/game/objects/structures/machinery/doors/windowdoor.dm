@@ -236,7 +236,7 @@
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
-	req_access = list(/datum/access/security::id)
+	req_access = list(/datum/access/horizon/security::id)
 	maxhealth = OBJECT_HEALTH_VERY_HIGH
 
 	var/id = null

@@ -107,7 +107,7 @@ pixel_x = 10;
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = AREA_USAGE_ENVIRON
-	req_one_access = list(/datum/access/atmospherics::id, /datum/access/engine_equip::id)
+	req_one_access = list(/datum/access/horizon/atmospherics::id, /datum/access/horizon/engine_equip::id)
 	clicksound = SFX_BUTTON
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -214,7 +214,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/structure/machinery/alarm/server
-	req_one_access = list(/datum/access/rd::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
+	req_one_access = list(/datum/access/horizon/rd::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/engine_equip::id)
 	target_temperature = 80
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server compartments."
 	highpower = 1
@@ -233,7 +233,7 @@ pixel_x = 10;
 
 /obj/structure/machinery/alarm/tcom
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
-	req_access = list(/datum/access/tcomsat::id)
+	req_access = list(/datum/access/horizon/tcomsat::id)
 	highpower = 1
 
 /obj/structure/machinery/alarm/tcom/north
@@ -249,7 +249,7 @@ pixel_x = 10;
 	PRESET_SOUTH
 
 /obj/structure/machinery/alarm/freezer
-	req_one_access = list(/datum/access/galley::id, /datum/access/atmospherics::id, /datum/access/engine_equip::id)
+	req_one_access = list(/datum/access/horizon/galley::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/engine_equip::id)
 	highpower = 1
 	target_temperature = T0C - 20
 
@@ -337,13 +337,13 @@ pixel_x = 10;
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/intrepid::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/quark::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/spark::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id, /datum/access/canary::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/canary::id)
 
 
 /obj/structure/machinery/alarm/server/Initialize()

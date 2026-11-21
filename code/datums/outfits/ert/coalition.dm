@@ -24,7 +24,7 @@
 	accessory_contents = list(/obj/item/gun/projectile/colt = 1)
 
 /obj/outfit/admin/ert/coalition/get_id_access()
-	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/coalition::id, /datum/access/coalition_navy::id)
+	return list(/datum/access/centcomm/distress::id, /datum/access/horizon/external_airlocks::id, /datum/access/other/coalition::id, /datum/access/other/coalition_navy::id)
 
 /obj/outfit/admin/ert/coalition/medic
 	name = "Coalition Medic"
@@ -117,7 +117,7 @@
 	)
 
 /obj/outfit/admin/ert/konyang/get_id_access()
-	return list(/datum/access/distress::id, /datum/access/external_airlocks::id, /datum/access/coalition::id, /datum/access/coalition_navy::id, /datum/access/portofcall_police::id)
+	return list(/datum/access/centcomm/distress::id, /datum/access/horizon/external_airlocks::id, /datum/access/other/coalition::id, /datum/access/other/coalition_navy::id, /datum/access/other/portofcall_police::id)
 
 /obj/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

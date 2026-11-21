@@ -194,6 +194,6 @@
 // ------------------------- misc
 
 /obj/effect/map_effect/door_helper/access_req/modular_freelancer_ship
-	req_access = /datum/access/modular_freelancer_ship::id
+	req_access = /datum/access/other/modular_freelancer_ship::id
 
 // ------------------------- fin

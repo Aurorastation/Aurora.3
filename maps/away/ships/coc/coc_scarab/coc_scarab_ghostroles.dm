@@ -37,7 +37,7 @@
 	accessory = /obj/item/clothing/accessory/sash/purple
 
 /obj/outfit/admin/scarab/get_id_access()
-	return list(/datum/access/external_airlocks::id)
+	return list(/datum/access/horizon/external_airlocks::id)
 
 /datum/ghostspawner/human/coc_scarab/captain
 	name = "Scarab Salvager Captain"

@@ -54,7 +54,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/tcaf/get_id_access()
-	return list(/datum/access/tcaf::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/centcomm/tcaf::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/tcaf/co
 	name = "TCAF Republic Astroforce Astrarch (Equipped)"

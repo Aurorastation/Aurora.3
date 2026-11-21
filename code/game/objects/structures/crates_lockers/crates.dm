@@ -586,7 +586,7 @@
 	name = "AI modules crate"
 	desc = "A secure crate full of AI modules."
 	icon_state = "science_crate"
-	req_access = list(/datum/access/cent_specops::id)
+	req_access = list(/datum/access/centcomm/cent_specops::id)
 
 /obj/structure/closet/crate/secure/aimodules/fill()
 	for(var/moduletype in subtypesof(/obj/item/aiModule))
@@ -615,7 +615,7 @@
 	name = "tau ceti armed forces supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Armed Forces. It appears quite scuffed."
 	icon_state = "tcfl_crate"
-	req_access = list(/datum/access/tcaf::id)
+	req_access = list(/datum/access/centcomm/tcaf::id)
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
@@ -633,7 +633,7 @@
 	name = "secure hydroponics crate"
 	desc = "A crate painted in the scheme of the station's botanists."
 	icon_state = "hydro_crate"
-	req_one_access = list(/datum/access/hydroponics::id, /datum/access/xenobotany::id)
+	req_one_access = list(/datum/access/horizon/hydroponics::id, /datum/access/horizon/xenobotany::id)
 
 /obj/structure/closet/crate/secure/bin
 	name = "secure bin"

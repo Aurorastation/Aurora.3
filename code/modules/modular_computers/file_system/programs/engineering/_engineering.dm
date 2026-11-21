@@ -22,8 +22,8 @@
 /datum/computer_file/program/alarm_monitor/all
 	filename = "alarmmonitorall"
 	filedesc = "Alarm Monitoring (All)"
-	required_access_download = /datum/access/heads::id
-	required_access_run = list(/datum/access/heads::id, /datum/access/equipment::id)
+	required_access_download = /datum/access/horizon/heads::id
+	required_access_run = list(/datum/access/horizon/heads::id, /datum/access/other/equipment::id)
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
 /datum/computer_file/program/alarm_monitor/all/New()
@@ -33,8 +33,8 @@
 /datum/computer_file/program/alarm_monitor/engineering
 	filename = "alarmmonitoreng"
 	filedesc = "Alarm Monitoring (Engineering)"
-	required_access_download = /datum/access/engine::id
-	required_access_run = /datum/access/engine::id
+	required_access_download = /datum/access/horizon/engine::id
+	required_access_run = /datum/access/horizon/engine::id
 
 /datum/computer_file/program/alarm_monitor/engineering/New()
 	..()
@@ -43,8 +43,8 @@
 /datum/computer_file/program/alarm_monitor/security
 	filename = "alarmmonitorsec"
 	filedesc = "Alarm Monitoring (Security)"
-	required_access_download = /datum/access/security::id
-	required_access_run = /datum/access/security::id
+	required_access_download = /datum/access/horizon/security::id
+	required_access_run = /datum/access/horizon/security::id
 
 /datum/computer_file/program/alarm_monitor/security/New()
 	..()

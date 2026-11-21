@@ -6,7 +6,7 @@
 	density = TRUE
 	opacity = FALSE
 	anchored = FALSE
-	req_access = list(/datum/access/engine::id)
+	req_access = list(/datum/access/horizon/engine::id)
 	maxhealth = 100
 	var/active = FALSE
 	/// Malfunction causes parts of the shield to slowly dissipate

@@ -90,7 +90,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/ee_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Engines Shuttle"
-	req_access = list(/datum/access/ee_spy_ship::id)
+	req_access = list(/datum/access/other/ee_spy_ship::id)
 
 /datum/shuttle/autodock/overmap/ee_shuttle
 	name = "Einstein Engines Shuttle"

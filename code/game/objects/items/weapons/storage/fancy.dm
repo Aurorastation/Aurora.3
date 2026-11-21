@@ -517,7 +517,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	make_exact_fit = TRUE
 	storage_slots = 6
-	req_access = list(/datum/access/virology::id)
+	req_access = list(/datum/access/horizon/virology::id)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -543,7 +543,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(/datum/access/forensics_lockers::id)
+	req_access = list(/datum/access/horizon/forensics_lockers::id)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"

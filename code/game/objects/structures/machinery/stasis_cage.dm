@@ -5,7 +5,7 @@
 	icon_state = "stasis_cage"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER
-	req_access = list(/datum/access/research::id)
+	req_access = list(/datum/access/horizon/research::id)
 	idle_power_usage = 0
 	active_power_usage = 5000
 	use_power = POWER_USE_IDLE

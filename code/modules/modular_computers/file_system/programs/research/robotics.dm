@@ -6,8 +6,8 @@
 	extended_desc = "A program made to interface with positronics and prosthetic systems."
 	size = 14
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(/datum/access/research::id, /datum/access/robotics::id)
-	required_access_download = list(/datum/access/research::id, /datum/access/robotics::id)
+	required_access_run = list(/datum/access/horizon/research::id, /datum/access/horizon/robotics::id)
+	required_access_download = list(/datum/access/horizon/research::id, /datum/access/horizon/robotics::id)
 	available_on_ntnet = FALSE
 	tgui_id = "RoboticsComputer"
 	var/datum/tgui_module/ipc_diagnostic/diagnostic

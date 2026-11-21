@@ -7,7 +7,7 @@
 	anchored = FALSE
 	stat = POWEROFF
 	use_power = POWER_USE_OFF
-	req_access = list(/datum/access/galley::id)
+	req_access = list(/datum/access/horizon/galley::id)
 	var/unpacked = FALSE
 	/// When it's anchored and has all it's things outside
 	var/obj/structure/machinery/appliance/cooker/grill/stand/cart_griddle

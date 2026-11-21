@@ -23,10 +23,10 @@
 	)
 	default_outfit = /obj/outfit/admin/generic
 	actor_accesses = list(
-		/datum/access/enviro_testing_facility_access_control,
-		/datum/access/enviro_testing_facility_access_engops,
-		/datum/access/enviro_testing_facility_access_medres,
-		/datum/access/enviro_testing_facility_access_sec,
+		/datum/access/other/enviro_testing_facility_access_control,
+		/datum/access/other/enviro_testing_facility_access_engops,
+		/datum/access/other/enviro_testing_facility_access_medres,
+		/datum/access/other/enviro_testing_facility_access_sec,
 	)
 	radio_frequency_name = "Env-Test Facility Zoya"
 

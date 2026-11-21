@@ -10,7 +10,7 @@
 	icon_vend = "refill-vend"
 	vend_id = "admin"
 	persistent_stock = FALSE
-	req_access = list(/datum/access/janitor::id)
+	req_access = list(/datum/access/horizon/janitor::id)
 	products = list(
 		/obj/item/vending_refill/booze = 2,
 		/obj/item/vending_refill/bomba = 2,

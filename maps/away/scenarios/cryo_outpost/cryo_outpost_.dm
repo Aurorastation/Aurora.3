@@ -130,7 +130,7 @@
 // --------------------------------------------------- misc
 
 /obj/effect/map_effect/marker/access/cryo_outpost
-	req_one_access = /datum/access/cryo_outpost_access::id
+	req_one_access = /datum/access/other/cryo_outpost_access::id
 
 /obj/structure/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
