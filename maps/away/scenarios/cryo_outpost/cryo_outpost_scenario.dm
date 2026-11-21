@@ -19,7 +19,7 @@
 		/singleton/role/cryo_outpost/engineer,
 	)
 	default_outfit = /obj/outfit/admin/generic/cryo_outpost_crew
-	actor_accesses = list(/datum/access/other/cryo_outpost_access)
+	actor_accesses = list(/datum/access/away/cryo_outpost_access)
 
 	base_area = /area/cryo_outpost
 

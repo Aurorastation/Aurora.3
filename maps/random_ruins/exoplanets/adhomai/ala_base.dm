@@ -58,7 +58,7 @@
 	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/ala_base/get_id_access()
-	return list(/datum/access/other/dpra::id)
+	return list(/datum/access/away/dpra::id)
 
 
 /datum/ghostspawner/human/ala_base/officer

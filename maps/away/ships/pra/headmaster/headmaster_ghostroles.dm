@@ -35,7 +35,7 @@
 	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
-	return list(/datum/access/other/pra::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/pra::id, /datum/access/horizon/external_airlocks::id)
 
 // Kosmostrelki Captain - Orbital Fleet Captain in official and operational command of the Headmaster
 /datum/ghostspawner/human/headmaster_kosmostrelki/captain

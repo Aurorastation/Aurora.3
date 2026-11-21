@@ -53,7 +53,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_one_access = list(/datum/access/horizon/security::id, /datum/access/other/portofcall_police::id) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
+	req_one_access = list(/datum/access/horizon/security::id, /datum/access/away/portofcall_police::id) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical

@@ -81,7 +81,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
-	req_one_access = list(/datum/access/other/golden_deep::id, /datum/access/other/golden_deep_owned::id)
+	req_one_access = list(/datum/access/away/golden_deep::id, /datum/access/away/golden_deep_owned::id)
 
 /datum/shuttle/autodock/overmap/golden_deep
 	name = "Golden Deep Shuttle"

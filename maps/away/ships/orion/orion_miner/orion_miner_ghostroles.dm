@@ -65,8 +65,8 @@
 		H.equip_or_collect(new /obj/item/storage/firstaid/sleekstab, slot_in_backpack)
 
 /obj/outfit/admin/orion_miner/get_id_access()
-	return list(/datum/access/other/exress_ship::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/mining::id, /datum/access/horizon/engine_equip::id)
+	return list(/datum/access/away/exress_ship::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/mining::id, /datum/access/horizon/engine_equip::id)
 
 /obj/item/card/id/orion/miner
 	name = "\improper Orion Express mining identification card"
-	access = list(/datum/access/other/exress_ship::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/mining::id, /datum/access/horizon/engine_equip::id)
+	access = list(/datum/access/away/exress_ship::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/mining::id, /datum/access/horizon/engine_equip::id)

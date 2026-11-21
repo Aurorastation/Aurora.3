@@ -457,7 +457,7 @@
 	name = "magnetic door lock"
 	desc = "A large, passcode locked device used for completely locking down airlocks."
 
-	req_access = list(/datum/access/other/none::id)
+	req_access = list(/datum/access/away/none::id)
 
 	var/passcode = "open"
 	var/configurable = TRUE

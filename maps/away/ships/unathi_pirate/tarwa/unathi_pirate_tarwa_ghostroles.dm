@@ -59,7 +59,7 @@
 	)
 
 /obj/outfit/admin/tarwa/get_id_access()
-	return list(/datum/access/other/unathi_pirate::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/unathi_pirate::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/tarwa/diona
 	name = "Tarwa Conglomerate Diona"

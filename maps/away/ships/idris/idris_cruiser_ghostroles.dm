@@ -70,4 +70,4 @@
 		U.attach_accessory(null, tie)
 
 /obj/outfit/admin/idris_cruiser_crew/get_id_access()
-	return list(/datum/access/other/idris::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/engine_equip::id, /datum/access/other/guest_rooms::id, /datum/access/other/guest_room_1::id, /datum/access/other/guest_room_2::id, /datum/access/other/guest_room_3::id, /datum/access/other/guest_room_4::id)
+	return list(/datum/access/away/idris::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/engine_equip::id, /datum/access/away/guest_rooms::id, /datum/access/away/guest_room_1::id, /datum/access/away/guest_room_2::id, /datum/access/away/guest_room_3::id, /datum/access/away/guest_room_4::id)

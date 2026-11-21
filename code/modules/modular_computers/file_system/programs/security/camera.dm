@@ -25,7 +25,7 @@
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return /datum/access/centcomm/cent_specops::id
 		if(NETWORK_CRYO_OUTPOST)
-			return /datum/access/other/cryo_outpost_access::id
+			return /datum/access/away/cryo_outpost_access::id
 
 	return /datum/access/horizon/security::id // Default for all other networks
 

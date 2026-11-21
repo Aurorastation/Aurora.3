@@ -64,4 +64,4 @@
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 
 /obj/outfit/admin/moghes_ozeuoi/get_id_access()
-	return list(/datum/access/other/moghes_wasteland_ozeuoi::id)
+	return list(/datum/access/away/moghes_wasteland_ozeuoi::id)

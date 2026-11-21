@@ -121,7 +121,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/dominian_science_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Dominian Science Shuttle"
-	req_access = list(/datum/access/other/house_volvalaad_ship::id)
+	req_access = list(/datum/access/away/house_volvalaad_ship::id)
 
 /datum/shuttle/autodock/overmap/dominian_science_shuttle
 	name = "Dominian Science Shuttle"

@@ -59,7 +59,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/orion_express_courier/get_id_access()
-	return list(/datum/access/other/exress_ship::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/exress_ship::id, /datum/access/horizon/external_airlocks::id)
 
 /datum/ghostspawner/human/orion_express_courier/captain
 	short_name = "orion_express_captain"
@@ -94,4 +94,4 @@
 
 /obj/item/card/id/orion_ship
 	name = "orion express ship id"
-	access = list(/datum/access/other/exress_ship::id, /datum/access/horizon/external_airlocks::id)
+	access = list(/datum/access/away/exress_ship::id, /datum/access/horizon/external_airlocks::id)

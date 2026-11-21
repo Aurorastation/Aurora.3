@@ -28,7 +28,7 @@
 	belt = /obj/item/flashlight/lantern/voidtamer
 
 /obj/outfit/admin/voidtamer_crew/get_id_access()
-	return list(/datum/access/other/voidtamer_ship::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/voidtamer_ship::id, /datum/access/horizon/external_airlocks::id)
 
 /datum/ghostspawner/human/voidtamer_crew/captain
 	short_name = "voidtamer_captain"
@@ -56,4 +56,4 @@
 //items
 /obj/item/card/id/voidtamer
 	name = "voidtamer ship id"
-	access = list(/datum/access/other/voidtamer_ship::id, /datum/access/horizon/external_airlocks::id)
+	access = list(/datum/access/away/voidtamer_ship::id, /datum/access/horizon/external_airlocks::id)

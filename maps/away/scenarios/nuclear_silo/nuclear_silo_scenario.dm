@@ -21,7 +21,7 @@
 		/singleton/role/nuclear_silo_crew/lower/silo_military_attache,
 	)
 	default_outfit = /obj/outfit/admin/generic/nuclear_silo_crew
-	actor_accesses = list(/datum/access/other/nuclear_missile_silo_access, /datum/access/other/nuclear_missile_silo_access_high)
+	actor_accesses = list(/datum/access/away/nuclear_missile_silo_access, /datum/access/away/nuclear_missile_silo_access_high)
 	radio_frequency_name = "Arctic Valley"
 
 	base_area = /area/nuclear_silo

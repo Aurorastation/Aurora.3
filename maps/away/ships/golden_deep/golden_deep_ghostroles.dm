@@ -114,10 +114,10 @@
 	H.w_uniform.color = pick("#333333")
 
 /obj/outfit/admin/golden_deep/get_id_access()
-	return list(/datum/access/other/golden_deep_owned::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/golden_deep_owned::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/golden_deep/hoplan/get_id_access()
-	return list(/datum/access/other/golden_deep_owned::id, /datum/access/other/golden_deep::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/golden_deep_owned::id, /datum/access/away/golden_deep::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/golden_deep/boss/get_id_access()
-	return list(/datum/access/other/golden_deep_owned::id, /datum/access/other/golden_deep::id, /datum/access/horizon/external_airlocks::id)
+	return list(/datum/access/away/golden_deep_owned::id, /datum/access/away/golden_deep::id, /datum/access/horizon/external_airlocks::id)

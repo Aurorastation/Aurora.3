@@ -1670,7 +1670,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Guns";
 	req_access = null;
-	req_one_access = list(/datum/access/other/crevus_firearm_store)
+	req_one_access = list(/datum/access/away/crevus_firearm_store)
 	},
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -19845,7 +19845,7 @@
 "mOH" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition Storage";
-	req_one_access = list(/datum/access/other/crevus_firearm_store);
+	req_one_access = list(/datum/access/away/crevus_firearm_store);
 	req_access = null
 	},
 /obj/structure/machinery/light/small,
@@ -31600,7 +31600,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition";
 	req_access = null;
-	req_one_access = list(/datum/access/other/crevus_firearm_store)
+	req_one_access = list(/datum/access/away/crevus_firearm_store)
 	},
 /obj/item/ammo_magazine/c9mm,
 /obj/item/ammo_magazine/c9mm,
@@ -32146,7 +32146,7 @@
 "uOC" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Guns";
-	req_one_access = list(/datum/access/other/crevus_firearm_store);
+	req_one_access = list(/datum/access/away/crevus_firearm_store);
 	req_access = null
 	},
 /obj/effect/floor_decal/spline/plain/black{

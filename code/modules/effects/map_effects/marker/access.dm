@@ -148,7 +148,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/abandoned_casino
 	name = "access marker (req_one: abandoned_casino)"
-	req_one_access = list(/datum/access/other/abandoned_casino::id)
+	req_one_access = list(/datum/access/away/abandoned_casino::id)
 
 /obj/effect/map_effect/marker/access/req_one/armory
 	name = "access marker (req_one: armory)"
@@ -212,11 +212,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/coalition
 	name = "access marker (req_one: coalition)"
-	req_one_access = list(/datum/access/other/coalition::id)
+	req_one_access = list(/datum/access/away/coalition::id)
 
 /obj/effect/map_effect/marker/access/req_one/coalition_navy
 	name = "access marker (req_one: coalition_navy)"
-	req_one_access = list(/datum/access/other/coalition_navy::id)
+	req_one_access = list(/datum/access/away/coalition_navy::id)
 
 /obj/effect/map_effect/marker/access/req_one/consular
 	name = "access marker (req_one: consular)"
@@ -224,47 +224,47 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_artisan_shop
 	name = "access marker (req_one: crevus_artisan_shop)"
-	req_one_access = list(/datum/access/other/crevus_artisan_shop::id)
+	req_one_access = list(/datum/access/away/crevus_artisan_shop::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_azaula_enforcer
 	name = "access marker (req_one: crevus_azaula_enforcer)"
-	req_one_access = list(/datum/access/other/crevus_azaula_enforcer::id)
+	req_one_access = list(/datum/access/away/crevus_azaula_enforcer::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_casino
 	name = "access marker (req_one: crevus_casino)"
-	req_one_access = list(/datum/access/other/crevus_casino::id)
+	req_one_access = list(/datum/access/away/crevus_casino::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_clothing_store
 	name = "access marker (req_one: crevus_clothing_store)"
-	req_one_access = list(/datum/access/other/crevus_clothing_store::id)
+	req_one_access = list(/datum/access/away/crevus_clothing_store::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_firearm_store
 	name = "access marker (req_one: crevus_firearm_store)"
-	req_one_access = list(/datum/access/other/crevus_firearm_store::id)
+	req_one_access = list(/datum/access/away/crevus_firearm_store::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_general_store
 	name = "access marker (req_one: crevus_general_store)"
-	req_one_access = list(/datum/access/other/crevus_general_store::id)
+	req_one_access = list(/datum/access/away/crevus_general_store::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_nt_pharmacy
 	name = "access marker (req_one: crevus_nt_pharmacy)"
-	req_one_access = list(/datum/access/other/crevus_nt_pharmacy::id)
+	req_one_access = list(/datum/access/away/crevus_nt_pharmacy::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_rhan_cresh
 	name = "access marker (req_one: crevus_rhan_cresh)"
-	req_one_access = list(/datum/access/other/crevus_rhan_cresh::id)
+	req_one_access = list(/datum/access/away/crevus_rhan_cresh::id)
 
 /obj/effect/map_effect/marker/access/req_one/crevus_the_lock
 	name = "access marker (req_one: crevus_the_lock)"
-	req_one_access = list(/datum/access/other/crevus_the_lock::id)
+	req_one_access = list(/datum/access/away/crevus_the_lock::id)
 
 /obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff
 	name = "access marker (req_one: decrepit_shipyard_staff)"
-	req_one_access = list(/datum/access/other/decrepit_shipyard_staff::id)
+	req_one_access = list(/datum/access/away/decrepit_shipyard_staff::id)
 
 /obj/effect/map_effect/marker/access/req_one/dpra
 	name = "access marker (req_one: dpra)"
-	req_one_access = list(/datum/access/other/dpra::id)
+	req_one_access = list(/datum/access/away/dpra::id)
 
 /obj/effect/map_effect/marker/access/req_one/engine
 	name = "access marker (req_one: engine)"
@@ -276,7 +276,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec
 	name = "access marker (req_one: enviro_testing_facility_access_sec)"
-	req_one_access = list(/datum/access/other/enviro_testing_facility_access_sec::id)
+	req_one_access = list(/datum/access/away/enviro_testing_facility_access_sec::id)
 
 /obj/effect/map_effect/marker/access/req_one/eva
 	name = "access marker (req_one: eva)"
@@ -284,7 +284,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/exress_ship
 	name = "access marker (req_one: exress_ship)"
-	req_one_access = list(/datum/access/other/exress_ship::id)
+	req_one_access = list(/datum/access/away/exress_ship::id)
 
 /obj/effect/map_effect/marker/access/req_one/external_airlocks
 	name = "access marker (req_one: external_airlocks)"
@@ -296,11 +296,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/gadpathur_navy
 	name = "access marker (req_one: gadpathur_navy)"
-	req_one_access = list(/datum/access/other/gadpathur_navy::id)
+	req_one_access = list(/datum/access/away/gadpathur_navy::id)
 
 /obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer
 	name = "access marker (req_one: gadpathur_navy_officer)"
-	req_one_access = list(/datum/access/other/gadpathur_navy_officer::id)
+	req_one_access = list(/datum/access/away/gadpathur_navy_officer::id)
 
 /obj/effect/map_effect/marker/access/req_one/galley
 	name = "access marker (req_one: galley)"
@@ -308,35 +308,35 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/generic_away_site
 	name = "access marker (req_one: generic_away_site)"
-	req_one_access = list(/datum/access/other/generic_away_site::id)
+	req_one_access = list(/datum/access/away/generic_away_site::id)
 
 /obj/effect/map_effect/marker/access/req_one/golden_deep
 	name = "access marker (req_one: golden_deep)"
-	req_one_access = list(/datum/access/other/golden_deep::id)
+	req_one_access = list(/datum/access/away/golden_deep::id)
 
 /obj/effect/map_effect/marker/access/req_one/golden_deep_owned
 	name = "access marker (req_one: golden_deep_owned)"
-	req_one_access = list(/datum/access/other/golden_deep_owned::id)
+	req_one_access = list(/datum/access/away/golden_deep_owned::id)
 
 /obj/effect/map_effect/marker/access/req_one/guest_room_1
 	name = "access marker (req_one: guest_room_1)"
-	req_one_access = list(/datum/access/other/guest_room_1::id)
+	req_one_access = list(/datum/access/away/guest_room_1::id)
 
 /obj/effect/map_effect/marker/access/req_one/guest_room_2
 	name = "access marker (req_one: guest_room_2)"
-	req_one_access = list(/datum/access/other/guest_room_2::id)
+	req_one_access = list(/datum/access/away/guest_room_2::id)
 
 /obj/effect/map_effect/marker/access/req_one/guest_room_3
 	name = "access marker (req_one: guest_room_3)"
-	req_one_access = list(/datum/access/other/guest_room_3::id)
+	req_one_access = list(/datum/access/away/guest_room_3::id)
 
 /obj/effect/map_effect/marker/access/req_one/guest_room_4
 	name = "access marker (req_one: guest_room_4)"
-	req_one_access = list(/datum/access/other/guest_room_4::id)
+	req_one_access = list(/datum/access/away/guest_room_4::id)
 
 /obj/effect/map_effect/marker/access/req_one/guest_rooms
 	name = "access marker (req_one: guest_rooms)"
-	req_one_access = list(/datum/access/other/guest_rooms::id)
+	req_one_access = list(/datum/access/away/guest_rooms::id)
 
 /obj/effect/map_effect/marker/access/req_one/heads
 	name = "access marker (req_one: heads)"
@@ -344,7 +344,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/hephaestus
 	name = "access marker (req_one: hephaestus)"
-	req_one_access = list(/datum/access/other/hephaestus::id)
+	req_one_access = list(/datum/access/away/hephaestus::id)
 
 /obj/effect/map_effect/marker/access/req_one/holding
 	name = "access marker (req_one: holding)"
@@ -360,11 +360,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/idris
 	name = "access marker (req_one: idris)"
-	req_one_access = list(/datum/access/other/idris::id)
+	req_one_access = list(/datum/access/away/idris::id)
 
 /obj/effect/map_effect/marker/access/req_one/imperial_fleet_voidsman_ship
 	name = "access marker (req_one: imperial_fleet_voidsman_ship)"
-	req_one_access = list(/datum/access/other/imperial_fleet_voidsman_ship::id)
+	req_one_access = list(/datum/access/away/imperial_fleet_voidsman_ship::id)
 
 /obj/effect/map_effect/marker/access/req_one/intrepid
 	name = "access marker (req_one: intrepid)"
@@ -416,11 +416,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access
 	name = "access marker (req_one: nuclear_missile_silo_access)"
-	req_one_access = list(/datum/access/other/nuclear_missile_silo_access::id)
+	req_one_access = list(/datum/access/away/nuclear_missile_silo_access::id)
 
 /obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high
 	name = "access marker (req_one: nuclear_missile_silo_access_high)"
-	req_one_access = list(/datum/access/other/nuclear_missile_silo_access_high::id)
+	req_one_access = list(/datum/access/away/nuclear_missile_silo_access_high::id)
 
 /obj/effect/map_effect/marker/access/req_one/paramedic
 	name = "access marker (req_one: paramedic)"
@@ -432,15 +432,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/portofcall_police
 	name = "access marker (req_one: portofcall_police)"
-	req_one_access = list(/datum/access/other/portofcall_police::id)
+	req_one_access = list(/datum/access/away/portofcall_police::id)
 
 /obj/effect/map_effect/marker/access/req_one/portofcall_vendors
 	name = "access marker (req_one: portofcall_vendors)"
-	req_one_access = list(/datum/access/other/portofcall_vendors::id)
+	req_one_access = list(/datum/access/away/portofcall_vendors::id)
 
 /obj/effect/map_effect/marker/access/req_one/pra
 	name = "access marker (req_one: pra)"
-	req_one_access = list(/datum/access/other/pra::id)
+	req_one_access = list(/datum/access/away/pra::id)
 
 /obj/effect/map_effect/marker/access/req_one/qm
 	name = "access marker (req_one: qm)"
@@ -464,7 +464,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access
 	name = "access marker (req_one: ruined_propellant_depot_access)"
-	req_one_access = list(/datum/access/other/ruined_propellant_depot_access::id)
+	req_one_access = list(/datum/access/away/ruined_propellant_depot_access::id)
 
 /obj/effect/map_effect/marker/access/req_one/sec_doors
 	name = "access marker (req_one: sec_doors)"
@@ -476,7 +476,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/sol_ships
 	name = "access marker (req_one: sol_ships)"
-	req_one_access = list(/datum/access/other/sol_ships::id)
+	req_one_access = list(/datum/access/away/sol_ships::id)
 
 /obj/effect/map_effect/marker/access/req_one/spark
 	name = "access marker (req_one: spark)"
@@ -484,7 +484,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/splf_access
 	name = "access marker (req_one: splf_access)"
-	req_one_access = list(/datum/access/other/splf_access::id)
+	req_one_access = list(/datum/access/away/splf_access::id)
 
 /obj/effect/map_effect/marker/access/req_one/surgery
 	name = "access marker (req_one: surgery)"
@@ -504,11 +504,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_one/tramp_freighter_access
 	name = "access marker (req_one: tramp_freighter_access)"
-	req_one_access = list(/datum/access/other/tramp_freighter_access::id)
+	req_one_access = list(/datum/access/away/tramp_freighter_access::id)
 
 /obj/effect/map_effect/marker/access/req_one/unathi_pirate
 	name = "access marker (req_one: unathi_pirate)"
-	req_one_access = list(/datum/access/other/unathi_pirate::id)
+	req_one_access = list(/datum/access/away/unathi_pirate::id)
 
 /obj/effect/map_effect/marker/access/req_one/xenoarch
 	name = "access marker (req_one: xenoarch)"
@@ -536,7 +536,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/autakh
 	name = "access marker (req_all: autakh)"
-	req_access = list(/datum/access/other/autakh::id)
+	req_access = list(/datum/access/away/autakh::id)
 
 /obj/effect/map_effect/marker/access/req_all/bar
 	name = "access marker (req_all: bar)"
@@ -592,11 +592,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/coalition
 	name = "access marker (req_all: coalition)"
-	req_access = list(/datum/access/other/coalition::id)
+	req_access = list(/datum/access/away/coalition::id)
 
 /obj/effect/map_effect/marker/access/req_all/coalition_navy
 	name = "access marker (req_all: coalition_navy)"
-	req_access = list(/datum/access/other/coalition_navy::id)
+	req_access = list(/datum/access/away/coalition_navy::id)
 
 /obj/effect/map_effect/marker/access/req_all/consular
 	name = "access marker (req_all: consular)"
@@ -608,15 +608,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/dpra
 	name = "access marker (req_all: dpra)"
-	req_access = list(/datum/access/other/dpra::id)
+	req_access = list(/datum/access/away/dpra::id)
 
 /obj/effect/map_effect/marker/access/req_all/ee_spy_ship
 	name = "access marker (req_all: ee_spy_ship)"
-	req_access = list(/datum/access/other/ee_spy_ship::id)
+	req_access = list(/datum/access/away/ee_spy_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship
 	name = "access marker (req_all: elyran_naval_infantry_ship)"
-	req_access = list(/datum/access/other/elyran_naval_infantry_ship::id)
+	req_access = list(/datum/access/away/elyran_naval_infantry_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/engine
 	name = "access marker (req_all: engine)"
@@ -628,7 +628,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec
 	name = "access marker (req_all: enviro_testing_facility_access_sec)"
-	req_access = list(/datum/access/other/enviro_testing_facility_access_sec::id)
+	req_access = list(/datum/access/away/enviro_testing_facility_access_sec::id)
 
 /obj/effect/map_effect/marker/access/req_all/eva
 	name = "access marker (req_all: eva)"
@@ -636,7 +636,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/exress_ship
 	name = "access marker (req_all: exress_ship)"
-	req_access = list(/datum/access/other/exress_ship::id)
+	req_access = list(/datum/access/away/exress_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/external_airlocks
 	name = "access marker (req_all: external_airlocks)"
@@ -648,11 +648,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/gadpathur_navy
 	name = "access marker (req_all: gadpathur_navy)"
-	req_access = list(/datum/access/other/gadpathur_navy::id)
+	req_access = list(/datum/access/away/gadpathur_navy::id)
 
 /obj/effect/map_effect/marker/access/req_all/gadpathur_navy_officer
 	name = "access marker (req_all: gadpathur_navy_officer)"
-	req_access = list(/datum/access/other/gadpathur_navy_officer::id)
+	req_access = list(/datum/access/away/gadpathur_navy_officer::id)
 
 /obj/effect/map_effect/marker/access/req_all/galley
 	name = "access marker (req_all: galley)"
@@ -660,7 +660,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/generic_away_site
 	name = "access marker (req_all: generic_away_site)"
-	req_access = list(/datum/access/other/generic_away_site::id)
+	req_access = list(/datum/access/away/generic_away_site::id)
 
 /obj/effect/map_effect/marker/access/req_all/genetics
 	name = "access marker (req_all: genetics)"
@@ -668,7 +668,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/golden_deep
 	name = "access marker (req_all: golden_deep)"
-	req_access = list(/datum/access/other/golden_deep::id)
+	req_access = list(/datum/access/away/golden_deep::id)
 
 /obj/effect/map_effect/marker/access/req_all/heads
 	name = "access marker (req_all: heads)"
@@ -676,7 +676,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/hephaestus
 	name = "access marker (req_all: hephaestus)"
-	req_access = list(/datum/access/other/hephaestus::id)
+	req_access = list(/datum/access/away/hephaestus::id)
 
 /obj/effect/map_effect/marker/access/req_all/holding
 	name = "access marker (req_all: holding)"
@@ -692,7 +692,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship
 	name = "access marker (req_all: house_volvalaad_ship)"
-	req_access = list(/datum/access/other/house_volvalaad_ship::id)
+	req_access = list(/datum/access/away/house_volvalaad_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/hydroponics
 	name = "access marker (req_all: hydroponics)"
@@ -700,15 +700,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/iac_rescue_shit
 	name = "access marker (req_all: iac_rescue_shit)"
-	req_access = list(/datum/access/other/iac_rescue_shit::id)
+	req_access = list(/datum/access/away/iac_rescue_shit::id)
 
 /obj/effect/map_effect/marker/access/req_all/idris
 	name = "access marker (req_all: idris)"
-	req_access = list(/datum/access/other/idris::id)
+	req_access = list(/datum/access/away/idris::id)
 
 /obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship
 	name = "access marker (req_all: imperial_fleet_voidsman_ship)"
-	req_access = list(/datum/access/other/imperial_fleet_voidsman_ship::id)
+	req_access = list(/datum/access/away/imperial_fleet_voidsman_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/intrepid
 	name = "access marker (req_all: intrepid)"
@@ -736,7 +736,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/lone_spacer_access
 	name = "access marker (req_all: lone_spacer_access)"
-	req_access = list(/datum/access/other/lone_spacer_access::id)
+	req_access = list(/datum/access/away/lone_spacer_access::id)
 
 /obj/effect/map_effect/marker/access/req_all/mailsorting
 	name = "access marker (req_all: mailsorting)"
@@ -760,7 +760,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/merchants_guild
 	name = "access marker (req_all: merchants_guild)"
-	req_access = list(/datum/access/other/merchants_guild::id)
+	req_access = list(/datum/access/away/merchants_guild::id)
 
 /obj/effect/map_effect/marker/access/req_all/mining
 	name = "access marker (req_all: mining)"
@@ -768,7 +768,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/moghes_wasteland_ozeuoi
 	name = "access marker (req_all: moghes_wasteland_ozeuoi)"
-	req_access = list(/datum/access/other/moghes_wasteland_ozeuoi::id)
+	req_access = list(/datum/access/away/moghes_wasteland_ozeuoi::id)
 
 /obj/effect/map_effect/marker/access/req_all/morgue
 	name = "access marker (req_all: morgue)"
@@ -776,11 +776,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/nka
 	name = "access marker (req_all: nka)"
-	req_access = list(/datum/access/other/nka::id)
+	req_access = list(/datum/access/away/nka::id)
 
 /obj/effect/map_effect/marker/access/req_all/nuclear_missile_silo_access
 	name = "access marker (req_all: nuclear_missile_silo_access)"
-	req_access = list(/datum/access/other/nuclear_missile_silo_access::id)
+	req_access = list(/datum/access/away/nuclear_missile_silo_access::id)
 
 /obj/effect/map_effect/marker/access/req_all/paramedic
 	name = "access marker (req_all: paramedic)"
@@ -792,15 +792,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/portofcall_police
 	name = "access marker (req_all: portofcall_police)"
-	req_access = list(/datum/access/other/portofcall_police::id)
+	req_access = list(/datum/access/away/portofcall_police::id)
 
 /obj/effect/map_effect/marker/access/req_all/portofcall_vendors
 	name = "access marker (req_all: portofcall_vendors)"
-	req_access = list(/datum/access/other/portofcall_vendors::id)
+	req_access = list(/datum/access/away/portofcall_vendors::id)
 
 /obj/effect/map_effect/marker/access/req_all/pra
 	name = "access marker (req_all: pra)"
-	req_access = list(/datum/access/other/pra::id)
+	req_access = list(/datum/access/away/pra::id)
 
 /obj/effect/map_effect/marker/access/req_all/psychiatrist
 	name = "access marker (req_all: psychiatrist)"
@@ -836,15 +836,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/skrell
 	name = "access marker (req_all: skrell)"
-	req_access = list(/datum/access/other/skrell::id)
+	req_access = list(/datum/access/away/skrell::id)
 
 /obj/effect/map_effect/marker/access/req_all/sol_ships
 	name = "access marker (req_all: sol_ships)"
-	req_access = list(/datum/access/other/sol_ships::id)
+	req_access = list(/datum/access/away/sol_ships::id)
 
 /obj/effect/map_effect/marker/access/req_all/splf_access
 	name = "access marker (req_all: splf_access)"
-	req_access = list(/datum/access/other/splf_access::id)
+	req_access = list(/datum/access/away/splf_access::id)
 
 /obj/effect/map_effect/marker/access/req_all/surgery
 	name = "access marker (req_all: surgery)"
@@ -872,15 +872,15 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/tramp_freighter_access
 	name = "access marker (req_all: tramp_freighter_access)"
-	req_access = list(/datum/access/other/tramp_freighter_access::id)
+	req_access = list(/datum/access/away/tramp_freighter_access::id)
 
 /obj/effect/map_effect/marker/access/req_all/unathi_pirate
 	name = "access marker (req_all: unathi_pirate)"
-	req_access = list(/datum/access/other/unathi_pirate::id)
+	req_access = list(/datum/access/away/unathi_pirate::id)
 
 /obj/effect/map_effect/marker/access/req_all/unathi_trawler_access
 	name = "access marker (req_all: unathi_trawler_access)"
-	req_access = list(/datum/access/other/unathi_trawler_access::id)
+	req_access = list(/datum/access/away/unathi_trawler_access::id)
 
 /obj/effect/map_effect/marker/access/req_all/virology
 	name = "access marker (req_all: virology)"
@@ -888,7 +888,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
 
 /obj/effect/map_effect/marker/access/req_all/voidtamer_ship
 	name = "access marker (req_all: voidtamer_ship)"
-	req_access = list(/datum/access/other/voidtamer_ship::id)
+	req_access = list(/datum/access/away/voidtamer_ship::id)
 
 /obj/effect/map_effect/marker/access/req_all/xenoarch
 	name = "access marker (req_all: xenoarch)"

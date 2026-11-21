@@ -570,300 +570,300 @@ ABSTRACT_TYPE(/datum/access/antag)
 /*******
 * Misc *
 *******/
-ABSTRACT_TYPE(/datum/access/other)
+ABSTRACT_TYPE(/datum/access/away)
 
-/datum/access/other/equipment
+/datum/access/away/equipment
 	id = 199
 	desc = "Equipment"
 	access_type = ACCESS_TYPE_NONE
 
-/datum/access/other/crate_cash
+/datum/access/away/crate_cash
 	id = 200
 	access_type = ACCESS_TYPE_NONE
 
-/datum/access/other/exress_ship
+/datum/access/away/exress_ship
 	id = 201
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/generic_away_site
+/datum/access/away/generic_away_site
 	id = 202
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/none
+/datum/access/away/none
 	id = -1
 	access_type = ACCESS_TYPE_NONE
 
-/datum/access/other/sol_ships
+/datum/access/away/sol_ships
 	id = 203
 	access_type = ACCESS_TYPE_CENTCOM
 
 /// 204 is vacant
 
-/datum/access/other/ee_spy_ship
+/datum/access/away/ee_spy_ship
 	id = 205
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/civilian_station
+/datum/access/away/civilian_station
 	id = 206
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/elyran_naval_infantry_ship
+/datum/access/away/elyran_naval_infantry_ship
 	id = 207
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/skrell
+/datum/access/away/skrell
 	id = 208
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/pra
+/datum/access/away/pra
 	id = 209
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/unathi_pirate
+/datum/access/away/unathi_pirate
 	id = 210
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/iac_rescue_shit
+/datum/access/away/iac_rescue_shit
 	id = 211
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/imperial_fleet_voidsman_ship
+/datum/access/away/imperial_fleet_voidsman_ship
 	id = 212
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/nka
+/datum/access/away/nka
 	id = 213
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/dpra
+/datum/access/away/dpra
 	id = 214
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/merchants_guild
+/datum/access/away/merchants_guild
 	id = 215
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/hephaestus
+/datum/access/away/hephaestus
 	id = 216
 	access_type = ACCESS_TYPE_CENTCOM
 
 // For the Golden Deep ghostrole. This is the access for the merchant and guards, but not for the owned synthetics.
-/datum/access/other/golden_deep
+/datum/access/away/golden_deep
 	id = 217
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep"
 
-/datum/access/other/portofcall_police
+/datum/access/away/portofcall_police
 	id = 218
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/portofcall_vendors
+/datum/access/away/portofcall_vendors
 	id = 219
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/idris
+/datum/access/away/idris
 	id = 220
 	desc = "Idris Ship Crew Member"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/coalition
+/datum/access/away/coalition
 	id = 221
 	desc = "Coalition of Colonies"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/coalition_navy
+/datum/access/away/coalition_navy
 	id = 222
 	desc = "Coalition Navy"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/gadpathur_navy
+/datum/access/away/gadpathur_navy
 	id = 223
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/gadpathur_navy_officer
+/datum/access/away/gadpathur_navy_officer
 	id = 224
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/portofcall_corporate
+/datum/access/away/portofcall_corporate
 	id = 225
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/house_volvalaad_ship
+/datum/access/away/house_volvalaad_ship
 	id = 226
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/moghes_wasteland_ozeuoi
+/datum/access/away/moghes_wasteland_ozeuoi
 	id = 227
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/autakh
+/datum/access/away/autakh
 	id = 228
 	access_type = ACCESS_TYPE_CENTCOM
 
 // For the Golden Deep ghostrole. This is for the owned synthetics, so they lack some of the access their superiors enjoy.
-/datum/access/other/golden_deep_owned
+/datum/access/away/golden_deep_owned
 	id = 229
 	access_type = ACCESS_TYPE_CENTCOM
 	desc = "Golden Deep, Limited Access"
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
-/datum/access/other/guest_rooms
+/datum/access/away/guest_rooms
 	id = 230
 	desc = "Guest Rooms - All"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_1
+/datum/access/away/guest_room_1
 	id = 231
 	desc = "Guest Room 1"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_2
+/datum/access/away/guest_room_2
 	id = 232
 	desc = "Guest Room 2"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_3
+/datum/access/away/guest_room_3
 	id = 233
 	desc = "Guest Room 3"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_4
+/datum/access/away/guest_room_4
 	id = 234
 	desc = "Guest Room 4"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_5
+/datum/access/away/guest_room_5
 	id = 235
 	desc = "Guest Room 5"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_6
+/datum/access/away/guest_room_6
 	id = 236
 	desc = "Guest Room 6"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_7
+/datum/access/away/guest_room_7
 	id = 237
 	desc = "Guest Room 7"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_8
+/datum/access/away/guest_room_8
 	id = 238
 	desc = "Guest Room 8"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_9
+/datum/access/away/guest_room_9
 	id = 239
 	desc = "Guest Room 9"
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/guest_room_10
+/datum/access/away/guest_room_10
 	id = 240
 	desc = "Guest Room 10"
 
-/datum/access/other/unathi_trawler_access
+/datum/access/away/unathi_trawler_access
 	id = 241
 	desc = "General Fishing Trawler Access"
 
-/datum/access/other/tramp_freighter_access
+/datum/access/away/tramp_freighter_access
 	id = 242
 	desc = "Independent Freighter Access"
 
-/datum/access/other/lone_spacer_access
+/datum/access/away/lone_spacer_access
 	id = 243
 	desc = "Independent Skiff Access"
 
-/datum/access/other/cryo_outpost_access
+/datum/access/away/cryo_outpost_access
 	id = 244
 	desc = "Outpost #187-D Access"
 
-/datum/access/other/ruined_propellant_depot_access
+/datum/access/away/ruined_propellant_depot_access
 	id = 245
 	desc = "Propellant Depot AG5 Access"
 
-/datum/access/other/splf_access
+/datum/access/away/splf_access
 	id = 246
 	desc = "SPLF Access"
 
-/datum/access/other/nuclear_missile_silo_access
+/datum/access/away/nuclear_missile_silo_access
 	id = 247
 	desc = "Nuclear Missile Silo Access"
 
-/datum/access/other/nuclear_missile_silo_access_high
+/datum/access/away/nuclear_missile_silo_access_high
 	id = 248
 	desc = "Nuclear Missile Silo Access High Security"
 
-/datum/access/other/enviro_testing_facility_access_control
+/datum/access/away/enviro_testing_facility_access_control
 	id = 249
 	desc = "Env-Test Facility Zoya, Control Access"
 
-/datum/access/other/enviro_testing_facility_access_medres
+/datum/access/away/enviro_testing_facility_access_medres
 	id = 250
 	desc = "Env-Test Facility Zoya, Medical-Research Access"
 
-/datum/access/other/enviro_testing_facility_access_engops
+/datum/access/away/enviro_testing_facility_access_engops
 	id = 251
 	desc = "Env-Test Facility Zoya, Engineering-Operations Access"
 
-/datum/access/other/enviro_testing_facility_access_sec
+/datum/access/away/enviro_testing_facility_access_sec
 	id = 252
 	desc = "Env-Test Facility Zoya, Security Access"
 
 	id = 253
 	desc = "Himean Military Patrol Vessel"
 
-/datum/access/other/quarantined_outpost_engineer
+/datum/access/away/quarantined_outpost_engineer
 	id = 254
 	desc = "Outpost Nemora, Engineering Clearance"
 
-/datum/access/other/decrepit_shipyard_staff
+/datum/access/away/decrepit_shipyard_staff
 	id = 255
 	desc = "Decrepit Shipyard, Staff Access"
 
-/datum/access/other/voidtamer_ship
+/datum/access/away/voidtamer_ship
 	id = 256
 	access_type = ACCESS_TYPE_CENTCOM
 
-/datum/access/other/abandoned_casino
+/datum/access/away/abandoned_casino
 	id = 257
 
-/datum/access/other/crevus_rhan_cresh
+/datum/access/away/crevus_rhan_cresh
 	id = 258
 	desc = "Rhan-Cresh Charities', Highway Patrol Office Access"
 
-/datum/access/other/crevus_azaula_enforcer
+/datum/access/away/crevus_azaula_enforcer
 	id = 259
 	desc = "Azaula Entertainment, Enforcer Office Access"
 
-/datum/access/other/crevus_the_lock
+/datum/access/away/crevus_the_lock
 	id = 260
 	desc = "The Lock Hideout Access"
 
-/datum/access/other/crevus_casino
+/datum/access/away/crevus_casino
 	id = 261
 	desc = "Keltra Zav Nikal, Casino Access"
 
-/datum/access/other/crevus_general_store
+/datum/access/away/crevus_general_store
 	id = 262
 	desc = "Ane-Mart Staff Access"
 
-/datum/access/other/crevus_firearm_store
+/datum/access/away/crevus_firearm_store
 	id = 263
 	desc = "Firearm Store Access"
 
-/datum/access/other/crevus_nt_pharmacy
+/datum/access/away/crevus_nt_pharmacy
 	id = 264
 	desc = "NanoTrasen Pharmacy Access"
 
-/datum/access/other/crevus_artisan_shop
+/datum/access/away/crevus_artisan_shop
 	id = 265
 	desc = "Artisan Shop Access"
 
-/datum/access/other/crevus_clothing_store
+/datum/access/away/crevus_clothing_store
 	id = 266
 	desc = "Clothing Store Access"
 
-/datum/access/other/modular_freelancer_ship
+/datum/access/away/modular_freelancer_ship
 	id = 267
 	desc = "Freelancer Ship Access"

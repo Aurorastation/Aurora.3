@@ -31,7 +31,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/equipped
-	req_access = list(/datum/access/other/skrell::id)
+	req_access = list(/datum/access/away/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
@@ -67,7 +67,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
 /obj/item/rig/skrell/tup/equipped
-	req_access = list(/datum/access/other/skrell::id)
+	req_access = list(/datum/access/away/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -113,7 +113,7 @@
 		)
 
 /obj/item/rig/skrell/tup/modern/equipped
-	req_access = list(/datum/access/other/skrell::id)
+	req_access = list(/datum/access/away/skrell::id)
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,

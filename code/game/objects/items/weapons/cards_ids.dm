@@ -510,7 +510,7 @@
 	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + /datum/access/other/equipment::id
+	access = get_all_station_access() + /datum/access/away/equipment::id
 	..()
 
 /obj/item/card/id/synthetic/cyborg
@@ -522,7 +522,7 @@
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(/datum/access/other/equipment::id, /datum/access/horizon/ai_upload::id, /datum/access/horizon/external_airlocks::id) // barebones cyborg access. Job special added in different place
+	access = list(/datum/access/away/equipment::id, /datum/access/horizon/ai_upload::id, /datum/access/horizon/external_airlocks::id) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -803,7 +803,7 @@
 		..()
 
 /obj/item/card/id/away_site
-	access = list(/datum/access/other/generic_away_site::id, /datum/access/horizon/external_airlocks::id)
+	access = list(/datum/access/away/generic_away_site::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/item/card/id/mecha
 	name = "exosuit access card"
