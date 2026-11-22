@@ -1932,9 +1932,9 @@
 /area/derelict/hallway/northwest)
 "gu" = (
 /obj/structure/table/rack,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,

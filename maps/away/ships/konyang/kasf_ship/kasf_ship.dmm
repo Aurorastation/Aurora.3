@@ -7602,10 +7602,10 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10
 	},
 /obj/item/binoculars,

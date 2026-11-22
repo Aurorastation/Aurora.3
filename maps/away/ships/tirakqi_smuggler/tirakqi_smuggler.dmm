@@ -1871,7 +1871,7 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10;
 	pixel_x = -5
 	},
@@ -5196,7 +5196,7 @@
 /area/shuttle/tirakqi_smuggler_shuttle)
 "Fo" = (
 /obj/structure/table/skrell,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10;
 	pixel_x = 5
 	},
@@ -5215,15 +5215,15 @@
 /obj/item/gps{
 	pixel_x = -5
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10;
 	pixel_x = 5
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 10;
 	pixel_x = 5
 	},

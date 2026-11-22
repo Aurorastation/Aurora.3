@@ -17859,8 +17859,8 @@
 	},
 /obj/item/radio/intercom/north,
 /obj/structure/table/reinforced/steel,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /turf/simulated/floor/tiled/dark,
@@ -95995,9 +95995,9 @@
 /obj/structure/machinery/newscaster/south,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/table/standard,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
 /obj/item/crowbar/red,
@@ -122507,16 +122507,16 @@
 	dir = 6
 	},
 /obj/structure/machinery/firealarm/east,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 8
 	},
 /obj/item/gps/science{

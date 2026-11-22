@@ -1041,15 +1041,15 @@
 /area/scc_event_shuttle)
 "vW" = (
 /obj/structure/table/standard,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
@@ -2283,51 +2283,51 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},

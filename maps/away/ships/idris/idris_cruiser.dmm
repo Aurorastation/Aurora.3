@@ -1990,11 +1990,11 @@
 	dir = 9
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 4;
 	pixel_x = 6
 	},
@@ -4408,15 +4408,15 @@
 	pixel_y = 15;
 	pixel_x = 1
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 4;
 	pixel_x = 6
 	},

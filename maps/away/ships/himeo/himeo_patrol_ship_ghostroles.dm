@@ -98,7 +98,7 @@
 	l_ear = /obj/item/radio/headset/ship
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/coalition
-	l_pocket = /obj/item/radio/off
+	l_pocket = /obj/item/radio
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/clothing/mask/gas/tactical = 1,

@@ -2185,34 +2185,34 @@
 	pixel_y = -5;
 	pixel_x = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3055,15 +3055,15 @@
 /area/scc_event_shuttle)
 "Tw" = (
 /obj/structure/table/standard,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},

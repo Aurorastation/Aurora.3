@@ -3487,7 +3487,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "AQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 6
 	},

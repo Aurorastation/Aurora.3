@@ -172,10 +172,10 @@
 /area/moghes_guild_mining)
 "ra" = (
 /obj/structure/table/rack,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15

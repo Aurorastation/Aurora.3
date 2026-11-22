@@ -1092,15 +1092,15 @@
 /area/scc_event_shuttle)
 "qg" = (
 /obj/structure/table/standard,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 5;
 	pixel_x = 7
 	},

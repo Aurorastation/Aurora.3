@@ -1174,19 +1174,19 @@
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 9
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_y = 3;
 	pixel_x = -9
 	},
