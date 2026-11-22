@@ -208,15 +208,35 @@ var/global/list/default_interrogation_channels = list(
 	return listening
 
 /obj/item/radio/proc/get_connected_audio_wearer()
+	if(!validate_audio_accessory_distance())
+		return
 	var/obj/item/radio/headset/accessory = connected_audio_accessory?.resolve()
 	if(!istype(accessory) || !ishuman(accessory.loc))
 		return
 	var/mob/living/carbon/human/wearer = accessory.loc
 	if(wearer.l_ear != accessory && wearer.r_ear != accessory && wearer.wrists != accessory)
 		return
-	if(loc != wearer)
+	if(recursive_holder_check(src) != wearer)
 		return
 	return wearer
+
+/// Disconnect audio accessories which are no longer close enough to have a physical connection.
+/obj/item/radio/proc/validate_audio_accessory_distance()
+	if(!connected_audio_accessory)
+		return TRUE
+
+	var/obj/item/radio/headset/accessory = connected_audio_accessory.resolve()
+	if(!istype(accessory))
+		disconnect_audio_accessory()
+		return FALSE
+
+	var/turf/radio_turf = get_turf(src)
+	var/turf/accessory_turf = get_turf(accessory)
+	if(!radio_turf || !accessory_turf || radio_turf.z != accessory_turf.z || get_dist(radio_turf, accessory_turf) > 1)
+		disconnect_audio_accessory()
+		return FALSE
+
+	return TRUE
 
 /obj/item/radio/proc/connect_audio_accessory(obj/item/radio/headset/accessory, mob/user)
 	if(!uses_device_cell)
@@ -250,6 +270,7 @@ var/global/list/default_interrogation_channels = list(
 	return power_supply?.cell
 
 /obj/item/radio/process(seconds_per_tick)
+	validate_audio_accessory_distance()
 	if(!uses_device_cell || !power_supply?.powered)
 		return
 	power_supply.use(power_usage_per_second * seconds_per_tick)

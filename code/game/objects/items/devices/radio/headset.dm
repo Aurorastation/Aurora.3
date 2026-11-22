@@ -60,7 +60,7 @@
 
 /obj/item/radio/headset/talk_into(mob/living/M, message, channel, var/say_verb = "says", var/datum/language/speaking = null, var/ignore_restrained, var/datum/say_message/say_message = null)
 	var/obj/item/radio/shortwave = linked_shortwave?.resolve()
-	if(shortwave && shortwave.route_audio_to_accessory && (!channel || channel == "headset") && shortwave.get_connected_audio_wearer() == M)
+	if(shortwave && shortwave.route_audio_to_accessory && (!channel || channel == "headset" || channel == "department") && shortwave.get_connected_audio_wearer() == M)
 		return shortwave.talk_into(M, message, null, say_verb, speaking, ignore_restrained, say_message)
 	return ..()
 

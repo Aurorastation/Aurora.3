@@ -24,7 +24,7 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/uses_device_cell = TRUE
 	var/datum/device_power_supply/power_supply
-	var/scan_power_cost = 10
+	var/scan_power_cost = 250 / 40
 
 /obj/item/healthanalyzer/Initialize(mapload, ...)
 	. = ..()
@@ -49,7 +49,7 @@ BREATH ANALYZER
 	. += "Health analyzers are faster at scanning people, the higher grade it is and the higher the anatomy skill of the user is."
 	. += "Clicking it in hand will pull up the last scan, if it has not been cleared."
 	if(uses_device_cell)
-		. += "It uses one twenty-fifth of a standard device cell per completed scan."
+		. += "It uses one fortieth of a standard device cell per completed scan."
 
 /obj/item/healthanalyzer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

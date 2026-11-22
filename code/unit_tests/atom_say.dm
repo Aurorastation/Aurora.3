@@ -62,7 +62,7 @@
 	return TRUE
 
 /// Existing states exercise appearance transitions without adding production artwork.
-/obj/item/radio/atom_say_test_shortwave
+/obj/item/radio/atom_say_test_radio/shortwave
 	overlay_power_on = "intercom_screen"
 	overlay_power_emissive = "intercom_screen"
 
@@ -281,7 +281,7 @@
 	if(speaker.say("private channel", speaking = private_language))
 		TEST_FAIL("A normal object must not acquire private language broadcasting")
 
-	var/obj/item/radio/atom_say_test_shortwave/shortwave = new(location)
+	var/obj/item/radio/atom_say_test_radio/shortwave/shortwave = new(location)
 	fixtures += shortwave
 	shortwave.power_supply.set_power(TRUE)
 	shortwave.ImmediateOverlayUpdate()
@@ -297,6 +297,35 @@
 		TEST_FAIL("Restoring shortwave power must restore its powered and emissive overlays")
 	if(shortwave.get_radio_overlay("missing-shortwave-art") || intercom.shortwave_overlays)
 		TEST_FAIL("Missing artwork must be optional and intercoms must keep their own appearance handling")
+
+	// A wearable audio accessory stays connected through containers, but not over a distance.
+	var/obj/item/radio/headset/audio_accessory = new(location)
+	var/obj/item/storage/backpack/audio_accessory_bag = new(location)
+	var/obj/item/storage/backpack/carried_shortwave_bag = new(human)
+	fixtures += list(audio_accessory, audio_accessory_bag, carried_shortwave_bag)
+	shortwave.forceMove(carried_shortwave_bag)
+	audio_accessory.forceMove(human)
+	human.l_ear = audio_accessory
+	shortwave.connect_audio_accessory(audio_accessory, human)
+	var/shortwave_transmissions = shortwave.received
+	audio_accessory.talk_into(human, "department fixture", "department", say_message = radio_echo)
+	audio_accessory.talk_into(human, "common fixture", "headset", say_message = radio_echo)
+	if(shortwave.received != shortwave_transmissions + 2)
+		TEST_FAIL("Department and common shortcuts must transmit through a connected shortwave inside a carried container")
+	human.l_ear = null
+	shortwave.forceMove(location)
+	audio_accessory.forceMove(audio_accessory_bag)
+	if(!shortwave.validate_audio_accessory_distance() || shortwave.connected_audio_accessory?.resolve() != audio_accessory)
+		TEST_FAIL("Containers on the same turf must not disconnect a shortwave audio accessory")
+	var/turf/distant_radio_turf
+	for(var/turf/candidate in range(2, location))
+		if(candidate.z == location.z && get_dist(location, candidate) > 1)
+			distant_radio_turf = candidate
+			break
+	TEST_ASSERT(distant_radio_turf, "A turf two tiles away must exist for radio accessory testing")
+	audio_accessory_bag.forceMove(distant_radio_turf)
+	if(shortwave.validate_audio_accessory_distance() || shortwave.connected_audio_accessory || audio_accessory.linked_shortwave)
+		TEST_FAIL("Separating a shortwave and its audio accessory by more than one tile must disconnect both ends")
 
 	var/obj/item/lore_radio/atom_say_test_lore_radio/lore = new(location)
 	fixtures += lore
