@@ -17,10 +17,12 @@
 	return
 
 /mob/proc/update_inv_l_hand(update_icons = TRUE)
-	return
+	if(client)
+		SEND_SIGNAL(client, COMSIG_CLIENT_CURSOR_UPDATE)
 
 /mob/proc/update_inv_r_hand(update_icons = TRUE)
-	return
+	if(client)
+		SEND_SIGNAL(client, COMSIG_CLIENT_CURSOR_UPDATE)
 
 /mob/proc/update_inv_wear_mask()
 	return

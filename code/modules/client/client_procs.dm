@@ -383,6 +383,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
 	GLOB.clients += src
 	GLOB.round_connected_ckeys |= ckey
+	SScursor.register_client(src)
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 	tgui_say = new(src, "tgui_say")
@@ -530,6 +531,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	return ..()
 
 /client/Destroy(force)
+	SScursor.unregister_client(src)
 	GLOB.ticket_panels -= src
 	GLOB.staff -= src
 	GLOB.directory -= ckey
@@ -946,6 +948,11 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		CRASH("Age check regex failed for [src.ckey]")
 
 /client/Click(atom/object, atom/location, control, params)
+	// The lobby map forwards right-clicks for the cursor, but only left-clicks should activate its buttons.
+	if(isnewplayer(mob) && istype(object, /atom/movable/screen/new_player/selection))
+		var/list/modifiers = params2list(params)
+		if(modifiers[RIGHT_CLICK])
+			return
 	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
 	..()
 
@@ -955,6 +962,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(!drag_start) // If we're just starting to drag
 		drag_start = world.time
 		drag_details = modifiers.Copy()
+		SEND_SIGNAL(src, COMSIG_CLIENT_CURSOR_DRAG, TRUE)
 
 	. = ..()
 
@@ -976,14 +984,15 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /client/MouseDrop(atom/src_object, atom/over_object, atom/src_location, atom/over_location, src_control, over_control, params)
 	SHOULD_NOT_OVERRIDE(TRUE)
 
+	SEND_SIGNAL(src, COMSIG_CLIENT_CURSOR_DRAG, FALSE)
 	..()
 	drag_start = 0
 	drag_details = null
 
 /client/MouseDown(datum/object, location, control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
 	if(QDELETED(object)) //Yep, you can click on qdeleted things before they have time to nullspace. Fun.
 		return
-	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
 
 	var/obj/item/I = mob.get_active_hand()
 	var/obj/O = object
@@ -1049,6 +1058,11 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
 		src = src //This doesn't do shit, when you implement click interception change this
 	autofire_aiming_at[1] = null
+
+/client/verb/cursor_shift(held as num)
+	set name = ".cursor_shift"
+	set instant = TRUE
+	SEND_SIGNAL(src, COMSIG_CLIENT_CURSOR_SHIFT, !!held)
 
 /atom/proc/is_auto_clickable()
 	return TRUE

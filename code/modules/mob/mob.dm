@@ -1383,23 +1383,19 @@
 	else
 		throw_mode_on()
 
-#define THROW_MODE_ICON 'icons/hud/cursor/throw_mode.dmi'
-
 /mob/proc/throw_mode_off()
 	src.in_throw_mode = 0
 	if(src.throw_icon) //in case we don't have the HUD and we use the hotkey
 		src.throw_icon.icon_state = "act_throw_off"
-	if(client?.mouse_pointer_icon == THROW_MODE_ICON)
-		client.mouse_pointer_icon = initial(client.mouse_pointer_icon)
+	if(client)
+		SEND_SIGNAL(client, COMSIG_CLIENT_CURSOR_UPDATE)
 
 /mob/proc/throw_mode_on()
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
-	if(client?.mouse_pointer_icon == initial(client.mouse_pointer_icon))
-		client.mouse_pointer_icon = THROW_MODE_ICON
-
-#undef THROW_MODE_ICON
+	if(client)
+		SEND_SIGNAL(client, COMSIG_CLIENT_CURSOR_UPDATE)
 
 /mob/proc/is_invisible_to(var/mob/viewer)
 	if(isAI(viewer))

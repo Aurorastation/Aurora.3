@@ -5,6 +5,11 @@
 /client
 	parent_type = /datum
 
+	/// Cursor inputs tracked by the cursor subsystem.
+	var/tmp/cursor_shift_held = FALSE
+	var/tmp/cursor_mouse_held = FALSE
+	var/tmp/cursor_dragging = FALSE
+
 // Admin
 	var/datum/admins/holder = null
 	var/datum/admins/deadmin_holder = null

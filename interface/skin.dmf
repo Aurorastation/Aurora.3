@@ -1,5 +1,11 @@
 macro "borghotkeymode"
 	elem
+		name = "SHIFT"
+		command = ".cursor_shift 1"
+	elem
+		name = "SHIFT+UP"
+		command = ".cursor_shift 0"
+	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=borgmacro hotkey_toggle.is-checked=false input.focus=true \""
 	elem
@@ -231,6 +237,12 @@ macro "borghotkeymode"
 
 macro "macro"
 	elem
+		name = "SHIFT"
+		command = ".cursor_shift 1"
+	elem
+		name = "SHIFT+UP"
+		command = ".cursor_shift 0"
+	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
 	elem
@@ -416,6 +428,12 @@ macro "macro"
 
 
 macro "hotkeymode"
+	elem
+		name = "SHIFT"
+		command = ".cursor_shift 1"
+	elem
+		name = "SHIFT+UP"
+		command = ".cursor_shift 0"
 	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true \""
@@ -662,6 +680,12 @@ macro "hotkeymode"
 
 
 macro "borgmacro"
+	elem
+		name = "SHIFT"
+		command = ".cursor_shift 1"
+	elem
+		name = "SHIFT+UP"
+		command = ".cursor_shift 0"
 	elem
 		name = "TAB"
 		command = ".winset \"mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true \""
