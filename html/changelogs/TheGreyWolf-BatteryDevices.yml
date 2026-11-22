@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Shortwave radios, GPS, geiger counters and ore detectors now use batteries while turned on."
+  - rscadd: "Health, gas, plant and robot analyzers as well as depth scanners now use batteries and last for about 25 scans, with anomaly scanners lasting 40 scans."
+  - rscdel: "PDA health analyzers were set down to grade 2 health analyzers, and can no longer detect internal injuries."
