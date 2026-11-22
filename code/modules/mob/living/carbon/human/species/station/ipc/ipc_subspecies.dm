@@ -221,10 +221,13 @@
 	var/obj/item/storage/internal_storage/storage = organ?.storage
 	if(!storage)
 		return
+	if(!organ.is_externally_accessible())
+		to_chat(user, SPAN_WARNING("\The [H]'s internal storage hatch is locked."))
+		return
 	H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s internal storage!"))
 	if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
 		return
-	if(!H.can_strip(user) || H.species != src || QDELETED(organ) || QDELETED(storage) || H.internal_organs_by_name[BP_INTERNAL_STORAGE] != organ || organ.storage != storage || storage.loc != organ)
+	if(!H.can_strip(user) || H.species != src || QDELETED(organ) || QDELETED(storage) || !organ.is_externally_accessible() || H.internal_organs_by_name[BP_INTERNAL_STORAGE] != organ || organ.storage != storage || storage.loc != organ)
 		return
 	if(organ.is_broken())
 		to_chat(user, SPAN_WARNING("The hatch to the internal storage is completely destroyed!"))

@@ -13,6 +13,8 @@
 
 	/// The actual, physical storage item.
 	var/obj/item/storage/internal_storage/storage
+	/// Whether other people may access this storage through the strip menu.
+	var/locked = TRUE
 
 /obj/item/organ/internal/machine/internal_storage/Initialize()
 	. = ..()
@@ -38,6 +40,30 @@
 			return
 
 	storage.open(user)
+
+/obj/item/organ/internal/machine/internal_storage/proc/toggle_lock(mob/user)
+	if(user != owner)
+		return FALSE
+	locked = !locked
+	to_chat(owner, SPAN_MACHINE_WARNING("Your internal storage is now [locked ? "locked" : "unlocked"] to external access."))
+	if(locked && !is_panel_open())
+		owner.strip_menu?.close_storage(storage)
+	return TRUE
+
+/// The groin maintenance hatch physically bypasses the software-controlled storage lock.
+/obj/item/organ/internal/machine/internal_storage/proc/is_panel_open()
+	if(!owner)
+		return FALSE
+	var/obj/item/organ/external/groin/G = owner.organs_by_name[BP_GROIN]
+	return G && !!G.open
+
+/obj/item/organ/internal/machine/internal_storage/proc/is_externally_accessible()
+	return !locked || is_panel_open()
+
+/// Called when surgery restores the physical hatch, allowing a queued software lock to take effect immediately.
+/obj/item/organ/internal/machine/internal_storage/proc/on_panel_closed()
+	if(locked)
+		owner?.strip_menu?.close_storage(storage)
 
 /obj/item/storage/internal_storage
 	name = "internal storage"

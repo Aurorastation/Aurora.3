@@ -15,6 +15,9 @@ export type NeuralData = {
   owner_real_name: string;
   firewall: BooleanLike;
   p2p_communication: BooleanLike;
+  internal_storage?: BooleanLike;
+  internal_storage_locked?: BooleanLike;
+  internal_storage_panel_open?: BooleanLike;
 
   port: BooleanLike;
   port_connected: BooleanLike;
@@ -86,6 +89,23 @@ export const NeuralConfiguration = (props) => {
                 onClick={() => act('toggle_p2p')}
               />
             </LabeledControls.Item>
+            {!!data.internal_storage && (
+              <LabeledControls.Item label="Internal Storage">
+                <Button
+                  content={
+                    data.internal_storage_locked ? 'Locked' : 'Unlocked'
+                  }
+                  color={data.internal_storage_locked ? 'good' : 'bad'}
+                  tooltip={
+                    data.internal_storage_panel_open
+                      ? 'The maintenance panel is physically open, bypassing this setting. A software lock will take effect when the panel is closed.'
+                      : 'Unlocking your internal storage allows other people to search it.'
+                  }
+                  icon={data.internal_storage_locked ? 'lock' : 'lock-open'}
+                  onClick={() => act('toggle_internal_storage')}
+                />
+              </LabeledControls.Item>
+            )}
           </LabeledControls>
           {data.port ? (
             data.port_connected ? (

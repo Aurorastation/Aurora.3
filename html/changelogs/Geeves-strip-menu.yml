@@ -1,8 +1,9 @@
-author: Geeves
+author: Geeves & TheGreyWolf
 delete-after: True
 changes:
   - qol: "Replaced the human stripping menu with a compact TGUI equipment grid, with separate buttons for item interactions."
   - rscadd: "You can remove individual uniform accessories, access equipped storage, adjust another person's radio, and activate or deactivate their unlocked RIG through the stripping menu. These interactions take time to perform."
-  - qol: "Searching pockets, Diona tail storage, Skrell headtail storage, or industrial IPC internal storage reveals the contents without dumping everything onto the floor, letting you choose what to remove."
-  - qol: "The stripping menu now opens tall enough to display every equipment and species-specific action slot without manual resizing."
+  - qol: "Searching pockets and bags reveals the contents without dumping everything onto the floor, letting you choose what to remove."
+  - qol: "Industrial IPCs can unlock their internal storage through Neural Configuration, allowing other people to search it."
+  - qol: "Opening an industrial IPC's groin maintenance hatch through robotics surgery physically bypasses its internal-storage lock until the hatch is closed."
   - qol: "Once started, RIG deployment and seal adjustments run automatically. People can move during the process, and an unconscious wearer does not prevent the suit from finishing."

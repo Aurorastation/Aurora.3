@@ -129,6 +129,15 @@
 		return FALSE
 	return TRUE
 
+/// Closes a particular strip-opened storage for every viewer.
+/datum/strip_menu/proc/close_storage(obj/item/storage/storage)
+	for(var/mob/living/user in open_storages)
+		if(open_storages[user] != storage)
+			continue
+		if(user.s_active == storage)
+			storage.close(user)
+		open_storages -= user
+
 /// Revalidates an open storage HUD whenever normal item adjacency would reject it.
 /datum/strip_menu/proc/can_access_storage(mob/living/user, obj/item/storage/storage)
 	if(open_storages[user] != storage || !target.can_strip(user))
@@ -147,7 +156,7 @@
 	if(G?.tail_storage == storage && storage.loc == G)
 		return TRUE
 	var/obj/item/organ/internal/machine/internal_storage/internal_storage = target.internal_organs_by_name[BP_INTERNAL_STORAGE]
-	if(internal_storage?.storage == storage && storage.loc == internal_storage)
+	if(internal_storage?.storage == storage && internal_storage.is_externally_accessible() && storage.loc == internal_storage)
 		return TRUE
 	return FALSE
 
