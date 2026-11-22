@@ -38,7 +38,7 @@
 	/// The maximum power consumed per second while cooling at the preset's base rate.
 	var/base_power_consumption = 8
 	/// The fraction of base power consumed while cooling on Low.
-	var/low_power_draw_multiplier = 0.616
+	var/low_power_draw_multiplier = 0.4
 	/**
 	 * The base cooling rate in degrees Kelvin per second. The selected power setting,
 	 * atmosphere, clothing, and organ damage can all modify the effective rate.
