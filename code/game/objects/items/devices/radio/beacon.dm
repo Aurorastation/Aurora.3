@@ -2,6 +2,7 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/radio/beacon
 	uses_device_cell = FALSE
+	shortwave_overlays = FALSE
 	name = "tracking beacon"
 	desc = "A sophisticated beacon with integrated bluespace circuitry, capable of being targetted by a teleportation hub for localized jumps."
 	icon_state = "beacon"

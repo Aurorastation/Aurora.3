@@ -25,6 +25,10 @@
 	if(!.)
 		return
 	var/mob/living/carbon/human/H = hit_atom
+	var/psi_blocked = H.is_psi_blocked(user, FALSE)
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return
 	H.drop_l_hand()
 	H.drop_r_hand()
 	to_chat(H, SPAN_DANGER("Your mind is filled by an acute pain making you drop what you're holding!"))

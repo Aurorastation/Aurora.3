@@ -380,7 +380,10 @@ Deployable Kits
 					machine.component_parts += new component_path(machine)
 
 		board.construct(machine)
-		if(board.contain_parts)
+		if(board.board_type == BOARD_COMPUTER)
+			// Computer construction consumes its board and recreates it when the computer is disassembled.
+			qdel(board)
+		else if(board.contain_parts)
 			board.forceMove(machine)
 			machine.component_parts += board
 		else

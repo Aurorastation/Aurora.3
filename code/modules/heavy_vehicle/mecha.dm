@@ -325,6 +325,7 @@
 
 /obj/item/radio/exosuit
 	uses_device_cell = FALSE
+	shortwave_overlays = FALSE
 	name = "exosuit radio"
 
 /obj/item/radio/exosuit/get_cell()

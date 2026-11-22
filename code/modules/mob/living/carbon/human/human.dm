@@ -488,7 +488,7 @@
 		return if_no_id
 
 /// Repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable.
-/mob/living/carbon/human/proc/get_visible_name()
+/mob/living/carbon/human/get_visible_name()
 	if( wear_mask && (wear_mask.flags_inv&HIDEFACE) )	//Wearing a mask which hides our face, use id-name if possible
 		return get_id_name("Unknown")
 	if( head && (head.flags_inv&HIDEFACE) )
@@ -922,7 +922,8 @@
 		return FLASH_PROTECTION_MAJOR
 
 	// Standard method, sum of modifiers.
-	var/base_flash_protection = flash_protection
+	// Physical eye protection still works while our viewpoint prevents its visual effects from being cached.
+	var/base_flash_protection = get_equipment_flash_protection()
 
 	// Fetch flash protection modifiers via ECS methods.
 	// Anything in this proc that doesn't hook into this signal should eventually be replaced with signal registry methods for simplicity.
@@ -1925,6 +1926,10 @@
 /mob/living/carbon/human/drop_from_inventory(obj/item/W, atom/target, update_icons = TRUE, force = FALSE)
 	if(!force && (W in organs))
 		return
+	if(!target && istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		if(src in mech.pilots)
+			target = get_turf(mech)
 	return ..()
 
 /mob/living/carbon/human/reset_view(atom/A, update_hud = 1)

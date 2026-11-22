@@ -77,8 +77,12 @@
 	if(has_storage)
 		hold.emp_act(severity)
 
-/obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
+/obj/item/clothing/head/helmet/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(has_storage)
+		if(say_message)
+			hold.Hear(say_message)
+		else
+			hold.hear_talk(M, msg, verb, speaking)
 	return ..()
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
@@ -147,20 +151,6 @@
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers, this one seems to be built for use by a Skrell."
 	icon_state = "helm_skrell_commander"
 	item_state = "helm_skrell_commander"
-
-/obj/item/clothing/head/helmet/hos/dermal
-	name = "dermal armor patch"
-	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
-	icon_state = "dermal"
-	has_storage = FALSE
-	allow_hair_covering = FALSE
-
-/obj/item/clothing/head/helmet/hop
-	name = "crew resource's hat"
-	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
-	icon_state = "hopcap"
-	has_storage = FALSE
-	flags_inv = 0
 
 /obj/item/clothing/head/helmet/formalcaptain
 	name = "parade hat"
@@ -489,7 +479,7 @@
 /obj/item/clothing/head/helmet/legion
 	name = "foreign legion helmet"
 	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
-	icon_state = "legion_helmet"
+	icon_state = "swat"
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(

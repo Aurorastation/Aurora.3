@@ -1,10 +1,15 @@
 /// A complete audible message made of a list of /datum/say_segment.
 /datum/say_message
-	/// The mob saying the message.
-	var/mob/speaker
+	/// The atom saying the message.
+	var/atom/movable/speaker
 
-	/// Name shown instead of the speaker's real name, if any.
-	var/alt_name = ""
+	/// Event-owned attribution, name suffix, and presentation modifiers.
+	var/list/message_mods = list()
+	/// Event-owned CSS classes for chat presentation.
+	var/list/spans = list()
+
+	/// Local recipients already dispatched, including containment relays. Copies start fresh.
+	var/list/delivered_to = list()
 
 	/// The raw string that was typed. Used in the admin log.
 	var/raw_message
@@ -14,9 +19,6 @@
 
 	/// The sole language of this message, or null.
 	var/datum/language/single_language
-
-	/// Which verb to use. Determined by punctuation and language of the first piece.
-	var/verb = "says"
 
 	/// Is the message being whispered?
 	var/whisper = FALSE
@@ -167,11 +169,11 @@
 /datum/say_message/proc/copy()
 	var/datum/say_message/copy = new
 	copy.speaker = speaker
-	copy.alt_name = alt_name
+	copy.message_mods = message_mods.Copy()
+	copy.spans = spans.Copy()
 	copy.raw_message = raw_message
 	copy.segments = segments
 	copy.single_language = single_language
-	copy.verb = verb
 	copy.whisper = whisper
 	copy.singing = singing
 	copy.sing_note = sing_note

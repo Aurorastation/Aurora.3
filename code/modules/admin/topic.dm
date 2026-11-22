@@ -409,7 +409,7 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
+			return tgui_alert(usr, "The game has already started.")
 		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='byond://?src=[REF(src)];c_mode2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
@@ -423,9 +423,9 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
+			return tgui_alert(usr, "The game has already started.")
 		if(GLOB.master_mode != ROUNDTYPE_STR_SECRET && GLOB.master_mode != ROUNDTYPE_STR_MIXED_SECRET)
-			return tgui_alert(usr, "The game mode has to be secret!", null, list(null, null, null))
+			return tgui_alert(usr, "The game mode has to be secret!")
 		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		for(var/mode in GLOB.config.modes)
 			dat += {"<A href='byond://?src=[REF(src)];f_secret2=[mode]'>[GLOB.config.mode_names[mode]]</A><br>"}
@@ -438,7 +438,7 @@
 			return
 
 		if (ROUND_IS_STARTED)
-			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
+			return tgui_alert(usr, "The game has already started.")
 		GLOB.master_mode = href_list["c_mode2"]
 		log_admin("[key_name(usr)] set the mode as [GLOB.master_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the mode as [GLOB.master_mode]."), 1)
@@ -452,9 +452,9 @@
 			return
 
 		if(ROUND_IS_STARTED)
-			return tgui_alert(usr, "The game has already started.", null, list(null, null, null))
+			return tgui_alert(usr, "The game has already started.")
 		if(GLOB.master_mode != "secret")
-			return tgui_alert(usr, "The game mode has to be secret!", null, list(null, null, null))
+			return tgui_alert(usr, "The game mode has to be secret!")
 		GLOB.secret_force_mode = href_list["f_secret2"]
 		log_admin("[key_name(usr)] set the forced secret mode as [GLOB.secret_force_mode].")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] set the forced secret mode as [GLOB.secret_force_mode]."), 1)

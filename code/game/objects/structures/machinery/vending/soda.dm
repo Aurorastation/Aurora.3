@@ -77,6 +77,9 @@
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
+/obj/structure/machinery/vending/cola/free
+	prices = list()
+
 /obj/structure/machinery/vending/cola/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1,
@@ -188,6 +191,9 @@
 	idle_power_usage = 211
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
+
+/obj/structure/machinery/vending/zora/free
+	prices = list()
 
 /obj/structure/machinery/vending/zora/low_supply
 	products = list(

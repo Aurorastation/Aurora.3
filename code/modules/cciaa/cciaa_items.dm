@@ -34,7 +34,7 @@
 	. += ..()
 	. += "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 
-/obj/item/taperecorder/cciaa/hear_talk(mob/living/M as mob, msg, var/verb="says")
+/obj/item/taperecorder/cciaa/hear_talk(atom/movable/M, msg, var/verb="says", datum/language/speaking, datum/say_message/say_message = null)
 	if(recording && !paused)
 		timestamp = "[get_time()]"
 		var/fmsg = "\[[timestamp]\] [M.name] [verb], \"[msg]\""
@@ -355,9 +355,6 @@
 /obj/item/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
 	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
-
-/obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
-	name = "central command internal affairs jacket"
 
 /obj/item/storage/lockbox/cciaa
 	req_access = list(/datum/access/cent_ccia::id)

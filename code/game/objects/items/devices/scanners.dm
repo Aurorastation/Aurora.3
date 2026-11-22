@@ -296,13 +296,15 @@ BREATH ANALYZER
 		if(!REAGENT_DATA(reagents, /singleton/reagent/blood))
 			to_chat(user, SPAN_WARNING("The sample was contaminated with non-blood reagents!"))
 			return
+		var/show_details = details
+		SEND_SIGNAL(user, COMSIG_FORENSICS_USE_SPECTROMETER, src, &show_details)
 		var/list/blood_traces = reagents.reagent_data[/singleton/reagent/blood]["trace_chem"]
 		var/list/output_text = list("Trace Chemicals Found:")
 		for(var/_C in blood_traces)
 			var/singleton/reagent/C = GET_SINGLETON(_C)
-			if(C.spectro_hidden && !details)
+			if(C.spectro_hidden && !show_details)
 				continue
-			if(details)
+			if(show_details)
 				output_text += "- [C] ([max(round(blood_traces[_C], 0.1), 0.1)] units)"
 			else
 				output_text += "- [C]"
