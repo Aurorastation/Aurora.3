@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Input,
   LabeledControls,
@@ -66,33 +67,35 @@ export const GPS = (props) => {
             </>
           }
         >
-          <LabeledList mb={1}>
-            <LabeledList.Item label="Power">
-              {data.uses_cell ? (
-                <Button
-                  icon="power-off"
-                  selected={data.powered}
-                  color={data.powered ? 'good' : 'bad'}
-                  content={data.powered ? 'ON' : 'OFF'}
-                  disabled={!data.has_cell}
-                  onClick={() => act('toggle_power')}
-                />
-              ) : (
-                'External power'
-              )}
-            </LabeledList.Item>
-            {data.uses_cell && (
-              <LabeledList.Item label="Battery">
-                {data.has_cell ? (
-                  <ProgressBar value={data.charge / 100}>
-                    {Math.round(data.charge)}%
-                  </ProgressBar>
+          <Box mb={1}>
+            <LabeledList>
+              <LabeledList.Item label="Power">
+                {data.uses_cell ? (
+                  <Button
+                    icon="power-off"
+                    selected={data.powered}
+                    color={data.powered ? 'good' : 'bad'}
+                    content={data.powered ? 'ON' : 'OFF'}
+                    disabled={!data.has_cell}
+                    onClick={() => act('toggle_power')}
+                  />
                 ) : (
-                  'No cell installed'
+                  'External power'
                 )}
               </LabeledList.Item>
-            )}
-          </LabeledList>
+              {data.uses_cell && (
+                <LabeledList.Item label="Battery">
+                  {data.has_cell ? (
+                    <ProgressBar value={data.charge / 100}>
+                      {Math.round(data.charge)}%
+                    </ProgressBar>
+                  ) : (
+                    'No cell installed'
+                  )}
+                </LabeledList.Item>
+              )}
+            </LabeledList>
+          </Box>
           <LabeledControls>
             <LabeledControls.Item label="Set New Tag">
               <Input
