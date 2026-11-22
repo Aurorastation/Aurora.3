@@ -73,7 +73,6 @@ const ACTION_ICONS: Record<string, string> = {
   activate_rig: 'power-off',
   deactivate_rig: 'power-off',
   headtail: 'head-side-virus',
-  stomach: 'utensils',
   tail: 'worm',
   internal_storage: 'box-open',
 };

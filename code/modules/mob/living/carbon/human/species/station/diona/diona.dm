@@ -160,44 +160,21 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	return H.organs_by_name[vision_organ]
 
 /datum/species/diona/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
-	if(!(action in list("stomach", "tail")) || !H.can_strip(user) || H.species != src)
+	if(action != "tail" || !H.can_strip(user) || H.species != src)
 		return
-	switch(action)
-		if("stomach")
-			var/obj/item/organ/internal/stomach/stomach = H.internal_organs_by_name[BP_STOMACH]
-			if(!stomach)
-				return
-			H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s stomach contents!"))
-			if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
-				return
-			if(!H.can_strip(user) || H.species != src || QDELETED(stomach) || H.internal_organs_by_name[BP_STOMACH] != stomach)
-				return
-			if(!length(stomach.contents))
-				to_chat(user, SPAN_NOTICE("\The [H]'s stomach contains no stored items."))
-				return
-			var/atom/movable/selected = tgui_input_list(user, "Remove which item from [H]'s stomach?", "Search Stomach Contents", stomach.contents)
-			if(!selected || !H.can_strip(user) || H.species != src || QDELETED(stomach) || H.internal_organs_by_name[BP_STOMACH] != stomach || selected.loc != stomach)
-				return
-			selected.forceMove(get_turf(H))
-			if(isitem(selected))
-				var/obj/item/item = selected
-				item.add_fingerprint(user)
-		if("tail")
-			var/obj/item/organ/external/groin/G = H.organs_by_name[BP_GROIN]
-			var/obj/item/storage/internal/tail/storage = G?.tail_storage
-			if(!storage || !H.tail_style || H.tail_style == "No Tail")
-				return
-			H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s tail!"))
-			if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
-				return
-			if(!H.can_strip(user) || H.species != src || QDELETED(storage) || H.organs_by_name[BP_GROIN] != G || G.tail_storage != storage || storage.loc != G)
-				return
-			H.strip_menu?.open_storage(user, storage)
+	var/obj/item/organ/external/groin/G = H.organs_by_name[BP_GROIN]
+	var/obj/item/storage/internal/tail/storage = G?.tail_storage
+	if(!storage || !H.tail_style || H.tail_style == "No Tail")
+		return
+	H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s tail!"))
+	if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
+		return
+	if(!H.can_strip(user) || H.species != src || QDELETED(storage) || H.organs_by_name[BP_GROIN] != G || G.tail_storage != storage || storage.loc != G)
+		return
+	H.strip_menu?.open_storage(user, storage)
 
 /datum/species/diona/get_strip_actions(var/mob/living/carbon/human/H)
 	. = list()
-	if(H.internal_organs_by_name[BP_STOMACH])
-		.["stomach"] = "Search stomach contents"
 	var/obj/item/organ/external/groin/G = H.organs_by_name[BP_GROIN]
 	if(G?.tail_storage && H.tail_style && H.tail_style != "No Tail")
 		.["tail"] = "Search tail storage"
