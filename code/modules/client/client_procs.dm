@@ -948,11 +948,6 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		CRASH("Age check regex failed for [src.ckey]")
 
 /client/Click(atom/object, atom/location, control, params)
-	// The lobby map forwards right-clicks for the cursor, but only left-clicks should activate its buttons.
-	if(isnewplayer(mob) && istype(object, /atom/movable/screen/new_player/selection))
-		var/list/modifiers = params2list(params)
-		if(modifiers[RIGHT_CLICK])
-			return
 	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)
 	..()
 

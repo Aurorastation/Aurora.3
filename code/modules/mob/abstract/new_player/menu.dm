@@ -206,7 +206,16 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()
 
-/atom/movable/screen/new_player/selection/Click()
+/atom/movable/screen/new_player/selection/Click(location, control, params)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// The lobby map also forwards right-button input for the cursor.
+	var/list/modifiers = params2list(params)
+	if(modifiers[RIGHT_CLICK])
+		return
+	return on_select()
+
+/// Runs the action associated with this lobby button.
+/atom/movable/screen/new_player/selection/proc/on_select()
 	var/mob/abstract/new_player/player = hud.mymob
 	if(player && click_sound)
 		sound_to(player, click_sound)
@@ -225,7 +234,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	. = ..()
 	update_icon()
 
-/atom/movable/screen/new_player/selection/join_game/Click(location, control, params)
+/atom/movable/screen/new_player/selection/join_game/on_select()
 	var/mob/abstract/new_player/player = hud.mymob
 	if(SSticker.prevent_unready && player.ready)
 		tgui_alert(player, "You may not unready during Odyssey setup!", "Odyssey")
@@ -287,7 +296,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	screen_loc = "LEFT+0.1,CENTER-3"
 	icon_state = "manifest"
 
-/atom/movable/screen/new_player/selection/manifest/Click()
+/atom/movable/screen/new_player/selection/manifest/on_select()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	if(SSticker.current_state < GAME_STATE_PLAYING)
@@ -306,7 +315,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	screen_loc = "LEFT+0.1,CENTER-4"
 	icon_state = "observe"
 
-/atom/movable/screen/new_player/selection/observe/Click()
+/atom/movable/screen/new_player/selection/observe/on_select()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.new_player_observe()
@@ -370,7 +379,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	icon_state = "setup"
 	screen_loc = "LEFT+0.1,CENTER-2"
 
-/atom/movable/screen/new_player/selection/settings/Click()
+/atom/movable/screen/new_player/selection/settings/on_select()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	player.setupcharacter()
@@ -388,7 +397,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	icon_state = "changelog"
 	screen_loc = "LEFT+0.1,CENTER-5"
 
-/atom/movable/screen/new_player/selection/changelog/Click()
+/atom/movable/screen/new_player/selection/changelog/on_select()
 	. = ..()
 	var/mob/abstract/new_player/player = hud.mymob
 	player.client.changes()
@@ -404,7 +413,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	icon_state = "polls"
 	screen_loc = "LEFT+0.1,CENTER-6"
 
-/atom/movable/screen/new_player/selection/polls/Click()
+/atom/movable/screen/new_player/selection/polls/on_select()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.handle_player_polling()
@@ -420,7 +429,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	icon_state = "lore_summary"
 	screen_loc = "LEFT+0.1,CENTER-7"
 
-/atom/movable/screen/new_player/selection/lore_summary/Click()
+/atom/movable/screen/new_player/selection/lore_summary/on_select()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	player.show_lore_summary()
@@ -442,7 +451,7 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 	screen_loc = "LEFT+0.5,CENTER+42"
 	hud_arrow = null
 
-/atom/movable/screen/new_player/selection/server_logo/Click()
+/atom/movable/screen/new_player/selection/server_logo/on_select()
 	var/mob/abstract/new_player/player = usr
 	sound_to(player, click_sound)
 	if (GLOB.config.mainsiteurl)
