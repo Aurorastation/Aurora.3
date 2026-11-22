@@ -35,13 +35,6 @@
 		objectsApplyTrackContent(instance, data["content"], data["x"], data["y"], data["z"])
 		objectsRegisterTrack(instance, data["author_ckey"])
 
-	// Mapped persistent dispensers do not create their normal starting cartridges. Once all
-	// saved cartridge objects have been placed, replace any missing original type with an
-	// empty cartridge so removing one does not permanently remove that dispenser slot.
-	for(var/obj/structure/machinery/chemical_dispenser/dispenser in world)
-		CHECK_TICK
-		dispenser.restore_missing_persistent_cartridges()
-
 /**
  * Finalize persistent object tracking.
  * Adds new persistent objects, removes no longer existing persistent objects and updates changed persistent objects in the database.
