@@ -81,7 +81,7 @@
 		if(!perceived)
 			continue
 		delivered_mobs |= hearing_mob
-		if(visible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob, TRUE))
+		if(visible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob))
 			var/bubble_text = perceived[2] == VISIBLE_MESSAGE ? raw_msg : blind_message
 			if(bubble_text)
 				langchat_build_image(bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
@@ -125,7 +125,7 @@
 		perceived = list(self_message, VISIBLE_MESSAGE)
 	else
 		perceived = show_message(self_message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE, block_self_highlight)
-	if(perceived && perceived[2] && (visible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src, TRUE))
+	if(perceived && perceived[2] && (visible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src))
 		var/bubble_text = perceived[2] == VISIBLE_MESSAGE ? raw_self_message : blind_message
 		if(bubble_text)
 			// Append self's bubble without clearing the audience bubbles created by the parent.
@@ -191,7 +191,7 @@
 		if(!perceived)
 			continue
 		delivered_mobs |= hearing_mob
-		if(audible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob, TRUE))
+		if(audible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob))
 			var/bubble_text = perceived[2] == AUDIBLE_MESSAGE ? raw_msg : deaf_message
 			if(bubble_text)
 				langchat_build_image(bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
@@ -226,7 +226,7 @@
 	else
 		self_message = "[get_accent_icon(null, src)] [self_message]"
 		perceived = show_message(self_message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE, block_self_highlight)
-	if(perceived && perceived[2] && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src, TRUE))
+	if(perceived && perceived[2] && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src))
 		var/bubble_text = perceived[2] == AUDIBLE_MESSAGE ? raw_self_message : deaf_message
 		if(bubble_text)
 			langchat_build_image(bubble_text, list(src), additional_styles = list("emote", "langchat_small"))
