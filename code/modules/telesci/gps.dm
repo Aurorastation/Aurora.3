@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	if(emped)
 		AddOverlays("emp")
 	else if(!is_operational())
-		AddOverlays("confused")
+		AddOverlays("off")
 	else if(held_by || implanted_into)
 		AddOverlays("working")
 	else

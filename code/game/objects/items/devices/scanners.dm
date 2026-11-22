@@ -28,6 +28,8 @@ BREATH ANALYZER
 
 /obj/item/healthanalyzer/Initialize(mapload, ...)
 	. = ..()
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
 	if(uses_device_cell)
 		power_supply = new(src, /obj/item/cell/device, FALSE)
 	src.LoadComponent(/datum/component/health_analyzer)
@@ -66,7 +68,7 @@ BREATH ANALYZER
 	return TRUE
 
 /obj/item/healthanalyzer/get_cell()
-	return power_supply?.cell
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
 
 /obj/item/healthanalyzer/attack_hand(mob/user)
 	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
@@ -167,12 +169,16 @@ BREATH ANALYZER
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
+	var/uses_device_cell = TRUE
 	var/datum/device_power_supply/power_supply
 	var/scan_power_cost = 10
 
 /obj/item/analyzer/Initialize()
 	. = ..()
-	power_supply = new(src, /obj/item/cell/device, FALSE)
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
 
 /obj/item/analyzer/Destroy()
 	QDEL_NULL(power_supply)
@@ -180,11 +186,12 @@ BREATH ANALYZER
 
 /obj/item/analyzer/emp_act(severity)
 	. = ..()
-	power_supply.emp_act(severity)
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
 
 /obj/item/analyzer/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 1)
+	if(uses_device_cell && distance <= 1)
 		if(power_supply?.cell)
 			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
 		else
@@ -192,25 +199,28 @@ BREATH ANALYZER
 
 /obj/item/analyzer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "It uses one twenty-fifth of a standard device cell per scan."
+	if(uses_device_cell)
+		. += "It uses one twenty-fifth of a standard device cell per scan."
 
 /obj/item/analyzer/consume_analyzer_power(mob/user)
+	if(!uses_device_cell)
+		return TRUE
 	if(!power_supply.use_per_use(scan_power_cost))
 		to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
 		return FALSE
 	return TRUE
 
 /obj/item/analyzer/get_cell()
-	return power_supply?.cell
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
 
 /obj/item/analyzer/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src && power_supply?.cell)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
 		power_supply.eject_cell(user)
 		return
 	return ..()
 
 /obj/item/analyzer/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/cell))
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
 		power_supply.install_cell(attacking_item, user)
 		return
 	return ..()

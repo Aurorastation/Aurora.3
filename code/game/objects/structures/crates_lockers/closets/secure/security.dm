@@ -20,7 +20,7 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/flash(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/radio/off(src)
+	new /obj/item/radio(src)
 	new /obj/item/taperecorder(src)
 	// uniform briefcases
 	new /obj/item/storage/briefcase/nt/captain(src)
@@ -369,7 +369,7 @@
 	new /obj/item/gun/projectile/sec(src)
 	new /obj/item/radio/headset/headset_com(src)
 	new /obj/item/radio/headset/headset_com/alt(src)
-	new /obj/item/radio/off(src)
+	new /obj/item/radio(src)
 	new /obj/item/gps(src)
 
 // Evidence Storage Locker

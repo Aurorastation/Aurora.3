@@ -24,6 +24,8 @@
 
 /obj/item/robotanalyzer/Initialize(mapload, ...)
 	. = ..()
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
 	if(uses_device_cell)
 		power_supply = new(src, /obj/item/cell/device, FALSE)
 	LoadComponent(analyzer_component_type)
@@ -59,7 +61,7 @@
 	return TRUE
 
 /obj/item/robotanalyzer/get_cell()
-	return power_supply?.cell
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
 
 /obj/item/robotanalyzer/attack_hand(mob/user)
 	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)

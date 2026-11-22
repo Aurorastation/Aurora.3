@@ -263,6 +263,14 @@ var/global/list/default_interrogation_channels = list(
 	update_icon()
 	SStgui.update_uis(src)
 
+/obj/item/radio/update_icon()
+	. = ..()
+	if(!uses_device_cell)
+		return
+	ClearOverlays()
+	if(on)
+		AddOverlays("walkietalkie-on")
+
 /**
  * setter for the listener var, adds or removes this radio from the global radio list if we are also on
  *
@@ -915,46 +923,21 @@ var/global/list/default_interrogation_channels = list(
 	)
 	return ..()
 
-// Radio (Off)
-/obj/item/radio/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Medical
 /obj/item/radio/med
 	icon_state = "walkietalkie-med"
-
-// Medical (Off)
-/obj/item/radio/med/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
 
 // Security
 /obj/item/radio/sec
 	icon_state = "walkietalkie-sec"
 
-// Security (Off)
-/obj/item/radio/sec/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Engineering
 /obj/item/radio/eng
 	icon_state = "walkietalkie-eng"
 
-// Engineering (Off)
-/obj/item/radio/eng/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Science
 /obj/item/radio/sci
 	icon_state = "walkietalkie-sci"
-
-// Science (Off)
-/obj/item/radio/sci/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
 
 // Phone
 /obj/item/radio/phone
