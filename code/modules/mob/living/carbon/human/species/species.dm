@@ -975,7 +975,7 @@
 /datum/species/proc/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
 	return
 
-/datum/species/proc/get_strip_actions()
+/datum/species/proc/get_strip_actions(var/mob/living/carbon/human/H)
 	return list()
 
 /datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)

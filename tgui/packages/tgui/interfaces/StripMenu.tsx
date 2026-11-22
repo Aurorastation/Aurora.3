@@ -73,16 +73,25 @@ const ACTION_ICONS: Record<string, string> = {
   activate_rig: 'power-off',
   deactivate_rig: 'power-off',
   headtail: 'head-side-virus',
+  stomach: 'utensils',
+  tail: 'worm',
+  internal_storage: 'box-open',
 };
 
 export const StripMenu = () => {
   const { act, data } = useBackend<StripMenuData>();
   const extraSlots = data.slots.filter((slot) => !SLOT_LAYOUT[slot.key]);
+  const extraSlotRows = Math.ceil(extraSlots.length / 5);
+  const extraActionRows = Math.ceil(
+    Math.max(0, data.species_actions.length - 1) / 5,
+  );
+  const gridRows = 5 + extraSlotRows + extraActionRows;
+  const windowHeight = 90 + gridRows * 70;
   return (
     <Window
       title={`Stripping ${data.name}`}
       width={380}
-      height={420}
+      height={windowHeight}
       theme="nologo"
     >
       <Window.Content className="StripMenu" scrollable>

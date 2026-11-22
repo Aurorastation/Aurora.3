@@ -214,6 +214,29 @@
 /datum/species/machine/industrial/get_light_color()
 	return LIGHT_COLOR_TUNGSTEN
 
+/datum/species/machine/industrial/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	if(action != "internal_storage" || !H.can_strip(user) || H.species != src)
+		return
+	var/obj/item/organ/internal/machine/internal_storage/organ = H.internal_organs_by_name[BP_INTERNAL_STORAGE]
+	var/obj/item/storage/internal_storage/storage = organ?.storage
+	if(!storage)
+		return
+	H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s internal storage!"))
+	if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
+		return
+	if(!H.can_strip(user) || H.species != src || QDELETED(organ) || QDELETED(storage) || H.internal_organs_by_name[BP_INTERNAL_STORAGE] != organ || organ.storage != storage || storage.loc != organ)
+		return
+	if(organ.is_broken())
+		to_chat(user, SPAN_WARNING("The hatch to the internal storage is completely destroyed!"))
+		return
+	H.strip_menu?.open_storage(user, storage)
+
+/datum/species/machine/industrial/get_strip_actions(var/mob/living/carbon/human/H)
+	var/obj/item/organ/internal/machine/internal_storage/organ = H.internal_organs_by_name[BP_INTERNAL_STORAGE]
+	if(organ?.storage)
+		return list("internal_storage" = "Search internal storage")
+	return list()
+
 /datum/species/machine/industrial/handle_death(var/mob/living/carbon/human/H)
 	return
 

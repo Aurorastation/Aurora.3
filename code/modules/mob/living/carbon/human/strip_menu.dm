@@ -68,6 +68,8 @@
 	var/list/icon_images = list()
 	/// Each viewer must search for themselves; closing the menu discards the search.
 	var/list/pocket_sessions = list()
+	/// Storage HUDs opened through this menu need adjacency to the target, not the equipped item.
+	var/list/open_storages = list()
 
 /datum/strip_menu/New(mob/living/carbon/human/target)
 	..()
@@ -80,6 +82,7 @@
 	icon_appearances = null
 	icon_images = null
 	pocket_sessions = null
+	open_storages = null
 	return ..()
 
 /datum/strip_menu/ui_host(mob/user)
@@ -92,7 +95,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		pocket_sessions[user] = list("revealed" = FALSE)
-		ui = new(user, src, "StripMenu", "Stripping [target.name]", 380, 420)
+		ui = new(user, src, "StripMenu", "Stripping [target.name]", 380, 440)
 		ui.open()
 
 /datum/strip_menu/ui_close(mob/user)
@@ -114,6 +117,39 @@
 		return FALSE
 	session["revealed"] = TRUE
 	return TRUE
+
+/// Opens storage equipped by or built into the target and records why its HUD remains reachable.
+/datum/strip_menu/proc/open_storage(mob/living/user, obj/item/storage/storage)
+	if(QDELETED(storage) || !target.can_strip(user))
+		return FALSE
+	open_storages[user] = storage
+	storage.open(user)
+	if(user.s_active != storage)
+		open_storages -= user
+		return FALSE
+	return TRUE
+
+/// Revalidates an open storage HUD whenever normal item adjacency would reject it.
+/datum/strip_menu/proc/can_access_storage(mob/living/user, obj/item/storage/storage)
+	if(open_storages[user] != storage || !target.can_strip(user))
+		return FALSE
+	for(var/slot in target.get_strip_slots(pockets_revealed(user)))
+		var/slot_number = text2num(slot)
+		if(target.is_strip_slot_obscured(slot_number))
+			continue
+		var/obj/item/item = target.get_strip_item(slot_number)
+		if(item && (storage in item.get_strip_storages()))
+			return TRUE
+	var/obj/item/organ/external/head = target.organs_by_name[BP_HEAD]
+	if(head && storage.loc == head && istype(storage, /obj/item/storage/internal/skrell))
+		return TRUE
+	var/obj/item/organ/external/groin/G = target.organs_by_name[BP_GROIN]
+	if(G?.tail_storage == storage && storage.loc == G)
+		return TRUE
+	var/obj/item/organ/internal/machine/internal_storage/internal_storage = target.internal_organs_by_name[BP_INTERNAL_STORAGE]
+	if(internal_storage?.storage == storage && storage.loc == internal_storage)
+		return TRUE
+	return FALSE
 
 /datum/strip_menu/ui_assets(mob/user)
 	return list(get_asset_datum(/datum/asset/simple/strip_menu))
@@ -171,7 +207,7 @@
 		var/list/modes = list("Off", "Binary sensors", "Vitals tracker", "Tracking beacon")
 		data["sensors"] = modes[uniform.sensor_mode + 1]
 	var/list/species_actions = list()
-	var/list/available_actions = target.species.get_strip_actions()
+	var/list/available_actions = target.species.get_strip_actions(target)
 	for(var/action in available_actions)
 		species_actions += list(list("id" = action, "label" = available_actions[action]))
 	data["species_actions"] = species_actions
@@ -218,7 +254,7 @@
 			else if(params["id"] in list("splints", "internals"))
 				target.handle_strip(params["id"], user)
 		if("species")
-			var/list/actions = target.species.get_strip_actions()
+			var/list/actions = target.species.get_strip_actions(target)
 			if(actions[params["id"]])
 				target.species.handle_strip(user, target, params["id"])
 
@@ -260,7 +296,7 @@
 	add_fingerprint(user)
 	storage.add_fingerprint(user)
 	// Use open(), not show_to(), to preserve subtype restrictions, sounds and access delays.
-	storage.open(user)
+	target.strip_menu.open_storage(user, storage)
 	// Some storage types yield while opening. Do not leave their HUD open after losing access.
 	if(!QDELETED(storage) && user.s_active == storage && !storage.Adjacent(user))
 		storage.close(user)
@@ -314,6 +350,17 @@
 
 /obj/item/storage/lockbox/can_open_from_strip(mob/user)
 	return !locked
+
+/// Equipped storage on another mob is not normally adjacent to the viewer.
+/obj/item/storage/Adjacent(atom/neighbor, atom/target, atom/movable/mover, recurse = 1)
+	var/atom/holder = loc
+	while(holder && !ishuman(holder))
+		holder = holder.loc
+	if(ishuman(holder))
+		var/mob/living/carbon/human/H = holder
+		if(isliving(neighbor) && H.strip_menu?.can_access_storage(neighbor, src))
+			return TRUE
+	return ..()
 
 /obj/item/radio/get_strip_actions(mob/living/carbon/human/target, mob/living/user)
 	. = ..()

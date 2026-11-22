@@ -140,10 +140,10 @@
 			if(do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
 				if(!H.can_strip(user) || H.species != src || QDELETED(S) || H.organs_by_name[BP_HEAD] != head || S.loc != head)
 					return
-				S.open(user)
+				H.strip_menu?.open_storage(user, S)
 				return
 
-/datum/species/skrell/get_strip_actions()
+/datum/species/skrell/get_strip_actions(var/mob/living/carbon/human/H)
 	return list("headtail" = "Search headtail storage")
 
 /datum/species/skrell/can_breathe_water()
