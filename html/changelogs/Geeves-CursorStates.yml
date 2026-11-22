@@ -1,4 +1,4 @@
-author: Geeves, dessysalta
+author: dessysalta, Geeves
 delete-after: True
 changes:
-  - rscadd: "Added custom cursors for clicking, dragging, holding Shift, and throw mode. A gun in your active hand shows a crosshair."
+  - rscadd: "Added custom cursors for clicking, dragging, holding Shift, and throw mode. A gun in your active hand shows a crosshair. Sprites by dessysalta / remratsuken."
