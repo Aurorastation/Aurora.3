@@ -543,6 +543,22 @@ var/global/list/default_interrogation_channels = list(
 		return
 	// Use this receiver's range and LOS, and retain the broadcast's preference/access filtering.
 	var/list/local_listeners = get_hearers_in_radio_ranges(list(src)) & recipients
+	// Radio transport bypasses pressure checks, but its local speaker still needs air.
+	if(!(msg.single_language?.flags & PRESSUREPROOF))
+		var/turf/origin = get_turf(src)
+		var/datum/gas_mixture/source_air = origin.return_air()
+		for(var/mob/listener in local_listeners.Copy())
+			if(get_dist(src, listener) <= 1)
+				continue
+			if(SAFE_XGM_PRESSURE(source_air) < SOUND_MINIMUM_PRESSURE)
+				local_listeners -= listener
+				continue
+			if(isghost(listener))
+				continue
+			var/turf/destination = get_turf(listener)
+			var/datum/gas_mixture/listener_air = destination.return_air()
+			if(SAFE_XGM_PRESSURE(listener_air) < SOUND_MINIMUM_PRESSURE)
+				local_listeners -= listener
 	present_say_message(msg, local_listeners)
 
 /// Resolve a radio screen appearance, allowing subtypes to apply their own treatment.
