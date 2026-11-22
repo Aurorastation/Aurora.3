@@ -422,13 +422,16 @@
 
 /obj/projectile/bullet/pistol/practice
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/rifle/a556/practice
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/shotgun/practice
 	name = "practice"
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/pistol/cap
 	name = "cap"
