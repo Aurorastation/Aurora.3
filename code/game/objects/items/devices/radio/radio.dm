@@ -538,8 +538,8 @@ var/global/list/default_interrogation_channels = list(
 	SEND_SIGNAL(src, COMSIG_RADIO_RECEIVE_MESSAGE, data)
 	if(QDELETED(src))
 		return
-	// Carried radios anchor Langchat to their holder, where this speech is already shown locally.
-	if(ismob(msg.speaker) && recursive_holder_check(src) == msg.speaker)
+	// Received radio speech must not appear over the person carrying the receiver.
+	if(ismob(recursive_holder_check(src)))
 		return
 	// Use this receiver's range and LOS, and retain the broadcast's preference/access filtering.
 	var/list/local_listeners = get_hearers_in_radio_ranges(list(src)) & recipients
