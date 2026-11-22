@@ -17,6 +17,9 @@
 	var/busy = FALSE
 
 /obj/item/spell/warp/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)
+	if(user.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot warp while buckled down!"))
+		return
 	. = ..()
 	if(!.)
 		return

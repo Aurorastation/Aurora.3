@@ -13,6 +13,7 @@
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	maxhealth = OBJECT_HEALTH_FRAGILE
 	hitsound = 'sound/effects/glass_hit.ogg'
+	supports_painting = TRUE
 
 	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2 // Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
@@ -224,6 +225,11 @@
 		if(istype(G.affecting, /mob/living))
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
+
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return

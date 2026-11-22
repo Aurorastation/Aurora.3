@@ -234,6 +234,11 @@
 		turn_on(user)
 
 /obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, SPAN_WARNING("You cannot reset this type of device."))
@@ -380,7 +385,7 @@
 	if(card_slot)
 		return card_slot.stored_card
 
-/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/item/modular_computer/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(Adjacent(M) && hard_drive)
 		var/datum/computer_file/program/chat_client/P = hard_drive.find_file_by_name("ntnrc_client")
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))

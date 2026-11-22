@@ -31,6 +31,16 @@
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
 
+	/// Default speech attribution; punctuation and language may override it.
+	var/verb_say = "says"
+	var/verb_ask = "asks"
+	var/verb_exclaim = "exclaims"
+	var/verb_whisper = "whispers"
+	var/verb_sing = "sings"
+	var/verb_yell = "yells"
+	/// Default language for non-mob speech. Override for configured devices.
+	var/speech_language = LANGUAGE_TCB
+
 	///Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
 	var/item_state = null
 
@@ -1299,9 +1309,11 @@
 	set_light_color(color)
 
 /**
- * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ * Called when a movable is moved by a shuttle.
  */
-/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation = 0)
+	if(rotation && isturf(loc))
+		shuttleRotate(rotation)
 	if(light)
 		update_light()
 

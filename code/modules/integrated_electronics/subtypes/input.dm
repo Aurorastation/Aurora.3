@@ -525,10 +525,13 @@
 /obj/item/integrated_circuit/input/microphone/Destroy()
 	return ..()
 
-/obj/item/integrated_circuit/input/microphone/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
+/obj/item/integrated_circuit/input/microphone/hear_talk(atom/movable/M, msg, var/verb = "says", datum/language/speaking = null, datum/say_message/say_message = null)
+	// Radio commands have their own headset relay; do not also ingest the acoustic event.
+	if(say_message?.say_mode == SAYMODE_RADIO)
+		return
 	receive_radio_message(M, msg, null, speaking)
 
-/obj/item/integrated_circuit/input/microphone/proc/receive_radio_message(mob/living/M, msg, channel = null, datum/language/speaking = null)
+/obj/item/integrated_circuit/input/microphone/proc/receive_radio_message(atom/movable/M, msg, channel = null, datum/language/speaking = null)
 	/*
 	 * Shared microphone intake.
 	 *
@@ -536,7 +539,7 @@
 	 * Radio speech enters when /obj/item/radio/headset/circuitry relays it.
 	 */
 	if(isanimal(M))
-		if(!M.universal_speak)
+		if(!astype(M, /mob).universal_speak)
 			return
 
 	var/translated = FALSE
