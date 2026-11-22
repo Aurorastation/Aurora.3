@@ -237,3 +237,7 @@
   - bugfix: Fixed bug preventing vendors from rendering lighting after being screwdriver'd.
   - bugfix: Fixed a bug preventing refill inhands from being visible.
   - rscadd: Implemented a remap of the kitchen counter.
+2026-11-22:
+  GeneralCamo:
+  - rscdel: Held radios no longer print to runechat, replicating behavior in /tg/station.
+  - bugfix: Radios now respect vacuum.

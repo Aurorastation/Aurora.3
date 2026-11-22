@@ -422,15 +422,18 @@
 
 /obj/projectile/bullet/pistol/practice
 	damage = 5
+	armor_penetration = 0
 	embed = FALSE
 
 /obj/projectile/bullet/rifle/a556/practice
 	damage = 5
+	armor_penetration = 0
 	embed = FALSE
 
 /obj/projectile/bullet/shotgun/practice
 	name = "practice"
 	damage = 5
+	armor_penetration = 0
 	embed = FALSE
 
 /obj/projectile/bullet/pistol/cap
