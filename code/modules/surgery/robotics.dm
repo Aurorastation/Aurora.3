@@ -47,6 +47,13 @@
 		return null
 	return alist(ROBOTICS_SKILL_COMPONENT = SKILL_LEVEL_FAMILIAR)
 
+/singleton/surgery_step/robotics/prosthetic_detachment/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	if(preferred_skill_component && preferred_skill_component != ROBOTICS_SKILL_COMPONENT)
+		return null
+	if(user == target)
+		return list()
+	return ..()
+
 /singleton/surgery_step/robotics/prosthetic_detachment/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
 	if(user == target)
 		return base_surgery_time
@@ -176,6 +183,115 @@
 /singleton/surgery_step/robotics/prosthetic_detachment/release_anchors/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user] fails to release [target_possessive(user, target)] prosthetic's retention anchors."), \
 		SPAN_WARNING("You fail to release [target_possessive(user, target, TRUE)] prosthetic's retention anchors."))
+
+//////////////////////////////////////////////////////////////////
+//                 PROSTHETIC DETACHMENT REVERSAL               //
+//////////////////////////////////////////////////////////////////
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors
+	name = "Secure Prosthetic Retention Anchors"
+	allowed_tools = list(
+		TOOL_WRENCH = 100,
+		TOOL_CROWBAR = 75
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_ANCHORS_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts securing [target_possessive(user, target)] [affected.name]'s retention anchors with \the [tool]."), \
+		SPAN_NOTICE("You start securing [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/secure_anchors/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+	user.visible_message(SPAN_NOTICE("[user] secures [target_possessive(user, target)] [affected.name]'s retention anchors."), \
+		SPAN_NOTICE("You secure [target_possessive(user, target, TRUE)] [affected.name]'s retention anchors."))
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties
+	name = "Engage Prosthetic Safety Locks"
+	allowed_tools = list(TOOL_SCREWDRIVER = 100)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_SAFETIES_RELEASED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts engaging [target_possessive(user, target)] [affected.name]'s safety locks with \the [tool]."), \
+		SPAN_NOTICE("You start engaging [target_possessive(user, target, TRUE)] [affected.name]'s safety locks with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/engage_safeties/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection
+	name = "Restore Prosthetic Power and Neural Connection"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 75
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_CONNECTION_DISABLED
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts restoring the power feed and neural connection to [target_possessive(user, target)] [affected.name] with \the [tool]."), \
+		SPAN_NOTICE("You start restoring the power feed and neural connection to [target_possessive(user, target, TRUE)] [affected.name] with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/restore_connection/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_HUB_OPEN
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub
+	name = "Close Prosthetic Interface Hub"
+	allowed_tools = list(
+		TOOL_MULTITOOL = 100,
+		TOOL_SCREWDRIVER = 100
+	)
+	base_surgery_time = 4 SECONDS
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected.prosthetic_detachment_stage == PROSTHETIC_DETACHMENT_HUB_OPEN
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message(SPAN_NOTICE("[user] starts closing [target_possessive(user, target)] [affected.name]'s interface hub with \the [tool]."), \
+		SPAN_NOTICE("You start closing [target_possessive(user, target, TRUE)] [affected.name]'s interface hub with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/prosthetic_detachment/close_hub/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	affected.prosthetic_detachment_stage = PROSTHETIC_DETACHMENT_SECURED
+	user.visible_message(SPAN_NOTICE("[user] closes [target_possessive(user, target)] [affected.name]'s interface hub, returning it to normal operation."), \
+		SPAN_NOTICE("You close [target_possessive(user, target, TRUE)] [affected.name]'s interface hub, returning it to normal operation."))
 
 /singleton/surgery_step/robotics/unscrew_hatch
 	name = "Unscrew Hatch"
@@ -566,7 +682,7 @@
 		to_chat(user, SPAN_DANGER("You're pretty sure [target.species.name_plural] don't normally have a brain."))
 		return SURGERY_FAILURE
 
-	if(!isnull(target.internal_organs[BP_BRAIN]))
+	if(!isnull(target.internal_organs_by_name[BP_BRAIN]))
 		to_chat(user, SPAN_DANGER("Your subject already has a brain."))
 		return SURGERY_FAILURE
 

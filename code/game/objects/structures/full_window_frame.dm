@@ -11,6 +11,7 @@
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
+	supports_painting = TRUE
 	smoothing_flags = SMOOTH_MORE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
@@ -70,6 +71,11 @@
 		return .
 
 /obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return
+
 	if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
@@ -187,16 +193,21 @@
 	if(istype(W))
 		W.hitby(arglist(args))
 
-/obj/structure/window_frame/wood
-	maxhealth = OBJECT_HEALTH_LOW
-	color = "#8f5847"
-
 /obj/structure/window_frame/unanchored // Used during in-game construction.
 	should_check_mapload = FALSE // No glass.
 	anchored = FALSE
 
 /obj/structure/window_frame/empty
 	should_check_mapload = FALSE // No glass.
+
+/obj/structure/window_frame/wood
+	maxhealth = OBJECT_HEALTH_LOW
+	color = "#8f5847"
+
+/obj/structure/window_frame/concrete
+	color = COLOR_CONCRETE
+
+// ---------- Shuttle frames
 
 /obj/structure/window_frame/shuttle
 	maxhealth = OBJECT_HEALTH_HIGH

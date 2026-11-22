@@ -353,14 +353,6 @@ SUBSYSTEM_DEF(discord)
  */
 /datum/controller/subsystem/discord/proc/post_webhook_event(var/tag, var/list/data)
 	SHOULD_NOT_SLEEP(TRUE)
-	var/escape_text
-	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
-		escape_text = "escaped"
-	else
-		escape_text = "transferred"
-
-	if (!webhooks.len)
-		return
 	var/OutData = list()
 	switch (tag)
 		if (WEBHOOK_ADMIN_PM)
@@ -391,18 +383,22 @@ SUBSYSTEM_DEF(discord)
 				"color" = HEX_COLOR_BLUE
 			)
 			OutData["embeds"] = list(emb)
+		if (WEBHOOK_TRANSFER)
+			var/emb = list(
+				"title" = "Transfer has been called",
+				"color" = HEX_COLOR_RED,
+				"description" = "A transfer has been called and the current round will end soon."
+			)
+			OutData["embeds"] = list(emb)
 		if (WEBHOOK_ROUNDEND)
 			var/emb = list(
 				"title" = "Round has ended",
 				"color" = HEX_COLOR_RED,
-				"description" = "A round of **[data["gamemode"]]** has ended! \[Game ID: [data["gameid"]]\]\n"
+				"description" = "A round of **[data["gamemode"]]** has ended! \[Game ID: [data["gameid"]]\]"
 			)
-			emb["description"] += data["antags"]
-			if(data["survivours"] > 0)
-				emb["description"] += "There [data["survivours"]>1 ? "were **[data["survivours"]] survivors**" : "was **one survivor**"]"
-				emb["description"] += " ([data["escaped"]>0 ? data["escaped"] : "none"] [escape_text]) and **[data["ghosts"]] ghosts**."
-			else
-				emb["description"] += "There were **no survivors** ([data["ghosts"]] ghosts)."
+			emb["description"] += "\nThere were **[data["total_connected"]] connected players** in the round."
+			if(data["antags"])
+				emb["description"] += "\n[data["antags"]]"
 			OutData["embeds"] = list(emb)
 		if (WEBHOOK_CCIAA_EMERGENCY_MESSAGE)
 			var/emb = list(
@@ -437,8 +433,10 @@ SUBSYSTEM_DEF(discord)
 		else
 			OutData["invalid"] = 1
 	if (!OutData["invalid"])
+		var/matched = FALSE
 		for (var/datum/webhook/W in webhooks)
 			if(tag in W.tags)
+				matched = TRUE
 				if (W.mention)
 					if (OutData["content"])
 						OutData["content"] = "[W.mention]: " + OutData["content"]
@@ -446,6 +444,8 @@ SUBSYSTEM_DEF(discord)
 						OutData["content"] = "[W.mention]"
 
 				SShttp.create_async_request(RUSTG_HTTP_METHOD_POST,W.url,body = json_encode(OutData), headers = list("Content-Type" = "application/json"))
+		if (!matched)
+			log_subsystem_discord("PostWebhookEvent - No webhook configured for tag '[tag]'")
 
 //
 // Related Datums

@@ -359,7 +359,7 @@
 				to_chat(user, SPAN_WARNING("[target_mob.name] is in no condition to handle items!"))
 				return
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [target_mob]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [target_mob]'s mouth, waiting for them to accept."))
-			var/response = alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
+			var/response = tgui_alert(target_mob, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", list("Accept", "Decline"))
 			if(response != "Accept")
 				target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> pushes [user]'s [src.name] away."))
 				return
@@ -517,7 +517,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	make_exact_fit = TRUE
 	storage_slots = 6
-	req_access = list(ACCESS_VIROLOGY)
+	req_access = list(/datum/access/virology::id)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -543,7 +543,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(ACCESS_FORENSICS_LOCKERS)
+	req_access = list(/datum/access/forensics_lockers::id)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"

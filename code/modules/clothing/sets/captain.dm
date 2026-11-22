@@ -2,13 +2,6 @@
 /obj/item/clothing/head/caphat
 	name = "captain's hat"
 	desc = "It's good being the king."
-	icon_state = "captain"
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
-		)
-
-/obj/item/clothing/head/caphat/scc
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "caphat"
 	item_state = "caphat"
@@ -21,7 +14,6 @@
 	icon_state = "captain_cap"
 	item_state = "captain_cap"
 	item_state_slots = null
-	contained_sprite = TRUE
 
 /obj/item/clothing/head/bandana/captain
 	name = "captain's bandana"

@@ -74,7 +74,6 @@
 	landmark_transition = "nav_transit_pirate_ship"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_pirate_ship"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/pirate_ship/hangar

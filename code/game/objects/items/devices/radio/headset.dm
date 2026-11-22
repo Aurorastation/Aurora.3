@@ -8,6 +8,7 @@
 	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
+	shortwave_overlays = FALSE
 
 	slot_flags = SLOT_EARS
 	var/translate_binary = FALSE
@@ -24,15 +25,6 @@
 	drop_sound = 'sound/items/drop/headset.ogg'
 	pickup_sound = SFX_HEADSET_PICKUP
 	equip_sound = SFX_HEADSET_EQUIP
-
-/obj/item/radio/headset/feedback_hints(mob/user, distance, is_adjacent)
-	. = list()
-	. = ..()
-	if(!(is_adjacent && radio_desc))
-		return
-
-	. += "The following channels are available:"
-	. += radio_desc
 
 /obj/item/radio/headset/Initialize()
 	. = ..()
@@ -74,8 +66,10 @@
 	else
 		..()
 
-/obj/item/radio/headset/handle_message_mode(mob/living/M, message, channel)
+/obj/item/radio/headset/handle_message_mode(atom/movable/M, message, channel)
 	if(channel == "special")
+		if(!isliving(M))
+			return null
 		if(translate_binary)
 			var/datum/language/binary = GLOB.all_languages[LANGUAGE_ROBOT]
 			binary.broadcast(M, message)
@@ -872,7 +866,7 @@
 /obj/item/radio/headset/earmuff
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
+	icon = 'icons/obj/item/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
@@ -940,15 +934,14 @@
 		return ..()
 
 	var/sector_z = get_sector_z()
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
-	if(istype(V))
-		if(V.comms_support)
-			default_frequency = assign_away_freq(V.name)
-			if(V.comms_name)
-				name = "[V.comms_name] radio headset"
-	else
-		if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
-			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
+	if(sector_z)
+		var/obj/effect/overmap/visitable/V = get_map_sector(sector_z)
+		if(istype(V))
+			if(V.comms_support)
+				default_frequency = assign_away_freq(V.name)
+		else
+			if(SSodyssey.scenario && (sector_z in SSodyssey.scenario_zlevels))
+				default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
 

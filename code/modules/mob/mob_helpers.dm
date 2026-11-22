@@ -329,7 +329,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(prob(probability))
 		zone = check_zone(zone)
 	else
-		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
+		zone = pickweight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
 
 /**
@@ -501,7 +501,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(!M || !M.client || duration < 1)
 		return
 	// This variable exists simply to reduce total strength of screenshake; in the future, it should be hooked to a client preference setting (standard/reduced screenshake for motion-sickness)
-	var/reduction_modifier = 2/3
+	var/reduction_modifier = 0.4 // 0 lower -> 1 higher screenshake, above 0.5 it becomes jarring
 	var/drift_mode = (drift == TRUE)
 	var/client/C = M.client
 	var/oldx = C.pixel_x
@@ -1275,8 +1275,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	a_intent = set_intent
 	SEND_SIGNAL(src, COMSIG_INTENT_CHANGE, set_intent)
 
-/mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+/mob/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && (speaking?.allow_accents || !speaking))
 		var/datum/accent/a = SSrecords.accents[used_accent]

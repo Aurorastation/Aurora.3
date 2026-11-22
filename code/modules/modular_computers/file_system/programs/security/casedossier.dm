@@ -12,8 +12,8 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	// Security officers and wardens are allowed to download the program, but not edit it
-	required_access_download = ACCESS_SECURITY
-	required_access_run = ACCESS_SECURITY
+	required_access_download = /datum/access/security::id
+	required_access_run = /datum/access/security::id
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 	tgui_id = "Casedossier"
 
@@ -38,7 +38,7 @@
 	if(!I)
 		return FALSE
 
-	return (ACCESS_FORENSICS_LOCKERS in I.access)
+	return (/datum/access/forensics_lockers::id in I.access)
 
 /datum/computer_file/program/case_dossier/ui_data(mob/user)
 	var/list/data = list()

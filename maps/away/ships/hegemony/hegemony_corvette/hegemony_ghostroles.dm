@@ -84,7 +84,7 @@
 	)
 
 /obj/outfit/admin/izweski/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/izweski/klax
 
@@ -116,7 +116,7 @@
 /obj/outfit/admin/izweski/captain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 /obj/outfit/admin/izweski/captain/get_id_access()
-	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/kataphract::id, /datum/access/kataphract/knight::id, /datum/access/external_airlocks::id)
 
 /obj/outfit/admin/izweski/priest
 	name = "Hegemony Warpriest"

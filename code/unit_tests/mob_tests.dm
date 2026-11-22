@@ -86,6 +86,56 @@
 		TEST_FAIL("speaker did not say the words \"[message]\"")
 		return 0
 
+/mob/living/test/langchat
+	var/list/overhead_listeners
+
+/mob/living/test/langchat/langchat_say_message(datum/say_message/msg, list/mob/listeners, override_color, animation_style, list/additional_styles)
+	overhead_listeners = listeners.Copy()
+
+/datum/unit_test/langchat_hearing
+	name = "MOB: Overhead speech respects hearing eligibility"
+	groups = list("mob")
+
+/datum/unit_test/langchat_hearing/start_test()
+	var/turf/T = locate(/turf/space)
+	var/turf/distant = T ? locate(T.x + 2, T.y, T.z) : null
+	if(!T || !istype(distant, /turf/space))
+		TEST_FAIL("Unable to find space turfs for the speech hearing test.")
+		return TRUE
+
+	var/mob/living/test/langchat/speaker = new(T)
+	var/mob/living/test/listener = new(distant)
+	var/datum/say_message/msg = speaker.build_say_message("Can you hear me?")
+	var/list/mob/heard_mobs = speaker.deliver_say_message(msg, list(listener))
+	if(listener.heard || (listener in heard_mobs))
+		TEST_FAIL("A listener more than one tile away in vacuum was marked as hearing speech.")
+
+	listener.forceMove(T)
+	heard_mobs = speaker.deliver_say_message(msg, list(listener))
+	if(!listener.heard || !(listener in heard_mobs))
+		TEST_FAIL("Contact speech in vacuum was not delivered.")
+
+	listener.heard = FALSE
+	listener.ear_deaf = 1
+	speaker.say("Can you hear me?")
+	if(listener.heard || (listener in speaker.overhead_listeners))
+		TEST_FAIL("A deaf listener received spoken text or was included in overhead speech.")
+	if(!(speaker in speaker.overhead_listeners))
+		TEST_FAIL("The speaker did not receive their own overhead speech.")
+
+	speaker.whisper("Can you hear me?")
+	if(listener.heard || (listener in speaker.overhead_listeners))
+		TEST_FAIL("A deaf listener received whispered text or was included in overhead speech.")
+	if(!(speaker in speaker.overhead_listeners))
+		TEST_FAIL("The speaker did not receive their own overhead whisper.")
+
+	qdel(msg)
+	qdel(listener)
+	qdel(speaker)
+	if(!reported)
+		TEST_PASS("Vacuum blocks distant speech, contact speech works, and overhead text excludes listeners who cannot hear.")
+	return TRUE
+
 /datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
 	groups = list("mob")
@@ -134,6 +184,56 @@
 		TEST_FAIL("Test human spawned without an eye organ.")
 		qdel(H)
 		return TRUE
+
+	H.resting = TRUE
+	if(!eyes.can_toggle_eyes())
+		TEST_FAIL("A resting human could not toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.resting = FALSE
+	H.SetWeakened(1)
+	if(!eyes.can_toggle_eyes())
+		TEST_FAIL("A weakened human could not toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetWeakened(0)
+	H.SetStunned(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A stunned human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetStunned(0)
+	H.set_stat(UNCONSCIOUS)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("An unconscious human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.set_stat(CONSCIOUS)
+	H.SetParalysis(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A paralyzed human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetParalysis(0)
+	H.SetSleeping(1)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A sleeping human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.SetSleeping(0)
+	H.set_stat(DEAD)
+	if(eyes.can_toggle_eyes())
+		TEST_FAIL("A dead human could toggle their eyes.")
+		qdel(H)
+		return TRUE
+
+	H.set_stat(CONSCIOUS)
 
 	eyes.eyes_closed = TRUE
 	if(!H.is_blind())

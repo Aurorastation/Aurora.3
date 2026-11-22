@@ -60,7 +60,6 @@
 	current_location = "nav_lone_spacer_space"
 	dock_target = "lone_spacer"
 	landmark_transition = "nav_lone_spacer_transit"
-	logging_home_tag = "nav_lone_spacer_space"
 	defer_initialisation = TRUE
 
 // Main shuttle landmark

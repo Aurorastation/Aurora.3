@@ -70,9 +70,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "aai" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/atmos_supply)
 "aaj" = (
 /obj/random/dirt_75,
@@ -1979,9 +1978,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "agG" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/asteroid_inside)
 "agJ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -2301,9 +2299,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/cult_base/chiefs_quarters)
 "aiK" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/chiefs_quarters)
 "aiL" = (
 /obj/effect/floor_decal/corner/yellow,
@@ -2525,9 +2522,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_east)
 "ake" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/crew_quarters)
 "aki" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -3439,9 +3435,8 @@
 /turf/simulated/wall/r_wall,
 /area/cult_base/atmos_waste)
 "apZ" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/storage_two)
 "aqa" = (
 /obj/structure/table/steel,
@@ -4598,9 +4593,8 @@
 /turf/simulated/floor/tiled/slate,
 /area/cult_base/medbay)
 "awr" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/lounge)
 "awt" = (
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/aux,
@@ -5704,9 +5698,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aDM" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/medbay)
 "aDO" = (
 /obj/effect/floor_decal/corner/grey{
@@ -5866,9 +5859,8 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aEW" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/engineering)
 "aFf" = (
 /obj/structure/machinery/atmospherics/pipe/simple/visible/red{
@@ -6280,9 +6272,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aHD" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/maint_south)
 "aHH" = (
 /obj/structure/bed/padded,
@@ -6867,9 +6858,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "aLf" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/eva)
 "aLg" = (
 /obj/effect/floor_decal/corner/mauve/diagonal{
@@ -9027,9 +9017,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "aXZ" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/atmos_waste)
 "aYb" = (
 /obj/structure/cable{
@@ -12707,9 +12696,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "xfK" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/cult_base/hallways_north)
 "xmz" = (
 /obj/random/dirt_75,
@@ -48179,7 +48167,7 @@ oOw
 aFm
 apX
 aXZ
-apX
+aXZ
 apX
 aOn
 akD

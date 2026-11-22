@@ -59,7 +59,7 @@
 		if(ishuman(buckled))
 			var/mob/living/carbon/human/V = buckled
 			V.apply_effect(2, WEAKEN)
-	explosion(loc, 1, 2, 4, 8)
+	explosion(loc, 1, 2, 4, 8, spreading = TRUE)
 	visible_message(SPAN_DANGER ("\The [src] detonates!"))
 	qdel(src)
 

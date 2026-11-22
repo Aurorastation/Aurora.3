@@ -231,9 +231,9 @@
 		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
 		if(landing_faction == "North Pole")
-			atmosphere.temperature = T0C - 40
+			atmosphere.temperature = T0C - 80
 		else
-			atmosphere.temperature = T0C - 5
+			atmosphere.temperature = T0C - 20
 		atmosphere.update_values()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()

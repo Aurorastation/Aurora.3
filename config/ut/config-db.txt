@@ -536,4 +536,5 @@ FAIL2TOPIC_ENABLED 0
 
 ## Lore Summary
 ## The text that will appear when the player clicks the lore button at the start screen
+## If a value has been set in the database registry, this config will be ignored
 LORE_SUMMARY

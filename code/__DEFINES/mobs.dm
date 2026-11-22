@@ -174,6 +174,10 @@
 #define BP_AUG_CORRECTIVE_LENS    "corrective lenses"
 #define BP_AUG_CRAYON             "retractable crayon"
 #define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
+#define BP_AUG_SERVICE_JACK_HEAD "head cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_TORSO   "torso cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_L_WRIST  "left wrist cybernetic service jack"
+#define BP_AUG_SERVICE_JACK_R_WRIST  "right wrist cybernetic service jack"
 #define BP_AUG_DRILL              "integrated mining drill"
 #define BP_AUG_EMOTION            "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION    "vision enhanced retinas"
@@ -215,6 +219,15 @@
 #define BP_AUG_SUSPENSION         "calf suspension"
 #define BP_AUG_TASTE_BOOSTER      "taste booster"
 #define BP_AUG_TESLA              "tesla spine"
+#define BP_AUG_TESLA_CARDIAC      "tesla cardiac driver"
+#define BP_AUG_TESLA_CHARGER      "tesla mobile power system"
+#define BP_AUG_TESLA_DIAGNOSTIC   "tesla diagnostic panel"
+#define BP_AUG_TESLA_LIGHT        "tesla worklight"
+#define BP_AUG_TESLA_OXYGEN       "tesla oxygenation system"
+#define BP_AUG_TESLA_PDA          "tesla internal computer"
+#define BP_AUG_TESLA_THERMAL      "tesla thermal coils"
+#define BP_AUG_TESLA_TRACTION     "tesla traction pads"
+#define BP_AUG_TESLA_WELDER       "tesla arc welder"
 #define BP_AUG_TIMEPIECE          "integrated timepiece"
 #define BP_AUG_TRANSLATOR         "universal translator"
 #define BP_AUG_TOOL               "retractable combitool"
@@ -270,19 +283,19 @@
 #define MAX_SUPPLIED_LAW_NUMBER 50
 
 //default item on-mob icons
-#define INV_HEAD_DEF_ICON			'icons/mob/head.dmi'
-#define INV_BACK_DEF_ICON			'icons/mob/back.dmi'
+#define INV_HEAD_DEF_ICON			'icons/obj/item/clothing/head/head.dmi'
+#define INV_BACK_DEF_ICON			'icons/obj/item/clothing/back/back.dmi'
 #define INV_L_HAND_DEF_ICON			'icons/mob/items/lefthand.dmi'
 #define INV_R_HAND_DEF_ICON			'icons/mob/items/righthand.dmi'
-#define INV_W_UNIFORM_DEF_ICON		'icons/mob/uniform.dmi'
-#define INV_ACCESSORIES_DEF_ICON	'icons/mob/ties.dmi'
-#define INV_BELT_DEF_ICON 			'icons/mob/belt.dmi'
-#define INV_SUIT_DEF_ICON			'icons/mob/suit.dmi'
-#define INV_L_EAR_DEF_ICON			'icons/mob/l_ear.dmi'
-#define INV_R_EAR_DEF_ICON			'icons/mob/r_ear.dmi'
-#define INV_SHOES_DEF_ICON			'icons/mob/feet.dmi'
-#define INV_WRISTS_DEF_ICON			'icons/mob/wrist.dmi'
-#define INV_PANTS_DEF_ICON			'icons/mob/pants.dmi'
+#define INV_W_UNIFORM_DEF_ICON		'icons/obj/item/clothing/under/misc_uniform.dmi'
+#define INV_ACCESSORIES_DEF_ICON	'icons/obj/item/clothing/accessory/ties.dmi'
+#define INV_BELT_DEF_ICON 			'icons/obj/item/clothing/belts/belt.dmi'
+#define INV_SUIT_DEF_ICON			'icons/obj/item/clothing/suit/suit.dmi'
+#define INV_L_EAR_DEF_ICON			'icons/obj/item/clothing/ears/l_ear.dmi'
+#define INV_R_EAR_DEF_ICON			'icons/obj/item/clothing/ears/r_ear.dmi'
+#define INV_SHOES_DEF_ICON			'icons/obj/item/clothing/shoes/feet.dmi'
+#define INV_WRISTS_DEF_ICON			'icons/obj/item/clothing/wrists/wrist.dmi'
+#define INV_PANTS_DEF_ICON			'icons/obj/item/clothing/pants/pants.dmi'
 
 // IPC tags
 #define IPC_OWNERSHIP_SELF	  "Self Owned"
@@ -297,8 +310,22 @@
 #define ECONOMICALLY_POOR		"Poor"
 #define ECONOMICALLY_DESTITUTE  "Impoverished"
 #define ECONOMICALLY_RUINED		"Ruined"
+#define ECONOMICALLY_BANKRUPT	"Bankrupt"
+#define ECONOMICALLY_DEBT_MINOR	"Minor Debt"
+#define ECONOMICALLY_DEBT_MODERATE	"Moderate Debt"
+#define ECONOMICALLY_DEBT_MAJOR		"Major Debt"
 
-#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE, ECONOMICALLY_RUINED)
+#define ECONOMIC_POSITIONS		list(ECONOMICALLY_WEALTHY, ECONOMICALLY_WELLOFF, ECONOMICALLY_AVERAGE, ECONOMICALLY_UNDERPAID, ECONOMICALLY_POOR, ECONOMICALLY_DESTITUTE, ECONOMICALLY_RUINED, ECONOMICALLY_BANKRUPT, ECONOMICALLY_DEBT_MINOR, ECONOMICALLY_DEBT_MODERATE, ECONOMICALLY_DEBT_MAJOR)
+
+#define STARTING_FUNDS_BANK_ACCOUNT "Bank Account"
+#define STARTING_FUNDS_CASH "Cash Bundle/Bank Account"
+#define STARTING_FUNDS_CHARGE_CARD "Charge Card/Bank Account"
+
+#define STARTING_FUNDS_CASH_CAP 200
+#define STARTING_FUNDS_CHARGE_CARD_CAP 500
+
+#define STARTING_FUNDS_OPTIONS list(STARTING_FUNDS_BANK_ACCOUNT, STARTING_FUNDS_CASH)
+#define STARTING_FUNDS_WEALTHY_OPTIONS list(STARTING_FUNDS_BANK_ACCOUNT, STARTING_FUNDS_CASH, STARTING_FUNDS_CHARGE_CARD)
 
 // Defines the argument used for get_mobs_or_objs_in_view
 #define GHOSTS_ALL_HEAR 1
@@ -316,6 +343,9 @@
 #define MOB_SMALL 		6
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
+
+/// Largest mob_size which can fit underneath a table.
+#define TABLE_CRAWL_MAX_MOB_SIZE 12
 
 // Mob weight, separate from mob size. Affects how easy a mob is to lift.
 /// Light mobs, can be lifted by anyone.
@@ -591,11 +621,6 @@
 #define TRIAGE_YELLOW "Yellow"
 #define TRIAGE_RED "Red"
 #define TRIAGE_BLACK "Black"
-
-// Surgery Stuff
-#define SURGERY_SUCCESS 2 // Proceed with surgery
-#define SURGERY_FAIL 1 // Autofail surgery
-#define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
 
 #define STASIS_MISC     "misc"
 #define STASIS_CRYOBAG  "cryobag"

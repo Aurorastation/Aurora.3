@@ -78,7 +78,6 @@
 	current_location = "nav_orion_miner_space"
 	dock_target = "orion_miner"
 	landmark_transition = "nav_orion_miner_transit"
-	logging_home_tag = "nav_orion_miner_space"
 	defer_initialisation = TRUE
 
 // Main shuttle landmark

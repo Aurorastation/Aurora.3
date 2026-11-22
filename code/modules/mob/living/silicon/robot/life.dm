@@ -175,9 +175,9 @@
 
 	switch(sensor_mode)
 		if(SEC_HUD)
-			process_sec_hud(src, FALSE)
+			process_sec_hud(src, TRUE)
 		if(MED_HUD)
-			process_med_hud(src, FALSE)
+			process_med_hud(src, TRUE)
 
 	if(healths)
 		if(stat != DEAD)

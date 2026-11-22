@@ -4,7 +4,7 @@
 /obj/structure/closet/secure_closet/marooning_equipment
 	name = "marooning equipment locker"
 	icon_state = "maroon"
-	req_one_access = list(ACCESS_HEADS, ACCESS_SECURITY) // Marooned personnel would likely be marooned by security and/or command.
+	req_one_access = list(/datum/access/heads::id, /datum/access/security::id) // Marooned personnel would likely be marooned by security and/or command.
 
 /obj/structure/closet/secure_closet/marooning_equipment/fill()
 	new /obj/item/clothing/mask/breath(src)

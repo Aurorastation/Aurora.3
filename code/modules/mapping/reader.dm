@@ -76,6 +76,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 	space_key = null
 	. = load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, lower_crop_x, upper_crop_x, lower_crop_y, upper_crop_y)
 	Master.StopLoadingMap()
+	if(. && !measureOnly)
+		require_area_resort()
 
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, cache_metadata = FALSE)
 	var/tfile = dmm_file//the map file we're creating
@@ -353,9 +355,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
-	#ifdef UNIT_TEST
-				log_error("Couldn't find atom path specified in map: [full_def]")
-	#endif
+				dbg_stack_trace("Couldn't find atom path specified in map: [full_def]")
 				if (dpos == 0)
 					break
 				else

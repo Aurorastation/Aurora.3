@@ -1,4 +1,4 @@
-#define GET_SPEECH_TYPE(owner) alert(owner.client, "What type of chat message would you like to use for your inspirational speech?", "Say Type", "Say", "Whisper", "Emote")
+#define GET_SPEECH_TYPE(owner) tgui_alert(owner.client, "What type of chat message would you like to use for your inspirational speech?", "Say Type", list("Say", "Whisper", "Emote"))
 #define GET_SPEECH_TEXT(owner) tgui_input_text(owner, "Write what you wish to say for your speech.", "Deliver Speech")
 
 /datum/moodlet/leadership
@@ -65,7 +65,7 @@
 		if (!receiver_morale)
 			continue
 
-		if (astype(receiver_morale.moodlets[/datum/moodlet/leadership], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+		if (astype((locate(/datum/moodlet/leadership) in receiver_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 			receiver_morale.load_moodlet(/datum/moodlet/leadership)?.refresh_moodlet()
 			continue // Don't overwrite stronger moodlets.
 
@@ -118,7 +118,7 @@
 	if (!target_morale)
 		return
 
-	if (astype(target_morale.moodlets[/datum/moodlet/leadership], /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
+	if (astype((locate(/datum/moodlet/leadership) in target_morale.moodlets), /datum/moodlet)?.get_morale_modifier() >= moodlet_value)
 		target_morale.load_moodlet(/datum/moodlet/leadership)?.refresh_moodlet()
 		return // Don't overwrite stronger moodlets.
 

@@ -306,11 +306,13 @@ SUBSYSTEM_DEF(jobs)
 		//Equip job items.
 		Debug("ER/([H]): Equipping custom loadout.")
 		job.pre_equip(H)
-		job.setup_account(H)
+		var/physical_starting_funds = job.setup_account(H)
 		job.after_spawn(H)
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
+		if(!isnull(physical_starting_funds))
+			job.equip_starting_funds(H, physical_starting_funds)
 
 		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -847,6 +849,10 @@ SUBSYSTEM_DEF(jobs)
 			if(!istype(A, /obj/item/organ/external))
 				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 				A.replaced(H, affected)
+				if(istype(A, /obj/item/organ/internal))
+					var/obj/item/organ/internal/internal_augment = A
+					if(internal_augment.on_mob_icon)
+						affected.get_icon()
 			H.update_body()
 
 	log_loadout("EA/([H]): Complete.")

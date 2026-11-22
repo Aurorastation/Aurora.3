@@ -27,7 +27,7 @@
 /datum/component/skill/anatomy/proc/handle_surgery_modifiers(mob/living/user, mob/living/carbon/target, success_rate, duration)
 	SIGNAL_HANDLER
 	// This component only applies to surgeries where our species matches the target species.
-	if (astype(user, /mob/living/carbon/human)?.species != astype(target, /mob/living/carbon/human)?.species)
+	if (isipc(target) || astype(user, /mob/living/carbon/human)?.species != astype(target, /mob/living/carbon/human)?.species)
 		return
 
 	var/effective_skill = skill_level - 1

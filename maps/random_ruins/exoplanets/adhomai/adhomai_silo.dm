@@ -76,4 +76,4 @@
 	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/silo_guard/get_id_access()
-	return list(ACCESS_PRA)
+	return list(/datum/access/pra::id)

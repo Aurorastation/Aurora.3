@@ -288,9 +288,12 @@
 /obj/item/organ/internal/lungs/proc/handle_temperature_effects(datum/gas_mixture/breath)
 	if((breath.temperature < species.cold_level_1 || breath.temperature > species.heat_level_1) && !(owner.mutations & COLD_RESISTANCE))
 
-		if(breath.temperature <= owner.species.cold_level_1)
+		if(breath.temperature <= owner.species.cold_level_2)
 			if(prob(20))
 				to_chat(owner, SPAN_DANGER("You feel your face freezing and icicles forming in your lungs!"))
+		else if(breath.temperature <= owner.species.cold_level_1)
+			if(prob(20))
+				to_chat(owner, SPAN_WARNING("The freezing air painfully chills your face and lungs!"))
 		else if(breath.temperature >= owner.species.heat_level_1)
 			if(prob(20))
 				to_chat(owner, SPAN_DANGER("You feel your face burning and a searing heat in your lungs!"))
@@ -306,11 +309,8 @@
 				owner.apply_damage(HEAT_GAS_DAMAGE_LEVEL_3, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Heat")
 				owner.fire_alert = max(owner.fire_alert, 2)
 
-		else if(breath.temperature <= owner.species.cold_level_1)
-			if(breath.temperature > species.cold_level_2)
-				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_1, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
-				owner.fire_alert = max(owner.fire_alert, 1)
-			else if(breath.temperature > species.cold_level_3)
+		else if(breath.temperature <= owner.species.cold_level_2)
+			if(breath.temperature > species.cold_level_3)
 				owner.apply_damage(COLD_GAS_DAMAGE_LEVEL_2, DAMAGE_BURN, BP_HEAD, used_weapon = "Excessive Cold")
 				owner.fire_alert = max(owner.fire_alert, 1)
 			else

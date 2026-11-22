@@ -91,4 +91,4 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/okon_crew/get_id_access()
-	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/pra::id, /datum/access/external_airlocks::id)

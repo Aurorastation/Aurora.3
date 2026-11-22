@@ -60,7 +60,7 @@
 	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/pra_base/get_id_access()
-	return list(ACCESS_PRA)
+	return list(/datum/access/pra::id)
 
 /datum/ghostspawner/human/pra_base/commissar
 	short_name = "pra_base_commissar"

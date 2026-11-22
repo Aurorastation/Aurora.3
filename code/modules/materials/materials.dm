@@ -762,6 +762,7 @@
 	display_name = "elevator paneling"
 	stack_type = null
 	icon_colour = "#666666"
+	wall_colour = "#666666"
 	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	integrity = 1200
 	melting_point = 6000
@@ -774,6 +775,7 @@
 	name = "wood"
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = WOOD_COLOR_GENERIC
+	wall_colour = WOOD_COLOR_GENERIC
 	integrity = 50
 	icon_base = "wood"
 	wall_icon = 'icons/turf/smooth/composite_wood.dmi'

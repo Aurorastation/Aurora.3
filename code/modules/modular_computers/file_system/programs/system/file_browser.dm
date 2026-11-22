@@ -132,7 +132,7 @@
 				var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 				if(!F || !istype(F))
 					return TRUE
-				if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
+				if(F.do_not_edit && (tgui_alert(usr, "WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", list("No", "Yes")) == "No"))
 					return TRUE
 			screen = new_screen
 
@@ -142,6 +142,9 @@
 			var/datum/computer_file/F = HDD.find_file_by_name(params["PRG_open_file"])
 			if(!F)
 				return
+			if(istype(F, /datum/computer_file/data/report))
+				open_report_in_editor(F, usr)
+				return TRUE
 			if(F.can_access_file(usr))
 				open_file = params["PRG_open_file"]
 				open_file_is_usb = FALSE
@@ -155,6 +158,9 @@
 			var/datum/computer_file/F = RHDD.find_file_by_name(params["PRG_usb_open_file"])
 			if(!F)
 				return
+			if(istype(F, /datum/computer_file/data/report))
+				open_report_in_editor(F, usr)
+				return TRUE
 			if(F.can_access_file(usr))
 				open_file = params["PRG_usb_open_file"]
 				open_file_is_usb = TRUE
@@ -282,7 +288,7 @@
 			if(!F || !istype(F))
 				return FALSE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,ACCESS_IT))
+			if(can_run(usr,FALSE,/datum/access/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
@@ -308,7 +314,7 @@
 			if(!F || !istype(F))
 				return TRUE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,ACCESS_IT))
+			if(can_run(usr,FALSE,/datum/access/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))
@@ -396,5 +402,19 @@
 			qdel(query)
 			usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 			return TRUE
+
+/datum/computer_file/program/filemanager/proc/open_report_in_editor(datum/computer_file/data/report/report, mob/user)
+	var/datum/computer_file/program/report_editor/editor = computer?.hard_drive?.find_file_by_name("reporteditor")
+	if(!istype(editor))
+		error = "APPLICATION ERROR: Report Editor must be installed to open RPT files."
+		return FALSE
+	if(!editor.load_report(report, user))
+		error = "I/O ERROR: Unable to open that report."
+		return FALSE
+	error = null
+	if(!computer.run_program(editor.filename, user))
+		error = "APPLICATION ERROR: Report Editor could not be started."
+		return FALSE
+	return TRUE
 
 #undef MAX_TEXTFILE_LENGTH

@@ -11,6 +11,7 @@
 /obj/structure/machinery/vending/cola
 	name = "Idris Re-Fresh"
 	desc = "A soft drink vendor provided by an Idris subsidiary."
+	persistent_stock = TRUE
 	icon_state = "cola_machine"
 	icon_vend = "cola_machine-vend"
 	icon_deny = "cola_machine-deny"
@@ -76,6 +77,9 @@
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
+/obj/structure/machinery/vending/cola/free
+	prices = list()
+
 /obj/structure/machinery/vending/cola/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1,
@@ -130,6 +134,9 @@
 		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
 	)
 
+/obj/structure/machinery/vending/cola/all_currencies
+	accepted_currencies = CURRENCY_ALL
+
 /obj/item/vending_refill/cola
 	name = "cola resupply canister"
 	vend_id = "cola"
@@ -139,6 +146,7 @@
 /obj/structure/machinery/vending/zora
 	name = "Zo'ra Soda"
 	desc = "An energy drink vendor provided by the Getmore Corporation in partnership with the brood of Ta'Akaix'Xakt'yagz'isk Zo'ra."
+	persistent_stock = TRUE
 	icon_state = "zoda"
 	icon_vend = "zoda-vend"
 	product_slogans = "Safe for consumption by all species!;Made by hard-working bound drones!;The most refreshing energy drink around!;A product of two thousand years!"
@@ -184,6 +192,9 @@
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
+/obj/structure/machinery/vending/zora/free
+	prices = list()
+
 /obj/structure/machinery/vending/zora/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 2,
@@ -204,6 +215,7 @@
 /obj/structure/machinery/vending/sovietsoda
 	name = "BODA"
 	desc = "An old sweet water vending machine, how did this end up here?"
+	persistent_stock = TRUE
 	icon_state = "sovietsoda"
 	icon_vend = "sovietsoda-vend"
 	vend_id = "cola"

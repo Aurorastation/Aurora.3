@@ -1,4 +1,4 @@
-/obj/item/clothing
+ABSTRACT_TYPE(/obj/item/clothing)
 	name = "clothing"
 	siemens_coefficient = 0.9
 	drop_sound = 'sound/items/drop/clothing.ogg'
@@ -76,6 +76,9 @@
 
 	QDEL_LIST(accessories)
 	return ..()
+
+/obj/item/clothing/get_equipped_flash_protection(mob/living/carbon/human/wearer)
+	return flash_protection
 
 /obj/item/clothing/examine_descriptor(mob/user)
 	return "clothing"
@@ -361,7 +364,7 @@
 
 				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
 
-		return BULLET_ACT_HIT
+	return BULLET_ACT_HIT
 
 /proc/calculate_material_armor(amount)
 	var/result = 1 - MATERIAL_ARMOR_COEFFICENT * amount / (1 + MATERIAL_ARMOR_COEFFICENT * abs(amount))
@@ -432,9 +435,9 @@
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
-/obj/item/clothing/ears
+ABSTRACT_TYPE(/obj/item/clothing/ears)
 	name = "ears"
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
 	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
@@ -505,7 +508,9 @@
 	name = "gloves"
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/clothing/gloves.dmi'
+	icon = 'icons/obj/item/clothing/gloves/color_gloves.dmi'
+	icon_state = "black"
+	item_state = "black"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
@@ -610,9 +615,9 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Head
-/obj/item/clothing/head
+ABSTRACT_TYPE(/obj/item/clothing/head)
 	name = "head"
-	icon = 'icons/obj/clothing/hats.dmi'
+	icon = 'icons/obj/item/clothing/hats.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
@@ -711,7 +716,7 @@
 	if(istype(user, /mob/living/silicon/robot/drone))
 		var/mob/living/silicon/robot/drone/D = user
 		if(D.hat)
-			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
+			if(tgui_alert(usr, "You are already wearing a [D.hat]. Swap with [src]?", , list("Yes", "No")) == "Yes")
 				D.hat.forceMove(get_turf(src))
 				D.hat = null
 				D.CutOverlays(D.hat_overlay)
@@ -818,9 +823,9 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
-/obj/item/clothing/mask
+ABSTRACT_TYPE(/obj/item/clothing/mask)
 	name = "mask"
-	icon = 'icons/obj/clothing/masks.dmi'
+	icon = 'icons/obj/item/clothing/masks.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
@@ -928,7 +933,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
-/obj/item/clothing/shoes
+ABSTRACT_TYPE(/obj/item/clothing/shoes)
 	name = "shoes"
 	desc = "Comfortable-looking shoes."
 	species_sprite_adaption_type = WORN_SHOES
@@ -1074,8 +1079,8 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
-/obj/item/clothing/suit
-	icon = 'icons/obj/clothing/suits.dmi'
+ABSTRACT_TYPE(/obj/item/clothing/suit)
+	icon = 'icons/obj/item/clothing/suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
@@ -1139,8 +1144,8 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
-/obj/item/clothing/under
-	icon = 'icons/obj/clothing/uniforms.dmi'
+ABSTRACT_TYPE(/obj/item/clothing/under)
+	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
@@ -1462,10 +1467,11 @@
 
 //Rings
 
-/obj/item/clothing/ring
+ABSTRACT_TYPE(/obj/item/clothing/ring)
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
-	icon = 'icons/obj/clothing/rings.dmi'
+	icon = 'icons/obj/item/clothing/gloves/rings.dmi'
+	contained_sprite = TRUE
 	species_sprite_adaption_type = WORN_GLOVES
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER

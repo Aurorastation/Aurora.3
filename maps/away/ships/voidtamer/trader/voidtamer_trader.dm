@@ -106,7 +106,6 @@
 	landmark_transition = "nav_transit_voidtamer_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_voidtamer_shuttle_dock"
 	defer_initialisation = TRUE
 	dock_target = "voidtamer_trade_ship_shuttle"
 

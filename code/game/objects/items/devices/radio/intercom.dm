@@ -16,6 +16,7 @@ pixel_x = 8;
 
 
 /obj/item/radio/intercom
+	shortwave_overlays = FALSE
 	name = "intercom (general)"
 	desc = "An intercom with buttons for transmitting, receiving, and for volume control."
 	desc_extended = "Has a touch display for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
@@ -33,6 +34,9 @@ pixel_x = 8;
 	var/obj/structure/machinery/abstract/intercom_listener/power_interface
 	var/radio_sound = null
 	clickvol = 40
+	/// Screen content and scanlines are separate art.
+	var/overlay_screen_idle = "intercom_screen"
+	var/overlay_screen_scanlines = "intercom_scanline"
 
 /obj/item/radio/intercom/north
 	PRESET_NORTH
@@ -67,10 +71,8 @@ pixel_x = 8;
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = get_map_sector(T.z)
 	if(istype(V) && V.comms_support)
-		if(V.comms_name)
-			name = "intercom ([V.comms_name])"
 		default_frequency = assign_away_freq(V.name)
 		channels += list(
 			V.name = TRUE,
@@ -84,18 +86,6 @@ pixel_x = 8;
 
 /obj/item/radio/intercom/ship/hailing
 	default_hailing = TRUE
-
-/obj/item/radio/intercom/ship/north
-	PRESET_NORTH
-
-/obj/item/radio/intercom/ship/south
-	PRESET_SOUTH
-
-/obj/item/radio/intercom/ship/west
-	PRESET_WEST
-
-/obj/item/radio/intercom/ship/east
-	PRESET_EAST
 
 
 /obj/item/radio/intercom/custom
@@ -309,7 +299,7 @@ pixel_x = 8;
 	set_frequency(SEC_I_FREQ)
 	internal_channels = list(
 		num2text(PUB_FREQ) = list(),
-		num2text(SEC_I_FREQ) = list(ACCESS_SECURITY)
+		num2text(SEC_I_FREQ) = list(/datum/access/security::id)
 	)
 
 /obj/item/radio/intercom/entertainment
@@ -362,7 +352,7 @@ pixel_x = 8;
 /obj/item/radio/intercom/syndicate/Initialize()
 	. = ..()
 	set_frequency(SYND_FREQ)
-	internal_channels[num2text(SYND_FREQ)] = list(ACCESS_SYNDICATE)
+	internal_channels[num2text(SYND_FREQ)] = list(/datum/access/syndicate::id)
 
 /obj/item/radio/intercom/raider
 	name = "illegally modified intercom"
@@ -410,6 +400,12 @@ pixel_x = 8;
 
 	return TRUE
 
+/obj/item/radio/intercom/hear_talk(atom/movable/speaker, message, verb = "says", datum/language/speaking, datum/say_message/msg)
+	// The explicit intercom mode has already transmitted through nearby intercoms.
+	if(msg?.message_mode == "intercom")
+		return
+	return ..()
+
 /obj/item/radio/intercom/proc/power_change(has_power)
 	set_on(has_power) // has_power is given by our listener machinery
 	update_icon()
@@ -420,69 +416,50 @@ pixel_x = 8;
 
 /obj/item/radio/intercom/update_icon()
 	ClearOverlays()
-	var/mutable_appearance/screen = overlay_image(icon, "intercom_screen")
-	var/mutable_appearance/screen_hologram = overlay_image(icon, "intercom_screen")
-	var/mutable_appearance/screen_emis = emissive_appearance(icon, "intercom_screen")
-	screen_hologram.filters += filter(type="color", color=list(
+	if(!on)
+		icon_state = initial(icon_state)
+		set_light(FALSE)
+		return
+	AddOverlays(get_radio_overlay(overlay_screen_idle))
+	if(broadcasting)
+		AddOverlays(get_radio_overlay("intercom_b"))
+	if(listening)
+		AddOverlays(get_radio_overlay("intercom_l"))
+	// Scanlines stay independent and above the screen content.
+	var/mutable_appearance/scanlines = resolve_radio_overlay(overlay_screen_scanlines)
+	if(scanlines)
+		scanlines.layer = layer + 0.2
+		AddOverlays(scanlines)
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
+
+/// Screen content uses holographic treatment; scanlines are applied separately by update_icon().
+/obj/item/radio/intercom/get_radio_overlay(overlay)
+	var/mutable_appearance/content = ..()
+	if(!content)
+		return null
+	var/mutable_appearance/hologram = new(content)
+	var/mutable_appearance/additive = new(content)
+	var/mutable_appearance/emission = emissive_appearance(content.icon, content.icon_state)
+	emission.dir = content.dir
+	emission.pixel_x = content.pixel_x
+	emission.pixel_y = content.pixel_y
+	hologram.filters += filter(type="color", color=list(
 		0, 0, 0, 0,
 		0, 0, 0, 0,
 		0, 0, 0, 0,
 		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
 	))
-	screen.filters += filter(type="color", color=list(
+	additive.filters += filter(type="color", color=list(
 		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
 		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
 		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
 		0, 0, 0, 1
 	))
-	screen_hologram.blend_mode = BLEND_MULTIPLY
-	screen.blend_mode = BLEND_ADD
-	if(!on)
-		icon_state = initial(icon_state)
-		set_light(FALSE)
-		return
-	else
-		AddOverlays(screen_hologram)
-		AddOverlays(screen)
-		AddOverlays(screen_emis)
-		AddOverlays("intercom_scanline")
-		set_light(1.4, 1.3, COLOR_CYAN)
-		if(broadcasting)
-			var/mutable_appearance/screen_broadcasting = overlay_image(icon, "intercom_b")
-			var/mutable_appearance/screen_broadcasting_hologram = overlay_image(icon, "intercom_b")
-			screen_broadcasting_hologram.filters += filter(type="color", color=list(
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
-			))
-			screen_broadcasting.filters += filter(type="color", color=list(
-				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
-				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
-				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
-				0, 0, 0, 1
-			))
-			screen_broadcasting_hologram.blend_mode = BLEND_MULTIPLY
-			screen_broadcasting.blend_mode = BLEND_ADD
-			AddOverlays(list(screen_broadcasting_hologram, screen_broadcasting))
-		if(listening)
-			var/mutable_appearance/screen_listening = overlay_image(icon, "intercom_l")
-			var/mutable_appearance/screen_listening_hologram = overlay_image(icon, "intercom_l")
-			screen_listening_hologram.filters += filter(type="color", color=list(
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			0, 0, 0, 0,
-			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
-			))
-			screen_listening.filters += filter(type="color", color=list(
-				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
-				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
-				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
-				0, 0, 0, 1
-			))
-			screen_listening_hologram.blend_mode = BLEND_MULTIPLY
-			screen_listening.blend_mode = BLEND_ADD
-			AddOverlays(list(screen_listening_hologram, screen_listening))
+	hologram.blend_mode = BLEND_MULTIPLY
+	additive.blend_mode = BLEND_ADD
+	var/mutable_appearance/screen = mutable_appearance(null, content.icon_state)
+	screen.overlays = list(hologram, additive, emission)
+	return screen
 
 /obj/item/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
@@ -537,3 +514,34 @@ pixel_x = 8;
 #undef PRESET_SOUTH
 #undef PRESET_WEST
 #undef PRESET_EAST
+
+// Used solely for the Gunnery Wing. They should be replaced by communicators if they ever get ported
+/obj/item/radio/intercom/phone
+	name = "red phone"
+	desc = "A secure radio communications link housed within a red telephone frame."
+	desc_extended = "Has a button panel for inputting a frequency, with proper authentication. Used to communicate when you have lost your radio. \
+		Otherwise, you would likely just use a handheld shortwave radio instead."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "red_phone"
+
+/obj/item/radio/intercom/phone/Initialize()
+	. = ..()
+	set_broadcasting(FALSE)
+	set_listening(TRUE)
+
+/obj/item/radio/intercom/phone/update_icon()
+	ClearOverlays()
+
+/obj/item/radio/intercom/phone/fire_control // Used by Command/Bridge Crew to communicate with loaders from the Fire Control Compartment
+	name = "Fire Control red phone"
+
+/obj/item/radio/intercom/phone/fire_control/Initialize()
+	. = ..()
+	set_frequency(SUP_FREQ)
+	internal_channels = list(
+		num2text(PUB_FREQ) = list(),
+		num2text(ENT_FREQ) = list(),
+		num2text(COMM_FREQ) = list(),
+		num2text(ENG_FREQ) = list(),
+		num2text(SUP_FREQ) = list()
+	)

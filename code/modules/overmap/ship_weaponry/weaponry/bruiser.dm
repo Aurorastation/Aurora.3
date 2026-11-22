@@ -22,9 +22,9 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_midshell.dmi'
 	icon_state = "shell_canister"
 	w_class = WEIGHT_CLASS_BULKY
+	mass = 100
 	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_VERY_HEAVY
-	mob_carry_size = 10 //unathi, dionae and all vaurca can lift these bad boys up.
 	caliber = SHIP_CALIBER_178MM
 	burst = 11
 	cookoff_heavy = 0

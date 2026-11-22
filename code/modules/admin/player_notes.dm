@@ -56,7 +56,7 @@ datum/admins/proc/notes_gethtml(var/ckey)
 			notesfile << note
 	else
 		notesfile.cd = "/"
-		if(alert(usr,"Are you sure you want to remove all their notes?","Confirmation","No","Yes - Remove all notes") == "Yes - Remove all notes")
+		if(tgui_alert(usr, "Are you sure you want to remove all their notes?", "Confirmation", list("No", "Yes - Remove all notes")) == "Yes - Remove all notes")
 			notesfile.dir.Remove(ckey)
 	return
 

@@ -18,11 +18,14 @@
 	var/obj/item/paper/medscan/primer
 
 	var/obj/structure/machinery/body_scanconsole/embedded/embedded_scanner
+	/// Shared patient/zone surgery reference used by the planner TGUI.
+	var/datum/surgery_planner/surgery_planner
 
 /obj/structure/machinery/computer/operating/Initialize()
 	..()
 
 	embedded_scanner = new /obj/structure/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
+	surgery_planner = new
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -36,6 +39,7 @@
 
 /obj/structure/machinery/computer/operating/Destroy()
 	QDEL_NULL(embedded_scanner)
+	QDEL_NULL(surgery_planner)
 	QDEL_NULL(primer)
 
 	//Clear the operating table
@@ -93,6 +97,7 @@
 		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), range = 3)
 		user.drop_from_inventory(attacking_item, src)
 		primer = attacking_item
+		SStgui.update_uis(src)
 
 /obj/structure/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -102,7 +107,7 @@
 /obj/structure/machinery/computer/operating/attack_hand(mob/user)
 	if(..())
 		return
-	embedded_scanner.ui_interact(user)
+	ui_interact(user)
 
 /obj/structure/machinery/computer/operating/verb/eject_primer()
 	set src in oview(1)
@@ -112,13 +117,18 @@
 	if(use_check(usr))
 		return
 
-	if(!primer)
-		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a primer!"))
-		return
+	eject_surgery_primer(usr)
 
-	usr.visible_message("\The [usr] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), range = 3)
-	usr.put_in_hands(primer)
+/obj/structure/machinery/computer/operating/proc/eject_surgery_primer(mob/user)
+	if(!primer)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a primer!"))
+		return FALSE
+
+	user.visible_message("\The [user] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), range = 3)
+	user.put_in_hands(primer)
 	primer = null
+	SStgui.update_uis(src)
+	return TRUE
 
 /obj/structure/machinery/computer/operating/terminal
 	name = "patient monitoring terminal"

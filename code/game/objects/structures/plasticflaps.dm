@@ -130,3 +130,7 @@
 
 /obj/structure/plasticflaps/airtight/CanPass(atom/A, turf/T)
 	return 1//Blocks nothing except air
+
+/obj/structure/plasticflaps/airtight/invisible
+	invisibility = INVISIBILITY_MAXIMUM
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

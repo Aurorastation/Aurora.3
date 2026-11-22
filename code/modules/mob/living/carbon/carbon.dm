@@ -189,6 +189,7 @@
 		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
 		return
 	src.hand = !src.hand
+	hud_used?.update_gun_actions()
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
@@ -475,7 +476,7 @@
 		else
 			to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
-	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
+	if(tgui_alert(src, "Are you sure you want to sleep for a while?", "Sleep", list("Yes", "No")) == "Yes")
 		willfully_sleeping = TRUE
 		usr.sleeping = 20 // Short nap.
 		usr.eye_blurry = 20

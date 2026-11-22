@@ -5,22 +5,28 @@
 	var/warmup_time = 0
 	var/moving_status = SHUTTLE_IDLE
 
-	var/list/shuttle_area //can be both single area type or a list of areas
-	var/obj/effect/shuttle_landmark/current_location //This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	/// Can be both a single area type or a list of areas.
+	var/list/shuttle_area
+	/// This variable is type-abused initially: specify the landmark_tag, not the actual landmark.
+	var/obj/effect/shuttle_landmark/current_location
 	var/list/shuttle_computers = list()
 
-	var/arrive_time = 0	//the time at which the shuttle arrives when long jumping
+	/// The time at which the shuttle arrives when long jumping
+	var/arrive_time = 0
 	var/flags = 0
-	var/process_state = IDLE_STATE //Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	/// Used with SHUTTLE_FLAGS_PROCESS, as well as to store current state.
+	var/process_state = IDLE_STATE
 	var/category = /datum/shuttle
-	var/multiz = 0	//how many multiz levels, starts at 0
+	/// how many multiz levels, starts at 0
+	var/multiz = 0
 
 	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
 
-	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
+	/// Whether shuttle downs non-buckled_to people when it moves
+	var/knockdown = TRUE
 
 	/**
 	 * This shuttle will/won't be initialised automatically.
@@ -28,14 +34,21 @@
 	 * Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
 	 */
 	var/defer_initialisation = FALSE
-	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
-	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
-	var/mothershuttle //tag of mothershuttle
-	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
+	/// Tag of mothershuttle
+	var/mothershuttle
+	/// Tag of mothershuttle landmark, defaults to starting location
+	var/motherdock
 
-	var/squishes = TRUE //decides whether or not things get squished when it moves.
-	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
+	/// Decides whether or not things get squished when it moves.
+	var/squishes = TRUE
+	/// Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not.
+	var/cargo_elevator = FALSE
+
+	/// Whether the shuttle can rotate.
+	/// If true, the shuttle can rotate, and is guaranteed to look correct in all orientations.
+	/// If false, the shuttle will not rotate and will maintain its original orientation always.
+	var/can_rotate = FALSE
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
@@ -165,13 +178,14 @@
 	if(current_location.cannot_depart(src))
 		return FALSE
 	testing("[src] moving to [destination]. Areas are [english_list(shuttle_area)]")
+	var/rotation = get_rotation(destination)
 	var/list/translation = list()
 	for(var/area/A in shuttle_area)
 		testing("Moving [A]")
-		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
+		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents, rotation)
 	var/old_location = current_location
 	GLOB.shuttle_pre_move_event.raise_event(src, old_location, destination)
-	shuttle_moved(destination, translation)
+	shuttle_moved(destination, translation, rotation)
 	GLOB.shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
@@ -179,7 +193,7 @@
 //just moves the shuttle from A to B, if it can be moved
 //A note to anyone overriding move in a subtype. shuttle_moved() must absolutely not, under any circumstances, fail to move the shuttle.
 //If you want to conditionally cancel shuttle launches, that logic must go in short_jump(), long_jump() or attempt_move()
-/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
+/datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation, rotation = 0)
 
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
@@ -226,6 +240,10 @@
 		if(knockdown)
 			for(var/mob/living/carbon/M in A)
 				spawn(0)
+					var/obj/structure/bed/handrail/nearby_handrail = locate() in range(1, M)
+					var/catch_chance = (M.get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR) * 20
+					if(nearby_handrail)
+						catch_chance *= 1.5
 					if(M.buckled_to)
 						to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 						shake_camera(M, 3, 1)
@@ -233,6 +251,12 @@
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
 						M.apply_damage(10, DAMAGE_PAIN, BP_L_FOOT)
 						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
+						shake_camera(M, 5, 1)
+					else if(!M.incapacitated() && (nearby_handrail || M.Check_Dense_Object(FALSE)) && prob(catch_chance))
+						M.visible_message(
+							SPAN_NOTICE("[M.name] catches hold of something as the shuttle accelerates!"),
+							SPAN_WARNING("The floor lurches beneath you, but you catch hold of something within reach!")
+						)
 						shake_camera(M, 5, 1)
 					else
 						to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
@@ -244,7 +268,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 
-	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE)
+	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf, TRUE, rotation)
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
@@ -262,7 +286,7 @@
 
 	for(var/area/sub_area in shuttle_area)
 		for(var/atom/movable/movable in sub_area)
-			movable.afterShuttleMove(destination)
+			movable.afterShuttleMove(destination, rotation)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
@@ -317,6 +341,15 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/// Returns the clockwise rotation needed to align the shuttle with destination.
+/datum/shuttle/proc/get_rotation(obj/effect/shuttle_landmark/destination)
+	if(!(current_location.dir in GLOB.cardinals) || !(destination.dir in GLOB.cardinals))
+		CRASH("Shuttle [name] attempted to move between non-cardinal landmarks: [current_location] and [destination].")
+	if(can_rotate)
+		return SIMPLIFY_DEGREES(dir2angle(destination.dir) - dir2angle(current_location.dir))
+	else
+		return 0
 
 /datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
 	UnregisterSignal(area_to_remove, COMSIG_QDELETING)

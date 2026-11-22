@@ -23,6 +23,7 @@
 	scoped_accuracy = 4
 	var/bolt_open = 0
 	var/has_scope = TRUE
+	has_unique_gun_action = TRUE
 
 	is_wieldable = TRUE
 
@@ -121,7 +122,7 @@
 	else
 		icon_state = "slugger"
 
-/obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
+/obj/item/gun/projectile/heavysniper/unathi/post_fire(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

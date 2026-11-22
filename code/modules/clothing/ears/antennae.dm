@@ -1,6 +1,6 @@
 //ipc 'pins'
 
-/obj/item/clothing/ears/antenna
+ABSTRACT_TYPE(/obj/item/clothing/ears/antenna)
 	name = "antenna"
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0

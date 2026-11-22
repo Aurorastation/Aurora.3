@@ -557,7 +557,7 @@ The nymph has a chance to inherit each language. */
 	else if(gestalt.stat == DEAD)
 		to_chat(src, SPAN_DANGER("Your Gestalt is not responding! Something might have happened to it!"))
 	else
-		gestalt.key = key
+		client.transfer_key_to_mob(gestalt)
 		remove_verb(gestalt, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 		add_verb(gestalt, /mob/living/carbon/human/proc/switch_to_nymph)
 		gestalt.client.init_verbs()
@@ -578,7 +578,7 @@ The nymph has a chance to inherit each language. */
 		if(C == gestalt)
 			C.nutrition += REGROW_FOOD_REQ * 0.75
 			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
-			C.key = src.key
+			src.client.transfer_key_to_mob(C)
 			if(C.DS.regen_limb)
 				C.DS.regen_limb.Invoke()
 				if(C.DS.regen_extra)

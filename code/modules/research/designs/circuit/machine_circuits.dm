@@ -1,5 +1,7 @@
 /datum/design/circuit/machine
 	p_category = "Machine Circuit Designs"
+	category = "Machine Flatpaks"
+	build_type = IMPRINTER | MECHFAB
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"
@@ -15,6 +17,7 @@
 	name = "Destructive Analyzer"
 	req_tech = list(TECH_DATA = 2, TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/destructive_analyzer
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/protolathe
 	name = "Protolathe"
@@ -25,6 +28,11 @@
 	name = "Circuit Imprinter"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/circuit_imprinter
+
+/datum/design/circuit/machine/material_silo
+	name = "Material Silo"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
+	build_path = /obj/item/circuitboard/material_silo
 
 /datum/design/circuit/machine/autolathe
 	name = "Autolathe"
@@ -40,16 +48,19 @@
 	name = "R&D Server Control Console"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdservercontrol
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdserver
 	name = "R&D Server"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdserver
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/rdtechprocessor
 	name = "R&D Tech Processor"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rdtechprocessor
+	build_type = IMPRINTER
 
 /datum/design/circuit/machine/mechfab
 	name = "Exosuit Fabricator"
@@ -85,6 +96,11 @@
 	name = "Cell Charger"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/cell_charger
+
+/datum/design/circuit/machine/recharger/cell_charger/rack
+	name = "Cell Charger Rack"
+	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/cell_charger/rack
 
 /datum/design/circuit/machine/holopadboard
 	name = "Holopad"
@@ -185,6 +201,16 @@
 	name = "Cell Rack PSU"
 	req_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/batteryrack
+
+/datum/design/circuit/machine/radial_floodlight
+	name = "Radial Floodlight"
+	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/radial_floodlight
+
+/datum/design/circuit/machine/floodlight
+	name = "Industrial Floodlight"
+	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
+	build_path = /obj/item/circuitboard/floodlight
 
 /datum/design/circuit/machine/smes_cell
 	name = "'SMES' Superconductive Magnetic Energy Storage"

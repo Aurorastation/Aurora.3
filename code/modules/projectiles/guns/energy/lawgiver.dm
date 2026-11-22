@@ -16,6 +16,7 @@
 	var/message_enabled = 0 //If playing the message should be enabled
 	var/message_disable = 0 //If the loop should be stopped
 	var/default_desc = "A highly advanced firearm that is capable of several different and highly lethal firing modes, the SCC's ACP-2 is a weapon to be feared."
+	has_unique_gun_action = TRUE
 
 	firemodes = list(
 		list(
@@ -115,7 +116,9 @@
 		desc += "<br>Linked to: [user.real_name]"
 		return
 
-/obj/item/gun/energy/acp/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
+/obj/item/gun/energy/acp/pre_fire(atom/target, mob/living/user, params, pointblank=0, reflex = 0, atom/controller)
+	if(!user)
+		return ..()
 	if(src.dna != user.dna.unique_enzymes && !emagged)
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand
@@ -134,7 +137,7 @@
 			else
 				RA.droplimb(0,DROPLIMB_BLUNT)
 		return 0
-	..()
+	return ..()
 
 /obj/item/gun/energy/acp/proc/Emag(mob/user as mob)
 	to_chat(usr, SPAN_WARNING("You short out [src]'s id check"))
@@ -147,7 +150,7 @@
 	else
 		..()
 
-/obj/item/gun/energy/acp/hear_talk(mob/living/M in range(0,src), msg)
+/obj/item/gun/energy/acp/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	var/mob/living/carbon/human/H = M
 	if (!H || !istype(H))
 		return

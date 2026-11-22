@@ -42,3 +42,19 @@
 /obj/effect/map_effect/perma_light/starlight/wide
 	name = "permanent starlight (wide)"
 	light_range = 5
+
+// inherits the light values from the map_template datum
+/obj/effect/map_effect/perma_light/exoplanet
+	light_range = 7
+
+/obj/effect/map_effect/perma_light/exoplanet/Initialize()
+	. = ..()
+	if(!SSatlas.current_map.use_overmap)
+		return INITIALIZE_HINT_QDEL
+
+	var/datum/map_template/ruin/away_site/our_template = GLOB.map_templates["[z]"]
+	if(!istype(our_template))
+		return INITIALIZE_HINT_QDEL
+
+	var/target_light_color = our_template.exoplanet_lightcolor
+	light_color = islist(target_light_color) ? pick(target_light_color) : target_light_color

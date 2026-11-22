@@ -8,6 +8,7 @@
 /obj/structure/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A vending machine that dispenses alcoholic beverages and cocktail ingredients."
+	persistent_stock = TRUE
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_vend = "boozeomat-vend"
 	light_mask = "boozeomat-lightmask"
@@ -97,7 +98,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
-	req_access = list(ACCESS_BAR)
+	req_access = list(/datum/access/bar::id)
 	random_itemcount = 0
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
@@ -198,3 +199,6 @@
 
 /obj/structure/machinery/vending/boozeomat/bar
 	layer = BELOW_TABLE_LAYER
+
+/obj/structure/machinery/vending/boozeomat/noid
+	req_access = list()

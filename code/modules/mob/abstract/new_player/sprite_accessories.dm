@@ -3410,6 +3410,19 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "long mane"
 
+/datum/sprite_accessory/hair/taj_ears/taj_ears_hair_flat
+	name = "Tajara Flat"
+	icon_state = "hair_flat"
+	length = 1
+	chatname = "neat mane"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_tassels
+	name = "Tajara Tassels"
+	icon_state = "hair_tassels"
+	length = 3
+	chatname = "braided mane"
+
+
 //msai hair, longer ears
 /datum/sprite_accessory/hair/msai_ears
 	icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -3754,6 +3767,18 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "msai_long_wavy"
 	length = 3
 	chatname = "long mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_tassels
+	name = "M'sai Tassels"
+	icon_state = "msai_tassels"
+	length = 3
+	chatname = "braided mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_hair_flat
+	name = "M'sai Flat"
+	icon_state = "msai_flat"
+	length = 1
+	chatname = "neat mane"
 
 //tesla rejuvenation suit hair
 /datum/sprite_accessory/hair/tesla_ears
@@ -4243,6 +4268,14 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/taj_goatee/taj_smallstache
 	name = "Tajara Smallsatche"
 	icon_state = "facial_smallstache"
+
+/datum/sprite_accessory/facial_hair/taj_goatee/taj_shortmane
+	name = "Tajara Short Mane"
+	icon_state = "facial_shortmane"
+
+/datum/sprite_accessory/facial_hair/taj_goatee/taj_jawline
+	name = "Tajara Jawline"
+	icon_state = "facial_jawline"
 
 
 /datum/sprite_accessory/facial_hair/tesla_body_goatee
@@ -6921,7 +6954,7 @@ Follow by example and make good judgement based on length which list to include 
 //hephaestus g1
 /datum/sprite_accessory/marking/g1_panels
 	name = "G1 - Full Panel Colors"
-	icon = 'icons/mob/human_races/markings_industrial.dmi'
+	icon = 'icons/mob/human_races/markings_g1_industrial.dmi'
 	icon_state = "g1_primary"
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
@@ -6948,7 +6981,7 @@ Follow by example and make good judgement based on length which list to include 
 //hephaestus g2
 /datum/sprite_accessory/marking/g2_panels
 	name = "G2 - Full Panel Colors"
-	icon = 'icons/mob/human_races/markings_hephaestus.dmi'
+	icon = 'icons/mob/human_races/markings_g2_industrial.dmi'
 	icon_state = "g2_primary"
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
@@ -7256,4 +7289,45 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patchesface"
 	body_parts = list(BP_HEAD)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+/datum/sprite_accessory/marking/taj_spots_full
+	name = "Color Spots (Full)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_leftleg
+	name = "Color Spots (Left Leg)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_FOOT,BP_L_LEG)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_rightleg
+	name = "Color Spots (Right Leg)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_R_FOOT,BP_R_LEG)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_leftarm
+	name = "Color Spots (Left Arm)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_L_ARM,BP_L_HAND)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_rightarm
+	name = "Color Spots (Right Arm)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_R_ARM,BP_R_HAND)
+	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+
+/datum/sprite_accessory/marking/taj_spots_chest
+	name = "Color Spots (Torso)"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
+	icon_state = "taj_bodyspots"
+	body_parts = list(BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)

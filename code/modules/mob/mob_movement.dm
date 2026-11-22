@@ -238,6 +238,10 @@
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
 		var/atom/movable/O = mob.loc
+		if(istype(O, /mob/living/heavy_vehicle))
+			var/mob/living/heavy_vehicle/mech = O
+			if(mob in mech.pilots)
+				return O.relaymove(mob, direct)
 		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
 		O.recalculate_glide_size(old_move_delay, move_delay, direct)
 		return O.relaymove(mob, direct)
@@ -361,8 +365,6 @@
 			. = mob.SelfMove(new_loc, direct)
 
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
-			if (G.state == GRAB_NECK)
-				mob.set_dir(REVERSE_DIR(direct))
 			G.affecting.set_glide_size(new_glide_size)
 			for (var/obj/item/grab/T in list(G.affecting.l_hand, G.affecting.r_hand))
 				T.adjust_position()
@@ -525,7 +527,7 @@
 	return TRUE
 
 
-/mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
+/mob/proc/Check_Dense_Object(include_gravity = TRUE) //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
@@ -533,7 +535,7 @@
 			return TRUE
 		else
 			var/area/A = T.loc
-			if(A.has_gravity() || shoegrip)
+			if((include_gravity && A.has_gravity()) || shoegrip)
 				return TRUE
 
 	for(var/obj/O in orange(1, src))

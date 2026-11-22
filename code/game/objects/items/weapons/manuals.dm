@@ -1533,7 +1533,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	sub_page = "Tau_Ceti_Armed_Forces"
 
-/obj/item/book/manual/tcaf_pamphlet/attack_self(var/mob/user as mob)
+/obj/item/book/manual/wiki/tcaf_pamphlet/attack_self(var/mob/user as mob)
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a pamphlet titled \"[src.title]\" and begins reading intently.")

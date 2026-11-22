@@ -155,7 +155,7 @@
 			to_chat(user, SPAN_WARNING("Assembly part missing!"))
 			return
 		if(istype(a_left, a_right.type)) //If they are the same type it causes issues due to window code
-			switch(alert("Which side would you like to use?",,"Left","Right"))
+			switch(tgui_alert(usr, "Which side would you like to use?", , list("Left", "Right")))
 				if("Left")
 					a_left.attack_self(user)
 				if("Right")
@@ -207,11 +207,17 @@
 		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	return TRUE
 
-/obj/item/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)
+/obj/item/assembly_holder/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(a_right)
-		a_right.hear_talk(M, msg, verb, speaking)
+		if(say_message)
+			a_right.Hear(say_message)
+		else
+			a_right.hear_talk(M, msg, verb, speaking)
 	if(a_left)
-		a_left.hear_talk(M, msg, verb, speaking)
+		if(say_message)
+			a_left.Hear(say_message)
+		else
+			a_left.hear_talk(M, msg, verb, speaking)
 
 /obj/item/assembly_holder/timer_igniter
 	name = "timer-igniter assembly"

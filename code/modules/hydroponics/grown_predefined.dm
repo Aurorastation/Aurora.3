@@ -37,7 +37,12 @@
 	plantname = "ambrosiadeus"
 
 /obj/item/reagent_containers/food/snacks/grown/kois
+	name = "kois"
 	plantname = "koisspore"
+
+/obj/item/reagent_containers/food/snacks/grown/blackkois
+	name = "black kois"
+	plantname = "blackkois"
 
 /obj/item/reagent_containers/food/snacks/grown/banana
 	plantname = "banana"

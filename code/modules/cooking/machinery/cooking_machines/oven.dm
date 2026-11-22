@@ -141,6 +141,7 @@
 	if(CI.combine_target)
 		visible_message("<b>[src]</b> pings!", intent_message = PING_SOUND)
 		combination_cook(CI)
+		apply_cooking_skill(CI)
 		return
 	..()
 

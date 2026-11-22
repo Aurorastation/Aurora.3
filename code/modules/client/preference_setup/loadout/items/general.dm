@@ -424,7 +424,7 @@
 	flags["flag, Southern Solarian Reconstruction Mandate"] = /obj/item/flag/ssrm/l
 	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
 	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
-	flags["flag, Martian Union"] = /obj/item/flag/mars/old
+	flags["flag, Martian Union"] = /obj/item/flag/mars/old/l
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
 	flags["flag, Antique Visegrad"] = /obj/item/flag/visegrad_old/l
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l

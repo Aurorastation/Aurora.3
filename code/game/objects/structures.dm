@@ -19,6 +19,14 @@
 	var/build_amt = 2
 	/// Amount that pulling mobs have their movement delayed by
 	var/slowdown = 0
+	/// Whether this structure can be painted with a paint sprayer.
+	var/supports_painting = FALSE
+	/// Whether this structure can be used as a surface for surgical procedures.
+	var/surgery_surface = FALSE
+	/// Flat percent modifier (bonus or penalty) applied to surgical success chances when operating on this surface.
+	var/surgery_odds_modifier = 0
+	/// Whether a patient must be lying down on this structure to be operated on (or set as an optable occupant).
+	var/occupant_must_be_lying = TRUE
 
 /obj/structure/Initialize(mapload)
 	. = ..()
@@ -188,7 +196,7 @@
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
+	if(!do_after(user, user.get_conditioning_action_delay(5 SECONDS), src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 

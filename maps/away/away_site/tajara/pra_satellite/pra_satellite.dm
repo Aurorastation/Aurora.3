@@ -32,7 +32,9 @@
 	)
 
 	comms_support = TRUE
-	comms_name = "pra satellite"
+
+/obj/effect/overmap/visitable/sector/pra_satellite/create_comms_groups()
+	return list("default" = new /datum/comms_group("pra satellite"))
 
 /obj/effect/shuttle_landmark/pra_satellite
 	base_turf = /turf/space

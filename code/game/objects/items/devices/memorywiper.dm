@@ -95,7 +95,7 @@
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 		to_chat(attached, "<b>The process finishes, leaving you with nothing beyond your base programming and databases.</b>")
 		wiping = FALSE
-		switch(alert(attached, "You've lost your memories! You can choose to ghost, or stay and be manipulated for someone else's ulterior motives...", "Memory Loss", "Ghost", "Stay"))
+		switch(tgui_alert(attached, "You've lost your memories! You can choose to ghost, or stay and be manipulated for someone else's ulterior motives...", "Memory Loss", list("Ghost", "Stay")))
 			if("Ghost")
 				attached.ghostize(0)
 

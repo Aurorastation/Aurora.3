@@ -41,6 +41,12 @@
 
 	// Mob currently piloting the mech.
 	var/list/pilots
+	/// Whether the pilot commanding the current movement is trying to trample mobs.
+	var/trample_on_move = FALSE
+	/// A collision knocked a target prone, allowing the current Move to retry once.
+	var/trample_retry = FALSE
+	/// Largest mob this mech can trample. Bulwarks (size 28) and larger mobs are excluded.
+	var/max_trample_size = 27
 	var/list/pilot_overlays
 
 	// Remote control stuff
@@ -48,7 +54,7 @@
 	var/remote_type = /obj/item/remote_mecha
 	var/does_hardpoint_lock = TRUE
 	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
-	var/dummy_type = /mob/living/simple_animal/spiderbot
+	var/dummy_type = /mob/living/simple_animal/spiderbot/remote_mech
 	var/dummy_colour
 
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
@@ -151,6 +157,10 @@
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
 	return TRUE
+
+/mob/living/heavy_vehicle/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Use both run and harm intent to trample people."
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
@@ -314,6 +324,7 @@
 		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/radio/exosuit
+	shortwave_overlays = FALSE
 	name = "exosuit radio"
 	cell = null
 
@@ -365,7 +376,7 @@
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
 	// Give dummy a blank encryption key for later editing if spiderbot
-	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
+	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai) && !istype(dummy, /mob/living/simple_animal/spiderbot/remote_mech/ai))
 		dummy.radio.keyslot = new /obj/item/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)

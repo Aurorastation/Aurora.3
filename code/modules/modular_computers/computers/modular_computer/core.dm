@@ -166,19 +166,23 @@
 		to_chat(user, SPAN_WARNING("You emag \the [src]. Its screen briefly displays, \"OVERRIDE ACCEPTED: New software downloads available.\"."))
 		return TRUE
 
+/// Builds an overlay that ignores the computer's paint colour, so only the frame gets tinted.
+/obj/item/modular_computer/proc/computer_overlay(state)
+	return overlay_image(icon, state, null, RESET_COLOR)
+
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
 	ClearOverlays()
 	if(health <= broken_damage)
 		icon_state = icon_state_broken
-		AddOverlays("broken")
+		AddOverlays(computer_overlay("broken"))
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			var/mutable_appearance/I = overlay_image(src.icon, icon_state_screensaver)
+			var/mutable_appearance/I = computer_overlay(icon_state_screensaver)
 			if(is_holographic)
-				var/mutable_appearance/I_holographic = overlay_image(src.icon, icon_state_screensaver)
+				var/mutable_appearance/I_holographic = computer_overlay(icon_state_screensaver)
 				I_holographic.filters += filter(type="color", color=list(
 					0, 0, 0, 0,
 					0, 0, 0, 0,
@@ -199,7 +203,7 @@
 			AddOverlays(E)
 		if(icon_state_screensaver_key && working)
 			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key)
-			var/image/IK = image(src.icon, icon_state_screensaver_key)
+			var/image/IK = computer_overlay(icon_state_screensaver_key)
 			AddOverlays(EK)
 			AddOverlays(IK)
 
@@ -210,10 +214,10 @@
 		return
 	if(active_program)
 		var/state_program = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
-		var/mutable_appearance/state = overlay_image(src.icon, state_program)
+		var/mutable_appearance/state = computer_overlay(state_program)
 		var/state_key = active_program.program_key_icon_state ? active_program.program_key_icon_state : icon_state_menu_key // for corresponding keyboards.
 		if(is_holographic)
-			var/mutable_appearance/state_holographic = overlay_image(src.icon, state_program)
+			var/mutable_appearance/state_holographic = computer_overlay(state_program)
 			state_holographic.filters += filter(type="color", color=list(
 				0, 0, 0, 0,
 				0, 0, 0, 0,
@@ -229,16 +233,16 @@
 			state.blend_mode = BLEND_ADD
 			state_holographic.blend_mode = BLEND_MULTIPLY
 			AddOverlays(state_holographic)
-		AddOverlays(list(state, state_key))
+		AddOverlays(list(state, computer_overlay(state_key)))
 		var/emissive_image = emissive_appearance(src.icon, state_program)
 		var/emissive_image_key = emissive_appearance(src.icon, "[state_key]_mask")
 		AddOverlays(list(emissive_image, emissive_image_key))
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
-		var/mutable_appearance/menu = overlay_image(src.icon, icon_state_menu)
+		var/mutable_appearance/menu = computer_overlay(icon_state_menu)
 		if(is_holographic)
-			var/mutable_appearance/holographic_menu = overlay_image(src.icon, icon_state_menu)
+			var/mutable_appearance/holographic_menu = computer_overlay(icon_state_menu)
 			holographic_menu.filters += filter(type="color", color=list(
 				0, 0, 0, 0,
 				0, 0, 0, 0,
@@ -254,7 +258,7 @@
 			menu.blend_mode = BLEND_ADD
 			holographic_menu.blend_mode = BLEND_MULTIPLY
 			AddOverlays(holographic_menu)
-		AddOverlays(list(menu, icon_state_menu_key))
+		AddOverlays(list(menu, computer_overlay(icon_state_menu_key)))
 		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu)
 		var/emissive_menu_key = emissive_appearance(src.icon, "[icon_state_menu_key]_mask")
 		AddOverlays(emissive_menu)
@@ -534,11 +538,15 @@
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range
 	if(message_range == 0)
-		var/mob/user = loc
-		if(istype(user))
+		var/mob/user = get_message_recipient()
+		if(user)
 			to_chat(user, message)
 		return
 	audible_message(message, hearing_distance = message_range)
+
+/obj/item/modular_computer/proc/get_message_recipient()
+	if(ismob(loc))
+		return loc
 
 // TODO: Make pretty much everything use these helpers.
 /obj/item/modular_computer/proc/output_notice(var/message, var/message_range)
@@ -556,12 +564,13 @@
 	message = "[icon2html(src, viewers(message_range, get_turf(src)))] [src]: [SPAN_DANGER("-!-")] Notification from [source]: " + message
 	output_message(FONT_SMALL(SPAN_BOLD(message)), message_range)
 
-/obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)
+/obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null, var/quiet = FALSE)
 	var/obj/item/card/id/id = GetID()
-	if(PRG)
+	if(PRG && !quiet)
 		output_notice("[PRG.filedesc] requires a registered NTNRC account. Registering automatically...")
 	if(!istype(id))
-		output_error("No ID card found!")
+		if(!quiet)
+			output_error("No ID card found!")
 		return FALSE
 
 	registered_id = id
@@ -570,11 +579,12 @@
 		for(var/datum/computer_file/program/P in hard_drive.stored_files)
 			P.event_registered()
 
-	output_notice("Registration successful!")
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
+	if(!quiet)
+		output_notice("Registration successful!")
+		playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return registered_id
 
-/obj/item/modular_computer/proc/unregister_account()
+/obj/item/modular_computer/proc/unregister_account(var/quiet = FALSE)
 	if(!registered_id)
 		return FALSE
 
@@ -584,8 +594,9 @@
 
 	registered_id = null
 
-	output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
+	if(!quiet)
+		output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
+		playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
 	return TRUE
 
 /obj/item/modular_computer/proc/set_autorun(var/fname)
@@ -624,10 +635,10 @@
 	return FALSE
 
 /obj/item/modular_computer/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
-	if(!sector)
-		return
-	return attempt_hook_up_recursive(sector)
+	if(z)
+		var/obj/effect/overmap/visitable/sector = get_map_sector(src)
+		return attempt_hook_up_recursive(sector)
+	return
 
 /obj/item/modular_computer/proc/attempt_hook_up_recursive(var/obj/effect/overmap/visitable/sector)
 	if(attempt_hook_up(sector))

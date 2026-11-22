@@ -140,6 +140,9 @@
 		/obj/item/storage/box/fancy/cigarettes/acmeco = 5
 	)
 
+/obj/structure/machinery/vending/cigarette/free
+	prices = list()
+
 /obj/structure/machinery/vending/cigarette/hacked
 	name = "hacked cigarette machine"
 	prices = list()
@@ -165,6 +168,9 @@
 		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
 		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10
 	)
+
+/obj/structure/machinery/vending/cigarette/all_currencies
+	accepted_currencies = CURRENCY_ALL
 
 /obj/item/vending_refill/smokes
 	name = "smokes resupply canister"

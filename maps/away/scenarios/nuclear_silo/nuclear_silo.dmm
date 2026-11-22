@@ -12410,9 +12410,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/wood{
-	can_open = 1;
-	color = "#cccccc"
+	color = "#895543"
 	},
 /area/nuclear_silo/lower_level/maintenance/east/cellar)
 "Bt" = (

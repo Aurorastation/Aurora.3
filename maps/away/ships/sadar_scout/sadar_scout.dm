@@ -178,7 +178,6 @@
 	landmark_transition = "nav_transit_sadar_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_sadar_scout"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/sadar_shuttle/hangar

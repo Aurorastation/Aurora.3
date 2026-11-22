@@ -3,7 +3,7 @@
 	desc = "This is a random medical item."
 	icon_state = "medpack"
 	spawn_nothing_percentage = 25
-	problist = list(
+	spawnlist = list(
 		/obj/item/stack/medical/bruise_pack = 4,
 		/obj/item/stack/medical/ointment = 4,
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
@@ -36,7 +36,7 @@
 	name = "random first aid kit"
 	desc = "This is a random first aid kit."
 	icon_state = "firstaid"
-	problist = list(
+	spawnlist = list(
 		/obj/item/storage/firstaid/regular = 4,
 		/obj/item/storage/firstaid/trauma = 3,
 		/obj/item/storage/firstaid/toxin = 3,

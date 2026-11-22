@@ -49,6 +49,16 @@
 	desc = "Small wall-mounted holographic projector. This one reads SURGERY."
 	on_icon = "surgery"
 
+/obj/structure/machinery/holosign/privacy
+	name = "privacy holosign"
+	desc = "A small wall-mounted holographic projector. This one reads PRIVATE."
+	on_icon = "private"
+
+/obj/structure/machinery/holosign/public
+	name = "privacy holosign"
+	desc = "A small wall-mounted holographic projector. This one reads PUBLIC."
+	on_icon = "public"
+
 /obj/structure/machinery/holosign/service
 	name = "service holosign"
 	on_icon = "serviceopen"

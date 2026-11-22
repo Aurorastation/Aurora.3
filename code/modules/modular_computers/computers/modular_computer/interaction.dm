@@ -195,17 +195,19 @@
 	if(enabled)
 		ui_interact(user)
 	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
-		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
+		var/response = tgui_alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", list("Yes", "No"))
 		if(response == "Yes")
 			turn_on(user)
 
 /obj/item/modular_computer/attack_ranged(mob/user, params)
-	. = ..()
+	if(..())
+		return TRUE
 	if(ishuman(user) && isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
+			return TRUE
 
 /obj/item/modular_computer/attack_hand(var/mob/user)
 	if(anchored)
@@ -232,6 +234,11 @@
 		turn_on(user)
 
 /obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, SPAN_WARNING("You cannot reset this type of device."))
@@ -378,7 +385,7 @@
 	if(card_slot)
 		return card_slot.stored_card
 
-/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/item/modular_computer/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(Adjacent(M) && hard_drive)
 		var/datum/computer_file/program/chat_client/P = hard_drive.find_file_by_name("ntnrc_client")
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))

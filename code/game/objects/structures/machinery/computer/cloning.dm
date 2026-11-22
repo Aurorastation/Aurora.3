@@ -5,7 +5,7 @@
 	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
-	req_access = list(ACCESS_GENETICS)
+	req_access = list(/datum/access/genetics::id)
 	var/obj/structure/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""
@@ -350,7 +350,7 @@
 
 					var/mob/selected = find_dead_player("[C.ckey]")
 					selected << 'sound/machines/chime.ogg'	//probably not the best sound but I think it's reasonable
-					var/answer = alert(selected,"Do you want to return to life?","Cloning","Yes","No")
+					var/answer = tgui_alert(selected, "Do you want to return to life?", "Cloning", list("Yes", "No"))
 					if(answer != "No" && pod.growclone(C))
 						temp = "Initiating cloning cycle..."
 						playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 100, 1)

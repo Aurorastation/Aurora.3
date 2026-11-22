@@ -125,6 +125,11 @@
 	..()
 
 /mob/living/carbon/human/update_canmove()
+	if(crawling_under_table)
+		if(get_crawlable_table() && mob_size < TABLE_CRAWL_MAX_MOB_SIZE)
+			resting = TRUE
+		else
+			stop_crawling_under_table()
 	var/old_lying = lying
 	. = ..()
 	if(lying && !old_lying && !resting && !buckled_to && isturf(loc)) // fell down
@@ -509,6 +514,9 @@ This function restores all organs.
 	damage = after_armor[1]
 	damagetype = after_armor[2]
 	damage_flags = after_armor[3]
+	if(isprojectile(used_weapon)) //Set the flags so that embed and penetration checks can use the modified flags.
+		var/obj/projectile/P = used_weapon
+		P.damage_flags = damage_flags //If a bullet has gone through one person AND been blocked by armor it should have less chance to and hit embed and hit organs anyway.
 	if(!damage)
 		return FALSE
 

@@ -72,7 +72,7 @@ export const Tank = (props) => {
                 value={data.releasePressure}
                 minValue={0}
                 maxValue={data.maxReleasePressure}
-                onChange={(value) =>
+                onChange={(_, value) =>
                   act('setReleasePressure', { release_pressure: value })
                 }
               >

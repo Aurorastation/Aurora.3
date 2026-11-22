@@ -8,7 +8,7 @@
 	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
-	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)
+	req_one_access = list(/datum/access/rd::id, /datum/access/robotics::id)
 	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = TRUE

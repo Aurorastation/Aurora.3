@@ -37,11 +37,11 @@
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return
 
-		if(!(ACCESS_HEADS in id.access)) //doesn't have this access
+		if(!(/datum/access/heads::id in id.access)) //doesn't have this access
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return 0
 
-		var/choice = alert(user, "Would you like to (un)authorize a shortened launch time? [(src.auth_need - src.authorized.len)] authorization\s are still needed. Use abort to cancel all authorizations.", "Shuttle Launch", "Authorize", "Repeal", "Abort")
+		var/choice = tgui_alert(user, "Would you like to (un)authorize a shortened launch time? [(src.auth_need - src.authorized.len)] authorization\s are still needed. Use abort to cancel all authorizations.", "Shuttle Launch", list("Authorize", "Repeal", "Abort"))
 		if(GLOB.evacuation_controller.is_prepared() && user.get_active_hand() != id)
 			return 0
 		switch(choice)
@@ -71,7 +71,7 @@
 				src.authorized = list(  )
 
 	else if (istype(W, /obj/item/card/emag) && !emagged)
-		var/choice = alert(user, "Would you like to launch the shuttle?","Shuttle control", "Launch", "Cancel")
+		var/choice = tgui_alert(user, "Would you like to launch the shuttle?", "Shuttle control", list("Launch", "Cancel"))
 
 		if(!emagged && !GLOB.evacuation_controller.is_prepared() && user.get_active_hand() == W)
 			switch(choice)

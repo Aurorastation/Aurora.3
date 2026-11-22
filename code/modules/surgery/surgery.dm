@@ -43,8 +43,49 @@
 			return allowed_tools[T]
 	return FALSE
 
+/** Returns the skills used for this step after user- and target-specific modifiers. */
 /singleton/surgery_step/proc/get_skill_requirements(mob/living/user, mob/living/carbon/human/target)
 	return skill_requirements
+
+/**
+ * Returns the skills used for this particular operation. Most steps use their
+ * static requirements, but procedures that can cross organic and mechanical
+ * anatomy may select a requirement from the patient state.
+ *
+ * preferred_skill_component is used by specialized planners to ask whether a
+ * step can be performed using their skill. Live surgery leaves it unset.
+ */
+/singleton/surgery_step/proc/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
+	var/list/effective_skill_requirements = get_skill_requirements(user, target)
+	if(preferred_skill_component && (!effective_skill_requirements || isnull(effective_skill_requirements[preferred_skill_component])))
+		return null
+	return effective_skill_requirements
+
+/** Selects one permitted skill, preferring the surgeon's strongest skill live. */
+/singleton/surgery_step/proc/get_alternative_surgery_skill_requirements(mob/living/user, list/permitted_skills, required_level, preferred_skill_component)
+	if(!length(permitted_skills))
+		return null
+
+	var/selected_skill
+	if(preferred_skill_component)
+		if(!(preferred_skill_component in permitted_skills))
+			return null
+		selected_skill = preferred_skill_component
+	else
+		var/best_level = -1
+		for(var/skill_component in permitted_skills)
+			var/skill_level = GET_SKILL_LEVEL(user, skill_component)
+			if(isnull(skill_level))
+				continue
+			if(!selected_skill || skill_level > best_level)
+				selected_skill = skill_component
+				best_level = skill_level
+		if(!selected_skill)
+			selected_skill = permitted_skills[1]
+
+	var/list/requirements = list()
+	requirements[selected_skill] = required_level
+	return requirements
 
 /// Returns the time required to perform this step after step-specific user and target modifiers.
 /singleton/surgery_step/proc/get_surgery_time(mob/living/user, mob/living/carbon/human/target)
@@ -113,7 +154,7 @@
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE, var/standing_self_surgery_only = FALSE)
+/proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/standing_self_surgery_only = FALSE)
 	// Check for the Hippocratic oath.
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
@@ -183,18 +224,38 @@
 			// This should eventually be reworked to use ToolQualityComponents when we add that.
 			var/success_rate = S.tool_quality(tool)
 
+			// Apply any modifier from the surgical surface being used.
+			if(!standing_self_surgery_only)
+				var/obj/structure/surface = get_surgery_surface(M)
+				if(surface)
+					success_rate += surface.surgery_odds_modifier
+
+			// Apply self-surgery penalties when the surgeon is also the patient.
+			if(user == M && !S.standing_self_surgery)
+				success_rate -= SELF_SURGERY_SUCCESS_PENALTY
+				duration *= SELF_SURGERY_TIME_MULTIPLIER
+				to_chat(user, SPAN_WARNING("Operating on yourself is awkward and difficult, slowing you down and making mistakes more likely!"))
+
+			// Apply pain penalties if the surgeon is in pain.
+			var/surgeon_pain = user.get_shock()
+			if(surgeon_pain > 0)
+				success_rate -= surgeon_pain
+				duration *= 1 + (surgeon_pain * SURGERY_PAIN_TIME_MODIFIER)
+				to_chat(user, SPAN_WARNING("Your pain makes it hard to focus on the surgery..."))
+
 			// Query the surgeon if they have any components that would like to modify the success chance.
 			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
 
 			// Skill modifier checks
-			for (var/skill_comp, required_level in S.get_skill_requirements(user, M))
+			var/list/effective_skill_requirements = S.get_surgery_skill_requirements(user, M, zone)
+			for (var/skill_comp, required_level in effective_skill_requirements)
 				var/skill_level = GET_SKILL_LEVEL(user, skill_comp)
 				// Null condition handles NPCs and Antags that won't have the skill setup.
 				if (!isnull(skill_level))
 					success_rate += (skill_level - required_level) * S.skill_diff_fail_modifier
 			// End of skill modifier checks
 
-			if(prob(success_rate) && do_mob(user, M, duration) && !autofail)
+			if(prob(success_rate) && do_mob(user, M, duration))
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
 				S.fail_step(user, M, zone, tool)

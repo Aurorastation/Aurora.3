@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
-	req_access = list(ACCESS_ARMORY)
+	req_access = list(/datum/access/armory::id)
 	icon = 'icons/obj/containers/guncabinet.dmi'
 	icon_state = "base"
 	anchored = TRUE
@@ -44,7 +44,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sci
 	name = "science gun cabinet"
-	req_access = list(ACCESS_TOX_STORAGE)
+	req_access = list(/datum/access/tox_storage::id)
 	icon_state = "sci"
 
 /obj/structure/closet/secure_closet/guncabinet/peac

@@ -1,0 +1,95 @@
+.MedicalSummary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 7px;
+  border: 1px solid rgba(150, 190, 200, 0.35);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.2);
+
+  &__identity,
+  &__metric {
+    min-width: 0;
+    padding: 7px 9px;
+    border-left: 3px solid rgba(160, 190, 200, 0.55);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  &__identity {
+    grid-column: span 2;
+  }
+
+  &__name {
+    overflow: hidden;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__subtitle,
+  &__metric-label {
+    color: rgba(220, 230, 235, 0.65);
+    font-size: 0.8rem;
+  }
+
+  &__metric-value {
+    margin-top: 2px;
+    font-weight: 700;
+  }
+
+  &__metric--interactive {
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.1);
+      outline: 1px solid rgba(255, 255, 255, 0.55);
+    }
+  }
+}
+
+.MedicalSeverity {
+  &--nominal { border-left-color: #55b86b; }
+  &--minor { border-left-color: #a7c957; }
+  &--moderate { border-left-color: #d7b84b; }
+  &--severe { border-left-color: #d77a3d; }
+  &--critical { border-left-color: #d14d4d; }
+}
+
+.MedicalStatus {
+  display: inline-block;
+  padding: 2px 6px;
+  border-left-width: 3px;
+  border-left-style: solid;
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+}
+
+.MedicalBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin-top: 6px;
+  padding: 5px 8px;
+  border-left: 4px solid;
+  background: rgba(0, 0, 0, 0.18);
+
+  &--nominal { border-left-color: #55b86b; }
+  &--moderate { border-left-color: #d7b84b; }
+  &--critical { border-left-color: #d14d4d; }
+}
+
+.MedicalResponsiveGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 8px;
+}

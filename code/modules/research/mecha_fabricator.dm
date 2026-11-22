@@ -5,7 +5,7 @@
 	icon_state = "fab"
 	idle_power_usage = 20
 	active_power_usage = 5000
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	component_types = list(
 		/obj/item/circuitboard/mechfab,
 		/obj/item/stock_parts/manipulator,

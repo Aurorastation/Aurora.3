@@ -27,6 +27,10 @@
 	var/assigned_role = null
 	var/special_role = null
 	var/faction = null
+	/// Shared identifier for ghostroles that should recognize one another. If null, no group is assigned.
+	var/recognition_group = null
+	/// Examine text shown about this role to other members of the relevant recognition group.
+	var/recognition_message = null
 
 	/// Culture restrictions for this spawner. Use types. Make sure that there is at least one culture per allowed species!
 	var/list/culture_restriction = list()
@@ -131,17 +135,22 @@
 	M.dna.ready_dna(M)
 
 	//Move the mob inside and initialize the mind
-	M.key = user.ckey //!! After that USER is invalid, so we have to use M
+	user.client.transfer_key_to_mob(M) //!! After that USER is invalid, so we have to use M
 
 	M.mind_initialize()
 
 	if(assigned_role)
 		M.mind.assigned_role = assigned_role
 		M.mind.role_alt_title = assigned_role
+
 	if(special_role)
 		M.mind.special_role = special_role
+
 	if(faction)
 		M.faction = faction
+
+	M.mind.recognition_group = recognition_group
+	M.mind.recognition_message = recognition_message
 
 	//Move the mob
 	M.forceMove(T)

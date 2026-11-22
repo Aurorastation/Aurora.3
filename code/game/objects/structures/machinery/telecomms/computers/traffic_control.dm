@@ -6,7 +6,7 @@
 	icon_keyboard = "green_key"
 	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
-	req_access = list(ACCESS_TCOMSAT)
+	req_access = list(/datum/access/tcomsat::id)
 
 	var/screen = 0				// the screen number:
 	var/list/servers = list()	// the servers located by the computer

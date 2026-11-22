@@ -31,5 +31,5 @@
 /obj/item/material/Value()
 	return material.value * worth_multiplier
 
-/obj/item/spacecash/Value()
-	return worth
+/obj/item/currency/Value()
+	return get_credit_value()

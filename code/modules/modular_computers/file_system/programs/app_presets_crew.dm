@@ -183,7 +183,6 @@
 /datum/modular_computer_app_presets/security/investigations/New()
 	. = ..()
 	program_list += /datum/computer_file/program/records/medical
-	program_list -= /datum/computer_file/program/guntracker //Remove the guntracker, investigators don't have access to it
 
 
 /datum/modular_computer_app_presets/security/hos

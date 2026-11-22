@@ -81,7 +81,7 @@
 	. += ..()
 	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 
-/obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
+/obj/item/gun/projectile/revolver/mateba/captain/post_fire(mob/user)
 	..()
 	if(wielded)
 		return
@@ -187,6 +187,7 @@
 	var/list/secondary_loaded = list()
 	var/list/tertiary_loaded = list()
 	fire_delay = ROF_INTERMEDIATE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -43,7 +43,6 @@
 	if(damage <= 0)
 		return args.Copy()
 
-
 	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)
 	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
 
@@ -52,7 +51,7 @@
 	if(blocked >= armor_border_blocking)
 		if(damage_flags & DAMAGE_FLAG_LASER)
 			damage *= FLUIDLOSS_CONC_BURN/FLUIDLOSS_WIDE_BURN
-		damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE | DAMAGE_FLAG_LASER)
+		damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE | DAMAGE_FLAG_LASER | DAMAGE_FLAG_BULLET)
 	if(damage_type == DAMAGE_RADIATION)
 		damage = max(0, damage - 100 * blocked)
 		silent = TRUE

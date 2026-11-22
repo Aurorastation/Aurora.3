@@ -4,8 +4,8 @@
 	program_icon_state = "crew"
 	program_key_icon_state = "teal_key"
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
-	required_access_run = ACCESS_MEDICAL
-	required_access_download = ACCESS_MEDICAL
+	required_access_run = /datum/access/medical::id
+	required_access_download = /datum/access/medical::id
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11

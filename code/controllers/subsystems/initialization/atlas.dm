@@ -206,21 +206,13 @@ SUBSYSTEM_DEF(atlas)
 
 	InitializeSectors()
 
-	var/chosen_sector
-	var/using_sector_config = FALSE
-
-	if(GLOB.config.current_space_sector)
-		chosen_sector = GLOB.config.current_space_sector
-		using_sector_config = TRUE
-	else
-		chosen_sector = current_map.default_sector
+	// Sector load order: Database < Config file < Default map
+	var/fallback = GLOB.config.current_space_sector ? GLOB.config.current_space_sector : current_map.default_sector
+	var/chosen_sector = SSregistry.getValue(REGISTRY_CURRENT_SECTOR, fallback)
 
 	var/datum/space_sector/selected_sector = SSatlas.possible_sectors[chosen_sector]
 
 	if(!selected_sector)
-		if(using_sector_config)
-			log_config("[chosen_sector] used in the config file is not a valid space sector")
-			log_subsystem_atlas("[chosen_sector] used in the config file is not a valid space sector")
 		current_sector = new /datum/space_sector/tau_ceti //if all fails, we go with tau ceti
 		log_subsystem_atlas("Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
@@ -238,10 +230,14 @@ SUBSYSTEM_DEF(atlas)
 		CRASH("No directory supplied.")
 
 	var/static/regex/mapregex = new(".+\\.dmm$")
+	// Output of `tools/bapi/mapmanip.ps1`, for local preview only; never load these
+	var/static/regex/mapmanipout_regex = new("\\.mapmanipout\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
 	var/list/filemaps_to_load
 	for(var/file in files)
+		if(mapmanipout_regex.Find(file))
+			continue
 		if(mapregex.Find(file))
 			filemaps_to_load += list(file)
 

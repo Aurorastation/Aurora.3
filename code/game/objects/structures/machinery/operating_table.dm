@@ -26,8 +26,7 @@
 	///The connected surgery computer
 	var/obj/structure/machinery/computer/operating/computer = null
 
-	/// If the patient must be lying on this surgery table for it to set the patient as occupant.
-	var/occupant_must_be_lying = TRUE
+	surgery_surface = TRUE
 
 /obj/structure/machinery/optable/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -261,8 +260,6 @@
  * Returns `TRUE` if the patient was taken, `FALSE` otherwise
  */
 /obj/structure/machinery/optable/proc/take_occupant(mob/living/carbon/patient, mob/living/carbon/giver)
-	SHOULD_NOT_SLEEP(TRUE)
-
 	//No point if there's no patient
 	if(!istype(patient))
 		return FALSE

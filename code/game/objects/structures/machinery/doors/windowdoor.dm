@@ -18,6 +18,7 @@
 
 	atmos_canpass = CANPASS_PROC
 	pass_flags_self = PASSGLASS
+	supports_painting = TRUE
 
 /obj/structure/machinery/door/window/Initialize(mapload)
 	. = ..()
@@ -165,6 +166,11 @@
 	if (operating)
 		return TRUE
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	//Emags and ninja swords? You may pass.
 	if (istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
@@ -230,7 +236,7 @@
 	icon = 'icons/obj/structure/window/window_panes.dmi'
 	icon_state = "leftsecure"
 	base_state = "leftsecure"
-	req_access = list(ACCESS_SECURITY)
+	req_access = list(/datum/access/security::id)
 	maxhealth = OBJECT_HEALTH_VERY_HIGH
 
 	var/id = null

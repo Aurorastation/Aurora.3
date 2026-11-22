@@ -1,4 +1,4 @@
-/obj/item/clothing/head/tajaran
+ABSTRACT_TYPE(/obj/item/clothing/head/tajaran)
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
 	desc_extended = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
@@ -62,7 +62,7 @@
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
-/obj/item/clothing/head/beret/tajaran
+ABSTRACT_TYPE(/obj/item/clothing/head/beret/tajaran)
 	icon = 'icons/obj/tajara_items.dmi'
 	contained_sprite = TRUE
 
@@ -269,6 +269,8 @@
 	desc = "A warm hat issued to the PRA national police department, to be worn during the colder seasons."
 	icon_state = "taj_cop_hat"
 	item_state = "taj_cop_hat"
+	cold_protection = HEAD
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/head/tajaran/pra_cop/rural
 	name = "PRA NPD hat"

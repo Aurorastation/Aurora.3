@@ -18,3 +18,12 @@
 /datum/component/skill/conditioning/proc/get_mass_modifiers(atom/movable/owner, effective_mass)
 	SIGNAL_HANDLER
 	*effective_mass = *effective_mass * (1 + (bonus_mass_per_rank * (skill_level - 1)))
+
+/// Returns Conditioning directly as a rank, without applying species strength or equipment modifiers.
+/mob/proc/get_conditioning_skill_level()
+	var/conditioning_level = GET_SKILL_LEVEL(src, CONDITIONING_SKILL_COMPONENT)
+	return conditioning_level ? conditioning_level : SKILL_LEVEL_UNFAMILIAR
+
+/// Each rank above Unfamiliar reduces physical traversal times by 15% of their base value.
+/mob/proc/get_conditioning_action_delay(base_delay)
+	return base_delay * (1 - (0.15 * (get_conditioning_skill_level() - SKILL_LEVEL_UNFAMILIAR)))

@@ -17,26 +17,17 @@
 /area/horizon/shuttle/intrepid/main_compartment
 	name = "Intrepid Main Compartment"
 
-/area/horizon/shuttle/intrepid/port_compartment
-	name = "Intrepid Port Compartment"
+/area/horizon/shuttle/intrepid/port_nacelle
+	name = "Intrepid Port Nacelle"
 
-/area/horizon/shuttle/intrepid/starboard_compartment
-	name = "Intrepid Starboard Compartment"
+/area/horizon/shuttle/intrepid/starboard_nacelle
+	name = "Intrepid Starboard Nacelle"
 
-/area/horizon/shuttle/intrepid/junction_compartment
-	name = "Intrepid Junction Compartment"
-
-/area/horizon/shuttle/intrepid/buffet
-	name = "Intrepid Buffet"
+/area/horizon/shuttle/intrepid/airlock
+	name = "Intrepid Airlock"
 
 /area/horizon/shuttle/intrepid/medical
 	name = "Intrepid Medical Compartment"
-
-/area/horizon/shuttle/intrepid/engineering
-	name = "Intrepid Engineering Compartment"
-
-/area/horizon/shuttle/intrepid/port_storage
-	name = "Intrepid Port Nacelle"
 
 /area/horizon/shuttle/intrepid/flight_deck
 	name = "Intrepid Flight Deck"

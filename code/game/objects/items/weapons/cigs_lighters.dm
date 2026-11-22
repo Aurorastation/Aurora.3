@@ -1007,7 +1007,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		else
 			var/response = ""
 			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
-			response = alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", "Accept", "Decline")
+			response = tgui_alert(M, "\The [user] offers to light your [cig.name]. Do you accept?", "Lighter offer", list("Accept", "Decline"))
 			if(response != "Accept")
 				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
 				return

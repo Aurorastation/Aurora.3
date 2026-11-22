@@ -2,6 +2,40 @@
 #define RADIO_NEXT_BROADCAST "next_broadcast"
 #define RADIO_BROADCAST_INDEX "broadcast_index"
 
+/datum/lore_radio_broadcast
+	var/message
+	var/datum/language/language
+
+/datum/lore_radio_broadcast/New(message, datum/language/language)
+	. = ..()
+	src.message = message
+	src.language = language
+
+/// Parses an optional [LANGUAGE=Language Name] prefix and applies lore radio text markup.
+/proc/parse_lore_radio_broadcast(message)
+	var/datum/language/language
+	var/static/language_prefix = "\[LANGUAGE="
+	var/language_prefix_end = length(language_prefix) + 1
+	if(copytext(message, 1, language_prefix_end) == language_prefix)
+		var/language_tag_end = findtext(message, "\]", language_prefix_end)
+		if(language_tag_end)
+			var/language_name = copytext(message, language_prefix_end, language_tag_end)
+			language = GLOB.all_languages[language_name]
+			if(language)
+				message = trim_left(copytext(message, language_tag_end + 1))
+			else
+				log_error("Lore radio broadcast specifies unknown language '[language_name]': [message]")
+
+	var/regex/italics_regex = regex("/(.*?)/")
+	message = replacetext(message, italics_regex, "<i>$1</i>")
+	if(findtext(message, "\[RANDOMNOTE\]"))
+		message = replacetext(message, "\[RANDOMNOTE\]", " [pick("\u2669", "\u266A", "\u266B")] ")
+		while(findtext(message, "  "))
+			message = replacetext(message, "  ", " ")
+		message = trim(message)
+
+	return new /datum/lore_radio_broadcast(message, language)
+
 /datum/space_sector
 	var/name
 	var/description
@@ -33,7 +67,8 @@
 	var/skybox_icon = "ceti"
 
 	/// An associated list of lore radio stations formatted like so: list("station name" = "path_to_broadcast.txt")
-	/// This gets converted into a formatted list after initialization like so: list(RADIO_BROADCASTS = list("stuff"), RADIO_NEXT_BROADCAST = world.time, RADIO_BROADCAST_INDEX = the entry in the list that will be broadcasted)
+	/// Broadcast lines may start with [LANGUAGE=Language Name]. Untagged lines are universally understood.
+	/// This gets converted into a formatted list after initialization like so: list(RADIO_BROADCASTS = list(/datum/lore_radio_broadcast), RADIO_NEXT_BROADCAST = world.time, RADIO_BROADCAST_INDEX = the entry in the list that will be broadcasted)
 	var/list/lore_radio_stations = null //what radio stations can be heard by the lore radio item here
 
 	var/list/sector_lobby_art = null //if this is set, it will override the map lobby icons
@@ -191,15 +226,7 @@
 
 			var/text_broadcast_index = 1
 			for(var/broadcast in station_broadcasts)
-				// Italics Regex
-				var/regex/italics_regex = regex("/(.*?)/")
-				broadcast = replacetext(broadcast, italics_regex, "<i>$1</i>")
-
-				// Random Note Regex
-				var/randomnote = pick("\u2669", "\u266A", "\u266B")
-				broadcast = replacetext(broadcast, "\[RANDOMNOTE\]", randomnote)
-
-				station_broadcasts[text_broadcast_index] = broadcast
+				station_broadcasts[text_broadcast_index] = parse_lore_radio_broadcast(broadcast)
 				text_broadcast_index++
 
 			var/broadcast_length = length(station_broadcasts)
@@ -222,9 +249,9 @@
 			continue
 
 		var/broadcast_index = broadcast_info[RADIO_BROADCAST_INDEX]
-		var/broadcast_message = broadcast_info[RADIO_BROADCASTS][broadcast_index]
+		var/datum/lore_radio_broadcast/broadcast = broadcast_info[RADIO_BROADCASTS][broadcast_index]
 
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LORE_RADIO_BROADCAST, station, broadcast_message)
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_LORE_RADIO_BROADCAST, station, broadcast.message, broadcast.language)
 
 		if(broadcast_index == length(broadcast_info[RADIO_BROADCASTS]))
 			broadcast_info[RADIO_BROADCAST_INDEX] = 1

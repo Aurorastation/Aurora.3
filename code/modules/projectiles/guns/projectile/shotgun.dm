@@ -27,7 +27,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		to_chat(user, SPAN_NOTICE("You begin to [sawnoff_workmsg] of \the [src]."))
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
-				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
+				fire_gun(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message(SPAN_DANGER("\The [src] goes off!"),
 									SPAN_DANGER("\The [src] goes off in your face!"))
 
@@ -66,9 +66,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/rack_sound = SFX_PUMP_SHOTGUN
-	var/rack_verb = "pump"
+	var/cycle_cue = "*pump*"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/pump/handle_maptext()
 	var/ammo = length(loaded)
@@ -86,21 +87,42 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 
 /obj/item/gun/projectile/shotgun/pump/unique_action(mob/living/user)
 	if(jam_num)
-		to_chat(user, SPAN_WARNING("\The [src] is jammed!"))
+		balloon_alert(user, "jammed!")
 		return
 	pump(user)
 
+/obj/item/gun/projectile/shotgun/pump/eject(mob/user)
+	if(ammo_magazine)
+		return ..()
+	if(!get_turf(src))
+		return
+
+	var/obj/item/ammo_casing/ejected_round = chambered
+	if(ejected_round)
+		chambered = null
+		loaded -= ejected_round
+	else if(length(loaded))
+		ejected_round = loaded[loaded.len]
+		loaded.len--
+	else
+		balloon_alert(user, "already empty!")
+		return
+
+	user.put_in_hands(ejected_round)
+	balloon_alert_to_viewers("casing ejected!")
+	update_maptext()
+	update_icon()
+
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
+	var/turf/drop_turf = get_turf(src)
+	if(!drop_turf)
+		return
 	playsound(M, rack_sound, 60, FALSE)
-	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
+	balloon_alert_to_viewers(cycle_cue)
 	if(cycle_anim)
 		flick("[icon_state]-cycling", src)
 
-	if(chambered)//We have a shell in the chamber
-		chambered.forceMove(get_turf(src)) //Eject casing
-		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
-		chambered = null
-
+	eject_chambered_casing(M, drop_turf)
 	handle_pump_loading()
 
 	update_maptext()
@@ -160,6 +182,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	fire_delay = ROF_INTERMEDIATE
+	has_unique_gun_action = TRUE
 
 	burst_delay = 0
 	firemodes = list(
@@ -169,9 +192,6 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
-
-/obj/item/gun/projectile/shotgun/doublebarrel/unique_action(mob/user)
-	unload_ammo(user, TRUE)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
 	if(Adjacent(user))
@@ -260,6 +280,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 	var/folded = TRUE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/foldable/update_icon()
 	if(folded)
@@ -297,6 +318,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	desc = "A polaroid camera"
 	icon = 'icons/obj/guns/cameragun.dmi'
 	icon_state = "cameragun"
+	persistent_chamber = FALSE // The action button deploys the disguised gun.
 	item_state = "cameragun"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
@@ -335,6 +357,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	handle_casings = HOLD_CASINGS
 	///Whether the shotgun's chamber is open
 	var/open = FALSE
+	has_unique_gun_action = TRUE
 
 /obj/item/gun/projectile/shotgun/wallgun/update_icon()
 	if(open)
@@ -361,7 +384,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 		return
 	..()
 
-/obj/item/gun/projectile/shotgun/wallgun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/wallgun/post_fire(mob/user)
 	..()
 	if(wielded)
 		return

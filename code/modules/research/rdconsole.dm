@@ -88,7 +88,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/ref_for_ui
 
 	//Data and setting manipulation requires scientist access.
-	req_access = list(ACCESS_TOX)
+	req_access = list(/datum/access/tox::id)
 
 /datum/research_fabrication_job
 	/// Design being produced.
@@ -150,7 +150,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /datum/research_console_disk_tgui_data/proc/to_list()
 	return list(
-		"type" = type,
+		"type" = design_type,
 		"name" = name,
 		"stored_name" = stored_name,
 		"stored_description" = stored_description,
@@ -298,10 +298,26 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/structure/machinery/computer/rdconsole/proc/SyncTechs()
 	var/turf/turf = get_turf(src)
+	var/list/available_servers = list()
 	for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
 		var/turf/ST = get_turf(S)
 		if(ST && !AreConnectedZLevels(ST.z, turf.z))
 			continue
+		available_servers += S
+
+	// Away sites use their own research server when one is present. Otherwise,
+	// NTNet coverage allows them to fall back to the Horizon's research server.
+	if(!length(available_servers) && GLOB.ntnet_global)
+		var/list/reachable_z_levels = GLOB.ntnet_global.get_reachable_z_levels_for_endpoint(src)
+		for(var/obj/structure/machinery/r_n_d/server/S in SSmachinery.machinery)
+			var/turf/ST = get_turf(S)
+			if(!ST || !is_station_level(ST.z) || !(ST.z in reachable_z_levels))
+				continue
+			if(istype(S, /obj/structure/machinery/r_n_d/server/centcom))
+				continue
+			available_servers += S
+
+	for(var/obj/structure/machinery/r_n_d/server/S as anything in available_servers)
 		var/server_processed = 0
 		if((id in S.id_with_upload) || istype(S, /obj/structure/machinery/r_n_d/server/centcom))
 			for(var/tech_id in files.known_tech)
@@ -675,7 +691,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		var/list/resources = list()
 		var/list/requirements = list()
 
-		for(var/material_id in design.materials)
+		var/list/design_materials = design.GetFabricationMaterials(primary)
+		for(var/material_id in design_materials)
 			var/material_path = SSmaterials.material_to_path(material_id, FALSE)
 			if(!material_path)
 				material_path = material_id
@@ -699,8 +716,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				fastest_time = machine_time
 
 		catalogue["recipes"] += list(list(
-			"name" = design.name,
-			"description" = design.desc,
+			"name" = design.GetFabricationName(primary),
+			"description" = design.GetFabricationDesc(primary),
 			"design" = "[path]",
 			"category" = category,
 			"resources" = english_list(resources),
@@ -773,11 +790,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/index = 1
 	for(var/datum/research_fabrication_job/job as anything in job_queue)
 		var/obj/structure/machinery/r_n_d/fabricator/machine = job.assigned_machine
+		var/obj/structure/machinery/r_n_d/fabricator/display_machine = machine ? machine : primary
 		var/build_time = machine ? round(job.design.time / machine.production_speed) : round(job.design.time / primary.production_speed)
 		var/remaining_time = machine?.build_callback_timer ? max(0, timeleft(machine.build_callback_timer)) : 0
 		data["queue"] += list(list(
 			"index" = index,
-			"name" = job.design.name,
+			"name" = job.design.GetFabricationName(display_machine),
 			"build_time" = build_time,
 			"active" = !!machine,
 			"machine" = machine?.name,
@@ -1121,7 +1139,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/structure/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"
 	id = 1
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	allow_analyzer = FALSE
 	manufacturer = "hephaestus"
 	circuit = /obj/item/circuitboard/robotics_console

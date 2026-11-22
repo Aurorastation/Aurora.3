@@ -11,6 +11,7 @@
 /obj/structure/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
 	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
+	persistent_stock = TRUE
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
 	icon_state = "snack"
@@ -96,6 +97,9 @@
 	)
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
+
+/obj/structure/machinery/vending/snack/free
+	prices = list()
 
 /obj/structure/machinery/vending/snack/low_supply
 	products = list(
@@ -190,6 +194,10 @@
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
 		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
 		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+		/obj/item/reagent_containers/food/snacks/candy = 1.50,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 2.00,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 3.00,
+		/obj/item/clothing/mask/chewable/candy/lolli = 1.00,
 
 		/obj/item/reagent_containers/food/drinks/cans/cola = 1.50,
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1.50,
@@ -203,6 +211,9 @@
 		/obj/item/reagent_containers/food/drinks/zobo = 1.75
 	)
 
+/obj/structure/machinery/vending/snack/all_currencies
+	accepted_currencies = CURRENCY_ALL
+
 /obj/item/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
@@ -211,6 +222,7 @@
 /obj/structure/machinery/vending/frontiervend
 	name = "FrontierVend"
 	desc = "A vending machine specialized in snacks from the Coalition of Colonies."
+	persistent_stock = TRUE
 	desc_extended = "Almost rebranded to the 'Coalition of Snackolonies', the FrontierVend brand is owned by a now-subsidiary of Orion Express specialized in food exports. These machines \
 	are omnipresent throughout the settled regions of human space, forming a sort of Coalition superculture; it's easier to sympathize with someone if you eat the same snacks."
 	icon_state = "frontiervend"
@@ -308,6 +320,9 @@
 	name = "\improper hacked FrontierVend"
 	desc = "A complimentary FrontierVend machine. No money? No worries."
 	prices = list()
+
+/obj/structure/machinery/vending/frontiervend/all_currencies
+	accepted_currencies = CURRENCY_ALL
 
 /obj/item/vending_refill/frontiervend
 	name = "frontiervend resupply canister"

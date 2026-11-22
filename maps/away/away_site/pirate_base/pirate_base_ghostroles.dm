@@ -72,7 +72,7 @@
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
 /obj/outfit/admin/pirate/get_id_access()
-	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
 
 /datum/ghostspawner/human/pirate/boss
 	short_name = "pirate_boss"

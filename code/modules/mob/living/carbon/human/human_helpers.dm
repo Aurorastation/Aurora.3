@@ -48,6 +48,7 @@
 	..()
 
 /mob/living/carbon/human/proc/update_equipment_vision(var/machine_grants_equipment_vision = FALSE)
+	lighting_alpha = default_lighting_alpha
 	flash_protection = 0
 	equipment_tint_total = 0
 	equipment_see_invis	= 0
@@ -95,6 +96,13 @@
 /mob/living/carbon/human/proc/process_rig(var/obj/item/rig/O)
 	if(O.visor && O.visor.active && O.visor.vision_mode && O.visor.vision_mode.glasses && (!O.helmet || (head && O.helmet == head)))
 		process_glasses(O.visor.vision_mode.glasses)
+
+/// Returns the flash protection physically covering the human's eyes.
+/// Unlike the equipment vision cache, this must continue to apply while looking through cameras or zoom optics.
+/mob/living/carbon/human/proc/get_equipment_flash_protection()
+	. = FLASH_PROTECTION_NONE
+	for(var/obj/item/equipment as anything in get_equipped_items())
+		. += equipment.get_equipped_flash_protection(src)
 
 /// Applies organ/markings prefs to this mob.
 /mob/living/carbon/human/proc/sync_organ_prefs_to_mob(datum/preferences/prefs, apply_prosthetics = TRUE, apply_markings = TRUE)

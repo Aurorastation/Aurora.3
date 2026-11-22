@@ -432,7 +432,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 /obj/item/rfd/service/Initialize()
 	. = ..()
 	radial_modes = list(
-		"Cigarette" = image(icon = 'icons/obj/clothing/masks.dmi', icon_state = "cigoff"),
+		"Cigarette" = image(icon = 'icons/obj/item/clothing/masks.dmi', icon_state = "cigoff"),
 		"Drinking Glass" = image(icon = 'icons/obj/drinks.dmi', icon_state = "glass_empty"),
 		"Paper" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paper"),
 		"Pen" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "pen"),

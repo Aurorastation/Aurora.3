@@ -49,7 +49,7 @@
 	items = list(
 		/obj/item/mmi/digital/posibrain
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -78,7 +78,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/bishop
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -92,7 +92,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/industrial
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -106,7 +106,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/hephaestus
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -120,7 +120,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/ipc
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -134,7 +134,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/synthskin
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -148,7 +148,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/xion
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -162,7 +162,7 @@
 	items = list(
 		/obj/item/robot_parts/chest/zenghu
 	)
-	access = ACCESS_ROBOTICS
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -177,6 +177,34 @@
 		/obj/item/stack/nanopaste
 	)
 	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/robotanalyzer
+	category = "robotics"
+	name = "cyborg analyzer"
+	supplier = "hephaestus"
+	description = "A handheld scanner used to diagnose damage to cyborgs and prosthetic limbs."
+	price = 150
+	items = list(
+		/obj/item/robotanalyzer
+	)
+	access = /datum/access/robotics::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/aicard
+	category = "robotics"
+	name = "intelliCard"
+	supplier = "hephaestus"
+	description = "A portable storage device used to safely transport an artificial intelligence."
+	price = 1000
+	items = list(
+		/obj/item/aicard
+	)
+	access = /datum/access/robotics::id
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

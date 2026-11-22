@@ -25776,9 +25776,9 @@
 /turf/simulated/floor,
 /area/decrepit_shipyard/janitorial_closet)
 "rAh" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/r_wall{
-	can_open = 1;
-	color = "#C2C2C2"
+	color = "#2e2e2e"
 	},
 /area/decrepit_shipyard/transport_tunnels_west)
 "rAi" = (

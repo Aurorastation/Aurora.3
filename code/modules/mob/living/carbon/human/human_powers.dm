@@ -387,8 +387,8 @@
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(!ignore_grab && G.state < GRAB_KILL)
-		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
+	if(!ignore_grab && G.state < GRAB_NECK)
+		to_chat(src, SPAN_WARNING("You must have a neck grip to bite someone!"))
 		return
 
 	if(ishuman(G.affecting))
@@ -620,7 +620,7 @@
 	set desc = "Dissolve yourself in order to escape permanent imprisonment."
 	set category = "Abilities"
 
-	if(alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", "Yes", "No") == "No")
+	if(tgui_alert(usr, "This ability kills you, are you sure you want to do this?", "Dissolve Self", list("Yes", "No")) == "No")
 		return
 	visible_message(SPAN_DANGER("[src] dissolves!"), SPAN_WARNING("You dissolve yourself, rejoining your brethren in bluespace."))
 	death()
@@ -1110,7 +1110,7 @@
 		to_chat(src, SPAN_WARNING("You need to target the missing [limb.name] or the [receiving_limb.name] containing its socket."))
 		return FALSE
 
-	if(!(limb.limb_name in receiving_limb.prosthetic_sockets))
+	if(!receiving_limb.accepts_manually_attached_prosthetic(limb))
 		to_chat(src, SPAN_WARNING("Your [receiving_limb.name] does not have a socket for \the [limb]."))
 		return FALSE
 
@@ -1126,7 +1126,7 @@
 			return FALSE
 
 		receiving_limb = organs_by_name[limb.parent_organ]
-		if(!receiving_limb || !(limb.limb_name in receiving_limb.prosthetic_sockets))
+		if(!receiving_limb || !receiving_limb.accepts_manually_attached_prosthetic(limb))
 			return FALSE
 
 	drop_from_inventory(limb)

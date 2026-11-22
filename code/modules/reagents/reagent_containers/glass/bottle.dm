@@ -286,3 +286,15 @@
 /obj/item/reagent_containers/glass/bottle/triglyceride
 	name = "triglyceride bottle"
 	reagents_to_add = list(/singleton/reagent/nutriment/triglyceride = 60)
+
+/obj/item/reagent_containers/glass/bottle/cocagrounds
+	name = "bottle of coca grounds"
+	desc = "A small bottle of coca grounds, a substance usually placed in the legal gray area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/nutriment/cocagrounds = 60)
+
+/obj/item/reagent_containers/glass/bottle/morphine
+	name = "morphine bottle"
+	desc = "A small bottle of potent, natural opioid. Highly effective and quick to numb the applied area."
+	icon_state = "bottle-4"
+	reagents_to_add = list(/singleton/reagent/morphine = 60)

@@ -9,7 +9,7 @@
 	icon_state = "shieldwalloff"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	/// Range at which it can pair with another shield wall generator (must be this many spaces BETWEEN THEM at maximum)
 	var/range = 9
 	var/power_state = FALSE

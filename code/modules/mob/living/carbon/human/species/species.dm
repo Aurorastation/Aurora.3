@@ -138,7 +138,10 @@
 	/// For empty hand harm-intent attack
 	var/list/unarmed_attacks = null
 	var/standing_jump_range = 2
-	var/list/maneuvers = list(/singleton/maneuver/leap)
+	var/list/maneuvers = list(
+		/singleton/maneuver/leap,
+		/singleton/maneuver/kick
+	)
 
 	/// Pain multiplier
 	var/pain_mod =      1
@@ -1088,6 +1091,7 @@
 	return human.stamina > (human.max_stamina / 10)
 
 /datum/species/proc/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	SEND_SIGNAL(human, COMSIG_STAMINA_DRAIN_MODIFIERS, &stamina_cost)
 	human.stamina -= stamina_cost
 	human.hud_used.move_intent.update_move_icon(human)
 

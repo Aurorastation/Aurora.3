@@ -112,7 +112,6 @@
 	landmark_transition = "nav_transit_database_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_database_freighter_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle

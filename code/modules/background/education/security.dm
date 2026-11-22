@@ -39,7 +39,8 @@
 	skills = list(
 		/singleton/skill/unarmed_combat = SKILL_LEVEL_TRAINED,
 		/singleton/skill/armed_combat = SKILL_LEVEL_TRAINED,
-		/singleton/skill/firearms = SKILL_LEVEL_TRAINED
+		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/military_corpsman
@@ -64,7 +65,8 @@
 		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR, /* Only enough to repair an artery. */
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR
+		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/police_academy
@@ -86,6 +88,6 @@
 		/singleton/skill/unarmed_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/forensics = SKILL_LEVEL_FAMILIAR, /* Very basic crime investigation skills. */
-		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR /* Police are also trained in basic first aid. */
+		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR, /* Police are also trained in basic first aid. */
+		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
-

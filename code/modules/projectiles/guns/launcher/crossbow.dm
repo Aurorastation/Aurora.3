@@ -43,11 +43,11 @@
 	icon_state = "powered_crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/crossbow.ogg'
-	fire_sound_text = "a solid thunk"
 	fire_delay = 25
 	slot_flags = SLOT_BACK
 	needspin = FALSE
 	has_safety = FALSE
+	has_unique_gun_action = TRUE
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.
@@ -66,7 +66,7 @@
 		return null
 	return bolt
 
-/obj/item/gun/launcher/crossbow/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/launcher/crossbow/post_fire(mob/user, atom/target)
 	bolt = null
 	tension = 0
 	update_icon()

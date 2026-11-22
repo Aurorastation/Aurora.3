@@ -30,11 +30,12 @@
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
 	density = TRUE
+	init_flags = FALSE
 
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
 
-	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
+	req_access = list(/datum/access/captain::id, /datum/access/heads::id)
 	/// PLEASE HOLD.
 	var/active = FALSE
 	/// The cycler won't start with a living thing inside it unless safeties are off.
@@ -187,6 +188,7 @@
 		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
 		M.forceMove(src)
 		occupant = M
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 		add_fingerprint(user)
 		SStgui.update_uis(src)
@@ -236,6 +238,7 @@
 			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 			add_fingerprint(user)
 			qdel(G)
@@ -401,6 +404,7 @@
 			return
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(repair_suit)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -422,6 +426,7 @@
 
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		addtimer(CALLBACK(src, PROC_REF(apply_paintjob)), 10 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
@@ -443,6 +448,7 @@
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		irradiating = 10
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 		update_icon()
 		SStgui.update_uis(src)
 
@@ -474,13 +480,11 @@
 	SStgui.update_uis(src)
 	return
 
-/obj/structure/machinery/suit_cycler/process()
-	if(electrified > 0)
-		electrified = max(electrified - 1, 0)
+/obj/structure/machinery/suit_cycler/process(seconds_per_tick)
+	if(!electrified && !active && !irradiating && !occupant)
+		return PROCESS_KILL
 
-	if(!active)
-		return
-
+	electrified = max(electrified - seconds_per_tick, 0)
 	if(active && stat & (BROKEN|NOPOWER))
 		active = FALSE
 		irradiating = 0
@@ -488,13 +492,13 @@
 		update_icon()
 		return
 
-	if(irradiating == 1)
+	if(irradiating <= 0)
 		finished_job()
 		irradiating = 0
 		update_icon()
 		return
 
-	irradiating = max(irradiating - 1, 0)
+	irradiating = max(irradiating - seconds_per_tick, 0)
 
 	if(occupant)
 		if(prob(radiation_level * 2))
@@ -566,112 +570,112 @@
 	switch(target_department)
 		if("Engineering")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "engineering voidsuit helmet"
 				helmet.icon_state = "engineering_helm"
 				helmet.item_state = "engineering_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "engineering voidsuit"
 				suit.icon_state = "engineering"
 				suit.item_state = "engineering"
 		if("Mining")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 				helmet.name = "mining voidsuit helmet"
 				helmet.icon_state = "mining_helm"
 				helmet.item_state = "mining_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 				suit.name = "mining voidsuit"
 				suit.icon_state = "mining"
 				suit.item_state = "mining"
 		if("Medical")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 				helmet.name = "medical voidsuit helmet"
 				helmet.icon_state = "medical_helm"
 				helmet.item_state = "medical_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 				suit.name = "medical voidsuit"
 				suit.icon_state = "medical"
 				suit.item_state = "medical"
 		if("Security")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 				helmet.name = "security voidsuit helmet"
 				helmet.icon_state = "security_helm"
 				helmet.item_state = "security_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 				suit.name = "security voidsuit"
 				suit.icon_state = "security"
 				suit.item_state = "security"
 		if("Atmos")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "atmospherics voidsuit helmet"
 				helmet.icon_state = "atmos_helm"
 				helmet.item_state = "atmos_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "atmos"
 				suit.item_state = "atmos"
 		if("Operations")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				helmet.name = "operations voidsuit helmet"
 				helmet.icon_state = "hangartech_helm"
 				helmet.item_state = "hangartech_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				suit.name = "operations voidsuit"
 				suit.icon_state = "hangartech"
 				suit.item_state = "hangartech"
 		if("Captain")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 				helmet.name = "captain voidsuit helmet"
 				helmet.icon_state = "captain_helm"
 				helmet.item_state = "captain_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 				suit.name = "captain voidsuit"
 				suit.icon_state = "captain"
 				suit.item_state = "captain"
 		if("^%###^%$", "Mercenary")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "blood-red voidsuit helmet"
 				helmet.icon_state = "syndie_helm"
 				helmet.item_state = "syndie_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				suit.name = "blood-red voidsuit"
 				suit.item_state = "syndie"
 				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 				helmet.name = "research voidsuit helmet"
 				helmet.icon_state = "research_helm"
 				helmet.item_state = "research_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 				suit.name = "research voidsuit"
 				suit.item_state = "research"
 				suit.icon_state = "research"
 
 		if("Freelancers")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "freelancer voidsuit helmet"
 				helmet.icon_state = "freelancer_helm"
 				helmet.item_state = "freelancer_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				suit.name = "freelancer voidsuit"
 				suit.item_state = "freelancer"
 				suit.icon_state = "freelancer"

@@ -154,7 +154,6 @@
 	landmark_transition = "nav_transit_kasf_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_kasf"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/kasf_shuttle/hangar

@@ -16,7 +16,7 @@
 
 	selection_color = "#c9ad12"
 
-	job_access = list(ACCESS_MERCHANT)
+	job_access = list(/datum/access/merchant::id)
 
 	latejoin_at_spawnpoints = TRUE
 
@@ -88,4 +88,4 @@
 	return "Merchant's Assistant"
 
 /obj/outfit/merchant_assistant/get_id_access()
-	return list(ACCESS_MERCHANT)
+	return list(/datum/access/merchant::id)

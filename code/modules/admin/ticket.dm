@@ -52,7 +52,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	if(status == TICKET_CLOSED)
 		return FALSE
 
-	if(status == TICKET_ASSIGNED && !((closed_by.ckey in assigned_admins) || owner == closed_by.ckey) && alert(closed_by, "You are not assigned to this ticket. Are you sure you want to close it?",  "Close ticket?" , "Yes" , "No") != "Yes")
+	if(status == TICKET_ASSIGNED && !((closed_by.ckey in assigned_admins) || owner == closed_by.ckey) && tgui_alert(closed_by, "You are not assigned to this ticket. Are you sure you want to close it?", "Close ticket?", list("Yes", "No")) != "Yes")
 		return FALSE
 
 	if(status == TICKET_ASSIGNED && !closed_by.holder) // non-admins can only close a ticket if no admin has taken it
@@ -93,7 +93,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	if(assigned_admin.ckey == owner)
 		return
 
-	if(status == TICKET_ASSIGNED && ((assigned_admin.ckey in assigned_admins) || alert(assigned_admin, "This ticket is already assigned. Do you want to add yourself to the ticket?",  "Join ticket?" , "Yes" , "No") != "Yes"))
+	if(status == TICKET_ASSIGNED && ((assigned_admin.ckey in assigned_admins) || tgui_alert(assigned_admin, "This ticket is already assigned. Do you want to add yourself to the ticket?", "Join ticket?", list("Yes", "No")) != "Yes"))
 		return
 
 	assigned_admins |= assigned_admin.ckey
@@ -304,15 +304,15 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 				usr.client.cmd_admin_pm(client_by_ckey(ticket.owner), ticket = ticket)
 			else if(ticket.status == TICKET_ASSIGNED)
 				// manually check that the target client exists here as to not spam the usr for each logged out admin on the ticket
-				var/admin_found = 0
+				var/admin_found = FALSE
 				for(var/admin in ticket.assigned_admins)
 					var/client/admin_client = client_by_ckey(admin)
-					if(admin_client)
-						admin_found = 1
+					if(admin_client?.holder && ((R_ADMIN|R_MOD) & admin_client.holder.rights))
+						admin_found = TRUE
 						usr.client.cmd_admin_pm(admin_client, ticket = ticket)
 						break
 				if(!admin_found)
-					to_chat(usr, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
+					usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 			else
 				usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 

@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
-		ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
-		ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
-		ACCESS_PARAMEDIC, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY, ACCESS_TELEPORTER
+		/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/morgue::id, /datum/access/genetics::id, /datum/access/heads::id,
+		/datum/access/pharmacy::id, /datum/access/virology::id, /datum/access/cmo::id, /datum/access/surgery::id, /datum/access/RC_announce::id, /datum/access/engine::id, /datum/access/ship_weapons::id, /datum/access/construction::id,
+		/datum/access/keycard_auth::id, /datum/access/sec_doors::id, /datum/access/psychiatrist::id, /datum/access/eva::id, /datum/access/external_airlocks::id, /datum/access/research::id, /datum/access/mining::id, /datum/access/mailsorting::id,
+		/datum/access/paramedic::id, /datum/access/maint_tunnels::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/teleporter::id
 	)
 
 	minimal_player_age = 10
@@ -73,7 +73,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/genetics::id, /datum/access/eva::id)
 	outfit = /obj/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
@@ -99,7 +99,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/genetics::id, /datum/access/eva::id)
 	outfit = /obj/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(
@@ -166,7 +166,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/pharmacy::id, /datum/access/virology::id)
 	outfit = /obj/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
@@ -216,7 +216,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/psychiatrist::id)
 	alt_titles = list("Psychologist")
 	outfit = /obj/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /obj/outfit/job/psychiatrist/psycho)
@@ -273,7 +273,7 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PARAMEDIC)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/eva::id, /datum/access/maint_tunnels::id, /datum/access/engine::id, /datum/access/research::id, /datum/access/sec_doors::id, /datum/access/external_airlocks::id, /datum/access/paramedic::id)
 	outfit = /obj/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -354,7 +354,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+	job_access = list(/datum/access/medical::id, /datum/access/medical_equip::id)
 	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 	skill_requirements = alist(

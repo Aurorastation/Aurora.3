@@ -49,9 +49,10 @@
 		return
 
 	if(heavy_range > 1)
-		for(var/mob/M in range(heavy_range, epicenter))
-			sound_to(M, 'sound/effects/EMPulse.ogg')
-			CHECK_TICK
+		ASYNC // Parent meteor calling this proc requires this to be asynchronous / non-sleeping
+			for(var/mob/M in range(heavy_range, epicenter))
+				sound_to(M, 'sound/effects/EMPulse.ogg')
+				CHECK_TICK
 
 	for(var/atom/A in spiral_range(max(light_range, heavy_range), epicenter))
 

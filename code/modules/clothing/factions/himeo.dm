@@ -6,6 +6,8 @@
 	icon_state = "coat_himeo"
 	item_state = "coat_himeo"
 	contained_sprite = TRUE
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = WINTER_MIN_COLD_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/suit/storage/toggle/himeo/grey
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/himeo_coat.dmi'

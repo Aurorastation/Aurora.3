@@ -302,7 +302,7 @@
 /area/template_noop)
 "jy" = (
 /obj/structure/closet,
-/obj/item/book/manual/tcaf_pamphlet,
+/obj/item/book/manual/wiki/tcaf_pamphlet,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "jB" = (

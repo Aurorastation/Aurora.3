@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/structure/machinery/power/rad_collec
 	icon_state = "ca"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	/// The tank of phoron currently attached to the radiation collector
 	var/obj/item/tank/phoron/loaded_tank = null
 

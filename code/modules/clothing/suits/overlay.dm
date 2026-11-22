@@ -2,6 +2,8 @@
 
 // Could possibly make it so clothing has TWO kinds of customisable coloring for contrasting colors, more customisation and other stuff, but that requires loadout code I can't do. -Wezzy
 
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/overlay)
+
 /obj/item/clothing/suit/storage/toggle/overlay/submariner
 	name = "submariner's coat"
 	desc = "A leather jacket with a synthetic fur collar. It looks comfortable, if a bit warm for the station."
@@ -10,3 +12,5 @@
 	item_state = "submariner_coat"
 	build_from_parts = TRUE
 	worn_overlay = "collar"
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = MODERATE_MIN_COLD_PROTECTION_TEMPERATURE

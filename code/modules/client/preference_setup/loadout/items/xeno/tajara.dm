@@ -712,7 +712,124 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/organ/internal/augment/tesla
 	cost = 2
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	citizenship = CITIZENSHIP_PRA
 	sort_category = "Xenowear - Tajara"
+
+ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
+
+/datum/gear/augment/tesla_accessory
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	citizenship = CITIZENSHIP_PRA
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/tesla_accessory/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
+	. = ..()
+	if(.)
+		return
+	if(!("tesla spine" in prefs.gear))
+		return "You cannot spawn with [display_name] without also selecting a tesla spine!"
+
+/datum/gear/augment/tesla_accessory/traction
+	display_name = "transdermal magnetic pads"
+	description = "Tesla-powered foot pads with assisted-traction and fully magnetized modes. Assisted traction prevents slipping with half the movement penalty of full magnetic anchoring."
+	path = /obj/item/organ/internal/augment/tesla_device/traction
+	cost = 3
+
+/datum/gear/augment/tesla_accessory/pda
+	display_name = "transdermal computer selection"
+	description = "A configurable arm-mounted computer primarily processed and powered by a Tesla spine. Its screen runs warm and starts unenrolled."
+	path = /obj/item/organ/internal/augment/tesla_device/pda
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/pda/New()
+	..()
+	var/list/augs = list()
+	augs["transdermal computer, right arm"] = /obj/item/organ/internal/augment/tesla_device/pda
+	augs["transdermal computer, left arm"] = /obj/item/organ/internal/augment/tesla_device/pda/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/welder
+	display_name = "tesla arc welder selection"
+	description = "A finger-mounted stick welder powered by a slowly regenerating Tesla capacitor. Its electrode tip requires regular maintenance."
+	path = /obj/item/organ/internal/augment/tool/tesla/arc_welder
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/welder/New()
+	..()
+	var/list/augs = list()
+	augs["tesla arc welder, right hand"] = /obj/item/organ/internal/augment/tool/tesla/arc_welder
+	augs["tesla arc welder, left hand"] = /obj/item/organ/internal/augment/tool/tesla/arc_welder/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/lighter
+	display_name = "tesla arc lighter selection"
+	description = "A finger-mounted electrode which produces a momentary ignition arc or harmless electrical sting without maintaining an open flame."
+	path = /obj/item/organ/internal/augment/tool/tesla/lighter
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/lighter/New()
+	..()
+	var/list/augs = list()
+	augs["tesla arc lighter, right hand"] = /obj/item/organ/internal/augment/tool/tesla/lighter
+	augs["tesla arc lighter, left hand"] = /obj/item/organ/internal/augment/tool/tesla/lighter/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/oxygenation
+	display_name = "tesla cardiopulmonary augment selection"
+	description = "A choice between a subdermal oxygen-recycling system with a limited emergency reserve and a short-duration circulatory enhancement pump."
+	path = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/oxygenation/New()
+	..()
+	var/list/augs = list()
+	augs["tesla subdermal rebreather"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/recycler
+	augs["tesla circulatory enhancement pump"] = /obj/item/organ/internal/augment/tesla_device/oxygenation/driver
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/worklight
+	display_name = "ocular arc-light worklight"
+	description = "A weak, forward-facing worklight produced by a controlled electrical arc implanted beside the eye."
+	path = /obj/item/organ/internal/augment/tesla_device/worklight
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/cardiac
+	display_name = "tesla emergency resuscitation apparatus"
+	description = "An automatic internal defibrillator which can restart an intact stopped heart, including briefly after clinical death. It takes ten minutes to rearm after discharging."
+	path = /obj/item/organ/internal/augment/tesla_device/cardiac
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/diagnostic
+	display_name = "transdermal tesla diagnostic panel"
+	description = "An implanted diagnostic panel with a retractable hand-held probe. It displays scans of robots, prosthetics, and Tesla hardware through an integrated interface and includes an automatic maintenance annunciator."
+	path = /obj/item/organ/internal/augment/tesla_device/diagnostic
+	cost = 2
+
+/datum/gear/augment/tesla_accessory/charging_lead
+	display_name = "tesla mobile power system selection"
+	description = "An integrated induction charger which powers a compatible item held in its selected hand at roughly power-outlet speed. It supports modular-computer and handheld device cells, but not full-sized power cells."
+	path = /obj/item/organ/internal/augment/tesla_device/charging_lead
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/charging_lead/New()
+	..()
+	var/list/augs = list()
+	augs["tesla mobile power system, right hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead
+	augs["tesla mobile power system, left hand"] = /obj/item/organ/internal/augment/tesla_device/charging_lead/left
+	gear_tweaks += new /datum/gear_tweak/path(augs)
+
+/datum/gear/augment/tesla_accessory/thermal
+	display_name = "tesla thermal coils"
+	description = "Tesla-powered coils implanted across the body which can be switched between warming, cooling, and inactive modes."
+	path = /obj/item/organ/internal/augment/tesla_device/thermal
+	cost = 1
+
+/datum/gear/augment/tesla_accessory/voice
+	display_name = "tesla voice box"
+	description = "An implanted arc-discharge voice box which produces the Elektro'Siik accent and can temporarily overdrive its volume."
+	path = /obj/item/organ/internal/augment/synthetic_cords/voice/tesla
+	cost = 1
 
 // Faction items
 
@@ -830,4 +947,3 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 // All the rest
-

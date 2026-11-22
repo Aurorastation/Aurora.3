@@ -5,7 +5,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 	/// Amount of turfs that will be selected for destruction, randomized between its halved value (rand(max_turf_amount / 2, max_turf_amount))
 	var/max_turf_amount
 
-	/// Weighted assoc list that determines the destruction severity per picked turf, candidate is picked by `pick_weight()`
+	/// Weighted assoc list that determines the destruction severity per picked turf, candidate is picked by `pickweight()`
 	// we can't use integer numbers as a key, because Byond will flatten them and make this a regular list instead of assoc list
 	// we can't use defines like "[SEVERE_DESTRUCTION]" = 1 either without handling this in a proc, because non-constant. This shit is so ass
 	var/list/possible_severities = list(
@@ -45,7 +45,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 
 	var/chosen_severity
 	for(var/turf/T in picked_turfs)
-		chosen_severity = text2num(pick_weight(possible_severities)) // severity value that'll also affect every applicaple atom in turfs content
+		chosen_severity = text2num(pickweight(possible_severities)) // severity value that'll also affect every applicaple atom in turfs content
 		for(var/atom/thing in T.contents)
 			if(!thing.simulated || is_type_in_typecache(thing, ignored_atoms))
 				continue

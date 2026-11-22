@@ -11,12 +11,14 @@
 
 /obj/effect/visual/sparks/tick()
 	. = ..()
+	if (. == EFFECT_DESTROY)
+		return
 
 	var/turf/T = get_turf(src)
 	if(T)
 		T.hotspot_expose(1000, 100)
 
-	if (life_ticks < 2)
+	if (life_ticks == 1)
 		animate(src, alpha = 0, time = 2, easing = SINE_EASING | EASE_IN)
 
 /obj/effect/visual/sparks/start(var/direction)

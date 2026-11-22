@@ -11,7 +11,7 @@
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = get_map_sector(z)
 		if(color && istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)
@@ -20,6 +20,9 @@
 		resources[ORE_URANIUM] = rand(1,3)
 	if(prob(2))
 		resources[ORE_DIAMOND] = 1
+
+/turf/simulated/floor/exoplanet/grass/no_edge
+	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/grass/grove
 	desc = "Short grass is growing here."

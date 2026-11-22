@@ -41,15 +41,15 @@
 	var/list/out_list = list()
 
 	if(GLOB.config.assistant_maint)
-		out_list += list(ACCESS_MAINT_TUNNELS)
+		out_list += list(/datum/access/maint_tunnels::id)
 
 	switch(selected_title)
 		if("Lab Assistant")
-			out_list += list(ACCESS_RESEARCH)
+			out_list += list(/datum/access/research::id)
 		if("Technical Assistant")
-			out_list += list(ACCESS_ENGINE)
+			out_list += list(/datum/access/engine::id)
 		if("Medical Orderly")
-			out_list += list(ACCESS_MEDICAL, ACCESS_MORGUE)
+			out_list += list(/datum/access/medical::id, /datum/access/morgue::id)
 	return out_list
 
 /obj/outfit/job/assistant

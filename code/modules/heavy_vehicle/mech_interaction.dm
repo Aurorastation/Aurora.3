@@ -138,7 +138,13 @@
 				var/mob/ruser = src
 				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
 					ruser = user
+				var/obj/item/gun/mounted_gun
+				if(system_moved && istype(temp_system, /obj/item/gun))
+					mounted_gun = temp_system
+					mounted_gun.accuracy_user_override = user
 				temp_system.afterattack(A,ruser,adj,params)
+				if(mounted_gun)
+					mounted_gun.accuracy_user_override = null
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
 				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays
@@ -417,7 +423,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/strafe_move(mob/user, direction)
 	if (!legs)
@@ -441,7 +453,13 @@
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
 	else
-		Move(target_loc, direction, 0, FALSE)
+		trample_on_move = (user.m_intent == M_RUN && user.a_intent == I_HURT)
+		try
+			Move(target_loc, direction, 0, FALSE)
+		catch(var/exception/error)
+			trample_on_move = FALSE
+			log_exception(error)
+		trample_on_move = FALSE
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction, delay_modifier)
 	if (!legs || !can_turn(user, delay_modifier))
@@ -469,7 +487,13 @@
 	// They shouldn't get to this proc without legs in the first place, but its okay to guard here.
 	if (!legs || !legs.motivator)
 		return
+	trample_retry = FALSE
 	. = ..()
+	if(!. && trample_retry && loc != newloc)
+		// Retry normal movement after the collision made the target passable.
+		trample_retry = FALSE
+		. = ..()
+	trample_retry = FALSE
 	set_glide_size(DELAY_TO_GLIDE_SIZE(next_mecha_move - world.time))
 	if(. && !istype(loc, /turf/space))
 		if(legs.mech_step_sound)
@@ -491,6 +515,29 @@
 		for (var/mob/pilot in pilots)
 			to_chat(pilot, SPAN_WARNING("Your exosuit's legs spark as you attempt to control them!"))
 		spark(src, 3, GLOB.alldirs)
+
+/mob/living/heavy_vehicle/Collide(atom/movable/target_movable_atom)
+	if(!trample_on_move || !isliving(target_movable_atom))
+		return ..()
+
+	var/mob/living/target_mob = target_movable_atom
+	if(target_mob.mob_size > max_trample_size)
+		return ..()
+
+	var/was_lying = target_mob.lying
+	target_mob.apply_effect(2, WEAKEN)
+	if(target_mob.lying)
+		if(!was_lying)
+			visible_message(SPAN_DANGER("\The [src] knocks \the [target_mob] over!"))
+			trample_retry = TRUE
+		// Leave them here; entering their tile applies the existing trample damage.
+		return
+	return ..()
+
+/mob/living/heavy_vehicle/can_move_mob(mob/living/swapped, swapping = FALSE, passive = FALSE)
+	if(swapping)
+		return FALSE
+	return ..()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
 	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/phazon))
@@ -648,10 +695,14 @@
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/robotanalyzer))
-				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
-				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
-					if(limb)
-						limb.return_diagnostics(user)
+				var/obj/item/robotanalyzer/analyzer_item = attacking_item
+				if(istype(analyzer_item, /obj/item/robotanalyzer/augment/tesla))
+					var/obj/item/robotanalyzer/augment/tesla/tesla_analyzer = analyzer_item
+					if(!tesla_analyzer.has_tesla_power(user))
+						return
+				var/datum/component/robotics_analyzer/analyzer = analyzer_item.GetComponent(analyzer_item.analyzer_component_type)
+				if(analyzer)
+					analyzer.attack_mech(src, user)
 				return
 
 	return ..()
@@ -749,6 +800,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 		return
 	if(src == H)
 		return
+	if(H.mob_size > max_trample_size)
+		return
 
 	if(legs?.trample_damage)
 		if(ishuman(H))
@@ -785,7 +838,7 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	return 20
 
 /mob/living/heavy_vehicle/react_to_message(datum/say_message/msg)
-	if(can_listen())
+	if(ismob(msg.speaker) && can_listen())
 		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves

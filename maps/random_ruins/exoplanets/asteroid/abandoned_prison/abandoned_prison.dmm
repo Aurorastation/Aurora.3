@@ -2234,10 +2234,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/abandoned_prison/kitchen)
 "BI" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1;
-	color = "#dedede"
-	},
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/r_wall,
 /area/abandoned_prison/cells)
 "Ca" = (
 /obj/structure/machinery/light/colored/decayed{

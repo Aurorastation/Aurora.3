@@ -57,9 +57,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/atmos)
 "as" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship{
-	color = "#8c2b8c";
-	can_open = 1
+	color = "#8c2b8c"
 	},
 /area/ship/tirakqi_smuggler/starboard_hall)
 "at" = (
@@ -3094,9 +3094,9 @@
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "tA" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship{
-	color = "#a88da5";
-	can_open = 1
+	color = "#a88da5"
 	},
 /area/ship/tirakqi_smuggler/port_arm)
 "tD" = (
@@ -3900,9 +3900,9 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/port_arm)
 "xT" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship{
-	color = "#756299";
-	can_open = 1
+	color = "#756299"
 	},
 /area/ship/tirakqi_smuggler/med)
 "xU" = (
@@ -4851,7 +4851,10 @@
 /turf/template_noop,
 /area/space)
 "Dr" = (
-/turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main/fake,
+/obj/effect/map_effect/marker/fake_wall,
+/turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main{
+	color = "#5e4e9c"
+	},
 /area/shuttle/tirakqi_smuggler_shuttle)
 "Ds" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -7520,9 +7523,9 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/port_hall)
 "Us" = (
+/obj/effect/map_effect/marker/fake_wall,
 /turf/simulated/wall/shuttle/space_ship{
-	color = "#8c2b8c";
-	can_open = 1
+	color = "#8c2b8c"
 	},
 /area/ship/tirakqi_smuggler/port_hall)
 "Uu" = (

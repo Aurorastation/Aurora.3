@@ -15,7 +15,7 @@
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
 	icon_vend = "robotics-vend"
-	req_access = list(ACCESS_ROBOTICS)
+	req_access = list(/datum/access/robotics::id)
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/stack/cable_coil = 4,
@@ -49,6 +49,9 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "hephaestus"
 
+/obj/structure/machinery/vending/robotics
+	req_access = null
+
 /obj/item/vending_refill/robo
 	name = "robo-tools resupply canister"
 	vend_id = "robo-tools"
@@ -59,7 +62,7 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
-	req_access = list(ACCESS_ENGINE)
+	req_access = list(/datum/access/engine::id)
 	vend_id = "tools"
 	products = list(
 		/obj/item/multitool = 4,
@@ -86,6 +89,9 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
+/obj/structure/machinery/vending/engivend/noid
+	req_access = null
+
 /obj/structure/machinery/vending/engivend/low_supply
 	products = list(
 		/obj/item/multitool = 2,
@@ -106,7 +112,6 @@
 	icon_state = "tool"
 	icon_vend = "tool-vend"
 	vend_id = "tools"
-	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
 		/obj/item/stack/cable_coil/random = 10,
 		/obj/item/crowbar = 5,
@@ -156,7 +161,7 @@
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
 	icon_vend = "engi-vend"
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	vend_id = "tools"
 	products = list(
 		/obj/item/clothing/head/hardhat = 4,
@@ -195,6 +200,9 @@
 	light_color = COLOR_GOLD
 	manufacturer = "hephaestus"
 
+/obj/structure/machinery/vending/engineering/noid
+	req_access = null
+
 /obj/item/vending_refill/tools
 	name = "tools resupply canister"
 	vend_id = "tools"
@@ -207,7 +215,7 @@
 	product_ads = "Stop walkin, get talkin!;Get them keys!;Psst, got a minute?"
 	icon_state = "wallencrypt"
 	density = 0 //It is wall-mounted.
-	req_access = list(ACCESS_HOP)
+	req_access = list(/datum/access/hop::id)
 	vend_id = "encryption"
 	products = list(
 		/obj/item/encryptionkey/heads/captain = 1,

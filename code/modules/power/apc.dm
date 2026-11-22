@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(ACCESS_ENGINE_EQUIP)
+	req_access = list(/datum/access/engine_equip::id)
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
@@ -422,17 +422,17 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light_color(LIGHT_COLOR_BLUE)
-			set_light(L_WALLMOUNT_RANGE)
+			set_light(L_WALLMOUNT_RANGE, l_color = LIGHT_COLOR_BLUE)
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
+			var/new_light_color = light_color
 			switch(charging)
 				if(CHARGING_OFF)
-					set_light_color("#F86060")
+					new_light_color = "#F86060"
 				if(CHARGING_ON)
-					set_light_color("#A8B0F8")
+					new_light_color = "#A8B0F8"
 				if(CHARGING_FULL)
-					set_light_color("#82FF4C")
-			set_light(L_WALLMOUNT_RANGE)
+					new_light_color = "#82FF4C"
+			set_light(L_WALLMOUNT_RANGE, l_color = new_light_color)
 		else
 			set_light(0)
 
@@ -1548,7 +1548,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 /obj/structure/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP,ACCESS_RESEARCH,ACCESS_XENOBIOLOGY)
+	req_one_access = list(/datum/access/engine_equip::id,/datum/access/research::id,/datum/access/xenobiology::id)
 
 /obj/structure/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -1568,7 +1568,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(ACCESS_CAPTAIN)
+	req_access = list(/datum/access/captain::id)
 
 /obj/structure/machinery/power/apc/vault/north
 	dir = NORTH
@@ -1612,13 +1612,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
+		req_one_access = list(/datum/access/engine_equip::id, /datum/access/canary::id)
 
 // Construction site APC, starts turned off
 /obj/structure/machinery/power/apc/high/inactive
@@ -1703,6 +1703,28 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	pixel_x = -12
 
 /obj/structure/machinery/power/apc/empty/south
+	dir = SOUTH
+	pixel_y = -8
+
+/// APC preset with no access requirement.
+/// Intended for offships, away sites, and the like.
+/obj/structure/machinery/power/apc/noid
+	req_access = null
+	req_one_access = null
+
+/obj/structure/machinery/power/apc/noid/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/structure/machinery/power/apc/noid/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/structure/machinery/power/apc/noid/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/structure/machinery/power/apc/noid/south
 	dir = SOUTH
 	pixel_y = -8
 

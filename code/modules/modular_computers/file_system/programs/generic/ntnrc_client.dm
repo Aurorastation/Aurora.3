@@ -67,7 +67,7 @@
 	if(service_state <= PROGRAM_STATE_KILLED) // Killed or disabled.
 		computer.enable_service(null, user, src)
 	if(computer.hidden_uplink && syndi_auth)
-		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")
+		if(tgui_alert(user, "Resume or close and secure?", filedesc, list("Resume", "Close")) == "Resume")
 			computer.hidden_uplink.trigger(user)
 			return
 		else
@@ -129,7 +129,7 @@
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
-	data["can_netadmin_mode"] = can_run(user, FALSE, ACCESS_NETWORK)
+	data["can_netadmin_mode"] = can_run(user, FALSE, /datum/access/network::id)
 	data["message_mute"] = message_mute
 	if(active && active.can_interact(src))
 		var/ref = text_ref(active)
@@ -324,7 +324,7 @@
 			netadmin_mode = FALSE
 		else
 			var/mob/living/user = usr
-			if(can_run(user, TRUE, ACCESS_NETWORK))
+			if(can_run(user, TRUE, /datum/access/network::id))
 				netadmin_mode = TRUE
 		computer.update_static_data_for_all_viewers()
 		. = TRUE

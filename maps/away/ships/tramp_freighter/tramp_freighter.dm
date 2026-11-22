@@ -98,5 +98,4 @@
 	landmark_transition = "nav_transit_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_tramp_start"
 	defer_initialisation = TRUE

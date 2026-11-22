@@ -28,7 +28,7 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 	allowed = list(/obj/item/flashlight,/obj/item/tank,/obj/item/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
-	req_access = list(ACCESS_SYNDICATE)
+	req_access = list(/datum/access/syndicate::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
@@ -98,7 +98,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc/distress
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
-	req_access = list(ACCESS_DISTRESS)
+	req_access = list(/datum/access/distress::id)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,

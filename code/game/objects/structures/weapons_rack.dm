@@ -205,7 +205,7 @@
 				forced_open = TRUE
 
 		else
-			var/picked = pick_weight(list("burn_weapon" = 2, "explode_ammos" = 10, "nothing" = 80))
+			var/picked = pickweight(list("burn_weapon" = 2, "explode_ammos" = 10, "nothing" = 80))
 
 			//Burn down one of the guns
 			if(picked == "burn_weapon" && length(src.contents))

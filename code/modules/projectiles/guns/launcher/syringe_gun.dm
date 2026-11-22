@@ -73,12 +73,12 @@
 	slot_flags = SLOT_BELT
 
 	fire_sound = 'sound/weapons/click.ogg'
-	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	release_force = 10
 	throw_distance = 10
 
 	needspin = FALSE
+	has_unique_gun_action = TRUE
 
 	var/list/darts = list()
 	var/max_darts = 1
@@ -90,7 +90,7 @@
 		return next
 	return null
 
-/obj/item/gun/launcher/syringe/handle_post_fire()
+/obj/item/gun/launcher/syringe/post_fire()
 	..()
 	darts -= next
 	next = null
