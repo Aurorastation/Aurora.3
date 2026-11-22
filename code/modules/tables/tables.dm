@@ -7,6 +7,7 @@
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
+	supports_painting = TRUE
 	layer = TABLE_LAYER
 	build_amt = 1
 	surgery_surface = TRUE

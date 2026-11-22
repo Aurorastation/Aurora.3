@@ -12,6 +12,7 @@
 	var/scanning = FALSE
 	var/scanner_progress = 0
 	var/scanner_rate = 2.50
+	var/current_rate_multiplier = 1
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
@@ -88,6 +89,9 @@
 				return TRUE
 
 			if(closed)
+				var/rate_multiplier = 1
+				SEND_SIGNAL(usr, COMSIG_FORENSICS_USE_DNASCANNER, src, &rate_multiplier)
+				current_rate_multiplier = rate_multiplier
 				scanner_progress = 0
 				scanning = TRUE
 				to_chat(usr, SPAN_NOTICE("Scan initiated."))
@@ -121,7 +125,7 @@
 		else
 			//calculate time difference
 			var/deltaT = (world.time - last_process_worldtime) * 0.1
-			scanner_progress = min(100, scanner_progress + scanner_rate * deltaT)
+			scanner_progress = min(100, scanner_progress + scanner_rate * current_rate_multiplier * deltaT)
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/dnaforensics/proc/complete_scan()

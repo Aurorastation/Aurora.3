@@ -18,6 +18,7 @@
 
 	atmos_canpass = CANPASS_PROC
 	pass_flags_self = PASSGLASS
+	supports_painting = TRUE
 
 /obj/structure/machinery/door/window/Initialize(mapload)
 	. = ..()
@@ -163,6 +164,11 @@
 
 	//If it's in the process of opening/closing, ignore the click
 	if (operating)
+		return TRUE
+
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
 		return TRUE
 
 	//Emags and ninja swords? You may pass.

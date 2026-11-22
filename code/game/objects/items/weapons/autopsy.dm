@@ -41,7 +41,7 @@
 	return W
 
 /obj/item/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
-	if(!O.autopsy_data.len && !O.trace_chemicals.len) return
+	if(!O.autopsy_data.len && (!O.open || !O.trace_chemicals.len)) return
 
 	for(var/V in O.autopsy_data)
 		var/datum/autopsy_data/W = O.autopsy_data[V]
@@ -64,9 +64,10 @@
 		qdel(D.organs_scanned[O.name])
 		D.organs_scanned[O.name] = W.copy()
 
-	for(var/V in O.trace_chemicals)
-		if(O.trace_chemicals[V] > 0 && !chemtraces.Find(V))
-			chemtraces += V
+	if(O.open)
+		for(var/V in O.trace_chemicals)
+			if(O.trace_chemicals[V] > 0 && !chemtraces.Find(V))
+				chemtraces += V
 
 /obj/item/autopsy_scanner/verb/print_data()
 	set name = "Print Data"
@@ -177,7 +178,12 @@
 	if(!S)
 		to_chat(usr, SPAN_WARNING("You can't scan this body part."))
 		return
-	if(!S.open)
+	var/cancelled = FALSE
+	var/require_open_limb = TRUE
+	SEND_SIGNAL(user, COMSIG_FORENSICS_USE_AUTOPSY, M, S, &cancelled, &require_open_limb)
+	if(cancelled)
+		return
+	if(!S.open && require_open_limb)
 		to_chat(usr, SPAN_WARNING("You have to cut the limb open first!"))
 		return
 	for(var/mob/O in viewers(M))

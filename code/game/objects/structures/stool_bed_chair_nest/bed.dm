@@ -24,6 +24,7 @@
 	buckle_dir = SOUTH
 	buckle_lying = 1
 	build_amt = 2
+	supports_painting = TRUE
 	pass_flags_self = PASSTABLE
 	var/singleton/material/padding_material
 

@@ -91,6 +91,14 @@
 		/obj/item/implanter/anti_augment = 1
 	)
 
+/obj/item/storage/lockbox/anti_psionic
+	name = "lockbox of anti-psionic mindshield implants"
+	req_access = list(/datum/access/security::id)
+	starts_with = list(
+		/obj/item/implantcase/mindshield = 3,
+		/obj/item/implanter/mindshield = 1
+	)
+
 /obj/item/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."

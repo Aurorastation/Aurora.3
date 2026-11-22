@@ -127,9 +127,14 @@
 	// Group listeners by exact text perceived.
 	var/list/groups = list()
 	for(var/mob/listener in listeners)
-		if(!runechat_prefs_check(listener) || listener.ear_deaf)
+		if(!runechat_prefs_check(listener))
+			continue
+		var/clarity = listener.get_clarity(msg, feedback = FALSE)
+		if(clarity == CLARITY_NONE || clarity == CLARITY_DROWSY)
 			continue
 		var/perceived = msg.plain_text_for(listener)
+		if(clarity == CLARITY_FAINT)
+			perceived = stars(perceived)
 		if(!length(perceived))
 			continue
 		var/list/group = groups[perceived]
@@ -158,12 +163,12 @@
 	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "emote")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 	if("radio" in styles)
 		styles.Remove("radio")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"

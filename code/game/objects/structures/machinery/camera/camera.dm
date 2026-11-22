@@ -9,6 +9,7 @@
 	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	supports_painting = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_SMALL,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -193,6 +194,11 @@
 		destroy()
 
 /obj/structure/machinery/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	update_coverage()
 	// DECONSTRUCTION
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)

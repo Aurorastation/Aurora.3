@@ -1,4 +1,5 @@
 /obj/item/radio/electropack
+	shortwave_overlays = FALSE
 	name = "electropack"
 	desc = "Dance my monkeys! DANCE!!!"
 	icon_state = "electropack0"
