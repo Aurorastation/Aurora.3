@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added peac practice rounds to the operations ordering console."
+  - bugfix: "Fixed that practice rounds could embed as shrapnel."
