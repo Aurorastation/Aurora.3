@@ -241,3 +241,12 @@
   GeneralCamo:
   - rscdel: Held radios no longer print to runechat, replicating behavior in /tg/station.
   - bugfix: Radios now respect vacuum.
+2026-11-23:
+  Fenodyree:
+  - bugfix: Fixes practice rounds inheriting their parent bullet's armor penetration
+      value.
+  - bugfix: Fixes armor not stripping the bullet flags from bullets that have been
+      blocked by armor, which caused them to embed in organs and cause shrapnel even
+      if they were blocked.
+  - bugfix: Fixes the minimum embed chance remaining at 20% even if the bullet was
+      blocked by armor.
