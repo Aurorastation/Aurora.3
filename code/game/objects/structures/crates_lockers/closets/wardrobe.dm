@@ -380,20 +380,3 @@
 	new /obj/item/clothing/under/suit_jacket/really_black(src)
 	new /obj/item/clothing/under/suit_jacket/red(src)
 	new /obj/item/clothing/under/suit_jacket/white(src)
-
-/obj/structure/closet/autopsy
-	name = "autopsy wardrobe"
-	desc = "A storage unit for clothing worn during autopsies."
-
-/obj/structure/closet/autopsy/fill()
-	..()
-	for(var/i = 1 to 2)
-		new /obj/item/clothing/under/rank/medical/surgeon/pmc(src)
-		new /obj/item/clothing/head/surgery/pmc(src)
-		new /obj/item/clothing/suit/storage/surgical_gown/pmc(src)
-		new /obj/item/clothing/under/rank/medical/surgeon/zavod(src)
-		new /obj/item/clothing/head/surgery/zavod(src)
-		new /obj/item/clothing/suit/storage/surgical_gown/zavod(src)
-		new /obj/item/clothing/under/rank/medical/surgeon/idris(src)
-		new /obj/item/clothing/head/surgery/idris(src)
-		new /obj/item/clothing/suit/storage/surgical_gown/idris(src)

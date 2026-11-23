@@ -5081,6 +5081,9 @@
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 8
 	},
+/obj/structure/engineer_maintenance/pipe{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "aHz" = (
@@ -156540,12 +156543,10 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/engineer_maintenance/pipe{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/seafoam/full{
 	dir = 1
 	},
+/obj/structure/machinery/vending/wardrobe/horizon/surgical,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/surgery)
 "tYT" = (
@@ -183016,6 +183017,7 @@
 	dir = 10
 	},
 /obj/structure/machinery/firealarm/south,
+/obj/structure/machinery/vending/wardrobe/horizon/surgical,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
 "xlL" = (

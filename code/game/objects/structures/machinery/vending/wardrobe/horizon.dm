@@ -699,6 +699,38 @@
 	)
 	light_color = COLOR_PALE_BLUE_GRAY
 
+/obj/structure/machinery/vending/wardrobe/horizon/surgical
+	name = "SurgiDrobe"
+	desc = "A vending machine for dispensing surgical attire."
+	icon_state = "medidrobe"
+	product_ads = "Dress for the operation!;Keep your clothes clean and your evidence cleaner!;Surgical attire for surgical precision!"
+	vend_reply = "Thank you for using SurgiDrobe!"
+	products = list(
+		/obj/item/clothing/under/rank/medical/surgeon = 2,
+		/obj/item/clothing/under/rank/medical/surgeon/zeng = 2,
+		/obj/item/clothing/under/rank/medical/surgeon/pmc = 2,
+		/obj/item/clothing/under/rank/medical/surgeon/pmc/alt = 2,
+		/obj/item/clothing/under/rank/medical/surgeon/zavod = 2,
+		/obj/item/clothing/under/rank/medical/surgeon/idris = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/nt = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/zeng = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/pmc = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/pmc/alt = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/zavod = 2,
+		/obj/item/clothing/suit/storage/surgical_gown/idris = 2,
+		/obj/item/clothing/head/surgery = 2,
+		/obj/item/clothing/head/surgery/zeng = 2,
+		/obj/item/clothing/head/surgery/pmc = 2,
+		/obj/item/clothing/head/surgery/pmc/alt = 2,
+		/obj/item/clothing/head/surgery/zavod = 2,
+		/obj/item/clothing/head/surgery/idris = 2,
+		/obj/item/clothing/gloves/latex/nitrile = 2,
+		/obj/item/clothing/gloves/latex/nitrile/zeng = 2,
+		/obj/item/clothing/mask/surgical = 2,
+		/obj/item/clothing/mask/surgical/w = 2
+	)
+	light_color = COLOR_PALE_BLUE_GRAY
+
 /obj/structure/machinery/vending/wardrobe/horizon/chem
 	name = "ChemDrobe"
 	desc = "A vending machine for dispensing chemistry related clothing."
