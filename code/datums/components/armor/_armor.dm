@@ -80,11 +80,12 @@
 		key = get_armor_key(damage_type, damage_flags)
 	if(!key)
 		return 0
-
 	var/armor = max(0, get_value(key))
 	if(!armor)
 		return 0
 	var/armor_after_pen = max(0, armor - armor_pen)
+	if(!armor_after_pen)
+		return 0
 	var/efficiency = min(damage / (armor_range_mult * armor_after_pen), 1)
 	var/coef = damage <= armor_after_pen ? under_armor_mult : over_armor_mult
 	return max(1 - coef * efficiency, 0)
