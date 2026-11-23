@@ -40,8 +40,13 @@
 /// The floating bubbles currently shown for this atom.
 /atom/var/list/langchat_images
 
+/atom/var/langchat_timer
+
 /// Drops all active bubbles for this atom.
 /atom/proc/langchat_drop_images()
+	if(langchat_timer)
+		deltimer(langchat_timer)
+		langchat_timer = null
 	for(var/datum/langchat_bubble/entry as anything in langchat_images)
 		if (!entry || !entry.bubble)
 			continue
@@ -62,7 +67,7 @@
 	return (icon_size / 2) - (maptext_image.maptext_width / 2)
 
 /// Constructs a single floating langchat bubble showing maptext_string to the given listeners.
-/atom/proc/langchat_build_image(maptext_string, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+/atom/proc/langchat_build_image(maptext_string, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"), text_width = LANGCHAT_WIDTH)
 	if(!length(listeners))
 		return
 
@@ -79,7 +84,7 @@
 	langchat_configure_bubble(bubble, override_color)
 
 	bubble.maptext = generate_text_image(maptext_string, additional_styles)
-	bubble.maptext_width = LANGCHAT_WIDTH
+	bubble.maptext_width = text_width
 	bubble.maptext_x = get_maptext_x_offset(bubble)
 	bubble.loc = isturf(loc) ? src : recursive_holder_check(src)
 
@@ -117,7 +122,32 @@
 	langchat_build_image(message, shown, override_color, animation_style, additional_styles)
 
 	var/timer = (length(message) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+	langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+
+/atom/proc/langchat_long_speech(message, list/mob/listeners, datum/language/language)
+	langchat_drop_images()
+	if(!istext(message) || !length_char(message))
+		return
+
+	var/text_left
+	var/text_to_display = message
+	if(length_char(message) > LANGCHAT_LONGEST_TEXT)
+		text_to_display = copytext_char(message, 1, LANGCHAT_LONGEST_TEXT - 5) + "..."
+		text_left = "..." + copytext_char(message, LANGCHAT_LONGEST_TEXT - 5)
+
+	var/list/mob/shown = list()
+	for(var/mob/listener in listeners)
+		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf || !listener.say_understands(src, language))
+			continue
+		shown += listener
+	if(!length(shown))
+		return
+
+	langchat_build_image(text_to_display, shown, additional_styles = list("langchat_announce"), text_width = LANGCHAT_WIDTH * 2)
+	if(text_left)
+		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_long_speech), text_left, shown, language), 4 SECONDS, TIMER_STOPPABLE)
+	else
+		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), 6 SECONDS, TIMER_STOPPABLE)
 
 /// Floats a say message to every listener in view. Each listener receives their own perceived text based on
 /// their comprehension of the spoken languages. Identical text is grouped into a single bubble for performance.
@@ -150,7 +180,7 @@
 
 	// One-off timer for duration. Disappears for all listeners at the same time.
 	var/timer = (length(msg.to_string()) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
-	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+	langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 
 /// Builds the maptext span for a floating message.
 /atom/proc/generate_text_image(message, list/additional_styles = list("langchat"))
