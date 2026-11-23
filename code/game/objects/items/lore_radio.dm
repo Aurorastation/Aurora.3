@@ -83,7 +83,7 @@
 /// Station messages carry their language per broadcast; weather and untagged lines use the default.
 /obj/item/lore_radio/proc/say_broadcast(message, datum/language/language)
 	speech_language = language ? language.name : initial(speech_language)
-	return say(message, message_mods = list(SAY_MOD_VERB = "transmits", MODE_RELAY = TRUE), message_range = low_volume ? 1 : world.view, spans = list("lore-radio"), sanitize = FALSE)
+	return say(message, message_mods = list(SAY_MOD_VERB = "transmits", MODE_RELAY = TRUE, SAY_MOD_LONG_SPEECH = TRUE), message_range = low_volume ? 1 : world.view, spans = list("lore-radio"), sanitize = FALSE)
 
 /// Listens to when a weather change on this Z-level is broadcasted from a configured weather reader (survey probe), and reads it aloud
 /obj/item/lore_radio/proc/relay_weather_broadcast(var/datum/source, var/z_level, var/singleton/state_transition/weather/weather_transition, var/time_to_transition, var/broadcast_message)

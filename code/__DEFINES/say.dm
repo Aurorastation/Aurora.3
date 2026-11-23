@@ -12,6 +12,7 @@
 #define SAY_MOD_MESSAGE_MODE "say_message_mode"
 /// Message is being relayed through another object.
 #define MODE_RELAY "relayed"
+#define SAY_MOD_LONG_SPEECH "long_speech"
 
 /// Preparation completed and local dispatch should continue.
 #define SAY_PREPARE_CONTINUE 1

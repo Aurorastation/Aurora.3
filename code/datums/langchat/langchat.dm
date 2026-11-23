@@ -124,7 +124,7 @@
 	var/timer = (length(message) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
 	langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 
-/atom/proc/langchat_long_speech(message, list/mob/listeners, datum/language/language)
+/atom/proc/langchat_long_speech(message, list/mob/listeners, datum/language/language, list/additional_styles = list("langchat_announce"))
 	langchat_drop_images()
 	if(!istext(message) || !length_char(message))
 		return
@@ -132,8 +132,13 @@
 	var/text_left
 	var/text_to_display = message
 	if(length_char(message) > LANGCHAT_LONGEST_TEXT)
-		text_to_display = copytext_char(message, 1, LANGCHAT_LONGEST_TEXT - 5) + "..."
-		text_left = "..." + copytext_char(message, LANGCHAT_LONGEST_TEXT - 5)
+		var/split_point = findlasttext_char(copytext_char(message, 1, LANGCHAT_LONGEST_TEXT - 5), " ")
+		if(!split_point)
+			split_point = LANGCHAT_LONGEST_TEXT - 5
+		text_to_display = trim_right(copytext_char(message, 1, split_point))
+		if(!GLOB.correct_punctuation[copytext_char(text_to_display, -1)])
+			text_to_display += "..."
+		text_left = "..." + trim_left(copytext_char(message, split_point))
 
 	var/list/mob/shown = list()
 	for(var/mob/listener in listeners)
@@ -143,9 +148,9 @@
 	if(!length(shown))
 		return
 
-	langchat_build_image(text_to_display, shown, additional_styles = list("langchat_announce"), text_width = LANGCHAT_WIDTH * 2)
+	langchat_build_image(text_to_display, shown, additional_styles = additional_styles, text_width = LANGCHAT_WIDTH * 2)
 	if(text_left)
-		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_long_speech), text_left, shown, language), 4 SECONDS, TIMER_STOPPABLE)
+		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_long_speech), text_left, shown, language, additional_styles), 4 SECONDS, TIMER_STOPPABLE)
 	else
 		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), 6 SECONDS, TIMER_STOPPABLE)
 
