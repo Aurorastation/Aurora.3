@@ -61,7 +61,7 @@
 /obj/item/ano_scanner/interact(var/mob/user as mob)
 	if(world.time - last_scan_time >= scan_delay)
 		if(!power_supply.use_per_use(scan_power_cost))
-			to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
+			balloon_alert(user, "not enough charge!")
 			return
 		spawn(0)
 			scan()

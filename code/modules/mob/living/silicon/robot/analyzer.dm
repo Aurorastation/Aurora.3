@@ -56,7 +56,7 @@
 	if(!uses_device_cell)
 		return TRUE
 	if(!power_supply.use_per_use(scan_power_cost))
-		to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
+		balloon_alert(user, "not enough charge!")
 		return FALSE
 	return TRUE
 
@@ -77,7 +77,7 @@
 
 /obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(uses_device_cell && !power_supply?.has_charge(scan_power_cost))
-		to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
+		balloon_alert(user, "not enough charge!")
 		return
 	var/datum/component/robotics_analyzer/analyzer = GetComponent(analyzer_component_type)
 	if(analyzer)
