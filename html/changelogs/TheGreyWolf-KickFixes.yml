@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "It is no longer possible to kick someone/something you can't lift."
-  - bugfix: "Fixed kicking also making you pull items you're next to."
-  - bugfix: "Fixed kicking not knocking back simplemobs."

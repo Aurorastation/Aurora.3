@@ -250,3 +250,12 @@
       if they were blocked.
   - bugfix: Fixes the minimum embed chance remaining at 20% even if the bullet was
       blocked by armor.
+2026-11-24:
+  GeneralCamo:
+  - imageadd: Updated vent and scrubber sprites, with emissive indicators for active
+      operation and powered standby.
+  TheGreyWolf:
+  - rscadd: It is no longer possible to kick someone/something you can't lift.
+  - bugfix: Fixed kicking also making you pull items you're next to.
+  - bugfix: Fixed kicking not knocking back simplemobs.
+  - bugfix: Fixed some unintended behavior with chem dispenser persistence.
