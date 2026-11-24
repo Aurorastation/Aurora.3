@@ -119,7 +119,8 @@
 	if(msg.message_mods[MODE_AMPLIFIED] || msg.message_mods[MODE_RELAY] || msg.say_mode == SAYMODE_RADIO)
 		styles += "radio"
 	if(msg.message_mods[SAY_MOD_LONG_SPEECH] && msg.single_language && msg.base_clarity == CLARITY_CLEAR)
-		styles |= "langchat_announce"
+		if(msg.message_mods[MODE_AMPLIFIED])
+			styles |= "langchat_announce"
 		var/list/mob/long_listeners = list()
 		for(var/mob/listener in listeners)
 			if(listener.get_clarity(msg, feedback = FALSE) == CLARITY_CLEAR)
