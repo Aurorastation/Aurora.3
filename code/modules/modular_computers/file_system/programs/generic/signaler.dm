@@ -237,7 +237,7 @@
 			computer.output_notice(received_message, 0)
 		else
 			playsound(get_turf(computer), 'sound/machines/twobeep.ogg', 20, 1)
-			computer.audible_message("[icon2html(computer, viewers(1, get_turf(computer)))] [computer] beeps, \"[received_message]\"")
+			computer.audible_message("[icon2html(computer, viewers(1, get_turf(computer)))] [computer] beeps, \"[received_message]\"", audible_message_flags = LOCAL_MESSAGE)
 
 	SStgui.update_uis(src)
 	return TRUE

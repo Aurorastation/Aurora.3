@@ -18,7 +18,7 @@
 	zoom(owner, 6, 7, FALSE, FALSE)
 	owner.visible_message(
 		zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.",
-		range = 3
+		vision_distance = 3
 	)
 
 /obj/item/organ/internal/augment/enhanced_vision/emp_act(severity)

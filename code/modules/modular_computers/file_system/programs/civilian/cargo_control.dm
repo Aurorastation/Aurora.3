@@ -222,7 +222,7 @@
 					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
-					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		if("shipment_print")
 			var/datum/cargo_shipment/cs = SScargo.get_shipment_by_id(text2num(params["shipment_print"]))
 			if(cs?.completed && computer?.nano_printer)
@@ -239,7 +239,7 @@
 					P.stamped += /obj/item/stamp
 					P.AddOverlays(stampoverlay)
 					P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
-					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		if("bounty_print")
 			if(computer && computer.nano_printer)
 				var/text = ""
@@ -268,7 +268,7 @@
 					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
-					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 
 //Old code right here - Used to send a refresh command to the status screens incargo
 /datum/computer_file/program/civilian/cargocontrol/proc/post_signal(var/command)

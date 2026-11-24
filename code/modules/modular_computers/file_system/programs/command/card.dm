@@ -117,7 +117,7 @@
 					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
-					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 					. = TRUE
 
 		if("eject")
@@ -152,7 +152,7 @@
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
-						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."))
+						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."), visible_message_flags = LOCAL_MESSAGE)
 				else if(params["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num

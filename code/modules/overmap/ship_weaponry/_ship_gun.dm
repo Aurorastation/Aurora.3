@@ -108,7 +108,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 			add_damage(10)
 
 /obj/structure/machinery/ship_weapon/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] explodes in a shower of sparks and fire!")))
+	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] explodes in a shower of sparks and fire!")), visible_message_flags = LOCAL_MESSAGE)
 	explosion(get_turf(src), 5, 7, 9)
 	. = ..()
 

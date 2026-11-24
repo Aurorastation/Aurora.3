@@ -165,7 +165,7 @@
 				var/obj/item/card/emag/emagcard = attacking_item
 				emagcard.uses--
 				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"),
-								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
+								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"), visible_message_flags = LOCAL_MESSAGE)
 
 
 				status = STATUS_BROKEN
@@ -260,10 +260,10 @@
 			C.charge -= drainamount
 		else
 			C.charge = 0
-			visible_message(SPAN_DANGER("[src] beeps loudly and falls off \the [target]; its powercell having run out of power."))
+			visible_message(SPAN_DANGER("[src] beeps loudly and falls off \the [target]; its powercell having run out of power."), visible_message_flags = LOCAL_MESSAGE)
 			detach(0)
 	if (!C)
-		visible_message(SPAN_DANGER("[src] gives two shrill beeps and falls off \the [target]. No cell appears to be installed."))
+		visible_message(SPAN_DANGER("[src] gives two shrill beeps and falls off \the [target]. No cell appears to be installed."), visible_message_flags = LOCAL_MESSAGE)
 		detach(0)
 	last_process_time = world.time
 
@@ -444,7 +444,7 @@
 		health = 0
 
 	if (health <= 0)
-		visible_message(SPAN_DANGER("[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!"))
+		visible_message(SPAN_DANGER("[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!"), visible_message_flags = LOCAL_MESSAGE)
 		detach(0)
 		status = STATUS_BROKEN
 		update_icon()

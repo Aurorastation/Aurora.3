@@ -55,7 +55,7 @@
 		timestamp += time_recorded
 		stored_info += "\[[time2text(time_recorded*10,"mm:ss")]\] [strip_html_properly(text)]"
 
-/obj/item/taperecorder/show_message(msg, type, alt, alt_type)
+/obj/item/taperecorder/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	var/recordedtext
 	if(msg && type == 2) //must be hearable
 		recordedtext = msg
@@ -79,7 +79,7 @@
 
 /obj/item/taperecorder/proc/explode()
 	var/turf/T = get_turf(loc)
-	visible_message(SPAN_DANGER("\The [src] explodes!"))
+	visible_message(SPAN_DANGER("\The [src] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 	if(T)
 		T.hotspot_expose(700, 125)
 		explosion(T, -1, -1, 0, 4)
@@ -95,7 +95,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		return
 	icon_state = "taperecorder_recording"
 	if(time_recorded < 3600 && !playing)
@@ -123,7 +123,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		return
 	if(recording)
 		recording = FALSE
@@ -134,7 +134,7 @@
 		return
 	else if(playing)
 		playing = FALSE
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		icon_state = "taperecorder_idle"
 		return
 
@@ -147,7 +147,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		return
 	if(recording || playing)
 		to_chat(usr, SPAN_WARNING("You can't clear the memory while playing or recording!"))
@@ -185,30 +185,30 @@
 		var/playedmessage = stored_info[i]
 		if(findtextEx(playedmessage, "*" , 1, 2)) //remove marker for action sounds
 			playedmessage = copytext(playedmessage, 2)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: [playedmessage]</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: [playedmessage]</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		if(stored_info.len < i + 1)
 			play_sleep_seconds = 1
 			sleep(10)
-			audible_message("<font color=Maroon><B>Tape Recorder</B>: End of recording.</font>", hearing_distance = 3)
+			audible_message("<font color=Maroon><B>Tape Recorder</B>: End of recording.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		else
 			play_sleep_seconds = timestamp[i + 1] - timestamp[i]
 		if(play_sleep_seconds > 14)
 			sleep(10)
-			audible_message("<font color=Maroon><B>Tape Recorder</B>: Skipping [play_sleep_seconds] seconds of silence.</font>", hearing_distance = 3)
+			audible_message("<font color=Maroon><B>Tape Recorder</B>: Skipping [play_sleep_seconds] seconds of silence.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 			play_sleep_seconds = 1
 		i++
 	icon_state = "taperecorder_idle"
 	playing = FALSE
 	if(emagged)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: This tape recorder will self-destruct in... Five.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		sleep(15)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: Four.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: Four.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		sleep(15)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: Three.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: Three.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		sleep(15)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: Two.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: Two.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		sleep(15)
-		audible_message("<font color=Maroon><B>Tape Recorder</B>: One.</font>", hearing_distance = 3)
+		audible_message("<font color=Maroon><B>Tape Recorder</B>: One.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		sleep(15)
 		explode()
 
@@ -221,7 +221,7 @@
 		return
 	usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 	if(emagged)
-		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
+		src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 		return
 	if(!can_print)
 		to_chat(usr, SPAN_WARNING("\The [src] can't print that fast!"))
@@ -282,7 +282,7 @@
 			return
 		usr.visible_message("[SPAN_BOLD("\The [usr]")] presses a button on \the [src].")
 		if(emagged)
-			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3)
+			src.audible_message(SPAN_WARNING("\The [src] makes a scratchy noise."), hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 			return
 		icon_state = "taperecorder_recording"
 		if(time_recorded < 3600 && !playing)
@@ -316,7 +316,7 @@
 			return
 		else if(playing)
 			playing = FALSE
-			audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3)
+			audible_message("<font color=Maroon><B>Tape Recorder</B>: Playback stopped.</font>", hearing_distance = 3, audible_message_flags = LOCAL_MESSAGE)
 			icon_state = "taperecorder_idle"
 			return
 

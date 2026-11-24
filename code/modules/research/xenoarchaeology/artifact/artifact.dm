@@ -105,7 +105,7 @@
 					var/obj/structure/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
-				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))
+				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
 				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))

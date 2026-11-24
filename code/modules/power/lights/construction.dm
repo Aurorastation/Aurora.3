@@ -183,7 +183,7 @@
 
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from the [src]."),
-						SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+						SPAN_NOTICE("You remove \the [cell] from \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		cell.forceMove(get_turf(src))
 		user.put_in_hands(cell)
 		cell = null

@@ -43,7 +43,6 @@
 	if(damage <= 0)
 		return args.Copy()
 
-
 	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)
 	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
 
@@ -52,7 +51,7 @@
 	if(blocked >= armor_border_blocking)
 		if(damage_flags & DAMAGE_FLAG_LASER)
 			damage *= FLUIDLOSS_CONC_BURN/FLUIDLOSS_WIDE_BURN
-		damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE | DAMAGE_FLAG_LASER)
+		damage_flags &= ~(DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE | DAMAGE_FLAG_LASER | DAMAGE_FLAG_BULLET)
 	if(damage_type == DAMAGE_RADIATION)
 		damage = max(0, damage - 100 * blocked)
 		silent = TRUE
@@ -81,12 +80,14 @@
 		key = get_armor_key(damage_type, damage_flags)
 	if(!key)
 		return 0
-
-	var/armor = max(0, get_value(key) - armor_pen)
+	var/armor = max(0, get_value(key))
 	if(!armor)
 		return 0
-	var/efficiency = min(damage / (armor_range_mult * armor), 1)
-	var/coef = damage <= armor ? under_armor_mult : over_armor_mult
+	var/armor_after_pen = max(0, armor - armor_pen)
+	if(!armor_after_pen)
+		return 0
+	var/efficiency = min(damage / (armor_range_mult * armor_after_pen), 1)
+	var/coef = damage <= armor_after_pen ? under_armor_mult : over_armor_mult
 	return max(1 - coef * efficiency, 0)
 
 /datum/component/armor/proc/get_value(key)

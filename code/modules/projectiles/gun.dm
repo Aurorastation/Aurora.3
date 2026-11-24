@@ -528,7 +528,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 /// Equipment controllers opt in and verify that the weapon is still installed.
 /atom/proc/can_operate_gun(obj/item/gun/gun)
-	return FALSE
+		return FALSE
 
 /// called by a timer to remove the light range from muzzle flash
 /obj/item/gun/proc/reset_light_range(lightrange)
@@ -554,7 +554,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		balloon_alert_to_viewers("*click*", ignored_mobs = list(user))
 		balloon_alert(user, reason)
 	else
-		balloon_alert_to_viewers("*click*")
+		balloon_alert_to_hearers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
 	if(user && notify_empty)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
@@ -569,8 +569,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 				SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!")
 			)
 		else
-			src.visible_message(
-				SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
+			visible_message(SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -1105,10 +1104,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		return TRUE
 
 	if(pin && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
+		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
-				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

@@ -40,7 +40,7 @@
 		creator = our_creator
 
 /obj/structure/reagent_crystal/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	visible_message(SPAN_WARNING("\The [src] collapses into smaller crystals!"))
+	visible_message(SPAN_WARNING("\The [src] collapses into smaller crystals!"), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
 	qdel(src)
 
@@ -73,7 +73,7 @@
 	else if(attacking_item.force > 5)
 		user.do_attack_animation(src)
 		playsound(get_turf(src), 'sound/weapons/smash.ogg', 50)
-		visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]."))
+		visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(attacking_item.force * 4)
 
 /obj/structure/reagent_crystal/proc/mine_crystal(var/mob/user, var/time_to_dig, var/use_sound)
@@ -108,7 +108,7 @@
 	if(!damage || !environment_smash)
 		return FALSE
 	user.do_attack_animation(src)
-	visible_message(SPAN_WARNING("\The [user] [attack_message] \the [src]!"))
+	visible_message(SPAN_WARNING("\The [user] [attack_message] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	add_damage(health)
 	return TRUE
 
