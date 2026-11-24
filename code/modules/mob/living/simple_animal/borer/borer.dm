@@ -107,7 +107,7 @@
 /mob/living/simple_animal/borer/handle_regular_hud_updates()
 	. = ..()
 	if(chem_hud)
-		chem_hud.maptext = SMALL_FONTS(7, chemicals)
+		chem_hud.maptext = MAPTEXT_TINY_UNICODE(chemicals)
 
 /mob/living/simple_animal/borer/get_status_tab_items()
 	. = ..()

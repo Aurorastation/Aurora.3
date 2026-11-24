@@ -216,14 +216,14 @@
 		O.AddOverlays(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)
-				O.maptext = SMALL_FONTS(6, "[class] [designation]")
+				O.maptext = MAPTEXT_SPESSFONT("[class] [designation]")
 			else
-				O.maptext += SMALL_FONTS(6, " [class] [designation]")
+				O.maptext += MAPTEXT_SPESSFONT(" [class] [designation]")
 		else
 			if(!O.maptext)
-				O.maptext = SMALL_FONTS(6, "[capitalize_first_letters(name)]")
+				O.maptext = MAPTEXT_SPESSFONT("[capitalize_first_letters(name)]")
 			else
-				O.maptext = SMALL_FONTS(6, " [capitalize_first_letters(name)]")
+				O.maptext = MAPTEXT_SPESSFONT(" [capitalize_first_letters(name)]")
 		O.maptext_y = 32
 		O.maptext_x = -10
 		O.maptext_width = 72

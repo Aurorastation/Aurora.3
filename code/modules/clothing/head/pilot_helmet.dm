@@ -135,7 +135,7 @@
 		hud_overlay.screen_loc = "CENTER:-80,NORTH:-6" // text longer than 26 usually breaks into two lines, we need to shift the screen_loc else it looks weird
 	else
 		hud_overlay.screen_loc = initial(screen_loc)
-	hud_overlay.maptext = SMALL_FONTS(7, "<center>[text]</center>")
+	hud_overlay.maptext = MAPTEXT_SPESSFONT("<center>[text]</center>")
 
 /obj/item/clothing/head/helmet/pilot/scc
 	name = "conglomerate flight helmet"

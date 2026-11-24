@@ -279,10 +279,10 @@
 	proj_gen_time = 200
 
 /obj/item/gun/launcher/mech/get_hardpoint_maptext()
-	return "[proj]/[max_proj]"
+	return MAPTEXT_TINY_UNICODE("[proj]/[max_proj]")
 
 /obj/item/gun/energy/get_hardpoint_maptext()
-	return "[round(power_supply.charge / charge_cost)]/[max_shots]"
+	return MAPTEXT_TINY_UNICODE("[round(power_supply.charge / charge_cost)]/[max_shots]")
 
 /obj/item/gun/energy/get_hardpoint_status_value()
 	var/obj/item/cell/C = get_cell()
@@ -388,7 +388,7 @@
 	return charge / max_charge
 
 /obj/item/mecha_equipment/shield/get_hardpoint_maptext()
-	return "[(aura && aura.active) ? "ONLINE" : "OFFLINE"]: [round((charge / max_charge) * 100)]%"
+	return "[(aura && aura.active) ? "ONLINE" : "OFFLINE"]: " + MAPTEXT_TINY_UNICODE("[round((charge / max_charge) * 100)]%")
 
 /obj/item/mecha_equipment/shield/Destroy()
 	aura = null

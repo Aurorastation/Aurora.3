@@ -154,7 +154,7 @@
 
 /obj/item/plastique/cyborg/Initialize()
 	. = ..()
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Ready</span>"
 
 /obj/item/plastique/cyborg/attackby()
 	return
@@ -179,7 +179,7 @@
 	addtimer(CALLBACK(C4, PROC_REF(explode), get_turf(target)), timer)
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	can_deploy = FALSE
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charging</span>"
+	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Charging</span>"
 
 /obj/item/plastique/cyborg/proc/recharge()
 	if(isrobot(loc))
@@ -187,7 +187,7 @@
 		if(R?.cell)
 			R.cell.use(1000)
 	can_deploy = TRUE
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Ready</span>"
 
 /obj/item/plastique/dirty
 	name = "dirty bomb"

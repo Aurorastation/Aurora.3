@@ -279,11 +279,11 @@
 			vampire.blood_suck_hud = new /atom/movable/screen/vampire/suck()
 			client.screen += vampire.blood_suck_hud
 
-		vampire.blood_hud.maptext = SMALL_FONTS(7, vampire.blood_usable)
+		vampire.blood_hud.maptext = MAPTEXT_TINY_UNICODE(vampire.blood_usable)
 		if(vampire.frenzy)
 			if(!vampire.frenzy_hud.alpha)
 				animate(vampire.frenzy_hud, 1 SECOND, alpha = 255, LINEAR_EASING)
-			vampire.frenzy_hud.maptext = SMALL_FONTS(7, vampire.frenzy)
+			vampire.frenzy_hud.maptext = MAPTEXT_TINY_UNICODE(vampire.frenzy)
 		else
 			if(vampire.frenzy_hud.alpha)
 				animate(vampire.frenzy_hud, 1 SECOND, alpha = 0, LINEAR_EASING)

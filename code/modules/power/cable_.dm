@@ -635,7 +635,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	update_held_icon()
 	ClearOverlays()
 	AddOverlays(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
-	check_maptext(SMALL_FONTS(7, get_amount()))
+	check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)

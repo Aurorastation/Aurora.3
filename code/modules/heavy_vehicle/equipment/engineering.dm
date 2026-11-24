@@ -42,7 +42,7 @@
 	if(istype(MS) && MS.owner)
 		var/obj/item/cell/C = MS.owner.get_cell()
 		if(istype(C))
-			return "[round(C.charge)]/[round(C.maxcharge)]"
+			return MAPTEXT_TINY_UNICODE("[round(C.charge)]/[round(C.maxcharge)]")
 	return null
 
 /obj/item/rfd/construction/mounted/exosuit/get_hardpoint_status_value()
@@ -67,7 +67,7 @@
 	..()
 
 /obj/item/extinguisher/mech/get_hardpoint_maptext()
-	return "[reagents.total_volume]/[max_water]"
+	return MAPTEXT_TINY_UNICODE("[reagents.total_volume]/[max_water]")
 
 /obj/item/extinguisher/mech/get_hardpoint_status_value()
 	return reagents.total_volume/max_water

@@ -145,7 +145,7 @@ ABSTRACT_TYPE(/obj/item/mecha_equipment/mounted_system/mining)
 	if(!exosuit_ka.installed_cell)
 		return null
 
-	return "[exosuit_ka.get_ammo()]/[exosuit_ka.installed_cell.cell_increase / exosuit_ka.cost_increase]"
+	return MAPTEXT_TINY_UNICODE("[exosuit_ka.get_ammo()]/[exosuit_ka.installed_cell.cell_increase / exosuit_ka.cost_increase]")
 
 /obj/item/mecha_equipment/ore_summoner
 	name = "mounted ore summoner"

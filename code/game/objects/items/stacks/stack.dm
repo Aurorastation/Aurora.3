@@ -56,7 +56,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/item/stack/LateInitialize()
-	check_maptext(SMALL_FONTS(7, get_amount()))
+	check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 
 /obj/item/stack/Destroy()
 	if (src && usr && usr.machine == src)
@@ -65,7 +65,7 @@
 	return ..()
 
 /obj/item/stack/update_icon()
-	check_maptext(SMALL_FONTS(7, get_amount()))
+	check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 
 	if (!icon_has_variants)
 		return ..()
@@ -260,7 +260,7 @@
 			var/datum/matter_synth/S = synths[i]
 			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
 				return 0
-		check_maptext(SMALL_FONTS(7, get_amount()))
+		check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 		return 1
 
 /obj/item/stack/proc/add(var/extra)
@@ -277,7 +277,7 @@
 		for(var/i = 1 to uses_charge)
 			var/datum/matter_synth/S = synths[i]
 			S.add_charge(charge_costs[i] * extra)
-		check_maptext(SMALL_FONTS(7, get_amount()))
+		check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 
 /*
 	The transfer and split procs work differently than use() and add().

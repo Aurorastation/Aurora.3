@@ -81,3 +81,7 @@
 		. += overhang
 
 #undef INCLUDE_AC
+
+/proc/get_font_name(font_type)
+	var/singleton/font/font = GET_SINGLETON(font_type)
+	return font.name

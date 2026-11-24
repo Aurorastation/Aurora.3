@@ -30,7 +30,7 @@
 		icon_state = "[initial(icon_state)]-[amount]"
 	else
 		icon_state = "[initial(icon_state)]-empty"
-	check_maptext(SMALL_FONTS(7, amount))
+	check_maptext(MAPTEXT_TINY_UNICODE(amount))
 
 /obj/item/stack/nanopaste/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/application_time = time_to_apply // Local variant declared inside the proc so changes to it do not persist.

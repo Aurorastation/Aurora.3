@@ -127,7 +127,7 @@
 		. += "<b>Charging: [num2loadingbar(world.time / when_recharge)]</b>"
 
 /obj/item/syndie/teleporter/set_initial_maptext()
-	held_maptext = SMALL_FONTS(7, "Ready")
+	held_maptext = MAPTEXT_SPESSFONT("Ready")
 
 /obj/item/syndie/teleporter/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
@@ -158,9 +158,9 @@
 /obj/item/syndie/teleporter/use()
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
-	check_maptext(SMALL_FONTS(6, "Charge"))
+	check_maptext(MAPTEXT_SPESSFONT("Charge"))
 	when_recharge = world.time + recharge_time
 
 /obj/item/syndie/teleporter/proc/recharge()
 	ready_to_use = TRUE
-	check_maptext(SMALL_FONTS(7, "Ready"))
+	check_maptext(MAPTEXT_SPESSFONT("Ready"))
