@@ -84,7 +84,7 @@
 		if(visible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob))
 			var/bubble_text = perceived[2] == VISIBLE_MESSAGE ? raw_msg : blind_message
 			if(bubble_text)
-				langchat_build_image(bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
+				INVOKE_ASYNC(src, PROC_REF(langchat_build_image), bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
 
 	for(var/atom/movable/hearer as anything in objects)
 		if(ismob(src) && isobj(hearer))
@@ -129,7 +129,7 @@
 		var/bubble_text = perceived[2] == VISIBLE_MESSAGE ? raw_self_message : blind_message
 		if(bubble_text)
 			// Append self's bubble without clearing the audience bubbles created by the parent.
-			langchat_build_image(bubble_text, list(src), additional_styles = list("emote", "langchat_small"))
+			INVOKE_ASYNC(src, PROC_REF(langchat_build_image), bubble_text, list(src), additional_styles = list("emote", "langchat_small"))
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), 4 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 /**
@@ -194,7 +194,7 @@
 		if(audible_message_flags & EMOTE_MESSAGE && perceived[2] && runechat_prefs_check(hearing_mob))
 			var/bubble_text = perceived[2] == AUDIBLE_MESSAGE ? raw_msg : deaf_message
 			if(bubble_text)
-				langchat_build_image(bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
+				INVOKE_ASYNC(src, PROC_REF(langchat_build_image), bubble_text, list(hearing_mob), additional_styles = list("emote", "langchat_small"))
 
 	if(!(audible_message_flags & LOCAL_MESSAGE))
 		for(var/mob/observer as anything in GLOB.dead_mob_list)
@@ -229,7 +229,7 @@
 	if(perceived && perceived[2] && (audible_message_flags & EMOTE_MESSAGE) && runechat_prefs_check(src))
 		var/bubble_text = perceived[2] == AUDIBLE_MESSAGE ? raw_self_message : deaf_message
 		if(bubble_text)
-			langchat_build_image(bubble_text, list(src), additional_styles = list("emote", "langchat_small"))
+			INVOKE_ASYNC(src, PROC_REF(langchat_build_image), bubble_text, list(src), additional_styles = list("emote", "langchat_small"))
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), 4 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 /atom/proc/intent_message(message, range = DEFAULT_MESSAGE_RANGE, list/hearers = list())

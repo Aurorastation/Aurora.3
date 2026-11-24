@@ -155,7 +155,7 @@
 
 	var/list/mob/shown = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf || !listener.say_understands(src, language))
+		if(!runechat_prefs_check(listener) || listener.ear_deaf || !listener.say_understands(src, language))
 			continue
 		shown += listener
 	if(!length(shown))
