@@ -71,25 +71,38 @@
 	if(!length(listeners))
 		return
 
+	var/mob/measuring_listener = listeners[1]
+	var/client/measuring_client = measuring_listener?.client
+	if(!measuring_client)
+		return
+	LAZYINITLIST(langchat_images)
+	var/list/current_images = langchat_images
+	var/complete_text = generate_text_image(maptext_string, additional_styles)
+	var/measured_height
+	WXH_TO_HEIGHT(measuring_client.MeasureText(complete_text, null, text_width), measured_height)
+	if(QDELETED(src) || langchat_images != current_images || !measured_height)
+		return
+
 	var/image/bubble = image(null, src)
 	bubble.layer = 20
 	bubble.plane = RUNECHAT_PLANE
 	bubble.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
 	bubble.maptext_y = langchat_height - LANGCHAT_MESSAGE_POP_Y_SINK
-	bubble.maptext_height = 64
+	bubble.maptext_height = measured_height * 1.25
 	bubble.alpha = 0
 	bubble.color = override_color ? override_color : langchat_color
 	if(appearance_flags & PIXEL_SCALE)
 		bubble.appearance_flags |= PIXEL_SCALE
 	langchat_configure_bubble(bubble, override_color)
 
-	bubble.maptext = generate_text_image(maptext_string, additional_styles)
+	bubble.maptext = complete_text
 	bubble.maptext_width = text_width
 	bubble.maptext_x = get_maptext_x_offset(bubble)
 	bubble.loc = isturf(loc) ? src : recursive_holder_check(src)
 
 	for(var/mob/listener as anything in listeners)
-		listener.client.images += bubble
+		if(listener?.client)
+			listener.client.images += bubble
 
 	animate_style(bubble, animation_style)
 	LAZYADD(langchat_images, new /datum/langchat_bubble(bubble, listeners))
@@ -119,9 +132,9 @@
 	if(!length(shown))
 		return
 
-	langchat_build_image(message, shown, override_color, animation_style, additional_styles)
+	INVOKE_ASYNC(src, PROC_REF(langchat_build_image), message, shown, override_color, animation_style, additional_styles)
 
-	var/timer = (length(message) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
+	var/timer = (length(langchat_trim_message(message)) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
 	langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 
 /atom/proc/langchat_long_speech(message, list/mob/listeners, datum/language/language, list/additional_styles = list("langchat_announce"))
@@ -148,7 +161,7 @@
 	if(!length(shown))
 		return
 
-	langchat_build_image(text_to_display, shown, additional_styles = additional_styles, text_width = LANGCHAT_WIDTH * 2)
+	INVOKE_ASYNC(src, PROC_REF(langchat_build_image), text_to_display, shown, null, LANGCHAT_DEFAULT_POP, additional_styles, LANGCHAT_WIDTH * 2)
 	if(text_left)
 		langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_long_speech), text_left, shown, language, additional_styles), 4 SECONDS, TIMER_STOPPABLE)
 	else
@@ -180,21 +193,26 @@
 	if(!length(groups))
 		return
 
+	var/displayed_length = 0
 	for(var/perceived in groups)
-		langchat_build_image(perceived, groups[perceived], override_color, animation_style, additional_styles)
+		INVOKE_ASYNC(src, PROC_REF(langchat_build_image), perceived, groups[perceived], override_color, animation_style, additional_styles)
+		displayed_length = max(displayed_length, length(langchat_trim_message(perceived)))
 
 	// One-off timer for duration. Disappears for all listeners at the same time.
-	var/timer = (length(msg.to_string()) / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
+	var/timer = (displayed_length / LANGCHAT_LONGEST_TEXT) * 4 SECONDS + 2 SECONDS
 	langchat_timer = addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, langchat_drop_images)), timer, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+
+/proc/langchat_trim_message(message)
+	if(length_char(message) > LANGCHAT_LONGEST_TEXT)
+		return copytext_char(message, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
+	return message
 
 /// Builds the maptext span for a floating message.
 /atom/proc/generate_text_image(message, list/additional_styles = list("langchat"))
 	var/list/styles = additional_styles ? additional_styles.Copy() : list()
-	var/text_to_display = message
+	var/text_to_display = langchat_trim_message(message)
 	var/use_mob_style = TRUE
 
-	if(length_char(text_to_display) > LANGCHAT_LONGEST_TEXT)
-		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
 	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
