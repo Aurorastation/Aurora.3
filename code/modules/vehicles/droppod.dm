@@ -48,9 +48,9 @@
 	if(attacking_item.tool_behaviour == TOOL_WELDER && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.welding)
-			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
+			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."), visible_message_flags = LOCAL_MESSAGE)
 			if(attacking_item.use_tool(src, user, 200, volume = 50))
-				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
+				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"), visible_message_flags = LOCAL_MESSAGE)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
 				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
@@ -251,7 +251,7 @@
 
 /obj/vehicle/droppod/proc/pod_error()
 	playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-	visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+	visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."), visible_message_flags = LOCAL_MESSAGE)
 	status = READY
 	if(connected_blastdoor)
 		blastdoor_interact(TRUE)
@@ -259,7 +259,7 @@
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."), visible_message_flags = LOCAL_MESSAGE)
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -282,11 +282,11 @@
 		shake_camera(M, 5, 1)
 	forceMove(A)
 	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
-	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
+	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"), visible_message_flags = LOCAL_MESSAGE)
 
 	var/turf/belowturf = GET_TURF_BELOW(A)
 	if(belowturf)
-		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
+		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"), visible_message_flags = LOCAL_MESSAGE)
 	status = USED
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
@@ -297,7 +297,7 @@
 	for(var/obj/B in A)
 		if(B.simulated && B.density)
 			qdel(B)
-			B.visible_message(SPAN_DANGER("[B] is destroyed by the drop pod!"))
+			B.visible_message(SPAN_DANGER("[B] is destroyed by the drop pod!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/vehicle/droppod/proc/blastdoor_interact(var/open)
 	var/datum/wifi/sender/door/wifi_sender_blast = new(connected_blastdoor, src)

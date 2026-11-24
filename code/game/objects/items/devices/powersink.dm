@@ -62,7 +62,7 @@
 				else
 					anchored = 1
 					mode = 1
-					visible_message(SPAN_NOTICE("\The [user] attaches \the [src] to the cable!"))
+					visible_message(SPAN_NOTICE("\The [user] attaches \the [src] to the cable!"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				to_chat(user, SPAN_WARNING("\The [src] must be placed over an exposed cable to attach to it."))
 			return TRUE
@@ -71,7 +71,7 @@
 				STOP_PROCESSING(SSprocessing, src)
 			anchored = 0
 			mode = 0
-			visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the cable!"))
+			visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the cable!"), visible_message_flags = LOCAL_MESSAGE)
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
@@ -94,18 +94,18 @@
 	switch(mode)
 		if(1)
 			if(user)
-				visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("\The [src] suddenly starts to hum!"))
+				visible_message(SPAN_NOTICE("\The [src] suddenly starts to hum!"), visible_message_flags = LOCAL_MESSAGE)
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
 		if(2)
 			if(user)
-				visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("\The [src] suddenly goes quiet!"))
+				visible_message(SPAN_NOTICE("\The [src] suddenly goes quiet!"), visible_message_flags = LOCAL_MESSAGE)
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"

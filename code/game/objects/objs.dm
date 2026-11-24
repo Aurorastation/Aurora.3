@@ -312,7 +312,7 @@
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"), visible_message_flags = LOCAL_MESSAGE)
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
@@ -325,7 +325,7 @@
 	being_shocked = 0
 
 
-/obj/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/obj/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return
 
 //To be called from things that spill objects on the floor.

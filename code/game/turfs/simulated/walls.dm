@@ -195,11 +195,11 @@
 	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!"), visible_message_flags = LOCAL_MESSAGE) //!!OH SHIT!!
 
 /turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
+		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"), visible_message_flags = LOCAL_MESSAGE)
 		damage *= 10
 	. = ..()
 	update_icon()

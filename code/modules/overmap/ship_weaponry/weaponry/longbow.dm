@@ -45,7 +45,7 @@
 			if(SHIP_AMMO_IMPACT_HE)
 				explosion(epicenter, 6, 8, 10)
 			if(SHIP_AMMO_IMPACT_BUNKERBUSTER)
-				target.visible_message(SPAN_DANGER("<font size=5>\The [src] punches straight through \the [target]!</font>"))
+				target.visible_message(SPAN_DANGER("<font size=5>\The [src] punches straight through \the [target]!</font>"), visible_message_flags = (ismob(target) ? NONE : LOCAL_MESSAGE))
 				explosion(epicenter, 1, 2, 4)
 				target.ex_act(1)
 				if(!QDELING(target) && target.density)

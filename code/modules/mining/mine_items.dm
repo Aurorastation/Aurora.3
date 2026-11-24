@@ -436,7 +436,7 @@
 		icon_state = base_state
 		anchored = FALSE
 		set_light(0)
-		src.visible_message(SPAN_NOTICE("<b>[user]</b> turns \the [src] off."))
+		src.visible_message(SPAN_NOTICE("<b>[user]</b> turns \the [src] off."), visible_message_flags = LOCAL_MESSAGE)
 	else
 		..()
 
@@ -455,7 +455,7 @@
 	newflag.anchored = TRUE
 	newflag.name = newflag.singular_name
 	newflag.icon_state = "[newflag.base_state]_open"
-	newflag.visible_message(SPAN_NOTICE("<b>[user]</b> plants \the [newflag] firmly in the ground."))
+	newflag.visible_message(SPAN_NOTICE("<b>[user]</b> plants \the [newflag] firmly in the ground."), visible_message_flags = LOCAL_MESSAGE)
 	newflag.set_light(2)
 	src.use(1)
 
@@ -572,7 +572,7 @@
 	else if(!(locate(/obj/structure/track) in loc) && on) // Allow minecarts to off-track move, albeit slowly and only if not on a track already
 		if(move_delay == initial(move_delay))
 			move_delay = 10
-			visible_message(SPAN_WARNING("\The [src]'s rollers struggle to move without a track to follow!"), SPAN_WARNING("You hear a horrible grinding noise!"))
+			visible_message(SPAN_WARNING("\The [src]'s rollers struggle to move without a track to follow!"), blind_message = SPAN_WARNING("You hear a horrible grinding noise!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
 		else if(prob(50))
 			playsound(loc, 'sound/mecha/tanktread.ogg', 50, 1)
@@ -1219,7 +1219,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 
 /obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH)
-		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
+		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored
 

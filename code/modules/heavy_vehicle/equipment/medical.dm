@@ -62,7 +62,7 @@
 		return
 
 	//All good, load the person
-	visible_message(SPAN_NOTICE("\The [src] begins loading \the [target] into \the [src]."))
+	visible_message(SPAN_NOTICE("\The [src] begins loading \the [target] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()

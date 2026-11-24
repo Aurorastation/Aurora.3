@@ -49,7 +49,7 @@
 	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE
@@ -224,7 +224,7 @@
 
 	//also copied from matches
 	if(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
-		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"))
+		visible_message(SPAN_DANGER("\The [src] conflagrates violently!"), visible_message_flags = LOCAL_MESSAGE)
 		var/datum/effect/effect/system/reagents_explosion/e = new()
 		e.set_up(round(REAGENT_VOLUME(reagents, /singleton/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
@@ -245,7 +245,7 @@
 	//rags sitting around with 1 second of burn time left is dumb.
 	//ensures players always have a few seconds of burn time left when they light their rag
 	if(burn_time <= 5)
-		visible_message(SPAN_WARNING("\The [src] falls apart!"))
+		visible_message(SPAN_WARNING("\The [src] falls apart!"), visible_message_flags = LOCAL_MESSAGE)
 		if(istype(loc, /obj/item/reagent_containers/food/drinks/bottle))
 			var/obj/item/reagent_containers/food/drinks/bottle/B = loc
 			B.delete_rag()
@@ -258,7 +258,7 @@
 
 /obj/item/reagent_containers/glass/rag/process(seconds_per_tick)
 	if(!can_ignite())
-		visible_message(SPAN_WARNING("\The [src] burns out."))
+		visible_message(SPAN_WARNING("\The [src] burns out."), visible_message_flags = LOCAL_MESSAGE)
 		extinguish()
 
 	//copied from matches

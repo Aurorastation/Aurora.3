@@ -1,6 +1,7 @@
 /singleton/origin_item/culture/solarian
 	name = "Solarian"
 	desc = "Despite the loss of much of its territory during the Solarian Collapse of 2463, most of those that fall under the general umbrella of Solarian culture are citizens or belong to statelets affiliated with the Alliance of Sovereign Solarian Nations (ASSN). By and large, Solarians are generally perceived as xenophobic, nationalistic, and militarist. Non-humans, aside from Skrell, are generally rare on Solarian worlds, and many that do reside on them are treated as second-class citizens at best."
+	important_information = "Eridanian Suits and Reinstateds are capable of representing the Sol Alliance as Foreign Service Officers, but only with the Sol Alliance selected as their primary citizenship."
 	possible_origins = list(
 		/singleton/origin_item/origin/sol_system,
 		/singleton/origin_item/origin/earth,
@@ -119,7 +120,7 @@
 	desc = "The Eridani Corporate Federation is an autonomous member of the Solarian Alliance that is infamous abroad for its starkly divided society and extreme levels of corporate involvement in daily life. Corporations touch every aspect of Eridani, and its society is divided between corporate \"Suits\" that work for its companies and non-citizen \"Dregs\" that live off the scraps of society. Between the two, \"Reinstated Dregs\" chart an awkward balance: too corporate to be Dregs, but not corporate enough to be Suits."
 	important_information = "<b>Due to Epsilon Eridani being originally settled by colonists of West and Central African descent, human characters born in the Eridani Corporate Federation must have names and appearances consistent with the indigenous peoples of these regions as any human moving to the ECF would assimilate into the dominant cultures and ethnic groups of the federation. Eridani dregs have developed cultures of abstract or unconventional names however and this is tolerated.</b> Only native Eridanians may select the Eridanian accents. This is enforceable by server moderators and admins."
 	possible_accents = list(ACCENT_ERIDANI, ACCENT_ERIDANIREINSTATED)
-	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
+	possible_citizenships = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_BIESEL)
 	possible_religions = RELIGIONS_SOLARIAN
 	origin_traits = list(TRAIT_ORIGIN_NO_ANIMAL_PROTEIN)
 	origin_traits_descriptions = list("get sick if they eat animal protein that isn't tofu or seafood")
