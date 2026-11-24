@@ -1,0 +1,4 @@
+author: GeneralCamo
+delete-after: True
+changes:
+  - imageadd: "Updated vent and scrubber sprites, with emissive indicators for active operation and powered standby."
