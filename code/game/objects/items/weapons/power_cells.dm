@@ -85,7 +85,7 @@
 /datum/device_power_supply/proc/set_power(new_power, mob/user)
 	if(new_power && !has_charge())
 		if(user)
-			to_chat(user, SPAN_WARNING("\The [owner] has no usable power cell."))
+			balloon_alert(user, "no usable power cell!")
 		return FALSE
 
 	if(powered == new_power)
@@ -117,24 +117,24 @@
 
 /datum/device_power_supply/proc/install_cell(obj/item/cell/new_cell, mob/user)
 	if(!istype(new_cell, /obj/item/cell/device))
-		to_chat(user, SPAN_WARNING("\The [new_cell] is too large for \the [owner]."))
+		balloon_alert(user, "cell too large!")
 		return FALSE
 	if(cell)
-		to_chat(user, SPAN_WARNING("\The [owner] already has a power cell installed."))
+		balloon_alert(user, "cell already installed!")
 		return FALSE
 	if(!user.unEquip(new_cell))
 		return FALSE
 
 	new_cell.forceMove(owner)
 	cell = new_cell
-	to_chat(user, SPAN_NOTICE("You install \the [new_cell] in \the [owner]."))
+	balloon_alert(user, "cell installed")
 	playsound(owner, 'sound/machines/click.ogg', 30, TRUE)
 	owner.on_device_cell_changed()
 	return TRUE
 
 /datum/device_power_supply/proc/eject_cell(mob/user)
 	if(!cell)
-		to_chat(user, SPAN_WARNING("\The [owner] does not have a power cell installed."))
+		balloon_alert(user, "no cell to eject!")
 		return FALSE
 
 	set_power(FALSE, user)
@@ -142,7 +142,7 @@
 	cell = null
 	removed_cell.update_icon()
 	user.put_in_hands(removed_cell)
-	to_chat(user, SPAN_NOTICE("You remove \the [removed_cell] from \the [owner]."))
+	balloon_alert(user, "cell removed")
 	playsound(owner, 'sound/machines/click.ogg', 30, TRUE)
 	owner.on_device_cell_changed()
 	return TRUE

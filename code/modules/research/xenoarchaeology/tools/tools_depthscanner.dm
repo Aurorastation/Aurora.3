@@ -67,7 +67,7 @@
 
 /obj/item/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
 	if(!power_supply.use_per_use(scan_power_cost))
-		to_chat(user, SPAN_WARNING("\The [src] does not have enough charge to complete the scan."))
+		balloon_alert(user, "not enough charge!")
 		return
 	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
 	if(istype(A,/turf/simulated/mineral))

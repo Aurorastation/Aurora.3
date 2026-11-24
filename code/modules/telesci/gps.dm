@@ -140,7 +140,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	else
 		mark_offline()
 	if(user)
-		to_chat(user, SPAN_NOTICE("You switch [src] [powered ? "on" : "off"]."))
+		balloon_alert(user, "switched [powered ? "on" : "off"]")
 	update_icon()
 	update_compass(TRUE)
 	SStgui.update_uis(src)

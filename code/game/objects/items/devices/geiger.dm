@@ -69,7 +69,7 @@
 		else
 			STOP_PROCESSING(SSprocessing, src)
 		update_icon()
-		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [scanning ? "on" : "off"] [src]."))
+		balloon_alert(user, "switched [scanning ? "on" : "off"]")
 
 /obj/item/geiger/on_device_power_change(powered, mob/user)
 	scanning = powered
@@ -79,9 +79,9 @@
 		STOP_PROCESSING(SSprocessing, src)
 		update_sound(FALSE)
 	if(user)
-		to_chat(user, SPAN_NOTICE("[icon2html(src, user)] You switch [src] [powered ? "on" : "off"]."))
+		balloon_alert(user, "switched [scanning ? "on" : "off"]")
 	else if(!powered)
-		visible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
+		audible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
 	update_icon()
 
 /obj/item/geiger/get_cell()

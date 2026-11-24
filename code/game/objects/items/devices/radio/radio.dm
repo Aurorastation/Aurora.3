@@ -289,9 +289,9 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/on_device_power_change(powered, mob/user)
 	set_on(powered)
 	if(user)
-		to_chat(user, SPAN_NOTICE("You switch [src] [powered ? "on" : "off"]."))
+		balloon_alert(user, "switched [powered ? "on" : "off"]")
 	else if(!powered)
-		visible_message(SPAN_WARNING("\The [src] emits a low-power chirp and switches off."), range = 1)
+		audible_message(SPAN_WARNING("\The [src] emits a low-power chirp and switches off."), range = 1)
 	update_icon()
 	SStgui.update_uis(src)
 
