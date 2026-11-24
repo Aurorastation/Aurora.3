@@ -248,7 +248,7 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 
 /datum/unarmed_attack/palm/industrial
 	desc = "Striking your opponent with your palm. Certainly a method to do damage to flesh beneath the skin without risking your knuckles. This method of attack showcases some more restraint, but you're still going to lay on the hurt."
-	damage = 5
+	damage = 7
 
 /datum/unarmed_attack/kick
 	attack_verb = list("kicked", "kicked", "kicked", "kneed")
