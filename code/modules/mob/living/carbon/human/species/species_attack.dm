@@ -132,7 +132,7 @@
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("heavy fist")
 	desc = "Beat your opponent to death like you're a trash compactor and they're a piece of discarded Go-Go Gwok packaging! Murder has never been so efficient!"
-	damage = 15
+	damage = 13
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
 	shredding = TRUE
@@ -140,7 +140,7 @@
 	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/industrial/heavy
-	damage = 12
+	damage = 15
 
 /datum/unarmed_attack/industrial/xion
 	damage = 10
