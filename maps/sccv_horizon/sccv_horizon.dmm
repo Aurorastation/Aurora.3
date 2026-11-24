@@ -9766,6 +9766,8 @@
 	pixel_y = 17;
 	pixel_x = 5
 	},
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278
 	},
@@ -43384,7 +43386,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/primary/deck_3/central)
 "fDW" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -145996,7 +145997,6 @@
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/obj/structure/machinery/light/small/floor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
