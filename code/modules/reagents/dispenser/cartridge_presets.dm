@@ -8,9 +8,11 @@
 // Multiple
 /obj/item/reagent_containers/chem_disp_cartridge/sugar
 	spawn_reagent = /singleton/reagent/sugar
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/water
 	spawn_reagent = /singleton/reagent/water
+	is_persistent = TRUE
 
 // Chemistry
 /obj/item/reagent_containers/chem_disp_cartridge/acetone
@@ -80,51 +82,66 @@
 	// Bar, alcoholic
 /obj/item/reagent_containers/chem_disp_cartridge/ale
 	spawn_reagent = /singleton/reagent/alcohol/ale
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/applejack
 	spawn_reagent = /singleton/reagent/alcohol/applejack
 
 /obj/item/reagent_containers/chem_disp_cartridge/beer
 	spawn_reagent = /singleton/reagent/alcohol/beer
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/champagne
 	spawn_reagent = /singleton/reagent/alcohol/champagne
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/cognac
 	spawn_reagent = /singleton/reagent/alcohol/cognac
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/gin
 	spawn_reagent = /singleton/reagent/alcohol/gin
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/kahlua
 	spawn_reagent = /singleton/reagent/alcohol/coffee/kahlua
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/mead
 	spawn_reagent = /singleton/reagent/alcohol/mead
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/rum
 	spawn_reagent = /singleton/reagent/alcohol/rum
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/tequila
 	spawn_reagent = /singleton/reagent/alcohol/tequila
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/triplesec
 	spawn_reagent = /singleton/reagent/alcohol/triplesec
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/vermouth
 	spawn_reagent = /singleton/reagent/alcohol/vermouth
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/vodka
 	spawn_reagent = /singleton/reagent/alcohol/vodka
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/whiskey
 	spawn_reagent = /singleton/reagent/alcohol/whiskey
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/wine
 	spawn_reagent = /singleton/reagent/alcohol/wine
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/rice_beer
 	spawn_reagent = /singleton/reagent/alcohol/rice_beer
+	is_persistent = TRUE
 
 
 	// Bar, soft
@@ -142,27 +159,35 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/brownstar
 	spawn_reagent = /singleton/reagent/drink/brownstar
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/clean_kois
 	spawn_reagent = /singleton/reagent/kois/clean
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/cola
 	spawn_reagent = /singleton/reagent/drink/space_cola
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/dr_gibb
 	spawn_reagent = /singleton/reagent/drink/dr_gibb
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/grenadine
 	spawn_reagent = /singleton/reagent/drink/grenadine
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/ice
 	spawn_reagent = /singleton/reagent/drink/ice
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/icetea
 	spawn_reagent = /singleton/reagent/drink/icetea
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/lemon_lime
 	spawn_reagent = /singleton/reagent/drink/lemon_lime
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/lime
 	spawn_reagent = /singleton/reagent/drink/limejuice
@@ -175,21 +200,27 @@
 
 /obj/item/reagent_containers/chem_disp_cartridge/root_beer
 	spawn_reagent = /singleton/reagent/drink/root_beer
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/smw
 	spawn_reagent = /singleton/reagent/drink/spacemountainwind
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/sodawater
 	spawn_reagent = /singleton/reagent/drink/sodawater
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/spaceup
 	spawn_reagent = /singleton/reagent/drink/spaceup
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/tea
 	spawn_reagent = /singleton/reagent/drink/tea
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/tonic
 	spawn_reagent = /singleton/reagent/drink/tonic
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/watermelon
 	spawn_reagent = /singleton/reagent/drink/watermelonjuice
@@ -198,33 +229,42 @@
 	// Bar, coffee and tea
 /obj/item/reagent_containers/chem_disp_cartridge/chaitea
 	spawn_reagent = /singleton/reagent/drink/tea/chaitea
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/ciderhot
 	spawn_reagent = /singleton/reagent/drink/ciderhot
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/coffee
 	spawn_reagent = /singleton/reagent/drink/coffee
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/cream
 	spawn_reagent = /singleton/reagent/drink/milk/cream
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/espresso
 	spawn_reagent = /singleton/reagent/drink/coffee/espresso
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/fatshouter_milk
 	spawn_reagent = /singleton/reagent/drink/milk/adhomai
 
 /obj/item/reagent_containers/chem_disp_cartridge/greentea
 	spawn_reagent = /singleton/reagent/drink/tea/greentea
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/hot_coco
 	spawn_reagent = /singleton/reagent/drink/hot_coco
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/milk
 	spawn_reagent = /singleton/reagent/drink/milk
+	is_persistent = TRUE
 
 /obj/item/reagent_containers/chem_disp_cartridge/soymilk
 	spawn_reagent = /singleton/reagent/drink/milk/soymilk
+	is_persistent = TRUE
 
 
 // Bar, misc. mixed drink ingredients

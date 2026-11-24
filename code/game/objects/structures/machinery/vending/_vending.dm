@@ -64,6 +64,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	clicksound = SFX_BUTTON
 	manufacturer = "idris"
 	maxhealth = OBJECT_HEALTH_HIGH
+	supports_painting = TRUE
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
@@ -270,7 +271,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	// Associate mapped station vendors with their persistent stock.
 	var/turf/T = get_turf(src)
 	if(mapload && T && is_station_level(T.z) && persistent_stock)
-		persistent_stock_id = "[T.x]-[T.y]-[T.z]-[type]"
+		persistent_stock_id = "[type]-[T.x]-[T.y]-[T.z]"
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -294,6 +295,79 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 			product.amount = clamp(saved_amount, 0, product.max_amount)
 	persistent_stock_content = null
 
+/datum/persistent_vending_stock
+	/// The initially mapped vendor. Its current location is deliberately irrelevant.
+	var/obj/structure/machinery/vending/vendor
+
+/** Returns current stock, or null when the vendor no longer exists so its prior generic is left untouched. */
+/datum/persistent_vending_stock/proc/get_final_stock()
+	if(QDELETED(vendor))
+		return
+
+	var/list/vendor_stock = list()
+	for(var/datum/data/vending_product/product in vendor.product_records)
+		// Premium items and contraband are not part of normal persistent stock.
+		if(product.category != CAT_NORMAL)
+			continue
+		var/stock_key = "[product.product_path]|[product.category]"
+		vendor_stock[stock_key] = product.amount
+	return vendor_stock
+
+/singleton/persistent_type/generic/horizon_vending_stock
+	/// Persistent vending machines present on the Horizon, keyed by their generic attribute.
+	var/list/vending_stock_register = list()
+	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved stock.
+	var/stock_initialized = FALSE
+
+/** Loads saved stock and supplies it to mapped vendors for application during late initialization. */
+/singleton/persistent_type/generic/horizon_vending_stock/initialization_hook()
+	vending_stock_register = list()
+	stock_initialized = FALSE
+	if(!SSpersistence.map_supports_persistence)
+		return
+
+	for(var/obj/structure/machinery/vending/vendor in world)
+		CHECK_TICK
+		var/turf/vendor_turf = get_turf(vendor)
+		if(!vendor_turf || !is_station_level(vendor_turf.z) || !vendor.persistent_stock)
+			continue
+
+		var/persistent_stock_id = "[vendor.type]-[vendor_turf.x]-[vendor_turf.y]-[vendor_turf.z]"
+		vendor.persistent_stock_id = persistent_stock_id
+		var/datum/persistent_vending_stock/stock_record = new
+		stock_record.vendor = vendor
+		if(vending_stock_register[persistent_stock_id])
+			log_subsystem_persistence_error("Duplicate persistent vending attribute '[persistent_stock_id]' at [vendor_turf].")
+			continue
+		vending_stock_register[persistent_stock_id] = stock_record
+
+	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/horizon_vending_stock)
+	for(var/persistent_stock_id in saved_attributes)
+		CHECK_TICK
+		if(!length(persistent_stock_id))
+			continue
+		var/datum/persistent_vending_stock/stock_record = vending_stock_register[persistent_stock_id]
+		if(!stock_record)
+			continue
+		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_vending_stock, persistent_stock_id, skip_caching = TRUE)
+		var/list/vendor_stock = saved_generic?.content
+		if(!islist(vendor_stock))
+			continue
+		stock_record.vendor.persistent_stock_content = vendor_stock
+	stock_initialized = TRUE
+
+/** Saves stock for the initially mapped vendors without considering their current locations. */
+/singleton/persistent_type/generic/horizon_vending_stock/finalization_hook()
+	if(!stock_initialized)
+		return
+
+	for(var/persistent_stock_id in vending_stock_register)
+		CHECK_TICK
+		var/datum/persistent_vending_stock/stock_record = vending_stock_register[persistent_stock_id]
+		var/list/vendor_stock = stock_record.get_final_stock()
+		if(islist(vendor_stock))
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_vending_stock, vendor_stock, persistent_stock_id, expires_in_days = 7)
+
 /obj/structure/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
 	LoadComponent(/datum/component/leanable, dropping)
@@ -309,7 +383,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		var/image/E = emissive_appearance(icon, light_mask)
 		AddOverlays(E)
 	if(src.icon_screen)
-		var/image/I = image(icon, icon_screen)
+		var/image/I = overlay_image(icon, icon_screen, null, RESET_COLOR) // Paint only tints the casing, not the screen.
 		AddOverlays(I)
 
 /**
@@ -403,6 +477,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		return 1
 
 /obj/structure/machinery/vending/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	if(istype(attacking_item, /obj/item/debugger))
 		if(brand_intelligence_infected)
 			to_chat(user, SPAN_WARNING("\The [attacking_item] reads, \"Brand intelligence infection detected. Rectifying.\"."))
@@ -437,7 +516,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		var/handled = 0
 
 		if (currently_vending.amount < 1)
-			visible_message(SPAN_WARNING("\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"))
+			visible_message(SPAN_WARNING("\The [src] buzzes and flashes a message on its LCD: <b>\"Out of stock.\"</b>"), visible_message_flags = LOCAL_MESSAGE)
 			src.status_error = 1
 			playsound(src.loc, 'sound/machines/buzz-two.ogg', 35, 1)
 			currently_vending = null
@@ -470,9 +549,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		ClearOverlays()
 		if(src.panel_open)
 			AddOverlays("[initial(icon_state)]-panel")
+		if(!src.panel_open)
+			reset_light()
+			update_icon()
 		return TRUE
 	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL||attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(src.panel_open)
@@ -507,15 +590,21 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
+					user.visible_message(SPAN_NOTICE("<b>[usr]</b> has restocked \the [src] with \the [VR]!"),
+						SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
+					playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 10, 1)
+
 					if(!VR.charges)
 						to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 				else
 					to_chat(user, SPAN_WARNING("\The [VR] is not stocked for this type of vendor!"))
+					playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 			else
 				to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
+				playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 		else
 			to_chat(user, SPAN_WARNING("You must open \the [src]'s maintenance panel first!"))
+			playsound(src.loc, 'sound/machines/buzz-two.ogg', 25, 1)
 		return TRUE
 
 	else if(!is_borg_item(attacking_item))
@@ -552,7 +641,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	if(cashmoney.is_bundle())
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		cashmoney.deduct_credit_value(currently_vending.price)
 
 		if(cashmoney.worth <= 0)
@@ -562,7 +651,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		// Individual currency pieces cannot have worth different from their face value,
 		// so consume the piece and return change in the same currency.
 
-		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 		var/left = credit_value - currently_vending.price
 		user.drop_from_inventory(cashmoney,get_turf(src))
 
@@ -581,7 +670,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
  * successful, 0 if failed.
  */
 /obj/structure/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet, var/mob/user)
-	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
+	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
@@ -602,9 +691,9 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
  */
 /obj/structure/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
 	if(I==ID_container || ID_container == null)
-		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	else
-		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
@@ -875,7 +964,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
 		QDEL_NULL(coin)
 
-		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
+		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
 
 		R.amount--
@@ -1104,6 +1193,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
+		reset_light() // Sanity check
 		update_icon()
 	else
 		icon_state = icon_off
@@ -1152,7 +1242,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
 	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3))
-	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
+	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"), visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /// Screens go over the lighting layer. Sorry.
@@ -1172,6 +1262,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	name = "resupply canister"
 	desc = "A vending machine restock cart."
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
+	contained_sprite = TRUE
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
 	force = 16

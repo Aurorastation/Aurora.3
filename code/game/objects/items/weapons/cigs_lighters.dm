@@ -66,7 +66,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/match/attack_self(mob/user)
 	var/turf/location = get_turf(src)
 	new /obj/effect/decal/cleanable/ash(location)
-	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", range = 3)
+	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", vision_distance = 3)
 	qdel(src)
 
 /obj/item/flame/match/process()
@@ -84,7 +84,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/attack_self(mob/user as mob)
 	if(lit)
-		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", range = 3)
+		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", vision_distance = 3)
 		die(TRUE)
 	return ..()
 
@@ -92,7 +92,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	..()
 	if(attacking_item.isFlameSource() && !src.lit)
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
-		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", range = 3)
+		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", vision_distance = 3)
 		light()
 
 /obj/item/flame/match/dropped(mob/user)
@@ -234,7 +234,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
 		var/turf/T = get_turf(src)
-		T.visible_message(flavor_text)
+		T.visible_message(flavor_text, visible_message_flags = LOCAL_MESSAGE)
 		set_light_range_power_color(lit_light_radius, lit_light_power, lit_light_color)
 		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
@@ -622,7 +622,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		icon_state = icon_on
 		item_state = icon_on
 		var/turf/T = get_turf(src)
-		T.visible_message(flavor_text)
+		T.visible_message(flavor_text, visible_message_flags = LOCAL_MESSAGE)
 		START_PROCESSING(SSprocessing, src)
 		if(ismob(loc))
 			var/mob/living/M = loc
@@ -946,12 +946,12 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			if(istype(src, /obj/item/flame/lighter/zippo))
 				if(last_open <= world.time - 20) //Spam limiter.
 					last_open = world.time
-					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
+					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), vision_distance = 3)
 			else // cheap lighter.
 				if(prob(95))
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
-						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
+						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), vision_distance = 3)
 				else
 					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
@@ -962,7 +962,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 						user.apply_damage(2, DAMAGE_BURN,BP_R_HAND)
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
-						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), vision_distance = 3)
 		else
 			lit = FALSE
 			update_icon()
@@ -970,9 +970,9 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			if(last_close <= world.time - 20) //Spam limiter.
 				last_close = world.time
 				if(istype(src, /obj/item/flame/lighter/zippo))
-					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), vision_distance = 3)
 				else
-					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
+					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), vision_distance = 3)
 
 			set_light_on(FALSE)
 			STOP_PROCESSING(SSprocessing, src)

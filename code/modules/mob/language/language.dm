@@ -361,10 +361,7 @@
  *
  * Returns `TRUE` if the mob speaks the language, `FALSE` otherwise
  */
-/mob/proc/can_speak(datum/language/speaking)
-	SHOULD_NOT_SLEEP(TRUE)
-	SHOULD_BE_PURE(TRUE)
-
+/mob/can_speak(datum/language/speaking)
 	if(!istype(speaking))
 		stack_trace("No language supplied to check if it can be spoken!")
 		return FALSE
@@ -387,7 +384,7 @@
 GLOBAL_LIST_EMPTY(language_trigger_regex_cache)
 
 /// Returns a cached regex matching a language prefix at message start or after whitespace.
-/mob/proc/get_language_trigger_regex()
+/mob/get_language_trigger_regex()
 	var/list/prefixes = (client?.prefs?.language_prefixes?.len) ? client.prefs.language_prefixes : GLOB.config.language_prefixes
 	var/cache_key = jointext(prefixes, "")
 	. = GLOB.language_trigger_regex_cache[cache_key]

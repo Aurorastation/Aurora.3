@@ -23,28 +23,28 @@
 		if(WIRE_POWER)
 			if(!mend)
 				S.powered = FALSE
-				S.visible_message(SPAN_WARNING("\The [S] whines loudly."), range = 3)
+				S.visible_message(SPAN_WARNING("\The [S] whines loudly."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 			else
 				S.powered = TRUE
-				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), range = 3)
+				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 		if(WIRE_HACK)
 			if(!mend)
 				S.hacked = TRUE
-				S.visible_message(SPAN_WARNING("\The [S] starts beeping incessantly."), range = 3)
+				S.visible_message(SPAN_WARNING("\The [S] starts beeping incessantly."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 			else
 				S.hacked = FALSE
-				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), range = 3)
+				S.visible_message(SPAN_NOTICE("\The [S] hums soothingly."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 
 /datum/wires/tag_scanner/on_pulse(wire)
 	var/obj/item/ipc_tag_scanner/S = holder
 	switch(wire)
 		if(WIRE_POWER)
-			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BOOWEEEP!\""))
+			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BOOWEEEP!\""), visible_message_flags = LOCAL_MESSAGE)
 
 		if(WIRE_HACK)
-			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BEEYUUP!\""))
+			S.visible_message(SPAN_WARNING("[icon2html(S, viewers(get_turf(S)))] <b>[capitalize_first_letters(S.name)]</b> beeps, \"BEEYUUP!\""), visible_message_flags = LOCAL_MESSAGE)
 
 /datum/wires/tag_scanner/interactable(mob/user)
 	if(!..())

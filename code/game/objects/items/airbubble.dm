@@ -264,7 +264,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)"))
-	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is terring it from the inside!"))
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is terring it from the inside!"), visible_message_flags = LOCAL_MESSAGE)
 
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
@@ -275,7 +275,7 @@
 
 	breakout = FALSE
 	to_chat(escapee, SPAN_WARNING("You successfully break out! Tearing the bubble's walls!")) // holy shit this is hilarious
-	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!"))
+	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!"), visible_message_flags = LOCAL_MESSAGE)
 	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
 	playsound(loc, sound_to_play, 100, 1)
 	break_open()
@@ -518,11 +518,11 @@
 			if(tank_pressure <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
-				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"))
+				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
-			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"))
+			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)

@@ -97,6 +97,6 @@
 			return
 		I.forceMove(src)
 		loaded_item = I
-		visible_message(SPAN_NOTICE("\The [user] scoops \the [I] into \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] scoops \the [I] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		flick("portable_analyzer_load", src)
 		icon_state = "portable_analyzer_full"

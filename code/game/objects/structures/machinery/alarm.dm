@@ -295,6 +295,24 @@ pixel_x = 10;
 /obj/structure/machinery/alarm/warm/south
 	PRESET_SOUTH
 
+/// Alarm preset with no access requirement.
+/// Intended for offships, away sites, and the like.
+/obj/structure/machinery/alarm/noid
+	req_access = null
+	req_one_access = null
+
+/obj/structure/machinery/alarm/noid/north
+	PRESET_NORTH
+
+/obj/structure/machinery/alarm/noid/east
+	PRESET_EAST
+
+/obj/structure/machinery/alarm/noid/west
+	PRESET_WEST
+
+/obj/structure/machinery/alarm/noid/south
+	PRESET_SOUTH
+
 /// Air alarm parent objs for Horizon shuttles. Handles access control without needing to manually override anything in mapping.
 /obj/structure/machinery/alarm/shuttle
 	desc = "A device that controls the local air regulation machinery. This one is designed for use in shuttles."
@@ -485,7 +503,7 @@ pixel_x = 10;
 			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
-			"You hear a click and a faint electronic hum.")
+			blind_message = "You hear a click and a faint electronic hum.", visible_message_flags = LOCAL_MESSAGE)
 			update_icon()
 	else
 		//check for when we should stop adjusting temperature
@@ -493,7 +511,7 @@ pixel_x = 10;
 			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the compartment.",\
-			"You hear a click as a faint electronic humming stops.")
+			blind_message = "You hear a click as a faint electronic humming stops.", visible_message_flags = LOCAL_MESSAGE)
 			update_icon()
 
 	if (regulating_temperature)

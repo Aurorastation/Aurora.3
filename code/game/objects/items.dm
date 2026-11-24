@@ -881,13 +881,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 		if(H != user)
 			M.visible_message(
-				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
-				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
+				SPAN_DANGER("[user] stabs \the [M] in the [eyes.singular_name] with \the [src]!"),
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with \the [src]!")
 			)
 		else
 			user.visible_message( \
-				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
-				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with \the [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with \the [src]!")
 			)
 
 		eyes.take_damage(rand(3,4))

@@ -81,7 +81,7 @@
 			var/turf/T = get_turf(AM)
 
 			if(T)
-				T.visible_message(SPAN_WARNING("[assembly] is trying to inject [L]!"))
+				T.visible_message(SPAN_WARNING("[assembly] is trying to inject [L]!"), visible_message_flags = LOCAL_MESSAGE)
 
 			addtimer(CALLBACK(src, PROC_REF(finish_living_injection), L), 3 SECONDS)
 			return
@@ -134,12 +134,12 @@
 			return
 
 		T.take_blood(src, tramount)
-		visible_message(SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
+		visible_message(SPAN_NOTICE("[assembly] takes a blood sample from [target]."), visible_message_flags = LOCAL_MESSAGE)
 		activate_pin(2)
 		return
 
 	if(!target.reagents.total_volume)
-		visible_message(SPAN_NOTICE("[target] is empty."))
+		visible_message(SPAN_NOTICE("[target] is empty."), visible_message_flags = LOCAL_MESSAGE)
 		activate_pin(3)
 		return
 
@@ -176,7 +176,7 @@
 	if(trans)
 		message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
 		to_chat(L, SPAN_NOTICE("You feel a tiny prick!"))
-		visible_message(SPAN_WARNING("[assembly] injects [L]!"))
+		visible_message(SPAN_WARNING("[assembly] injects [L]!"), visible_message_flags = LOCAL_MESSAGE)
 		activate_pin(2)
 	else
 		activate_pin(3)

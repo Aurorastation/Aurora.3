@@ -178,11 +178,15 @@
 		playsound(loc, attack_sound, 50, 1, 1)
 
 /mob/living/CtrlClickOn(var/atom/A)
-	. = ..()
-
 	if(client && client.hardsuit_click_mode == 2) //HARDSUIT_MODE_CTRL_CLICK
 		if(HardsuitClickOn(A))
-			return
+			return TRUE
 
-	if(!. && a_intent == I_GRAB && length(available_maneuvers))
-		. = perform_maneuver(prepared_maneuver || available_maneuvers[1], A)
+	if(length(available_maneuvers))
+		var/maneuver = prepared_maneuver || available_maneuvers[1]
+		var/singleton/maneuver/selected_maneuver = ispath(maneuver) ? GET_SINGLETON(maneuver) : maneuver
+		if(selected_maneuver?.can_activate_with_intent(a_intent))
+			perform_maneuver(selected_maneuver, A)
+			return TRUE
+
+	return ..()

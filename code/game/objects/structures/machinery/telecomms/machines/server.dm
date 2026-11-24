@@ -46,7 +46,7 @@
 		log_entries.Cut(1, 2)
 
 	var/datum/comm_log_entry/log = new
-	var/mob/speaker = signal.speaker.resolve()
+	var/atom/movable/speaker = signal.speaker.resolve()
 
 	if(!istype(speaker))
 		return
@@ -59,7 +59,7 @@
 	var/race = "Unidentifiable"
 	if(ishuman(speaker) || isbrain(speaker))
 		race = "Sapient Species"
-	else if(speaker.isMonkey())
+	else if((ismob(speaker) && astype(speaker, /mob).isMonkey()))
 		race = "Monkey"
 	else if(issilicon(speaker) || isobj(speaker))
 		race = "Machinery"

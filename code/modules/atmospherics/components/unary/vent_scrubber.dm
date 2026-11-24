@@ -108,16 +108,19 @@
 	if(!istype(T))
 		return
 
-	if (welded)
-		icon_state = "weld"
-		return
+	var/scrubber_icon = "off"
+	var/list/light_overlays = list()
+	ClearOverlays()
 
-	if (!powered() || !use_power)
-		icon_state = "off"
-	else if (scrubbing)
-		icon_state = "on"
-	else
-		icon_state = "in"
+	if(welded)
+		scrubber_icon = "weld"
+	else if(powered())
+		var/light_state = !use_power ? "standby" : (scrubbing ? "on" : "in")
+		light_overlays += mutable_appearance(icon, light_state)
+		light_overlays += emissive_appearance(icon, "emissive-[light_state]")
+
+	icon_state = scrubber_icon
+	AddOverlays(light_overlays)
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/update_underlays()
 	if(..())

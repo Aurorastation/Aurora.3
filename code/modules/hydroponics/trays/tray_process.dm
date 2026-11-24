@@ -153,7 +153,7 @@
 		lastproduce = age
 		if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"), visible_message_flags = LOCAL_MESSAGE)
 
 	// If we're a vine which is not in a closed tray and is at least half mature, and there's no vine currently on our turf: make one (maybe)
 	if(!closed_system && GET_SEED_TRAIT(seed, TRAIT_SPREAD) == 2 && 2 * age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION) && !(locate(/obj/effect/plant) in get_turf(src)) && \

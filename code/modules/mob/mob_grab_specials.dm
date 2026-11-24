@@ -165,40 +165,40 @@
 			return
 	switch(hair_style.length)
 		if(0)
-			visible_message(SPAN_NOTICE("[assailant] tried to grab [target] but they have no hair!"))
+			visible_message(SPAN_NOTICE("[assailant] tried to grab [target] but they have no hair!"), visible_message_flags = LOCAL_MESSAGE)
 		if(1)
-			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname] before releasing their grip!"))
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname] before releasing their grip!"), visible_message_flags = LOCAL_MESSAGE)
 			target.apply_damage(5, DAMAGE_PAIN)
 		if(2)
-			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"))
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"), visible_message_flags = LOCAL_MESSAGE)
 			target.apply_damage(5, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(3)
-			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"))
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"), visible_message_flags = LOCAL_MESSAGE)
 			target.apply_damage(10, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(4)
-			visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!"))
+			visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!"), visible_message_flags = LOCAL_MESSAGE)
 			target.apply_damage(15, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(5)
 			if(prob(77))
-				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"))
+				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"), visible_message_flags = LOCAL_MESSAGE)
 				src.state = GRAB_PASSIVE
 			else
-				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"))
+				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"), visible_message_flags = LOCAL_MESSAGE)
 				target.apply_damage(10, DAMAGE_PAIN)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
 			if(prob(67))
-				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"))
+				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"), visible_message_flags = LOCAL_MESSAGE)
 				src.state = GRAB_PASSIVE
 				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
-				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"))
+				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"), visible_message_flags = LOCAL_MESSAGE)
 				target.apply_damage(15, DAMAGE_PAIN)
 				src.state = GRAB_AGGRESSIVE

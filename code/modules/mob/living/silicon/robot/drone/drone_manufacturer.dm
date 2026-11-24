@@ -61,7 +61,7 @@
 	drone_progress = round((elapsed/GLOB.config.drone_build_time) * 100)
 
 	if(drone_progress >= 100)
-		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."))
+		visible_message(SPAN_NOTICE("\The [src] voices a strident beep, indicating a drone chassis is prepared."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/drone_fabricator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -77,7 +77,7 @@
 		return
 
 	announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
-	visible_message(SPAN_NOTICE("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments."))
+	visible_message(SPAN_NOTICE("\The [src] churns and grinds as it lurches into motion, disgorging a shiny new drone after a few moments."), visible_message_flags = LOCAL_MESSAGE)
 	flick("h_lathe_leave", src)
 	intent_message(MACHINE_SOUND)
 
