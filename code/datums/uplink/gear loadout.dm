@@ -251,7 +251,7 @@
 
 /datum/uplink_item/item/gear_loadout/siib
 	name = "SIIB Assets (Group)"
-	desc = "A crate containing gear for a group. While most of the gear is usable by none humans, what is a none human doing in this gear anyway?"
+	desc = "A crate containing gear for a group. While most of the gear is usable by non-humans, what is a non-human doing in this gear anyway?"
 	path = /obj/structure/closet/crate/secure/gear_loadout/siib
 	telecrystal_cost = 35
 
