@@ -2,14 +2,14 @@
 /// Can be used in TGUI etc, px sizing is pt / 0.75. 6pt = 8px, 12pt = 16px etc.
 
 /// Base font
-/datum/font/grand9k
+/singleton/font/grand9k
 	name = "Grand9K Pixel"
 	font_family = 'interface/fonts/Grand9K_Pixel.ttf'
 
 /// For icon overlays
 /// Grand9K 6pt metrics generated using Lummox's dmifontsplus (https://www.byond.com/developer/LummoxJR/DmiFontsPlus)
 /// Note: these variable names have been changed, so you can't straight copy/paste from dmifontsplus.exe
-/datum/font/grand9k/size_6pt
+/singleton/font/grand9k/size_6pt
 	name = "Grand9K Pixel 6pt"
 	height = 12
 	ascent = 10

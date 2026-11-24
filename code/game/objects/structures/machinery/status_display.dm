@@ -6,7 +6,7 @@
 #define LINE1_Y -4
 #define LINE2_X 1
 #define LINE2_Y -11
-#define STATUS_DISPLAY_FONT_DATUM /datum/font/tiny_unicode/size_12pt
+#define STATUS_DISPLAY_FONT /singleton/font/tiny_unicode/size_12pt
 
 // Status display
 // (formerly Countdown timer display)
@@ -136,7 +136,7 @@
 	var/line1_metric
 	var/line2_metric
 	var/line_pair
-	var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
+	var/singleton/font/display_font = GET_SINGLETON(STATUS_DISPLAY_FONT)
 	line1_metric = display_font.get_metrics(message1)
 	line2_metric = display_font.get_metrics(message2)
 	line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
@@ -295,7 +295,7 @@
 	maptext_y = yoffset
 	message = line
 
-	var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
+	var/singleton/font/display_font = GET_SINGLETON(STATUS_DISPLAY_FONT)
 	var/line_width = display_font.get_metrics(line)
 
 	if(line_width > MAX_STATIC_WIDTH)
@@ -363,4 +363,4 @@
 #undef LINE1_Y
 #undef LINE2_X
 #undef LINE2_Y
-#undef STATUS_DISPLAY_FONT_DATUM
+#undef STATUS_DISPLAY_FONT

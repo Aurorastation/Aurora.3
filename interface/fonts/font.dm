@@ -1,5 +1,8 @@
+/// Include leading A width and trailing C width in GetWidth() or in DrawText()
+#define INCLUDE_AC (1<<0)
+
 /// A font datum, it exists to define a custom font to use in a span style later.
-/datum/font
+/singleton/font
 	/// Font name, just so people know what to put in their span style.
 	var/name
 	/// The font file we link to.
@@ -36,7 +39,7 @@
 
 /// Get font metrics
 /// From Lummox's dmifontsplus (https://www.byond.com/developer/LummoxJR/DmiFontsPlus)
-/datum/font/proc/get_metrics(text, flags, first_line)
+/singleton/font/proc/get_metrics(text, flags, first_line)
 	. = 0
 	var/longest = 0
 	if(!length(text))
@@ -76,3 +79,5 @@
 	. = max(. + first_line, longest)
 	if(. > 0)
 		. += overhang
+
+#undef INCLUDE_AC
