@@ -145997,7 +145997,6 @@
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/obj/structure/machinery/light/small/floor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
