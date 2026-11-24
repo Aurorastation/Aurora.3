@@ -148,14 +148,14 @@
 	var/turf/T = get_turf(get_step(src,dir))
 	suspension_field = new(T)
 	suspension_field.field_type = field_type
-	visible_message(SPAN_NOTICE("\The [src] activates with a soft beep."))
+	visible_message(SPAN_NOTICE("\The [src] activates with a soft beep."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/machines/softbeep.ogg', 40)
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/machinery/suspension_gen/proc/deactivate()
 	STOP_PROCESSING(SSprocessing, src)
-	visible_message(SPAN_NOTICE("\The [src] deactivates with a gentle shudder and a soft tone."))
+	visible_message(SPAN_NOTICE("\The [src] deactivates with a gentle shudder and a soft tone."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/machines/softbeep.ogg', 40)
 	QDEL_NULL(suspension_field)
 	update_icon()

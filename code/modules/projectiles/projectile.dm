@@ -469,7 +469,7 @@
 		var/miss_modifier = max(15*(distance-1) - round(25*accuracy), 0)
 		def_zone = get_zone_with_miss_chance(aimed_zone, selected_target, miss_modifier, (distance > 1 || original != selected_target), point_blank)
 		if (!def_zone)
-			selected_target.visible_message(SPAN_NOTICE("\The [src] misses [selected_target] narrowly!"))
+			selected_target.visible_message(SPAN_NOTICE("\The [src] misses [selected_target] narrowly!"), visible_message_flags = (ismob(selected_target) ? NONE : LOCAL_MESSAGE))
 			impacted[WEAKREF(selected_target)] = TRUE
 			selected_target = select_target(T, selected_target, A)
 			if(!selected_target)

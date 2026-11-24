@@ -20,9 +20,9 @@
 
 /obj/structure/clearing/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/minihoe))
-		visible_message(SPAN_NOTICE("\The [user] starts adjusting the \the [src]"))
+		visible_message(SPAN_NOTICE("\The [user] starts adjusting the \the [src]"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
-			visible_message(SPAN_NOTICE("\The [user] adjusts \the [src]!"))
+			visible_message(SPAN_NOTICE("\The [user] adjusts \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			qdel(src)
 		else
 			to_chat(user, SPAN_NOTICE("You stop adjusting the terrain."))

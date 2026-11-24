@@ -39,22 +39,22 @@
 		if(istype(target, /obj/structure/machinery/door/firedoor))
 			var/obj/structure/machinery/door/firedoor/FD = target
 			if(FD.blocked)
-				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"), visible_message_flags = LOCAL_MESSAGE)
 				if(do_after(user, 10 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
 					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
 					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 					FD.blocked = FALSE
 					INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, open))
-					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"), visible_message_flags = LOCAL_MESSAGE)
 				if(do_after(user, 4 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && !FD.blocked)
 					if(FD.density)
-						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"), visible_message_flags = LOCAL_MESSAGE)
 						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, open))
 					else
-						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"), visible_message_flags = LOCAL_MESSAGE)
 						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/structure/machinery/door/firedoor, close))
 			return
@@ -66,7 +66,7 @@
 			if(!AD.operating)
 				playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 100, 1, ignore_walls = TRUE)
 				if(AD.welded || AD.locked)
-					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"), visible_message_flags = LOCAL_MESSAGE)
 					var/time_to_open = 15 SECONDS
 					if(AD.welded && AD.locked)
 						time_to_open = 30 SECONDS
@@ -75,21 +75,21 @@
 						AD.locked = FALSE
 						AD.update_icon()
 						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
-						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"), visible_message_flags = LOCAL_MESSAGE)
 						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, open), TRUE)
 						break_door(AD)
 				else
-					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"), visible_message_flags = LOCAL_MESSAGE)
 					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
 							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, open), TRUE)
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
-							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"), visible_message_flags = LOCAL_MESSAGE)
 							break_door(AD)
 						else
 							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/structure/machinery/door/airlock, close), TRUE)
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
-							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"), visible_message_flags = LOCAL_MESSAGE)
 							break_door(AD)
 			return
 
@@ -138,7 +138,7 @@
 		return
 
 	playsound(Airlock, 'sound/effects/meteorimpact.ogg', 100, 1, ignore_walls = TRUE)
-	Airlock.visible_message(SPAN_DANGER("\The [Airlock]'s bolts give off a deafening mechanical screech as they are torn apart."))
+	Airlock.visible_message(SPAN_DANGER("\The [Airlock]'s bolts give off a deafening mechanical screech as they are torn apart."), visible_message_flags = LOCAL_MESSAGE)
 	Airlock.bolt_cut_state = 2
 	Airlock.set_broken()
 
@@ -628,7 +628,7 @@
 	if(!sleeper.occupant)
 		to_chat(user, SPAN_WARNING("There's no one to eject!"))
 	else
-		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
+		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."), visible_message_flags = LOCAL_MESSAGE)
 		sleeper.go_out()
 		icon_state = "mecha_passenger_open"
 		update_icon()

@@ -148,7 +148,7 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 				return TRUE
 			if(both_sides_seated() && game_status == "waiting")
 				game_status = "playing"
-			visible_message(SPAN_NOTICE("[user] takes the [chosen_color == CHESS_WHITE ? "white" : "black"] side at [src]."))
+			visible_message(SPAN_NOTICE("[user] takes the [chosen_color == CHESS_WHITE ? "white" : "black"] side at [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 		if("start_solo")
 			if(!isliving(user) || !Adjacent(user))
@@ -167,7 +167,7 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 			else
 				black_player = user
 			game_status = "playing"
-			visible_message(SPAN_NOTICE("[user] starts a solo game at [src]."))
+			visible_message(SPAN_NOTICE("[user] starts a solo game at [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 		if("leave")
 			if(user == white_player)
@@ -214,7 +214,7 @@ GLOBAL_DATUM_INIT(chessboard_state, /datum/ui_state/chessboard_state, new)
 				game_status = "white_wins"
 			else
 				return TRUE
-			visible_message(SPAN_NOTICE("[user] resigns their game at [src]."))
+			visible_message(SPAN_NOTICE("[user] resigns their game at [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 		if("reset")
 			if(user != white_player && user != black_player)

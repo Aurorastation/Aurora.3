@@ -400,7 +400,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
-			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			balloon_alert(user, SPAN_GREEN("CLEAR"))
 			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
@@ -490,8 +490,8 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	ejected_magazine.forceMove(get_turf(src))
 	if(user)
 		user.visible_message(
-			"[ejected_magazine] falls out and clatters on the floor!",
-			SPAN_NOTICE("[ejected_magazine] falls out and clatters on the floor!")
+			"[ammo_magazine] falls out and clatters on the floor!",
+			SPAN_NOTICE("[ammo_magazine] falls out and clatters on the floor!")
 			)
 	playsound(user || src, ejected_magazine.eject_sound, 40, FALSE)
 	ejected_magazine.update_icon()

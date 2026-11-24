@@ -393,7 +393,7 @@
 		if(coils_discharged_to)
 			playsound(src, 'sound/magic/lightningbolt.ogg', 40, TRUE)
 
-		visible_message(SPAN_DANGER("\The [src] fails to warp completely, not finding all the warper receivers!"))
+		visible_message(SPAN_DANGER("\The [src] fails to warp completely, not finding all the warper receivers!"), visible_message_flags = LOCAL_MESSAGE)
 		purge_charge(forced = TRUE)
 
 	else
@@ -440,7 +440,7 @@
 
 	deltimer(initiate_jump_timer_id)
 	exit_bluespace()
-	visible_message(SPAN_DANGER("\The [src] bluespace warp bubble constriction field falthers, discharging!"))
+	visible_message(SPAN_DANGER("\The [src] bluespace warp bubble constriction field falthers, discharging!"), visible_message_flags = LOCAL_MESSAGE)
 
 
 /obj/structure/machinery/bluespacedrive/proc/apply_bluespace_effect(mob/living/M)
@@ -661,7 +661,7 @@
 			var/success = linked_bluespace_drive.initiate_jump()
 			if(!success)
 				visible_message(SPAN_NOTICE("\The [src] buzzes, flashing \"Unable to acquire bluespace path: Destination unreachable, same as current position \
-											or jump already in progress\"!"))
+											or jump already in progress\"!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

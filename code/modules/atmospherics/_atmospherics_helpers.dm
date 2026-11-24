@@ -50,10 +50,10 @@
 		A.last_mole_transfer = transfer_moles
 
 		if (A.debug)
-			A.visible_message("[A]: source entropy: [round(source.specific_entropy(), 0.01)] J/Kmol --> sink entropy: [round(sink.specific_entropy(), 0.01)] J/Kmol")
-			A.visible_message("[A]: specific entropy change = [round(sink.specific_entropy() - source.specific_entropy(), 0.01)] J/Kmol")
-			A.visible_message("[A]: specific power = [round(specific_power, 0.1)] W/mol")
-			A.visible_message("[A]: moles transferred = [transfer_moles] mol")
+			A.visible_message("[A]: source entropy: [round(source.specific_entropy(), 0.01)] J/Kmol --> sink entropy: [round(sink.specific_entropy(), 0.01)] J/Kmol", visible_message_flags = LOCAL_MESSAGE)
+			A.visible_message("[A]: specific entropy change = [round(sink.specific_entropy() - source.specific_entropy(), 0.01)] J/Kmol", visible_message_flags = LOCAL_MESSAGE)
+			A.visible_message("[A]: specific power = [round(specific_power, 0.1)] W/mol", visible_message_flags = LOCAL_MESSAGE)
+			A.visible_message("[A]: moles transferred = [transfer_moles] mol", visible_message_flags = LOCAL_MESSAGE)
 
 	if (istype(M, /obj/structure/machinery/portable_atmospherics))
 		var/obj/structure/machinery/portable_atmospherics/P = M
@@ -92,7 +92,7 @@
 		A.last_flow_rate = (transfer_moles/source.total_moles)*source.volume //group_multiplier gets divided out here
 		A.last_mole_transfer = transfer_moles
 		if (A.debug)
-			A.visible_message("[A]: moles transferred = [transfer_moles] mol")
+			A.visible_message("[A]: moles transferred = [transfer_moles] mol", visible_message_flags = LOCAL_MESSAGE)
 
 	if (istype(M, /obj/structure/machinery/portable_atmospherics))
 		var/obj/structure/machinery/portable_atmospherics/P = M

@@ -446,7 +446,7 @@
 			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
-	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
+	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"), visible_message_flags = LOCAL_MESSAGE)
 	charged = TRUE
 	update_icon()
 

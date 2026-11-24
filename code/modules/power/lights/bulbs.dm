@@ -97,7 +97,7 @@
 
 /obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"), blind_message = SPAN_WARNING("You hear a small glass object shatter!"), visible_message_flags = LOCAL_MESSAGE)
 		status = LIGHT_BROKEN
 		force = 11
 		sharp = TRUE

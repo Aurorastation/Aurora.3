@@ -115,9 +115,9 @@ GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 				amount -= needs
 
 			if(existing.damtype == DAMAGE_BRUTE)
-				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] gapes wider!</span>")
+				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] gapes wider!</span>", visible_message_flags = LOCAL_MESSAGE)
 			else if(existing.damtype == DAMAGE_BURN)
-				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] widens!</span>")
+				T.visible_message("<span class = 'warning'>\The [existing.descriptor] on [src] widens!</span>", visible_message_flags = LOCAL_MESSAGE)
 
 	if (amount)
 		//Spawn a new breach.
@@ -131,9 +131,9 @@ GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 		B.holder = src
 
 		if(B.damtype == DAMAGE_BRUTE)
-			T.visible_message("<span class = 'warning'>\A [B.descriptor] opens up on [src]!</span>")
+			T.visible_message("<span class = 'warning'>\A [B.descriptor] opens up on [src]!</span>", visible_message_flags = LOCAL_MESSAGE)
 		else if(B.damtype == DAMAGE_BURN)
-			T.visible_message("<span class = 'warning'>\A [B.descriptor] marks the surface of [src]!</span>")
+			T.visible_message("<span class = 'warning'>\A [B.descriptor] marks the surface of [src]!</span>", visible_message_flags = LOCAL_MESSAGE)
 
 	calc_breach_damage()
 
