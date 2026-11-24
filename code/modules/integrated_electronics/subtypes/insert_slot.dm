@@ -76,7 +76,7 @@
 		var/obj/item/O = items_contained[1]
 		items_contained -= O
 		O.forceMove(get_turf(src))
-		visible_message(SPAN_NOTICE("\The [src] drops [O] on the ground."))
+		visible_message(SPAN_NOTICE("\The [src] drops [O] on the ground."), visible_message_flags = LOCAL_MESSAGE)
 
 	update_outputs()
 	push_data()

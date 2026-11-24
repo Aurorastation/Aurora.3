@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed rogue air vent in operations hallway."
+  - bugfix: "Fixed missing produce boxes in the kitchen."
+  - bugfix: "Fixed rogue light behind the kitchen counter."

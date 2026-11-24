@@ -818,7 +818,7 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
-	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", , SPAN_NOTICE("You empty the contents of \the [src]."))
+	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", SPAN_NOTICE("You empty the contents of \the [src]."))
 
 // Override this to fill the storage object with stuff.
 /obj/item/storage/proc/fill()

@@ -218,7 +218,7 @@
 		restore()
 
 /mob/living/simple_animal/hostile/morph/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
-	..()
+	. = ..()
 	if(morphed)
 		restore()
 

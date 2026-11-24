@@ -45,11 +45,18 @@
 	user.do_attack_animation(movable_target, ATTACK_EFFECT_KICK)
 	playsound(user.loc, SFX_SWING_HIT, 25, 1, -1)
 	var/kick_distance = max(2, round(strength * 2))
+	var/can_kick_away = movable_target.get_effective_mass() <= user.get_lift_capacity()
 	if(istype(movable_target, /mob/living))
 		var/mob/living/living_target = movable_target
 		if(living_target.attack_generic(user, 10, "kicked", damage_type = DAMAGE_BRUTE) && !QDELETED(living_target))
-			living_target.throw_at(get_edge_target_turf(user, get_dir(user, living_target)), kick_distance, 1, user)
-	else if(movable_target.anchored)
+			if(can_kick_away)
+				living_target.throw_at(get_edge_target_turf(user, get_dir(user, living_target)), kick_distance, 1, user)
+			else
+				user.visible_message(
+					SPAN_WARNING("\The [user] kicks \the [movable_target], but the blow fails to knock \the [movable_target] back!"),
+					SPAN_WARNING("You kick \the [movable_target], but the blow fails to knock \the [movable_target] back!")
+				)
+	else if(movable_target.anchored || !can_kick_away)
 		user.visible_message(
 			SPAN_WARNING("\The [user] kicks \the [movable_target], but it does not budge!"),
 			SPAN_WARNING("You kick \the [movable_target], but it does not budge!")

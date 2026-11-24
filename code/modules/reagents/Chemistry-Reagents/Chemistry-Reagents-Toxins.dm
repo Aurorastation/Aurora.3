@@ -108,7 +108,7 @@
 		if(!H.can_feel_pain())
 			return
 	if(prob(5))
-		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
+		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), vision_distance = 2)
 	else if(prob(5))
 		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
 		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
@@ -466,9 +466,9 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(T, /turf/simulated/floor/diona))
-		T.visible_message(SPAN_WARNING("\The [T] squirms as it's hit by the solution, before dissolving."))
+		T.visible_message(SPAN_WARNING("\The [T] squirms as it's hit by the solution, before dissolving."), visible_message_flags = LOCAL_MESSAGE)
 		var/turf/simulated/floor/F = T
 		F.make_plating()
 		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)

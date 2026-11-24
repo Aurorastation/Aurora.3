@@ -229,13 +229,13 @@
 		O.maptext_width = 72
 		O.maptext_height = 32
 		playsound(C, 'sound/items/goggles_charge.ogg', 70)
-		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
+		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"), visible_message_flags = LOCAL_MESSAGE)
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
 			for(var/obj/structure/machinery/computer/ship/SH in S.consoles)
 				if(istype(SH, /obj/structure/machinery/computer/ship/sensors))
 					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 70)
-					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
+					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"), visible_message_flags = LOCAL_MESSAGE)
 	else
 		C.targeting = FALSE
 

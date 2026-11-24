@@ -46,10 +46,10 @@
 			spawn(100)
 				N.safety = !N.safety
 				if(N.safety == 1)
-					N.visible_message(SPAN_NOTICE("\The [N] quiets down."))
+					N.visible_message(SPAN_NOTICE("\The [N] quiets down."), visible_message_flags = LOCAL_MESSAGE)
 					N.secure_device()
 				else
-					N.visible_message(SPAN_NOTICE("\The [N] emits a quiet whirling noise!"))
+					N.visible_message(SPAN_NOTICE("\The [N] emits a quiet whirling noise!"), visible_message_flags = LOCAL_MESSAGE)
 
 /datum/wires/nuclearbomb/on_cut(wire, mend, source)
 	var/obj/structure/machinery/nuclearbomb/N = holder

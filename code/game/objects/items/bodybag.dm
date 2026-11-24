@@ -136,7 +136,7 @@
 		return 0
 	if(length(contents))
 		return 0
-	visible_message("<b>[user]</b> folds up \the [name].")
+	visible_message("<b>[user]</b> folds up \the [name].", visible_message_flags = LOCAL_MESSAGE)
 	. = new item_path(get_turf(src))
 	qdel(src)
 

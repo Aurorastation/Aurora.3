@@ -82,7 +82,7 @@
 
 /obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
-		src.visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
+		src.visible_message(SPAN_WARNING("\The [src] bursts!"),blind_message = "You hear a pop and a splash.", visible_message_flags = LOCAL_MESSAGE)
 		src.reagents.touch_turf(get_turf(hit_atom))
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.touch(A)
@@ -686,7 +686,7 @@
 /obj/item/toy/snappop/proc/do_pop()
 	spark(src, 3, GLOB.alldirs)
 	new /obj/effect/decal/cleanable/ash(get_turf(src))
-	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
+	visible_message(SPAN_WARNING("\The [src] explodes!"), blind_message = SPAN_WARNING("You hear a snap!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
 	qdel(src)
 
@@ -1054,7 +1054,7 @@
 								SPAN_NOTICE("You poke the [src]."))
 
 		playsound(src, poke_sound, 25, 0)
-		visible_message("[src] says, \"[phrase]\"")
+		visible_message("[src] says, \"[phrase]\"", visible_message_flags = LOCAL_MESSAGE)
 
 //Large plushies.
 
@@ -1335,7 +1335,7 @@
 			SPAN_NOTICE("You poke \the [src].")
 		)
 		playsound(src, 'sound/items/plushies/herring_gull/alarm_call.ogg', 75, FALSE)
-		visible_message("<b>\The [src]</b> says, \"[phrase]\"")
+		visible_message("<b>\The [src]</b> says, \"[phrase]\"", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/toy/plushie/herring_gull/AltClick(mob/user)
 	if(lying)
