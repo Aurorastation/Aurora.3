@@ -291,7 +291,7 @@ var/global/list/default_interrogation_channels = list(
 	if(user)
 		balloon_alert(user, "switched [powered ? "on" : "off"]")
 	else if(!powered)
-		audible_message(SPAN_WARNING("\The [src] emits a low-power chirp and switches off."), range = 1)
+		audible_message(SPAN_WARNING("\The [src] emits a low-power chirp and switches off."), hearing_distance = 1)
 	update_icon()
 	SStgui.update_uis(src)
 

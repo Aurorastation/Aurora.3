@@ -81,7 +81,7 @@
 	if(user)
 		balloon_alert(user, "switched [scanning ? "on" : "off"]")
 	else if(!powered)
-		audible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
+		audible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), hearing_distance = 1)
 	update_icon()
 
 /obj/item/geiger/get_cell()
