@@ -3,7 +3,7 @@
 //
 /obj/item/clothing/accessory/holster
 	name = "shoulder holster"
-	examine_group = "Utility"
+	examine_group = ACCESSORY_EX_GROUP_UTILITY
 	desc = "A handgun holster."
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
 	icon_state = "holster"

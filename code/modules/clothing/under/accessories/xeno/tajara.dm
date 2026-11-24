@@ -194,7 +194,7 @@
 	badge_string = "Member of Party of the Free Tajara under the Leadership of Hadii"
 
 /obj/item/clothing/accessory/dpra_badge
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "almariist pin"
 	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."
 	icon_state = "dpra-badge"
@@ -212,7 +212,7 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/nka_badge
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "royalist badge"
 	desc = "A badge worn by the supporters of the New Kingdom of Adhomai and its royalist ideals."
 	icon_state = "nka-badge"
@@ -229,7 +229,7 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/hadii_pin
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "hadiist party pin"
 	desc = "A small, red flag pin worn by members of the Hadiist party."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
@@ -248,7 +248,7 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/dpra_pin
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "almariist representative pin"
 	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'
@@ -266,7 +266,7 @@
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/nka_pin
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "diplomatic service order"
 	desc = "A medal issued to the diplomats and consular officers under the service of the New Kingdom of Adhomai."
 	icon = 'icons/obj/item/clothing/accessory/pins.dmi'

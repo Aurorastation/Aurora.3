@@ -12,6 +12,14 @@
 #define ACCESSORY_SLOT_PANTS			"pants"
 #define ACCESSORY_SLOT_RADIO			"radio"
 
+// Accessory Examine Groups
+
+#define ACCESSORY_EX_GROUP_ACCESSORIES "Accessories"
+#define ACCESSORY_EX_GROUP_ARMOR "Armor"
+#define ACCESSORY_EX_GROUP_CLOTHING "Clothing"
+#define ACCESSORY_EX_GROUP_INSIGNIA "Insignia"
+#define ACCESSORY_EX_GROUP_UTILITY "Utility"
+
 // Accessory Layering
 
 #define ACCESSORY_LOWEST_LAYER 0

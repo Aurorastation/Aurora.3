@@ -1,7 +1,7 @@
 // Armbands
 ABSTRACT_TYPE(/obj/item/clothing/accessory/armband)
 	name = "armband parent item"
-	examine_group = "Insignia"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/accessory/armband.dmi'
 	contained_sprite = TRUE
