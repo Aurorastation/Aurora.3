@@ -95,6 +95,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "primer_med_obj"
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 25
 	var/primer_state = "primer_med" //This is the overlay state when it gets applied to the projectile.
 	var/speed = 30 //Somewhat of a misleading name. This is the lag in world ticks between each walk() called by the overmap projectile. Lower is better.
 
@@ -118,6 +119,7 @@
 	icon = 'icons/obj/guns/ship/ship_ammo_longarm.dmi'
 	icon_state = "generic_warhead_obj"
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 100
 	var/warhead_state = "generic_warhead" //This is the overlay state when it gets applied to the projectile.
 	var/caliber
 	var/warhead_type
@@ -135,7 +137,9 @@
 	var/cookoff_heavy = 3
 	var/cookoff_light = 4
 
-/obj/item/warhead/longbow/too_heavy_to_throw()
+/obj/item/warhead/longbow/too_heavy_to_throw(mob/user)
+	if(user && user.get_lift_capacity() >= get_effective_mass())
+		return FALSE
 	return TRUE
 
 /obj/item/warhead/longbow/throw_impact(atom/hit_atom)

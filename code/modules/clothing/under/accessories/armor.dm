@@ -9,6 +9,7 @@
 	slot = ACCESSORY_SLOT_LEG_GUARDS
 	accessory_layer = ACCESSORY_LAYER_LOWER
 	w_class = WEIGHT_CLASS_NORMAL
+	mass = 16
 	armor = list(
 		MELEE = ARMOR_MELEE_KEVLAR,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -111,6 +112,7 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	slowdown = 0.15
+	mass = 24
 
 /obj/item/clothing/accessory/leg_guard/heavy/scc
 	name = "heavy SCC leg guards"
@@ -205,6 +207,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	w_class = WEIGHT_CLASS_NORMAL
+	mass = 12
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
@@ -297,6 +300,7 @@
 		BOMB = ARMOR_BOMB_PADDED,
 	)
 	slowdown = 0.15
+	mass = 20
 
 /obj/item/clothing/accessory/arm_guard/heavy/scc
 	name = "heavy SCC arm guards"

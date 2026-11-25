@@ -139,16 +139,16 @@
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
-		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb 15% faster, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
-		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb 30% faster, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
-		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb 45% faster, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb, escape restraints, and perform physical maneuvers with 15% less delay or exertion, you have a 10% lower chance to slip, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb, escape restraints, and perform physical maneuvers with 30% less delay or exertion, you can throw bulky or heavy objects farther, you have a 20% lower chance to slip, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb, escape restraints, and perform physical maneuvers with 45% less delay or exertion, you can throw bulky or heavy objects much farther, you have a 30% lower chance to slip, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
 	)
 	/// Alternate skill level descriptions displayed when configuring an IPC character.
 	var/alist/ipc_skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from High-Torque Servos.",
-		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb 15% faster, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
-		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb 30% faster, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
-		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb 45% faster, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb, escape restraints, and perform physical maneuvers with 15% less delay or power draw, you have a 10% lower chance to slip, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb, escape restraints, and perform physical maneuvers with 30% less delay or power draw, you can throw bulky or heavy objects farther, you have a 20% lower chance to slip, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb, escape restraints, and perform physical maneuvers with 45% less delay or power draw, you can throw bulky or heavy objects much farther, you have a 30% lower chance to slip, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
 	)
 	component_type = CONDITIONING_SKILL_COMPONENT
 

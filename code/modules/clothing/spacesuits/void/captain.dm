@@ -28,6 +28,7 @@
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	w_class = WEIGHT_CLASS_BULKY
+	mass = 140
 	allowed = list(/obj/item/tank, /obj/item/flashlight,/obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton,/obj/item/handcuffs)
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,

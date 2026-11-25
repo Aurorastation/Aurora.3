@@ -38,7 +38,8 @@
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
-	slowdown = 0.3
+	slowdown = 0
+	mass = 100
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -88,6 +89,7 @@
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc", "vau")
+	mass = 120
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -182,6 +184,7 @@
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
+	mass = 125
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -283,6 +286,7 @@
 	)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
+	mass = 125
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,

@@ -91,7 +91,9 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/armor)
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
-	slowdown = 0.5
+	slowdown = 0.25
+	mass = 22
+	mass_based_slowdown = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -169,7 +171,9 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/armor)
 	item_state = "armor"
 	var/obj/item/gun/holstered = null
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	slowdown = 0.5
+	slowdown = 0.25
+	mass = 22
+	mass_based_slowdown = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_KNIVES,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,

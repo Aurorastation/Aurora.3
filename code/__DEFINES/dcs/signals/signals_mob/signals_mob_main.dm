@@ -40,7 +40,7 @@
 /// Raised on a human while calculating movement delay: (&movement_tally_modifier)
 #define COMSIG_GET_MOVEMENT_TALLY "get_movement_tally"
 
-/// Raised on a human while calculating their chance to slip: ()
+/// Raised on a human while calculating their chance to slip: (&prob_slip)
 #define COMSIG_GET_SLIP_MODIFIERS "get_slip_modifiers"
 	/// Prevents the human from slipping.
 	#define COMPONENT_PREVENT_SLIP (1<<0)

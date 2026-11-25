@@ -12,6 +12,13 @@
 	pockets = null
 	movement_sounds = SFX_LIGHT_ARMOUR_FOOTSTEPS
 	movement_sound_volume = 10
+	mass = 3
+	mass_based_slowdown = TRUE
+
+/obj/item/clothing/suit/armor/carrier/get_effective_mass()
+	. = ..()
+	for(var/obj/item/clothing/accessory/bling as anything in accessories)
+		. += bling.get_effective_mass()
 
 /obj/item/clothing/suit/armor/carrier/dominia
 	name = "imperial army flak vest"
@@ -173,6 +180,7 @@
 	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = WEIGHT_CLASS_NORMAL
+	mass = 12
 	armor = list(
 		MELEE = ARMOR_MELEE_KEVLAR,
 		BULLET = ARMOR_BALLISTIC_MEDIUM,
@@ -217,7 +225,7 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.2
+	mass = 36
 
 /obj/item/clothing/accessory/armor_plate/riot
 	name = "riot armor plate"
@@ -231,7 +239,7 @@
 		ENERGY = ARMOR_ENERGY_MINOR,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.2
+	mass = 36
 
 /obj/item/clothing/accessory/armor_plate/ablative
 	name = "ablative armor plate"
@@ -244,7 +252,7 @@
 		LASER = ARMOR_LASER_MAJOR,
 		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
-	slowdown = 0.2
+	mass = 36
 	siemens_coefficient = 0
 
 /obj/item/clothing/accessory/armor_plate/military
@@ -259,7 +267,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.2
+	mass = 36
 
 /obj/item/clothing/accessory/armor_plate/heavy
 	name = "heavy armor plate"
@@ -273,14 +281,13 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.2
+	mass = 36
 
 /obj/item/clothing/accessory/armor_plate/heavy/scc
 	name = "heavy SCC armor plate"
 	desc = "A heavy and nondescript armor plate. You really get the idea they wanted these mooks to be unfeeling."
 	icon_state = "plate_blue"
 	item_state = "plate_blue"
-	slowdown = 0.2
 
 /obj/item/clothing/accessory/armor_plate/heavy/dominia
 	name = "imperial army steel body armor"
@@ -316,7 +323,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 	)
-	slowdown = 0.2
+	mass = 36
 
 /obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light
 	name = "\improper TCAF light carapace body armour"
@@ -335,6 +342,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	slowdown = 0
+	mass = 12
 
 /obj/item/clothing/accessory/armor_plate/riot/lancer
 	name = "ceres lance armor plate"
@@ -416,7 +424,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	slowdown = 0.2
+	mass = 18
 
 /obj/item/clothing/head/helmet/security
 	name = "corporate helmet"

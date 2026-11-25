@@ -99,8 +99,10 @@
 		return FALSE
 	return TRUE
 
-/obj/item/ship_ammunition/too_heavy_to_throw()
+/obj/item/ship_ammunition/too_heavy_to_throw(mob/user)
 	if(ammunition_flags & SHIP_AMMO_FLAG_VERY_HEAVY)
+		if(user && user.get_lift_capacity() >= get_effective_mass())
+			return FALSE
 		return TRUE
 	else
 		return FALSE

@@ -1,0 +1,12 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Air canisters are now very heavy (and heavier if they contain air). Conditioning ranks let you drag them faster."
+  - rscadd: "Rollerbeds no longer make characters weightless, but they do provide a mechanical advantage to moving them."
+  - rscadd: "Spacesuits of all kinds except for Hardsuits, and some very heavy armors, now have mass and slow down a character inversely proportional to their Conditioning skill."
+  - rscadd: "Voidsuits mass now scales proportionally if fitted for a given species."
+  - rscadd: "Throwing very heavy objects such as ship ammunition now checks your characters strength (size, species, conditioning skill) versus the ammunition mass."
+  - rscadd: "Maneuvers cost less stamina based on a characters Conditioning skill"
+  - rscadd: "Conditioning now gives a chance to avoid slips"
+  - rscadd: "Conditioning provides a small bonus to breaking out of cuffs."
+  - rscadd: "Modular Armor now has mass based slowdowns based on attachments."

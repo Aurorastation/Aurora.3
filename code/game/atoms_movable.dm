@@ -1070,7 +1070,7 @@
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return TRUE
 
-/atom/movable/proc/too_heavy_to_throw()
+/atom/movable/proc/too_heavy_to_throw(mob/user)
 	return FALSE
 
 /atom/movable/proc/begin_falling(var/lastloc, var/below)

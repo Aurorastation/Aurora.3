@@ -27,7 +27,7 @@
 			to_chat(user, SPAN_WARNING("You cannot maneuver again for another [FLOOR((user.last_special - world.time)*0.1, 1)] second\s."))
 		return FALSE
 	if(!isipc(user))
-		if(user.stamina < stamina_cost)
+		if(user.stamina < round(user.get_conditioning_action_delay(stamina_cost)))
 			if(!silent)
 				to_chat(user, SPAN_WARNING("You are too exhausted to maneuver right now."))
 			return FALSE
@@ -52,9 +52,9 @@
 		if(cooldown)
 			user.last_special = world.time + cooldown
 		if(stamina_cost)
-			user.stamina -= stamina_cost
+			user.stamina -= round(user.get_conditioning_action_delay(stamina_cost))
 		if(isipc(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/cell/C = H.internal_organs_by_name[BP_CELL]
 			if(C)
-				C.use(charge_cost)
+				C.use(round(user.get_conditioning_action_delay(charge_cost)))

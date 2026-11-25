@@ -412,6 +412,8 @@
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle)
 	var/patient_shift = 9 //How much are mobs moved up when they are buckled_to.
+	/// Fraction of a buckled occupant's effective mass that counts toward pulling load.
+	var/buckled_mass_multiplier = 0.5
 	slowdown = 0
 	surgery_surface = TRUE
 	surgery_odds_modifier = -20
@@ -636,6 +638,11 @@
 		round_value = FALSE)
 	to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
 
+/obj/structure/bed/roller/get_effective_mass()
+	. = ..()
+	if(buckled)
+		. += buckled.get_effective_mass() * buckled_mass_multiplier
+
 /obj/structure/bed/roller/Move()
 	. = ..()
 	if(buckled)
@@ -673,6 +680,7 @@
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	has_iv_light = FALSE
+	buckled_mass_multiplier = 0.25
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()

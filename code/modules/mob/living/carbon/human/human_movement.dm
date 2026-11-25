@@ -103,7 +103,7 @@
 /mob/living/carbon/human/slip_chance(var/prob_slip = 5)
 	if(!..())
 		return 0
-	if(SEND_SIGNAL(src, COMSIG_GET_SLIP_MODIFIERS) & COMPONENT_PREVENT_SLIP)
+	if(SEND_SIGNAL(src, COMSIG_GET_SLIP_MODIFIERS, &prob_slip) & COMPONENT_PREVENT_SLIP)
 		return 0
 
 	//Check hands and mod slip
@@ -112,7 +112,7 @@
 	if (!r_hand)	prob_slip -= 2
 	else if(r_hand.w_class <= 2)	prob_slip -= 1
 
-	return prob_slip
+	return max(prob_slip, 0)
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
 	//magboots + dense_object = no floating. Doesn't work if lying. Grabbedby and buckled_to are for mob carrying, wheelchairs, roller beds, etc.

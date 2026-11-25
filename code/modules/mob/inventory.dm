@@ -480,17 +480,22 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	else if(istype(item, /obj/item))
 		var/obj/item/I = item
 		itemsize = I.w_class
+		if(I.w_class >= WEIGHT_CLASS_BULKY || I.get_effective_mass() >= 10)
+			throw_range += max(0, get_conditioning_skill_level() - SKILL_LEVEL_FAMILIAR)
 
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
-	if(item.too_heavy_to_throw() && !(a_intent == I_HELP && Adjacent(target)))
+	if(item.too_heavy_to_throw(src) && !(a_intent == I_HELP && Adjacent(target)))
 		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))
 			throw_fail_consequences(item)
 			drop_item()
 		return FALSE
+
+	if(item.too_heavy_to_throw())
+		throw_range = min(throw_range, max(1, round(get_lift_capacity() / max(item.get_effective_mass(), 1))))
 
 	if(a_intent == I_HELP && Adjacent(target) && isitem(item))
 		var/obj/item/I = item

@@ -16,7 +16,7 @@
 		to_chat(usr, SPAN_WARNING("You don't have anything in your hands to give to \the [target]."))
 		return
 
-	if(I.too_heavy_to_throw())
+	if(I.too_heavy_to_throw(src))
 		to_chat(src, SPAN_WARNING("You can barely lift \the [I] up, how do you expect to hand it over to someone?"))
 		return FALSE
 
