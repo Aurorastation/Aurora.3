@@ -26,6 +26,8 @@
 	var/silicate = 0 // number of units of silicate
 	var/base_frame = null
 	var/full = FALSE
+	/// Prevents scheduling more than one breakthrough while a thrown mob crosses the window.
+	var/mob_breakthrough_pending = FALSE
 
 	atmos_canpass = CANPASS_PROC
 
@@ -137,20 +139,51 @@
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return TRUE
 	if(is_full_window())
-		return !density	//full tile window, you can't move into it if it's solid!
+		if(!density)
+			return TRUE
+		return try_mob_breakthrough(mover)	//full tile window, you can't move into it if it's solid!
 	var/movingdir = get_dir(loc,target)
 	if(movingdir == 0)
 		movingdir = get_dir(loc,mover)
 	if(movingdir & dir)
-		return !density
+		if(!density)
+			return TRUE
+		return try_mob_breakthrough(mover)
 	else
 		return TRUE
+
+/// Allows a sufficiently strong thrower to send another mob through a non-reinforced pane.
+/obj/structure/window/proc/try_mob_breakthrough(atom/movable/mover)
+	if(reinf || !isliving(mover) || !mover.throwing)
+		return FALSE
+
+	var/mob/living/thrown_mob = mover
+	var/mob/living/thrower = mover.throwing.get_thrower()
+	if(!istype(thrower) || thrower == thrown_mob)
+		return FALSE
+	if(thrower.get_lift_capacity() < thrown_mob.get_effective_mass() * MOB_STRENGTH_STRONG)
+		return FALSE
+
+	if(mob_breakthrough_pending)
+		return FALSE
+	mob_breakthrough_pending = TRUE
+	addtimer(CALLBACK(src, PROC_REF(complete_mob_breakthrough), WEAKREF(thrown_mob), mover.throwing.speed), 0)
+	return TRUE
+
+/// Hurts the thrown mob and breaks the pane after movement through it has been permitted.
+/obj/structure/window/proc/complete_mob_breakthrough(datum/weakref/thrown_mob_ref, throw_speed)
+	mob_breakthrough_pending = FALSE
+	var/mob/living/thrown_mob = thrown_mob_ref.resolve()
+	if(!istype(thrown_mob) || QDELETED(src))
+		return
+	thrown_mob.turf_collision(src, throw_speed, SFX_GLASS_CRACK)
+	shatter()
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(O.loc, target) == dir)
-		return 0
+		return !density || try_mob_breakthrough(O)
 	return 1
 
 /obj/structure/window/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)

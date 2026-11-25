@@ -14,17 +14,21 @@
 			return 1
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
-		if(ishuman(mover))
-			var/mob/living/carbon/human/human_mover = mover
-			if(human_mover.attempting_table_crawl && !can_crawl_under())
-				return FALSE
-		return 1
-	if(!can_crawl_under())
-		return FALSE
-	if(locate(/obj/structure/table) in get_turf(mover))
-		return 1
-	return 0
+	if(mover?.throwing)
+		return TRUE
+
+	var/mob/living/carbon/human/human_mover = ishuman(mover) ? mover : null
+	if(mover?.pass_flags & PASSTABLE)
+		if(human_mover?.attempting_table_crawl && !can_crawl_under())
+			return FALSE
+		return TRUE
+
+	if(mover && locate(/obj/structure/table) in mover.loc)
+		if(human_mover && (human_mover.crawling_under_table || human_mover.attempting_table_crawl))
+			return can_crawl_under()
+		return TRUE
+
+	return FALSE
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/table/proc/check_cover(obj/projectile/P, turf/from)
