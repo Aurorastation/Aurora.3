@@ -1,4 +1,4 @@
-f/**
+/**
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
  */
@@ -235,7 +235,7 @@ a.popt {
 .motd a:visited,
 .motd a:active,
 .motd a:hover {
-  color: #a4bad6;
+  color: #638500;
 }
 
 /* ADD HERE FOR BOLD */
@@ -253,8 +253,7 @@ a.popt {
 
 /* ADD HERE FOR ITALIC */
 .italic,
-.italics,
-.emote {
+.italics {
   font-style: italic;
 }
 
@@ -271,12 +270,6 @@ h5,
 h6 {
   color: #0000ff;
   font-family: Georgia, Verdana, sans-serif;
-  line-height: 10%;
-}
-
-em {
-  font-style: normal;
-  font-weight: bold;
 }
 
 /* LOG */
@@ -339,14 +332,6 @@ em {
 }
 
 /* OOC */
-.ooc {
-  font-weight: bold;
-}
-.ooc img.text_tag {
-  width: 32px;
-  height: 10px;
-  vertical-align: middle;
-}
 
 .ooc .everyone {
   color: #002eb8;
@@ -518,9 +503,6 @@ em {
 }
 
 /* Miscellaneous */
-.name {
-  font-weight: bold;
-}
 .alert {
   color: #ff0000;
 }
@@ -532,22 +514,9 @@ h2.alert {
   color: #000080;
 }
 
-.emote {
-  font-style: italic;
-}
-
 /* Game Messages */
-.attack {
-  color: #ff0000;
-}
 .moderate {
   color: #cc0000;
-}
-.disarm {
-  color: #990000;
-}
-.passive {
-  color: #660000;
 }
 
 .danger {
