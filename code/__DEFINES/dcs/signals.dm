@@ -112,6 +112,8 @@
 
 #define COMSIG_GUN_UNLOAD "gun_unload"
 
+#define COMSIG_GUN_TACTICAL_RELOAD "gun_tactical_reload"
+
 #define COMSIG_GUN_OFFHAND_ACCURACY "gun_offhand_accuracy"
 
 // Mech signals

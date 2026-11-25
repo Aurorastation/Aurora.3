@@ -72,7 +72,7 @@
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of combat marksmanship experience, such as special forces, SWAT marksmen, or hardened mercenaries.<br>" \
 			+ " - Firearms count as <b>0.5 tiles closer</b>, and stabilizing for 1 second grants two shots at <b>1 tile closer</b> with <b>-30° spread</b>.<br>" \
 			+ " - <b>Snap-Shot:</b> Running on Harm intent for 5 seconds primes your next shot with <b>-15° spread</b> (45s cooldown). <b>Focused Aim</b> (5s stationary on Harm intent, 45s cooldown) grants <b>1.5 tiles closer</b> and <b>-30° spread</b>.<br>" \
-			+ " - <b>Tap-Rack-Bang:</b> You clear any jam in a single action, halve jam chances, quick-load magazines with no delay, and greatly reduce dual-wielding penalties.<br>" \
+			+ " - <b>Tap-Rack-Bang:</b> You clear any jam in a single action, halve jam chances, quick-load magazines with no delay (or <b>Tactical Reload</b> by clicking a loaded gun with a compatible magazine to auto-swap and stow the old mag in a bag), and automatically stow unloaded magazines.<br>" \
 			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55%–65% chance</b> of boosted accuracy and +3 to +7 morale."
 	)
 

@@ -46,6 +46,21 @@
 	var/focused_aim = FALSE
 	var/focus_aim_cooldown = 45 SECONDS
 	var/next_focus_aim = 0
+	/// Professional preference for swapped/unloaded magazines (Drop, Toss, Hold, Retain).
+	var/magazine_retention = MAG_RETENTION_RETAIN
+
+/mob/proc/set_magazine_retention()
+	set name = "Set Magazine Retention"
+	set category = "IC"
+	set desc = "Choose what to do with old magazines during a tactical reload or weapon unload."
+
+	var/datum/component/skill/firearms/comp = GetComponent(FIREARMS_SKILL_COMPONENT)
+	if(!comp || comp.skill_level < SKILL_LEVEL_PROFESSIONAL)
+		return
+	var/choice = tgui_input_list(src, "Choose your magazine retention preference:", "Magazine Retention", list(MAG_RETENTION_RETAIN, MAG_RETENTION_HOLD, MAG_RETENTION_DROP, MAG_RETENTION_TOSS))
+	if(choice)
+		comp.magazine_retention = choice
+		to_chat(src, SPAN_NOTICE("Magazine retention preference set to <b>[choice]</b>."))
 
 /datum/moodlet/firearms_practice
 	moodlet_descriptor = SPAN_GOOD("Firing Warmup")
@@ -86,11 +101,16 @@
 	RegisterSignal(parent, COMSIG_GUN_JAM_CHECK, PROC_REF(handle_jam_check), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_LOAD, PROC_REF(handle_gun_load), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_UNLOAD, PROC_REF(handle_gun_unload), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_TACTICAL_RELOAD, PROC_REF(handle_tactical_reload), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_OFFHAND_ACCURACY, PROC_REF(handle_offhand_accuracy), override = TRUE)
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		add_verb(parent, /mob/proc/set_magazine_retention)
 
 /datum/component/skill/firearms/Destroy()
 	if (!parent)
 		return ..()
+
+	remove_verb(parent, /mob/proc/set_magazine_retention)
 
 	UnregisterSignal(parent, COMSIG_BEFORE_GUN_FIRE)
 	UnregisterSignal(parent, COMSIG_GUN_TOGGLE_FIRING_MODE)
@@ -102,6 +122,7 @@
 	UnregisterSignal(parent, COMSIG_GUN_JAM_CHECK)
 	UnregisterSignal(parent, COMSIG_GUN_LOAD)
 	UnregisterSignal(parent, COMSIG_GUN_UNLOAD)
+	UnregisterSignal(parent, COMSIG_GUN_TACTICAL_RELOAD)
 	UnregisterSignal(parent, COMSIG_GUN_OFFHAND_ACCURACY)
 	return ..()
 
@@ -347,14 +368,25 @@
 	else if(skill_level >= SKILL_LEVEL_TRAINED)
 		user.setClickCooldown(0.2 SECONDS)
 
-/datum/component/skill/firearms/proc/handle_gun_unload(mob/living/user, obj/item/gun/projectile/gun, force_drop_mag)
+/datum/component/skill/firearms/proc/handle_gun_unload(mob/living/user, obj/item/gun/projectile/gun, force_drop_mag, retention_mode)
 	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		if(retention_mode)
+			*retention_mode = magazine_retention
+		return
 	if(skill_level >= SKILL_LEVEL_FAMILIAR)
 		return
 	var/drop_chance = unsteadied ? 30 : 15
 	if(prob(drop_chance))
 		*force_drop_mag = TRUE
 		user.balloon_alert(user, "Dropped mag!")
+
+/datum/component/skill/firearms/proc/handle_tactical_reload(mob/living/user, obj/item/gun/projectile/gun, obj/item/ammo_magazine/new_mag, tactical_reload, retention_mode)
+	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		*tactical_reload = TRUE
+		if(retention_mode)
+			*retention_mode = magazine_retention
 
 /datum/component/skill/firearms/proc/handle_offhand_accuracy(mob/living/user, obj/item/gun/offhand_gun, decreased_accuracy)
 	SIGNAL_HANDLER
