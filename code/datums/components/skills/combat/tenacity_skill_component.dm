@@ -128,8 +128,9 @@
 /datum/component/skill/tenacity/proc/run_ipc_diagnostic(mob/living/carbon/human/H)
 	var/list/issues = list()
 	for(var/obj/item/organ/internal/machine/M in H.internal_organs)
-		if(M.damage > 0)
-			issues += "[M.name] ([round(M.damage)] dmg)"
+		var/organ_damage = M.get_damage()
+		if(organ_damage > 0)
+			issues += "[M.name] ([round(organ_damage)] dmg)"
 	if(length(issues))
 		to_chat(H, SPAN_MACHINE_WARNING("<b>System Diagnostic:</b> Damaged internals detected — [english_list(issues)]."))
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL && world.time >= next_emergency_reserve)
