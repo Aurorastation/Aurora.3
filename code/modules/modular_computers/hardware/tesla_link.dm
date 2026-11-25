@@ -63,7 +63,7 @@
 	source = null
 	if(parent_computer)
 		if(message)
-			parent_computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"))
+			parent_computer.visible_message(SPAN_WARNING("The charging cable suddenly disconnects from the APC, quickly reeling back into the computer!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
 	if(!destroy_beam)
 		return

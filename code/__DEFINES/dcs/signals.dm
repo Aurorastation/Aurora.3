@@ -22,17 +22,18 @@
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
-
+/// Sent from what entered the turf
+#define COMSIG_TURF_ENTERED "turf_entered"
 /// From base of turf/ChangeTurf(): (path)
 #define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals
 
+/// From /atom/movable/Hear(): (datum/say_message/message).
 #define COMSIG_MOVABLE_HEAR "movable_hear"
-	#define HEARING_MESSAGE 	1
-	#define HEARING_SPEAKER 	2
-	#define HEARING_LANGUAGE 	3
-	#define HEARING_RAW_MESSAGE 4
+
+/// From /obj/item/radio/on_receive_message(): (list/data).
+#define COMSIG_RADIO_RECEIVE_MESSAGE "radio_receive_message"
 
 // /mob signals
 #define COMSIG_MOB_EXAMINATE "mob_examinate"
@@ -95,7 +96,13 @@
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
+#define COMSIG_GUN_TOGGLE_SAFETY "gun_toggle_safety"
+
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
+/// Signal raised when a shot is successfully fired
+#define COMSIG_GUN_FIRED "gun_fired"
+
+#define COMSIG_GUN_SCOPE "gun_scope"
 
 // Mech signals
 

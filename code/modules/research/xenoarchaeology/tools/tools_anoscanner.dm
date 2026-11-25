@@ -60,4 +60,4 @@
 						nearest_artifact_dir = get_dir(cur_turf, T)
 			else
 				SSxenoarch.artifact_spawning_turfs.Remove(T)
-	cur_turf.visible_message("<span class='info'>[src] clicks.</span>")
+	cur_turf.visible_message("<span class='info'>[src] clicks.</span>", visible_message_flags = LOCAL_MESSAGE)

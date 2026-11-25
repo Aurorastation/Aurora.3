@@ -115,7 +115,7 @@
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
-/obj/item/implant/explosive/hear_talk(mob/M, msg)
+/obj/item/implant/explosive/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
@@ -165,7 +165,7 @@
 
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
-		audible_message(SPAN_WARNING("[src] beeps ominously!"))
+		audible_message(SPAN_WARNING("[src] beeps ominously!"), audible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
 		imp_in.audible_message(SPAN_WARNING(message))

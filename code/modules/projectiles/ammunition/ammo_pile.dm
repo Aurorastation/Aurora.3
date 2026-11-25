@@ -8,6 +8,8 @@
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
 	var/spent_ammo = FALSE
+	/// The last round successfully loaded from this pile, used to reject queued clicks that retained the same round.
+	var/datum/weakref/last_loaded_round
 
 /obj/item/ammo_pile/Destroy()
 	QDEL_LIST(ammo)
@@ -93,10 +95,13 @@
 		to_chat(user, SPAN_NOTICE("You take [amount_taken] rounds from the other pile and add it to yours."))
 		return
 	else if(istype(A, /obj/item/gun) || istype(A, /obj/item/ammo_magazine))
-		var/obj/bullet = get_next_ammo()
+		var/obj/item/ammo_casing/bullet = get_next_ammo()
+		if(!QDELETED(bullet) && last_loaded_round?.resolve() == bullet)
+			return
 		A.attackby(bullet, user)
 		// if the gun / mag accepted the bullet, it will no longer be in our pile
 		if(!(bullet in src))
+			last_loaded_round = WEAKREF(bullet)
 			remove_ammo()
 		return
 
@@ -169,6 +174,8 @@
 				gunman.put_in_hands(bullet)
 
 /obj/item/ammo_pile/proc/add_ammo(var/obj/item/ammo_casing/bullet)
+	if(bullet in ammo)
+		return
 	if((!bullet.BB && !spent_ammo) && (bullet.BB && spent_ammo))
 		return
 	RegisterSignal(bullet, COMSIG_QDELETING, PROC_REF(clear_ammo))

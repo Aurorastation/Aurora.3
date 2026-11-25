@@ -212,7 +212,7 @@
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
 			return TRUE
 		G.affecting.forceMove(src.loc)
-		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
+		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."), visible_message_flags = LOCAL_MESSAGE)
 		G.affecting.take_overall_damage(15)
 		qdel(attacking_item)
 		qdel(src)

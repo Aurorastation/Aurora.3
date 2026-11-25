@@ -48,7 +48,7 @@
 		var/mob/living/M = src.loc
 		M.say(pick(heard_talk))
 
-/obj/item/clothing/mask/gas/poltergeist/hear_talk(mob/M as mob, text)
+/obj/item/clothing/mask/gas/poltergeist/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	..()
 	if(heard_talk.len > max_stored_messages)
 		heard_talk.Remove(pick(heard_talk))
@@ -133,7 +133,7 @@
 
 	if(charges >= 0.1)
 		if(prob(5))
-			src.visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] [src]'s eyes glow ruby red for a moment!"))
+			src.visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] [src]'s eyes glow ruby red for a moment!"), visible_message_flags = LOCAL_MESSAGE)
 			charges -= 0.1
 
 	//check on our shadow wights
@@ -150,10 +150,10 @@
 		else if(get_dist(W, src) > 10)
 			shadow_wights.Remove(wight_check_index)
 
-/obj/item/vampiric/hear_talk(mob/M as mob, text)
+/obj/item/vampiric/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	..()
 	if(world.time - last_bloodcall >= bloodcall_interval && (M in get_hearers_in_LOS(7, src)))
-		audible_message(SPAN_NOTICE("\The [src] twitches as it listens."))
+		audible_message(SPAN_NOTICE("\The [src] twitches as it listens."), audible_message_flags = LOCAL_MESSAGE)
 		bloodcall(M)
 
 /obj/item/vampiric/proc/bloodcall(var/mob/living/carbon/human/M)
@@ -208,9 +208,9 @@
 	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
 		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
-				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 				user.do_attack_animation(src)
-				audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"))
+				audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), audible_message_flags = LOCAL_MESSAGE)
 				playsound(get_turf(src), 'sound/effects/projectile_impact/ion_any.ogg', 70, 1)
 				playsound(get_turf(src), 'sound/species/revenant/grue_screech.ogg', 200, TRUE)
 				playsound(get_turf(src), 'sound/magic/exit_blood.ogg', 70, 1)

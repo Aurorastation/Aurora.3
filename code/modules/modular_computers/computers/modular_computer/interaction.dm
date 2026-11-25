@@ -251,7 +251,7 @@
 			return TRUE
 		enrolled = DEVICE_UNSET
 		hard_drive.reset_drive()
-		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
+		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>", audible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 	if(istype(attacking_item, /obj/item/card/id)) // ID Card, try to insert it.
 		var/obj/item/card/id/I = attacking_item
@@ -359,13 +359,13 @@
 			return
 
 		if(do_after(user, 1 SECONDS))
-			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."))
+			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			universal_port.insert_cable(access_cable, user)
 
 	if(user?.a_intent == I_HURT && maxhealth)
 		user.do_attack_animation(src)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		visible_message(SPAN_DANGER("[user] [pick(attacking_item.attack_verb)] \the [src]!"))
+		visible_message(SPAN_DANGER("[user] [pick(attacking_item.attack_verb)] \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		playsound(user, 'sound/effects/metalhit.ogg', attacking_item.get_clamped_volume())
 		return TRUE
@@ -385,7 +385,7 @@
 	if(card_slot)
 		return card_slot.stored_card
 
-/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/item/modular_computer/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(Adjacent(M) && hard_drive)
 		var/datum/computer_file/program/chat_client/P = hard_drive.find_file_by_name("ntnrc_client")
 		if(!P || (P.program_state == PROGRAM_STATE_KILLED && P.service_state == PROGRAM_STATE_KILLED))

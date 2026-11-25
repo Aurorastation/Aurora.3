@@ -26,7 +26,7 @@
 	update_icon()
 
 /obj/item/modular_computer/on_death()
-	visible_message(SPAN_WARNING("\The [src] breaks apart!"))
+	visible_message(SPAN_WARNING("\The [src] breaks apart!"), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/item/stack/material/steel(get_turf(src), round(steel_sheet_cost/2))
 	for(var/obj/item/computer_hardware/H in get_all_components())
 		uninstall_component(null, H)

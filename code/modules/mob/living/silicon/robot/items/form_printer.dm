@@ -18,5 +18,5 @@
 	deploy_paper(get_turf(src))
 
 /obj/item/form_printer/proc/deploy_paper(var/turf/T, var/mob/user)
-	T.visible_message(SPAN_NOTICE("\The [user] dispenses a sheet of crisp white paper."))
+	T.visible_message(SPAN_NOTICE("\The [user] dispenses a sheet of crisp white paper."), visible_message_flags = LOCAL_MESSAGE)
 	new /obj/item/paper(T)

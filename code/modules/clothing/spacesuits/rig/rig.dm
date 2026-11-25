@@ -436,7 +436,7 @@
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
-			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>", visible_message_flags = LOCAL_MESSAGE)
 			crushing = TRUE
 
 	if(wearer != initiator)
@@ -522,7 +522,7 @@
 		wearer.apply_damage(10 * seconds_per_tick) // Applies 10 brute damage per second to a random extremity
 		if(wearer.stat == DEAD)
 			crushing = FALSE
-			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit..")) // this denotes that the user inside has died.
+			visible_message(SPAN_DANGER("A squelching sound comes from within the sealed hardsuit.."), visible_message_flags = LOCAL_MESSAGE) // this denotes that the user inside has died.
 
 	if(offline)
 		crushing = FALSE

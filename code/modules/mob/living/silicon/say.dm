@@ -27,7 +27,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return common_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return common_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
@@ -47,7 +47,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return ai_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return ai_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/pai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
 	var/text = msg.to_string()
@@ -59,7 +59,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	if(singing)
@@ -108,7 +108,7 @@
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI hears its own message. text_for keeps each language.
-		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.verb], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
+		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.message_mods[SAY_MOD_VERB]], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.
@@ -165,31 +165,35 @@
 	var/list/emote_viewers = list()
 
 	if(m_type == VISIBLE_MESSAGE)
-		emote_viewers = viewers(world.view, H)
-		for(var/mob/M in emote_viewers)
-			M.show_message(rendered, VISIBLE_MESSAGE)
+		for(var/mob/M in viewers(world.view, H))
+			var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+			if(perceived && perceived[2] == VISIBLE_MESSAGE)
+				emote_viewers |= M
 		if(T.has_established_connection())
 			for(var/mob/M in viewers(world.view, T.connected_pad))
-				M.show_message(rendered, VISIBLE_MESSAGE)
-				emote_viewers |= M
+				if(M in emote_viewers)
+					continue
+				var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+				if(perceived && perceived[2] == VISIBLE_MESSAGE)
+					emote_viewers |= M
 	else
 		var/list/hearers = get_hearers_in_view(world.view, H)
 		for(var/atom/movable/hearer as anything in hearers)
 			if(hearer == T)
 				continue
-			hearer.show_message(rendered, AUDIBLE_MESSAGE)
-			if(ismob(hearer))
+			var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+			if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
 				emote_viewers |= hearer
 		if(T.has_established_connection())
 			for(var/atom/movable/hearer as anything in get_hearers_in_view(world.view, T.connected_pad))
-				if(hearer == T.connected_pad)
+				if(hearer == T.connected_pad || (hearer in emote_viewers))
 					continue
-				hearer.show_message(rendered, AUDIBLE_MESSAGE)
-				if(ismob(hearer))
+				var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+				if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
 					emote_viewers |= hearer
 
 	to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='message'>[rendered]</span></span></i>")
-	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
+	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"), check_hearing = FALSE)
 	return TRUE
 
 #undef IS_AI

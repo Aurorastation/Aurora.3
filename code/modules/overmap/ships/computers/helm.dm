@@ -263,7 +263,7 @@
 				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
-				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
+				visible_message(SPAN_DANGER("[H] tilts the yoke all the way to the [ndir == WEST ? "left" : "right"]!"), visible_message_flags = LOCAL_MESSAGE)
 				connected.combat_roll(ndir)
 				if(pilot_level && piloting_difference <= 0 && prob(60)) //A lack of difference means skill level (1-4) is less than pilot_class (1-3)
 					ndir = pick(NORTH, SOUTH)
@@ -280,7 +280,7 @@
 				to_chat(H, SPAN_WARNING("Your integrated safeguards prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
-				visible_message(SPAN_DANGER("[H] remotely tilts the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
+				visible_message(SPAN_DANGER("[H] remotely tilts the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"), visible_message_flags = LOCAL_MESSAGE)
 				connected.combat_roll(ndir)
 
 	if (action == "manual")
@@ -362,12 +362,12 @@
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
-					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"))
+					visible_message(SPAN_DANGER("[H] twists the yoke all the way to the [ndir == WEST ? "left" : "right"]!"), visible_message_flags = LOCAL_MESSAGE)
 					connected.combat_turn(ndir)
 			if(issilicon(usr))
 				var/mob/living/silicon/H = usr
 				if(do_after(H, 1 SECOND) && connected.can_combat_turn())
-					visible_message(SPAN_DANGER("[H] remotely twists the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"))
+					visible_message(SPAN_DANGER("[H] remotely twists the yoke systematically all the way to the [ndir == WEST ? "left" : "right"]!"), visible_message_flags = LOCAL_MESSAGE)
 					connected.combat_turn(ndir)
 
 		if (action == "brake")

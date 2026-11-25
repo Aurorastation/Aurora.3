@@ -609,7 +609,7 @@
 	escapee.last_special = world.time + 1 SECOND
 
 	to_chat(escapee, SPAN_WARNING("You begin to shake and bump the lock of \the [src]. (this will take about [time_to_escape / 600] minutes)."))
-	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is attempting to escape it!"))
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is attempting to escape it!"), visible_message_flags = LOCAL_MESSAGE)
 
 	if (!do_after(escapee, time_to_escape, src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
@@ -617,7 +617,7 @@
 
 	breakout = FALSE
 	to_chat(escapee, SPAN_WARNING("You successfully break out!"))
-	visible_message(SPAN_DANGER("\The [escapee] successfully breaks out of \the [src]!"))
+	visible_message(SPAN_DANGER("\The [escapee] successfully breaks out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()
@@ -727,7 +727,7 @@
 	if(!target)
 		target = src.loc
 	if(user && !transferring)
-		visible_message(SPAN_NOTICE("[user] opens \the [src]."))
+		visible_message(SPAN_NOTICE("[user] opens \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 
 	var/mob/captured_mob = captured ? captured.resolve() : null
 	if (!captured_mob)
@@ -743,7 +743,7 @@
 	unbuckle()
 	captured = null
 	if(!transferring)
-		visible_message(msg)
+		visible_message(msg, visible_message_flags = LOCAL_MESSAGE)
 		shake_animation()
 	update_icon()
 	layer = initial(layer)
