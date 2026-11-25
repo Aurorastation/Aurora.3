@@ -471,5 +471,5 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 /mob/abstract/new_player/MayRespawn()
 	return 1
 
-/mob/abstract/new_player/show_message(msg, type, alt, alt_type)
+/mob/abstract/new_player/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return

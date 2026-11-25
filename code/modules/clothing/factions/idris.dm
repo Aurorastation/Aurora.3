@@ -1,3 +1,8 @@
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/armor/vest)
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/armor)
+
+
 //iru coats
 /obj/item/clothing/suit/storage/toggle/armor/vest/idris
 	name = "black Idris Unit coat"

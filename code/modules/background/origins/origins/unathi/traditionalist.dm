@@ -64,9 +64,12 @@
 
 /singleton/origin_item/origin/wastelander/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
+	var/datum/component/armor/armor_component = H.LoadComponent(/datum/component/armor, list())
+	armor_component.set_value(RAD, armor_component.get_value(RAD) + ARMOR_RAD_MINOR)
 
 /singleton/origin_item/origin/wastelander/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	qdel(armor_component)
+	if(armor_component)
+		var/base_rad_armor = H.species.natural_armor?[RAD] || 0
+		armor_component.set_value(RAD, max(base_rad_armor, armor_component.get_value(RAD) - ARMOR_RAD_MINOR))

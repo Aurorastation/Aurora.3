@@ -358,7 +358,7 @@
 	if(user.a_intent == I_HURT)
 		if(mounted)
 			spark(user, 3, GLOB.alldirs)
-			mounted.Fire(L, user)
+			mounted.fire_gun(L, user)
 
 /obj/item/clothing/gloves/ballistic/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -446,7 +446,7 @@
 			addtimer(CALLBACK(src, PROC_REF(rearm)), 30 SECONDS)
 
 /obj/item/clothing/gloves/tesla/proc/rearm()
-	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"))
+	visible_message(SPAN_NOTICE("\The [src] surges back with energy!"), visible_message_flags = LOCAL_MESSAGE)
 	charged = TRUE
 	update_icon()
 

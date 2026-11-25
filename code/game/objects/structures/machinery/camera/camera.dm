@@ -9,6 +9,7 @@
 	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
+	supports_painting = TRUE
 	armor = list(
 		MELEE = ARMOR_MELEE_SMALL,
 		BULLET = ARMOR_BALLISTIC_MINOR,
@@ -172,7 +173,7 @@
 	if (istype(hitting_atom, /obj))
 		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
-			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
+			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"), visible_message_flags = LOCAL_MESSAGE)
 		add_damage(O.throwforce, O.damage_flags(), O.damtype, O.armor_penetration, O)
 
 /obj/structure/machinery/camera/proc/setViewRange(var/num = 7)
@@ -187,12 +188,17 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		set_status(0)
 		user.do_attack_animation(src)
-		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
+		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
 		destroy()
 
 /obj/structure/machinery/camera/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_colourable(src, user)
+		return TRUE
+
 	update_coverage()
 	// DECONSTRUCTION
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
@@ -293,17 +299,17 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has deactivated [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "))
+				visible_message(SPAN_NOTICE("[src] clicks and shuts down. "), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"))
+				visible_message(SPAN_NOTICE("[user] has reactivated [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "))
+				visible_message(SPAN_NOTICE("[src] clicks and reactivates itself. "), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)

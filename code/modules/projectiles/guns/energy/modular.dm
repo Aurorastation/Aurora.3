@@ -217,7 +217,7 @@
 	else
 		to_chat(user, "There is nothing to repair on the gun!")
 
-/obj/item/gun/energy/laser/prototype/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/energy/laser/prototype/post_fire(mob/user, atom/target)
 	return ..()
 
 /obj/item/gun/energy/laser/prototype/update_icon()
@@ -499,6 +499,10 @@
 
 	if(zoomdevicename)
 		if(wielded)
+			var/cancelled = FALSE
+			SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+			if(cancelled)
+				return
 			toggle_scope(2.0, usr)
 		else
 			to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

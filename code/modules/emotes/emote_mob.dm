@@ -41,7 +41,7 @@
 		return
 
 	if(use_emote.message_type == AUDIBLE_MESSAGE && is_muzzled())
-		audible_message("<b>\The [src]</b> makes a muffled sound.")
+		audible_message("<b>\The [src]</b> makes a muffled sound.", audible_message_flags = LOCAL_MESSAGE)
 		return
 	else
 		use_emote.do_emote(src, message)
@@ -162,15 +162,11 @@
 	var/langchat_message = process_chat_markup(message, list("~", "_"))
 	message = format_emote(src, message)
 	message = process_chat_markup(message, list("~", "_"))
-	var/list/emote_viewers = list()
+	var/message_flags = EMOTE_MESSAGE | (do_show_observers ? NONE : LOCAL_MESSAGE)
 	if(m_type == VISIBLE_MESSAGE)
-		visible_message(message, show_observers = do_show_observers)
-		emote_viewers = viewers(world.view, src)
+		visible_message(langchat_message, visible_message_flags = message_flags, emote_message = message)
 	else
-		audible_message(message, ghost_hearing = do_show_observers)
-		emote_viewers = get_hearers_in_LOS(world.view, src)
-
-	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"))
+		audible_message(langchat_message, audible_message_flags = message_flags, emote_message = message)
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)

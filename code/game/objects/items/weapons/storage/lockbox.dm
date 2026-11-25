@@ -72,7 +72,7 @@
 		desc = "It appears to be broken."
 		icon_state = src.icon_broken
 		item_state = icon_state
-		visible_message(visual_feedback, audible_feedback)
+		visible_message(visual_feedback, blind_message = audible_feedback, visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/item/storage/lockbox/loyalty
@@ -89,6 +89,14 @@
 	starts_with = list(
 		/obj/item/implantcase/anti_augment = 3,
 		/obj/item/implanter/anti_augment = 1
+	)
+
+/obj/item/storage/lockbox/anti_psionic
+	name = "lockbox of anti-psionic mindshield implants"
+	req_access = list(/datum/access/security::id)
+	starts_with = list(
+		/obj/item/implantcase/mindshield = 3,
+		/obj/item/implanter/mindshield = 1
 	)
 
 /obj/item/storage/lockbox/clusterbang

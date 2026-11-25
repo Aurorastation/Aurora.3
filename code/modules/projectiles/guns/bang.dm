@@ -53,22 +53,21 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 // Doesn't send a signal
 /obj/item/gun/bang/proc/handle_click_empty_flag(mob/user)
 	playsound(loc, empty_sound_flag, 30, TRUE)
-	balloon_alert_to_viewers("*click*")
+	balloon_alert_to_hearers("*click*")
 
-/obj/item/gun/bang/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
-	if(!fire_checks(target,user,clickparams,pointblank,reflex))
-		return FALSE
-
+/obj/item/gun/bang/process_fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0, atom/controller)
+	if(!user)
+		return ..() // Preserve the automated controller's empty-payload behavior for fake guns.
 	if(fired_gun)
 		handle_click_empty_flag(user)
 		return FALSE
 
-	balloon_alert_to_viewers("*pop*")
+	balloon_alert_to_hearers("*pop*")
 
 	if (user)
 		user.visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"), SPAN_WARNING("A flag pops out of the barrel!"))
 	else
-		visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"))
+		visible_message(SPAN_NOTICE("A flag pops out of the barrel of \the [src.name]'s barrel!"), visible_message_flags = LOCAL_MESSAGE)
 
 	appearance_flags &= KEEP_TOGETHER
 	play_fire_sound()
@@ -76,6 +75,7 @@ ABSTRACT_TYPE(/obj/item/gun/bang)
 	fired_gun = TRUE
 
 	addtimer(CALLBACK(src, PROC_REF(play_sad_sound)), 4) //4 deciseconds
+	return TRUE
 
 /obj/item/gun/bang/attack_self(mob/user)
 	. = ..()

@@ -81,7 +81,7 @@
 	return ..()
 
 /mob/living/simple_animal/hostile/mech/react_to_message(datum/say_message/msg)
-	if(!seeking_targets)
+	if(ismob(msg.speaker) && !seeking_targets)
 		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 /mob/living/simple_animal/hostile/mech/proc/handle_hear_say(var/mob/speaker, var/text)

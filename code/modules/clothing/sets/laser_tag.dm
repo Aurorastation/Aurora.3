@@ -1,6 +1,9 @@
 /*
 	Armor
 */
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/armor/riot)
+
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."
@@ -44,7 +47,7 @@
 			if(ID)
 				user_name = ID.registered_name
 		var/list/num_to_word = list("one", "two", "three", "four", "five")
-		visible_message("<b>[capitalize_first_letters(name)]</b> says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]].")]\".")
+		visible_message("<b>[capitalize_first_letters(name)]</b> says, \"[SPAN_NOTICE("[user_name] armor health set to [num_to_word[set_health]].")]\".", visible_message_flags = LOCAL_MESSAGE)
 		return
 	return ..()
 

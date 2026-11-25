@@ -42,7 +42,7 @@
 /obj/item/material/ashtray/shatter()
 	..()
 	if(emptyout(get_turf(src)))
-		visible_message(SPAN_DANGER("The contents of [src] spill everywhere!"))
+		visible_message(SPAN_DANGER("The contents of [src] spill everywhere!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/material/ashtray/proc/emptyout(atom/dest)
 	if(!contents.len)
@@ -128,7 +128,7 @@
 	if (health > 0)
 		health = max(0,health - 3)
 		if(emptyout(get_turf(src)))
-			visible_message(SPAN_DANGER("[src] slams into [hit_atom], spilling its contents everywhere!"))
+			visible_message(SPAN_DANGER("[src] slams into [hit_atom], spilling its contents everywhere!"), visible_message_flags = LOCAL_MESSAGE)
 		if (health < 1)
 			shatter()
 			return

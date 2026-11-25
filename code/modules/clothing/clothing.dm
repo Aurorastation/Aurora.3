@@ -1,4 +1,4 @@
-/obj/item/clothing
+ABSTRACT_TYPE(/obj/item/clothing)
 	name = "clothing"
 	siemens_coefficient = 0.9
 	drop_sound = 'sound/items/drop/clothing.ogg'
@@ -330,7 +330,7 @@
 	if(!material)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
+	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
@@ -352,7 +352,7 @@
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -435,7 +435,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
-/obj/item/clothing/ears
+ABSTRACT_TYPE(/obj/item/clothing/ears)
 	name = "ears"
 	icon = 'icons/obj/item/clothing/ears.dmi'
 	species_sprite_adaption_type = WORN_LEAR
@@ -615,7 +615,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Head
-/obj/item/clothing/head
+ABSTRACT_TYPE(/obj/item/clothing/head)
 	name = "head"
 	icon = 'icons/obj/item/clothing/hats.dmi'
 	item_icons = list(
@@ -823,7 +823,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Mask
-/obj/item/clothing/mask
+ABSTRACT_TYPE(/obj/item/clothing/mask)
 	name = "mask"
 	icon = 'icons/obj/item/clothing/masks.dmi'
 	item_icons = list(
@@ -933,7 +933,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Shoes
-/obj/item/clothing/shoes
+ABSTRACT_TYPE(/obj/item/clothing/shoes)
 	name = "shoes"
 	desc = "Comfortable-looking shoes."
 	species_sprite_adaption_type = WORN_SHOES
@@ -1079,7 +1079,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Suit
-/obj/item/clothing/suit
+ABSTRACT_TYPE(/obj/item/clothing/suit)
 	icon = 'icons/obj/item/clothing/suits.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
@@ -1144,7 +1144,7 @@
 
 ///////////////////////////////////////////////////////////////////////
 //Under clothing
-/obj/item/clothing/under
+ABSTRACT_TYPE(/obj/item/clothing/under)
 	icon = 'icons/obj/item/clothing/uniforms.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
@@ -1463,7 +1463,7 @@
 
 //Rings
 
-/obj/item/clothing/ring
+ABSTRACT_TYPE(/obj/item/clothing/ring)
 	name = "ring"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/gloves/rings.dmi'

@@ -1,4 +1,4 @@
-/obj/item/clothing/glasses/hud
+ABSTRACT_TYPE(/obj/item/clothing/glasses/hud)
 	name = "HUD"
 	desc = "A heads-up display that provides important info in (almost) real time."
 	item_flags = 0 //doesn't protect eyes because it's a monocle, duh
@@ -130,6 +130,7 @@
 /obj/item/clothing/glasses/hud/security/jensenshades
 	name = "augmented shades"
 	desc = "Polarized bioneural eyewear, designed to augment your vision."
+	icon = 'icons/obj/item/clothing/eyes/glasses.dmi'
 	icon_state = "jensenshades"
 	item_state = "jensenshades"
 	vision_flags = SEE_MOBS

@@ -1,6 +1,3 @@
-/// Returns whether langchat is enabled for a given mob.
-#define LANGCHAT_CLIENT_ENABLED(M) (M && M.client && M.client.prefs && (M.client.prefs.toggles_secondary & FLOATING_MESSAGES))
-
 #define LANGCHAT_LONGEST_TEXT 64
 #define LANGCHAT_WIDTH 96
 #define LANGCHAT_MAX_ALPHA 196
@@ -101,13 +98,17 @@
 		bubble.color = "#c51fb7"
 	bubble.appearance_flags |= RESET_ALPHA
 
-/// Floats flat text to everybody who can see it.
-/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+/// Checks the existing floating-message toggle for this listener.
+/atom/proc/runechat_prefs_check(mob/target)
+	return target?.client?.prefs && (target.client.prefs.toggles_secondary & FLOATING_MESSAGES)
+
+/// Floats flat text to listeners whose presentation preferences allow it.
+/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"), check_hearing = TRUE)
 	langchat_drop_images()
 
 	var/list/mob/shown = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
+		if(!runechat_prefs_check(listener) || (check_hearing && listener.ear_deaf))
 			continue
 		shown += listener
 	if(!length(shown))
@@ -126,9 +127,14 @@
 	// Group listeners by exact text perceived.
 	var/list/groups = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
+		if(!runechat_prefs_check(listener))
+			continue
+		var/clarity = listener.get_clarity(msg, feedback = FALSE)
+		if(clarity == CLARITY_NONE || clarity == CLARITY_DROWSY)
 			continue
 		var/perceived = msg.plain_text_for(listener)
+		if(clarity == CLARITY_FAINT)
+			perceived = stars(perceived)
 		if(!length(perceived))
 			continue
 		var/list/group = groups[perceived]
@@ -152,17 +158,17 @@
 	var/text_to_display = message
 	var/use_mob_style = TRUE
 
-	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
+	if(length_char(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
 	if("emote" in styles)
 		styles.Remove("emote")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "emote")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "emote")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 	if("radio" in styles)
 		styles.Remove("radio")
 		use_mob_style = FALSE
-		var/image/r_icon = image('icons/mob/chat_icons.dmi', icon_state = "radio")
+		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
@@ -194,3 +200,18 @@
 		return held_item
 	recursion_limit--
 	return recursive_holder_check(held_item.loc, recursion_limit)
+
+#undef LANGCHAT_LONGEST_TEXT
+#undef LANGCHAT_WIDTH
+#undef LANGCHAT_MAX_ALPHA
+#undef LANGCHAT_DEFAULT_POP
+#undef LANGCHAT_PANIC_POP
+#undef LANGCHAT_MESSAGE_POP_TIME
+#undef LANGCHAT_MESSAGE_POP_Y_SINK
+#undef LANGCHAT_MESSAGE_PANIC_POP_TIME
+#undef LANGCHAT_MESSAGE_PANIC_POP_Y_SINK
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_TIMES
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN
+#undef LANGCHAT_MESSAGE_FAST_POP_TIME
+#undef LANGCHAT_MESSAGE_FAST_POP_Y_SINK

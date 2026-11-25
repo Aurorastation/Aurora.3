@@ -20,8 +20,7 @@
 /datum/modular_computer_app_presets/merc/New()
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM
-	program_list += list(/datum/computer_file/program/newsbrowser,
-						/datum/computer_file/program/manifest,
+	program_list += list(/datum/computer_file/program/manifest,
 						/datum/computer_file/program/camera_monitor/hacked
 						)
 

@@ -292,10 +292,10 @@
 /obj/structure/sign/flag/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(attacking_item.isFlameSource())
-		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"), visible_message_flags = LOCAL_MESSAGE)
 		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
-		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 		if(linked_flag)
