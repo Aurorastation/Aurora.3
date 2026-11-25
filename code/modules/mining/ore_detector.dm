@@ -189,7 +189,7 @@
 		clear_images()
 		our_user = null
 		if(!user)
-			visible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), range = 1)
+			audible_message(SPAN_WARNING("\The [src] clicks off as its battery runs dry."), hearing_distance = 1)
 		update_icon()
 
 /obj/item/ore_detector/get_cell()
