@@ -65,10 +65,7 @@
 	spore_explode()
 
 /mob/living/simple_animal/mushroom/death()
-	var/hazard_avoid_chance = 0
-	if(ismob(usr))
-		SEND_SIGNAL(usr, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
-	if(!(hazard_avoid_chance > 0 && prob(hazard_avoid_chance)) && prob(30))
+	if(prob(30))
 		spore_explode()
 		return
 	else
