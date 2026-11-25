@@ -540,9 +540,9 @@
 	if (!isnull(damage))
 		*damage = *damage * (1 + vine_damage_contribution * effective_morale)
 	if (!isnull(escape_chance))
-		*escape_chance = clamp(*escape_chance + vine_escape_contribution * effective_morale, 0, 100)
+		*escape_chance = clamp(*escape_chance + vine_escape_contribution * effective_morale, 0, 80)
 	if (!isnull(evade_chance))
-		*evade_chance = clamp(*evade_chance + vine_escape_contribution * effective_morale, 0, 100)
+		*evade_chance = clamp(*evade_chance + vine_escape_contribution * effective_morale, 0, 80)
 
 /// Positive morale improves care around hazardous flora and wild seed salvaging. Psi-panic from negative morale makes mishaps more likely.
 /datum/component/morale/proc/handle_flora_handling(mob/user, datum/seed/plant, hazard_avoid_chance, salvage_seed_chance)

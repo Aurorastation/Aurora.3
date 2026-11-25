@@ -28,7 +28,7 @@
 	if(!victim.lying)
 		var/hazard_avoid_chance = 0
 		SEND_SIGNAL(victim, COMSIG_BOTANY_FLORA_HANDLING, seed, &hazard_avoid_chance, null)
-		if(hazard_avoid_chance > 0 && prob(hazard_avoid_chance))
+		if(hazard_avoid_chance > 0 && prob(clamp(hazard_avoid_chance, 0, 80)))
 			return
 	seed.do_thorns(victim,src)
 	seed.do_sting(victim,src,pick(BP_R_FOOT,BP_L_FOOT,BP_R_LEG,BP_L_LEG))
@@ -48,7 +48,7 @@
 		var/escape_chance = seed ? min(max(0, 100 - GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2), 100) : 50
 		if(user)
 			SEND_SIGNAL(user, COMSIG_BOTANY_VINE_INTERACT, src, null, &escape_chance, null)
-		if(prob(clamp(escape_chance, 0, 100)))
+		if(prob(clamp(escape_chance, 0, 80)))
 			if(buckled.buckled_to == src)
 				if(buckled != user)
 					buckled.visible_message(\
@@ -80,7 +80,7 @@
 	if(!victim.lying && !victim.stat)
 		var/evade_chance = 0
 		SEND_SIGNAL(victim, COMSIG_BOTANY_VINE_INTERACT, src, null, null, &evade_chance)
-		if(evade_chance > 0 && prob(evade_chance))
+		if(evade_chance > 0 && prob(clamp(evade_chance, 0, 80)))
 			to_chat(victim, SPAN_NOTICE("You anticipate \the [src]'s lashing tendrils and deftly sidestep their grasp!"))
 			return
 

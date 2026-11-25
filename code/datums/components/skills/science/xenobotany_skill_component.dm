@@ -12,7 +12,11 @@
 	/// Bonus vine escape chance per effective skill rank above Unfamiliar.
 	var/vine_escape_bonus_per_rank = 25
 	/// Bonus vine entanglement evasion chance per effective skill rank above Unfamiliar.
-	var/vine_evade_bonus_per_rank = 35
+	var/vine_evade_bonus_per_rank = 25
+	/// Cooldown duration between weak-spot chat notifications when attacking plant fauna.
+	var/weak_spot_message_delay = 10 SECONDS
+	/// Tracks when the player can next be notified of their bonus damage against plant fauna.
+	COOLDOWN_DECLARE(weak_spot_message_cooldown)
 	/// Reduction in sample damage multiplier per effective skill rank above Unfamiliar.
 	var/sample_damage_reduction_per_rank = 0.25
 	/// Reduction in sample exhaustion chance multiplier per effective skill rank above Unfamiliar.
@@ -76,7 +80,8 @@
 	if(!istype(target) || target.ckey || !HAS_TRAIT(target, TRAIT_MC_PLANT))
 		return
 
-	if(prob(20))
+	if(COOLDOWN_FINISHED(src, weak_spot_message_cooldown))
+		COOLDOWN_START(src, weak_spot_message_cooldown, weak_spot_message_delay)
 		to_chat(owner, SPAN_NOTICE("Your attack exploits a structural weak spot in \the [target]'s fibrous anatomy!"))
 
 	*power = *power * (1 + bonus_damage_per_rank * skill_level)
@@ -180,10 +185,10 @@
 		*damage = *damage * (1 + vine_damage_bonus_per_rank * effective_skill)
 
 	if(!isnull(escape_chance))
-		*escape_chance = min(100, *escape_chance + vine_escape_bonus_per_rank * effective_skill)
+		*escape_chance = min(80, *escape_chance + vine_escape_bonus_per_rank * effective_skill)
 
 	if(!isnull(evade_chance))
-		*evade_chance = min(100, *evade_chance + vine_evade_bonus_per_rank * effective_skill)
+		*evade_chance = min(80, *evade_chance + vine_evade_bonus_per_rank * effective_skill)
 
 /// Increases chance to avoid flora hazards (stings, thorns, spore bursts) and salvage wild seed packets.
 /datum/component/skill/xenobotany/proc/handle_flora_handling(mob/user, datum/seed/plant, hazard_avoid_chance, salvage_seed_chance)
