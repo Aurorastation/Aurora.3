@@ -290,7 +290,6 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/cryopod/LateInitialize()
-	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	find_control_computer()
 

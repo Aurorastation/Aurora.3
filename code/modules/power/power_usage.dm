@@ -100,7 +100,6 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	PROTECTED_PROC(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
-	load_persistent_parts()
 	power_change()
 	if(use_power == POWER_USE_OFF)
 		return

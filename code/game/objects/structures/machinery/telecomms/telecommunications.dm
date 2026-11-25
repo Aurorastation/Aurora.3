@@ -98,7 +98,6 @@
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/machinery/telecomms/LateInitialize()
-	SHOULD_NOT_SLEEP(FALSE)
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = get_map_sector(src)
@@ -317,3 +316,4 @@
 	if (overmap_dist > overmap_range)
 		return -1
 	return overmap_dist
+
