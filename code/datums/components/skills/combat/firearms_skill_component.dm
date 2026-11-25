@@ -55,7 +55,7 @@
 	set desc = "Choose what to do with old magazines during a tactical reload or weapon unload."
 
 	var/datum/component/skill/firearms/comp = GetComponent(FIREARMS_SKILL_COMPONENT)
-	if(!comp || comp.skill_level < SKILL_LEVEL_PROFESSIONAL)
+	if(!comp || comp.skill_level < SKILL_LEVEL_TRAINED)
 		return
 	var/choice = tgui_input_list(src, "Choose your magazine retention preference:", "Magazine Retention", list(MAG_RETENTION_RETAIN, MAG_RETENTION_HOLD, MAG_RETENTION_DROP, MAG_RETENTION_TOSS))
 	if(choice)
@@ -103,7 +103,7 @@
 	RegisterSignal(parent, COMSIG_GUN_UNLOAD, PROC_REF(handle_gun_unload), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_TACTICAL_RELOAD, PROC_REF(handle_tactical_reload), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_OFFHAND_ACCURACY, PROC_REF(handle_offhand_accuracy), override = TRUE)
-	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+	if(skill_level >= SKILL_LEVEL_TRAINED)
 		add_verb(parent, /mob/proc/set_magazine_retention)
 
 /datum/component/skill/firearms/Destroy()
@@ -370,7 +370,7 @@
 
 /datum/component/skill/firearms/proc/handle_gun_unload(mob/living/user, obj/item/gun/projectile/gun, force_drop_mag, retention_mode)
 	SIGNAL_HANDLER
-	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+	if(skill_level >= SKILL_LEVEL_TRAINED)
 		if(retention_mode)
 			*retention_mode = magazine_retention
 		return
@@ -383,7 +383,7 @@
 
 /datum/component/skill/firearms/proc/handle_tactical_reload(mob/living/user, obj/item/gun/projectile/gun, obj/item/ammo_magazine/new_mag, tactical_reload, retention_mode)
 	SIGNAL_HANDLER
-	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+	if(skill_level >= SKILL_LEVEL_TRAINED)
 		*tactical_reload = TRUE
 		if(retention_mode)
 			*retention_mode = magazine_retention

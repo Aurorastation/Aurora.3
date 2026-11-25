@@ -67,12 +67,13 @@
 			+ " - Staying still for 1 second stabilizes for two penalty-free shots. Firing 18 shots warms you up for <b>15 minutes</b> (stacks twice).",
 		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms, equivalent to military, police, or armed security service.<br>" \
 			+ " - You suffer no skill penalties, never fumble or become unsteadied, clear jams <b>twice as fast</b>, reload faster, and suffer reduced dual-wielding penalties.<br>" \
+			+ " - <b>Tactical Reload:</b> Clicking a loaded gun with a compatible magazine auto-swaps them; use <b>Set Magazine Retention</b> to choose whether swapped/unloaded mags are retained in bags, held, dropped, or tossed.<br>" \
 			+ " - Scoping or staying still while wielding a gun on Harm intent for 5 seconds grants <b>Focused Aim</b> (-15° spread, 0.5 tiles closer on your next shot; 45s cooldown), and you get <b>Last round! / Empty!</b> alerts.<br>" \
 			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points (stacks twice for +6).",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of combat marksmanship experience, such as special forces, SWAT marksmen, or hardened mercenaries.<br>" \
 			+ " - Firearms count as <b>0.5 tiles closer</b>, and stabilizing for 1 second grants two shots at <b>1 tile closer</b> with <b>-30° spread</b>.<br>" \
 			+ " - <b>Snap-Shot:</b> Running on Harm intent for 5 seconds primes your next shot with <b>-15° spread</b> (45s cooldown). <b>Focused Aim</b> (5s stationary on Harm intent, 45s cooldown) grants <b>1.5 tiles closer</b> and <b>-30° spread</b>.<br>" \
-			+ " - <b>Tap-Rack-Bang:</b> You clear any jam in a single action, halve jam chances, quick-load magazines with no delay (or <b>Tactical Reload</b> by clicking a loaded gun with a compatible magazine to auto-swap and stow the old mag in a bag), and automatically stow unloaded magazines.<br>" \
+			+ " - <b>Tap-Rack-Bang:</b> You clear any jam in a single action, halve jam chances, quick-load magazines with no delay, and greatly reduce dual-wielding penalties.<br>" \
 			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55%–65% chance</b> of boosted accuracy and +3 to +7 morale."
 	)
 
