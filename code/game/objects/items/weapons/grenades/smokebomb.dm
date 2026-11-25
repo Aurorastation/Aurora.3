@@ -53,7 +53,7 @@
 
 /obj/item/grenade/smokebomb/cyborg/Initialize()
 	. = ..()
-	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Ready</span>"
+	maptext = MAPTEXT_SPESSFONT("Ready")
 
 /obj/item/grenade/smokebomb/cyborg/attack_self(mob/user)
 	if(!can_deploy)
@@ -67,7 +67,7 @@
 
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	can_deploy = FALSE
-	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Charge</span>"
+	maptext = MAPTEXT_SPESSFONT("Charge")
 
 /obj/item/grenade/smokebomb/cyborg/proc/recharge()
 	if(isrobot(loc))
@@ -75,4 +75,4 @@
 		if(R?.cell)
 			R.cell.use(1000)
 	can_deploy = TRUE
-	maptext = "<span style=\"font-family: 'Spess Font'; -dm-text-outline: 1 black; font-size: 6pt; line-height: 1.4;\">Ready</span>"
+	maptext = MAPTEXT_SPESSFONT("Ready")
