@@ -210,6 +210,11 @@
 /obj/item/organ/internal/machine/proc/can_do_integrity_damage()
 	if(last_integrity_event_time + integrity_event_cooldown > world.time)
 		return FALSE
+	if(owner)
+		var/cancelled = FALSE
+		SEND_SIGNAL(owner, COMSIG_IPC_INTEGRITY_EVENT_CHECK, &cancelled)
+		if(cancelled)
+			return FALSE
 	return TRUE
 
 /**

@@ -214,7 +214,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(!..())
 		return FALSE
 	if(!jam_num && jam_chance && (persistent_chamber ? !QDELETED(chambered?.BB) : get_ammo()))
-		if(prob(jam_chance))
+		var/effective_jam_chance = jam_chance
+		if(user)
+			SEND_SIGNAL(user, COMSIG_GUN_JAM_CHECK, src, &effective_jam_chance)
+		if(effective_jam_chance > 0 && prob(effective_jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			balloon_alert(user, "jammed!")
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
@@ -327,9 +330,13 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()
+	if(user)
+		SEND_SIGNAL(user, COMSIG_GUN_LOAD, src, A)
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
+	if(user)
+		SEND_SIGNAL(user, COMSIG_GUN_UNLOAD, src, &drop_mag)
 	if(ammo_magazine)
 		if(drop_mag)
 			ammo_magazine.forceMove(get_turf(src))
@@ -397,8 +404,15 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
+		var/clear_amount = 1
+		var/cancelled = FALSE
+		if(user)
+			SEND_SIGNAL(user, COMSIG_GUN_UNJAM_ATTEMPT, src, &clear_amount, &cancelled)
+		if(cancelled)
+			playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
+			return
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
-		jam_num--
+		jam_num = max(0, jam_num - clear_amount)
 		if(!jam_num)
 			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			balloon_alert(user, SPAN_GREEN("CLEAR"))

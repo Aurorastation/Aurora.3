@@ -35,6 +35,17 @@
 	var/warmup_tier
 	/// Slightly less than a Familiar Leadership buff
 	var/morale_value = 3
+	/// Snap-Shot tracking (Professional: 5s running on Harm intent, 45s cooldown).
+	var/snap_shot_until = 0
+	var/snap_shot_run_start = 0
+	var/last_snap_step = 0
+	var/snap_shot_cooldown = 45 SECONDS
+	var/next_snap_shot = 0
+	/// Focused Aim tracking (Trained+: 5s stationary wielding a gun on Harm intent, 45s cooldown).
+	var/focus_delay
+	var/focused_aim = FALSE
+	var/focus_aim_cooldown = 45 SECONDS
+	var/next_focus_aim = 0
 
 /datum/moodlet/firearms_practice
 	moodlet_descriptor = SPAN_GOOD("Firing Warmup")
@@ -71,6 +82,11 @@
 	RegisterSignal(parent, COMSIG_GUN_SCOPE, PROC_REF(gun_fumble), override = TRUE)
 	RegisterSignal(parent, COMSIG_TURF_ENTERED, PROC_REF(set_stabilize), override = TRUE)
 	RegisterSignal(parent, COMSIG_GUN_FIRED, PROC_REF(warmup), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_UNJAM_ATTEMPT, PROC_REF(handle_unjam_attempt), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_JAM_CHECK, PROC_REF(handle_jam_check), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_LOAD, PROC_REF(handle_gun_load), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_UNLOAD, PROC_REF(handle_gun_unload), override = TRUE)
+	RegisterSignal(parent, COMSIG_GUN_OFFHAND_ACCURACY, PROC_REF(handle_offhand_accuracy), override = TRUE)
 
 /datum/component/skill/firearms/Destroy()
 	if (!parent)
@@ -82,18 +98,43 @@
 	UnregisterSignal(parent, COMSIG_GUN_SCOPE)
 	UnregisterSignal(parent, COMSIG_TURF_ENTERED)
 	UnregisterSignal(parent, COMSIG_GUN_FIRED)
+	UnregisterSignal(parent, COMSIG_GUN_UNJAM_ATTEMPT)
+	UnregisterSignal(parent, COMSIG_GUN_JAM_CHECK)
+	UnregisterSignal(parent, COMSIG_GUN_LOAD)
+	UnregisterSignal(parent, COMSIG_GUN_UNLOAD)
+	UnregisterSignal(parent, COMSIG_GUN_OFFHAND_ACCURACY)
 	return ..()
 
 /datum/component/skill/firearms/proc/set_stabilize(mob/user, turf/new_turf, old_loc)
 	SIGNAL_HANDLER
-	if(skill_level >= SKILL_LEVEL_TRAINED && skill_level < SKILL_LEVEL_PROFESSIONAL)
-		return
+	focused_aim = FALSE
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL && world.time >= next_snap_shot && user.a_intent == I_HURT && user.m_intent == M_RUN)
+		if(!snap_shot_run_start || (world.time - last_snap_step) > 1.5 SECONDS)
+			snap_shot_run_start = world.time
+		last_snap_step = world.time
+		if((world.time - snap_shot_run_start) >= 5 SECONDS)
+			if(world.time > snap_shot_until)
+				user.balloon_alert(user, "Snap-shot ready!")
+			snap_shot_until = world.time + 3 SECONDS
+	else
+		snap_shot_run_start = 0
+		snap_shot_until = 0
+
 	if(!istype(user.get_active_hand(), /obj/item/gun))
 		return
-	stabilize_delay = world.time + 1 SECOND
-	if(!last_tile)
-		last_tile = new_turf
-	addtimer(CALLBACK(src, PROC_REF(check_stabilize), user), stabilize_delay - world.time)
+	last_tile = new_turf
+	if(skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		stabilize_delay = world.time + 1 SECOND
+		addtimer(CALLBACK(src, PROC_REF(check_stabilize), user), stabilize_delay - world.time)
+	if(skill_level >= SKILL_LEVEL_TRAINED && world.time >= next_focus_aim)
+		focus_delay = world.time + 5 SECONDS
+		addtimer(CALLBACK(src, PROC_REF(check_focus_aim), user), 5 SECONDS)
+
+/datum/component/skill/firearms/proc/check_focus_aim(mob/living/shooter)
+	if(focus_delay && world.time >= focus_delay && last_tile == shooter.loc && shooter.a_intent == I_HURT && world.time >= next_focus_aim && istype(shooter.get_active_hand(), /obj/item/gun))
+		focused_aim = TRUE
+		shooter.balloon_alert(shooter, "Focused aim!")
+		focus_delay = null
 
 /datum/component/skill/firearms/proc/check_stabilize(mob/shooter)
 	if(stabilize_delay && world.time >= stabilize_delay && last_tile == shooter.loc && istype(shooter.get_active_hand(), /obj/item/gun))
@@ -103,7 +144,8 @@
 		shooter.balloon_alert(shooter, "Stabilized shots!")
 		playsound(shooter, 'sound/weapons/push.ogg', 30)
 		stabilize_delay = null
-	last_tile = null
+	if(skill_level < SKILL_LEVEL_TRAINED)
+		last_tile = null
 
 /datum/component/skill/firearms/proc/set_steady(mob/shooter, forced)
 	if(next_steady && world.time >= next_steady || forced)
@@ -113,8 +155,17 @@
 		to_chat(shooter, SPAN_NOTICE("<i>Your grip feels steadier again.</i>"))
 		shooter.balloon_alert(shooter, "Steadied shots!")
 
-/datum/component/skill/firearms/proc/warmup(mob/shooter) // Trained and up ICly would always be steadied
+/datum/component/skill/firearms/proc/warmup(mob/shooter, obj/item/gun/fired_gun) // Trained and up ICly would always be steadied
 	SIGNAL_HANDLER
+	if(istype(fired_gun))
+		if(skill_level >= SKILL_LEVEL_TRAINED)
+			var/remaining = fired_gun.get_ammo()
+			if(remaining == 1)
+				shooter.balloon_alert(shooter, "Last round!")
+			else if(remaining == 0)
+				shooter.balloon_alert(shooter, "Empty!")
+		else if(unsteadied && fired_gun.recoil >= 2)
+			shake_camera(shooter, 1, 1)
 	if(!stabilized && skill_level < SKILL_LEVEL_TRAINED && !unsteadied && count_to_unsteady < 5)
 		count_to_unsteady++
 	if(stabilized && (skill_level < SKILL_LEVEL_TRAINED || skill_level >= SKILL_LEVEL_PROFESSIONAL))
@@ -195,6 +246,26 @@
 	if(last_tile && last_tile != shooter.loc) // REQUIRES being still, otherwise players would just stabilize out of sight
 		stabilized = FALSE
 		stabilized_shots = 0
+		focused_aim = FALSE
+
+	if(focused_aim)
+		focused_aim = FALSE
+		next_focus_aim = world.time + focus_aim_cooldown
+		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+			*accuracy_decrease = *accuracy_decrease - 1.5
+			*dispersion_increase = *dispersion_increase - dispersion
+		else if(skill_level >= SKILL_LEVEL_TRAINED)
+			*accuracy_decrease = *accuracy_decrease - 0.5
+			*dispersion_increase = *dispersion_increase - (dispersion * 0.5)
+		return .
+
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL && world.time <= snap_shot_until)
+		snap_shot_until = 0
+		snap_shot_run_start = 0
+		next_snap_shot = world.time + snap_shot_cooldown
+		*dispersion_increase = *dispersion_increase - (dispersion * 0.5)
+		shooter.balloon_alert(shooter, "Snap-shot!")
+		return .
 
 	if(stabilized) // First to go because it's the most common and contextual
 		if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
@@ -230,6 +301,11 @@
 
 /datum/component/skill/firearms/proc/gun_fumble(mob/living/shooter, obj/item/gun/shoota, cancelled, signaltype)
 	SIGNAL_HANDLER
+	if(signaltype == COMSIG_GUN_SCOPE && skill_level >= SKILL_LEVEL_TRAINED)
+		if(world.time >= next_focus_aim && shooter.a_intent == I_HURT)
+			focused_aim = TRUE
+			shooter.balloon_alert(shooter, "Focused aim!")
+		return
 	if(warmup_tier == 2 || skill_level >= skill_diff_reference)
 		return // Trained and up will never fumble. Except if morale has anything to say about that...
 	if(!prob(gun_fumble_per_skill_diff * (skill_diff_reference - skill_level)))
@@ -242,3 +318,47 @@
 		shooter.adjustHalLoss(rand(5, 15))
 		shooter.eye_blurry += 20
 		shooter.visible_message(SPAN_DANGER("The scope gets in [shooter.get_pronoun("his")] eye!"), SPAN_DANGER("The scope gets in your eye!"))
+
+/datum/component/skill/firearms/proc/handle_unjam_attempt(mob/living/user, obj/item/gun/projectile/gun, clear_amount, cancelled)
+	SIGNAL_HANDLER
+	if(skill_level < SKILL_LEVEL_FAMILIAR && prob(20))
+		*cancelled = TRUE
+		user.balloon_alert(user, "Fumbled bolt!")
+		return
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		*clear_amount = gun.jam_num
+		user.visible_message(SPAN_NOTICE("\The [user] smoothly clears the jam in \the [gun]!"), SPAN_NOTICE("You smoothly clear the jam in \the [gun]!"))
+		user.balloon_alert(user, "Tap-rack-bang!")
+	else if(skill_level >= SKILL_LEVEL_TRAINED)
+		*clear_amount = 2
+
+/datum/component/skill/firearms/proc/handle_jam_check(mob/living/user, obj/item/gun/projectile/gun, effective_jam_chance)
+	SIGNAL_HANDLER
+	if(skill_level < SKILL_LEVEL_FAMILIAR)
+		*effective_jam_chance = *effective_jam_chance + 5
+	else if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		*effective_jam_chance = *effective_jam_chance * 0.5
+
+/datum/component/skill/firearms/proc/handle_gun_load(mob/living/user, obj/item/gun/projectile/gun, obj/item/ammo)
+	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL && istype(ammo, /obj/item/ammo_magazine))
+		user.setClickCooldown(0)
+		user.balloon_alert(user, "Quick-loaded!")
+	else if(skill_level >= SKILL_LEVEL_TRAINED)
+		user.setClickCooldown(0.2 SECONDS)
+
+/datum/component/skill/firearms/proc/handle_gun_unload(mob/living/user, obj/item/gun/projectile/gun, force_drop_mag)
+	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_FAMILIAR)
+		return
+	var/drop_chance = unsteadied ? 30 : 15
+	if(prob(drop_chance))
+		*force_drop_mag = TRUE
+		user.balloon_alert(user, "Dropped mag!")
+
+/datum/component/skill/firearms/proc/handle_offhand_accuracy(mob/living/user, obj/item/gun/offhand_gun, decreased_accuracy)
+	SIGNAL_HANDLER
+	if(skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		*decreased_accuracy = max(0, *decreased_accuracy - 2)
+	else if(skill_level >= SKILL_LEVEL_TRAINED)
+		*decreased_accuracy = max(0, *decreased_accuracy - 1)

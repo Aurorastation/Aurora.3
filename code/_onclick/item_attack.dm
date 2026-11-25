@@ -138,7 +138,7 @@ This calls [atom/proc/tool_act], among others.
  * * target_zone - The target zone aimed at, **THIS DIFFERS FROM TG WHERE IT TAKES THE CLICK PARAMS**
  */
 /obj/item/proc/attack(mob/living/target_mob, mob/living/user, target_zone = BP_CHEST)
-	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target_mob, user) || SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, target_mob, user)
+	var/signal_return = SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, target_mob, user) || SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, target_mob, user, src)
 	if(signal_return & COMPONENT_CANCEL_ATTACK_CHAIN)
 		return TRUE
 	if(signal_return & COMPONENT_SKIP_ATTACK)

@@ -104,6 +104,16 @@
 
 #define COMSIG_GUN_SCOPE "gun_scope"
 
+#define COMSIG_GUN_UNJAM_ATTEMPT "gun_unjam_attempt"
+
+#define COMSIG_GUN_JAM_CHECK "gun_jam_check"
+
+#define COMSIG_GUN_LOAD "gun_load"
+
+#define COMSIG_GUN_UNLOAD "gun_unload"
+
+#define COMSIG_GUN_OFFHAND_ACCURACY "gun_offhand_accuracy"
+
 // Mech signals
 
 #define COMSIG_MECH_MOVE_WASD "mech_move_wasd"
@@ -136,13 +146,23 @@
 /// Signal raised against the harvester of a plant for each product spawned by the Harvest() proc: (atom/movable/product, datum/seed/plant)
 #define COMSIG_PLANT_PRODUCT_HARVESTED "plant_product_harvested"
 
-// Armed Combat Signals
+// Melee Combat Signals
 #define COMSIG_APPLY_HIT_EFFECT "apply_hit_effect"
 /// Signal raised against a mob attempting to attack a structure, used to query components for structure damage modifiers.
 #define COMSIG_ATTACK_STRUCTURE "attack_structure"
+/// Signal raised against a human defender during resolve_item_attack to check for weapon parries: (obj/item/weapon, mob/living/attacker, &parried)
+#define COMSIG_HUMAN_MELEE_PARRY_CHECK "human_melee_parry_check"
+/// Signal raised against a mob when practicing melee strikes (e.g. on a punching bag).
+#define COMSIG_MELEE_PRACTICE "melee_practice"
 
 // Various computer signals for interrupting via skill or other effects.
 #define COMSIG_USE_REACTOR_COMPUTER "use_reactor_computer"
+
+// Tenacity / Fault-Tolerant Architecture Signals
+/// Raised during human shock processing: (&shock_stage, &recovery)
+#define COMSIG_HUMAN_SHOCK_CHECK "human_shock_check"
+/// Raised when an IPC internal organ checks if it can trigger an integrity failure event: (&cancelled)
+#define COMSIG_IPC_INTEGRITY_EVENT_CHECK "ipc_integrity_event_check"
 #define COMSIG_USE_MECH_FAB "use_mech_fab"
 
 // Surgery Signals
