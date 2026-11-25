@@ -32,9 +32,9 @@
 
 	/// Active Self-Triage / Diagnostic action granted at Trained+.
 	var/datum/action/tenacity/tenacity_action
-	/// Professional capstone: 20s Last Stand / Fail-Safe Kernel window on a 15m cooldown.
-	var/emergency_reserve_duration = 20 SECONDS
-	var/emergency_reserve_cooldown = 15 MINUTES
+	/// Professional capstone: 15s Last Stand / Fail-Safe Kernel window on a 30m cooldown.
+	var/emergency_reserve_duration = 15 SECONDS
+	var/emergency_reserve_cooldown = 30 MINUTES
 	var/emergency_reserve_until = 0
 	var/next_emergency_reserve = 0
 
