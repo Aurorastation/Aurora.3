@@ -27,6 +27,16 @@
 	var/phase = "filling"//"filling", "processing", "releasing"
 	var/datum/gas_mixture/inner_tank = new
 	var/tank_volume = 400//Litres
+	var/atmos_tuned = FALSE
+
+/obj/structure/machinery/atmospherics/binary/oxyregenerator/CtrlShiftClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "calibrating the CO2-splitting catalysts of", "\the [src] for +15% carbon efficiency and 15% lower intake power draw")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		RefreshParts()
+	return TRUE
 
 /obj/structure/machinery/atmospherics/binary/oxyregenerator/Initialize()
 	. = ..()
@@ -48,6 +58,9 @@
 			power_rating -= (0.05 * P.rating) - 0.05
 
 	carbon_efficiency = clamp(carbon_efficiency, initial(carbon_efficiency), 5)
+	if(atmos_tuned)
+		carbon_efficiency *= 1.15
+		intake_power_efficiency *= 0.85
 	intake_power_efficiency = clamp(intake_power_efficiency, 0.1, initial(intake_power_efficiency))
 	power_rating = clamp(power_rating, 0.1, 1)
 	power_rating *= initial(power_rating)

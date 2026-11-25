@@ -7,6 +7,7 @@
 	density = 1
 	var/power_loss = 2
 	var/input_power_multiplier = 1
+	var/elec_tuned = FALSE
 
 	component_types = list(
 		/obj/item/circuitboard/tesla_coil,
@@ -21,12 +22,21 @@
 		lights_image.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(lights_image)
 
+/obj/structure/machinery/power/tesla_coil/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, elec_tuned, "calibrating the induction windings of", "\the [src] for +20% power absorption")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !elec_tuned)
+		elec_tuned = TRUE
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
 
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		power_multiplier += C.rating
-	input_power_multiplier = power_multiplier
+	input_power_multiplier = power_multiplier * (elec_tuned ? 1.2 : 1)
 
 /obj/structure/machinery/power/tesla_coil/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))

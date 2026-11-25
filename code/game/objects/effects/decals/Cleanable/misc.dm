@@ -56,6 +56,12 @@
 /obj/effect/decal/cleanable/greenglow/Initialize(mapload)
 	. = ..()
 
+/obj/effect/decal/cleanable/greenglow/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if((isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR) && !istype(src, /obj/effect/decal/cleanable/greenglow/radioactive))
+		. += SPAN_NOTICE("On closer inspection, this glowing residue appears inert and non-radioactive.")
+
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -75,6 +81,15 @@ ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)
 			var/mob/living/carbon/human/H = user
 			H.rad_act(radioactivity)
 	STOP_PROCESSING(SSprocessing, src)
+
+/obj/effect/decal/cleanable/greenglow/radioactive/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR)
+		if(skill_level == SKILL_LEVEL_FAMILIAR)
+			. += SPAN_DANGER("On closer inspection, this glowing residue is actively radioactive!")
+		else
+			. += SPAN_DANGER("On closer inspection, this glowing residue is actively radioactive ([radioactivity] IU/s).")
 
 /obj/effect/decal/cleanable/greenglow/radioactive/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()

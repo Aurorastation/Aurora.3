@@ -16,6 +16,7 @@
 	buckle_require_restraints = TRUE
 
 	var/power_gen = 4000 // Enough to power a single APC. 16000 output with T4 capacitor.
+	var/reactor_tuned = FALSE
 
 	var/irradiate = TRUE // RTGs irradiate surroundings, but only when panel is open.
 
@@ -32,6 +33,14 @@
 	. += ..()
 	. += "Upgraded <b>capacitors</b> will increase maximum power output."
 
+/obj/structure/machinery/power/rtg/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		. += SPAN_NOTICE("<b>RTG Diagnostics:</b> Output: [power_wattage_readable(power_gen)]")
+		if(panel_open && irradiate)
+			. += SPAN_DANGER("Warning: Maintenance panel is open and the radioisotope core is actively irradiating the surroundings!")
+
 /obj/structure/machinery/power/rtg/Initialize()
 	. = ..()
 	connect_to_network()
@@ -46,13 +55,22 @@
 /obj/structure/machinery/power/rtg/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
 
+/obj/structure/machinery/power/rtg/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "calibrating the thermocouple array of", "\the [src] for +20% power output")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		power_gen = round(power_gen * 1.2)
+	return TRUE
+
 /obj/structure/machinery/power/rtg/RefreshParts()
 	..()
 	var/part_level = 0
 	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating
 
-	power_gen = initial(power_gen) * part_level
+	power_gen = round(initial(power_gen) * part_level * (reactor_tuned ? 1.2 : 1))
 
 /obj/structure/machinery/power/rtg/attackby(obj/item/attacking_item, mob/user, params)
 	if(default_part_replacement(user, attacking_item))

@@ -19,6 +19,21 @@
 	var/assembled = 0
 	var/datum/wires/particle_acc/control_box/wires
 
+/obj/structure/machinery/particle_accelerator/control_box/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		var/list/issues = list()
+		if(wires)
+			if(wires.is_cut(WIRE_POWER_LIMIT) || strength_upper_limit > 2)
+				issues += "power limiter bypassed"
+			if(wires.is_cut(WIRE_POWER))
+				issues += "power wire cut"
+			if(wires.is_cut(WIRE_STRENGTH))
+				issues += "strength control wire cut"
+		if(length(issues))
+			. += SPAN_WARNING("<b>Reactor Inspection:</b> Tampering detected ([jointext(issues, ", ")]).")
+
 /obj/structure/machinery/particle_accelerator/control_box/Initialize()
 	wires = new(src)
 	connected_parts = list()

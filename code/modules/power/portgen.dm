@@ -13,6 +13,8 @@
 	var/power_gen = 5000
 	var/open = FALSE
 	var/power_output = 1
+	var/skill_output_multiplier = 1
+	var/tuned_skill_level = SKILL_LEVEL_UNFAMILIAR
 	var/portgen_lightcolour = "#000000"
 	var/datum/looping_sound/generator/soundloop
 
@@ -26,6 +28,22 @@
 		. += "The generator is on."
 	else
 		. += "The generator is off."
+
+/obj/structure/machinery/power/portgen/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR)
+		var/tuning_note = skill_output_multiplier > 1 ? " (Tuned: +[round((skill_output_multiplier - 1) * 100)]%)" : ""
+		. += SPAN_NOTICE("<b>Generator Diagnostics:</b> Output: [active ? power_wattage_readable(power_gen * power_output * skill_output_multiplier) : "0 W"] (Setting: [power_output])[tuning_note]")
+
+/obj/structure/machinery/power/portgen/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, skill_output_multiplier > 1, "fine-tuning", "\the [src] for +20% power output and improved fuel efficiency")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && skill_output_multiplier <= 1)
+		tuned_skill_level = SKILL_LEVEL_PROFESSIONAL
+		skill_output_multiplier = 1.2
+	return TRUE
 
 /obj/structure/machinery/power/portgen/Initialize()
 	. = ..()
@@ -53,7 +71,7 @@
 /obj/structure/machinery/power/portgen/process()
 	if(active && HasFuel() && !IsBroken() && anchored)
 		set_light(2, 1, l_color = portgen_lightcolour)
-		ADD_TO_POWERNET(src, power_gen * power_output)
+		ADD_TO_POWERNET(src, power_gen * power_output * skill_output_multiplier)
 		UseFuel()
 	else
 		set_light(0)
@@ -197,10 +215,18 @@
 		S.amount = amount
 		sheets -= amount
 
+/obj/structure/machinery/power/portgen/basic/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR)
+		. += SPAN_NOTICE("Fuel: [sheets] [sheet_name] | Core Temp: [round(temperature)] / [max_temperature] C")
+
 /obj/structure/machinery/power/portgen/basic/UseFuel()
 
 	//how much material are we using this iteration?
 	var/needed_sheets = power_output / time_per_sheet
+	if(tuned_skill_level >= SKILL_LEVEL_PROFESSIONAL)
+		needed_sheets *= 0.85
 
 	//HasFuel() should guarantee us that there is enough fuel left, so no need to check that
 	//the only thing we need to worry about is if we are going to rollover to the next sheet
@@ -367,7 +393,7 @@
 	data["coolant_capacity"] = reagents?.maximum_volume
 
 	data["fuel"] = fuel
-	data["output_watts"] = power_output * power_gen
+	data["output_watts"] = power_output * power_gen * skill_output_multiplier
 
 	return data
 

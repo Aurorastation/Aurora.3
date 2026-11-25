@@ -39,6 +39,16 @@ Thus, the two variables affect pump operation are set in New():
 	// Measure amount of gas pumped through
 	var/measure_enabled = FALSE
 	var/moles_pumped = 0
+	var/atmos_tuned = FALSE
+
+/obj/structure/machinery/atmospherics/binary/pump/CtrlShiftClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "tuning the impellers of", "\the [src] for +20% pump capacity")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		power_rating = round(power_rating * 1.2)
+	return TRUE
 
 /obj/structure/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

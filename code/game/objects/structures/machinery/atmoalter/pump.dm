@@ -18,6 +18,17 @@
 	power_rating = 7500 //7500 W ~ 10 HP
 	power_losses = 150
 	connect_automatically = FALSE
+	var/atmos_tuned = FALSE
+
+/obj/structure/machinery/portable_atmospherics/powered/pump/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "tuning the impeller seals of", "\the [src] for +20% pump power and 15% lower power loss")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		power_rating = round(power_rating * 1.2)
+		power_losses = round(power_losses * 0.85)
+	return TRUE
 
 /obj/structure/machinery/portable_atmospherics/powered/pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

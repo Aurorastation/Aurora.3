@@ -15,11 +15,23 @@
 
 /obj/structure/machinery/power/emitter/gyrotron/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
-	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
+	change_power_consumption(get_effective_gyro_power(), POWER_USE_ACTIVE)
 	. = ..()
 
+/obj/structure/machinery/power/emitter/gyrotron/proc/get_effective_gyro_power()
+	return mega_energy * GYRO_POWER * (reactor_tuned ? 0.85 : 1)
+
+/obj/structure/machinery/power/emitter/gyrotron/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "calibrating the focusing coils of", "\the [src] for 15% lower power draw")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		change_power_consumption(get_effective_gyro_power(), POWER_USE_ACTIVE)
+	return TRUE
+
 /obj/structure/machinery/power/emitter/gyrotron/process()
-	change_power_consumption(mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
+	change_power_consumption(get_effective_gyro_power(), POWER_USE_ACTIVE)
 	. = ..()
 
 /obj/structure/machinery/power/emitter/gyrotron/get_rand_burst_delay()

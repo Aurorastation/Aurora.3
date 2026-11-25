@@ -17,8 +17,20 @@
 
 	var/minrate = 0
 	var/maxrate = PRESSURE_ONE_THOUSAND
+	var/atmos_tuned = FALSE
 
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_HELIUMFUEL, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_WATERVAPOR)
+
+/obj/structure/machinery/portable_atmospherics/powered/scrubber/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "tuning the intake seals of", "\the [src] for +20% scrub rate and 15% lower power loss")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		volume_rate = round(volume_rate * 1.2)
+		maxrate = round(maxrate * 1.2)
+		power_losses = round(power_losses * 0.85)
+	return TRUE
 
 /obj/structure/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

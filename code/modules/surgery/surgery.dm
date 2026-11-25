@@ -244,7 +244,7 @@
 				to_chat(user, SPAN_WARNING("Your pain makes it hard to focus on the surgery..."))
 
 			// Query the surgeon if they have any components that would like to modify the success chance.
-			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration)
+			SEND_SIGNAL(user, COMSIG_GET_SURGERY_SUCCESS_MODIFIERS, M, &success_rate, &duration, S, zone)
 
 			// Skill modifier checks
 			var/list/effective_skill_requirements = S.get_surgery_skill_requirements(user, M, zone)

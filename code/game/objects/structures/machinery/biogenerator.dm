@@ -35,6 +35,8 @@
 
 	/// The maximum number of items this machine can store at a time for processing.
 	var/capacity = 100
+	/// Current Mechanical Engineering tuning mode ("Biomass Yield" or "Processing Speed").
+	var/tuned_mode
 
 	var/ref_for_ui
 
@@ -841,6 +843,15 @@ EMAG/ILLEGAL
 			menustat = "menu"
 	updateUsrDialog()
 
+/obj/structure/machinery/biogenerator/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "adjusting the mechanical press of", "\the [src]", tuning_options = list("Biomass Yield", "Processing Speed"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/biogenerator/RefreshParts()
 	..()
 	var/man_rating = 0
@@ -859,6 +870,10 @@ EMAG/ILLEGAL
 	build_eff = max(1, man_rating)
 	eat_eff = max(1, bin_rating)
 	processing_time_divisor = max(1, capacitor_rating)
+	if(tuned_mode == "Biomass Yield")
+		eat_eff *= 1.15
+	else if(tuned_mode == "Processing Speed")
+		processing_time_divisor *= 1.2
 
 /obj/structure/machinery/biogenerator/small
 	icon_state = "biogen_small"

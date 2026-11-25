@@ -1,6 +1,7 @@
 /obj/structure/machinery/computer/fusion/core_control
 	name = "\improper INDRA fusion core control"
 	ui_template = "FusionCoreControl"
+	minimum_skill_level = SKILL_LEVEL_FAMILIAR
 
 /obj/structure/machinery/computer/fusion/core_control/terminal
 	name = "\improper INDRA fusion core control"
@@ -17,6 +18,11 @@
 	. = ..()
 	if(.)
 		return
+
+	var/cancelled = FALSE
+	SEND_SIGNAL(usr, COMSIG_USE_REACTOR_COMPUTER, &cancelled, SKILL_LEVEL_TRAINED)
+	if(cancelled)
+		return TRUE
 
 	var/obj/structure/machinery/power/fusion_core/C = locate(params["machine"])
 	if(!istype(C))
@@ -44,6 +50,8 @@
 
 /obj/structure/machinery/computer/fusion/core_control/ui_data(mob/user)
 	var/list/data = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	data["read_only"] = !isnull(skill_level) && skill_level < SKILL_LEVEL_TRAINED
 	var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 	var/datum/local_network/lan = fusion.get_local_network()
 

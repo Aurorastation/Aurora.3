@@ -38,6 +38,8 @@
 	var/icon_state_idle = "recharger_off" //also when unpowered
 	var/portable = 1
 	var/list/chargebars
+	/// Current Electrical Engineering tuning mode ("Charging Efficiency" or "Power Conservation").
+	var/tuned_mode
 
 /obj/structure/machinery/recharger/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -66,6 +68,15 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
+/obj/structure/machinery/recharger/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the power regulation of", "\the [src]", tuning_options = list("Charging Efficiency", "Power Conservation"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/recharger/RefreshParts()
 	..()
 
@@ -74,8 +85,12 @@
 		if(iscapacitor(P))
 			cap_rating += P.rating
 
-	charging_efficiency += cap_rating * charging_efficiency_per_capacitor
+	charging_efficiency = initial(charging_efficiency) + cap_rating * charging_efficiency_per_capacitor
 	active_power_usage = cap_rating * charging_speed_per_capacitor
+	if(tuned_mode == "Charging Efficiency")
+		charging_efficiency *= 1.2
+	else if(tuned_mode == "Power Conservation")
+		active_power_usage = round(active_power_usage * 0.8)
 
 /obj/structure/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
 	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)

@@ -15,10 +15,10 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
-		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/electrical_engineering
@@ -38,10 +38,10 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/electrical_engineering = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
-		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_FAMILIAR
 	)
 
 /singleton/education/atmospherics_engineer
@@ -61,10 +61,10 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/atmospherics_systems = SKILL_LEVEL_PROFESSIONAL,
-		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_FAMILIAR
 	)
 
 
@@ -85,10 +85,10 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
-		/singleton/skill/reactor_systems = SKILL_LEVEL_PROFESSIONAL
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
 	)
 
 /singleton/education/experienced_engineer
@@ -109,8 +109,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/electrical_engineering = SKILL_LEVEL_TRAINED,
-		/singleton/skill/atmospherics_systems = SKILL_LEVEL_TRAINED,
-		/singleton/skill/reactor_systems = SKILL_LEVEL_TRAINED
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/atmospherics_systems = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/reactor_systems = SKILL_LEVEL_FAMILIAR
 	)

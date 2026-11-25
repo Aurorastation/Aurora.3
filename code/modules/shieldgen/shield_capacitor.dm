@@ -22,6 +22,8 @@
 
 	var/charge_rate = 100 KILO WATTS		//100 kW
 	var/obj/structure/machinery/shield_gen/owned_gen
+	/// Current Electrical Engineering tuning mode ("Capacitor Capacity" or "Charge Rate").
+	var/tuned_mode
 
 	component_types = list(
 		/obj/item/circuitboard/shield_cap,
@@ -61,6 +63,15 @@
 		updateDialog()
 	spark(src, 5, GLOB.alldirs)
 
+/obj/structure/machinery/shield_capacitor/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the capacitor banks of", "\the [src]", tuning_options = list("Capacitor Capacity", "Charge Rate"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/shield_capacitor/RefreshParts()
 	..()
 	max_charge = 0
@@ -71,6 +82,11 @@
 			max_charge += P.rating * 5 MEGA
 		else if(ismicrolaser(P))
 			max_charge_rate += P.rating * 3 MEGA WATTS
+
+	if(tuned_mode == "Capacitor Capacity")
+		max_charge = round(max_charge * 1.15)
+	else if(tuned_mode == "Charge Rate")
+		max_charge_rate = round(max_charge_rate * 1.2)
 
 /obj/structure/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
 

@@ -19,6 +19,7 @@
 
 	var/set_temperature = T20C		// Thermostat
 	var/cooling = 0
+	var/atmos_tuned = FALSE
 
 	component_types = list(
 		/obj/item/circuitboard/unary_atmos/cooler,
@@ -157,6 +158,16 @@
 
 	update_icon()
 
+/obj/structure/machinery/atmospherics/unary/freezer/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "calibrating the thermal exchangers of", "\the [src] for +20% cooling capacity")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		max_power_rating = round(max_power_rating * 1.2)
+		set_power_level(power_setting)
+	return TRUE
+
 //upgrading parts
 /obj/structure/machinery/atmospherics/unary/freezer/RefreshParts()
 	..()
@@ -171,7 +182,7 @@
 		else if(ismatterbin(P))
 			bin_rating += P.rating
 
-	power_rating = initial(power_rating) * cap_rating / 2			//more powerful
+	max_power_rating = round(initial(max_power_rating) * cap_rating / 2 * (atmos_tuned ? 1.2 : 1))
 	heatsink_temperature = initial(heatsink_temperature) / ((manip_rating + bin_rating) / 2)	//more efficient
 	air_contents.volume = max(initial(internal_volume) - 200, 0) + 200 * bin_rating
 	set_power_level(power_setting)

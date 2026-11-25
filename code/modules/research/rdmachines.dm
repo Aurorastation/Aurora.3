@@ -31,6 +31,8 @@
 
 	/// Fabrication speed multiplier.
 	var/production_speed = 1
+	/// Current Mechanical Engineering tuning mode ("Material Efficiency" or "Production Speed").
+	var/tuned_mode
 
 	/// Job currently assigned by the research console.
 	var/datum/research_fabrication_job/assigned_job
@@ -49,6 +51,21 @@
 
 	/// Whether this fabricator's construction loop is currently playing.
 	var/fabrication_audio_playing = FALSE
+
+/obj/structure/machinery/r_n_d/fabricator/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list("Material Efficiency", "Production Speed"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
+/obj/structure/machinery/r_n_d/fabricator/proc/apply_tuning_modifiers()
+	if(tuned_mode == "Material Efficiency")
+		mat_efficiency *= 0.85
+	else if(tuned_mode == "Production Speed")
+		production_speed *= 1.2
 
 /obj/structure/machinery/r_n_d/fabricator/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()

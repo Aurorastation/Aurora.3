@@ -43,6 +43,8 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	var/mat_efficiency = 1
 	/// What to multiply build times by. Modified by default by the amount and tier of manipulators
 	var/build_time_multiplier = 1
+	/// Current Mechanical Engineering tuning mode ("Material Efficiency" or "Build Speed").
+	var/tuned_mode
 
 	/// Snowflake for mounted autolathes
 	var/does_flick = TRUE
@@ -295,6 +297,15 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 	CutOverlays(mat_overlay)
 	update_icon()
 
+/obj/structure/machinery/fabricator/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list("Material Efficiency", "Build Speed"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/fabricator/RefreshParts()
 	..()
 	var/mb_rating = 0
@@ -312,6 +323,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/fabricator)
 		storage_capacity[mat] = mb_rating * base_storage_capacity[mat]
 	mat_efficiency = 1.1 - (las_rating * 0.1) // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
+	if(tuned_mode == "Material Efficiency")
+		mat_efficiency *= 0.85
+	else if(tuned_mode == "Build Speed")
+		build_time_multiplier *= 1.2
 
 /obj/structure/machinery/fabricator/dismantle()
 	normalize_material_storage()

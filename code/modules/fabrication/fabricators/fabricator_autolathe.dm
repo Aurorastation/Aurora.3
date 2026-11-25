@@ -9,10 +9,11 @@
 	. += "Alt-click with a rapid part exchange device or open circuit assembly in your active hand to recycle its compatible contents."
 
 /obj/structure/machinery/fabricator/autolathe/AltClick(mob/user)
-	. = ..()
+	var/obj/item/recyclable_container = user.get_active_hand()
+	if(!istype(recyclable_container, /obj/item/electronic_assembly) && !istype(recyclable_container, /obj/item/storage/part_replacer))
+		return ..()
 	if(use_check_and_message(user))
 		return
-
 
 	if(fab_status_flags & FAB_BUSY)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of the previous operation."))
@@ -22,7 +23,6 @@
 		to_chat(user, SPAN_WARNING("\The [src] cannot accept materials in its current state."))
 		return
 
-	var/obj/item/electronic_assembly/recyclable_container = user.get_active_hand()
 	if(istype(recyclable_container, /obj/item/electronic_assembly))
 		var/obj/item/electronic_assembly/recyclable_circuit_assembly = recyclable_container
 		if(recyclable_circuit_assembly.opened)

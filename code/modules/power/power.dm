@@ -21,6 +21,38 @@
 
 	return ..()
 
+/**
+ * Shared click-tuning helper for engineering skills (defaults to Professional rank).
+ * If tuning_options is provided, prompts the user to select one mode and returns the chosen mode string.
+ * Returns TRUE (or chosen mode string) on success, FALSE if already tuned or interrupted, or null if prerequisites/skill fail or prompt cancelled.
+ */
+/obj/structure/machinery/proc/attempt_skill_tuning(mob/user, skill_component, current_mode, action_desc, finish_desc, required_level = SKILL_LEVEL_PROFESSIONAL, tune_time = 10 SECONDS, list/tuning_options = null)
+	if(!Adjacent(user) || user.incapacitated() || !isliving(user))
+		return null
+	var/skill_level = GET_SKILL_LEVEL(user, skill_component)
+	if(skill_level < required_level)
+		return null
+
+	var/chosen_mode = null
+	if(islist(tuning_options))
+		chosen_mode = tgui_input_list(user, "Select tuning configuration for \the [src]:", "Machine Tuning", tuning_options)
+		if(!chosen_mode || !Adjacent(user) || user.incapacitated())
+			return null
+		if(chosen_mode == current_mode)
+			to_chat(user, SPAN_NOTICE("\The [src] is already tuned for [chosen_mode]."))
+			return FALSE
+	else if(current_mode)
+		to_chat(user, SPAN_NOTICE("\The [src] is already tuned for optimal performance."))
+		return FALSE
+
+	user.visible_message(SPAN_NOTICE("\The [user] begins [action_desc] \the [src]."), SPAN_NOTICE("You begin [action_desc] \the [src]..."))
+	playsound(src, 'sound/items/Screwdriver2.ogg', 50, TRUE)
+	if(do_after(user, tune_time, src))
+		playsound(src, 'sound/machines/tuning_complete.ogg', 50, TRUE)
+		to_chat(user, SPAN_NOTICE("You finish [finish_desc][chosen_mode ? " ([chosen_mode])" : ""]."))
+		return chosen_mode ? chosen_mode : TRUE
+	return FALSE
+
 ///////////////////////////////
 // General procedures
 //////////////////////////////

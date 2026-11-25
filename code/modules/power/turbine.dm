@@ -85,6 +85,7 @@
 	var/generator_threshold = FALSE
 	/// Productivity value of turbine. Modified by amount and tier of capacitors installed.
 	var/productivity = 1
+	var/reactor_tuned = FALSE
 	component_types = list(
 		/obj/item/stock_parts/capacitor = 6,
 		/obj/item/stack/cable_coil = 5
@@ -242,11 +243,20 @@
 
 	return INITIALIZE_HINT_LATELOAD
 
+/obj/structure/machinery/power/turbine/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "balancing the turbine vanes of", "\the [src] for +15% productivity")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		productivity *= 1.15
+	return TRUE
+
 /obj/structure/machinery/power/turbine/RefreshParts()
 	var/P = 0
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		P += C.rating
-	productivity = P / 6
+	productivity = (P / 6) * (reactor_tuned ? 1.15 : 1)
 
 /obj/structure/machinery/power/turbine/proc/locate_machinery()
 	if(compressor)
@@ -390,6 +400,11 @@
 	return GLOB.default_state
 
 /obj/structure/machinery/computer/terminal/turbine_computer/ui_interact(mob/user, datum/tgui/ui = null)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_USE_REACTOR_COMPUTER, &cancelled, SKILL_LEVEL_FAMILIAR)
+	if(cancelled)
+		return
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "TurbineComputer", name)
@@ -402,12 +417,20 @@
 	data["turbine"] = !isnull(compressor?.turbine)
 	data["turbine_broken"] = (compressor?.turbine?.stat & BROKEN)
 
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	var/is_pro = skill_level >= SKILL_LEVEL_PROFESSIONAL
+	data["professional"] = is_pro
+
 	if(compressor?.turbine)
 		data["online"] = compressor.starter
 		data["power"] = compressor.turbine.lastgen
 		data["rpm"] = compressor.rpm
 		data["temperature"] = compressor.gas_contained.temperature
 		data["bearing_heat"] = clamp((compressor.overheat / OVERHEAT_THRESHOLD) * 100, 0, 100)
+		if(is_pro)
+			data["efficiency"] = round(compressor.efficiency * 100, 1)
+			data["productivity"] = round(compressor.turbine.productivity * 100, 1)
+			data["cooldown_remaining"] = round(compressor.time_until_overheat_done() / 10, 1)
 	return data
 
 /obj/structure/machinery/computer/terminal/turbine_computer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

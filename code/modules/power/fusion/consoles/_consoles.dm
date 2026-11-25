@@ -8,6 +8,7 @@
 	manufacturer = "hephaestus"
 	var/ui_template
 	var/initial_id_tag
+	var/minimum_skill_level = SKILL_LEVEL_TRAINED
 
 /obj/structure/machinery/computer/fusion/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
@@ -44,7 +45,7 @@
 
 /obj/structure/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
 	var/cancelled = FALSE
-	SEND_SIGNAL(user, COMSIG_USE_REACTOR_COMPUTER, &cancelled)
+	SEND_SIGNAL(user, COMSIG_USE_REACTOR_COMPUTER, &cancelled, minimum_skill_level)
 	if (cancelled)
 		return
 

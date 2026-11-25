@@ -44,6 +44,8 @@
 	var/capacity = 5e6
 	var/charge = 1e6 /// actual charge
 	var/max_coils = 0
+	/// Current Electrical Engineering tuning mode ("Storage Capacity" or "I/O Throughput").
+	var/tuned_mode
 
 	/// Coils that this SMES accepts.
 	var/list/compatible_coils = list(
@@ -146,6 +148,29 @@
 	SSmachinery.smes_units -= src
 	QDEL_NULL(terminal)
 	return ..()	// TODO: Properly clean up terminal.
+
+/obj/structure/machinery/power/smes/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list("Storage Capacity", "I/O Throughput"))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		reapply_electrical_tuning()
+	return TRUE
+
+/obj/structure/machinery/power/smes/proc/apply_tuning_modifiers()
+	if(tuned_mode == "Storage Capacity")
+		capacity = round(capacity * 1.15)
+	else if(tuned_mode == "I/O Throughput")
+		input_level_max = round(input_level_max * 1.2)
+		output_level_max = round(output_level_max * 1.2)
+
+/obj/structure/machinery/power/smes/proc/reapply_electrical_tuning()
+	capacity = initial(capacity)
+	input_level_max = initial(input_level_max)
+	output_level_max = initial(output_level_max)
+	apply_tuning_modifiers()
+	charge = between(0, charge, capacity)
 
 /obj/structure/machinery/power/smes/Initialize()
 	. = ..()

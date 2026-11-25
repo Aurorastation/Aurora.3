@@ -80,6 +80,17 @@
 	var/blockage
 	var/exhaust_offset = 1 // for engines that are longer
 	var/exhaust_width = 1 //for engines that are wider
+	var/reactor_tuned = FALSE
+
+/obj/structure/machinery/atmospherics/unary/engine/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "tuning the nozzle flow of", "\the [src] for 15% lower power draw and 25% faster spool-up")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		charge_per_burn = round(charge_per_burn * 0.85)
+		boot_time = round(boot_time * 0.75)
+	return TRUE
 
 /obj/structure/machinery/atmospherics/unary/engine/scc_shuttle
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
@@ -99,6 +110,12 @@
 		/obj/item/circuitboard/unary_atmos/engine/scc_ship,
 		/obj/item/stack/cable_coil = 30,
 		/obj/item/pipe = 2)
+
+/obj/structure/machinery/atmospherics/unary/engine/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		. += SPAN_NOTICE("<b>Thruster Diagnostics:</b> Thrust Limit: [round(thrust_limit * 100)]% | Burn Volume: [volume_per_burn] L | Burn Draw: [power_wattage_readable(charge_per_burn)]")
 
 /obj/structure/machinery/atmospherics/unary/engine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
