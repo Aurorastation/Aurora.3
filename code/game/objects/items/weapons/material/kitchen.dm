@@ -107,6 +107,9 @@
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 
+/obj/item/material/kitchen/utensil/fork/steel
+	default_material = MATERIAL_STEEL
+
 /obj/item/material/kitchen/utensil/spork
 	name = "spork"
 	desc = "It's a spork. It's much like a fork, but much blunter."
@@ -126,6 +129,9 @@
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 
+/obj/item/material/kitchen/utensil/spork/steel
+	default_material = MATERIAL_STEEL
+
 /obj/item/material/kitchen/utensil/fork/chopsticks
 	name = "chopsticks"
 	desc = "A pair of chopsticks. An extension of one's fingers, one might say."
@@ -144,6 +150,9 @@
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
+
+/obj/item/material/kitchen/utensil/fork/chopsticks/steel
+	default_material = MATERIAL_STEEL
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -169,6 +178,9 @@
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
+
+/obj/item/material/kitchen/utensil/spoon/steel
+	default_material = MATERIAL_STEEL
 
 /*
  * Knives
@@ -213,6 +225,9 @@
 	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
+
+/obj/item/material/kitchen/utensil/knife/steel
+	default_material = MATERIAL_STEEL
 
 /*
  * Rolling Pins

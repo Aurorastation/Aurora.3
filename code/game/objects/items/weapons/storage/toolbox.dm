@@ -58,6 +58,9 @@
 		/obj/item/wirecutters = 1\
 	)
 
+/obj/item/storage/toolbox/mechanical/empty
+	starts_with = null
+
 /obj/item/storage/toolbox/electrical
 	name = "electrical toolbox"
 	icon_state = "yellow"
@@ -78,6 +81,12 @@
 		new /obj/item/clothing/gloves/yellow(src)
 	else
 		new /obj/item/stack/cable_coil(src,30,color)
+
+/obj/item/storage/toolbox/electrical/empty
+	starts_with = null
+
+/obj/item/storage/toolbox/electrical/empty/fill()
+	return
 
 /obj/item/storage/toolbox/drill
 	name = "industrial drilling kit"

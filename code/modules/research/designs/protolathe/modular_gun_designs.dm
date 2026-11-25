@@ -6,6 +6,11 @@
 	materials = list(MATERIAL_STEEL = 500)
 	build_path = /obj/item/firing_pin/test_range
 
+/datum/design/item/modular_weapon/firing_pin/standard
+	name = "Standard Firing Pin"
+	req_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
+	build_path = /obj/item/firing_pin
+
 /datum/design/item/modular_weapon/firing_pin/away
 	build_path = /obj/item/firing_pin/away_site
 

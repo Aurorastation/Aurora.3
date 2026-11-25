@@ -3812,6 +3812,7 @@
 #include "code\modules\research\designs\mechfab\synthetic\synthetic_organ_parts.dm"
 #include "code\modules\research\designs\protolathe\deployable_kits.dm"
 #include "code\modules\research\designs\protolathe\disk_designs.dm"
+#include "code\modules\research\designs\protolathe\field_communications_designs.dm"
 #include "code\modules\research\designs\protolathe\hud_glasses_designs.dm"
 #include "code\modules\research\designs\protolathe\implant_designs.dm"
 #include "code\modules\research\designs\protolathe\integrated_electronics_designs.dm"

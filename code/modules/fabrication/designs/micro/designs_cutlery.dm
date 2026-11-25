@@ -29,26 +29,56 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/cutlery)
 	name = "fork, plastic"
 	path = /obj/item/material/kitchen/utensil/fork/plastic
 	build_time = 2 SECONDS
+	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
 
 /singleton/fabricator_recipe/cutlery/spoon_plastic
 	name = "spoon, plastic"
 	path = /obj/item/material/kitchen/utensil/spoon/plastic
 	build_time = 2 SECONDS
+	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
 
 /singleton/fabricator_recipe/cutlery/spork_plastic
 	name = "spork, plastic"
 	path = /obj/item/material/kitchen/utensil/spork/plastic
 	build_time = 2 SECONDS
+	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
 
 /singleton/fabricator_recipe/cutlery/knife_plastic
 	name = "table knife, plastic"
 	path = /obj/item/material/kitchen/utensil/knife/plastic
 	build_time = 2 SECONDS
+	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
 
 /singleton/fabricator_recipe/cutlery/chopsticks_plastic
 	name = "chopsticks, plastic"
 	path = /obj/item/material/kitchen/utensil/fork/chopsticks/plastic
 	build_time = 2 SECONDS
+	fabricator_types = list(FABRICATOR_CLASS_MICRO, FABRICATOR_CLASS_GENERAL)
+
+/singleton/fabricator_recipe/cutlery/fork_steel
+	name = "fork, steel"
+	path = /obj/item/material/kitchen/utensil/fork/steel
+	fabricator_types = list(FABRICATOR_CLASS_GENERAL)
+
+/singleton/fabricator_recipe/cutlery/spoon_steel
+	name = "spoon, steel"
+	path = /obj/item/material/kitchen/utensil/spoon/steel
+	fabricator_types = list(FABRICATOR_CLASS_GENERAL)
+
+/singleton/fabricator_recipe/cutlery/spork_steel
+	name = "spork, steel"
+	path = /obj/item/material/kitchen/utensil/spork/steel
+	fabricator_types = list(FABRICATOR_CLASS_GENERAL)
+
+/singleton/fabricator_recipe/cutlery/knife_steel
+	name = "table knife, steel"
+	path = /obj/item/material/kitchen/utensil/knife/steel
+	fabricator_types = list(FABRICATOR_CLASS_GENERAL)
+
+/singleton/fabricator_recipe/cutlery/chopsticks_steel
+	name = "chopsticks, steel"
+	path = /obj/item/material/kitchen/utensil/fork/chopsticks/steel
+	fabricator_types = list(FABRICATOR_CLASS_GENERAL)
 
 /singleton/fabricator_recipe/cutlery/fork_bamboo
 	name = "fork, bamboo"

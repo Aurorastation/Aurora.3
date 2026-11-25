@@ -26,6 +26,13 @@
 /obj/item/tank/oxygen/adjust_initial_gas()
 	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
+/obj/item/tank/oxygen/empty
+	name = "empty oxygen tank"
+	desc = "An empty tank intended to hold oxygen."
+
+/obj/item/tank/oxygen/empty/adjust_initial_gas()
+	return
+
 /obj/item/tank/oxygen/yellow
 	desc = "A tank of oxygen, this one is yellow."
 	icon_state = "oxygen_f"
@@ -64,6 +71,13 @@
 	air_contents.gas[GAS_N2O] = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD
 	air_contents.update_values()
 
+/obj/item/tank/anesthetic/empty
+	name = "empty anesthetic tank"
+	desc = "An empty tank intended to hold an anesthetic gas mixture."
+
+/obj/item/tank/anesthetic/empty/adjust_initial_gas()
+	return
+
 /*
  * Air
  */
@@ -80,6 +94,13 @@
 
 /obj/item/tank/air/adjust_initial_gas()
 	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
+
+/obj/item/tank/air/empty
+	name = "empty air tank"
+	desc = "An empty tank intended to hold a breathable gas mixture."
+
+/obj/item/tank/air/empty/adjust_initial_gas()
+	return
 
 /*
  * Phoron
