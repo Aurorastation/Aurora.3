@@ -32,13 +32,6 @@
 	 */
 	var/required = FALSE
 
-	/**
-	 * For required skills on humanoid antags, they are always guaranteed a minimum of this skill level.
-	 * If they have the skill previously at a lower level, their skill level is increased to this upon being promoted to antagonist.
-	 * If they don't have the skill at all, they are given the skill at this level.
-	 */
-	var/antag_level = SKILL_LEVEL_TRAINED
-
 	/// The component datum that this skill will add during character spawning
 	var/component_type = null
 	/// Map of skill levels to level costs. How many skill points it takes to purchase this rank in a skill.
@@ -74,21 +67,21 @@
 	return skill_cost_map[level]
 
 /**
- * Returns the displayed name of this skill, optionally tailored to the passed character preferences.
+ * Returns the displayed name of this skill, optionally tailored to the passed character preferences or species.
  */
-/singleton/skill/proc/get_name(datum/preferences/pref)
+/singleton/skill/proc/get_name(datum/preferences/pref, datum/species/species_override)
 	return name
 
 /**
- * Returns the general description of this skill, optionally tailored to the passed character preferences.
+ * Returns the general description of this skill, optionally tailored to the passed character preferences or species.
  */
-/singleton/skill/proc/get_description(datum/preferences/pref)
+/singleton/skill/proc/get_description(datum/preferences/pref, datum/species/species_override)
 	return description
 
 /**
- * Returns the assoc list of skill level descriptions for this skill, optionally tailored to the passed character preferences.
+ * Returns the assoc list of skill level descriptions for this skill, optionally tailored to the passed character preferences or species.
  */
-/singleton/skill/proc/get_skill_level_descriptions(datum/preferences/pref)
+/singleton/skill/proc/get_skill_level_descriptions(datum/preferences/pref, datum/species/species_override)
 	return skill_level_descriptions
 
 

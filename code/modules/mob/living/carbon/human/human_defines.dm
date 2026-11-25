@@ -145,6 +145,12 @@
 	/// Used for cryo to free up a slot when a ghost cryos.
 	var/datum/weakref/ghost_spawner
 
+	/// Assoc list of skill singleton type -> skill level applied to this character.
+	var/list/skills
+
+	/// One-time skills configuration menu for antagonists and customizable ghostroles.
+	var/datum/tgui_module/skills_menu/pending_skills_menu
+
 	var/next_stance_collapse = 0
 
 	var/datum/dionastats/DS

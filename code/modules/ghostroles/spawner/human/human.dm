@@ -51,6 +51,13 @@
 	/// The maximum amount of money the account can spawn with
 	var/idris_account_max = 500
 
+	/// Bonus skill points granted to customizable humanoid ghostroles when configuring their skills.
+	var/list/bonus_skill_points = list(
+		SKILL_CATEGORY_EVERYDAY = 8,
+		SKILL_CATEGORY_OCCUPATIONAL = 8,
+		SKILL_CATEGORY_COMBAT = 4
+	)
+
 //Return a error message if the user CANT spawn. Otherwise FALSE
 /datum/ghostspawner/human/cant_spawn(mob/user)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
@@ -215,5 +222,8 @@
 	M.update_eyes()
 	M.regenerate_icons()
 	M.ghost_spawner = WEAKREF(src)
+
+	if(allow_appearance_change)
+		M.offer_skills_menu(bonus_skill_points)
 
 	return M

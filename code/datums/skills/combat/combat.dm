@@ -169,20 +169,20 @@
 	/// Multiplier bonus to an IPC's internal organ wiring and electronics health pools per rank above Unfamiliar.
 	var/ipc_bonus_internals_health_per_rank = 0.1
 
-/singleton/skill/tenacity/get_name(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/tenacity/get_name(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_name
 	return ..()
 
-/singleton/skill/tenacity/get_description(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/tenacity/get_description(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_description
 	return ..()
 
-/singleton/skill/tenacity/get_skill_level_descriptions(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/tenacity/get_skill_level_descriptions(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_skill_level_descriptions
 	return ..()

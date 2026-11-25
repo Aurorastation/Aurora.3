@@ -19,14 +19,9 @@
 	if(!gag_announcement)
 		announce_antagonist_spawn()
 	LAZYDISTINCTADD(SSticker.mode.antag_templates, src)
-
-	// Antags are always guaranteed certain minimum skill levels.
-	// Such that if a player character is promoted to an antagonist, they are always boosted up to a minimum competence required for antagging.
-	for(var/singleton/skill/skill as anything in SSskills.required_skills)
-		var/antag_skill_rank = skill.antag_level
-		var/datum/component/skill/skill_comp = target.current.LoadComponent(skill.component_type, antag_skill_rank)
-		if (skill_comp.skill_level < antag_skill_rank)
-			skill_comp.skill_level = antag_skill_rank
+	if(ishuman(target.current))
+		var/mob/living/carbon/human/H = target.current
+		H.offer_skills_menu(bonus_skill_points)
 
 /datum/antagonist/proc/create_default(var/mob/source)
 	var/mob/living/M
