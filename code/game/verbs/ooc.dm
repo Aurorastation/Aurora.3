@@ -145,6 +145,7 @@
 
 	msg = process_chat_markup(msg, list("*"))
 
+	var/list/mob/langchat_listeners = list()
 	var/prefix
 	var/admin_stuff
 	for(var/client/target in GLOB.clients)
@@ -162,8 +163,13 @@
 					admin_stuff += "(<A href='byond://?src=[REF(target.holder)];adminplayerobservejump=[REF(mob)]'>JMP</A>)"
 			if(target.mob in messagemobs)
 				prefix = ""
+			if((target.mob in messagemobs) && source.invisibility <= target.mob.see_invisible && source.runechat_prefs_check(target.mob))
+				langchat_listeners += target.mob
 			if((target.mob in messagemobs) || display_remote)
 				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("LOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")
+
+	if(length(langchat_listeners))
+		source.langchat_speech("\[LOOC: [msg]\]", langchat_listeners, override_color = "#6699CC", additional_styles = list("looc", "italics"), check_hearing = FALSE)
 
 /client/verb/stop_all_sounds()
 	set name = "Stop all sounds"

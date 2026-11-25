@@ -21,7 +21,8 @@
 #define SPAN_VOTE(str) ("<span class='vote'>" + str + "</span>")
 #define SPAN_HEAR(str) ("<span class='hear'>" + str + "</span>")
 #define SPAN_LORE_RADIO(str) ("<span class='lore-radio'>" + str + "</span>")
-#define SPAN_MECHA(str) ("<span class='mecha_label'>" + str + "</span>")
+#define SPAN_MECHA(str) ("<span class='small mecha_label'>" + str + "</span>")
+#define SPAN_MECHA_INACTIVE(str) ("<span class='small mecha_label mecha_inactive'>" + str + "</span>")
 #define SPAN_STYLE(style, str) "<span style=\"[style]\">[str]</span>"
 #define SPAN_COLOR(color, str) SPAN_STYLE("color: [color]", "[str]")
 #define SPAN_CAUTION(str) ("<span class='caution'>" + str + "</span>")

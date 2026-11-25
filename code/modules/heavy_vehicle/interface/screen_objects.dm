@@ -13,7 +13,7 @@
 /atom/movable/screen/mecha/radio
 	name = "radio"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("RADIO"))
+	maptext = SPAN_MECHA("RADIO")
 	maptext_x = 2
 	maptext_y = 11
 
@@ -165,7 +165,7 @@
 /atom/movable/screen/mecha/eject
 	name = "eject"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("EJECT"))
+	maptext = SPAN_MECHA("EJECT")
 	maptext_x = 3
 	maptext_y = 10
 
@@ -176,7 +176,7 @@
 /atom/movable/screen/mecha/rename
 	name = "rename"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("RENAME"))
+	maptext = SPAN_MECHA("RENAME")
 	maptext_x = 1
 	maptext_y = 12
 
@@ -206,7 +206,7 @@
 /atom/movable/screen/mecha/toggle/air
 	name = "air"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "AIR")))
+	maptext = SPAN_MECHA_INACTIVE("AIR")
 	maptext_x = 8
 
 /atom/movable/screen/mecha/toggle/air/toggled()
@@ -215,14 +215,14 @@
 	if (owner.use_air)
 		playsound(owner.loc, 'sound/effects/internals.ogg', 75, 1)
 	var/main_style = owner.use_air ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "AIR")))
+	maptext = SPAN_MECHA(span(main_style, "AIR"))
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "MAINT")))
+	maptext = SPAN_MECHA_INACTIVE("MAINT")
 	maptext_x = 2
 	maptext_y = 10
 
@@ -230,14 +230,14 @@
 	toggled = !toggled
 	owner.maintenance_protocols = toggled
 	var/main_style = owner.maintenance_protocols ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "MAINT")))
+	maptext = SPAN_MECHA(span(main_style, "MAINT"))
 	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "POWER")))
+	maptext = SPAN_MECHA_INACTIVE("POWER")
 	maptext_x = 1
 	maptext_y = 11
 
@@ -245,7 +245,7 @@
 	toggled = !toggled
 	owner.toggle_power(usr, remote)
 	var/main_style = toggled ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "POWER")))
+	maptext = SPAN_MECHA(span(main_style, "POWER"))
 
 /atom/movable/screen/mecha/toggle/power_control/update_icon()
 	toggled = (owner.power == MECH_POWER_ON)
@@ -254,7 +254,7 @@
 /atom/movable/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "GEAR")))
+	maptext = SPAN_MECHA_INACTIVE("GEAR")
 	maptext_x = 4
 
 /atom/movable/screen/mecha/toggle/hardpoint/toggled()
@@ -264,14 +264,14 @@
 	toggled = !toggled
 	owner.hardpoints_locked = toggled
 	var/main_style = owner.hardpoints_locked ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "GEAR")))
+	maptext = SPAN_MECHA(span(main_style, "GEAR"))
 	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("LOCK"))
+	maptext = SPAN_MECHA("LOCK")
 	maptext_x = 5
 
 /atom/movable/screen/mecha/toggle/hatch/toggled()
@@ -284,11 +284,11 @@
 	toggled = !toggled
 	owner.hatch_locked = toggled
 	if(owner.hatch_locked)
-		maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("UNLOCK"))
+		maptext = SPAN_MECHA("UNLOCK")
 		maptext_y = 12
 		maptext_x = 1
 	else
-		maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("LOCK"))
+		maptext = SPAN_MECHA("LOCK")
 		maptext_y = 11
 		maptext_x = 5
 	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
@@ -297,11 +297,11 @@
 /atom/movable/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("CLOSE"))
+	maptext = SPAN_MECHA("CLOSE")
 	maptext_x = 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/update_icon()
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("[owner.hatch_closed ? "OPEN" : "CLOSE"]"))
+	maptext = SPAN_MECHA("[owner.hatch_closed ? "OPEN" : "CLOSE"]")
 	maptext_x = owner.hatch_closed ? 4 : 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
@@ -337,7 +337,7 @@
 /atom/movable/screen/mecha/toggle/sensor
 	name = "toggle sensor matrix"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "SENSOR")))
+	maptext = SPAN_MECHA_INACTIVE("SENSOR")
 	maptext_x = 1
 	maptext_y = 12
 
@@ -351,13 +351,13 @@
 	toggled = !toggled
 	owner.head.active_sensors = toggled
 	var/main_style = owner.head.active_sensors ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "SENSOR")))
+	maptext = SPAN_MECHA(span(main_style, "SENSOR"))
 	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
 /atom/movable/screen/mecha/toggle/megaspeakers
 	name = "toggle integrated megaspeakers"
 	icon_state = "base" // based
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span("mecha_inactive", "VOLUME")))
+	maptext = SPAN_MECHA_INACTIVE("VOLUME")
 	maptext_x = 1
 	maptext_y = 12
 
@@ -365,7 +365,7 @@
 	toggled = !toggled
 	owner.loudening = toggled
 	var/main_style = owner.loudening ? "mecha_active" : "mecha_inactive"
-	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "VOLUME")))
+	maptext = SPAN_MECHA(span(main_style, "VOLUME"))
 	notify_user(usr, SPAN_NOTICE("You [owner.loudening ? "activate" : "deactivate"] \the [owner]'s integrated megaspeakers."))
 
 #undef BAR_CAP
