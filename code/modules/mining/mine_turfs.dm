@@ -308,7 +308,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 		if(finds?.len)
 			var/datum/find/F = finds[1]
 			if(excavation_level + P.excavation_amount > F.excavation_required)
-				if(arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
+				if(user.a_intent == I_HELP && arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
 					to_chat(user, SPAN_WARNING("You stop before striking \the [src]—your training tells you \the [attacking_item] would dig too deep and damage the buried find!"))
 					return
 				//Chance to destroy / extract any finds here

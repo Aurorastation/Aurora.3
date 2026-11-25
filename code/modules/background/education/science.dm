@@ -127,6 +127,6 @@
 	)
 	skills = list(
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/archaeology = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/archaeology = SKILL_LEVEL_TRAINED,
 		/singleton/skill/pilot_spacecraft = SKILL_LEVEL_FAMILIAR
 	)

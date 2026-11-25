@@ -85,7 +85,7 @@
 		if(last_act + effective_digspeed > world.time)//prevents message spam
 			return
 
-		if(excavation_level + P.excavation_amount > 100 && arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
+		if(user.a_intent == I_HELP && excavation_level + P.excavation_amount > 100 && arch_skill >= SKILL_LEVEL_TRAINED && P.excavation_amount <= 15)
 			to_chat(user, SPAN_WARNING("You stop before striking \the [src]—your training tells you \the [attacking_item] would shatter the remaining rock and destroy anything inside!"))
 			return
 
