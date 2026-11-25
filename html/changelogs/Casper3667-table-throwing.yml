@@ -1,0 +1,5 @@
+author: Casper3667
+delete-after: True
+changes:
+  - bugfix: "Characters can now be thrown over tables, and characters standing on tables can walk onto reinforced tables. Reinforced tables still block crawling underneath them."
+  - rscadd: "Sufficiently strong characters can now throw other characters through non-reinforced glass panes."
