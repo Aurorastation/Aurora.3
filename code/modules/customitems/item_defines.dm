@@ -691,7 +691,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 		if(isnull(selected_paper))
 			return
 
-		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), range = 5)
+		user.visible_message(SPAN_WARNING("<b>[user]</b> rips \the [selected_paper] out of \the [src]."), SPAN_NOTICE("You rip \the [selected_paper] out of \the [src]."), vision_distance = 5)
 		if(selected_paper.can_change_icon_state)
 			selected_paper.icon = icon
 			selected_paper.base_state = "torn"
@@ -705,7 +705,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/fluff)
 /obj/item/journal/fluff/mrakiizar_book/CtrlClick(mob/user)
 	if(open && Adjacent(user))
 		open_state = next_in_list(icon_state, open_states)
-		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), range = 3)
+		user.visible_message("<b>[user]</b> flips a page in \the [src].", SPAN_NOTICE("You flip a page in \the [src]."), vision_distance = 3)
 		playsound(loc, 'sound/items/pickup/paper.ogg', 50, FALSE)
 		update_icon()
 		return

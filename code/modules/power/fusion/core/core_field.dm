@@ -297,23 +297,23 @@
 			var/ripple_radius = ((size-1) / 2) + WORLD_ICON_SIZE
 			var/wave_size = 4
 			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
-				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
+				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."), visible_message_flags = LOCAL_MESSAGE)
 			else
 				var/flare
 				var/fuel_loss
 				var/rupture
 				// Why the fuck are these less thans???
 				if(percent_unstable < 0.7)
-					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
+					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."), visible_message_flags = LOCAL_MESSAGE)
 					fuel_loss = prob(5)
 				else if(percent_unstable < 0.9)
-					visible_message(SPAN_DANGER("\The [src] undulates violently, shedding plumes of plasma!"))
+					visible_message(SPAN_DANGER("\The [src] undulates violently, shedding plumes of plasma!"), visible_message_flags = LOCAL_MESSAGE)
 					flare = prob(50)
 					fuel_loss = prob(20)
 					rupture = prob(5)
 					wave_size += 2
 				else
-					visible_message(SPAN_DANGER("\The [src] is wracked by a series of horrendous distortions, buckling and twisting like a living thing!"))
+					visible_message(SPAN_DANGER("\The [src] is wracked by a series of horrendous distortions, buckling and twisting like a living thing!"), visible_message_flags = LOCAL_MESSAGE)
 					flare = 1
 					fuel_loss = prob(50)
 					rupture = prob(25)
@@ -406,14 +406,14 @@
 /obj/effect/fusion_em_field/proc/Rupture()
 	if(pause_rupture)
 		return
-	visible_message(SPAN_DANGER("\The [src] convulses violently as gouts of plasma spill forth!"))
+	visible_message(SPAN_DANGER("\The [src] convulses violently as gouts of plasma spill forth!"), visible_message_flags = LOCAL_MESSAGE)
 	set_light(1, 0.1, "#ccccff", 15, 2)
 	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
 	RadiateAll()
 	addtimer(CALLBACK(src, PROC_REF(RuptureExplosion)), 45 SECONDS)
 
 /obj/effect/fusion_em_field/proc/RuptureExplosion()
-	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"), visible_message_flags = LOCAL_MESSAGE)
 	explosion(get_turf(owned_core), 6, 8, spreading = TRUE)
 
 /**
@@ -526,7 +526,7 @@
 			if(skip_obstacle)
 				continue
 
-			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
+			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"), visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 			tick_instability += rand(10,25)
 			AM.emp_act(EMP_LIGHT)
 

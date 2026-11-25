@@ -587,7 +587,7 @@
 			if(M)
 				to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 			else if(T)
-				T.visible_message(SPAN_DANGER("\The [src] turns on."))
+				T.visible_message(SPAN_DANGER("\The [src] turns on."), visible_message_flags = LOCAL_MESSAGE)
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
@@ -606,7 +606,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message(SPAN_WARNING("\The [src] turns off."))
+			T.visible_message(SPAN_WARNING("\The [src] turns off."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
@@ -944,7 +944,7 @@
 		addtimer(CALLBACK(src, PROC_REF(endburn)), 120 SECONDS, TIMER_UNIQUE)
 
 /obj/item/steelwool/proc/endburn()
-	visible_message(SPAN_NOTICE("The steel wool burns out."))
+	visible_message(SPAN_NOTICE("The steel wool burns out."), visible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(loc))
 		var/mob/living/carbon/human/user = loc
 		if(!user.gloves)

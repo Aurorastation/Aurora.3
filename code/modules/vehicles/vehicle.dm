@@ -243,13 +243,13 @@
 /obj/vehicle/proc/explode()
 	var/turf/Tsec = get_turf(src)
 	if(organic)
-		visible_message(SPAN_WARNING("\The [src] dies!"))
+		visible_message(SPAN_WARNING("\The [src] dies!"), visible_message_flags = LOCAL_MESSAGE)
 		var/body = new corpse(Tsec)
 		if(isliving(body))
 			var/mob/living/M = body
 			M.death()
 	else
-		visible_message(SPAN_WARNING("\The [src] blows apart!"))
+		visible_message(SPAN_WARNING("\The [src] blows apart!"), visible_message_flags = LOCAL_MESSAGE)
 
 		new /obj/item/stack/rods(Tsec)
 		new /obj/item/stack/rods(Tsec)
@@ -281,7 +281,7 @@
 	stat |= BROKEN
 	repair_stage = VEHICLE_REPAIR_NEEDS_STEEL
 	turn_off()
-	visible_message(SPAN_DANGER("\The [src] breaks down!"))
+	visible_message(SPAN_DANGER("\The [src] breaks down!"), visible_message_flags = LOCAL_MESSAGE)
 	if(ismob(load))
 		unload(load)
 	spark(src, 3, GLOB.alldirs)
@@ -532,7 +532,7 @@
 /obj/vehicle/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
-	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))
+	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 	user.attack_log += "\[[time_stamp()]\] <span class='warning'>attacked [src.name]</span>"
 	user.do_attack_animation(src)
 	add_damage(damage)

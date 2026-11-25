@@ -149,7 +149,7 @@
 		locked = FALSE
 		update_icon()
 	else
-		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."))
+		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."), visible_message_flags = LOCAL_MESSAGE)
 		attempts--
 		if(!attempts)
 			to_chat(user, SPAN_DANGER("The crate's anti-tamper system activates!"))

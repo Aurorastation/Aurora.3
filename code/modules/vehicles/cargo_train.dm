@@ -287,7 +287,7 @@
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/turn_on(var/mob/user)
 	if(!key)
-		audible_message("\The [src] whirrs, but the lack of a key causes it to shut down.")
+		audible_message("\The [src] whirrs, but the lack of a key causes it to shut down.", audible_message_flags = LOCAL_MESSAGE)
 		return
 	if(!on)
 		..()
@@ -335,7 +335,7 @@
 	if(is_train_head() && istype(load, /mob/living/carbon/human))
 		var/mob/living/carbon/human/D = load
 		to_chat(D, SPAN_DANGER("You ran over [H]!"))
-		visible_message(SPAN_DANGER("\The [src] ran over [H]!"))
+		visible_message(SPAN_DANGER("\The [src] ran over [H]!"), visible_message_flags = LOCAL_MESSAGE)
 		attack_log += "\[[time_stamp()]\] <span class='warning'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</span>"
 		msg_admin_attack("[D.name] ([D.ckey]) ran over [H.name] ([H.ckey]). (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(H))
 	else

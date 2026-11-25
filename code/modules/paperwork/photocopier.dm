@@ -213,7 +213,7 @@
 		c.AddOverlays(img)
 
 	if(!toner)
-		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
+		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."), visible_message_flags = LOCAL_MESSAGE)
 		if(target.type == /obj/structure/machinery/photocopier)
 			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
@@ -245,7 +245,7 @@
 	toner -= 5	//photos use a lot of ink!
 	if(toner < 0)
 		toner = 0
-		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
+		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."), visible_message_flags = LOCAL_MESSAGE)
 		if(target.type == /obj/structure/machinery/photocopier)
 			flick("photocopier_notoner", target)
 		playsound(target.loc, 'sound/machines/buzz-two.ogg', 75, 1)
@@ -262,7 +262,7 @@
 	for(var/obj/item/W in bundle.pages)
 		if(toner <= 0 && need_toner)
 			toner = 0
-			target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))
+			target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."), visible_message_flags = LOCAL_MESSAGE)
 			if(target.type == /obj/structure/machinery/photocopier)
 				var/obj/structure/machinery/photocopier/T = target
 				flick("photocopier_notoner", target)

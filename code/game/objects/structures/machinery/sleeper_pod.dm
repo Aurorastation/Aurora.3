@@ -267,7 +267,7 @@
 
 		if(display_loading_message)
 			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
-									SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
+									SPAN_NOTICE("You start putting [G.affecting] into [src]."), vision_distance = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
@@ -356,9 +356,9 @@
 
 	if(display_loading_message)
 		if(M == user)
-			visible_message("\The [user] starts climbing into \the [src].")
+			visible_message("\The [user] starts climbing into \the [src].", visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message("\The [user] starts putting [M] into \the [src].")
+			visible_message("\The [user] starts putting [M] into \the [src].", visible_message_flags = LOCAL_MESSAGE)
 
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(occupant)

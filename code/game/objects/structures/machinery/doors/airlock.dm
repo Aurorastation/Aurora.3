@@ -269,13 +269,13 @@
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"), visible_message_flags = LOCAL_MESSAGE)
 				open(1)
 			else
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"), visible_message_flags = LOCAL_MESSAGE)
 				close(1)
 		else
-			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."))
+			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	..()
 
@@ -1301,11 +1301,11 @@ About the new airlock wires panel:
 			to_chat(user, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
 		else if(activate)
 			to_chat(user, SPAN_NOTICE("The door bolts should drop in [ai_bolting_delay] seconds."))
-			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[ai_bolting_delay] seconds</strong>.\"</span>")
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[ai_bolting_delay] seconds</strong>.\"</span>", audible_message_flags = LOCAL_MESSAGE)
 			ai_action_timer = addtimer(CALLBACK(src, PROC_REF(lock)), ai_bolting_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 		else
 			to_chat(user, SPAN_NOTICE("The door bolts should raise in [ai_unbolt_delay] seconds."))
-			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[ai_unbolt_delay] seconds</strong>.\"</span>")
+			audible_message("[icon2html(icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[ai_unbolt_delay] seconds</strong>.\"</span>", audible_message_flags = LOCAL_MESSAGE)
 			ai_action_timer = addtimer(CALLBACK(src, PROC_REF(unlock)), ai_unbolt_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 	else // everyone else
 		if(activate)
@@ -1647,11 +1647,11 @@ About the new airlock wires panel:
 					to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
 				else if(activate)
 					to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.ai_bolting_delay] seconds."))
-					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.ai_bolting_delay] seconds</strong>.\"</span>")
+					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.ai_bolting_delay] seconds</strong>.\"</span>", audible_message_flags = LOCAL_MESSAGE)
 					src.ai_action_timer = addtimer(CALLBACK(src, PROC_REF(lock)), src.ai_bolting_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 				else
 					to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.ai_unbolt_delay] seconds."))
-					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.ai_unbolt_delay] seconds</strong>.\"</span>")
+					src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.ai_unbolt_delay] seconds</strong>.\"</span>", audible_message_flags = LOCAL_MESSAGE)
 					src.ai_action_timer = addtimer(CALLBACK(src, PROC_REF(unlock)), src.ai_unbolt_delay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 			else // everyone else
 				if(activate)
@@ -1981,7 +1981,7 @@ About the new airlock wires panel:
 			return 0
 	if (bracer)
 		do_animate("brace")
-		visible_message(SPAN_WARNING("[src]'s actuators whirr, but the door does not open."))
+		visible_message(SPAN_WARNING("[src]'s actuators whirr, but the door does not open."), visible_message_flags = LOCAL_MESSAGE)
 		return 0
 	if(locked || welded)
 		return 0

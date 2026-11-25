@@ -90,7 +90,7 @@
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "wrenches" : "unwrenches"] \the [src]."), SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 		if(!smoked && !anchored && (bee_count > 10))
-			visible_message(SPAN_WARNING("The bees don't like their home being moved!"))
+			visible_message(SPAN_WARNING("The bees don't like their home being moved!"), visible_message_flags = LOCAL_MESSAGE)
 			release_bees(0.1, 5)
 		return
 	else if(istype(attacking_item, /obj/item/honey_frame))
@@ -150,7 +150,7 @@
 		if(attacking_item.use_tool(src, user, 150, volume = 50))
 			user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
 			if(bee_count)
-				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"))
+				visible_message(SPAN_WARNING("The bees are furious over the destruction of their home!"), visible_message_flags = LOCAL_MESSAGE)
 				release_bees(1, 30)
 			new /obj/item/beehive_assembly(get_turf(src))
 			qdel(src)
@@ -162,7 +162,7 @@
 			to_chat(user, SPAN_WARNING("There are no filled honeycombs."))
 			return
 		if(!smoked && bee_count > 5)
-			visible_message(SPAN_WARNING("The bees don't like their honey being taken!"))
+			visible_message(SPAN_WARNING("The bees don't like their honey being taken!"), visible_message_flags = LOCAL_MESSAGE)
 			release_bees(0.2, 5)
 		user.visible_message(SPAN_NOTICE("\The [user] starts taking the honeycombs out of \the [src]."), SPAN_NOTICE("You start taking the honeycombs out of \the [src]..."))
 		while(honeycombs >= 100 && do_after(user, 30))
@@ -180,7 +180,7 @@
 		update_icon()
 	else if (!closed && bee_count && prob(bee_count * 0.1))
 	//If the hive is opened, periodically release docile bees
-		visible_message(SPAN_NOTICE("A few curious bees float out of the open beehive to buzz around."))
+		visible_message(SPAN_NOTICE("A few curious bees float out of the open beehive to buzz around."), visible_message_flags = LOCAL_MESSAGE)
 		release_bees(0.1, 0, 3)
 
 	smoked = max(0, smoked - 1)
