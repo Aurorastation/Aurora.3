@@ -1,6 +1,6 @@
-author: Geeves
+author: Geeves & TheGreyWolf
 
 delete-after: True
 
 changes:
-  - qol: "Issued PDAs now automatically connect to the ringer terminals relevant to their owner's job."
+  - qol: "PDAs now automatically connect to the ringer terminals relevant to their owner's job."
