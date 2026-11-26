@@ -30,6 +30,13 @@
 
 	return TRUE
 
+/singleton/surgery_step/generic/keyhole/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_OPEN_INCISION && target_zone != BP_MOUTH
+
 /singleton/surgery_step/generic/cut_with_laser/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
 	if(!..())
 		return FALSE
@@ -76,7 +83,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_OPEN_INCISION
+	return affected && (affected.open == ORGAN_OPEN_INCISION || affected.open == ORGAN_OPEN_KEYHOLE)
 
 /singleton/surgery_step/generic/cauterize/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
 	if(!..())
