@@ -488,12 +488,20 @@
 	)
 
 /datum/sound_effect/heavy_machine_gun_reload
-	key = SFX_RELOAD_HMG
+	key = SFX_CHAMBER_HMG
 	file_paths = list(
 		'sound/weapons/reloads/hmg_reload1.ogg',
 		'sound/weapons/reloads/hmg_reload2.ogg',
 		'sound/weapons/reloads/hmg_reload3.ogg'
 	)
+
+/datum/sound_effect/heavy_machine_gun_load_magazine
+	key = SFX_RELOAD_HMG
+	file_paths = list(
+		'sound/weapons/hmg_magazine_01.ogg',
+		'sound/weapons/hmg_magazine_02.ogg'
+	)
+
 /datum/sound_effect/drillhit_sound
 	key = SFX_DRILL_HIT
 	file_paths = list(

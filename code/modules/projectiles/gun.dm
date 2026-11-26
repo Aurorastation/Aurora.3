@@ -407,6 +407,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/fire_time = burst > 1 ? ((burst - 1) * burst_delay) : fire_delay
 	var/appropriate_delay = burst > 1 ? burst_delay : fire_delay
 	var/shoot_time = max(fire_time, appropriate_delay)
+	SEND_SIGNAL(src, COMSIG_GUN_FIRE_DELAY, &shoot_time)
 	return shoot_time
 
 /**
@@ -419,6 +420,8 @@ ABSTRACT_TYPE(/obj/item/gun)
  */
 /obj/item/gun/proc/pre_fire(atom/target, mob/living/user, clickparams, pointblank=FALSE, reflex=FALSE, atom/controller)
 	if(QDELETED(target))
+		return FALSE
+	if(SEND_SIGNAL(src, COMSIG_GUN_FIRE_CHECK, user, target, controller) & COMPONENT_BLOCK_GUN_FIRE)
 		return FALSE
 
 	if(!user)
@@ -463,13 +466,16 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 /// Actually fires the weapon, if we're able to.
 /obj/item/gun/proc/fire_gun(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, accuracy_decrease = 0, is_offhand = FALSE, atom/controller)
+	var/user_revision = gun_user_revision
 	if(!pre_fire(target, user, clickparams, pointblank, reflex, controller))
+		return FALSE
+	if(QDELETED(src) || (user && gun_user_revision != user_revision))
 		return FALSE
 	return process_fire(target, user, clickparams, pointblank, reflex, accuracy_decrease, is_offhand, controller)
 
 /// Shared execution path for handheld and automated weapons. Call fire_gun() to initiate fire.
 /obj/item/gun/proc/process_fire(atom/target, mob/living/user, clickparams, pointblank = 0, reflex = 0, accuracy_decrease = 0, is_offhand = FALSE, atom/controller)
-	if(user && !is_offhand && user.a_intent == I_HURT) // no recursion
+	if(user && !controller && !is_offhand && user.a_intent == I_HURT) // no recursion
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG) && SG.w_class <= w_class)
 			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
@@ -484,10 +490,15 @@ ABSTRACT_TYPE(/obj/item/gun)
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
 	var/fired = FALSE
+	var/user_revision = gun_user_revision
 	for(var/i in 1 to burst)
 		if(QDELETED(src) || (user && QDELETED(user)))
 			break
 		if(!user && (QDELETED(controller) || !controller.can_operate_gun(src)))
+			break
+		if(user && gun_user_revision != user_revision)
+			break
+		if(SEND_SIGNAL(src, COMSIG_GUN_FIRE_CHECK, user, target, controller) & COMPONENT_BLOCK_GUN_FIRE)
 			break
 		var/obj/projectile = consume_next_projectile(user)
 		if(!projectile)
@@ -573,9 +584,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 				SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 				SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!")
 			)
-		else
-			src.visible_message(
-				SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -796,6 +804,9 @@ ABSTRACT_TYPE(/obj/item/gun)
 		update_held_icon()
 	else
 		to_chat(usr, SPAN_WARNING("You can't wield \the [src]!"))
+
+/obj/item/gun/proc/get_gun_user()
+	return gun_user
 
 // Assigns the holder or operator. Mounted ownership and operating-position checks
 // belong to the mounting component; assigning a user does not authorize firing.

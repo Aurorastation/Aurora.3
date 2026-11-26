@@ -950,6 +950,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	..()
 
 /client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
 	var/list/modifiers = params2list(params)
 
 	if(!drag_start) // If we're just starting to drag

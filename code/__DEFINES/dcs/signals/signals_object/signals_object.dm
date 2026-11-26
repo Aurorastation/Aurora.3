@@ -90,3 +90,35 @@
 #define COMSIG_GUN_USER_UNSET "gun_user_unset"
 /// Sent to a gun after a user binding changes: (mob/living/old_user, mob/living/new_user).
 #define COMSIG_GUN_USER_CHANGED "gun_user_changed"
+
+/// Sent to a gun to query mounting compatibility and appearance: (mount_class, list/mount_data).
+#define COMSIG_GUN_MOUNT_DATA "gun_mount_data"
+	#define COMPONENT_GUN_MOUNTABLE (1<<0)
+
+/// Sent to a weapon support to enter or leave operator control: (mob/living/user).
+#define COMSIG_MOUNTED_WEAPON_INTERACT "mounted_weapon_interact"
+	#define COMPONENT_MOUNTED_WEAPON_HANDLED (1<<0)
+
+/// Before a gun admits a trigger request and before each shot: (user, target, controller).
+#define COMSIG_GUN_FIRE_CHECK "gun_fire_check"
+	#define COMPONENT_BLOCK_GUN_FIRE (1<<0)
+/// A supported gun's ammunition/receiver appearance changed: ().
+#define COMSIG_GUN_FEED_CHANGED "gun_feed_changed"
+/// A gun started a delayed receiver/ammunition operation: (user).
+#define COMSIG_GUN_RELOAD_STARTED "gun_reload_started"
+/// Allow a mounted operator or candidate to handle reload items: (user, proposed_item).
+#define COMSIG_GUN_ALLOW_RELOAD_HANDS "gun_allow_reload_hands"
+	#define COMPONENT_ALLOW_RELOAD_HANDS (1<<0)
+/// Query a mob's operated gun for controls: (list/result).
+#define COMSIG_MOB_GET_MOUNTED_GUN "mob_get_mounted_gun"
+/// Request an adjacent user's receiver reload action on a support: (user).
+#define COMSIG_MOUNTED_WEAPON_RELOAD "mounted_weapon_reload"
+/// Request an adjacent user to eject a supported weapon's ammunition: (user).
+#define COMSIG_MOUNTED_WEAPON_EJECT "mounted_weapon_eject"
+/// Query an optional continuous-feed assistant interaction on a gun: (user).
+#define COMSIG_GUN_ASSIST_INTERACT "gun_assist_interact"
+	#define COMPONENT_GUN_ASSIST_HANDLED (1<<0)
+/// Adjust the delay of a trigger request: (&delay).
+#define COMSIG_GUN_FIRE_DELAY "gun_fire_delay"
+/// A mob started assisting a weapon; other assistance sessions must end: (gun).
+#define COMSIG_MOB_WEAPON_ASSIST_START "mob_weapon_assist_start"

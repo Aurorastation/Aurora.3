@@ -306,6 +306,19 @@
 	armor_penetration = 30
 	penetrating = 1
 
+/obj/projectile/bullet/rifle/a125
+	name = "12.5mm bullet"
+	icon_state = "gauss"
+	ping_effect = "ping_s"
+	dir = NORTH
+	set_dir_on_move = FALSE
+	damage = 40
+	armor_penetration = 45
+	penetrating = 2
+	maim_rate = 3
+	anti_materiel_potential = 2
+	pierce_decay_damage = 0.8
+
 /obj/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3

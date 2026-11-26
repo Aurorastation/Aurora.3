@@ -94,6 +94,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	chamber_from_internal_feed = chamber_from_internal_feed && load_method != MAGAZINE
 	persistent_chamber = persistent_chamber && (load_method == MAGAZINE || chamber_from_internal_feed) && (handle_casings == EJECT_CASINGS || handle_casings == DELETE_CASINGS)
 	. = ..()
+	RegisterSignal(src, COMSIG_GUN_ALLOW_RELOAD_HANDS, PROC_REF(check_reload_hands))
 	if(persistent_chamber)
 		has_unique_gun_action = TRUE
 	if(ispath(ammo_type) && (load_method & (SINGLE_CASING|SPEEDLOADER)))
@@ -105,6 +106,18 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		feed_chamber()
 		update_maptext()
 	update_icon()
+
+/obj/item/gun/projectile/proc/check_reload_hands(datum/source, mob/user, obj/item/proposed_item)
+	SIGNAL_HANDLER
+	PRIVATE_PROC(TRUE)
+	var/list/held_items = list(user.get_active_hand(), user.get_inactive_hand())
+	if(proposed_item)
+		held_items += proposed_item
+	for(var/obj/item/held_item in held_items)
+		var/obj/item/ammo_magazine/magazine = held_item
+		if(!istype(magazine) || caliber != magazine.caliber || !(load_method & magazine.mag_type) || (allowed_magazines && !is_type_in_list(magazine, allowed_magazines)))
+			return NONE
+	return COMPONENT_ALLOW_RELOAD_HANDS
 
 /obj/item/gun/projectile/Destroy()
 	if(persistent_chamber)
@@ -415,7 +428,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(!persistent_chamber)
 		return
 
-	if(user.get_active_hand() != src || user.next_move > world.time || use_check_and_message(user, USE_FORCE_SRC_IN_USER))
+	if(user.next_move > world.time || !can_use_gun_action(user))
 		return
 	if(chamber_firing)
 		return

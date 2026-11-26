@@ -164,6 +164,7 @@
 #define SFX_PUNCH_BASSY "punch_bassy"
 #define SFX_PUNCH_MISS "punch_miss"
 #define SFX_RELOAD_HMG "reload_hmg"
+#define SFX_CHAMBER_HMG "chamber_hmg"
 #define SFX_RELOAD_METAL_SLIDE "reload_metal_slide"
 #define SFX_RELOAD_POLYMER_SLIDE "reload_polymer_slide"
 #define SFX_RELOAD_REVOLVER "reload_revolver"

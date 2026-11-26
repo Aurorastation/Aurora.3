@@ -289,6 +289,16 @@
 	desc = "A 7.62mm blank casing."
 	projectile_type = /obj/projectile/bullet/blank
 
+/obj/item/ammo_casing/a125
+	name = "12.5mm cartridge"
+	desc = "A 12.5mm machine-gun cartridge."
+	caliber = "12.5mm"
+	projectile_type = /obj/projectile/bullet/rifle/a125
+	matter = list(MATERIAL_STEEL = 1050)
+	icon_state = "heavy_rifle_casing"
+	spent_icon = "heavy_rifle_casing_spent"
+	max_stack = 3
+
 /obj/item/ammo_casing/a145
 	name = "shell casing"
 	desc = "A 14.5mm shell."

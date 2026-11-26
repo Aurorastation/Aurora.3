@@ -9,6 +9,10 @@
 		return
 
 	var/obj/item/gun/gun = mymob.get_active_hand()
+	if(!istype(gun))
+		var/list/controlled = list()
+		SEND_SIGNAL(mymob, COMSIG_MOB_GET_MOUNTED_GUN, controlled)
+		gun = controlled["gun"]
 	if(!istype(gun) || QDELETED(gun))
 		for(var/atom/movable/screen/gun_action/button in gun_actions)
 			button.master = null
@@ -21,7 +25,7 @@
 		return
 
 	if(!length(gun_actions))
-		for(var/action_type in list("safety", "unique action", "eject", "fire mode", "scope"))
+		for(var/action_type in list("safety", "unique action", "eject", "fire mode", "scope", "reload"))
 			var/atom/movable/screen/gun_action/button = new
 			button.action_type = action_type
 			gun_actions += button
@@ -45,6 +49,9 @@
 			if("eject")
 				if(!gun.has_eject_action())
 					continue
+			if("reload")
+				if(!gun.get_reload_action_name())
+					continue
 		button.master = gun
 		button.update_icon()
 		// Place the visible edge after the previous button.
@@ -63,9 +70,9 @@
 /atom/movable/screen/gun_action/Click(location, control, params)
 	var/mob/living/user = usr
 	var/obj/item/gun/gun = master
-	if(!istype(user) || !istype(gun) || QDELETED(gun) || user.get_active_hand() != gun)
+	if(!istype(user) || !istype(gun) || QDELETED(gun))
 		return
-	if(user.next_move >= world.time || gun.use_check(user, USE_FORCE_SRC_IN_USER))
+	if(user.next_move >= world.time || !gun.can_use_gun_action(user))
 		return
 	switch(action_type)
 		if("safety")
@@ -82,6 +89,8 @@
 		if("eject")
 			if(gun.has_eject_action())
 				gun.eject(user)
+		if("reload")
+			gun.reload_action(user)
 	user.hud_used?.update_gun_actions()
 
 /atom/movable/screen/gun_action/update_icon()
@@ -109,6 +118,9 @@
 			var/obj/item/gun/projectile/ballistic_gun = gun
 			if(istype(ballistic_gun) && ballistic_gun.persistent_chamber)
 				name = "Rack"
+		if("reload")
+			icon_state = "unique_action"
+			name = gun.get_reload_action_name()
 
 /// Cached visible bounds: left padding, bottom padding, width, height (in pixels).
 /// Include every frame of the supplied animations so their widest frame also fits.
@@ -181,7 +193,23 @@
 
 /// Refresh state changes made through verbs, shortcuts, or automatic mode switches.
 /obj/item/gun/proc/update_gun_actions()
-	if(ismob(loc))
-		var/mob/user = loc
-		if(user.get_active_hand() == src)
-			user.hud_used?.update_gun_actions()
+	var/mob/user = get_gun_user()
+	if(user)
+		user.hud_used?.update_gun_actions()
+
+/// Shared authorization for held and operated weapon controls.
+/obj/item/gun/proc/can_use_gun_action(mob/user)
+	// Installed guns are inside their support, which validates the operator's reach.
+	if(QDELETED(user) || use_check(user, USE_ALLOW_NON_ADJACENT))
+		return FALSE
+	if(loc == user && user.get_active_hand() == src)
+		return TRUE
+	var/list/controlled = list()
+	SEND_SIGNAL(user, COMSIG_MOB_GET_MOUNTED_GUN, controlled)
+	return controlled["gun"] == src
+
+/obj/item/gun/proc/get_reload_action_name()
+	return null
+
+/obj/item/gun/proc/reload_action(mob/user)
+	return FALSE

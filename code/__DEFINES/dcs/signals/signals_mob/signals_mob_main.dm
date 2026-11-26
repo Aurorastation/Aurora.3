@@ -25,6 +25,8 @@
 
 //from base of client/MouseDown(): (/client, object, location, control, params)
 #define COMSIG_CLIENT_MOUSEDOWN "client_mousedown"
+/// From client/MouseDrag(): (src_object, over_object, src_location, over_location, src_control, over_control, params).
+#define COMSIG_CLIENT_MOUSEDRAG "client_mousedrag"
 //from base of client/MouseUp(): (/client, object, location, control, params)
 #define COMSIG_CLIENT_MOUSEUP "client_mouseup"
 	#define COMPONENT_CLIENT_MOUSEUP_INTERCEPT (1<<0)
