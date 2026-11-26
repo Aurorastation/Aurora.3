@@ -1417,6 +1417,7 @@
 #include "code\game\objects\structures\urban.dm"
 #include "code\game\objects\structures\warp_drive.dm"
 #include "code\game\objects\structures\watercloset.dm"
+#include "code\game\objects\structures\weapon_mount.dm"
 #include "code\game\objects\structures\weapon_rack.dm"
 #include "code\game\objects\structures\weapons_rack.dm"
 #include "code\game\objects\structures\whiteboard.dm"

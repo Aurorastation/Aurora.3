@@ -24,6 +24,15 @@
 #define COMSIG_ITEM_ATTACK_SELF "item_attack_self"
 //from base of obj/item/attack_self_secondary(): (/mob)
 #define COMSIG_ITEM_ATTACK_SELF_SECONDARY "item_attack_self_secondary"
+/// Sent to a deployable item to request deployment: (mob/user, turf/location).
+#define COMSIG_ITEM_DEPLOY "item_deploy"
+/// Sent to a deployed object to request recovery of its original item: (mob/user).
+#define COMSIG_ITEM_UNDEPLOY "item_undeploy"
+/// Checked before and after undeployment's delay: (mob/user).
+#define COMSIG_ITEM_UNDEPLOY_CHECK "item_undeploy_check"
+	#define COMPONENT_BLOCK_UNDEPLOY (1<<0)
+/// Successful undeployment, before recovering the item: (obj/item/original_item, mob/user).
+#define COMSIG_ITEM_UNDEPLOYED "item_undeployed"
 /// Sent from /obj/item/proc/animate_attack() : (atom/movable/attacker, atom/attacked_atom, animation_type, list/image_override, list/animation_override, list/angle_override)
 #define COMSIG_ITEM_ATTACK_ANIMATION "item_attack_animation"
 

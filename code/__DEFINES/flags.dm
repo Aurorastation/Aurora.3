@@ -114,5 +114,11 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 /// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
 #define ITEM_FLAG_SURGERY FLAG(13)
 
+// Deployable-item lifecycle flags.
+#define DEPLOY_ON_INITIALIZE FLAG(14)
+#define IS_DEPLOYED FLAG(15)
+#define DEPLOYED_NO_PICKUP FLAG(16)
+#define DEPLOYED_WRENCH_DISASSEMBLE FLAG(17)
+
 ///All the cardinal direction bitflags.
 #define ALL_CARDINALS (NORTH|SOUTH|EAST|WEST)
