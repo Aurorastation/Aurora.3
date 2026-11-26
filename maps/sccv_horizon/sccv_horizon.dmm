@@ -85550,6 +85550,7 @@
 /obj/item/stack/material/lead{
 	amount = 10
 	},
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "kVC" = (
@@ -137253,6 +137254,8 @@
 /obj/structure/platform,
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/lab)
 "rCg" = (
