@@ -887,7 +887,17 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	cap.Blend("#000", ICON_OVERLAY)
 	for(var/atom/A in atoms)
 		if(A)
-			var/icon/img = getFlatIcon(A)
+			var/icon/img
+			var/turf/T = A
+			if(istype(T) && length(T.decals))
+				var/image/turf_without_decals = image(T)
+				turf_without_decals.overlays -= T.decals
+				img = getFlatIcon(turf_without_decals)
+				for(var/image/decal as anything in T.decals)
+					var/icon/decal_icon = getFlatIcon(decal)
+					img.Blend(decal_icon, blendMode2iconMode(decal.blend_mode), decal.pixel_x + 1, decal.pixel_y + 1)
+			else
+				img = getFlatIcon(A)
 			if(istype(img, /icon))
 				if(istype(A, /mob/living))
 					var/mob/living/L = A

@@ -150,11 +150,11 @@
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
-	icobase = 'icons/mob/human_races/ipc/r_industrial.dmi'
-	deform = 'icons/mob/human_races/ipc/r_industrial.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/industrial_preview.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_g1_industrial.dmi'
+	deform = 'icons/mob/human_races/ipc/r_g1_industrial.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/g1_industrial_preview.dmi'
 
-	eyes = "eyes_industry"
+	eyes = "g1_eyes"
 	show_ssd = "completely quiescent"
 
 	has_limbs = list(
@@ -175,7 +175,8 @@
 	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	maneuvers = list(
-		/singleton/maneuver/leap/industrial
+		/singleton/maneuver/leap/industrial,
+		/singleton/maneuver/kick
 	)
 
 	heat_level_1 = 800
@@ -340,11 +341,11 @@
 	short_name = "hif"
 	bodytype = BODYTYPE_IPC_INDUSTRIAL
 
-	icobase = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
-	deform = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi'
-	preview_icon = 'icons/mob/human_races/ipc/ind_hephaestus_preview.dmi'
+	icobase = 'icons/mob/human_races/ipc/r_g2_industrial.dmi'
+	deform = 'icons/mob/human_races/ipc/r_g2_industrial.dmi'
+	preview_icon = 'icons/mob/human_races/ipc/g2_industrial_preview.dmi'
 
-	eyes = "heph_eyes"
+	eyes = "g2_eyes"
 
 	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
@@ -639,7 +640,8 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 	maneuvers = list(
-		/singleton/maneuver/leap/zenghu
+		/singleton/maneuver/leap/zenghu,
+		/singleton/maneuver/kick
 	)
 
 	machine_ui_theme = "zenghu"

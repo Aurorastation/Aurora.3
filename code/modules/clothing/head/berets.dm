@@ -1,7 +1,7 @@
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A baguette munching, cheese eating, wine drinking artist's favorite headwear. Hon hon!"
-	icon = 'icons/obj/clothing/hats/berets.dmi'
+	icon = 'icons/obj/item/clothing/hats/berets.dmi'
 	icon_state = "beret"
 	item_state = "beret"
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
@@ -254,14 +254,14 @@
 /obj/item/clothing/head/beret/sol
 	name = "sol marine beret"
 	desc = "A green beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
-	icon_state = "sol"
-	item_state = "sol"
+	icon_state = "heph"
+	item_state = "heph"
 
 /obj/item/clothing/head/beret/sol/grey
 	name = "sol marine beret"
 	desc = "A grey beret with an attached cap badge bearing the insignia of a Solarian Marine Corps regiment."
-	icon_state = "solgrey"
-	item_state = "solgrey"
+	icon_state = "beret"
+	item_state = "beret"
 
 /obj/item/clothing/head/beret/lancer
 	name = "\improper Ceres Lance beret"

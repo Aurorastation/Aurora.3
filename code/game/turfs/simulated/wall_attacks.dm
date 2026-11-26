@@ -92,6 +92,11 @@
 	if(istype(attacking_item, /obj/item/plastique))
 		return
 
+	if(istype(attacking_item, /obj/item/paint_sprayer))
+		var/obj/item/paint_sprayer/sprayer = attacking_item
+		sprayer.paint_wall(src, user)
+		return TRUE
+
 	if(attacking_item)
 		radiate()
 		if(is_hot(attacking_item))
@@ -365,9 +370,9 @@
 			//Plasteel walls take 24 & 15 minimum damage.
 			//Steel walls take 3 & 15 minimum damage.
 			damage_to_deal -= weaken
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing some of the plating" : "putting a heavy dent on it"]!"), visible_message_flags = LOCAL_MESSAGE)
 			add_damage(damage_to_deal, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
 		else
-			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"), visible_message_flags = LOCAL_MESSAGE)
 			playsound(src, hitsound, 25, 1)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

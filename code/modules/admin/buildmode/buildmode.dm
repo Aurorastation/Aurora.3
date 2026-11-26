@@ -45,7 +45,7 @@
 			matches += path
 
 	if(!matches.len)
-		alert("No results found. Sorry.")
+		tgui_alert(usr, "No results found. Sorry.")
 		return
 
 	if(matches.len==1)

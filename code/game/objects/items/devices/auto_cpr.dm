@@ -325,7 +325,7 @@
 			epp_off()
 		if(cpr_mode)
 			cpr_mode = FALSE
-		visible_message(SPAN_WARNING("\The [src] sputters as it runs out of charge!"))
+		visible_message(SPAN_WARNING("\The [src] sputters as it runs out of charge!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/synth_no.ogg', 50)
 		update_icon()
 		return PROCESS_KILL
@@ -356,7 +356,7 @@
 
 /obj/item/auto_cpr/proc/epp_process(mob/living/carbon/human/H)
 	if(!tank || !breath_mask)
-		src.visible_message(SPAN_WARNING("Error! Vital component for \the [src]'s [EPP] missing! Turning function off."))
+		src.visible_message(SPAN_WARNING("Error! Vital component for \the [src]'s [EPP] missing! Turning function off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 	if(H.species.flags & NO_BREATHE)
@@ -386,17 +386,17 @@
 		epp_off()
 		return
 	if(lungs.checking_rupture == FALSE)
-		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."))
+		src.visible_message(SPAN_WARNING("Error! Patient safety check triggered! Turning the [EPP] off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 	if(XGM_PRESSURE(tank.air_contents) <= 10)
-		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."))
+		src.visible_message(SPAN_WARNING("Error! Installed [tank] is low or near empty! Turning the [EPP] off."), visible_message_flags = LOCAL_MESSAGE)
 		epp_off()
 		return
 
 	if(H.losebreath > 0)
 		if(!epp_active)
-			src.visible_message(SPAN_WARNING("\The [src] beeps, activating it's [EPP]!"))
+			src.visible_message(SPAN_WARNING("\The [src] beeps, activating it's [EPP]!"), visible_message_flags = LOCAL_MESSAGE)
 			tank.forceMove(H)
 			H.internal = tank
 			if(H.internals)
@@ -410,22 +410,22 @@
 
 /obj/item/auto_cpr/proc/breath_mask_on(mob/living/carbon/human/H)
 	if(!H.organs_by_name[BP_HEAD])
-		src.visible_message(SPAN_WARNING("Error! Patient lacks a head!"))
+		src.visible_message(SPAN_WARNING("Error! Patient lacks a head!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(!H.check_has_mouth())
-		src.visible_message(SPAN_WARNING("Error! Patient lacks a mouth!"))
+		src.visible_message(SPAN_WARNING("Error! Patient lacks a mouth!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(H.head && (H.head.body_parts_covered & FACE))
-		src.visible_message(SPAN_WARNING("Error! Access to patient's head is obstructed!"))
+		src.visible_message(SPAN_WARNING("Error! Access to patient's head is obstructed!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
 	if(H.wear_mask)
-		src.visible_message(SPAN_WARNING("Error! Access to patient's mouth is obstructed!"))
+		src.visible_message(SPAN_WARNING("Error! Access to patient's mouth is obstructed!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50)
 		return
-	src.visible_message(SPAN_INFO("\The [src] automatically fastens \the [breath_mask] onto \the [H]."))
+	src.visible_message(SPAN_INFO("\The [src] automatically fastens \the [breath_mask] onto \the [H]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(H, 'sound/effects/buckle.ogg', 50)
 	breath_mask.forceMove(H.loc)
 	H.equip_to_slot(breath_mask, slot_wear_mask)
@@ -435,7 +435,7 @@
 	update_icon()
 
 /obj/item/auto_cpr/proc/breath_mask_off()
-	src.visible_message(SPAN_WARNING("\The [src] automatically retracts \the [breath_mask]!"))
+	src.visible_message(SPAN_WARNING("\The [src] automatically retracts \the [breath_mask]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(epp_active)
 		tank.forceMove(src)
 		if(breather.internals)

@@ -11,12 +11,18 @@
 		SKILL_LEVEL_UNFAMILIAR = "You have little to no experience working with electrical systems.",
 		SKILL_LEVEL_FAMILIAR = "You have some experience working with electrical systems, though are not formally trained.<br>" \
 			+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.<br>" \
-			+ " - You can recognize what a few wires do in electrical devices by sight.",
+			+ " - You can recognize what a few wires do in electrical devices by sight.<br>" \
+			+ " - You are 2.5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 5% faster on an IPC.",
 		SKILL_LEVEL_TRAINED = "You have formal training in electrical engineering concepts, equivalent to a Bachelor's Degree.<br>" \
 			+ " - You can use a power cell to attempt emergency power bypasses on piloting consoles when they're unpowered.<br>" \
-			+ " - You can recognize what several wires do in electrical devices by sight.",
+			+ " - You can recognize what several wires do in electrical devices by sight.<br>" \
+			+ " - You are 5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 10% faster on an IPC.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in electrical related Engineering concepts, equivalent to a Master's Degree or better.<br>" \
-			+ " - You can recognize what many wires do in electrical devices by sight." \
+			+ " - You can recognize what many wires do in electrical devices by sight.<br>" \
+			+ " - You are 7.5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 15% faster on an IPC." \
 	)
 
 /singleton/skill/mechanical_engineering
@@ -43,7 +49,9 @@
 			+ " - You deal 10% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
 			+ " - You can repair exosuits 25% faster<br>" \
 			+ " - Each use of a welder on an exosuit repairs 5 more damage.<br>" \
-			+ " - You can recognize what a few wires do in mechanical devices by sight.",
+			+ " - You can recognize what a few wires do in mechanical devices by sight.<br>" \
+			+ " - You are 2.5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 5% faster on an IPC.",
 		SKILL_LEVEL_TRAINED = "You have formal training in general Engineering concepts, equivalent to a Bachelor's Degree. <br>" \
 			+ " - You can craft items at the standard speed.<br>" \
 			+ " - Items you craft are generally at average quality.<br>" \
@@ -51,14 +59,18 @@
 			+ " - You deal 15% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
 			+ " - You can repair exosuits 50% faster<br>" \
 			+ " - Each use of a welder on an exosuit repairs 10 more damage.<br>" \
-			+ " - You can recognize what several wires do in mechanical devices by sight.",
+			+ " - You can recognize what several wires do in mechanical devices by sight.<br>" \
+			+ " - You are 5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 10% faster on an IPC.",
 		SKILL_LEVEL_PROFESSIONAL = "You have many years of training in general Engineering concepts, equivalent to a Master's Degree or better.<br>" \
 			+ " - You can craft items 50% faster.<br>" \
 			+ " - Items you craft are of much higher quality on average.<br>" \
 			+ " - You deal 20% more damage when attacking structures such as airlocks, windows, and machinery.<br>" \
 			+ " - You can repair exosuits 75% faster<br>" \
 			+ " - Each use of a welder on an exosuit repairs 15 more damage.<br>" \
-			+ " - You can recognize what many wires do in mechanical devices by sight.",
+			+ " - You can recognize what many wires do in mechanical devices by sight.<br>" \
+			+ " - You are 7.5% more likely to succeed when performing surgeries on an IPC.<br>" \
+			+ " - You can perform surgeries 15% faster on an IPC.",
 	)
 
 /singleton/skill/atmospherics_systems

@@ -16,18 +16,85 @@
 		return TRUE
 	return FALSE
 
+/// Returns whether this turf has a lattice-derived walking surface, including catwalks and grates.
+/turf/proc/has_lattice()
+	return locate(/obj/structure/lattice) in src
+
 
 //Edit by Nanako
 //This proc is used in only two places, ive changed it to make more sense
 //The old behaviour returned zero if there were any simulated atoms at all, even pipes and wires
-//Now it just finds if the tile is blocked by anything solid.
+//Now it just finds if the tile is blocked by anything solid in its interior.
+//Dense border objects (windows, railings, tent walls, etc.) do not occupy the
+//usable centre of the turf and are handled separately by movement checks.
 /proc/turf_clear(turf/T)
 	if (T.density)
 		return 0
 	for(var/atom/A in T)
-		if(A.density)
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 0
 	return 1
+
+/**
+ * Returns the turfs covered by the initial pixel bounds of `movable_type` when
+ * its origin is placed on `origin`. This is intended for placement previews;
+ * types which alter their bounds at runtime should provide their own check.
+ */
+/proc/get_initial_bound_turfs(turf/origin, var/atom/movable/movable_type)
+	if(!istype(origin) || !ispath(movable_type, /atom/movable))
+		return null
+
+	var/bound_x = initial(movable_type.bound_x)
+	var/bound_y = initial(movable_type.bound_y)
+	var/bound_width = initial(movable_type.bound_width)
+	var/bound_height = initial(movable_type.bound_height)
+	var/min_x = floor(bound_x / world.icon_size)
+	var/min_y = floor(bound_y / world.icon_size)
+	var/max_x = ceil((bound_x + bound_width) / world.icon_size) - 1
+	var/max_y = ceil((bound_y + bound_height) / world.icon_size) - 1
+	var/list/covered_turfs = list()
+
+	for(var/x_offset = min_x to max_x)
+		for(var/y_offset = min_y to max_y)
+			var/turf/covered = locate(origin.x + x_offset, origin.y + y_offset, origin.z)
+			if(!istype(covered))
+				return null
+			covered_turfs += covered
+
+	return covered_turfs
+
+/// Returns whether a border object prevents a placed footprint from spanning this link.
+/obj/proc/blocks_multitile_placement(turf/other)
+	return FALSE
+
+/// Checks ordinary link blockers and extensible border-only placement blockers.
+/proc/turf_link_blocks_placement(turf/first, turf/second)
+	if(LinkBlocked(first, second))
+		return TRUE
+	for(var/obj/border in first)
+		if((border.atom_flags & ATOM_FLAG_CHECKS_BORDER) && border.blocks_multitile_placement(second))
+			return TRUE
+	for(var/obj/border in second)
+		if((border.atom_flags & ATOM_FLAG_CHECKS_BORDER) && border.blocks_multitile_placement(first))
+			return TRUE
+	return FALSE
+
+/// Checks every occupied turf and every internal link of a prospective multi-turf object.
+/proc/turf_clear_for_bounds(turf/origin, var/atom/movable/movable_type)
+	var/list/covered_turfs = get_initial_bound_turfs(origin, movable_type)
+	if(!LAZYLEN(covered_turfs))
+		return FALSE
+
+	for(var/turf/covered in covered_turfs)
+		if(!turf_clear(covered))
+			return FALSE
+		// Checking north and east visits every cardinal link exactly once.
+		for(var/check_dir in list(NORTH, EAST))
+			var/turf/neighbour = get_step(covered, check_dir)
+			if((neighbour in covered_turfs) && turf_link_blocks_placement(covered, neighbour))
+				return FALSE
+
+	return TRUE
 
 /proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density, var/check_indoors)
 	origin = get_turf(origin)
@@ -133,13 +200,32 @@
 	Turf manipulation
 */
 
+/**
+ * Rotates a pair of tile offsets clockwise around a shuttle landmark.
+ *
+ * Shuttle landmarks only support cardinal directions, so rotations are always
+ * in 90 degree increments.
+ */
+/proc/rotate_shuttle_offset(x_offset, y_offset, rotation)
+	switch(SIMPLIFY_DEGREES(rotation))
+		if(0)
+			return list(x_offset, y_offset)
+		if(90)
+			return list(y_offset, -x_offset)
+		if(180)
+			return list(-x_offset, -y_offset)
+		if(270)
+			return list(-y_offset, x_offset)
+	CRASH("Attempted to rotate a shuttle by a non-cardinal angle: [rotation].")
+
 //Returns an assoc list that describes how turfs would be changed if the
-//turfs in turfs_src were translated by shifting the src_origin to the dst_origin
-/proc/get_turf_translation(turf/src_origin, turf/dst_origin, list/turfs_src)
+//turfs in turfs_src were translated and rotated from src_origin to dst_origin.
+/proc/get_turf_translation(turf/src_origin, turf/dst_origin, list/turfs_src, rotation = 0)
 	var/list/turf_map = list()
 	for(var/turf/source in turfs_src)
-		var/x_pos = (source.x - src_origin.x)
-		var/y_pos = (source.y - src_origin.y)
+		var/list/rotated_offset = rotate_shuttle_offset(source.x - src_origin.x, source.y - src_origin.y, rotation)
+		var/x_pos = rotated_offset[1]
+		var/y_pos = rotated_offset[2]
 		var/z_pos = (source.z - src_origin.z)
 
 		var/turf/target = locate(dst_origin.x + x_pos, dst_origin.y + y_pos, dst_origin.z + z_pos)
@@ -149,7 +235,7 @@
 
 	return turf_map
 
-/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf, var/ignore_background)
+/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf, var/ignore_background, rotation = 0)
 	. = list()
 	for(var/turf/source in translation)
 
@@ -158,10 +244,10 @@
 		if(target)
 			if(base_area)
 				target.change_area(target.loc, get_area(source))
-				. += transport_turf_contents(source, target, ignore_background)
+				. += transport_turf_contents(source, target, ignore_background, rotation)
 				source.change_area(source.loc, base_area)
 			else
-				. += transport_turf_contents(source, target, ignore_background)
+				. += transport_turf_contents(source, target, ignore_background, rotation)
 
 	//change the old turfs
 	for(var/turf/source in translation)
@@ -174,7 +260,7 @@
 //Transports a turf from a source turf to a target turf, moving all of the turf's contents and making the target a copy of the source.
 //If ignore_background is set to true, turfs with TURF_FLAG_BACKGROUND set will only translate anchored contents.
 //Returns the new turf, or list(new turf, source) if a background turf was ignored and things may have been left behind.
-/proc/transport_turf_contents(turf/source, turf/target, ignore_background)
+/proc/transport_turf_contents(turf/source, turf/target, ignore_background, rotation = 0)
 	var/turf/new_turf
 
 	var/is_background = ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND)
@@ -184,6 +270,8 @@
 	else
 		new_turf = target.ChangeTurf(source.type, 1, 1)
 		new_turf.transport_properties_from(source)
+		if(rotation)
+			new_turf.shuttleRotate(rotation)
 
 	for(var/obj/O in source)
 		if(O.obj_flags & OBJ_FLAG_NOFALL)

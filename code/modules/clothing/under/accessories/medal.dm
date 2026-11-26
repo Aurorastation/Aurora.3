@@ -1,8 +1,11 @@
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
 	desc = "A bronze medal."
+	icon = 'icons/obj/item/clothing/accessory/medals.dmi'
 	icon_state = "bronze"
+	item_state = "bronze"
 	overlay_state = "bronze"
+	contained_sprite = TRUE
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -17,12 +20,14 @@
 	name = "distinguished volunteer's medal"
 	desc = "A white medal with a red cross on it for those who have performed outstanding medical services as a volunteer for the Interstellar Aid Corps."
 	icon_state = "white_heart"
+	item_state = "white_heart"
 	overlay_state = "white_heart"
 
 /obj/item/clothing/accessory/medal/corporate
 	name = "corporate medal"
 	desc = "A bronze medal awarded to a member of crew for distinguished conduct. Engraved on the front is the letter N, while the back sports the date and recipient."
 	icon_state = "corporate_medal"
+	item_state = "corporate_medal"
 	overlay_state = "corporate_medal"
 
 /obj/item/clothing/accessory/medal/merit
@@ -30,18 +35,21 @@
 	desc = "A award for merit, 2nd class given to a member of the crew for meritorious action in defence of life, limb or property. It is a serifed letter N on the front of which the \
 	words \"for merit\" are engraved in silver, with the date and recipient on the back."
 	icon_state = "merit2"
+	item_state = "merit2"
 	overlay_state = "merit2"
 
 /obj/item/clothing/accessory/medal/wound_ribbon
 	name = "wound ribbon"
 	desc = "A purple and black ribbon denoting first time significant injuries in service to the corporation."
 	icon_state = "wound_ribbon"
+	item_state = "wound_ribbon"
 	overlay_state = "wound_ribbon"
 
 /obj/item/clothing/accessory/medal/wound
 	name = "wound medal"
 	desc = "An obsidian coloured, teardrop-shaped medal with an artificial purple shine awarded for repeated serious injuries, loss of limb or death in service of the corporation. Engraved on the back are the name of the recipient and the date."
 	icon_state = "wound_medal"
+	item_state = "wound_medal"
 	overlay_state = "wound_medal"
 	flippable = FALSE
 
@@ -49,6 +57,7 @@
 	name = "iron medal"
 	desc = "A simple iron medal."
 	icon_state = "iron"
+	item_state = "iron"
 	overlay_state = "iron"
 
 /obj/item/clothing/accessory/medal/iron/sol
@@ -60,6 +69,7 @@
 	name = "silver medal"
 	desc = "A silver medal."
 	icon_state = "silver"
+	item_state = "silver"
 	overlay_state = "silver"
 
 /obj/item/clothing/accessory/medal/silver/sol
@@ -72,12 +82,14 @@
 	desc = "A award for merit, 1nd class given to a member of the crew for meritorious action in defence of life, limb or property. It is a serifed letter N on the front of which the \
 	words \"for merit\" are engraved in gold, with the date and recipient on the back."
 	icon_state = "merit1"
+	item_state = "merit1"
 	overlay_state = "merit1"
 
 /obj/item/clothing/accessory/medal/silver/science
 	name = "silver sciences award"
 	desc = "A silver medal which represents significant contributions to the field of science or engineering. Engraved on the front side is a laboratory flask, with the name of the recipient and date on the back."
 	icon_state = "silversci"
+	item_state = "silversci"
 	overlay_state = "silversci"
 
 /obj/item/clothing/accessory/medal/silver/konyang
@@ -94,6 +106,7 @@
 	name = "gold medal"
 	desc = "A prestigious golden medal."
 	icon_state = "gold"
+	item_state = "gold"
 	overlay_state = "gold"
 
 /obj/item/clothing/accessory/medal/gold/captain
@@ -110,10 +123,12 @@
 	name = "gold sciences award"
 	desc = "A silver medal which represents significant contributions to the field of science or engineering. Engraved on the front side is a laboratory flask, with the name of the recipient and date on the back."
 	icon_state = "goldsci"
+	item_state = "goldsci"
 	overlay_state = "goldsci"
 
 /obj/item/clothing/accessory/medal/gold/miranda
 	name = "miranda cross"
 	desc = "The highest honour NanoTrasen can bestow upon an employee, the Miranda Cross is a golden, cross shaped medal encrusted with a small blue sapphire in the middle. On the back, the name of the recipient and the date are engraved."
 	icon_state = "miranda_cross"
+	item_state = "miranda_cross"
 	overlay_state = "miranda_cross"

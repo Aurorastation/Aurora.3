@@ -11,11 +11,11 @@
 /obj/structure/machinery/button/distress/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
-/obj/structure/machinery/button/distress/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/structure/machinery/button/distress/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	recorded_message = text
 
 /obj/structure/machinery/button/distress/attack_hand(var/mob/user)
@@ -28,7 +28,7 @@
 		return
 	use_power_oneoff(10)
 	active = TRUE
-	var/choice = alert(user, "Are you sure you want to launch a distress beacon?", "Distress Beacon", "Yes", "No")
+	var/choice = tgui_alert(user, "Are you sure you want to launch a distress beacon?", "Distress Beacon", list("Yes", "No"))
 	if(choice == "No" || !choice)
 		active = FALSE
 		return

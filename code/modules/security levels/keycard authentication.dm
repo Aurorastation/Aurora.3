@@ -32,7 +32,7 @@
 /obj/structure/machinery/keycard_auth/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -120,7 +120,7 @@
 	event_confirmed_by = null
 	recorded_message = ""
 
-/obj/structure/machinery/keycard_auth/hear_talk(mob/M, text, verb, datum/language/speaking)
+/obj/structure/machinery/keycard_auth/hear_talk(atom/movable/M, text, verb, datum/language/speaking, datum/say_message/say_message = null)
 	if(event == "Distress Beacon" && M == event_triggered_by)
 		recorded_message = text
 

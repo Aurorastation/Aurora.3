@@ -36,12 +36,12 @@
 /obj/structure/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
 
 	if(!active)
-		src.visible_message(SPAN_WARNING("[user] switches \the [src] on."))
+		src.visible_message(SPAN_WARNING("[user] switches \the [src] on."), visible_message_flags = LOCAL_MESSAGE)
 		to_chat(user, SPAN_WARNING("The world beyond opens to your eyes."))
 		active = TRUE
 
 	else
-		src.visible_message(SPAN_WARNING("[user] switches \the [src] off."))
+		src.visible_message(SPAN_WARNING("[user] switches \the [src] off."), visible_message_flags = LOCAL_MESSAGE)
 		to_chat(user, SPAN_WARNING("The world beyond vanishes before your eyes."))
 		active = FALSE
 
@@ -74,15 +74,15 @@
 				L.adjustBrainLoss(5, 55)
 
 			if(prob(15))
-				src.visible_message(SPAN_WARNING("\The [src] hums ominously."))
+				src.visible_message(SPAN_WARNING("\The [src] hums ominously."), visible_message_flags = LOCAL_MESSAGE)
 
 			if(prob(5))
-				src.visible_message(SPAN_WARNING("\The [src] crackles with energy!"))
+				src.visible_message(SPAN_WARNING("\The [src] crackles with energy!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/magic/lightningbolt.ogg', 40, 1)
 
 			if(prob(1))
 				to_chat(L, SPAN_CULT("<b>Reality feels less stable...</b>"))
-				src.visible_message(SPAN_WARNING("\The [src] screeches loudly!"))
+				src.visible_message(SPAN_WARNING("\The [src] screeches loudly!"), visible_message_flags = LOCAL_MESSAGE)
 				playsound(src, 'sound/magic/dimensional_rend.ogg', 100, 1)
 				new /obj/effect/gateway/active/rift(src.loc)
 

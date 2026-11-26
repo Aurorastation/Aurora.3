@@ -1,3 +1,5 @@
+ABSTRACT_TYPE(/obj/item/clothing/under/uniform)
+
 /obj/item/clothing/under/uniform/gadpathur
 	name = "gadpathurian fatigues"
 	desc = "A simple black cloth shirt and brown NBC-treated pants commonly worn by Gadpathurians."
@@ -138,9 +140,11 @@
 /obj/item/clothing/accessory/gadpathurian_leader
 	name = "section leader badge"
 	desc = "A Section Leader's badge is typically worn below one's overwear, in order to ensure that the hated Solarians will be unable to easily identify a leader in a crowd."
+	icon = 'icons/obj/item/clothing/accessory/gadpathur_leader_badge.dmi'
 	icon_state = "gadpathurleaderbadge"
 	item_state = "gadpathurleaderbadge"
 	overlay_state = "gadpathurleaderbadge"
+	contained_sprite = TRUE
 
 	flippable = TRUE
 

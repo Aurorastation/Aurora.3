@@ -40,7 +40,7 @@
 			var/drink_moodlet_value = 5 * bar_skill.skill_level
 			var/drink_quality = rand(1, 20) + 3 * bar_skill.skill_level
 			if (!isnull(drink_moodlet_value))
-				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."))
+				src.visible_message(SPAN_NOTICE("[user] stirs \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 				src.LoadComponent(/datum/component/drink_moodlet_provider, drink_moodlet_value, FALSE, drink_quality)
 	return ..()
 
@@ -58,7 +58,7 @@
 			return
 		else
 			user.visible_message("<b>[user]</b> holds \the [src] out for a toast with [H].")
-			if(alert(H,"[user] wants to do a toast with you. Will you accept it?",,"Yes","No") == "No")
+			if(tgui_alert(H, "[user] wants to do a toast with you. Will you accept it?", , list("Yes", "No")) == "No")
 				H.visible_message("<b>[H]</b> pushes [user]'s hand away.")
 				return
 			if(!user.Adjacent(H))

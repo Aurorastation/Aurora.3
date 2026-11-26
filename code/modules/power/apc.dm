@@ -422,17 +422,17 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light_color(LIGHT_COLOR_BLUE)
-			set_light(L_WALLMOUNT_RANGE)
+			set_light(L_WALLMOUNT_RANGE, l_color = LIGHT_COLOR_BLUE)
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
+			var/new_light_color = light_color
 			switch(charging)
 				if(CHARGING_OFF)
-					set_light_color("#F86060")
+					new_light_color = "#F86060"
 				if(CHARGING_ON)
-					set_light_color("#A8B0F8")
+					new_light_color = "#A8B0F8"
 				if(CHARGING_FULL)
-					set_light_color("#82FF4C")
-			set_light(L_WALLMOUNT_RANGE)
+					new_light_color = "#82FF4C"
+			set_light(L_WALLMOUNT_RANGE, l_color = new_light_color)
 		else
 			set_light(0)
 
@@ -912,12 +912,12 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			if(beenhit >= pick(3, 4) && !panel_open)
 				panel_open = TRUE
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
+				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"), visible_message_flags = LOCAL_MESSAGE)
 
 			else if(panel_open && !allcut)
 				wires.cut_all()
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
+				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				beenhit += 1
 			return
@@ -1183,7 +1183,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			smoke.start()
 			spark(src, 5, GLOB.alldirs)
 			visible_message(SPAN_DANGER("The [name] suddenly lets out a blast of smoke and some sparks!"), \
-							SPAN_DANGER("You hear sizzling electronics."))
+							blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/apc/proc/last_surplus()
 	return terminal?.powernet?.last_surplus()
@@ -1394,13 +1394,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
-	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"))
+	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"), visible_message_flags = LOCAL_MESSAGE)
 	spark(src, 5, GLOB.alldirs)
 	addtimer(CALLBACK(src, PROC_REF(break_timer)), rand(2, 5))
 
 /obj/structure/machinery/power/apc/proc/break_timer()
 	visible_message(SPAN_DANGER("[src]'s screen suddenly explodes in rain of sparks and small debris!"), \
-					SPAN_DANGER("You hear sizzling electronics."))
+					blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 	smoke.set_up(3, 0, loc)
 	smoke.attach(src)
@@ -1703,6 +1703,28 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	pixel_x = -12
 
 /obj/structure/machinery/power/apc/empty/south
+	dir = SOUTH
+	pixel_y = -8
+
+/// APC preset with no access requirement.
+/// Intended for offships, away sites, and the like.
+/obj/structure/machinery/power/apc/noid
+	req_access = null
+	req_one_access = null
+
+/obj/structure/machinery/power/apc/noid/north
+	dir = NORTH
+	pixel_y = 22
+
+/obj/structure/machinery/power/apc/noid/east
+	dir = EAST
+	pixel_x = 12
+
+/obj/structure/machinery/power/apc/noid/west
+	dir = WEST
+	pixel_x = -12
+
+/obj/structure/machinery/power/apc/noid/south
 	dir = SOUTH
 	pixel_y = -8
 

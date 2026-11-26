@@ -106,9 +106,10 @@
 	// Prune restricted status. Broke it up for readability.
 	// Note that this is done before jobs are handed out.
 	for(var/datum/mind/player in SSticker.mode.get_players_for_role(role_type, id))
-		if(ghosts_only && !istype(player.current, /mob/abstract))
+		var/mob/player_mob = player.get_player_mob()
+		if(ghosts_only && !isobserver(player_mob))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Only ghosts may join as this role!")
-		else if(!allow_animals && isanimal(player.current))
+		else if(!allow_animals && isanimal(player_mob))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Simple animals cannot be this role!")
 		else if(player.special_role)
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They already have a special role ([player.special_role])!")
@@ -118,7 +119,7 @@
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are blacklisted for this role!")
 		else if(player_is_antag(player))
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: They are already an antagonist!")
-		else if(establish_db_connection(GLOB.dbcon) && required_age && required_age > player.current.client?.player_age)
+		else if(establish_db_connection(GLOB.dbcon) && required_age && required_age > player_mob?.client?.player_age)
 			log_traitor("[key_name(player)] is not eligible to become a [role_text]: Their playtime age is too low!")
 		else
 			candidates += player

@@ -278,6 +278,9 @@
 
 	if(device_level >= 2)
 		var/list/damaged = H.get_damaged_organs(1,1)
+		for(var/obj/item/organ/external/org in H.organs)
+			if(org.status & ORGAN_DEAD)
+				damaged |= org
 		if(damaged.len)
 			for(var/obj/item/organ/external/org in damaged)
 				var/limb_name = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]"
@@ -286,6 +289,8 @@
 					limb_result = " [SPAN_SCAN_DANGER("[get_wound_severity(LIMB_GET_BRUTE_DAMAGE(org), (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] physical trauma")]"
 				if(LIMB_GET_BURN_DAMAGE(org) > 0)
 					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_ORANGE_DANGER("[get_wound_severity(LIMB_GET_BURN_DAMAGE(org), (org.limb_flags & ORGAN_HEALS_OVERKILL), TRUE)] burns")]"
+				if(org.status & ORGAN_DEAD)
+					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_DANGER("necrotic tissue")]"
 				if(org.status & ORGAN_BLEEDING)
 					limb_result = "[limb_result][limb_result ? " | " : " "][SPAN_SCAN_DANGER("bleeding")]"
 				var/is_bandaged = org.is_bandaged()

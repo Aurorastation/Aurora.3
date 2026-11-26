@@ -424,7 +424,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		chopping = TRUE
 		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
-				SPAN_NOTICE("You begin chopping \the [src] into planks."))
+				SPAN_NOTICE("You begin chopping \the [src] into planks."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
 		if(do_after(user, 70))
 			if(amount && Adjacent(user))

@@ -46,9 +46,14 @@
 	icon_override = null
 
 /obj/item/clothing/accessory/poncho/trinary/blue
-	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection."
+	desc = "A brilliant blue and green cape, commonly worn by those who serve the Trinary Perfection."
 	icon_state = "trinary_cape_blue"
 	item_state = "trinary_cape_blue"
+
+/obj/item/clothing/accessory/poncho/trinary/mictlan
+	desc = "A brilliant teal and purple cape, commonly worn by Mictlanis who serve the Trinary Perfection."
+	icon_state = "trinary_cape_mictlan"
+	item_state = "trinary_cape_mictlan"
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"
@@ -57,9 +62,14 @@
 	item_state = "trinary_pellegrina"
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina/blue
-	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
+	desc = "A brilliant blue and green cape, commonly worn by those who serve the Trinary Perfection. This one is signifcantly shorter."
 	icon_state = "trinary_pellegrina_blue"
 	item_state = "trinary_pellegrina_blue"
+
+/obj/item/clothing/accessory/poncho/trinary/pellegrina/mictlan
+	desc = "A brilliant teal and purple cape, commonly worn by Mictlanis who serve the Trinary Perfection. This one is signifcantly shorter."
+	icon_state = "trinary_pellegrina_mictlan"
+	item_state = "trinary_pellegrina_mictlan"
 
 /obj/item/clothing/accessory/poncho/trinary/shouldercape
 	name = "trinary perfection shoulder cape"
@@ -68,9 +78,14 @@
 	item_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/trinary/shouldercape/blue
-	desc = "A brilliant blue and grey cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
+	desc = "A brilliant blue and green cape, commonly worn by those who serve the Trinary Perfection. This one is worn over one shoulder."
 	icon_state = "trinary_shouldercape_blue"
 	item_state = "trinary_shouldercape_blue"
+
+/obj/item/clothing/accessory/poncho/trinary/shouldercape/mictlan
+	desc = "A brilliant teal and purple cape, commonly worn by Mictlanis who serve the Trinary Perfection. This one is worn over one shoulder."
+	icon_state = "trinary_shouldercape_mictlan"
+	item_state = "trinary_shouldercape_mictlan"
 
 // Orthodox Trinarist gear
 /obj/item/clothing/suit/storage/hooded/trinary_robes
@@ -119,6 +134,15 @@
 	desc = "A hood worn by those who serve the Trinary Perfection."
 	icon_state = "trinary_habit_hood"
 	item_state = "trinary_habit_hood"
+
+/obj/item/clothing/suit/storage/mictlan_robes
+	name = "trinary perfection mictlani robes"
+	desc = "Mictlani robes worn by those who serve the Trinary Perfection, particularly in El Menaje."
+	desc_extended = "Designed to be adapted to the hot and culturally vibrant climate of Mictlan, these robes are sleeveless, hoodless and more colorful than their Prototypicalist counterparts."
+	icon = 'icons/obj/item/clothing/suit/trinarist_robes.dmi'
+	icon_state = "trinary_robe_mictlan"
+	item_state = "trinary_robe_mictlan"
+	contained_sprite = TRUE
 
 /// Coifs!
 /obj/item/clothing/head/trinary

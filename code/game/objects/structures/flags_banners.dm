@@ -260,7 +260,7 @@
 		if(I_HURT)
 			if(unmovable || ripped)
 				return
-			if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
+			if(tgui_alert(usr, "Do you want to rip \the [src] from its place?", "You think...", list("Yes", "No")) == "Yes")
 				if(!Adjacent(user)) // Cannot bring up dialogue and walk away.
 					return FALSE
 				user.visible_message(SPAN_WARNING("\The [user] starts to grab hold of \the [src] with destructive intent!"), SPAN_WARNING("You grab hold of \the [src] with destructive intent!"),)
@@ -292,10 +292,10 @@
 /obj/structure/sign/flag/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(attacking_item.isFlameSource())
-		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"), visible_message_flags = LOCAL_MESSAGE)
 		if(!do_after(user, 2 SECONDS, src))
 			return FALSE
-		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 		if(linked_flag)

@@ -23,7 +23,7 @@
 		user.bombing_core = 0
 		return
 
-	var/choice = alert("Really destroy core?", "Core self-destruct", "YES", "NO")
+	var/choice = tgui_alert(usr, "Really destroy core?", "Core self-destruct", list("YES", "NO"))
 	if(choice != "YES")
 		return
 
@@ -98,7 +98,7 @@
 		user.bombing_station = 0
 		return
 
-	var/choice = alert("Really destroy \the [SSatlas.current_map.station_name]?", "[SSatlas.current_map.station_short] self-destruct", "YES", "NO")
+	var/choice = tgui_alert(usr, "Really destroy \the [SSatlas.current_map.station_name]?", "[SSatlas.current_map.station_short] self-destruct", list("YES", "NO"))
 	if(choice != "YES")
 		return
 	if(!ability_prechecks(user, 0, 0))

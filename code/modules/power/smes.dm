@@ -387,15 +387,13 @@
 			open_hatch = 1
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] opens the maintenance hatch of \the [src]."),\
-				SPAN_NOTICE("You open the maintenance hatch of \the [src]."),\
-				range = 4)
+				SPAN_NOTICE("You open the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 		else
 			open_hatch = 0
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] closes the maintenance hatch of \the [src]."),\
-				SPAN_NOTICE("You close the maintenance hatch of \the [src]."),\
-				range = 4)
+				SPAN_NOTICE("You close the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 
 	if (!open_hatch)
@@ -521,7 +519,7 @@
 			smoke.set_up(3, 0, src.loc)
 			smoke.attach(src)
 			smoke.start()
-			explosion(src.loc, -1, 0, 1, 3, 1, 0)
+			explosion(src.loc, -1, 0, 1, 3, 1, 0, spreading = TRUE)
 			qdel(src)
 			return
 		else if(prob(15)) //Power drain

@@ -72,7 +72,7 @@
 	set_light_on(on)
 	update_icon()
 	if(loud)
-		visible_message(SPAN_NOTICE("\The [src] turns on."))
+		visible_message(SPAN_NOTICE("\The [src] turns on."), visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /obj/structure/machinery/floodlight/proc/turn_off(var/loud = FALSE)
@@ -80,7 +80,7 @@
 	set_light_on(on)
 	update_icon()
 	if(loud)
-		visible_message(SPAN_NOTICE("\The [src] shuts down."))
+		visible_message(SPAN_NOTICE("\The [src] shuts down."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/floodlight/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))

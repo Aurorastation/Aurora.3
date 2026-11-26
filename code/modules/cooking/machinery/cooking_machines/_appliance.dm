@@ -259,6 +259,10 @@
 	if (selected_option)
 		CI.combine_target = selected_option
 
+	// Whoever last added something to be cooked is considered the preparer of the resulting food.
+	var/datum/component/skill/cooking/cook_skill = user?.GetComponent(COOKING_SKILL_COMPONENT)
+	CI.cook_skill_level = cook_skill?.skill_level
+
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
 	playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
@@ -370,7 +374,7 @@
 
 /obj/structure/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 	if(finish_verb)
-		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND)
+		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND, audible_message_flags = LOCAL_MESSAGE)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -423,6 +427,16 @@
 	//Final step. Cook function just cooks batter for now.
 	for (var/obj/item/reagent_containers/food/snacks/S in CI.container)
 		S.cook()
+
+	apply_cooking_skill(CI)
+
+/// Applies the Cooking skill of whoever prepared the contents of a cooking item to all the finished food inside it.
+/obj/structure/machinery/appliance/proc/apply_cooking_skill(var/datum/cooking_item/CI)
+	if (!CI?.container || !CI.cook_skill_level)
+		return
+	var/produce_bonus = get_grown_quality_bonus(CI.container)
+	for (var/obj/item/reagent_containers/food/snacks/S in CI.container)
+		apply_cooking_skill_to_food(S, CI.cook_skill_level + produce_bonus)
 
 
 //Combination cooking involves combining the names and reagents of ingredients into a predefined output object
@@ -527,7 +541,7 @@
 	new /obj/item/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
-	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"))
+	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)
@@ -658,6 +672,9 @@
 	var/oil = 0
 	var/max_oil = 0//Used for fryers.
 
+	/// The Cooking skill level of whoever last added ingredients to this item. Null if they had no Cooking skill.
+	var/cook_skill_level = null
+
 /datum/cooking_item/New(var/obj/item/I)
 	container = I
 
@@ -669,6 +686,7 @@
 	max_oil = 0
 	oil = 0
 	combine_target = null
+	cook_skill_level = null
 	//Container is not reset
 
 /obj/structure/machinery/appliance/proc/update_cooking_power()

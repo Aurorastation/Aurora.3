@@ -50,7 +50,7 @@
 
 	if (time_counter > 20)
 		time_counter += 0.5
-		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		var/thrall_response = tgui_alert(H, "Do you believe in hypnosis?", "Willpower", list("Yes", "No"))
 		if(thrall_response == "No")
 			H.sleeping = max(H.sleeping - 40, 0)
 			H.drowsiness = max(H.drowsiness - 60, 0)
@@ -72,7 +72,7 @@
 
 	var/mob/living/carbon/human/H = thrall.resolve()
 
-	var/response = alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", "Suggestion", "Release")
+	var/response = tgui_alert(user, "Would you like to make a suggestion to [thrall], or release them?", "Mesmetron", list("Suggestion", "Release"))
 
 	if (response == "Release")
 		thrall = null
@@ -86,7 +86,7 @@
 		if(!text)
 			return
 
-		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+		var/thrall_response = tgui_alert(H, "Do you believe in hypnosis?", "Willpower", list("Yes", "No"))
 		if(thrall_response == "Yes")
 			to_chat(H, SPAN_NOTICE("<i>... [text] ...</i>"))
 		else
@@ -110,7 +110,7 @@
 	if(!(user in view(1, loc)))
 		return
 
-	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
+	var/response = tgui_alert(H, "Do you believe in hypnosis?", "Willpower", list("Yes", "No"))
 
 	if(response == "Yes")
 		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))

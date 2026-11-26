@@ -114,7 +114,7 @@
 /obj/structure/machinery/bluespacedrive/LateInitialize()
 	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
@@ -393,7 +393,7 @@
 		if(coils_discharged_to)
 			playsound(src, 'sound/magic/lightningbolt.ogg', 40, TRUE)
 
-		visible_message(SPAN_DANGER("\The [src] fails to warp completely, not finding all the warper receivers!"))
+		visible_message(SPAN_DANGER("\The [src] fails to warp completely, not finding all the warper receivers!"), visible_message_flags = LOCAL_MESSAGE)
 		purge_charge(forced = TRUE)
 
 	else
@@ -440,7 +440,7 @@
 
 	deltimer(initiate_jump_timer_id)
 	exit_bluespace()
-	visible_message(SPAN_DANGER("\The [src] bluespace warp bubble constriction field falthers, discharging!"))
+	visible_message(SPAN_DANGER("\The [src] bluespace warp bubble constriction field falthers, discharging!"), visible_message_flags = LOCAL_MESSAGE)
 
 
 /obj/structure/machinery/bluespacedrive/proc/apply_bluespace_effect(mob/living/M)
@@ -503,7 +503,7 @@
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
@@ -602,7 +602,7 @@
 	. = ..()
 
 	if(SSatlas.current_map.use_overmap && !linked)
-		var/my_sector = GLOB.map_sectors["[z]"]
+		var/my_sector = get_map_sector(src)
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
 			attempt_hook_up(my_sector)
 
@@ -661,7 +661,7 @@
 			var/success = linked_bluespace_drive.initiate_jump()
 			if(!success)
 				visible_message(SPAN_NOTICE("\The [src] buzzes, flashing \"Unable to acquire bluespace path: Destination unreachable, same as current position \
-											or jump already in progress\"!"))
+											or jump already in progress\"!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/computer/bluespacedrivejump/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

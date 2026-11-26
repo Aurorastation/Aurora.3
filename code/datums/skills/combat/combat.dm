@@ -55,20 +55,33 @@
 /singleton/skill/firearms
 	name = "Firearms"
 	description = "Firearms represents your training in using all forms of ranged weapons. Having a high rank in in this skill provides bonuses to accuracy when shooting."
-	maximum_level = SKILL_LEVEL_TRAINED
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_RANGED
 	required = TRUE
 	component_type = FIREARMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have no knowledge of how firearms work at all.<br>" \
-			+ " - Firearms you shoot have a 60 degree spread-angle increase, making them very inaccurate.<br>" \
-			+ " - You have a 30% chance of failing to find the safety when attempting to switch it on or off.",
+		SKILL_LEVEL_UNFAMILIAR = "You have little-to-no knowledge of how firearms work at all, getting unsteadied and inaccurate quickly.<br>" \
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
+			+ " - Firearms you shoot count as <b>1 tile further</b> from the target when unsteadied.<br>" \
+			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
+			+ " - You can fire <b>three normal shots</b> before becoming unsteadied for <b>4.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
+			+ " - You have a <b>30% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope (<b>which can also hurt your eye</b>).<br>" \
+			+ " - You're warmed up for <b>10 minutes</b> after firing 18 shots, gaining a 55% chance of firing penalty-free and +3 morale points. This can stack a second time for no fumbling, a 65% chance, double the duration, and <b>+4</b> morale points.<br>",
 		SKILL_LEVEL_FAMILIAR = "You have fired a gun once or twice in your life, but are by no means fully trained. At least you know how to not shoot yourself in the foot or get scope-eye.<br>" \
-			+ " - Firearms you shoot have a 30 degree spread-angle increase, making them somewhat less accurate.",
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
+			+ " - Firearms you shoot count as <b>0.5 tiles further</b> from the target when unsteadied.<br>" \
+			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
+			+ " - You can fire <b>five normal shots</b> before becoming unsteadied for <b>2.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
+			+ " - You have a <b>15% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope.<br>" \
+			+ " - You're warmed up for <b>15 minutes</b> after firing 18 shots, gaining a <b>55% chance</b> of firing penalty-free and +3 morale points. This can stack a second time for a <b>65% chance</b>, double the duration, and <b>+5</b> morale points.<br>",
 		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms. Equivalent to a few years of experience in roles such as military, police, or armed security.<br>" \
-			+ " - You suffer no maluses to firearms use. <br>" \
-			+ " - You have no bonuses to firearms use either."
+			+ " - You suffer no skill penalties to firearms use and cannot get unsteadied.<br>" \
+			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points. This can stack a second time for double the duration and <b>+6</b> morale points.",
+		SKILL_LEVEL_PROFESSIONAL = "You have many years of experience with firearms, potentially even in actual combat. Retired special forces, police marksmen, and hardened mercenaries fall under this category.<br>" \
+			+ " - Firearms you shoot count as <b>0.5 tiles closer</b> to the target.<br>" \
+			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two shots with <i>boosted accuracy</i>, equivalent to being <b>1 tile closer</b> and having a <b>30-degree</b> spread angle <i>decrease</i>.<br>" \
+			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55% chance</b> of firing with <i>boosted accuracy</i> and +3 morale points. This can stack a second time for a <b>65% chance</b>, double the duration, and <b>+7</b> morale points."
 	)
 
 /singleton/skill/leadership
@@ -94,9 +107,14 @@
 
 /singleton/skill/tenacity
 	name = "Tenacity"
+	/// Alternate displayed name when configuring an IPC character.
+	var/ipc_name = "Fault-Tolerant Architecture"
 	description = "Tenacity represents a character's \"Will to Live\". It affects a character's ability to cling to life when in critical condition, effectively allowing them to live for a little bit longer before medics can reach them. " \
 		+ "It does not affect a character's overall toughness and difficulty to take down in a fight, only how much time they have to be saved when they do go down.<br>" \
-		+ "This skill does nothing for characters that do not have a heart."
+		+ "This skill does nothing for organic characters that do not have a heart."
+	/// Alternate general description displayed when configuring an IPC character.
+	var/ipc_description = "Fault-Tolerant Architecture represents a synthetic's fault-tolerance and redundancy protocols. It affects a chassis's ability to resist cascading internal failures when critically damaged, effectively allowing it to remain recoverable for a little bit longer before machinists can reach it. " \
+		+ "It does not affect a character's external armor or difficulty to take down in a fight, only how resilient their internal components are to cascading failure."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_SUPPORT
@@ -122,9 +140,70 @@
 			+ " - You bleed out 22.5% slower from (non-arterial) wounds.<br>" \
 			+ " - You bleed out 11.25% slower from severed arteries.",
 	)
+	/// Alternate skill level descriptions displayed when configuring an IPC character.
+	var/alist/ipc_skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Fault-Tolerant Architecture.",
+		SKILL_LEVEL_FAMILIAR = "Your internal components are slightly more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 10 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 3 seconds.<br>" \
+			+ " - Your internal organs have +10% maximum wiring and electronics integrity.",
+		SKILL_LEVEL_TRAINED = "Your internal components are a little bit more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 20 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 6 seconds.<br>" \
+			+ " - Your internal organs have +20% maximum wiring and electronics integrity.",
+		SKILL_LEVEL_PROFESSIONAL = "Your internal components are more resistant to cascading failure.<br>" \
+			+ " - The cooldown between low-integrity organ failure events is increased by 30 seconds.<br>" \
+			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 9 seconds.<br>" \
+			+ " - Your internal organs have +30% maximum wiring and electronics integrity.",
+	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
 		SKILL_LEVEL_FAMILIAR = 1,
 		SKILL_LEVEL_TRAINED = 2,
 		SKILL_LEVEL_PROFESSIONAL = 4
 	)
+	/// Bonus to an IPC's internal organ integrity event cooldown per rank above Unfamiliar.
+	var/ipc_bonus_integrity_cooldown_per_rank = 10 SECONDS
+	/// Reduction to an IPC's positronic brain self-patching cooldown per rank above Unfamiliar.
+	var/ipc_bonus_patching_cooldown_per_rank = 3 SECONDS
+	/// Multiplier bonus to an IPC's internal organ wiring and electronics health pools per rank above Unfamiliar.
+	var/ipc_bonus_internals_health_per_rank = 0.1
+
+/singleton/skill/tenacity/get_name(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_name
+	return ..()
+
+/singleton/skill/tenacity/get_description(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_description
+	return ..()
+
+/singleton/skill/tenacity/get_skill_level_descriptions(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_skill_level_descriptions
+	return ..()
+
+/singleton/skill/tenacity/on_spawn(mob/owner, skill_level)
+	if(!isipc(owner))
+		return ..()
+
+	var/mob/living/carbon/human/character = owner
+	if(!istype(character))
+		return
+
+	var/offset_skill = max(skill_level - 1, 0)
+	for(var/obj/item/organ/internal/machine/organ in character.internal_organs)
+		organ.integrity_event_cooldown = initial(organ.integrity_event_cooldown) + (ipc_bonus_integrity_cooldown_per_rank * offset_skill)
+		if(organ.wiring)
+			organ.wiring.replace_health(round(initial(organ.wiring.max_wires) * (1 + (ipc_bonus_internals_health_per_rank * offset_skill)), 1))
+		if(organ.electronics)
+			organ.electronics.replace_health(round(initial(organ.electronics.max_integrity) * (1 + (ipc_bonus_internals_health_per_rank * offset_skill)), 1))
+
+	var/obj/item/organ/internal/machine/posibrain/posibrain = character.internal_organs_by_name[BP_BRAIN]
+	if(istype(posibrain))
+		posibrain.patching_cooldown = initial(posibrain.patching_cooldown) - (ipc_bonus_patching_cooldown_per_rank * offset_skill)
+

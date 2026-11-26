@@ -43,6 +43,8 @@
 	for(var/mob/living/M in get_hearers_in_LOS(4, src))
 		if(M == creator)
 			continue
+		if(M.is_psi_blocked(creator, TRUE))
+			continue
 		to_chat(M, SPAN_DANGER("Your eyes can't move away from \the [src]... you feel compelled to move towards it!"))
 		M.AdjustStunned(1)
 		step_towards(M, src)
@@ -53,7 +55,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/singularity/Destroy()
-	visible_message(SPAN_WARNING("\The [src] dissipates harmlessly with a light 'fwoosh' sound."))
+	visible_message(SPAN_WARNING("\The [src] dissipates harmlessly with a light 'fwoosh' sound."), visible_message_flags = LOCAL_MESSAGE)
 	creator = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()

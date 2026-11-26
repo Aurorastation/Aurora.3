@@ -95,7 +95,7 @@
 			stat &= ~EMPED
 
 /obj/structure/machinery/power/portgen/proc/explode()
-	explosion(loc, -1, 3, 5, -1)
+	explosion(loc, -1, 3, 5, -1, spreading = TRUE)
 	qdel(src)
 
 #define TEMPERATURE_DIVISOR 40
@@ -440,7 +440,7 @@
 	//a nice burst of radiation
 	var/rads = 20 + (sheets + sheet_left)*1.5
 	SSradiation.radiate(src, max(40, rads))
-	explosion(loc, 3, 3, 5, 3)
+	explosion(loc, 3, 3, 5, 3, spreading = TRUE)
 	qdel(src)
 
 //
@@ -466,7 +466,7 @@
 	temperature_gain = 90
 
 /obj/structure/machinery/power/portgen/basic/super/explode()
-	explosion(loc, 3, 6, 12, 16, 1) // No special effects, but the explosion is pretty big (same as a supermatter shard).
+	explosion(loc, 3, 6, 12, 16, 1, spreading = TRUE) // No special effects, but the explosion is pretty big (same as a supermatter shard).
 	qdel(src)
 
 /obj/structure/machinery/power/portgen/basic/fusion
@@ -497,7 +497,7 @@
 	//a nice burst of radiation
 	var/rads = 40 + (sheets + sheet_left)*1.5
 	SSradiation.radiate(src, max(50, rads))
-	explosion(loc, 3, 6, 12, 16, 1)
+	explosion(loc, 3, 6, 12, 16, 1, spreading = TRUE)
 	qdel(src)
 
 /obj/structure/machinery/power/portgen/basic/fusion/New()
@@ -513,7 +513,7 @@
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
 		if(prob(2))
-			audible_message(SPAN_NOTICE("[src] churns happily."))
+			audible_message(SPAN_NOTICE("[src] churns happily."), audible_message_flags = LOCAL_MESSAGE)
 	else
 		temperature_gain = initial(temperature_gain)
 	..()
@@ -532,10 +532,10 @@
 		var/obj/item/reagent_containers/R = attacking_item
 		if(R.standard_pour_into(user, src))
 			if(reagents.has_reagent(/singleton/reagent/coolant))
-				audible_message(SPAN_NOTICE("[src] blips happily!"))
+				audible_message(SPAN_NOTICE("[src] blips happily!"), audible_message_flags = LOCAL_MESSAGE)
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else
-				audible_message(SPAN_WARNING("[src] blips in disappointment!"))
+				audible_message(SPAN_WARNING("[src] blips in disappointment!"), audible_message_flags = LOCAL_MESSAGE)
 				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()

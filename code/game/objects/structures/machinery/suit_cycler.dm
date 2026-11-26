@@ -180,12 +180,12 @@
 		to_chat(user, SPAN_WARNING("There's no space in \the [src] for you!"))
 		return
 
-	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
+	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), vision_distance = 3)
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
+		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), vision_distance = 3)
 		M.forceMove(src)
 		occupant = M
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -227,7 +227,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 
-		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
+		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), vision_distance = 3)
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting)
 				return
@@ -235,7 +235,7 @@
 			if(M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
-			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), vision_distance = 3)
 			M.forceMove(src)
 			occupant = M
 			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
@@ -510,7 +510,7 @@
 		occupant.apply_damage(radiation_level * 10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/structure/machinery/suit_cycler/proc/finished_job()
-	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>", visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 	active = FALSE
@@ -570,112 +570,112 @@
 	switch(target_department)
 		if("Engineering")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "engineering voidsuit helmet"
 				helmet.icon_state = "engineering_helm"
 				helmet.item_state = "engineering_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "engineering voidsuit"
 				suit.icon_state = "engineering"
 				suit.item_state = "engineering"
 		if("Mining")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 				helmet.name = "mining voidsuit helmet"
 				helmet.icon_state = "mining_helm"
 				helmet.item_state = "mining_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/mining.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/mining.dmi'
 				suit.name = "mining voidsuit"
 				suit.icon_state = "mining"
 				suit.item_state = "mining"
 		if("Medical")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 				helmet.name = "medical voidsuit helmet"
 				helmet.icon_state = "medical_helm"
 				helmet.item_state = "medical_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/medical.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/medical.dmi'
 				suit.name = "medical voidsuit"
 				suit.icon_state = "medical"
 				suit.item_state = "medical"
 		if("Security")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 				helmet.name = "security voidsuit helmet"
 				helmet.icon_state = "security_helm"
 				helmet.item_state = "security_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/security.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/security.dmi'
 				suit.name = "security voidsuit"
 				suit.icon_state = "security"
 				suit.item_state = "security"
 		if("Atmos")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				helmet.name = "atmospherics voidsuit helmet"
 				helmet.icon_state = "atmos_helm"
 				helmet.item_state = "atmos_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/engineering.dmi'
 				suit.name = "atmospherics voidsuit"
 				suit.icon_state = "atmos"
 				suit.item_state = "atmos"
 		if("Operations")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				helmet.name = "operations voidsuit helmet"
 				helmet.icon_state = "hangartech_helm"
 				helmet.item_state = "hangartech_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/operations.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/operations.dmi'
 				suit.name = "operations voidsuit"
 				suit.icon_state = "hangartech"
 				suit.item_state = "hangartech"
 		if("Captain")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 				helmet.name = "captain voidsuit helmet"
 				helmet.icon_state = "captain_helm"
 				helmet.item_state = "captain_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/captain.dmi'
 				suit.name = "captain voidsuit"
 				suit.icon_state = "captain"
 				suit.item_state = "captain"
 		if("^%###^%$", "Mercenary")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "blood-red voidsuit helmet"
 				helmet.icon_state = "syndie_helm"
 				helmet.item_state = "syndie_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				suit.name = "blood-red voidsuit"
 				suit.item_state = "syndie"
 				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 				helmet.name = "research voidsuit helmet"
 				helmet.icon_state = "research_helm"
 				helmet.item_state = "research_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/station/research.dmi'
 				suit.name = "research voidsuit"
 				suit.item_state = "research"
 				suit.icon_state = "research"
 
 		if("Freelancers")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				helmet.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				helmet.name = "freelancer voidsuit helmet"
 				helmet.icon_state = "freelancer_helm"
 				helmet.item_state = "freelancer_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'
+				suit.icon = 'icons/obj/item/clothing/voidsuit/mercenary.dmi'
 				suit.name = "freelancer voidsuit"
 				suit.item_state = "freelancer"
 				suit.icon_state = "freelancer"

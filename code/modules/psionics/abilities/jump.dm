@@ -15,6 +15,18 @@
 	psi_cost = 15
 
 /obj/item/spell/jump/on_ranged_cast(atom/hit_atom, mob/user, bypass_psi_check)
+	if(user.buckled_to)
+		to_chat(user, SPAN_WARNING("You cannot jump while buckled down!"))
+		return
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.legcuffed)
+			to_chat(user, SPAN_WARNING("You cannot jump while your legs are cuffed together!"))
+			return
+		var/obj/item/clothing/shoes/sneakers/orange/cuffed_shoes = H.shoes
+		if(istype(cuffed_shoes) && cuffed_shoes.chained)
+			to_chat(user, SPAN_WARNING("You cannot jump while your shoes are chained together!"))
+			return
 	. = ..()
 	if(!.)
 		return

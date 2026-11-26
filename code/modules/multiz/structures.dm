@@ -95,7 +95,7 @@
 	"You begin climbing [direction] \the [src]!",
 	"You hear the grunting and clanging of a metal ladder being used.")
 
-	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
+	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"), audible_message_flags = LOCAL_MESSAGE)
 
 	var/adjusted_climb_time = M.get_conditioning_action_delay(climb_time)
 	if(do_after(M, istype(G) ? (adjusted_climb_time * 2) : adjusted_climb_time))
@@ -111,7 +111,7 @@
 		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 	if(target_down && target_up)
-		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
+		var/direction = tgui_alert(M, "Do you want to go up or down?", "Ladder", list("Up", "Down", "Cancel"))
 
 		if(direction == "Cancel")
 			return
@@ -500,9 +500,9 @@
 	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
 		var/atom/movable/bumped_movable = bumped_atom
 		if(ismob(bumped_movable))
-			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."), visible_message_flags = LOCAL_MESSAGE)
 		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge

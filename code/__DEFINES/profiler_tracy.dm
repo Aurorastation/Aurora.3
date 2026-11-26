@@ -26,7 +26,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 	set category = "Debug"
 	set desc = "Starts the tracy profiler, which will await the client connection or save utracy files to the server's disk."
 	if(!GLOB.byond_tracy_running)
-		switch(alert("Are you sure? Tracy will remain active until the server restarts.", "Tracy Init", "No", "Yes"))
+		switch(tgui_alert(usr, "Are you sure? Tracy will remain active until the server restarts.", "Tracy Init", list("No", "Yes")))
 			if("Yes")
 				prof_init() // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
 

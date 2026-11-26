@@ -293,7 +293,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 			friends -= M
 
 /mob/living/simple_animal/hostile/commanded/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
-	..()
+	. = ..()
 
 	// We forgive our master
 	if(user == master)

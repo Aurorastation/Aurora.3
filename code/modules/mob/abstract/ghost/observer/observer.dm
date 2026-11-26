@@ -199,13 +199,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		var/response
 		if(check_rights((R_MOD|R_ADMIN), 0))
-			response = alert(src, "You have the ability to Admin-Ghost. The regular Ghost verb will announce your presence to dead chat. Both variants will allow you to return to your body using 'aghost'.\n\nWhat do you wish to do?", "Are you sure you want to ghost?", "Ghost", "Admin Ghost", "Stay in body")
+			response = tgui_alert(src, "You have the ability to Admin-Ghost. The regular Ghost verb will announce your presence to dead chat. Both variants will allow you to return to your body using 'aghost'.\n\nWhat do you wish to do?", "Are you sure you want to ghost?", list("Ghost", "Admin Ghost", "Stay in body"))
 			if(response == "Admin Ghost")
 				if(!src.client)
 					return
 				src.client.admin_ghost()
 		else
-			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [GLOB.config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
+			response = tgui_alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [GLOB.config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", list("Ghost", "Stay in body"))
 		if(response != "Ghost")
 			return
 		if(!istype(usr, /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen))
@@ -302,7 +302,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, SPAN_DANGER("You have been banned from using this feature"))
 		return
 	if(GLOB.config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || aux_staff))
-		var/response = alert(src, "If you turn this on, you will not be able to take any part in the round.","Are you sure you want to turn this feature on?","Yes","No")
+		var/response = tgui_alert(src, "If you turn this on, you will not be able to take any part in the round.", "Are you sure you want to turn this feature on?", list("Yes", "No"))
 		if(response == "No") return
 		M.can_reenter_corpse = 0
 	if(!M.has_enabled_antagHUD && (!client.holder || aux_staff))
@@ -440,7 +440,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.update_icon()
 		W.message = message
 		W.add_hiddenprint(src)
-		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
+		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."), visible_message_flags = LOCAL_MESSAGE)
 
 /mob/abstract/ghost/observer/pointed(atom/pointing_at)
 	. = ..()
@@ -464,7 +464,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		)
 		toggle_visibility(1)
 	else
-		user.visible_message ( \
+		user.visible_message( \
 			SPAN_WARNING("\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective."), \
 			SPAN_WARNING("You get the feeling that the ghost can't become any more visible.") \
 		)
@@ -561,7 +561,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 
 	if(step_to(choice, T))
-		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"))
+		choice.visible_message(SPAN_WARNING("\The [choice] suddenly moves!"), visible_message_flags = LOCAL_MESSAGE)
 
 	ghost_cooldown = world.time + 500
 

@@ -1,5 +1,6 @@
 #define MICROPHONE_LISTEN_RANGE 5
 /obj/item/radio/microphone
+	shortwave_overlays = FALSE
 	name = "handheld microphone"
 	desc = "A handheld microphone, used for on-the-fly interviewing. Pose for the fans!"
 	icon_state = "microphone"
@@ -88,7 +89,7 @@
 			var/mob/M = loc
 			to_chat(M, SPAN_NOTICE("[source] moves away from the microphone."))
 
-/obj/item/radio/microphone/hear_talk(mob/M, msg, var/verb = "says", datum/language/speaking)
+/obj/item/radio/microphone/hear_talk(atom/movable/M, msg, var/verb = "says", datum/language/speaking, datum/say_message/say_message = null)
 	var/message_ending = copytext(msg, length(msg) - 1, length(msg)) //copies the last 2 letters
 	if(directed_listening && ((M in listeners) || (message_ending in word_bypasses)))
 		return ..()

@@ -269,7 +269,7 @@ SUBSYSTEM_DEF(vote)
 		"isLowerAdmin" = is_lower_admin,
 		"isUpperAdmin" = is_upper_admin,
 		// What the current user has selected in any ongoing votes.
-		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey],
+		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey]?["choice"],
 		"multiSelection" = current_vote?.choices_by_ckey,
 	)
 
@@ -305,7 +305,9 @@ SUBSYSTEM_DEF(vote)
 				"vote" = vote_data,
 			)
 
-		all_vote_data += list(vote_data)
+		// Hide pinned crew transfer vote from the general list.
+		if(!istype(vote, /datum/vote/crewtransfer/pinned_round_precursor))
+			all_vote_data += list(vote_data)
 
 	data["possibleVotes"] = all_vote_data
 
@@ -357,10 +359,13 @@ SUBSYSTEM_DEF(vote)
 ###########################*/
 
 /datum/controller/subsystem/vote/proc/autogamemode()
-	initiate_vote(/datum/vote/gamemode, "Server", null, TRUE)
+	return initiate_vote(/datum/vote/gamemode, "Server", null, TRUE)
 
 /datum/controller/subsystem/vote/proc/autotransfer()
-	initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
+	return initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
+
+/datum/controller/subsystem/vote/proc/autotransfer_pinned_round_precursor()
+	return initiate_vote(/datum/vote/crewtransfer/pinned_round_precursor, "Server", null, TRUE)
 
 /*##############################
 	Aurora snowflake area end

@@ -109,7 +109,7 @@
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
 	else
 		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash.</span>",\
-		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
+		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>", visible_message_flags = LOCAL_MESSAGE)
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 

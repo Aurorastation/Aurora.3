@@ -35,7 +35,9 @@
 /obj/item/gun/energy/scythe/get_cell()
 	return DEVICE_NO_CELL
 
-/obj/item/gun/energy/scythe/fire_checks(atom/target, mob/living/user, clickparams, pointblank, reflex)
+/obj/item/gun/energy/scythe/pre_fire(atom/target, mob/living/user, clickparams, pointblank, reflex, atom/controller)
+	if(!user)
+		return ..()
 	if(!ishuman(user))
 		return
 
@@ -72,6 +74,10 @@
 		return
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		playsound(terminator, 'sound/items/goggles_charge.ogg', 40)
 		toggle_scope(2, terminator)
 	else
