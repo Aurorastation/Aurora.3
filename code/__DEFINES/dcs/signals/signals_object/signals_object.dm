@@ -83,3 +83,10 @@
 
 /// From code\modules\shieldgen\energy_field.dm, the energy field datum uses this to tell shields when to turn dense or not
 #define COMSIG_SHIELDS_UPDATE_STRENGTH_STATUS "update_strength_status"
+
+/// Sent to a mob when it becomes a gun's user: (obj/item/gun/gun).
+#define COMSIG_GUN_USER_SET "gun_user_set"
+/// Sent to a mob after it stops being a gun's user: (obj/item/gun/gun).
+#define COMSIG_GUN_USER_UNSET "gun_user_unset"
+/// Sent to a gun after a user binding changes: (mob/living/old_user, mob/living/new_user).
+#define COMSIG_GUN_USER_CHANGED "gun_user_changed"

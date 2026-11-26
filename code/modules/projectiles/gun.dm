@@ -110,6 +110,11 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/burst_delay = 1
 	var/move_delay = 0
 
+	/// Current holder or explicitly assigned mounted operator. Changed through set_gun_user().
+	VAR_PRIVATE/mob/living/gun_user
+	/// Detects a binding being changed again by a synchronous signal listener.
+	VAR_PRIVATE/gun_user_revision = 0
+
 	/// Screen shake.
 	var/recoil = 0
 	var/muzzle_flash = 3
@@ -792,6 +797,50 @@ ABSTRACT_TYPE(/obj/item/gun)
 	else
 		to_chat(usr, SPAN_WARNING("You can't wield \the [src]!"))
 
+// Assigns the holder or operator. Mounted ownership and operating-position checks
+// belong to the mounting component; assigning a user does not authorize firing.
+/obj/item/gun/proc/set_gun_user(mob/living/user)
+	if(user && (QDELETED(src) || !istype(user) || QDELETED(user)))
+		return FALSE
+	if(user == gun_user)
+		return TRUE
+
+	var/revision = ++gun_user_revision
+	var/mob/living/old_user = gun_user
+	if(old_user)
+		UnregisterSignal(old_user, list(COMSIG_QDELETING, COMSIG_MOB_RESTED))
+	gun_user = null
+	if(old_user)
+		old_user.stop_aiming(src)
+		SEND_SIGNAL(old_user, COMSIG_GUN_USER_UNSET, src)
+	if(QDELETED(src) || revision != gun_user_revision)
+		return FALSE
+
+	// Unset listeners may delete the requested operator.
+	if(user && QDELETED(user))
+		SEND_SIGNAL(src, COMSIG_GUN_USER_CHANGED, old_user, null)
+		return FALSE
+	gun_user = user
+	if(user)
+		RegisterSignal(user, COMSIG_QDELETING, PROC_REF(clean_gun_user))
+		RegisterSignal(user, COMSIG_MOB_RESTED, PROC_REF(update_firing_delays))
+	SEND_SIGNAL(src, COMSIG_GUN_USER_CHANGED, old_user, user)
+	if(QDELETED(src) || revision != gun_user_revision)
+		return FALSE
+	if(user)
+		SEND_SIGNAL(user, COMSIG_GUN_USER_SET, src)
+	return !QDELETED(src) && revision == gun_user_revision
+
+/obj/item/gun/proc/clean_gun_user(datum/source)
+	SIGNAL_HANDLER
+	if(source == gun_user)
+		set_gun_user(null)
+
+/obj/item/gun/Moved(atom/old_loc, movement_dir, forced, list/old_locs)
+	if(loc != old_loc)
+		set_gun_user(null)
+	return ..()
+
 // Safety Procs
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
@@ -925,16 +974,23 @@ ABSTRACT_TYPE(/obj/item/gun)
 /obj/item/gun/on_give()
 	update_maptext()
 
+/obj/item/gun/equipped(mob/living/user, slot, initial = FALSE)
+	. = ..()
+	if(istype(user) && (slot == slot_l_hand || slot == slot_r_hand))
+		set_gun_user(user)
+	else
+		set_gun_user(null)
+		if(istype(user))
+			user.stop_aiming(src)
+
 /obj/item/gun/dropped(mob/user)
+	set_gun_user(null)
 	..()
 
 	//Removing the lock and the buttons.
 	if(istype(user, /mob/living))
 		var/mob/living/living_user = user
 		living_user.stop_aiming(src)
-
-	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
-	UnregisterSignal(user, COMSIG_MOB_RESTED)
 
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
@@ -950,8 +1006,6 @@ ABSTRACT_TYPE(/obj/item/gun)
 	..()
 	queue_icon_update()
 	addtimer(CALLBACK(src, PROC_REF(update_maptext)), 1)
-	// so that mobs don't rest with the gun already wielded to bypass the firing delay updates
-	RegisterSignal(user, COMSIG_MOB_RESTED, PROC_REF(update_firing_delays))
 	if(is_wieldable)
 		unwield()
 
@@ -999,6 +1053,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	return FALSE
 
 /obj/item/gun/Destroy()
+	set_gun_user(null)
 	if (istype(pin))
 		QDEL_NULL(pin)
 	if(bayonet)

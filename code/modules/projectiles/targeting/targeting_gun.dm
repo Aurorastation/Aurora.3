@@ -1,8 +1,3 @@
-/obj/item/gun/equipped(mob/living/user, slot)
-	if(istype(user) && (slot != slot_l_hand && slot != slot_r_hand))
-		user.stop_aiming(src)
-	return ..()
-
 //Compute how to fire.....
 //Return TRUE if a target was found, FALSE otherwise.
 /obj/item/gun/proc/PreFire(atom/A, mob/living/user, params)
