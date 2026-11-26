@@ -26,8 +26,10 @@
 	var/silicate = 0 // number of units of silicate
 	var/base_frame = null
 	var/full = FALSE
-	/// Prevents scheduling more than one breakthrough while a thrown mob crosses the window.
-	var/mob_breakthrough_pending = FALSE
+	/// Whether a sufficiently forceful mob throw can shatter this window and continue through it.
+	var/allows_mob_breakthrough = TRUE
+	/// The thrown mob currently crossing the window, preventing another breakthrough from being scheduled while allowing that mob to finish moving through it.
+	var/datum/weakref/mob_breakthrough_mob
 
 	atmos_canpass = CANPASS_PROC
 
@@ -152,27 +154,37 @@
 	else
 		return TRUE
 
-/// Allows a sufficiently strong thrower to send another mob through a non-reinforced pane.
+/// Allows a sufficiently strong thrower to send another mob through a window.
 /obj/structure/window/proc/try_mob_breakthrough(atom/movable/mover)
-	if(reinf || !isliving(mover) || !mover.throwing)
+	if(!allows_mob_breakthrough || !isliving(mover) || !mover.throwing)
 		return FALSE
 
 	var/mob/living/thrown_mob = mover
 	var/mob/living/thrower = mover.throwing.get_thrower()
 	if(!istype(thrower) || thrower == thrown_mob)
 		return FALSE
-	if(thrower.get_lift_capacity() < thrown_mob.get_effective_mass() * MOB_STRENGTH_STRONG)
+	var/target_mass = thrown_mob.get_effective_mass()
+	var/required_lift_capacity
+	var/required_strength
+	if(is_full_window())
+		// Full-tile windows require greater strength than panes and a minimum absolute lift capacity.
+		required_strength = reinf ? 2.25 : MOB_STRENGTH_VERY_STRONG
+		required_lift_capacity = max(target_mass * required_strength, 200)
+	else
+		required_strength = reinf ? MOB_STRENGTH_VERY_STRONG : MOB_STRENGTH_STRONG
+		required_lift_capacity = target_mass * required_strength
+	if(thrower.get_lift_capacity() < required_lift_capacity)
 		return FALSE
 
-	if(mob_breakthrough_pending)
-		return FALSE
-	mob_breakthrough_pending = TRUE
+	if(mob_breakthrough_mob)
+		return mob_breakthrough_mob.resolve() == thrown_mob
+	mob_breakthrough_mob = WEAKREF(thrown_mob)
 	addtimer(CALLBACK(src, PROC_REF(complete_mob_breakthrough), WEAKREF(thrown_mob), mover.throwing.speed), 0)
 	return TRUE
 
 /// Hurts the thrown mob and breaks the pane after movement through it has been permitted.
 /obj/structure/window/proc/complete_mob_breakthrough(datum/weakref/thrown_mob_ref, throw_speed)
-	mob_breakthrough_pending = FALSE
+	mob_breakthrough_mob = null
 	var/mob/living/thrown_mob = thrown_mob_ref.resolve()
 	if(!istype(thrown_mob) || QDELETED(src))
 		return
@@ -472,6 +484,9 @@
 		animate(src, color="#222222", time=5)
 		set_opacity(1)
 
+/obj/structure/window/reinforced/crescent
+	allows_mob_breakthrough = FALSE
+
 /obj/structure/window/reinforced/crescent/attack_hand()
 	return
 
@@ -523,6 +538,7 @@
 /obj/structure/window/borosilicate
 	name = "borosilicate glass pane"
 	desc = "A borosilicate alloy window. It seems to be quite strong."
+	allows_mob_breakthrough = FALSE
 	color = GLASS_COLOR_PHORON
 	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
@@ -766,6 +782,9 @@
 	QUEUE_SMOOTH(src)
 
 // Indestructible Reinforced Window
+/obj/structure/window/full/reinforced/indestructible
+	allows_mob_breakthrough = FALSE
+
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
 	return
 
@@ -796,6 +815,9 @@
 		set_opacity(TRUE)
 
 // Indestructible Reinforced Polarized Window
+/obj/structure/window/full/reinforced/polarized/indestructible
+	allows_mob_breakthrough = FALSE
+
 /obj/structure/window/full/reinforced/polarized/indestructible/attack_hand()
 	return
 
@@ -831,6 +853,7 @@
 /obj/structure/window/full/phoron
 	name = "borosilicate window"
 	desc = "You aren't supposed to see this."
+	allows_mob_breakthrough = FALSE
 	icon = 'icons/obj/smooth/window/full_window_phoron.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
