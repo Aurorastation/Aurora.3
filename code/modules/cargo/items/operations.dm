@@ -246,6 +246,40 @@
 	groupable = FALSE
 	spawn_amount = 1
 
+/singleton/cargo_item/pkus_exosuit_parts
+	category = "operations"
+	name = "ADEPT P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 3000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg,
+		/obj/item/mech_component/chassis/pra_egg
+	)
+	access = /datum/access/robotics::id
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/pkus_exosuit_parts_heavy
+	category = "operations"
+	name = "ADEPT armored P'kus-3 exosuit parts"
+	supplier = "zharkov"
+	description = "Unprepared armored P'kus-3 parts discounted through ADEPT, the Hadii Institute's joint exosuit program with the SCC. A machinist must still install the internal components."
+	price = 5000
+	items = list(
+		/obj/item/mech_component/manipulators/pra_egg/armored,
+		/obj/item/mech_component/propulsion/pra_egg,
+		/obj/item/mech_component/sensors/pra_egg/armored,
+		/obj/item/mech_component/chassis/pra_egg/armored/nuclear
+	)
+	access = /datum/access/robotics::id
+	container_type = "crate"
+	groupable = FALSE
+	spawn_amount = 1
+
 /singleton/cargo_item/poster19
 	category = "operations"
 	name = "random poster"
@@ -296,6 +330,20 @@
 	price = 800
 	items = list(
 		/obj/vehicle/bike/snow
+	)
+	access = 0
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/cargosled
+	category = "operations"
+	name = "cargo sled"
+	supplier = "zharkov"
+	description = "A cargo sled that can be hitched to a snowmobile. Suitable for cargo."
+	price = 400
+	items = list(
+		/obj/vehicle/train/cargo/trolley/sled
 	)
 	access = 0
 	container_type = "box"
@@ -604,6 +652,174 @@
 	price = 850
 	items = list(
 		/obj/item/vending_refill/cutlery
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/toximateresupplycanister
+	category = "operations"
+	name = "Toximate resupply canister"
+	supplier = "orion"
+	description = "A vending machine restock cart."
+	price = 3000
+	items = list(
+		/obj/item/vending_refill/bomba
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/frontiervendresupplycanister
+	category = "operations"
+	name = "FrontierVend resupply canister"
+	supplier = "orion"
+	description = "A vending machine restock cart."
+	price = 1255
+	items = list(
+		/obj/item/vending_refill/frontiervend
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/encryptionresupplycanister
+	category = "operations"
+	name = "encryption key resupply canister"
+	supplier = "orion"
+	description = "A vending machine restock cart."
+	price = 5000
+	items = list(
+		/obj/item/vending_refill/encryption
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/gamesresupplycanister
+	category = "operations"
+	name = "games resupply canister"
+	supplier = "getmore"
+	description = "A vending machine restock cart."
+	price = 2000
+	items = list(
+		/obj/item/vending_refill/games
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/idrisdelightsresupplycanister
+	category = "operations"
+	name = "Idris Delights resupply canister"
+	supplier = "idris"
+	description = "A vending machine restock cart."
+	price = 1500
+	items = list(
+		/obj/item/vending_refill/idris_delights
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/lavatoryresupplycanister
+	category = "operations"
+	name = "lavatory supplies resupply canister"
+	supplier = "getmore"
+	description = "A vending machine restock cart."
+	price = 1200
+	items = list(
+		/obj/item/vending_refill/lavatory
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/mreresupplycanister
+	category = "operations"
+	name = "MRE resupply canister"
+	supplier = "orion"
+	description = "A vending machine restock cart."
+	price = 2500
+	items = list(
+		/obj/item/vending_refill/mre
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/overloaderresupplycanister
+	category = "operations"
+	name = "overloader resupply canister"
+	supplier = "getmore"
+	description = "A vending machine restock cart."
+	price = 2500
+	items = list(
+		/obj/item/vending_refill/overloaders
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/quickmealsresupplycanister
+	category = "operations"
+	name = "quick meals resupply canister"
+	supplier = "getmore"
+	description = "A vending machine restock cart."
+	price = 1750
+	items = list(
+		/obj/item/vending_refill/quick_meals
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/ramenresupplycanister
+	category = "operations"
+	name = "ramen resupply canister"
+	supplier = "getmore"
+	description = "A vending machine restock cart."
+	price = 1500
+	items = list(
+		/obj/item/vending_refill/ramen
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pharmacyresupplycanister
+	category = "operations"
+	name = "pharmacy resupply canister"
+	supplier = "nanotrasen"
+	description = "A vending machine restock cart."
+	price = 3500
+	items = list(
+		/obj/item/vending_refill/wallpharm
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/wardroberesupplycanister
+	category = "operations"
+	name = "wardrobe resupply canister"
+	supplier = "idris"
+	description = "A vending machine restock cart."
+	price = 1000
+	items = list(
+		/obj/item/vending_refill/wardrobe
 	)
 	access = 0
 	container_type = "crate"

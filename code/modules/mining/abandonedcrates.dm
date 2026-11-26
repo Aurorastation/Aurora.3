@@ -50,7 +50,7 @@
 		if(46 to 50)
 			new /obj/item/clothing/under/chameleon(src)
 			for(var/i = 0, i < 7, i++)
-				new /obj/item/clothing/accessory/horrible(src)
+				new /obj/item/clothing/accessory/tie/horrible(src)
 		if(51 to 52) // Uncommon, 2% each
 			new /obj/item/melee/classic_baton(src)
 		if(53 to 54)
@@ -149,7 +149,7 @@
 		locked = FALSE
 		update_icon()
 	else
-		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."))
+		visible_message(SPAN_WARNING("A red light on \the [src]'s control panel flashes briefly."), visible_message_flags = LOCAL_MESSAGE)
 		attempts--
 		if(!attempts)
 			to_chat(user, SPAN_DANGER("The crate's anti-tamper system activates!"))

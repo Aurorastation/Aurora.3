@@ -371,7 +371,7 @@ Class Procs:
 	user.visible_message(
 		SPAN_NOTICE("\The [user] swipes \the [pda] over \the [src]."),
 		SPAN_NOTICE("You swipe \the [pda] over \the [src]."),
-		range = 3
+		vision_distance = 3
 	)
 	add_fingerprint(user)
 	return toggle_pda_link(pda, user)
@@ -405,12 +405,14 @@ Class Procs:
 	return ..()
 
 /obj/structure/machinery/attack_ranged(mob/user, params)
-	. = ..()
+	if(..())
+		return TRUE
 	if(isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))
 			attack_hand(user)
+			return TRUE
 
 /obj/structure/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(default_part_replacement(user, attacking_item))
@@ -425,11 +427,11 @@ Class Procs:
 			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
-			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
+			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), vision_distance = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
 		else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler)
-			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
+			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), vision_distance = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
 	return ..()
@@ -631,7 +633,7 @@ Class Procs:
 
 	if(!message)
 		message = "\The [src] rattles to life and spits out a paper titled [paper]."
-	visible_message(SPAN_NOTICE(message))
+	visible_message(SPAN_NOTICE(message), visible_message_flags = LOCAL_MESSAGE)
 
 	addtimer(CALLBACK(src, PROC_REF(print_move_paper), paper, user), print_delay)
 
@@ -681,7 +683,7 @@ Class Procs:
 	return FALSE
 
 /obj/structure/machinery/proc/sync_linked()
-	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/sector = get_map_sector(src)
 	if(!sector)
 		return
 	return attempt_hook_up_recursive(sector)
@@ -706,7 +708,7 @@ Class Procs:
 		M.turf_collision(src, throwingdatum.speed)
 		return
 	else
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/ui_status(mob/user, datum/ui_state/state)
 	. = ..()

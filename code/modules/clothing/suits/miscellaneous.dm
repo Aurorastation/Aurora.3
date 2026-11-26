@@ -23,16 +23,6 @@
 	flags_inv = HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 
-
-/obj/item/clothing/suit/cyborg_suit
-	name = "cyborg suit"
-	desc = "Suit for a cyborg costume."
-	icon_state = "death"
-	item_state = "death"
-	obj_flags = OBJ_FLAG_CONDUCTABLE
-	fire_resist = T0C+5200
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
 /obj/item/clothing/suit/justice
 	name = "justice suit"
 	desc = "This pretty much looks ridiculous."
@@ -40,15 +30,6 @@
 	item_state = "justice"
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
-
-/obj/item/clothing/suit/judgerobe
-	name = "judge's robe"
-	desc = "This robe commands authority."
-	icon_state = "judge"
-	item_state = "judge"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/currency)
-	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
 	name = "waistcoat"
@@ -75,16 +56,6 @@
 	item_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
-	siemens_coefficient = 1.5
-
-
-/obj/item/clothing/suit/monkeysuit
-	name = "monkey suit"
-	desc = "A suit that looks like a primate"
-	icon_state = "monkeysuit"
-	item_state = "monkeysuit"
-	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
-	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	siemens_coefficient = 1.5
 
 
@@ -604,6 +575,8 @@
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
 	icon_state = "tcaf_jacket"
 	item_state = "tcaf_jacket"
+
+ABSTRACT_TYPE(/obj/item/clothing/suit/jacket)
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"

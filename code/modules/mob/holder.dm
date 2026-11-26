@@ -162,9 +162,9 @@
 		to_chat(M, "[contained] is dead.")
 
 
-/obj/item/holder/show_message(var/message, var/m_type)
+/obj/item/holder/show_message(var/message, var/m_type, alt, alt_type, avoid_highlighting = FALSE)
 	for(var/mob/living/M in contents)
-		M.show_message(message,m_type)
+		M.show_message(message, m_type, alt, alt_type, avoid_highlighting)
 
 //Mob procs and vars for scooping up
 /mob/living/var/holder_type
@@ -229,6 +229,7 @@
 				to_chat(src, SPAN_NOTICE("You climb up onto [grabber]."))
 			else
 				to_chat(grabber, SPAN_NOTICE("You scoop up [src]."))
+				src.LAssailant = grabber //So slimes know who is feeding them.
 				to_chat(src, SPAN_NOTICE("[grabber] scoops you up."))
 
 			H.sync(src)

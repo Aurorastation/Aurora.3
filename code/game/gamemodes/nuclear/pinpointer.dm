@@ -158,7 +158,7 @@
 	target = null
 	location = null
 
-	switch(alert("Please select the mode you want to put the pinpointer in.", "Pinpointer Mode Select", "Location", "Disk Recovery", "Other Signature"))
+	switch(tgui_alert(usr, "Please select the mode you want to put the pinpointer in.", "Pinpointer Mode Select", list("Location", "Disk Recovery", "Other Signature")))
 		if("Location")
 			mode = 1
 
@@ -184,7 +184,7 @@
 
 		if("Other Signature")
 			mode = 2
-			switch(alert("Search for item signature or DNA fragment?" , "Signature Mode Select" , "" , "Item" , "DNA"))
+			switch(tgui_alert(usr, "Search for item signature or DNA fragment?", "Signature Mode Select", list("", "Item", "DNA")))
 				if("Item")
 					var/datum/objective/steal/itemlist
 					itemlist = itemlist // To supress a 'variable defined but not used' error.
@@ -250,7 +250,7 @@
 		mode = 1	//Ensures worklocation() continues to work
 		worklocation()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)	//Plays a beep
-		visible_message("Shuttle Locator active.")			//Lets the mob holding it know that the mode has changed
+		visible_message("Shuttle Locator active.", visible_message_flags = LOCAL_MESSAGE)			//Lets the mob holding it know that the mode has changed
 		return		//Get outta here
 	if(!the_disk)
 		the_disk = locate()
@@ -280,7 +280,7 @@
 		mode = 0
 		workdisk()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
-		visible_message(SPAN_NOTICE("Authentication Disk Locator active."))
+		visible_message(SPAN_NOTICE("Authentication Disk Locator active."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	if(!home)
 		home = locate()

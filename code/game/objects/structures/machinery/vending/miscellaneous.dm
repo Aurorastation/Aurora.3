@@ -72,6 +72,9 @@
 	random_itemcount = FALSE
 	light_color = COLOR_BABY_BLUE
 
+/obj/structure/machinery/vending/battlemonsters/free
+	prices = list()
+
 /obj/item/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"
@@ -117,6 +120,7 @@
 /obj/structure/machinery/vending/lavatory
 	name = "Lavatory Essentials"
 	desc = "Vends things that make you less reviled in the work-place!"
+	vend_id = "lavatory"
 	icon_state = "lavatory"
 	icon_vend = "lavatory-vend"
 	icon_deny = "lavatory-deny"

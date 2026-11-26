@@ -1,6 +1,8 @@
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
+	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
+	contained_sprite = TRUE
 	icon_state = "jackboots"
 	item_state = "jackboots"
 
@@ -49,7 +51,7 @@
 
 	if(!istype(M) || user.a_intent == "help")
 		return ..()
-	if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
+	if(target_zone != BP_EYES || M.eyes_protected(src, FALSE))
 		return ..()
 	if((user.is_clumsy()) && prob(50))
 		M = user

@@ -47,6 +47,11 @@
 
 	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
 
+/turf/simulated/wall/reset_color()
+	color = initial(color)
+	if(!color && material)
+		color = material.wall_colour
+
 /turf/simulated/wall/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/state
 	var/current_damage = health / maxhealth
@@ -190,11 +195,11 @@
 	new /obj/effect/decal/cleanable/molten_item(src)
 
 	if(do_message)
-		visible_message(SPAN_DANGER("\The [src] melts into slag!")) //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] melts into slag!"), visible_message_flags = LOCAL_MESSAGE) //!!OH SHIT!!
 
 /turf/simulated/wall/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"))
+		visible_message(SPAN_WARNING("\The [src] crumbles further under the rot!"), visible_message_flags = LOCAL_MESSAGE)
 		damage *= 10
 	. = ..()
 	update_icon()

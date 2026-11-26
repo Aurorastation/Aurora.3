@@ -97,10 +97,10 @@ ABSTRACT_TYPE(/obj/structure/machinery/ammunition_loader)
 /obj/structure/machinery/ammunition_loader/proc/load_ammo(var/obj/item/ship_ammunition/SA, var/mob/living/H)
 	if(SA.caliber == weapon.get_caliber())
 		if(SA.can_be_loaded())
-			visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."))
+			visible_message(SPAN_NOTICE("[H] begins loading \the [SA] into \the [src]..."), visible_message_flags = LOCAL_MESSAGE)
 			if(do_after(H, weapon.load_time, src, DO_UNIQUE))
 				if(weapon.load_ammunition(SA, H))
-					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"))
+					visible_message(SPAN_NOTICE("[H] loads \the [SA] into \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 					playsound(src, 'sound/weapons/ammo_load.ogg', 70)
 					return TRUE
 				else

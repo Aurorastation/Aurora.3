@@ -319,7 +319,7 @@
 			var/loudness = "thunk."
 			if(timeneeded * 0.1 > 10)
 				loudness = "loud THUNK!"
-			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", blind_message = "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND, visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 
 /*
@@ -366,6 +366,16 @@
 	name = "internals crate"
 	desc = "A internals crate."
 	icon_state = "o2_crate"
+
+/obj/structure/closet/crate/internals/filled/fill()
+	var/i_max = rand(3, 6)
+	for(var/i in 1 to i_max)
+		new /obj/item/oxycandle(src)
+		new /obj/item/tank/emergency_oxygen(src)
+		new /obj/item/tank/emergency_oxygen/engi(src)
+		new /obj/item/clothing/mask/breath(src)
+		new /obj/item/clothing/mask/breath(src)
+	new /obj/item/storage/bag/inflatable(src)
 
 /obj/structure/closet/crate/trashcart
 	name = "trash cart"
@@ -490,6 +500,14 @@
 	for(var/i=1,i<=6,i++)
 		new /obj/random/mre(src)
 		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
+
+/obj/structure/closet/crate/freezer/pizza
+	name = "pizza freezer"
+	desc = "A crate of assorted pizza boxes."
+
+/obj/structure/closet/crate/freezer/pizza/fill()
+	for(var/i=1,i<=6,i++)
+		new /obj/random/pizzabox(src)
 
 /obj/structure/closet/crate/freezer/kois
 	name = "freezer"
@@ -778,6 +796,12 @@
 /obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
 
+	name = pick("strange", "unusual", "suspicious", "mysterious", "odd", "forgotten")
+	name += " " + pick("crate", "container", "chest", "box")
+	desc = pick("A mysterious container", "An unusual box", "A strange crate", "A weathered container")
+	desc += " of " + pick("unknown origins", "dusty secrets", "questionable contents", "unclear purpose", "dubious heritage")
+	desc += ". " + pick("What mysteries lie within?", "Who knows what's inside.", "")
+
 	spawntypes = list(
 		"1" = STOCK_RARE_PROB * rarity,
 		"2" = STOCK_UNCOMMON_PROB * rarity,
@@ -894,3 +918,41 @@
 	new /obj/item/reagent_containers/weldpack(src)
 	new /obj/item/portable_whiteboard(src)
 	new /obj/item/paint_sprayer(src)
+
+/obj/structure/closet/crate/regular_tents
+	name = "expedition tent crate"
+
+/obj/structure/closet/crate/regular_tents/fill()
+	new /obj/item/tent(src)
+	new /obj/item/tent(src)
+	new /obj/item/tent(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/medium(src)
+	new /obj/item/tent/big(src)
+	new /obj/item/tent/big(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/turn(src)
+	new /obj/item/tent/t_junction(src)
+	new /obj/item/tent/t_junction(src)
+
+/obj/structure/closet/crate/specialized_tents
+	name = "department tent crate"
+
+/obj/structure/closet/crate/specialized_tents/fill()
+	new /obj/item/tent/cargo(src)
+	new /obj/item/tent/command(src)
+	new /obj/item/tent/command_comms(src)
+	new /obj/item/tent/decontamination(src)
+	new /obj/item/tent/engineering(src)
+	new /obj/item/tent/field_kitchen(src)
+	new /obj/item/tent/machinist(src)
+	new /obj/item/tent/medical(src)
+	new /obj/item/tent/mess_hall(src)
+	new /obj/item/tent/mining(src)
+	new /obj/item/tent/quarantine(src)
+	new /obj/item/tent/science(src)
+	new /obj/item/tent/security(src)
+	new /obj/item/tent/vehicle_workshop(src)

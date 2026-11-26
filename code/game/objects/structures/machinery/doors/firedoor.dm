@@ -193,13 +193,13 @@
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] open!"), visible_message_flags = LOCAL_MESSAGE)
 				open(1)
 			else
-				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"))
+				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"), visible_message_flags = LOCAL_MESSAGE)
 				close(1)
 		else
-			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."))
+			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."), visible_message_flags = LOCAL_MESSAGE)
 		return
 	..()
 
@@ -235,10 +235,10 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H) || H.default_attack?.crowbar_door)
 			if(src.density)
-				visible_message(SPAN_DANGER("\The [H] forces \the [src] open!"))
+				visible_message(SPAN_DANGER("\The [H] forces \the [src] open!"), visible_message_flags = LOCAL_MESSAGE)
 				open(1)
 			else
-				visible_message(SPAN_DANGER("\The [H] forces \the [src] closed!"))
+				visible_message(SPAN_DANGER("\The [H] forces \the [src] closed!"), visible_message_flags = LOCAL_MESSAGE)
 				close(1)
 			return
 
@@ -462,7 +462,7 @@
 	ClearOverlays()
 	if(hatch_open)
 		hatch_open = 0
-		visible_message("The maintenance panel of \the [src] closes.")
+		visible_message("The maintenance panel of \the [src] closes.", visible_message_flags = LOCAL_MESSAGE)
 		update_icon()
 
 	if(!forced)

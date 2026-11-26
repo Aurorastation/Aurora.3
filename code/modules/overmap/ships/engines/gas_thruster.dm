@@ -227,7 +227,7 @@
 	if(!is_on())
 		return 0
 	if(!check_fuel() || (0 < use_power_oneoff(charge_per_burn)) || check_blockage())
-		audible_message(src,SPAN_WARNING("[src] coughs once and goes silent!"))
+		audible_message(src,deaf_message = SPAN_WARNING("[src] coughs once and goes silent!"), audible_message_flags = LOCAL_MESSAGE)
 		update_use_power(POWER_USE_OFF)
 		return 0
 
@@ -238,7 +238,7 @@
 
 	var/volume_adjustment = 1
 
-	var/obj/effect/overmap/visitable/ship/my_ship = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/ship/my_ship = get_map_sector(src)
 	if(!my_ship)
 		stack_trace("No ship found for gas thruster at z-level [z].")
 	else

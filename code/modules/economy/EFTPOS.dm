@@ -128,7 +128,7 @@
 				if(transaction_locked && !transaction_paid)
 					if(transaction_amount <= E.worth)
 						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+						src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 						transaction_paid = 1
 
 						//transfer the money
@@ -166,7 +166,7 @@
 					if(trycode >= 1000 && trycode <= 999999)
 						access_code = trycode
 					else
-						alert("That is not a valid code!")
+						tgui_alert(usr, "That is not a valid code!")
 					print_reference()
 				else
 					to_chat(usr, "[icon2html(src, usr)]<span class='warning'>Incorrect code entered.</span>")
@@ -194,7 +194,7 @@
 			if("trans_value")
 				var/try_num = input("Enter amount for EFTPOS transaction", "Transaction amount") as num
 				if(try_num < 0)
-					alert("That is not a valid amount!")
+					tgui_alert(usr, "That is not a valid amount!")
 				else
 					transaction_amount = try_num
 			if("toggle_lock")
@@ -247,7 +247,7 @@
 					to_chat(usr,"[icon2html(src, usr)]<span class='warning'>[message].</span>")
 				else
 					playsound(src, 'sound/machines/chime.ogg', 50, 1)
-					src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+					src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 					transaction_paid = 1
 			else
 				to_chat(usr, "[icon2html(src, usr)]<span class='warning'>EFTPOS is not connected to an account.</span>")
@@ -260,5 +260,5 @@
 			else
 				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
-				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 				transaction_paid = 1

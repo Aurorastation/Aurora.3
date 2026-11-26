@@ -124,9 +124,15 @@
 
 /singleton/skill/conditioning
 	name = "Conditioning"
+	/// Alternate displayed name when configuring an IPC character.
+	var/ipc_name = "High-Torque Servos"
 	description = "Governs a character's ability to pick up, drag, and throw heavy objects, particularly crates, people, ammunition, and machinery components. " \
 		+ "By default, most characters can comfortably lift or drag 1.25x their body weight without penalty. " \
 		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown. "
+	/// Alternate general description displayed when configuring an IPC character.
+	var/ipc_description = "Represents high-torque actuator and hydraulic calibration in a synthetic's chassis, governing its ability to pick up, drag, and throw heavy objects such as crates, people, ammunition, and machinery components. " \
+		+ "By default, most characters can comfortably lift or drag 1.25x their chassis weight without penalty. " \
+		+ "This includes determining how heavy a character you can fireman carry, and with how much slowdown."
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
@@ -137,4 +143,30 @@
 		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb 30% faster, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
 		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb 45% faster, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
 	)
+	/// Alternate skill level descriptions displayed when configuring an IPC character.
+	var/alist/ipc_skill_level_descriptions = alist(
+		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from High-Torque Servos.",
+		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb 15% faster, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_TRAINED = "Your maximum Lift Capacity is increased by 50%, you climb 30% faster, and you have a 40% chance to catch yourself during sudden shuttle acceleration when something is within reach.",
+		SKILL_LEVEL_PROFESSIONAL = "Your maximum Lift Capacity is increased by 75%, you climb 45% faster, and you have a 60% chance to catch yourself during sudden shuttle acceleration when something is within reach."
+	)
 	component_type = CONDITIONING_SKILL_COMPONENT
+
+/singleton/skill/conditioning/get_name(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_name
+	return ..()
+
+/singleton/skill/conditioning/get_description(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_description
+	return ..()
+
+/singleton/skill/conditioning/get_skill_level_descriptions(datum/preferences/pref)
+	var/datum/species/species = GLOB.all_species[pref?.species]
+	if(species && (species.flags & IS_MECHANICAL))
+		return ipc_skill_level_descriptions
+	return ..()
+

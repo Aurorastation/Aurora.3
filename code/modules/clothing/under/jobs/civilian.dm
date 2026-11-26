@@ -1,5 +1,7 @@
 //Alphabetical order of civilian jobs.
 
+ABSTRACT_TYPE(/obj/item/clothing/under/rank)
+
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
@@ -127,24 +129,6 @@
 /obj/item/clothing/under/rank/janitor/orion
 	icon_state = "orion_janitor"
 	item_state = "orion_janitor"
-
-// Lawyer (to be replaced by modularization)
-
-/obj/item/clothing/under/lawyer
-	desc = "Slick threads."
-	name = "lawyer suit"
-
-/obj/item/clothing/under/lawyer/red
-	name = "garish red suit"
-	icon_state = "lawyer_red"
-	item_state = "lawyer_red"
-	worn_state = "lawyer_red"
-
-/obj/item/clothing/under/lawyer/purple
-	name = "garish purple suit"
-	icon_state = "lawyer_purple"
-	item_state = "ba_suit"
-	worn_state = "lawyer_purple"
 
 // Librarian
 

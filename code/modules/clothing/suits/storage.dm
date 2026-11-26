@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/storage
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage)
 	var/obj/item/storage/internal/pockets
 
 /obj/item/clothing/suit/storage/Initialize()
@@ -38,12 +38,15 @@
 
 	pockets.emp_act(severity)
 
-/obj/item/clothing/suit/storage/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
-	pockets.hear_talk(M, msg, verb, speaking)
+/obj/item/clothing/suit/storage/hear_talk(atom/movable/M, var/msg, verb, datum/language/speaking, datum/say_message/say_message = null)
+	if(say_message)
+		pockets.Hear(say_message)
+	else
+		pockets.hear_talk(M, msg, verb, speaking)
 	..()
 
 //Jackets with buttons
-/obj/item/clothing/suit/storage/toggle
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle)
 	var/opened = FALSE
 
 /obj/item/clothing/suit/storage/toggle/verb/toggle()
@@ -70,13 +73,6 @@
 	if(opened) // for stuff that's supposed to spawn opened, like labcoats.
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 		item_state = icon_state
-
-/obj/item/clothing/suit/storage/vest/hos/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = WEIGHT_CLASS_SMALL
-	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest
 	var/icon_badge
@@ -138,7 +134,7 @@
 
 // Corporate Jackets
 
-/obj/item/clothing/suit/storage/toggle/corp
+ABSTRACT_TYPE(/obj/item/clothing/suit/storage/toggle/corp)
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	contained_sprite = TRUE
 

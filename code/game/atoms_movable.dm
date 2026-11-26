@@ -31,6 +31,16 @@
 	var/moved_recently = 0
 	var/atom/movable/pulledby = null
 
+	/// Default speech attribution; punctuation and language may override it.
+	var/verb_say = "says"
+	var/verb_ask = "asks"
+	var/verb_exclaim = "exclaims"
+	var/verb_whisper = "whispers"
+	var/verb_sing = "sings"
+	var/verb_yell = "yells"
+	/// Default language for non-mob speech. Override for configured devices.
+	var/speech_language = LANGUAGE_TCB
+
 	///Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
 	var/item_state = null
 
@@ -594,24 +604,22 @@
 	SEND_SIGNAL(src, COMSIG_MOVABLE_MOVED, old_loc, forced)
 
 	/* START Spatial grid stuffs */
-	if(!HAS_SPATIAL_GRID_CONTENTS(src) || !SSspatial_grid.initialized)
-		return
+	if(HAS_SPATIAL_GRID_CONTENTS(src) && SSspatial_grid.initialized)
+		var/turf/old_turf = get_turf(old_loc)
+		var/turf/new_turf = get_turf(src)
 
-	var/turf/old_turf = get_turf(old_loc)
-	var/turf/new_turf = get_turf(src)
+		if(old_turf && new_turf && (old_turf.z != new_turf.z \
+			|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
+			|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
 
-	if(old_turf && new_turf && (old_turf.z != new_turf.z \
-		|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
-		|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
+			SSspatial_grid.exit_cell(src, old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
 
-		SSspatial_grid.exit_cell(src, old_turf)
-		SSspatial_grid.enter_cell(src, new_turf)
+		else if(old_turf && !new_turf)
+			SSspatial_grid.exit_cell(src, old_turf)
 
-	else if(old_turf && !new_turf)
-		SSspatial_grid.exit_cell(src, old_turf)
-
-	else if(new_turf && !old_turf)
-		SSspatial_grid.enter_cell(src, new_turf)
+		else if(new_turf && !old_turf)
+			SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
 	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
@@ -621,6 +629,8 @@
 		if(!light.source_atom)
 			continue
 		light.source_atom.update_light()
+		if(QDELETED(light))
+			continue
 		if(!isturf(loc))
 			light.find_containing_atom()
 	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
@@ -1066,7 +1076,7 @@
 /atom/movable/proc/begin_falling(var/lastloc, var/below)
 	return
 
-/atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/atom/movable/proc/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return
 
 /**
@@ -1299,9 +1309,11 @@
 	set_light_color(color)
 
 /**
- * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ * Called when a movable is moved by a shuttle.
  */
-/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination, rotation = 0)
+	if(rotation && isturf(loc))
+		shuttleRotate(rotation)
 	if(light)
 		update_light()
 

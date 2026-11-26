@@ -525,7 +525,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(robotic || !istype(target_mob) || !istype(user) || (user != target_mob && user.a_intent == I_HELP))
 		return ..()
 
-	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
+	if(tgui_alert(usr, "Do you really want to use this organ as food? It will be useless for anything else afterwards.", , list("No.", "Yes.")) == "No.")
 		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
 		return
 

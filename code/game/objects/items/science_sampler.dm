@@ -119,7 +119,7 @@
 				return TRUE
 			if(istype(target, /turf/simulated/floor/exoplanet))
 				var/turf/simulated/floor/exoplanet/ground = target
-				var/obj/effect/overmap/visitable/sector/planet = GLOB.map_sectors["[target.z]"]
+				var/obj/effect/overmap/visitable/sector/planet = get_map_sector(target.z)
 				if(istype(ground, /turf/simulated/floor/exoplanet/water) || !ground.has_resources || !istype(planet))
 					return FALSE
 				var/list/possible_data = planet.soil_data.Copy()
@@ -132,7 +132,7 @@
 				return TRUE
 		if(SAMPLE_WATER)
 			if(istype(target, /turf/simulated/floor/exoplanet/water))
-				var/obj/effect/overmap/visitable/sector/planet = GLOB.map_sectors["[target.z]"]
+				var/obj/effect/overmap/visitable/sector/planet = get_map_sector(target.z)
 				if(!istype(planet))
 					return FALSE
 				var/list/possible_data = planet.water_data.Copy()
@@ -203,7 +203,7 @@
 
 /obj/structure/machinery/centrifuge/proc/process_samples()
 	update_icon()
-	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."))
+	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."), visible_message_flags = LOCAL_MESSAGE)
 	var/obj/item/paper/report = new()
 
 	report_num++
@@ -339,10 +339,10 @@
 	update_icon()
 	if(!zeroed)
 		zeroed = TRUE
-		visible_message(SPAN_NOTICE("\The [src] beeps, \"Calibration complete!\""))
+		visible_message(SPAN_NOTICE("\The [src] beeps, \"Calibration complete!\""), visible_message_flags = LOCAL_MESSAGE)
 		return
 
-	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."))
+	visible_message(SPAN_NOTICE("\The [src] prints out a report of its findings."), visible_message_flags = LOCAL_MESSAGE)
 	var/obj/item/paper/report = new()
 
 	report_num++

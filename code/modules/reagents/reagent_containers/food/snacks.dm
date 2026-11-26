@@ -153,6 +153,7 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
+	on_eaten(target, user)
 	feed_sound(target)
 	bitecount++
 	on_consume(user, target)
@@ -210,6 +211,7 @@
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
 					U.is_liquid = TRUE
+				on_eaten(user, user)
 				on_consume(user, user)
 				return
 
@@ -242,13 +244,25 @@
 				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), SPAN_NOTICE("You slice \the [src]!"))
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
+			var/datum/component/food_moodlet_provider/moodlet_provider = GetComponent(/datum/component/food_moodlet_provider)
 			for(var/i=1 to (slices_num-slices_lost))
 				var/obj/item/reagent_containers/food/slice = new slice_path (src.loc)
 				reagents.trans_to_obj(slice, reagents_per_slice)
 				slice.filling_color = filling_color
 				slice.update_icon()
+				moodlet_provider?.copy_to(slice) // Slices of a skillfully prepared dish are just as good.
 			qdel(src)
 			return
+
+/**
+ * Called whenever a mob takes a bite of this food, before on_consume() potentially deletes it.
+ * This is the sole place COMSIG_FOOD_EATEN is raised; route any new bite sources through here.
+ *
+ * * eater - The mob actually eating the food.
+ * * feeder - The mob feeding the food to the eater. This is the same as the eater when self-feeding.
+ */
+/obj/item/reagent_containers/food/snacks/proc/on_eaten(mob/eater, mob/feeder)
+	SEND_SIGNAL(src, COMSIG_FOOD_EATEN, eater, feeder)
 
 /obj/item/reagent_containers/food/snacks/proc/is_sliceable()
 	return (slices_num && slice_path && slices_num > 0)

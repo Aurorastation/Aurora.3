@@ -102,7 +102,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 
 /datum/gear/accessory/horrible_tie
 	display_name = "horrible tie"
-	path = /obj/item/clothing/accessory/horrible
+	path = /obj/item/clothing/accessory/tie/horrible
 
 /datum/gear/accessory/neck_accessories_colourable
 	display_name = "neck accessories selection (colourable)"
@@ -325,13 +325,13 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 
 /datum/gear/accessory/namepin
 	display_name = "pins selection"
-	path = /obj/item/clothing/accessory/badge/namepin
+	path = /obj/item/clothing/accessory/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/namepin/New()
 	..()
 	var/list/pin = list()
-	pin["pin, name tag"] = /obj/item/clothing/accessory/badge/namepin
+	pin["pin, name tag"] = /obj/item/clothing/accessory/namepin
 	pin["pin, any/all pronouns"] = /obj/item/clothing/accessory/pronoun
 	pin["pin, he/him pronouns"] = /obj/item/clothing/accessory/pronoun/hehim
 	pin["pin, he/they pronouns"] = /obj/item/clothing/accessory/pronoun/hethey
@@ -436,11 +436,20 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, pluto"] = /obj/item/clothing/accessory/badge/passcard/sol/pluto
 	passcard["passcard, reconstruction mandate"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
 	passcard["passcard, mars"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	passcard["passcard, lycoris"] = /obj/item/clothing/accessory/badge/passcard/sol/restricted_lycoris
 	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
 	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
 	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
 	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
+	passcard["passcard, enceladus"] = /obj/item/clothing/accessory/badge/passcard/sol/enceladus
+	passcard["passcard, lhokgon"] = /obj/item/clothing/accessory/badge/passcard/sol/lhokgon
+	passcard["passcard, new peoria"] = /obj/item/clothing/accessory/badge/passcard/sol/new_peoria
+	passcard["passcard, novo igman"] = /obj/item/clothing/accessory/badge/passcard/sol/novo_igman
+	passcard["passcard, old mars"] = /obj/item/clothing/accessory/badge/passcard/sol/mars
+	passcard["passcard, unity station"] = /obj/item/clothing/accessory/badge/passcard/sol/unity_station
+	passcard["passcard, eris & dysnomia"] = /obj/item/clothing/accessory/badge/passcard/sol/eris
+	passcard["passcard, ganymede"] = /obj/item/clothing/accessory/badge/passcard/sol/ganymede
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
 	passcard["passcard, elyra"] = /obj/item/clothing/accessory/badge/passcard/elyra
 	passcard["passcard, dominia"] = /obj/item/clothing/accessory/badge/passcard/dominia
@@ -472,6 +481,8 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passport["passport, elyra"] = /obj/item/clothing/accessory/badge/passport/elyra
 	passport["passport, dominia"] = /obj/item/clothing/accessory/badge/passport/dominia
 	passport["passport, coalition"] = /obj/item/clothing/accessory/badge/passport/coc
+	passport["passport, axiom"] = /obj/item/clothing/accessory/badge/passport/axiom
+	passport["passport, salamasian"] = /obj/item/clothing/accessory/badge/passport/salamasian
 	gear_tweaks += new /datum/gear_tweak/path(passport)
 
 /datum/gear/accessory/TCAFcard
@@ -588,6 +599,9 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	flagpatch_national["flagpatch, k'lax"] = /obj/item/clothing/accessory/flagpatch/klax
 	flagpatch_national["flagpatch, c'thur"] = /obj/item/clothing/accessory/flagpatch/cthur
 	flagpatch_national["flagpatch, burzsia"] = /obj/item/clothing/accessory/flagpatch/burzsia
+	flagpatch_national["flagpatch, golden deep"] = /obj/item/clothing/accessory/flagpatch/goldendeep
+	flagpatch_national["flagpatch, axiom"] = /obj/item/clothing/accessory/flagpatch/axiom
+	flagpatch_national["flagpatch, salamasia"] = /obj/item/clothing/accessory/flagpatch/salamasian
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai

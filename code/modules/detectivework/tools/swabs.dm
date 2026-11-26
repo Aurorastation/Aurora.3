@@ -40,6 +40,10 @@
 		user.visible_message(SPAN_DANGER("\The [user] tries to take a swab sample from \the [H], but they move away."))
 		return
 
+	var/delay = 1.5 SECONDS
+	var/botch_sample = FALSE
+	SEND_SIGNAL(user, COMSIG_FORENSICS_COLLECT_SAMPLE, H, &delay, null, null, &botch_sample)
+
 	if(target_zone == BP_MOUTH)
 		if(!H.organs_by_name[BP_HEAD])
 			to_chat(user, SPAN_WARNING("They don't have a head."))
@@ -50,8 +54,15 @@
 		if(H.wear_mask)
 			to_chat(user, SPAN_WARNING("\The [H] is wearing a mask."))
 			return
+		if(delay > 0 && !do_after(user, delay, H))
+			return
 		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)
+		if(botch_sample && ishuman(user))
+			var/mob/living/carbon/human/human_user = user
+			if(!human_user.gloves && human_user.dna?.unique_enzymes)
+				dna |= human_user.dna.unique_enzymes
+				to_chat(user, SPAN_WARNING("You accidentally brush the cotton tip with your bare fingers while taking the sample!"))
 		sample_type = "DNA"
 
 	else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
@@ -66,19 +77,27 @@
 		if(!has_hand)
 			to_chat(user, SPAN_WARNING("They don't have any hands."))
 			return
+		if(delay > 0 && !do_after(user, delay, H))
+			return
 		if(H.gloves)
 			var/obj/item/clothing/B = H.gloves
 			if(!LAZYLEN(B.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s [B]."))
 				return
 			user.visible_message("[user] swabs [H]'s [B] for a sample.")
-			LAZYADD(gsr, B.gunshot_residue)
+			if(!botch_sample)
+				LAZYADD(gsr, B.gunshot_residue)
+			else
+				to_chat(user, SPAN_WARNING("You clumsily rub the swab too hard, failing to pick up a clean residue sample!"))
 		else
 			if(!LAZYLEN(H.gunshot_residue))
 				to_chat(user, SPAN_WARNING("There is no residue on [H]'s palms."))
 				return
 			user.visible_message("[user] swabs [H]'s palm for a sample.")
-			LAZYADD(gsr, H.gunshot_residue)
+			if(!botch_sample)
+				LAZYADD(gsr, H.gunshot_residue)
+			else
+				to_chat(user, SPAN_WARNING("You clumsily rub the swab too hard, failing to pick up a clean residue sample!"))
 		sample_type = "GSR"
 	else
 		return
@@ -122,6 +141,12 @@
 	if(!choice)
 		return
 
+	var/delay = 1.5 SECONDS
+	var/botch_sample = FALSE
+	SEND_SIGNAL(user, COMSIG_FORENSICS_COLLECT_SAMPLE, A, &delay, null, null, &botch_sample)
+	if(delay > 0 && !do_after(user, delay, A))
+		return
+
 	var/sample_type
 	var/sample_message
 	switch (choice)
@@ -154,6 +179,15 @@
 			sample_message = additional_evidence["sample_message"]
 
 	if(sample_type)
+		if(botch_sample)
+			if(LAZYLEN(dna) && ishuman(user))
+				var/mob/living/carbon/human/human_user = user
+				if(!human_user.gloves && human_user.dna?.unique_enzymes)
+					dna[human_user.dna.unique_enzymes] = human_user.dna.b_type
+					to_chat(user, SPAN_WARNING("You clumsily contaminate the swab with your bare hands while collecting the sample!"))
+			else if(LAZYLEN(gsr))
+				to_chat(user, SPAN_WARNING("You clumsily rub the swab too hard, failing to pick up a clean residue sample!"))
+				gsr.Cut()
 		user.visible_message("\The [user] swabs \the [A] for a sample.", sample_message || "You swab \the [A] for a sample.")
 		set_used(sample_type, A)
 

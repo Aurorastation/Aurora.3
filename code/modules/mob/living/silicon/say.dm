@@ -27,7 +27,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return common_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return common_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
 	return null
@@ -47,7 +47,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return ai_radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return ai_radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/pai/handle_message_mode(datum/say_message/msg, datum/language/primary, list/used_radios)
 	var/text = msg.to_string()
@@ -59,7 +59,7 @@
 		if(message_mode == "general")
 			message_mode = null
 		log_say("[key_name(src)] : [text]")
-		return radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		return radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
 	if(singing)
@@ -102,11 +102,13 @@
 	log_say("[key_name(src)] : [msg.raw_message]")
 	if(!length(msg.to_string()))
 		return
+	// :h is only a routing shortcut for AIs, not a department-radio mode for the delivered message.
+	msg.message_mode = null
 
 	var/obj/structure/machinery/hologram/holopad/H = src.holo
 	if(H?.active_holograms[src])//If there is a hologram and its master is the user.
 		// AI hears its own message. text_for keeps each language.
-		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.verb], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
+		to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [msg.message_mods[SAY_MOD_VERB]], <span class='message'><span class='body'>\"[msg.text_for(src)]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.
@@ -141,23 +143,57 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/ai/proc/holopad_emote(var/message) //This is called when the AI uses the 'me' verb while using a holopad.
-	log_emote("[key_name(src)] : [message]")
+/mob/living/silicon/ai/proc/holopad_emote(var/message, var/m_type = VISIBLE_MESSAGE, var/do_show_observers = TRUE)
+	if((usr && stat) || (!use_me && usr == src))
+		to_chat(src, "You are unable to emote.")
+		return FALSE
 
 	message = trim(message)
 	if(!message)
-		return
+		return FALSE
 
 	var/obj/structure/machinery/hologram/holopad/T = src.holo
-	if(T?.active_holograms[src])
-		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
-		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")
-
-		for(var/mob/M in viewers(get_turf(T)))
-			to_chat(M, rendered)
-	else //This shouldn't occur, but better safe then sorry.
+	var/obj/effect/overlay/hologram/H = T?.active_holograms[src]
+	if(!H)
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE
+
+	log_emote("[key_name(src)] : [message]")
+	var/langchat_message = process_chat_markup(message, list("~", "_"))
+	var/rendered = format_emote(src, message)
+	rendered = process_chat_markup(rendered, list("~", "_"))
+	var/list/emote_viewers = list()
+
+	if(m_type == VISIBLE_MESSAGE)
+		for(var/mob/M in viewers(world.view, H))
+			var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+			if(perceived && perceived[2] == VISIBLE_MESSAGE)
+				emote_viewers |= M
+		if(T.has_established_connection())
+			for(var/mob/M in viewers(world.view, T.connected_pad))
+				if(M in emote_viewers)
+					continue
+				var/list/perceived = M.show_message(rendered, VISIBLE_MESSAGE)
+				if(perceived && perceived[2] == VISIBLE_MESSAGE)
+					emote_viewers |= M
+	else
+		var/list/hearers = get_hearers_in_view(world.view, H)
+		for(var/atom/movable/hearer as anything in hearers)
+			if(hearer == T)
+				continue
+			var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+			if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
+				emote_viewers |= hearer
+		if(T.has_established_connection())
+			for(var/atom/movable/hearer as anything in get_hearers_in_view(world.view, T.connected_pad))
+				if(hearer == T.connected_pad || (hearer in emote_viewers))
+					continue
+				var/list/perceived = hearer.show_message(rendered, AUDIBLE_MESSAGE)
+				if(ismob(hearer) && perceived && perceived[2] == AUDIBLE_MESSAGE)
+					emote_viewers |= hearer
+
+	to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='message'>[rendered]</span></span></i>")
+	langchat_speech(langchat_message, emote_viewers, additional_styles = list("emote", "langchat_small"), check_hearing = FALSE)
 	return TRUE
 
 #undef IS_AI

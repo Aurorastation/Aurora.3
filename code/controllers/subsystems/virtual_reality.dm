@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(virtualreality)
 	if(target.client)
 		target.client.screen |= GLOB.global_hud.vr_control
 
-	if(istype(target, /mob/living/simple_animal/spiderbot) && !istype(target, /mob/living/simple_animal/spiderbot/ai))
+	if(istype(target, /mob/living/simple_animal/spiderbot) && !istype(target, /mob/living/simple_animal/spiderbot/ai) && !istype(target, /mob/living/simple_animal/spiderbot/remote_mech/ai))
 		var/mob/living/simple_animal/spiderbot/spider = target
 		var/obj/item/card/id/original_id = M.GetIdCard()
 		if(original_id)
@@ -219,7 +219,12 @@ SUBSYSTEM_DEF(virtualreality)
 
 	var/mob/living/heavy_vehicle/chosen_mech = remote[choice]
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
+	if(istype(remote_pilot, /mob/living/simple_animal/spiderbot/remote_mech))
+		var/mob/living/simple_animal/spiderbot/remote_mech/mech_pilot = remote_pilot
+		mech_pilot.sync_operator_skills(user)
 	mind_transfer(user, remote_pilot)
+	if(remote_pilot.client)
+		remote_pilot.client.screen |= chosen_mech.hud_elements
 
 
 /// Returns a list with all remote controlable robots on the given network

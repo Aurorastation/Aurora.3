@@ -225,6 +225,10 @@
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
 	return access_point?.owner?.GetIdCard(TRUE)
 
+/obj/item/modular_computer/handheld/pda/tesla_internal/get_message_recipient()
+	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
+	return access_point?.owner
+
 /obj/item/modular_computer/handheld/pda/tesla_internal/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/organ/internal/augment/tesla_device/pda/access_point = loc
 	if(istype(access_point) && access_point.owner == user && !access_point.is_broken() && access_point.has_tesla_power())
@@ -288,7 +292,7 @@
 	if(!message || owner.stat != CONSCIOUS)
 		return FALSE
 	message = capitalize(message)
-	owner.say(message, owner.get_default_language(), "broadcasts")
+	owner.say(message, owner.get_default_language(), message_mods = list(SAY_MOD_VERB = "broadcasts", MODE_AMPLIFIED = TRUE))
 	playsound(owner, 'sound/items/megaphone.ogg', 75, FALSE, 1)
 	for(var/mob/living/carbon/human/H in range(owner, 2) - owner)
 		H.earpain((H in range(owner, 1)) ? 3 : 2, TRUE, 2)
@@ -477,7 +481,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 		else if(T)
-			T.visible_message(SPAN_DANGER("\The [src] turns on."))
+			T.visible_message(SPAN_DANGER("\The [src] turns on."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 22
 		damtype = DAMAGE_BURN
@@ -491,7 +495,7 @@
 		if(M)
 			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message(SPAN_WARNING("\The [src] turns off."))
+			T.visible_message(SPAN_WARNING("\The [src] turns off."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE

@@ -1186,13 +1186,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if (brute_difference)
 		if (brute_difference > 0)
 			add_brute_damage(brute_difference)
-		else remove_brute_damage(brute_difference)
+		else remove_brute_damage(-brute_difference)
 
 	var/burn_difference = new_burn_dam - burn_dam
 	if (burn_difference)
 		if (burn_difference > 0)
 			add_burn_damage(burn_difference)
-		else remove_burn_damage(burn_difference)
+		else remove_burn_damage(-burn_difference)
 
 	//things tend to bleed if they are CUT OPEN
 	if (open && !clamped && can_bleed)
@@ -1646,7 +1646,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// Grab all the internal giblets too.
 	for(var/obj/item/organ/organ in internal_organs)
-		organ.removed(user, FALSE, FALSE) // Organ stays inside and connected
+		organ.removed(victim, user, FALSE, FALSE) // Organ stays inside and connected
 		organ.forceMove(src)
 
 	// Remove parent references

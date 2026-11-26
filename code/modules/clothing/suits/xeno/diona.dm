@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/diona
+ABSTRACT_TYPE(/obj/item/clothing/suit/diona)
 	name = "abstract suit"
 	icon = 'icons/obj/diona_items.dmi'
 	contained_sprite = TRUE

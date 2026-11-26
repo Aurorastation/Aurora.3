@@ -8248,7 +8248,7 @@
 	name = "imposing rod railing"
 	},
 /obj/structure/closet/cabinet,
-/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandals,
 /obj/item/clothing/shoes/slippers,
 /obj/item/clothing/shoes/konyang,
 /obj/item/clothing/shoes/jackboots,
@@ -36693,10 +36693,6 @@
 /obj/item/clothing/head/collectable/thunderdome{
 	pixel_y = -3;
 	pixel_x = 17
-	},
-/obj/item/clothing/head/collectable/HoS{
-	pixel_y = 6;
-	pixel_x = -10
 	},
 /obj/item/flag/konyang/l,
 /turf/simulated/floor/wood,

@@ -114,9 +114,14 @@
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
+		if(check_holy(destination))
+			to_chat(src, SPAN_WARNING("You cannot get past holy grounds while you are in this plane of existence!"))
+			return FALSE
 		forceMove(destination)
+		return TRUE
 	else
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
+	return FALSE
 
 /**
  * An initial check for Z-level travel. Called relatively early in mob/proc/zMove.
@@ -408,7 +413,7 @@
  */
 /atom/movable/proc/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
-		"You hear a whoosh of displaced air.")
+		blind_message = "You hear a whoosh of displaced air.", visible_message_flags = LOCAL_MESSAGE)
 
 /mob/fall_through()
 	visible_message("\The [src] falls from the level above through \the [loc]!",
@@ -444,7 +449,7 @@
 	if (istype(loc, /turf/space) || (area && !area.has_gravity()))
 		return FALSE
 
-	visible_message("\The [src] falls and lands on \the [loc]!", "You hear a thud!")
+	visible_message("\The [src] falls and lands on \the [loc]!", blind_message = "You hear a thud!", visible_message_flags = LOCAL_MESSAGE)
 
 	return TRUE
 

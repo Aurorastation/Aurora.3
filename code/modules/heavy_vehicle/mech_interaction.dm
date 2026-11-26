@@ -138,7 +138,13 @@
 				var/mob/ruser = src
 				if(!system_moved) //It's more useful to pass along clicker pilot when logic is fully mechside
 					ruser = user
+				var/obj/item/gun/mounted_gun
+				if(system_moved && istype(temp_system, /obj/item/gun))
+					mounted_gun = temp_system
+					mounted_gun.accuracy_user_override = user
 				temp_system.afterattack(A,ruser,adj,params)
+				if(mounted_gun)
+					mounted_gun.accuracy_user_override = null
 			if(system_moved) //We are using a proxy system that may not have logging like mech equipment does
 				log_admin("used [temp_system] targetting [A]", user, src.loc)
 			//Mech equipment subtypes can add further click delays
@@ -832,7 +838,7 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	return 20
 
 /mob/living/heavy_vehicle/react_to_message(datum/say_message/msg)
-	if(can_listen())
+	if(ismob(msg.speaker) && can_listen())
 		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), msg.speaker, msg.to_string()), 0.5 SECONDS)
 
 // heavily commented so it doesn't look like one fat chunk of code, which it still does - Geeves

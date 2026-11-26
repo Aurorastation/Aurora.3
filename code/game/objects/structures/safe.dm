@@ -66,7 +66,7 @@ FLOOR SAFES
 		if(tumbler_2_pos == tumbler_2_open)
 			to_chat(user, SPAN_NOTICE("You hear a [pick("tink", "krink", "plink")] from [src]."))
 	if(tumbler_1_pos == tumbler_1_open && tumbler_2_pos == tumbler_2_open)
-		if(user) visible_message("<b>[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!</b>")
+		if(user) visible_message("<b>[pick("Spring", "Sprang", "Sproing", "Clunk", "Krunk")]!</b>", visible_message_flags = LOCAL_MESSAGE)
 		return 1
 	return 0
 
@@ -106,7 +106,7 @@ FLOOR SAFES
 
 /obj/structure/safe/attack_hand(mob/user as mob)
 	if(drill)
-		switch(alert("What would you like to do?", "Thermal Drill", "Turn [(datum_flags & DF_ISPROCESSING) ? "Off" : "On"]", "Remove Drill", "Cancel"))
+		switch(tgui_alert(usr, "What would you like to do?", "Thermal Drill", list("Turn [(datum_flags & DF_ISPROCESSING) ? "Off" : "On"]", "Remove Drill", "Cancel")))
 			if("Turn On")
 				if(!drill || (datum_flags & DF_ISPROCESSING))
 					return

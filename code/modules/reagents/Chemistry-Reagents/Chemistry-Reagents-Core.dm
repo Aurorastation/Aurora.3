@@ -68,9 +68,7 @@
 	if(!istype(T) || amount < 3)
 		return
 	var/list/rdata = REAGENT_DATA(holder, type)
-	if(isemptylist(rdata))
-		return
-	var/datum/weakref/W = rdata["donor"]
+	var/datum/weakref/W = LAZYACCESS(rdata, "donor")
 	var/mob/living/carbon/C = W?.resolve()
 	if (!C || istype(C, /mob/living/carbon/human))
 		blood_splatter(T, src, 1)
@@ -155,7 +153,8 @@
 		environment.adjust_gas(GAS_WATERVAPOR, WATER_MOLS_PER_MIL * amount)
 		napalm.audible_message(
 			SPAN_DANGER("The water sputters violently as it lands on \the [napalm.name]!"),
-			SPAN_DANGER("The fire goes down a bit on \the [napalm.name], but immediately returns!")
+			deaf_message = SPAN_DANGER("The fire goes down a bit on \the [napalm.name], but immediately returns!"),
+			audible_message_flags = LOCAL_MESSAGE
 		)
 		return
 
@@ -163,7 +162,7 @@
 		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
-			T.audible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
+			T.audible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"), audible_message_flags = LOCAL_MESSAGE)
 
 		environment.adjust_gas(GAS_WATERVAPOR, WATER_MOLS_PER_MIL * amount)
 

@@ -213,7 +213,7 @@
 								circuit.forceMove(null)
 
 							new_machine.RefreshParts()
-							new_machine.anchored = TRUE
+							new_machine.anchored = circuit.anchor_on_construction
 						qdel(src)
 					return TRUE
 				else

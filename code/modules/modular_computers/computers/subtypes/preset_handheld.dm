@@ -5,7 +5,7 @@
 /obj/item/modular_computer/handheld/preset/install_default_hardware()
 	..()
 	processor_unit = new/obj/item/computer_hardware/processor_unit/small(src)
-	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
+	hard_drive = new default_hard_drive_type(src)
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
@@ -69,6 +69,11 @@
 
 /obj/item/modular_computer/handheld/preset/engineering/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/engineering/ce/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Supply
 /obj/item/modular_computer/handheld/preset/supply
@@ -123,6 +128,11 @@
 
 /obj/item/modular_computer/handheld/preset/medical/cmo
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/medical/cmo/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Science
 
@@ -139,6 +149,11 @@
 
 /obj/item/modular_computer/handheld/preset/research/rd
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/research/rd/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Security
 
@@ -152,9 +167,19 @@
 
 /obj/item/modular_computer/handheld/preset/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/security/detective/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 /obj/item/modular_computer/handheld/preset/security/hos
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
+
+/obj/item/modular_computer/handheld/preset/security/hos/Initialize()
+	. = ..()
+	card_slot.stored_item = new /obj/item/pen/fountain
 
 // Command / Misc
 
@@ -163,6 +188,7 @@
 
 /obj/item/modular_computer/handheld/preset/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
 /obj/item/modular_computer/handheld/preset/command/Initialize()
 	. = ..()

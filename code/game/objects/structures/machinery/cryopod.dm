@@ -124,7 +124,7 @@
 			to_chat(user, SPAN_WARNING("\The [I] is no longer in storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), range = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 		I.forceMove(get_turf(src))
 		if(Adjacent(user))
@@ -140,7 +140,7 @@
 			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
-		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), range = 3)
+		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 
 		for(var/obj/item/I in frozen_items)
 			I.forceMove(get_turf(src))
@@ -387,7 +387,7 @@
 
 	if(force_announce || is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
-	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
+	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(loc, on_store_sound, 25)
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
@@ -451,7 +451,7 @@
 			return
 	if(!willing && M.client)
 		var/original_loc = M.loc
-		if(alert(M, "Would you like to enter [on_store_location]?", , "Yes", "No") == "Yes")
+		if(tgui_alert(M, "Would you like to enter [on_store_location]?", , list("Yes", "No")) == "Yes")
 			if(!M || M.loc != original_loc)
 				return
 			willing = TRUE
@@ -461,7 +461,7 @@
 	if(!willing)
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), range = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), SPAN_NOTICE("You start [M == user ? "climbing into" : "putting \the [M] into"] \the [name]."), vision_distance = 3)
 	if(do_after(user, 2 SECOND, M, DO_UNIQUE))
 		if(!M)
 			return TRUE
@@ -557,7 +557,7 @@
 	go_out()
 
 /obj/structure/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
-	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
+	var/choice = tgui_alert(M, "Would you like to save your tag data?", "Tag Persistence", list("Yes", "No"))
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]

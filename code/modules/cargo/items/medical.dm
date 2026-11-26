@@ -803,6 +803,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/stethoscope
+	category = "medical"
+	name = "stethoscope"
+	supplier = "zeng_hu"
+	description = "A medical instrument used to listen to a patient's heartbeat and breathing."
+	price = 25
+	items = list(
+		/obj/item/clothing/accessory/stethoscope
+	)
+	access = /datum/access/medical::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/organcooler/mind_blanker
 	name = "mind blanker cooler"
 	description = "An organ cooler containing a single Zeng-Hu Mind Blanker. Their cost has been subsidized by ZH for Operation Deep Dive."
@@ -810,3 +824,17 @@
 	items = list(
 		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
 	)
+
+/singleton/cargo_item/roller_bed/hover
+	category = "medical"
+	name = "hover rollerbed (x2)"
+	supplier = "zeng_hu"
+	description = "A common sight in Nralakk space, the Ziip'Ta Medicinal hover stretcher can sometimes also be found in select Zeng-Hu facilities."
+	price = 130
+	items = list(
+		/obj/item/roller/hover
+	)
+	access = /datum/access/medical::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 2

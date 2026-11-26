@@ -24,16 +24,16 @@
 		user.visible_message(
 			SPAN_NOTICE("\The [user] loads some paper into \the [src]."),
 			SPAN_NOTICE("You load some paper into \the [src]."))
-		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
+		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(work_turf, 'sound/items/bureaucracy/binder.ogg', 75, 1)
 		binding = TRUE
 		sleep(rand(20 SECONDS, 40 SECONDS))
 		binding = FALSE
 		if(!anchored)
-			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."))
+			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."), visible_message_flags = LOCAL_MESSAGE)
 			paper.forceMove(work_turf)
 			return
-		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
+		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(work_turf, 'sound/items/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/bound_book = new(work_turf)
 		bound_book.dat = paper.info

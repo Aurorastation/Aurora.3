@@ -78,13 +78,17 @@
 				LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 	if(auto_register)
-		var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
-		map_origin.add_landmark(src, shuttle_restricted)
+		if(z)
+			var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
+			map_origin.add_landmark(src, shuttle_restricted)
+			dbg_assert(!ispath(base_turf, /turf/space/transit), "auto_register is enabled for a transit landmark: [name], [landmark_tag]")
+		else
+			LAZYDISTINCTADD(SSshuttle.landmarks_awaiting_sector, src)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
-	var/obj/effect/overmap/visitable/map_origin = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
 	. = ..()
-	var/obj/effect/overmap/visitable/map_destination = GLOB.map_sectors["[z]"]
+	var/obj/effect/overmap/visitable/map_destination = get_map_sector(src)
 	if(map_origin != map_destination)
 		if(map_origin)
 			map_origin.remove_landmark(src, shuttle_restricted)
@@ -98,8 +102,9 @@
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
 		return FALSE
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
@@ -110,8 +115,9 @@
 
 /obj/effect/shuttle_landmark/proc/deploy_landing_indicators(var/datum/shuttle/shuttle)
 	LAZYINITLIST(landing_indicators)
+	var/rotation = shuttle.get_rotation(src)
 	for(var/area/A in shuttle.shuttle_area)
-		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
+		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents, rotation)
 		for(var/target_turf in list_values(translation))
 			landing_indicators += new /obj/effect/shuttle_warning(target_turf)
 
@@ -264,7 +270,7 @@
 	QDEL_NULL(landmark)
 	update_icon()
 	if (!silent)
-		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."))
+		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."), visible_message_flags = LOCAL_MESSAGE)
 	return TRUE
 
 /obj/item/spaceflare/update_icon()

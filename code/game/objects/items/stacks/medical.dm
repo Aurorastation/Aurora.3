@@ -45,26 +45,26 @@ Contains:
 
 		if(affecting.name == BP_HEAD)
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
-				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.head]!"))
+				to_chat(user, SPAN_WARNING("You can't apply [src] through \the [H.head]!"))
 				return 1
 		else
 			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.wear_suit]!"))
+				to_chat(user, SPAN_WARNING("You can't apply [src] through \the [H.wear_suit]!"))
 				return 1
 
 		if(affecting.status & ORGAN_LIFELIKE)
 			if(!(LIMB_GET_BRUTE_DAMAGE(affecting) || LIMB_GET_BURN_DAMAGE(affecting)))
-				to_chat(user, SPAN_NOTICE("[target_mob] seems healthy, there are no wounds to treat! "))
+				to_chat(user, SPAN_NOTICE("\The [target_mob] seems healthy, there are no wounds to treat! "))
 				return 1
 
 			user.visible_message( \
-					SPAN_NOTICE("[user] starts applying \the [src] to [target_mob]."), \
-					SPAN_NOTICE("You start applying \the [src] to [target_mob].")\
+					SPAN_NOTICE("[user] starts applying \the [src] to \the [target_mob]."), \
+					SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
 				)
 			if (do_mob(user, target_mob, 30))
 				user.visible_message( \
-					SPAN_NOTICE("[target_mob] has been applied with [src] by [user]."), \
-					SPAN_NOTICE("You apply \the [src] to [target_mob].")\
+					SPAN_NOTICE("[target_mob] has been applied with \the [src] by [user]."), \
+					SPAN_NOTICE("You apply \the [src] to [target_mob].")
 				)
 				use(1)
 			return 1
@@ -73,18 +73,18 @@ Contains:
 
 	else
 		if (!target_mob.getBruteLoss() && !target_mob.getFireLoss())
-			to_chat(user, SPAN_NOTICE("[target_mob] seems healthy, there are no wounds to treat! "))
+			to_chat(user, SPAN_NOTICE("\The [target_mob] seems healthy, there are no wounds to treat! "))
 			return 1
 
 		user.visible_message( \
-				SPAN_NOTICE("[user] starts applying \the [src] to [target_mob]."), \
-				SPAN_NOTICE("You start applying \the [src] to [target_mob].")\
+				SPAN_NOTICE("\The [user] starts applying \the [src] to \the [target_mob]."), \
+				SPAN_NOTICE("You start applying \the [src] to \the [target_mob].")
 			)
 		if (do_mob(user, target_mob, 30))
 			target_mob.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 			user.visible_message( \
-				SPAN_NOTICE("[target_mob] has been applied with [src] by [user]."), \
-				SPAN_NOTICE("You apply \the [src] to [target_mob].")\
+				SPAN_NOTICE("\The [target_mob] has been applied with \the [src] by \the [user]."), \
+				SPAN_NOTICE("You apply \the [src] to \the [target_mob].")
 			)
 			use(1)
 

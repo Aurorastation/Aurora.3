@@ -190,5 +190,5 @@
 	..()
 	if(use_message && !message_used)
 		message_used = TRUE
-		visible_message(SPAN_NOTICE(use_message))
+		visible_message(SPAN_NOTICE(use_message), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, 'sound/machines/chime.ogg', 25, 1)

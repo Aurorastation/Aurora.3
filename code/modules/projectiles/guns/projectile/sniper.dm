@@ -94,6 +94,10 @@
 		return
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
@@ -122,7 +126,7 @@
 	else
 		icon_state = "slugger"
 
-/obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
+/obj/item/gun/projectile/heavysniper/unathi/post_fire(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -227,6 +231,10 @@
 	set src in usr
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
@@ -277,6 +285,10 @@
 	set src in usr
 
 	if(wielded)
+		var/cancelled = FALSE
+		SEND_SIGNAL(usr, COMSIG_GUN_SCOPE, src, &cancelled, COMSIG_GUN_SCOPE)
+		if(cancelled)
+			return
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

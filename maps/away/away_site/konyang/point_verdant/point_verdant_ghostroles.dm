@@ -426,7 +426,7 @@
 	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat/ert
-	glasses = /obj/item/clothing/glasses
+	glasses = /obj/item/clothing/glasses/sunglasses
 	l_ear = /obj/item/radio/headset/ert
 	id = /obj/item/card/id/zeng_hu
 	belt_contents = list(

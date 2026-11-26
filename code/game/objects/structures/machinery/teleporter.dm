@@ -44,7 +44,7 @@
 
 /obj/structure/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
 	if(!locked_obj)
-		audible_message(SPAN_WARNING("Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."))
+		audible_message(SPAN_WARNING("Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."), audible_message_flags = LOCAL_MESSAGE)
 	var/obj/teleport_obj = locked_obj.resolve()
 	if(!teleport_obj)
 		locked_obj = null
@@ -81,8 +81,8 @@
 		if (AreConnectedZLevels(z, T.z))
 			return TRUE
 		else if(SSatlas.current_map.use_overmap)
-			var/my_sector = GLOB.map_sectors["[z]"]
-			var/target_sector = GLOB.map_sectors["[T.z]"]
+			var/my_sector = get_map_sector(src)
+			var/target_sector = get_map_sector(T.z)
 			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))
 				if(get_dist(my_sector, target_sector) < max_teleport_range)
 					return TRUE
@@ -93,7 +93,7 @@
 
 	use_power_oneoff(5000)
 	update_use_power(POWER_USE_ACTIVE)
-	visible_message(SPAN_NOTICE("Teleporter engaged!"))
+	visible_message(SPAN_NOTICE("Teleporter engaged!"), visible_message_flags = LOCAL_MESSAGE)
 	add_fingerprint(usr)
 	engaged = TRUE
 	queue_icon_update()
@@ -105,7 +105,7 @@
 	update_use_power(POWER_USE_IDLE)
 	locked_obj = null
 	locked_obj_name = null
-	visible_message(SPAN_NOTICE("Teleporter disengaged!"))
+	visible_message(SPAN_NOTICE("Teleporter disengaged!"), visible_message_flags = LOCAL_MESSAGE)
 	engaged = FALSE
 	queue_icon_update()
 
@@ -114,12 +114,12 @@
 	queue_icon_update()
 
 /obj/structure/machinery/teleport/pad/proc/start_recalibration()
-	audible_message(SPAN_NOTICE("Recalibrating..."))
+	audible_message(SPAN_NOTICE("Recalibrating..."), audible_message_flags = LOCAL_MESSAGE)
 	addtimer(CALLBACK(src, PROC_REF(recalibrate)), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/structure/machinery/teleport/pad/proc/recalibrate()
 	calibration = 0
-	audible_message(SPAN_NOTICE("Calibration complete."))
+	audible_message(SPAN_NOTICE("Calibration complete."), audible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/teleport/pad/ninja
 	ignore_distance = TRUE

@@ -89,7 +89,7 @@
 		to_chat(user, SPAN_WARNING("You can't do that while [src] is scanning!"))
 	else
 		if(istype(attacking_item, /obj/item/stack/nanopaste))
-			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
+			var/choice = tgui_alert(usr, "What do you want to do with the nanopaste?", "Radiometric Scanner", list("Scan nanopaste", "Fix seal integrity"))
 			if(choice == "Fix seal integrity")
 				var/obj/item/stack/nanopaste/nanopaste_stack = attacking_item
 				var/amount_used = min(nanopaste_stack.get_amount(), 10 - scanner_seal_integrity / 10)
@@ -97,7 +97,7 @@
 				scanner_seal_integrity = round(scanner_seal_integrity + amount_used * 10)
 				return
 		if(istype(attacking_item, /obj/item/reagent_containers/glass))
-			var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
+			var/choice = tgui_alert(usr, "What do you want to do with the container?", "Radiometric Scanner", list("Add coolant", "Empty coolant", "Scan container"))
 			if(choice == "Add coolant")
 				var/obj/item/reagent_containers/glass/glass_container = attacking_item
 				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, glass_container.reagents.total_volume)
@@ -253,16 +253,16 @@
 			//emergency stop if seal integrity reaches 0
 			if(scanner_seal_integrity <= 0 || (scanner_temperature >= 1273 && !rad_shield))
 				stop_scanning()
-				visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] buzzes unhappily. It has failed mid-scan!"), range = 2)
+				visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] buzzes unhappily. It has failed mid-scan!"), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 
 			if(prob(5))
-				visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")]."), range = 2)
+				visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [pick("whirrs","chuffs","clicks")][pick(" excitedly"," energetically"," busily")]."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 	else
 		//gradually cool down over time
 		if(scanner_temperature > 0)
 			scanner_temperature = max(scanner_temperature - 5 - 10 * rand(), 0)
 		if(prob(0.75))
-			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")]."), range = 2)
+			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [pick("plinks","hisses")][pick(" quietly"," softly"," sadly"," plaintively")]."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 	last_process_worldtime = world.time
 
 /obj/structure/machinery/radiocarbon_spectrometer/proc/stop_scanning()
@@ -282,7 +282,7 @@
 		used_coolant = 0
 
 /obj/structure/machinery/radiocarbon_spectrometer/proc/complete_scan()
-	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), range = 2)
+	visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] makes an insistent chime."), vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 
 	if(scanned_item)
 		//create report

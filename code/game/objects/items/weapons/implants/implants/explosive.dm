@@ -115,7 +115,7 @@
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
-/obj/item/implant/explosive/hear_talk(mob/M, msg)
+/obj/item/implant/explosive/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
@@ -150,7 +150,7 @@
 				small_countdown()
 				return
 		if("Destroy Body")
-			explosion(get_turf(imp_in), -1, 0, 2, 6)
+			explosion(get_turf(imp_in), -1, 0, 2, 6, spreading = TRUE)
 			if(ismob(imp_in))
 				imp_in.gib()
 		if("Full Explosion")
@@ -165,7 +165,7 @@
 
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
-		audible_message(SPAN_WARNING("[src] beeps ominously!"))
+		audible_message(SPAN_WARNING("[src] beeps ominously!"), audible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
 		imp_in.audible_message(SPAN_WARNING(message))
@@ -176,7 +176,7 @@
 
 /obj/item/implant/explosive/proc/small_boom()
 	if(!imp_in)
-		explosion(get_turf(src), -1, 0, 2, 4)
+		explosion(get_turf(src), -1, 0, 2, 4, spreading = TRUE)
 	if(ishuman(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
@@ -279,7 +279,7 @@
 
 /obj/item/implant/explosive/deadman/small_boom()
 	if(imp_in)
-		explosion(get_turf(src), -1, 0, 1, 6)
+		explosion(get_turf(src), -1, 0, 1, 6, spreading = TRUE)
 		imp_in.gib()
 		qdel(src)
 

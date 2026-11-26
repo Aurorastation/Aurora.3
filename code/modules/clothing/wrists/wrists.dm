@@ -1,5 +1,5 @@
 
-/obj/item/clothing/wrists
+ABSTRACT_TYPE(/obj/item/clothing/wrists)
 	name = "wrists"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
