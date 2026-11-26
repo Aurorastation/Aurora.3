@@ -28144,10 +28144,6 @@
 /obj/structure/table/steel,
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/item/reagent_containers/glass/beaker/bluespace,
-/obj/item/reagent_containers/chem_disp_cartridge/rezadone{
-	pixel_x = 9;
-	pixel_y = 11
-	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/hapt)
 "dBi" = (
