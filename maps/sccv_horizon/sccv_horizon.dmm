@@ -42128,12 +42128,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/effect/floor_decal/corner_wide/orange/full,
-/obj/structure/machinery/ringer/west{
-	name = "Pharmacy ringer terminal";
-	department = "Pharmacy Frontdesk";
-	id = "pharmacy_ringer";
-	req_access = list(33)
-	},
+/obj/structure/machinery/ringer/west/pharmacy,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/pharmacy)
 "ftF" = (
@@ -52487,12 +52482,7 @@
 /area/horizon/holodeck/source_trinary)
 "gLT" = (
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/machinery/ringer/west{
-	department = "Hydroponics";
-	id = "ringer_hydroponics";
-	req_access = list(35);
-	pixel_x = -10
-	},
+/obj/structure/machinery/ringer/west/hydroponics,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "gLY" = (
@@ -110301,7 +110291,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/structure/machinery/ringer/south,
 /obj/structure/disposalpipe/junction{
 	dir = 4;
 	icon_state = "pipe-j2"
@@ -131349,11 +131338,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/structure/machinery/ringer/west{
-	id = "medbay_ringer";
-	req_access = list(5);
-	department = "Medbay"
-	},
+/obj/structure/machinery/ringer/west/medical,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "qOK" = (

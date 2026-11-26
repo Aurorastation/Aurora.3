@@ -179,15 +179,24 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	if(.)
 		return
 
-	var/obj/item/organ/internal/augment/tesla_device/pda/augment = internal_organs_by_name[BP_AUG_TESLA_PDA]
-	if(augment?.internal_pda)
-		return augment.internal_pda
+	for(var/obj/item/modular_computer/internal_pda in get_internal_pdas())
+		return internal_pda
 
 	if(istype(wear_id, /obj/item/modular_computer))
 		return wear_id
 
 	if(istype(wrists, /obj/item/modular_computer))
 		return wrists
+
+/// Returns every internal PDA installed in this human.
+/mob/living/carbon/human/proc/get_internal_pdas()
+	. = list()
+	var/obj/item/organ/internal/augment/tesla_device/pda/augment = internal_organs_by_name[BP_AUG_TESLA_PDA]
+	if(augment?.internal_pda)
+		. += augment.internal_pda
+	var/obj/item/organ/internal/machine/wireless_access/wireless_access = internal_organs_by_name[BP_WIRELESS_ACCESS]
+	if(wireless_access?.internal_pda)
+		. += wireless_access.internal_pda
 
 //Returns the thing if it's a subtype of the requested thing, taking priority of the active hand
 /mob/proc/get_type_in_hands(var/type)

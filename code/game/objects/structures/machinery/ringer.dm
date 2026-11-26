@@ -14,7 +14,7 @@ pixel_x = -8;
 dir = EAST; \
 pixel_x = 8;
 
-/// Job titles mapped to weak references of their initialized ringer terminals.
+/// Job datum types mapped to weak references of their initialized ringer terminals.
 GLOBAL_LIST_EMPTY(ringers_by_job)
 
 /obj/structure/machinery/ringer
@@ -29,8 +29,8 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
-	/// Jobs (including alternate titles) whose issued devices automatically link here.
-	var/list/autolink_jobs = list()
+	/// Job datum types whose issued devices automatically link here.
+	var/list/autolink_job_types = list()
 
 	///A list of PDAs to alert upon someone touching the machine
 	var/list/obj/item/modular_computer/rings_pdas = list()
@@ -48,31 +48,24 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	PRESET_NORTH
 
 /obj/structure/machinery/ringer/north/medical
-	autolink_jobs = list(
-		"Chief Medical Officer",
-		"Physician",
-		"Surgeon",
-		"Medical Intern",
-		"Resident Physician",
-		"Resident Surgeon"
+	autolink_job_types = list(
+		/datum/job/cmo,
+		/datum/job/doctor,
+		/datum/job/surgeon,
+		/datum/job/psychiatrist,
+		/datum/job/med_tech,
+		/datum/job/intern_med
 	)
 	department = "Medbay"
 	id = "medbay_ringer"
 	req_access = list(/datum/access/medical::id)
 
 /obj/structure/machinery/ringer/north/engineering
-	autolink_jobs = list(
-		"Chief Engineer",
-		"Ship Engineer",
-		"Reactor Operator",
-		"Maintenance Technician",
-		"Systems Engineer",
-		"Atmospheric Technician",
-		"Environmental Systems Engineer",
-		"Propulsion Engineer",
-		"Damage Control Technician",
-		"Engineering Apprentice",
-		"Atmospherics Apprentice"
+	autolink_job_types = list(
+		/datum/job/chief_engineer,
+		/datum/job/engineer,
+		/datum/job/atmos,
+		/datum/job/intern_eng
 	)
 	department = "Engineering"
 	id = "engie_ringer"
@@ -84,20 +77,20 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	PRESET_SOUTH
 
 /obj/structure/machinery/ringer/south/custodial
-	autolink_jobs = list("Janitor")
+	autolink_job_types = list(/datum/job/janitor)
 	department = "Custodial"
 	id = "ringers_custodial"
 	name = "\improper Custodial Ringer Terminal"
 	req_access = list(/datum/access/janitor::id)
 
 /obj/structure/machinery/ringer/south/investigations
-	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	autolink_job_types = list(/datum/job/hos, /datum/job/investigator, /datum/job/intern_sec)
 	department = "Security"
 	id = "investigation_ringer"
 	req_access = list(/datum/access/security::id)
 
 /obj/structure/machinery/ringer/south/pharmacy
-	autolink_jobs = list("Pharmacist", "Pharmacy Intern")
+	autolink_job_types = list(/datum/job/pharmacist, /datum/job/intern_med)
 	department = "Pharmacy Frontdesk"
 	id = "pharmacy_ringer"
 	req_access = list(/datum/access/pharmacy::id)
@@ -106,7 +99,7 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	PRESET_WEST
 
 /obj/structure/machinery/ringer/west/custodial
-	autolink_jobs = list("Janitor")
+	autolink_job_types = list(/datum/job/janitor)
 	department = "Custodial"
 	id = "ringers_custodial"
 	name = "\improper Custodial Ringer Terminal"
@@ -114,7 +107,7 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_access = list(/datum/access/janitor::id)
 
 /obj/structure/machinery/ringer/west/custodial_auxiliary
-	autolink_jobs = list("Janitor")
+	autolink_job_types = list(/datum/job/janitor)
 	department = "Auxiliary Custodial"
 	id = "ringers_custodialaux"
 	name = "\improper Auxiliary Custodial Ringer Terminal"
@@ -122,16 +115,10 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_access = list(/datum/access/janitor::id)
 
 /obj/structure/machinery/ringer/west/consular_a
-	autolink_jobs = list(
-		"Consular Officer",
-		"Civil Service Functionaire",
-		"Foreign Service Officer",
-		"Party Representative",
-		"Kreshwan",
-		"Diplomatic Aide",
-		"Civil Service Aide",
-		"Diplomatic Bodyguard",
-		"Civil Service Bodyguard"
+	autolink_job_types = list(
+		/datum/job/consular,
+		/datum/job/diplomatic_aide,
+		/datum/job/diplomatic_bodyguard
 	)
 	department = "Consular A"
 	id = "consular_a_ringer"
@@ -140,36 +127,55 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_one_access = list(/datum/access/consular::id)
 
 /obj/structure/machinery/ringer/west/investigations
-	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	autolink_job_types = list(/datum/job/hos, /datum/job/investigator, /datum/job/intern_sec)
 	department = "Security"
 	id = "investigation_ringer"
 	req_access = list(/datum/access/security::id)
 
 /obj/structure/machinery/ringer/west/hydroponics
-	autolink_jobs = list("Gardener", "Hydroponicist")
+	autolink_job_types = list(/datum/job/hydro)
 	department = "Hydroponics"
 	id = "ringer_hydroponics"
 	pixel_x = -10
 	pixel_y = -31
 	req_access = list(/datum/access/hydroponics::id)
 
+/obj/structure/machinery/ringer/west/medical
+	autolink_job_types = list(
+		/datum/job/cmo,
+		/datum/job/doctor,
+		/datum/job/surgeon,
+		/datum/job/psychiatrist,
+		/datum/job/med_tech,
+		/datum/job/intern_med
+	)
+	department = "Medbay"
+	id = "medbay_ringer"
+	req_access = list(/datum/access/medical::id)
+
+/obj/structure/machinery/ringer/west/pharmacy
+	autolink_job_types = list(/datum/job/pharmacist, /datum/job/intern_med)
+	department = "Pharmacy Frontdesk"
+	id = "pharmacy_ringer"
+	name = "Pharmacy ringer terminal"
+	req_access = list(/datum/access/pharmacy::id)
+
 /obj/structure/machinery/ringer/east
 	PRESET_EAST
 
 /obj/structure/machinery/ringer/east/operations_office
-	autolink_jobs = list("Operations Manager", "Hangar Technician")
+	autolink_job_types = list(/datum/job/operations_manager, /datum/job/hangar_tech)
 	department = "Cargo"
 	id = "cargo_ringer"
 	pixel_y = 17
 	req_access = list(/datum/access/cargo::id)
 
 /obj/structure/machinery/ringer/east/security_lobby
-	autolink_jobs = list(
-		"Head of Security",
-		"Warden",
-		"Security Officer",
-		"Security Cadet",
-		"Warden Cadet"
+	autolink_job_types = list(
+		/datum/job/hos,
+		/datum/job/warden,
+		/datum/job/officer,
+		/datum/job/intern_sec
 	)
 	department = "Security"
 	id = "security_ringer"
@@ -178,16 +184,10 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_one_access = list(/datum/access/security::id)
 
 /obj/structure/machinery/ringer/east/consular_b
-	autolink_jobs = list(
-		"Consular Officer",
-		"Civil Service Functionaire",
-		"Foreign Service Officer",
-		"Party Representative",
-		"Kreshwan",
-		"Diplomatic Aide",
-		"Civil Service Aide",
-		"Diplomatic Bodyguard",
-		"Civil Service Bodyguard"
+	autolink_job_types = list(
+		/datum/job/consular,
+		/datum/job/diplomatic_aide,
+		/datum/job/diplomatic_bodyguard
 	)
 	department = "Consular B"
 	id = "consular_b_ringer"
@@ -196,27 +196,27 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	req_one_access = list(/datum/access/consular::id)
 
 /obj/structure/machinery/ringer/east/investigations
-	autolink_jobs = list("Head of Security", "Investigator", "Investigator Intern")
+	autolink_job_types = list(/datum/job/hos, /datum/job/investigator, /datum/job/intern_sec)
 	department = "Security"
 	id = "investigation_ringer"
 	req_access = list(/datum/access/security::id)
 
 /obj/structure/machinery/ringer/east/hydroponics
-	autolink_jobs = list("Gardener", "Hydroponicist")
+	autolink_job_types = list(/datum/job/hydro)
 	department = "Hydroponics"
 	id = "ringer_hydroponics"
 	req_access = list(/datum/access/hydroponics::id)
 
 /obj/structure/machinery/ringer/east/machinist
-	autolink_jobs = list("Machinist")
+	autolink_job_types = list(/datum/job/machinist)
 	department = "Operations"
 	id = "workshop_ringer"
 	req_access = list(/datum/access/robotics::id)
 
 /obj/structure/machinery/ringer/Initialize(mapload)
 	. = ..()
-	for(var/job_title in autolink_jobs)
-		LAZYADD(GLOB.ringers_by_job[job_title], WEAKREF(src))
+	for(var/job_type in autolink_job_types)
+		LAZYADD(GLOB.ringers_by_job[job_type], WEAKREF(src))
 	if(id)
 		ringers = new(id, src)
 
@@ -236,10 +236,10 @@ GLOBAL_LIST_EMPTY(ringers_by_job)
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/structure/machinery/ringer/Destroy()
-	for(var/job_title in autolink_jobs)
-		LAZYREMOVE(GLOB.ringers_by_job[job_title], weak_reference)
-		if(!length(GLOB.ringers_by_job[job_title]))
-			GLOB.ringers_by_job -= job_title
+	for(var/job_type in autolink_job_types)
+		LAZYREMOVE(GLOB.ringers_by_job[job_type], weak_reference)
+		if(!length(GLOB.ringers_by_job[job_type]))
+			GLOB.ringers_by_job -= job_type
 	QDEL_NULL(ringers)
 	return ..()
 

@@ -53,21 +53,21 @@
 		if(prs.type == preset_type)
 			return prs.return_install_programs(src)
 
-/// Resolves the weakly registered ringers for the issued device's job title.
-/obj/item/modular_computer/proc/connect_departmental_ringers(job_title)
-	if(!job_title)
+/// Resolves the weakly registered ringers for the issued device's job type and its parent job types.
+/obj/item/modular_computer/proc/connect_departmental_ringers(job_type)
+	if(!ispath(job_type, /datum/job))
 		return
-	var/list/job_ringers = GLOB.ringers_by_job[job_title]
-	if(!length(job_ringers))
-		return
-	for(var/datum/weakref/ringer_ref as anything in job_ringers.Copy())
-		var/obj/structure/machinery/ringer/ringer = ringer_ref.resolve()
-		if(ringer)
-			ringer.add_pda(src)
-		else
-			job_ringers -= ringer_ref
-	if(!length(job_ringers))
-		GLOB.ringers_by_job -= job_title
+	while(ispath(job_type, /datum/job))
+		var/list/job_ringers = GLOB.ringers_by_job[job_type]
+		for(var/datum/weakref/ringer_ref as anything in job_ringers?.Copy())
+			var/obj/structure/machinery/ringer/ringer = ringer_ref.resolve()
+			if(ringer)
+				ringer.add_pda(src)
+			else
+				job_ringers -= ringer_ref
+		if(job_ringers && !length(job_ringers))
+			GLOB.ringers_by_job -= job_type
+		job_type = type2parent(job_type)
 
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
