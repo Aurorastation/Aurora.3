@@ -19,7 +19,7 @@
 /datum/design/item/medical/advanced_health_analyzer
 	name = "Advanced Health Analyzer"
 	desc = "An advanced full-body scanner capable of producing detailed medical reports."
-	req_tech = list(TECH_MAGNET = 4, TECH_BIO = 4, TECH_DATA = 3)
+	req_tech = list(TECH_MAGNET = 5, TECH_BIO = 5, TECH_DATA = 5)
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 1000, MATERIAL_SILVER = 500)
 	build_path = /obj/item/advanced_healthanalyzer
 
