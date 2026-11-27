@@ -1,4 +1,4 @@
-author: "Codex, tgstation contributors"
+author: geeves
 delete-after: true
 changes:
-  - rscadd: "Install reinforced glass sheets directly over open space to see the deck below. Adjacent glass tiles form a continuous floor with a frame around its perimeter."
+  - rscadd: "Build walkable glass floors over open space with reinforced glass sheets. Connected panes share a frame around their perimeter. Glass sprites are from /tg/station."
