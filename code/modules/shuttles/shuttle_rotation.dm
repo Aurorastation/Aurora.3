@@ -28,12 +28,14 @@
 	pixel_y = rotated_offset[2]
 
 /atom/movable/shuttleRotate(rotation)
+	. = ..()
+	rotate_shuttle_bounds(rotation)
+
+/atom/movable/proc/rotate_shuttle_bounds(rotation)
 	var/old_bound_x = bound_x
 	var/old_bound_y = bound_y
 	var/old_bound_width = bound_width
 	var/old_bound_height = bound_height
-
-	. = ..()
 
 	// BYOND does not rotate rectangular collision bounds when dir changes.
 	for(var/turn_count in 1 to SIMPLIFY_DEGREES(rotation) / 90)
@@ -80,14 +82,48 @@
 	if(!buckled_to)
 		set_dir(angle2dir(dir2angle(dir) + rotation))
 
-// Aurora airlock icons are 64x64 and use a fixed -16,-16 centering offset in
-// every direction. Rotating that offset shifts the rendered door off its turf.
-/obj/structure/machinery/door/airlock/shuttleRotate(rotation)
+// Wide doors always occupy tiles north/east of their origin. Rotate that
+// footprint by moving the origin to its new southwest corner, rather than
+// using negative bound offsets (which are rendering offsets in BYOND 516).
+/obj/structure/machinery/door/rotate_shuttle_bounds(rotation)
+	if(width <= 1)
+		return ..()
+	var/list/rotated_corner = rotate_shuttle_offset(bound_width / world.icon_size - 1, bound_height / world.icon_size - 1, rotation)
+	var/turf/new_origin = locate(x + min(0, rotated_corner[1]), y + min(0, rotated_corner[2]), z)
+	SetBounds()
+	if(new_origin != loc)
+		forceMove(new_origin)
+
+// Keep sprite padding fixed relative to the door's southwest corner.
+/obj/structure/machinery/door/shuttleRotate(rotation)
+	if(width <= 1)
+		return ..()
 	var/old_pixel_x = pixel_x
 	var/old_pixel_y = pixel_y
 	. = ..()
 	pixel_x = old_pixel_x
 	pixel_y = old_pixel_y
+	update_nearby_tiles()
+
+// Single airlock icons use fixed centering offsets in every direction.
+/obj/structure/machinery/door/airlock/shuttleRotate(rotation)
+	if(width > 1)
+		return ..()
+	var/old_pixel_x = pixel_x
+	var/old_pixel_y = pixel_y
+	. = ..()
+	pixel_x = old_pixel_x
+	pixel_y = old_pixel_y
+
+// Flipped double doors have different canvas padding on each axis.
+/obj/structure/machinery/door/airlock/multi_tile/flipped/shuttleRotate(rotation)
+	var/was_horizontal = dir in list(EAST, WEST)
+	. = ..()
+	var/is_horizontal = dir in list(EAST, WEST)
+	if(was_horizontal != is_horizontal)
+		var/padding_shift = was_horizontal ? -world.icon_size : world.icon_size
+		pixel_x += padding_shift
+		pixel_y -= padding_shift
 
 /obj/structure/cable/shuttleRotate(rotation)
 	. = ..()

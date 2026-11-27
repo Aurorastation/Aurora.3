@@ -1,0 +1,4 @@
+author: Casper3667
+delete-after: True
+changes:
+  - bugfix: "Double doors now keep their sprites aligned with their occupied turfs when a shuttle rotates."

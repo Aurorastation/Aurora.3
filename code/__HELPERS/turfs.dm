@@ -279,6 +279,9 @@
 			break
 
 	for(var/obj/O in source)
+		// A wide object can overlap this turf while its origin is elsewhere.
+		if(O.loc != source)
+			continue
 		if(O.simulated && (!is_background || supported || O.obj_flags & OBJ_FLAG_MOVES_UNSUPPORTED))
 			O.forceMove(new_turf)
 		else if(istype(O,/obj/effect)) // This is used for non-game objects like spawnpoints, so ignore the background check.
@@ -287,6 +290,8 @@
 				E.forceMove(new_turf)
 
 	for(var/mob/M in source)
+		if(M.loc != source)
+			continue
 		if(is_background && !supported)
 			continue
 		if(isEye(M))
