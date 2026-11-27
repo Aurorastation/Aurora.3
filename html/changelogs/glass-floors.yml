@@ -1,4 +1,4 @@
 author: "Codex, tgstation contributors"
 delete-after: true
 changes:
-  - rscadd: "Install glass sheets directly over open space to see the deck below. Adjacent glass tiles form a continuous floor with a frame around its perimeter."
+  - rscadd: "Install reinforced glass sheets directly over open space to see the deck below. Adjacent glass tiles form a continuous floor with a frame around its perimeter."

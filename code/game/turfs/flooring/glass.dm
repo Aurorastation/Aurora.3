@@ -1,10 +1,10 @@
 /singleton/flooring/glass
 	name = "glass floor"
-	desc = "A clear, load-bearing glass panel in a metal frame."
+	desc = "A clear, load-bearing reinforced glass panel in a metal frame."
 	icon = 'icons/turf/flooring/glass.dmi'
 	icon_base = "glass-0"
 	descriptor = "glass panel"
-	build_type = /obj/item/stack/material/glass
+	build_type = /obj/item/stack/material/glass/reinforced
 	build_time = 3 SECONDS
 	covers_open_space = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
