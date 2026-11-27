@@ -70,4 +70,4 @@
 	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/psis_outpost/get_id_access()
-	return list(/datum/access/pra::id)
+	return list(/datum/access/away/pra::id)

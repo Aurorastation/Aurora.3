@@ -91,7 +91,6 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_silo_entry";
 	name = "Entry";
-	req_access = list(209);
 	pixel_x = -32
 	},
 /obj/effect/floor_decal/concrete{
@@ -101,6 +100,7 @@
 	identifier = "silo_guard";
 	name = "igs - silo_guard"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -264,10 +264,10 @@
 "R" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},

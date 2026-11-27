@@ -14,12 +14,13 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(/datum/access/lawyer::id, /datum/access/heads::id)
+	req_one_access = list(/datum/access/horizon/lawyer::id, /datum/access/horizon/heads::id)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200
 	print_animation = "faxreceive"
 	pda_linkable = TRUE
+	persistent_toner = FALSE
 
 	var/static/const/adminfax_cooldown = 1800
 	var/static/const/normalfax_cooldown = 300

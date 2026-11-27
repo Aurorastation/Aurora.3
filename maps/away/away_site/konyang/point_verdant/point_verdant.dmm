@@ -1490,9 +1490,9 @@
 "aRp" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "konyang_cell4"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "aRG" = (
@@ -2388,9 +2388,8 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "bpT" = (
-/obj/structure/machinery/door/window/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
 "bpY" = (
@@ -2488,9 +2487,9 @@
 	id = "konyang_cell3";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "brp" = (
@@ -5052,9 +5051,9 @@
 	name = "Store Shutters";
 	pixel_y = 8;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "cRz" = (
@@ -5455,9 +5454,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "cZo" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -5467,6 +5464,7 @@
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "cZG" = (
@@ -5607,9 +5605,9 @@
 	name = "Cell Door Bolts";
 	pixel_x = -19;
 	pixel_y = 7;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "dcU" = (
@@ -5788,9 +5786,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "konyang_police_garage_inner";
 	name = "Garage Doors";
-	req_access = list(218);
 	pixel_y = -16
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "dhS" = (
@@ -5988,10 +5986,10 @@
 	id = "konyang_police_garage";
 	name = "Garage Doors";
 	dir = 8;
-	req_access = list(218);
 	pixel_x = -19;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "dmS" = (
@@ -6266,9 +6264,9 @@
 	name = "Store Shutters";
 	pixel_y = 25;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 22
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "dtj" = (
@@ -6815,9 +6813,9 @@
 "dLr" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "konyang_cell1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "dLW" = (
@@ -7969,9 +7967,9 @@
 	name = "Cell Door Bolts";
 	pixel_x = -19;
 	pixel_y = 7;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "erP" = (
@@ -8566,12 +8564,11 @@
 /area/point_verdant/interior)
 "eIz" = (
 /obj/structure/table/wood,
-/obj/structure/machinery/door/window/desk/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/southright,
 /obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "eIF" = (
@@ -10366,10 +10363,10 @@
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
 	pixel_y = 32;
-	req_access = list(219);
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "fEv" = (
@@ -11596,9 +11593,8 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "gxI" = (
-/obj/structure/machinery/door/window/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/tailor)
 "gxN" = (
@@ -11976,9 +11972,9 @@
 	id = "konyang_cell4";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "gJh" = (
@@ -13222,9 +13218,9 @@
 	id = "konyang_street_vendor";
 	name = "Store Shutters";
 	pixel_y = 26;
-	req_access = list(219);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/streetvendor)
 "hAq" = (
@@ -13534,10 +13530,10 @@
 	id = "konyang_police_garage";
 	name = "Garage Doors";
 	dir = 4;
-	req_access = list(218);
 	pixel_x = 20;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/interior/police)
 "hIV" = (
@@ -15442,9 +15438,9 @@
 "iMR" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "konyang_cell5"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "iNk" = (
@@ -18477,14 +18473,13 @@
 /area/point_verdant/interior/police)
 "kxp" = (
 /obj/structure/table/wood,
-/obj/structure/machinery/door/window/desk/southleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/southleft,
 /obj/item/toy/desk/fan{
 	pixel_y = 7;
 	pixel_x = -17
 	},
 /obj/item/paper_scanner,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "kxw" = (
@@ -19317,9 +19312,8 @@
 /area/point_verdant/interior/tunnels)
 "kUq" = (
 /obj/structure/table/wood,
-/obj/structure/machinery/door/window/southleft{
-	req_access = list(218)
-	},
+/obj/structure/machinery/door/window/southleft,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "kUr" = (
@@ -20024,20 +20018,20 @@
 	id = "konyang_minimart";
 	name = "Store Shutters";
 	pixel_y = 32;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "lrt" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(218)
+	dir = 2
 	},
 /obj/structure/machinery/door/blast/shutters/open{
 	id = "konyang_police";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "lrK" = (
@@ -21500,9 +21494,9 @@
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 21
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/restaurant)
 "mbE" = (
@@ -21567,9 +21561,9 @@
 	id = "konyang_cafe";
 	name = "Store Shutters";
 	pixel_y = 28;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "mha" = (
@@ -22171,9 +22165,9 @@
 	name = "Garage Doors";
 	dir = 1;
 	pixel_x = 20;
-	pixel_y = 26;
-	req_access = list(112)
+	pixel_y = 26
 	},
+/obj/effect/map_effect/marker/access/req_all/distress,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "mzo" = (
@@ -22250,9 +22244,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/shallow)
 "mCw" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -22269,6 +22261,7 @@
 /obj/item/taperoll/police,
 /obj/item/taperoll/police,
 /obj/item/taperoll/police,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/dark,
 /area/point_verdant/interior/police)
 "mCA" = (
@@ -22810,9 +22803,9 @@
 	id = "konyang_street_vendor";
 	name = "Store Shutters";
 	pixel_y = 26;
-	req_access = list(219);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/streetvendor)
 "mSJ" = (
@@ -23560,9 +23553,9 @@
 	id = "konyang_minimart";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
 "nol" = (
@@ -23782,8 +23775,7 @@
 	name = "Garage Doors";
 	dir = 4;
 	pixel_x = 20;
-	pixel_y = 4;
-	req_access = list(112)
+	pixel_y = 4
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/key/bike/sport{
@@ -23794,6 +23786,7 @@
 	pixel_x = 4;
 	key_data = "P99-7257"
 	},
+/obj/effect/map_effect/marker/access/req_all/distress,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "nvk" = (
@@ -23846,9 +23839,9 @@
 	id = "konyang_arcade";
 	name = "Store Shutters";
 	pixel_y = 28;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
 "nwA" = (
@@ -24034,9 +24027,9 @@
 	id = "konyang_tailor_shutters";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "nCr" = (
@@ -24199,9 +24192,9 @@
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 21
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "nHt" = (
@@ -25957,9 +25950,9 @@
 "oKJ" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "konyang_cell2"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "oKN" = (
@@ -26595,9 +26588,9 @@
 	id = "konyang_cell2";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "pgC" = (
@@ -26679,11 +26672,11 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "konyang_pharmacy";
 	name = "Pharmacy Shutters";
-	req_access = list(219);
 	pixel_y = 25;
 	dir = 1;
 	pixel_x = 18
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "pjZ" = (
@@ -27887,10 +27880,10 @@
 	id = "konyang_police_garage";
 	name = "Garage Doors";
 	dir = 4;
-	req_access = list(218);
 	pixel_x = 20;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "pZK" = (
@@ -28028,9 +28021,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "konyang_police";
 	name = "Front Desk Lockdown";
-	dir = 1;
-	req_access = list(218)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "qdl" = (
@@ -28552,9 +28545,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "konyang_clinic";
 	name = "Clinic Shutters";
-	pixel_y = 32;
-	req_access = list(219)
+	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/robotics)
 "qwK" = (
@@ -29289,9 +29282,8 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
 "qSq" = (
-/obj/structure/machinery/door/window/eastright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/eastright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "qSs" = (
@@ -29516,9 +29508,9 @@
 	name = "Armory Doors";
 	dir = 1;
 	pixel_x = 2;
-	pixel_y = 32;
-	req_access = list(112)
+	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/distress,
 /turf/simulated/floor/carpet/green,
 /area/point_verdant/interior/offices/kaf)
 "qXz" = (
@@ -29712,9 +29704,9 @@
 	name = "Store Shutters";
 	pixel_y = 27;
 	dir = 1;
-	req_access = list(219);
 	pixel_x = -25
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
 "rdC" = (
@@ -29931,9 +29923,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/shallow)
 "rlk" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/flashlight/maglight,
 /obj/item/flashlight/maglight,
 /obj/item/flashlight/maglight,
@@ -29952,6 +29942,7 @@
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
 /obj/item/clothing/suit/storage/vest/konyang,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "rlA" = (
@@ -30189,9 +30180,9 @@
 	id = "konyang_restaurant";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/outdoors)
 "rsa" = (
@@ -30900,10 +30891,10 @@
 	id = "konyang_police_garage_inner";
 	name = "Garage Doors";
 	dir = 4;
-	req_access = list(218);
 	pixel_x = 20;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "rRl" = (
@@ -37205,9 +37196,9 @@
 	id = "konyang_minimart";
 	name = "Store Shutters";
 	pixel_x = 24;
-	dir = 4;
-	req_access = list(219)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk,
 /area/point_verdant/interior/shallow)
 "vCT" = (
@@ -38434,9 +38425,8 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "wpc" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(218)
-	},
+/obj/structure/machinery/door/airlock/multi_tile/glass,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "wpd" = (
@@ -40098,9 +40088,9 @@
 "xkq" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "konyang_cell3"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "xku" = (

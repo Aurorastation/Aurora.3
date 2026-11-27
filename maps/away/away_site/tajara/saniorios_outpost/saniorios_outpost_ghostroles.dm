@@ -34,4 +34,4 @@
 	r_pocket = /obj/item/storage/wallet/random
 
 /obj/outfit/admin/saniorios_outpost_crew/get_id_access()
-	return list(/datum/access/dpra::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/dpra::id, /datum/access/horizon/external_airlocks::id)

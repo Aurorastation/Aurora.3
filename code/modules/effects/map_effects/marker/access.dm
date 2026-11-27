@@ -4,7 +4,7 @@
 /// Intended use is to define a subtype in code, for example:
 /// ```
 /// /obj/effect/map_effect/marker/access/security
-/// 	req_one_access = list(/datum/access/security::id)
+/// 	req_one_access = list(/datum/access/horizon/security::id)
 /// ```
 /// And then map that over doors, lockers, buttons, etc, instead of var-editing raw numeric access onto them.
 ///
@@ -33,7 +33,6 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 		// doors
 		/obj/structure/machinery/door/airlock,
 		/obj/structure/machinery/door/window,
-		/obj/structure/machinery/door/firedoor,
 		/obj/structure/machinery/door/urban,
 
 		// buttons, controllers, panels
@@ -86,7 +85,11 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	/// Types (and their subtypes) this marker never touches, even if they match `types_whitelist`.
 	/// For exceptions to a whitelisted parent type.
 	var/list/types_blacklist = list(
-		// intentionally has no access requirements, so anyone can manually open it during a lockdown
+		// intentionally has no access requirements, as the base type is used all over horizon,
+		// on top of doors, so we don't want to change its default engineering access to different one
+		// leaving this here as to explain the reasoning for not including it in the types whitelist
+		/obj/structure/machinery/door/firedoor,
+		// ideally it would be just this one and a subtype like `firedoor/horizon`, without base type
 		/obj/structure/machinery/door/firedoor/noid,
 	)
 
@@ -132,3 +135,13 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/access)
 	name = "access marker (no access)"
 	icon_state = "access_marker_none"
 	clear_access = TRUE
+
+// ----------------------------------- generated from map var-edits, to be sorted out
+
+/// Adds one access to `req_one_access` of the objects under it.
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_one)
+	name = "access marker (req_one)"
+
+/// Adds one access to `req_access` of the objects under it.
+ABSTRACT_TYPE(/obj/effect/map_effect/marker/access/req_all)
+	name = "access marker (req_all)"

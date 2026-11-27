@@ -36,7 +36,9 @@
 		user.drop_from_inventory(attacking_item, src)
 		notices++
 		update_icon()
-		SSpersistence.objectsRegisterTrack(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+		var/obj/item/paper/paper = attacking_item
+		if(!paper.is_blank())
+			SSpersistence.objectsRegisterTrack(paper, ckey(user.key)) // Add non-blank paper to persistent tracker
 		to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
@@ -98,7 +100,7 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard0"
-	req_one_access = list(/datum/access/captain::id, /datum/access/cmo::id, /datum/access/hos::id, /datum/access/qm::id, /datum/access/hos::id, /datum/access/ce::id)
+	req_one_access = list(/datum/access/horizon/captain::id, /datum/access/horizon/cmo::id, /datum/access/horizon/hos::id, /datum/access/horizon/qm::id, /datum/access/horizon/hos::id, /datum/access/horizon/ce::id)
 	base_icon = "comboard"
 	notice_limit = 6
 	var/open

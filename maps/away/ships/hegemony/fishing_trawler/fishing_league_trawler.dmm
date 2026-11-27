@@ -361,9 +361,9 @@
 	},
 /obj/structure/curtain/black,
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(241);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
 "df" = (
@@ -819,10 +819,9 @@
 "hu" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/melee/energy/glaive/hegemony,
-/obj/item/rig/industrial/equipped{
-	req_access = list(241)
-	},
+/obj/item/rig/industrial/equipped,
 /obj/item/shield/energy/hegemony,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
 "hv" = (
@@ -1225,9 +1224,8 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	req_access = list(241)
-	},
+/obj/structure/machinery/door/airlock/multi_tile/glass,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/EVA_port)
 "kE" = (
@@ -1378,8 +1376,7 @@
 /area/ship/fishing_trawler/bridge)
 "lv" = (
 /obj/structure/machinery/door/airlock/command{
-	dir = 4;
-	req_access = list(241)
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1391,6 +1388,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/bridge)
 "lw" = (
@@ -1622,10 +1620,10 @@
 	},
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
-	name = "Freezer";
-	req_access = list(241)
+	name = "Freezer"
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
 "ne" = (
@@ -1709,9 +1707,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(241);
 	name = "Reactor"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "nA" = (
@@ -2726,9 +2724,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(241);
 	name = "Atmospherics"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/Starboard)
 "uI" = (
@@ -2852,9 +2850,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/mining{
-	name = "Crew Bunk";
-	req_access = list(241)
+	name = "Crew Bunk"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/crew_quarters)
 "vO" = (
@@ -3797,9 +3795,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/command{
-	dir = 4;
-	req_access = list(241)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "CJ" = (
@@ -3987,9 +3985,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/mining{
-	name = "EVA";
-	req_access = list(241)
+	name = "EVA"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/EVA_starboard)
 "DU" = (
@@ -4206,10 +4204,9 @@
 "FE" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
-	},
+/obj/structure/machinery/door/airlock/hatch,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/corridor/port)
 "FI" = (
@@ -4293,8 +4290,7 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/machinery/door/window{
 	dir = 1;
-	name = "Brig Office";
-	req_access = list(216)
+	name = "Brig Office"
 	},
 /obj/item/soap,
 /obj/structure/machinery/shower{
@@ -4304,6 +4300,7 @@
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/crew_quarters)
 "Gf" = (
@@ -4406,12 +4403,11 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/Captain)
 "GP" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(241)
-	},
+/obj/structure/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "GT" = (
@@ -4601,9 +4597,8 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
-	},
+/obj/structure/machinery/door/airlock/hatch,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/corridor/starboard)
 "Jo" = (
@@ -5945,9 +5940,9 @@
 /area/ship/fishing_trawler/EVA_port)
 "TM" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "TN" = (
@@ -5999,9 +5994,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Un" = (
-/obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(241)
-	},
+/obj/structure/machinery/computer/ship/helm/terminal,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Ur" = (
@@ -6041,9 +6035,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(241)
-	},
+/obj/structure/machinery/door/airlock/command/gold,
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/bridge)
 "UH" = (
@@ -6265,9 +6258,9 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
-	name = "Freezer";
-	req_access = list(241)
+	name = "Freezer"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
 "WA" = (
@@ -6400,9 +6393,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
-	dir = 4;
-	req_access = list(241)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/medical)
 "XL" = (
@@ -6484,13 +6477,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/medical)
 "YA" = (
-/obj/structure/machinery/door/airlock/hatch{
-	req_access = list(241)
-	},
+/obj/structure/machinery/door/airlock/hatch,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_trawler_access,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "YB" = (
@@ -6572,10 +6564,10 @@
 "Zb" = (
 /obj/structure/machinery/door/window{
 	dir = 8;
-	name = "Reception Desk";
-	req_access = list(66)
+	name = "Reception Desk"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/map_effect/marker/access/req_all/medical_equip,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/Captain)
 "Zf" = (

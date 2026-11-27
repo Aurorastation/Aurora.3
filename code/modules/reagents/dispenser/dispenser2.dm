@@ -119,6 +119,10 @@
 
 	cartridges[C.label] = C
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
+	// Register eligible loose cartridges inserted into a mapped persistent dispenser.
+	if(C.is_persistent && !C.persistence_excluded)
+		if(persistent_cartridge_id && SSpersistence.map_supports_persistence)
+			SSpersistence.objectsRegisterTrack(C)
 	SStgui.update_uis(src)
 
 /obj/structure/machinery/chemical_dispenser/proc/remove_cartridge(label)

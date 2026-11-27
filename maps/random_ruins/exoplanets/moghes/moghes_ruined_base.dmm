@@ -113,9 +113,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -170,9 +170,9 @@
 /area/template_noop)
 "mA" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Armory";
-	req_access = list(113)
+	name = "Armory"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -371,9 +371,9 @@
 /area/template_noop)
 "yN" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_one_access = list(113)
+	name = "Captain's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "za" = (
@@ -397,9 +397,9 @@
 /area/template_noop)
 "zG" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(113);
 	name = "Barracks"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -511,9 +511,9 @@
 /area/template_noop)
 "Kt" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Checkpoint";
-	req_access = list(113)
+	name = "Checkpoint"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -722,9 +722,9 @@
 "WG" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(113)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -741,9 +741,9 @@
 /area/template_noop)
 "Xf" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_one_access = list(113)
+	name = "Captain's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -769,9 +769,9 @@
 /area/template_noop)
 "Yf" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Briefing Room";
-	req_access = list(113)
+	name = "Briefing Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},

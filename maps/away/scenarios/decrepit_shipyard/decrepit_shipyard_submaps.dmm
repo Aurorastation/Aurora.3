@@ -529,10 +529,10 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "kc" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(111)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/map_effect/marker/access/req_all/tcaf,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "ko" = (
@@ -1433,9 +1433,9 @@
 "AY" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(111)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/tcaf,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "AZ" = (
@@ -1812,9 +1812,9 @@
 "HP" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(111)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/tcaf,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "HU" = (

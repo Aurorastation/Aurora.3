@@ -35,7 +35,7 @@
 	icon = 'icons/obj/suit_cycler.dmi'
 	icon_state = "base"
 
-	req_access = list(/datum/access/captain::id, /datum/access/heads::id)
+	req_access = list(/datum/access/horizon/captain::id, /datum/access/horizon/heads::id)
 	/// PLEASE HOLD.
 	var/active = FALSE
 	/// The cycler won't start with a living thing inside it unless safeties are off.

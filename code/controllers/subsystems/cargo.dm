@@ -214,6 +214,10 @@ SUBSYSTEM_DEF(cargo)
 
 	for(var/singleton/cargo_item/ci as anything in C.items)
 
+		var/list/access_descs = list()
+		for(var/access_id in ci.access)
+			access_descs += get_access_desc(access_id)
+
 		item_list += list(list(
 			"name" = ci.name,
 			"description" = ci.description,
@@ -222,7 +226,7 @@ SUBSYSTEM_DEF(cargo)
 			"price_adjusted" = ci.adjusted_price,
 			"supplier" = ci.supplier,
 			"supplier_data" = get_supplier_data(ci.supplier),
-			"access" = ci.access != 0 ? get_access_desc(ci.access) : "none",
+			"access" = length(access_descs) ? access_descs.Join(" / ") : "none",
 		))
 
 	return item_list
@@ -604,8 +608,10 @@ SUBSYSTEM_DEF(cargo)
 		crate.verbs += /atom/proc/remove_label
 
 		// Set the access requirement.
-		if(co.required_access.len > 0)
+		if(length(co.required_access))
 			crate.req_access = co.required_access.Copy()
+		if(length(co.required_one_access))
+			crate.req_one_access = co.required_one_access.Copy()
 
 		// Loop through the items and spawn them.
 		for(var/datum/cargo_order_item/coi in co.items)

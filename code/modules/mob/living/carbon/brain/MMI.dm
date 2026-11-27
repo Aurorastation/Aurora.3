@@ -12,7 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
-	req_access = list(/datum/access/robotics::id)
+	req_access = list(/datum/access/horizon/robotics::id)
 
 	//Revised. Brainmob is now contained directly within object of transfer. MMI in this case.
 

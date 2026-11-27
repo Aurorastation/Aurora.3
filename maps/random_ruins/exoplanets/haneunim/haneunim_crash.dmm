@@ -89,10 +89,9 @@
 /area/shuttle/haneunim_crash)
 "kA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/secure/phoron{
-	req_access = list(203)
-	},
+/obj/structure/closet/crate/secure/phoron,
 /obj/item/tank/phoron/shuttle,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/haneunim_crash)
 "kC" = (
@@ -197,11 +196,10 @@
 /area/shuttle/haneunim_crash)
 "sl" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/secure/phoron{
-	req_access = list(203)
-	},
+/obj/structure/closet/crate/secure/phoron,
 /obj/item/stack/material/phoron,
 /obj/item/stack/material/phoron,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/haneunim_crash)
 "ti" = (
@@ -395,12 +393,11 @@
 /area/shuttle/haneunim_crash)
 "GO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(203)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/random/contraband,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/haneunim_crash)
 "GY" = (
@@ -491,12 +488,11 @@
 /area/shuttle/haneunim_crash)
 "KR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/secure/weapon{
-	req_access = list(203)
-	},
+/obj/structure/closet/crate/secure/weapon,
 /obj/random/contraband,
 /obj/item/clothing/suit/armor/carrier/military,
 /obj/item/clothing/suit/armor/carrier/military,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/haneunim_crash)
 "NV" = (

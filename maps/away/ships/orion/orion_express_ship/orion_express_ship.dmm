@@ -2,12 +2,12 @@
 "aaa" = (
 /obj/structure/machinery/door/airlock/mining{
 	dir = 1;
-	name = "Captain's Quarters";
-	req_access = list(201)
+	name = "Captain's Quarters"
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "abi" = (
@@ -383,7 +383,6 @@
 "bgK" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(201);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -399,6 +398,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "biw" = (
@@ -586,7 +586,6 @@
 "bGx" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201);
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -595,6 +594,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/comms)
 "bHV" = (
@@ -833,14 +833,14 @@
 "coh" = (
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
-	name = "Shuttle Dock";
-	req_access = list(201)
+	name = "Shuttle Dock"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking2)
 "cos" = (
@@ -869,9 +869,8 @@
 "cqP" = (
 /obj/structure/machinery/atmospherics/portables_connector,
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window{
-	req_access = list(201)
-	},
+/obj/structure/machinery/door/window,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "crK" = (
@@ -1116,12 +1115,12 @@
 "diy" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster1)
 "diZ" = (
@@ -1868,9 +1867,7 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "gqU" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = list(201)
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1911,6 +1908,7 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/box/large/condiment,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "gsa" = (
@@ -2400,12 +2398,12 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "hNk" = (
@@ -2438,12 +2436,12 @@
 "hVK" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 1;
-	name = "Cryogenic Storage";
-	req_access = list(201)
+	name = "Cryogenic Storage"
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/crew)
 "hWE" = (
@@ -2486,12 +2484,12 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "ifH" = (
@@ -2651,9 +2649,8 @@
 	dir = 1;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(201)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "iGY" = (
@@ -3184,22 +3181,21 @@
 	dir = 8
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window/westleft{
-	req_access = list(201)
-	},
+/obj/structure/machinery/door/window/westleft,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "kRQ" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Telecomms";
-	req_access = list(201)
+	name = "Telecomms"
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -3313,9 +3309,9 @@
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
 	pixel_x = -25;
-	req_access = list(201);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "lsl" = (
@@ -3649,13 +3645,13 @@
 "mGO" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Maintenance";
-	req_access = list(201)
+	name = "Maintenance"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/forehall)
 "mHQ" = (
@@ -3702,7 +3698,6 @@
 	id = "orion_warehouse";
 	name = "Cargo Bay Shutters";
 	pixel_x = 25;
-	req_access = list(201);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3716,6 +3711,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "mPM" = (
@@ -3729,12 +3725,12 @@
 /obj/structure/machinery/door/airlock/service{
 	dir = 1;
 	name = "Cargo Bay";
-	pixel_x = -15;
-	req_access = list(201)
+	pixel_x = -15
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "mSt" = (
@@ -3773,12 +3769,12 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Cockpit";
-	dir = 1;
-	req_access = list(201)
+	dir = 1
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
 "mXd" = (
@@ -3964,9 +3960,9 @@
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(201)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "nCd" = (
@@ -4212,9 +4208,8 @@
 	dir = 8
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/machinery/door/window/westright{
-	req_access = list(201)
-	},
+/obj/structure/machinery/door/window/westright,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "nYD" = (
@@ -4740,7 +4735,6 @@
 "pWh" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Atmospherics";
-	req_access = list(201);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4753,6 +4747,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/plating,
 /area/ship/orion/atmos)
 "pXU" = (
@@ -5092,12 +5087,12 @@
 "qZE" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Maintenance";
-	req_access = list(201);
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster2)
 "rdb" = (
@@ -5700,13 +5695,13 @@
 "sLq" = (
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
-	name = "Captain's Quarters";
-	req_access = list(201)
+	name = "Captain's Quarters"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "sMg" = (
@@ -5936,8 +5931,7 @@
 "tnO" = (
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
-	name = "Crew Quarters";
-	req_access = list(201)
+	name = "Crew Quarters"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5952,6 +5946,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/crew)
 "trX" = (
@@ -5972,8 +5967,7 @@
 "tuM" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Starboard Thruster";
-	req_access = list(201)
+	name = "Starboard Thruster"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5982,6 +5976,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
 "tvX" = (
@@ -6367,8 +6362,7 @@
 "uzX" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Port Thruster";
-	req_access = list(201)
+	name = "Port Thruster"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6377,6 +6371,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/storage)
 "uDj" = (
@@ -6451,9 +6446,8 @@
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "uRC" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(201)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/cockpit)
 "uVR" = (
@@ -6687,8 +6681,7 @@
 "vzk" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	name = "Platform Command Center";
-	req_access = list(201)
+	name = "Platform Command Center"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -6703,6 +6696,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "vzU" = (
@@ -7077,12 +7071,12 @@
 "wzK" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/machinery/door/window{
-	name = "Cashier's Counter";
-	req_access = list(201)
+	name = "Cashier's Counter"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "wzW" = (
@@ -7116,7 +7110,6 @@
 /area/ship/orion/cargo)
 "wFW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
-	req_one_access = list(201);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
@@ -7125,6 +7118,7 @@
 	id = "orion_shuttle_shutters";
 	name = "Safety Shutter"
 	},
+/obj/effect/map_effect/marker/access/req_one/exress_ship,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/cockpit)
 "wIx" = (
@@ -7266,14 +7260,14 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	dir = 4;
-	name = "Shuttle Dock";
-	req_access = list(201)
+	name = "Shuttle Dock"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "xeO" = (
@@ -7532,13 +7526,13 @@
 "xWp" = (
 /obj/structure/machinery/door/airlock/silver{
 	dir = 4;
-	name = "Kitchen";
-	req_access = list(201)
+	name = "Kitchen"
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/forehall)
 "xZj" = (
@@ -7593,12 +7587,12 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	name = "Platform Command Center";
-	req_access = list(201)
+	name = "Platform Command Center"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "yep" = (

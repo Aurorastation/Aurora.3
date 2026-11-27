@@ -1279,9 +1279,9 @@
 	id = "bar_shutter";
 	name = "Desk Shutters";
 	pixel_x = 20;
-	req_access = list(25);
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/bar,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/office)
 "ly" = (

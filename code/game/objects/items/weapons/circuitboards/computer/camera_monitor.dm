@@ -1,7 +1,7 @@
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/structure/machinery/computer/security
-	req_access = list(/datum/access/security::id)
+	req_access = list(/datum/access/horizon/security::id)
 	var/list/console_networks
 	var/locked = 1
 	var/emagged = 0

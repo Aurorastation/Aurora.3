@@ -146,7 +146,6 @@
 	name = "Secure Storage Bolt Control";
 	pixel_y = 3;
 	specialfunctions = 4;
-	req_access = list(203);
 	pixel_x = 21
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -159,6 +158,7 @@
 	dir = 9
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/safe_room)
 "aCd" = (
@@ -1095,7 +1095,6 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Port Battery";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1103,6 +1102,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/port_battery)
 "cuR" = (
@@ -1401,7 +1401,6 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Starboard Battery";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1409,6 +1408,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/starboard_battery)
 "dcV" = (
@@ -1444,9 +1444,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/medical{
 	name = "Pharmacy";
-	req_access = list(203);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/infirmary)
 "dhF" = (
@@ -1659,9 +1659,9 @@
 	},
 /obj/structure/machinery/door/airlock{
 	name = "Docking Port";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/docking_port)
 "dEU" = (
@@ -1757,9 +1757,9 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Infirmary";
-	req_access = list(203)
+	name = "Infirmary"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/infirmary)
 "dKX" = (
@@ -1780,7 +1780,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock{
 	name = "Crew Locker Room";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -1791,6 +1790,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/eva_preperation)
 "dPz" = (
@@ -2224,9 +2224,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Port Magazine";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/port_gunnery)
 "ewW" = (
@@ -2556,7 +2556,6 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Exosuit Workshop";
-	req_access = list(203);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -2565,6 +2564,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/garage)
 "fka" = (
@@ -2918,17 +2918,16 @@
 	name = "Chamber Blast Doors";
 	pixel_y = 23;
 	pixel_x = -7;
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
 /obj/structure/machinery/button/ignition{
 	id = "ssrm_igniter_port";
 	pixel_y = 22;
-	pixel_x = 4;
-	req_access = list(203)
+	pixel_x = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/machinery/meter,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/engineering)
 "fWG" = (
@@ -3044,9 +3043,9 @@
 	},
 /obj/structure/machinery/light,
 /obj/structure/machinery/door/window{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/canteen)
 "gjo" = (
@@ -3393,10 +3392,10 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	name = "Head";
-	req_access = list(203);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/head)
 "gSP" = (
@@ -3568,9 +3567,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Cabin";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/captain_cabin)
 "hqY" = (
@@ -3748,9 +3747,9 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/medical{
 	name = "Infirmary";
-	req_access = list(203);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/infirmary)
 "hMI" = (
@@ -3795,8 +3794,7 @@
 /area/ship/ssrm_corvette/cpo_cabin)
 "hSW" = (
 /obj/structure/closet/crate/secure{
-	name = "damage control equipment";
-	req_access = list(203)
+	name = "damage control equipment"
 	},
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/steel/full,
@@ -3821,6 +3819,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/docking_port)
 "hTa" = (
@@ -3924,12 +3923,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/medical{
 	name = "Surgical Suite";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/infirmary)
 "icA" = (
@@ -3990,9 +3989,8 @@
 /area/ship/ssrm_corvette/cic)
 "inf" = (
 /obj/effect/floor_decal/industrial/hatch/engineering,
-/obj/structure/machinery/vending/tool{
-	req_access = list(203)
-	},
+/obj/structure/machinery/vending/tool,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/engineering)
 "inu" = (
@@ -4067,7 +4065,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -4079,6 +4076,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/port_thrusters)
 "iwE" = (
@@ -4379,7 +4377,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock{
 	name = "Crew Bunks";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -4390,6 +4387,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/bunks)
 "iXb" = (
@@ -4719,7 +4717,6 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Port Gunnery";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/cable{
@@ -4727,6 +4724,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/port_gunnery)
 "kaR" = (
@@ -4831,18 +4829,17 @@
 /obj/structure/machinery/button/ignition{
 	id = "ssrm_igniter_starboard";
 	pixel_y = 22;
-	pixel_x = -7;
-	req_access = list(203)
+	pixel_x = -7
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ssrm_co2_starboard";
 	name = "Chamber Blast Doors";
 	pixel_y = 23;
 	pixel_x = 4;
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
 /obj/structure/machinery/meter,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
 "kxJ" = (
@@ -5024,7 +5021,6 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospherics";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -5035,6 +5031,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/atmospherics)
 "kSe" = (
@@ -5087,16 +5084,14 @@
 	name = "Maintenance Hatch Lockdown";
 	pixel_x = 6;
 	pixel_y = 8;
-	dir = 10;
-	req_access = list(203)
+	dir = 10
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ssrm_bridge_lockdown";
 	name = "CIC Lockdown";
 	pixel_x = -6;
 	dir = 10;
-	pixel_y = 8;
-	req_access = list(203)
+	pixel_y = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/sign/flag/sol/large/north{
@@ -5107,17 +5102,16 @@
 	name = "Window Shutters";
 	pixel_x = -6;
 	dir = 10;
-	pixel_y = -1;
-	req_access = list(203)
+	pixel_y = -1
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ssrm_docking_port_lockdown";
 	name = "Docking Port Lockdown";
 	pixel_x = 6;
 	dir = 10;
-	pixel_y = -1;
-	req_access = list(203)
+	pixel_y = -1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cic)
 "laP" = (
@@ -5150,12 +5144,12 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor Compartment";
-	req_access = list(203);
 	dir = 8
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "ssrm_reactor"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/reactor)
 "ldU" = (
@@ -5313,9 +5307,9 @@
 	name = "Reactor Compartment Shield";
 	pixel_y = 23;
 	pixel_x = 7;
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/reactor)
 "lsg" = (
@@ -5410,7 +5404,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -5421,6 +5414,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/armoury)
 "lGF" = (
@@ -5927,7 +5921,6 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Starboard Gunnery";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/cable{
@@ -5935,6 +5928,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "mMN" = (
@@ -6257,8 +6251,7 @@
 /area/ship/ssrm_corvette/eva_preperation)
 "nAQ" = (
 /obj/structure/closet/crate/secure{
-	name = "flags and banners";
-	req_access = list(203)
+	name = "flags and banners"
 	},
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
@@ -6289,6 +6282,7 @@
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/docking_port)
 "nBW" = (
@@ -6464,15 +6458,14 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,203)
-	},
+/obj/structure/machinery/alarm/north,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/atmospherics)
 "nVK" = (
@@ -6637,7 +6630,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/mining{
 	name = "Exosuit Workshop";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -6648,6 +6640,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/garage)
 "opd" = (
@@ -7171,7 +7164,6 @@
 	name = "Secure Storage Bolt Control";
 	pixel_y = 3;
 	specialfunctions = 4;
-	req_access = list(203);
 	pixel_x = -21
 	},
 /obj/effect/floor_decal/industrial/outline_corner/service{
@@ -7210,6 +7202,7 @@
 	pixel_y = 2;
 	pixel_x = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
 "pTu" = (
@@ -7287,11 +7280,11 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(203);
 	id_tag = "ssrm_saferoom";
 	name = "Secure Storage";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/safe_room)
 "qcA" = (
@@ -7484,7 +7477,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/service{
 	name = "Head";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -7495,6 +7487,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/head)
 "qHm" = (
@@ -7541,8 +7534,7 @@
 /obj/item/tent,
 /obj/item/tent,
 /obj/structure/closet/crate/secure{
-	name = "tables, chairs, and camping equipment";
-	req_access = list(203)
+	name = "tables, chairs, and camping equipment"
 	},
 /obj/item/material/folding_table,
 /obj/item/material/folding_table,
@@ -7562,6 +7554,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/light,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/docking_port)
 "qSe" = (
@@ -7591,7 +7584,6 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "Cryogenic Storage";
-	req_access = list(203);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -7600,6 +7592,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/cryo)
 "qXz" = (
@@ -7890,12 +7883,12 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Crew Lounge";
-	req_access = list(203)
+	name = "Crew Lounge"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	pixel_y = 3
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/crew_lounge)
 "rIN" = (
@@ -8061,13 +8054,13 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "ssrm_bridge_lockdown"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/cic)
 "sri" = (
@@ -8076,7 +8069,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -8087,6 +8079,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/brig)
 "sru" = (
@@ -8390,12 +8383,12 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette)
 "tra" = (
@@ -8423,7 +8416,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Power Station";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -8434,6 +8426,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/reactor)
 "txv" = (
@@ -8764,9 +8757,9 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Mess Hall";
-	req_access = list(203)
+	name = "Mess Hall"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/canteen)
 "upw" = (
@@ -9400,9 +9393,8 @@
 /area/ship/ssrm_corvette/head)
 "vGl" = (
 /obj/structure/table/steel,
-/obj/structure/machinery/door/window/desk{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/window/desk,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/armoury)
 "vIs" = (
@@ -9450,7 +9442,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -9462,6 +9453,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/starboard_thrusters)
 "vOO" = (
@@ -9566,12 +9558,12 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Ready Room";
-	req_access = list(203);
 	dir = 1;
 	id_tag = "cap_door"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/captain_office)
 "vXZ" = (
@@ -9664,7 +9656,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering Section";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -9675,11 +9666,11 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/engineering)
 "wfR" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(203);
 	name = "Captain's Cabinet";
 	pixel_x = -1
 	},
@@ -9705,6 +9696,7 @@
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
 "wfT" = (
@@ -9716,10 +9708,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/command{
 	name = "Chief Petty Officer's Cabin";
-	req_access = list(203);
 	dir = 1;
 	id_tag = "cpo_door"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/cpo_cabin)
 "wgo" = (
@@ -10177,7 +10169,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Synthetic Closet";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -10188,6 +10179,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/synthroom)
 "xkU" = (
@@ -10294,9 +10286,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Starboard Magazine";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "xzH" = (
@@ -10463,22 +10455,19 @@
 	name = "Window Shutters";
 	pixel_x = -7;
 	dir = 6;
-	pixel_y = 8;
-	req_access = list(203)
+	pixel_y = 8
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ssrm_cap_windows_interior";
 	name = "Privacy Shutters";
 	pixel_x = -7;
 	dir = 6;
-	pixel_y = -1;
-	req_access = list(203)
+	pixel_y = -1
 	},
 /obj/structure/machinery/button/remote/airlock{
 	dir = 6;
 	pixel_x = 4;
 	pixel_y = 8;
-	req_access = list(203);
 	name = "Door Control";
 	id = "cap_office"
 	},
@@ -10486,11 +10475,11 @@
 	dir = 6;
 	pixel_x = 4;
 	pixel_y = -1;
-	req_access = list(203);
 	specialfunctions = 4;
 	name = "Door Bolt";
 	id = "cap_office"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/ssrm_corvette/captain_office)
 "xRX" = (
@@ -10626,9 +10615,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cic)
 "yeM" = (

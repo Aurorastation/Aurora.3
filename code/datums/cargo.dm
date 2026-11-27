@@ -8,7 +8,8 @@
 	var/item_num = 0 //Number of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
 	var/container_type = "" //Type of the container for the order - cate, box
-	var/list/required_access = list() //Access required to unlock the crate
+	var/list/required_access = list() //Accesses that are ALL required to unlock the crate
+	var/list/required_one_access = list() //Accesses of which ANY ONE unlocks the crate
 	var/can_add_items = 1 //If new items can be added to the order
 	var/ordered_by = null //Person that ordered the items
 	var/ordered_by_id = null //Character ID of the person that ordered the items
@@ -110,8 +111,12 @@
 	price += coi.price
 
 	//Update the access requirement of the order
-	if(coi.ci.access)
-		required_access.Add(coi.ci.access)
+	// A single access is a hard requirement. Multiple accesses mean "any of these", which the crate handles via req_one_access.
+	var/list/item_access = coi.ci.access
+	if(length(item_access) == 1)
+		required_access |= item_access
+	else if(length(item_access) > 1)
+		required_one_access |= item_access
 
 	return "Item successfully added"
 
@@ -156,12 +161,12 @@
 /datum/cargo_order/proc/get_container_type()
 	switch(container_type)
 		if(CARGO_CONTAINER_CRATE)
-			if(required_access.len > 0)
+			if(length(required_access) || length(required_one_access))
 				return /obj/structure/closet/crate/secure
 			else
 				return /obj/structure/closet/crate
 		if(CARGO_CONTAINER_BOX)
-			if(required_access.len > 0)
+			if(length(required_access) || length(required_one_access))
 				return /obj/structure/closet/crate/secure/large
 			else
 				return /obj/structure/largecrate
@@ -263,10 +268,17 @@
 	if(paid_by)
 		order_data += "<u>Paid at:</u> [time_paid]<br>"
 	order_data += "<hr>"
-	if(required_access.len)
+	if(length(required_access))
 		order_data += "<u>Required Access:</u><br>"
 		order_data += "<ul>"
 		for(var/A in required_access)
+			order_data += "<li>[get_access_desc(A)]</li>"
+		order_data += "</ul>"
+		order_data += "<hr>"
+	if(length(required_one_access))
+		order_data += "<u>Required Access (any one of):</u><br>"
+		order_data += "<ul>"
+		for(var/A in required_one_access)
 			order_data += "<li>[get_access_desc(A)]</li>"
 		order_data += "</ul>"
 		order_data += "<hr>"

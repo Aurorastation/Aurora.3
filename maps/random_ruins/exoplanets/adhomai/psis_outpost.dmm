@@ -20,10 +20,10 @@
 /area/psis_outpost)
 "ch" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Outpost";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -205,12 +205,11 @@
 	},
 /area/psis_outpost)
 "jt" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(209)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
 /obj/structure/machinery/light,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -341,10 +340,10 @@
 /area/psis_outpost)
 "rM" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Cells";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -381,9 +380,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "psis_outpost_shutter";
 	name = "Entry";
-	req_access = list(209);
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -513,13 +512,13 @@
 /area/psis_outpost)
 "Cz" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Outpost";
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/shutters{
 	id = "psis_outpost_shutter"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -853,18 +852,16 @@
 /area/psis_outpost)
 "TJ" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Office";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "TS" = (
-/obj/structure/closet/secure_closet/freezer{
-	req_access = list(209)
-	},
+/obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
@@ -875,16 +872,17 @@
 /obj/structure/machinery/light/small/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "UM" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Interrogation";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1020,11 +1018,10 @@
 	},
 /area/psis_outpost)
 "YO" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(209)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/under/color/orange,
 /obj/item/clothing/under/color/orange,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},

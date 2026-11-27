@@ -99,9 +99,10 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/fuel)
 "bd" = (
-/obj/structure/machinery/computer/ship/helm/terminal{
-	req_one_access = list(224,223,222)
-	},
+/obj/structure/machinery/computer/ship/helm/terminal,
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "bf" = (
@@ -1396,10 +1397,11 @@
 /area/ship/gadpathur_patrol/fuel)
 "kV" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/machinery/door/window/southright{
-	req_one_access = list(224,223,222)
-	},
+/obj/structure/machinery/door/window/southright,
 /obj/structure/machinery/atmospherics/pipe/tank/air,
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/gadpathur_shuttle)
 "la" = (
@@ -2053,9 +2055,11 @@
 /area/ship/gadpathur_patrol/atmos)
 "qb" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(224,223,222)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_all/gadpathur_navy_officer,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "qe" = (
@@ -3569,9 +3573,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "BN" = (
-/obj/structure/machinery/door/window/southright{
-	req_one_access = list(224,223,222)
-	},
+/obj/structure/machinery/door/window/southright,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
@@ -3579,6 +3581,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/gadpathur_shuttle)
 "BP" = (
@@ -4177,12 +4182,13 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "FG" = (
-/obj/structure/machinery/computer/ship/targeting/terminal{
-	req_one_access = list(224,223,222)
-	},
+/obj/structure/machinery/computer/ship/targeting/terminal,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/cic)
 "FI" = (
@@ -5757,9 +5763,11 @@
 "Su" = (
 /obj/structure/bed/stool/chair/cockpit,
 /obj/structure/machinery/computer/shuttle_control/explore/gadpathur_shuttle{
-	pixel_x = 31;
-	req_one_access = list(224,223,222)
+	pixel_x = 31
 	},
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "Sv" = (
@@ -6009,9 +6017,11 @@
 /area/ship/gadpathur_patrol/galley)
 "TY" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_one_access = list(224,223,222)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy,
+/obj/effect/map_effect/marker/access/req_one/gadpathur_navy_officer,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/gadpathur_shuttle)
 "Uf" = (

@@ -96,9 +96,8 @@
 	},
 /area/adhomai_fallout_bunker)
 "eB" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(209)
-	},
+/obj/structure/machinery/vending/tool,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -130,10 +129,10 @@
 /area/adhomai_fallout_bunker)
 "fk" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Living Quarters";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -288,9 +287,9 @@
 "lO" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Food Storage";
-	req_access = list(209);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -401,9 +400,9 @@
 "nT" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Observation";
-	req_access = list(209);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -589,20 +588,20 @@
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_y = -32;
-	req_access = list(209);
 	name = "Bunker Entry";
 	id = "bunker_door"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "uq" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -829,7 +828,6 @@
 "Bv" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 4;
-	req_access = list(209);
 	name = "Bunker Entrance Lockdown";
 	pixel_x = -32;
 	uid = "bunker_entry"
@@ -837,6 +835,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -873,10 +872,10 @@
 /area/adhomai_fallout_bunker)
 "Cu" = (
 /obj/structure/machinery/door/airlock/medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -910,13 +909,13 @@
 "EL" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bunker Entry";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	uid = "bunker_entry"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_fallout_bunker)
 "EM" = (
@@ -980,7 +979,6 @@
 "Gk" = (
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 8;
-	req_access = list(209);
 	name = "Bunker Entrance Lockdown";
 	pixel_x = 32;
 	uid = "bunker_entry"
@@ -988,6 +986,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1314,10 +1313,10 @@
 /area/adhomai_fallout_bunker)
 "Te" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1444,20 +1443,20 @@
 /area/adhomai_fallout_bunker)
 "XB" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Maintenance Equipment Storage";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/adhomai_fallout_bunker)
 "XX" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Radiation Suit Storage";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

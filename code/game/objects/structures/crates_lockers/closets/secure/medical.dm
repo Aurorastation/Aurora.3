@@ -2,7 +2,7 @@
 	name = "medicine closet"
 	desc = "Filled with medical junk."
 	icon_state = "med"
-	req_access = list(/datum/access/medical_equip::id)
+	req_access = list(/datum/access/horizon/medical_equip::id)
 
 /obj/structure/closet/secure_closet/medical1/fill()
 	..()
@@ -20,7 +20,7 @@
 	name = "anesthetics closet"
 	desc = "Used to knock people out."
 	icon_state = "med"
-	req_access = list(/datum/access/surgery::id)
+	req_access = list(/datum/access/horizon/surgery::id)
 
 /obj/structure/closet/secure_closet/medical2/fill()
 	new /obj/item/tank/anesthetic(src)
@@ -33,7 +33,7 @@
 
 /obj/structure/closet/secure_closet/medical3
 	name = "medical equipment locker"
-	req_access = list(/datum/access/medical_equip::id)
+	req_access = list(/datum/access/horizon/medical_equip::id)
 	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical3/fill()
@@ -97,7 +97,7 @@
 /obj/structure/closet/secure_closet/medical_para
 	name = "paramedic's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a paramedic."
-	req_access = list(/datum/access/paramedic::id)
+	req_access = list(/datum/access/horizon/paramedic::id)
 	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical_para/fill()
@@ -126,7 +126,7 @@
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
-	req_access = list(/datum/access/cmo::id)
+	req_access = list(/datum/access/horizon/cmo::id)
 	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO/fill()
@@ -160,7 +160,7 @@
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
-	req_access = list(/datum/access/cmo::id)
+	req_access = list(/datum/access/horizon/cmo::id)
 	icon_state = "cmo"
 
 /obj/structure/closet/secure_closet/CMO2/fill()
@@ -181,7 +181,7 @@
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control closet"
-	req_access = list(/datum/access/surgery::id)
+	req_access = list(/datum/access/horizon/surgery::id)
 
 /obj/structure/closet/secure_closet/animal/fill()
 	..()
@@ -195,7 +195,7 @@
 	desc = "Contains equipment useful to chemists."
 	icon_state = "med"
 	icon_door = "chemical"
-	req_access = list(/datum/access/pharmacy::id)
+	req_access = list(/datum/access/horizon/pharmacy::id)
 
 /obj/structure/closet/secure_closet/chemical/fill()
 	..()
@@ -217,7 +217,7 @@
 	name = "psychiatric supplies locker"
 	desc = "A psychiatric supplies locker."
 	icon_state = "med"
-	req_access = list(/datum/access/psychiatrist::id)
+	req_access = list(/datum/access/horizon/psychiatrist::id)
 
 /obj/structure/closet/secure_closet/psychiatric/fill()
 	..()
@@ -234,4 +234,4 @@
 	name = "medicine closet"
 	desc = "A medical locker."
 	icon_state = "med"
-	req_access = list(/datum/access/medical_equip::id)
+	req_access = list(/datum/access/horizon/medical_equip::id)

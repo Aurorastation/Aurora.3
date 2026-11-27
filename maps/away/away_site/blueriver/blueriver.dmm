@@ -289,9 +289,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/bluespaceriver/ship)
 "pI" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/dark,
 /area/bluespaceriver/ship)
 "pM" = (
@@ -396,9 +395,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/machinery/alarm/east{
-	req_one_access = list(24,11,55)
-	},
+/obj/structure/machinery/alarm/east,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "tS" = (
@@ -424,9 +422,8 @@
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "vy" = (
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "vC" = (
@@ -898,9 +895,8 @@
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Re" = (
-/obj/structure/machinery/alarm/south{
-	req_one_access = list(24,11,55)
-	},
+/obj/structure/machinery/alarm/south,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "Rf" = (
@@ -1067,9 +1063,8 @@
 /area/bluespaceriver/ship)
 "WR" = (
 /obj/structure/curtain/open/bed,
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(24,11,55)
-	},
+/obj/structure/machinery/alarm/north,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/white,
 /area/bluespaceriver/ship)
 "XA" = (

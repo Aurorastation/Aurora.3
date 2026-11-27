@@ -10,24 +10,30 @@
 	desc = "It cools epically."
 	/// The passive temperature change the cooling unit will have.
 	var/passive_temp_change = 3
-	/// The power used when cooling down.
-	var/base_power_consumption = 2.5
+	/// The maximum power consumed per second while cooling on the medium setting.
+	var/base_power_consumption = 10.6
+	/// The fraction of base power consumed while cooling on Low.
+	var/low_power_draw_multiplier = 0.4
 	/// The maximum health the cooling unit's plating will have.
 	var/plating_max_health = 20
+	/// Whether exposed internal damage produces cosmetic coolant leaks.
+	var/leaks_coolant = FALSE
 
 /singleton/synthetic_organ_preset/cooling_unit/apply_preset(obj/item/organ/internal/machine/organ)
 	. = ..()
 	var/obj/item/organ/internal/machine/cooling_unit/cooling_unit = organ
 	cooling_unit.passive_temp_change = passive_temp_change
 	cooling_unit.base_power_consumption = base_power_consumption
+	cooling_unit.low_power_draw_multiplier = low_power_draw_multiplier
 	cooling_unit.plating.replace_health(plating_max_health)
+	cooling_unit.leaks_coolant = leaks_coolant
 
 /singleton/synthetic_organ_preset/cooling_unit/air
 	name = "air cooling unit"
 	desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature through the use of chassis-mounted fans and prevents the frame from overheating."
 
 	passive_temp_change = 2
-	plating_max_health = 50
+	plating_max_health = 60
 
 /obj/item/organ/internal/machine/cooling_unit/air
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air
@@ -38,8 +44,9 @@
 	icon_state = "ipc_liquid_cooler"
 
 	passive_temp_change = 3
-	base_power_consumption = 7.5
-	plating_max_health = 20
+	base_power_consumption = 14.5
+	plating_max_health = 40
+	leaks_coolant = TRUE
 
 /obj/item/organ/internal/machine/cooling_unit/liquid
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid
@@ -50,7 +57,7 @@
 	icon_state = "ipc_liquid_cooler"
 
 	passive_temp_change = 1
-	base_power_consumption = 2.5
+	base_power_consumption = 8.2
 	plating_max_health = 100
 
 /obj/item/organ/internal/machine/cooling_unit/passive
@@ -63,8 +70,8 @@
 	icon_state = "ipc_xion_fans"
 
 	passive_temp_change = 2
-	base_power_consumption = 6
-	plating_max_health = 70
+	base_power_consumption = 10.6
+	plating_max_health = 80
 
 /obj/item/organ/internal/machine/cooling_unit/air/xion
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_xion
@@ -75,8 +82,9 @@
 	icon_state = "ipc_xion_liquid_cooler"
 
 	passive_temp_change = 3
-	base_power_consumption = 8
-	plating_max_health = 35
+	base_power_consumption = 14.5
+	plating_max_health = 55
+	leaks_coolant = TRUE
 
 /obj/item/organ/internal/machine/cooling_unit/liquid/xion
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_xion
@@ -87,7 +95,7 @@
 	icon_state = "ipc_heatsink"
 
 	passive_temp_change = 1
-	base_power_consumption = 3.5
+	base_power_consumption = 8.2
 	plating_max_health = 120
 
 /obj/item/organ/internal/machine/cooling_unit/passive/xion
@@ -100,8 +108,8 @@
 	icon_state = "ipc_zeng_fans"
 
 	passive_temp_change = 4
-	base_power_consumption = 7.5
-	plating_max_health = 25
+	base_power_consumption = 10.6
+	plating_max_health = 45
 
 /obj/item/organ/internal/machine/cooling_unit/air/zenghu
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu
@@ -113,8 +121,9 @@
 	icon_state = "ipc_zeng_cooling"
 
 	passive_temp_change = 5
-	base_power_consumption = 10
-	plating_max_health = 15
+	base_power_consumption = 14.5
+	plating_max_health = 30
+	leaks_coolant = TRUE
 
 /obj/item/organ/internal/machine/cooling_unit/liquid/zenghu
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu
@@ -125,9 +134,8 @@
 	icon_state = "ipc_zeng_cooling_passive"
 
 	passive_temp_change = 2
-	base_power_consumption = 4
+	base_power_consumption = 8.2
 	plating_max_health = 75
 
 /obj/item/organ/internal/machine/cooling_unit/passive/zenghu
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
-

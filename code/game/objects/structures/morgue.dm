@@ -345,7 +345,7 @@
 /obj/structure/machinery/button/switch/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
-	req_access = list(/datum/access/crematorium::id)
+	req_access = list(/datum/access/horizon/crematorium::id)
 	id = 1
 	var/cremate_dir // something for mappers, setting will make a crematorium in one step in this direction toggle
 

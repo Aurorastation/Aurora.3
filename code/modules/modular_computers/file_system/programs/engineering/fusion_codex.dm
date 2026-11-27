@@ -6,8 +6,8 @@
 	extended_desc = "Useful program to reference reaction chains for nuclear fusion reactors."
 	size = 4
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(/datum/access/engine::id)
-	required_access_download = list(/datum/access/engine::id)
+	required_access_run = list(/datum/access/horizon/engine::id)
+	required_access_download = list(/datum/access/horizon/engine::id)
 	available_on_ntnet = TRUE
 	tgui_id = "FusionCodex"
 
