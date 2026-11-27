@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/stack/material/glass/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -20,7 +19,6 @@
 	items = list(
 		/obj/item/stack/material/plasteel/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -34,7 +32,6 @@
 	items = list(
 		/obj/item/stack/material/plastic/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -48,7 +45,6 @@
 	items = list(
 		/obj/item/stack/material/steel/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -62,7 +58,6 @@
 	items = list(
 		/obj/item/stack/material/wood/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -76,7 +71,7 @@
 	items = list(
 		/obj/item/stack/material/phoron/full
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 
@@ -89,7 +84,6 @@
 	items = list(
 		/obj/item/stack/material/cardboard/full
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -103,7 +97,6 @@
 	items = list(
 		/obj/item/stack/tile/carpet
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 10
@@ -117,21 +110,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/antifuel
 	)
-	access = /datum/access/horizon/engine::id
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/brownwebbingvest
-	category = "engineering"
-	name = "brown webbing vest"
-	supplier = "hephaestus"
-	description = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
-	price = 15
-	items = list(
-		/obj/item/clothing/accessory/storage/brown_vest
-	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -145,7 +124,6 @@
 	items = list(
 		/obj/item/circuitboard/shield_gen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -159,7 +137,6 @@
 	items = list(
 		/obj/item/circuitboard/shield_gen_ex
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -173,7 +150,6 @@
 	items = list(
 		/obj/item/circuitboard/shield_cap
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -187,7 +163,6 @@
 	items = list(
 		/obj/item/circuitboard/solar_control
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -201,7 +176,7 @@
 	items = list(
 		/obj/structure/reagent_dispensers/coolanttank
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -215,7 +190,7 @@
 	items = list(
 		/obj/structure/machinery/pipedispenser/disposal/orderable
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -229,7 +204,7 @@
 	items = list(
 		/obj/item/storage/toolbox/mechanical
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -243,7 +218,7 @@
 	items = list(
 		/obj/item/storage/toolbox/electrical
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -257,7 +232,7 @@
 	items = list(
 		/obj/item/storage/toolbox/emergency
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -271,7 +246,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -285,7 +260,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -299,7 +274,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -313,7 +288,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -327,7 +302,7 @@
 	items = list(
 		/obj/item/circuitboard/bluespacerelay
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -341,7 +316,7 @@
 	items = list(
 		/obj/structure/machinery/power/emitter
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -355,7 +330,7 @@
 	items = list(
 		/obj/item/magnetic_lock/engineering
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -369,7 +344,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/engineering
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -383,7 +358,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -397,7 +372,7 @@
 	items = list(
 		/obj/structure/machinery/field_generator
 	)
-	access = /datum/access/horizon/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -411,7 +386,7 @@
 	items = list(
 		/obj/item/material/twohanded/fireaxe
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -425,7 +400,6 @@
 	items = list(
 		/obj/item/extinguisher
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -439,7 +413,7 @@
 	items = list(
 		/obj/item/reagent_containers/extinguisher_refill/filled
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -453,7 +427,6 @@
 	items = list(
 		/obj/item/reagent_containers/weldpack/empty
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -467,7 +440,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/fueltank
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -481,22 +453,8 @@
 	items = list(
 		/obj/structure/reagent_dispensers/extinguisher
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "box"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/gasmask
-	category = "engineering"
-	name = "gas mask"
-	supplier = "hephaestus"
-	description = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
-	price = 15
-	items = list(
-		/obj/item/clothing/mask/gas
-	)
-	access = 0
-	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -509,7 +467,7 @@
 	items = list(
 		/obj/item/geiger/dosimeter
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -523,7 +481,7 @@
 	items = list(
 		/obj/item/clothing/head/hardhat
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -537,7 +495,6 @@
 	items = list(
 		/obj/item/clothing/suit/storage/hazardvest
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -551,7 +508,7 @@
 	items = list(
 		/obj/item/storage/belt/utility/full
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -565,7 +522,6 @@
 	items = list(
 		/obj/item/cell/high
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -579,7 +535,6 @@
 	items = list(
 		/obj/item/cell
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -593,7 +548,7 @@
 	items = list(
 		/obj/item/hoist_kit
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -607,7 +562,7 @@
 	items = list(
 		/obj/item/storage/bag/inflatable
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -621,7 +576,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -635,7 +590,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialt
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -649,7 +604,7 @@
 	items = list(
 		/obj/item/clothing/gloves/yellow/specialu
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -663,7 +618,7 @@
 	items = list(
 		/obj/item/debugger
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -677,7 +632,7 @@
 	items = list(
 		/obj/item/powerdrill
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -691,7 +646,7 @@
 	items = list(
 		/obj/item/paint_sprayer
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -705,7 +660,7 @@
 	items = list(
 		/obj/structure/machinery/particle_accelerator/control_box
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -719,7 +674,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/power_box
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -733,7 +688,7 @@
 	items = list(
 		/obj/item/ladder_mobile
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -747,7 +702,7 @@
 	items = list(
 		/obj/item/clothing/head/radiation
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -761,21 +716,7 @@
 	items = list(
 		/obj/item/clothing/suit/radiation
 	)
-	access = /datum/access/horizon/engine::id
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/researchshuttleconsoleboard
-	category = "engineering"
-	name = "research shuttle console board"
-	supplier = "hephaestus"
-	description = "A replacement board for the research shuttle console, in case the original console is destroyed."
-	price = 125
-	items = list(
-		/obj/item/circuitboard/research_shuttle
-	)
-	access = /datum/access/horizon/security::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -789,7 +730,7 @@
 	items = list(
 		/obj/structure/machinery/the_singularitygen
 	)
-	access = /datum/access/horizon/heads::id
+	access = list(/datum/access/horizon/heads::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -803,7 +744,6 @@
 	items = list(
 		/obj/item/smes_coil
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -817,7 +757,7 @@
 	items = list(
 		/obj/structure/machinery/power/supermatter
 	)
-	access = /datum/access/horizon/captain::id
+	access = list(/datum/access/horizon/captain::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -833,7 +773,7 @@
 		/obj/structure/machinery/atmospherics/binary/circulator,
 		/obj/structure/machinery/atmospherics/binary/circulator
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -847,7 +787,7 @@
 	items = list(
 		/obj/item/solar_assembly
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -861,7 +801,6 @@
 	items = list(
 		/obj/item/tracker_electronics
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -875,7 +814,6 @@
 	items = list(
 		/obj/item/clothing/head/welding
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -889,7 +827,7 @@
 	items = list(
 		/obj/structure/particle_accelerator/end_cap
 	)
-	access = /datum/access/horizon/ce::id
+	access = list(/datum/access/horizon/ce::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -903,7 +841,7 @@
 	items = list(
 		/obj/structure/machinery/power/rad_collector
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
@@ -917,7 +855,198 @@
 	items = list(
 		/obj/structure/cart/storage/engineeringcart
 	)
-	access = /datum/access/horizon/engine::id
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/weldingtool
+	category = "engineering"
+	name = "welding tool"
+	supplier = "hephaestus"
+	description = "A welding tool with a small fuel tank, for cutting and joining metal."
+	price = 25
+	items = list(
+		/obj/item/weldingtool
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/wrench
+	category = "engineering"
+	name = "wrench"
+	supplier = "hephaestus"
+	description = "A steel wrench for tightening and loosening bolts."
+	price = 10
+	items = list(
+		/obj/item/wrench
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/crowbar
+	category = "engineering"
+	name = "crowbar"
+	supplier = "hephaestus"
+	description = "A steel crowbar, for prying things open."
+	price = 8
+	items = list(
+		/obj/item/crowbar
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/screwdriver
+	category = "engineering"
+	name = "screwdriver"
+	supplier = "hephaestus"
+	description = "A screwdriver with a changeable head, for driving screws."
+	price = 6
+	items = list(
+		/obj/item/screwdriver
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/wirecutters
+	category = "engineering"
+	name = "wirecutters"
+	supplier = "hephaestus"
+	description = "A pair of wirecutters, for cutting cables and wires."
+	price = 8
+	items = list(
+		/obj/item/wirecutters
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/multitool
+	category = "engineering"
+	name = "multitool"
+	supplier = "hephaestus"
+	description = "A handheld device for interfacing with and configuring machinery."
+	price = 25
+	items = list(
+		/obj/item/multitool
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cablecoil
+	category = "engineering"
+	name = "cable coil"
+	supplier = "hephaestus"
+	description = "A coil of insulated power cable."
+	price = 12
+	items = list(
+		/obj/item/stack/cable_coil
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/steelrods
+	category = "engineering"
+	name = "steel rods"
+	supplier = "hephaestus"
+	description = "60 steel rods, for reinforcing structures and repairing damaged floors."
+	price = 30
+	items = list(
+		/obj/item/stack/rods/full
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/floortiles
+	category = "engineering"
+	name = "floor tiles"
+	supplier = "hephaestus"
+	description = "60 standard floor tiles, for repairing or replacing flooring."
+	price = 35
+	items = list(
+		/obj/item/stack/tile/floor/full_stack
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/airlockelectronics
+	category = "engineering"
+	name = "airlock electronics"
+	supplier = "hephaestus"
+	description = "A circuit board that controls an airlock's access settings."
+	price = 15
+	items = list(
+		/obj/item/airlock_electronics
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/airlockelectronics_secure
+	category = "engineering"
+	name = "secure airlock electronics"
+	supplier = "hephaestus"
+	description = "A tamper-resistant circuit board for airlocks, with more robust access controls."
+	price = 40
+	items = list(
+		/obj/item/airlock_electronics/secure
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/apccontrolmodule
+	category = "engineering"
+	name = "APC control module"
+	supplier = "hephaestus"
+	description = "A power control module, for building or repairing an area power controller."
+	price = 30
+	items = list(
+		/obj/item/module/power_control
+	)
+	access = list(/datum/access/horizon/engine::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/watertank
+	category = "engineering"
+	name = "water tank"
+	supplier = "orion"
+	description = "A tank filled with water."
+	price = 350
+	items = list(
+		/obj/structure/reagent_dispensers/watertank
+	)
+	container_type = "box"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/flare
+	category = "engineering"
+	name = "flare"
+	supplier = "hephaestus"
+	description = "Good for illuminating dark areas or burning someones face off."
+	price = 8
+	items = list(
+		/obj/item/flashlight/flare
+	)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

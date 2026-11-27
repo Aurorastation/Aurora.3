@@ -11,7 +11,7 @@
 		/obj/item/storage/firstaid/o2,
 		/obj/item/storage/firstaid/adv
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -25,7 +25,7 @@
 	items = list(
 		/obj/item/storage/firstaid/regular
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -39,7 +39,7 @@
 	items = list(
 		/obj/item/storage/firstaid/adv
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -53,7 +53,7 @@
 	items = list(
 		/obj/item/storage/firstaid/large/adv
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -67,7 +67,7 @@
 	items = list(
 		/obj/item/storage/firstaid/fire
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -81,7 +81,7 @@
 	items = list(
 		/obj/item/storage/firstaid/o2
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -95,7 +95,7 @@
 	items = list(
 		/obj/item/storage/firstaid/toxin
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -109,7 +109,7 @@
 	items = list(
 		/obj/item/storage/firstaid/radiation
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -123,7 +123,7 @@
 	items = list(
 		/obj/item/reagent_containers/blood/OMinus
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 2
@@ -137,7 +137,7 @@
 	items = list(
 		/obj/item/reagent_containers/blood/sbs
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 2
@@ -151,7 +151,7 @@
 	items = list(
 		/obj/item/storage/box/bloodpacks
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -165,7 +165,7 @@
 	items = list(
 		/obj/item/reagent_containers/inhaler/pneumalin
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -179,7 +179,6 @@
 	items = list(
 		/obj/item/storage/box/bodybags
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
@@ -193,7 +192,6 @@
 	items = list(
 		/obj/item/storage/box/autoinjectors
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -207,7 +205,7 @@
 	items = list(
 		/obj/item/storage/box/gloves
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -221,7 +219,6 @@
 	items = list(
 		/obj/item/storage/box/masks
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -235,7 +232,7 @@
 	items = list(
 		/obj/item/storage/box/syringes
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -249,7 +246,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/tricordrazine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -263,7 +259,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/bicaridine
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -277,7 +273,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/butazoline
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -291,7 +286,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/kelotane
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -305,7 +299,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/dermaline
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -319,7 +313,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -333,7 +326,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/hyronalin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -347,7 +339,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -361,7 +352,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/stoxin
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -375,7 +366,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -389,7 +380,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/thetamycin
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -403,7 +394,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/beaker/vial/arithrazine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -417,7 +407,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -431,7 +420,7 @@
 	items = list(
 		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -445,7 +434,7 @@
 	items = list(
 		/obj/item/storage/belt/medical
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -459,7 +448,7 @@
 	items = list(
 		/obj/item/clothing/mask/breath/medical
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -473,7 +462,7 @@
 	items = list(
 		/obj/item/clothing/head/surgery
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -487,7 +476,7 @@
 	items = list(
 		/obj/item/clothing/under/rank/medical/surgeon
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -501,7 +490,7 @@
 	items = list(
 		/obj/item/clothing/under/medical_gown
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -515,7 +504,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/medical
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -529,7 +518,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -543,7 +532,7 @@
 	items = list(
 		/obj/item/storage/pill_bottle
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -557,7 +546,7 @@
 	items = list(
 		/obj/item/bodybag/cryobag
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -571,7 +560,7 @@
 	items = list(
 		/obj/item/auto_cpr
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -585,7 +574,7 @@
 	items = list(
 		/obj/item/reagent_containers/hypospray
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -601,7 +590,7 @@
 	items = list(
 		/obj/item/storage/firstaid/surgery
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -615,7 +604,7 @@
 	items = list(
 		/obj/item/tank/anesthetic
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -629,7 +618,7 @@
 	items = list(
 		/obj/item/surgery/scalpel
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -643,7 +632,7 @@
 	items = list(
 		/obj/item/surgery/retractor
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -657,7 +646,7 @@
 	items = list(
 		/obj/item/surgery/hemostat
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -671,7 +660,7 @@
 	items = list(
 		/obj/item/surgery/circular_saw
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -685,7 +674,7 @@
 	items = list(
 		/obj/item/surgery/fix_o_vein
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -699,7 +688,7 @@
 	items = list(
 		/obj/item/surgery/cautery
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -713,7 +702,7 @@
 	items = list(
 		/obj/item/surgery/surgicaldrill
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -727,7 +716,7 @@
 	items = list(
 		/obj/item/surgery/bone_gel
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -741,7 +730,7 @@
 	items = list(
 		/obj/item/surgery/bonesetter
 	)
-	access = /datum/access/horizon/surgery::id
+	access = list(/datum/access/horizon/surgery::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -755,7 +744,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/tajara
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -769,7 +758,7 @@
 	items = list(
 		/obj/item/clothing/gloves/latex/unathi
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -783,7 +772,7 @@
 	items = list(
 		/obj/item/storage/box/unique/freezer/organcooler
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -798,7 +787,7 @@
 		/obj/structure/machinery/iv_drip,
 		/obj/item/clothing/mask/breath/medical
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -812,7 +801,7 @@
 	items = list(
 		/obj/item/clothing/accessory/stethoscope
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -825,7 +814,7 @@
 		/obj/item/storage/box/unique/freezer/organcooler/mind_blanker
 	)
 
-/singleton/cargo_item/roller_bed/hover
+/singleton/cargo_item/hover_rollerbed
 	category = "medical"
 	name = "hover rollerbed (x2)"
 	supplier = "zeng_hu"
@@ -834,7 +823,131 @@
 	items = list(
 		/obj/item/roller/hover
 	)
-	access = /datum/access/horizon/medical::id
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
+
+/singleton/cargo_item/gauze
+	category = "medical"
+	name = "gauze roll"
+	supplier = "nanotrasen"
+	description = "A roll of gauze for treating bruises and minor wounds. Holds five uses."
+	price = 12
+	items = list(
+		/obj/item/stack/medical/bruise_pack/full
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/ointment
+	category = "medical"
+	name = "ointment tube"
+	supplier = "nanotrasen"
+	description = "A tube of ointment for treating burns. Holds five uses."
+	price = 12
+	items = list(
+		/obj/item/stack/medical/ointment/full
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/advancedgauze
+	category = "medical"
+	name = "advanced trauma kit"
+	supplier = "nanotrasen"
+	description = "An advanced dressing for treating severe bruises and wounds. Holds five uses."
+	price = 35
+	items = list(
+		/obj/item/stack/medical/advanced/bruise_pack/full
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/advancedointment
+	category = "medical"
+	name = "advanced burn kit"
+	supplier = "nanotrasen"
+	description = "An advanced dressing for treating severe burns. Holds five uses."
+	price = 35
+	items = list(
+		/obj/item/stack/medical/advanced/ointment/full
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/splints
+	category = "medical"
+	name = "splints"
+	supplier = "nanotrasen"
+	description = "A pack of five splints, for immobilizing broken limbs."
+	price = 15
+	items = list(
+		/obj/item/stack/medical/splint/full
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/healthanalyzer
+	category = "medical"
+	name = "health analyzer"
+	supplier = "zeng_hu"
+	description = "A handheld scanner that reads a patient's vital signs."
+	price = 40
+	items = list(
+		/obj/item/healthanalyzer
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/defibrillator
+	category = "medical"
+	name = "defibrillator"
+	supplier = "zeng_hu"
+	description = "A portable defibrillator for restarting stopped hearts. Comes with a power cell."
+	price = 1250
+	items = list(
+		/obj/item/defibrillator/loaded
+	)
+	access = list(/datum/access/horizon/medical::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dental_hygiene
+	category = "medical"
+	name = "Dental Hygiene Kit"
+	supplier = "getmore"
+	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
+	price = 25
+	items = list(
+		/obj/item/storage/box/toothpaste
+	)
+	container_type = "crate"
+	groupable = TRUE
+
+/singleton/cargo_item/autopsy_scanner
+	category = "medical"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
+	)
+	access = list(/datum/access/horizon/security::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
