@@ -67,7 +67,27 @@
 
 	if(!is_currently_leanable || !can_lean)
 		return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
-	leaner.start_leaning(source, leaning_offset)
+	var/lean_direction
+	var/border_lean = FALSE
+	var/obj/border_support
+	if(istype(source, /obj/structure/window))
+		var/obj/structure/window/window = source
+		if(!window.is_full_window())
+			border_support = window
+	else if(istype(source, /obj/structure/machinery/door/window))
+		border_support = source
+	if(border_support)
+		if(!border_support.anchored || !border_support.density || !isturf(leaner.loc))
+			return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
+		// Panes and windoors occupy the edge between their turf and the turf in dir.
+		if(leaner.loc == border_support.loc)
+			lean_direction = REVERSE_DIR(border_support.dir)
+		else if(leaner.loc == get_step(border_support, border_support.dir))
+			lean_direction = border_support.dir
+		else
+			return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
+		border_lean = TRUE
+	leaner.start_leaning(source, leaning_offset, lean_direction, border_lean)
 	LAZYADD(leaning_mobs, leaner)
 	RegisterSignals(leaner, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING), PROC_REF(stopped_leaning), override = TRUE)
 	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
@@ -78,9 +98,11 @@
  *
  * * atom/lean_target - the target the mob is trying to lean on
  * * leaning_offset - pixel offset to apply on the mob when leaning
+ * * lean_direction - optional facing direction for supports on a turf edge
+ * * border_lean - use a small shift towards the edge without wall occlusion
  */
-/mob/living/proc/start_leaning(atom/lean_target, leaning_offset)
-	var/direction = get_dir(lean_target, src)
+/mob/living/proc/start_leaning(atom/lean_target, leaning_offset, lean_direction = null, border_lean = FALSE)
+	var/direction = isnull(lean_direction) ? get_dir(lean_target, src) : lean_direction
 	var/shift_pixel_x = 0
 	var/shift_pixel_y = 0
 	set_dir(direction)
@@ -93,13 +115,25 @@
 			shift_pixel_x = -10
 		if(WEST)
 			shift_pixel_x = 10
+	var/small_border_shift = get_turf(lean_target) == loc
+	if(border_lean && lean_target.dir == NORTH)
+		// North-facing panes extend into the neighbouring turf, reversing the offsets.
+		small_border_shift = !small_border_shift
+	if(border_lean && small_border_shift)
+		// Use the shorter shift on the side closest to the pane's sprite.
+		shift_pixel_x = (direction & EAST) ? -4 : ((direction & WEST) ? 4 : 0)
+		shift_pixel_y = (direction & NORTH) ? -4 : ((direction & SOUTH) ? 4 : 0)
 	animate(src, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
-	if(direction == NORTH)
+	if(direction == NORTH && !border_lean)
 		src.appearance_flags |= KEEP_TOGETHER
 		src.add_filter("cutout", 1, alpha_mask_filter(y = 0, icon = icon('icons/effects/effects.dmi', "white")))
 		animate(src.get_filter("cutout"), y = 10, time = 1, flags = ANIMATION_PARALLEL)
-	if(direction == SOUTH)
+	if(direction == SOUTH && !border_lean)
 		src.layer = ABOVE_DOOR_LAYER
+	if(direction == SOUTH && border_lean)
+		// The southern side is in front of the pane, including a north-facing
+		// pane approached from its own turf.
+		src.layer = max(initial(layer), lean_target.layer + 0.01)
 	set_density(FALSE)
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	ADD_TRAIT(src, TRAIT_LEANING, TRAIT_SOURCE_WALL_LEANING)
@@ -134,7 +168,8 @@
 
 /datum/component/leanable/proc/on_density_change()
 	SIGNAL_HANDLER
-	is_currently_leanable = !is_currently_leanable
+	var/atom/support = parent
+	is_currently_leanable = support.density
 	if(!is_currently_leanable)
 		stop_leaning_leaners(fall = TRUE)
 		return
