@@ -32,6 +32,7 @@ type SkillCategory = {
 };
 
 type SkillsMenuData = {
+  admin_mode?: BooleanLike;
   categories?: SkillCategory[];
   initialized: BooleanLike;
 };
@@ -52,11 +53,15 @@ export const SkillsMenu = () => {
             <Box className="skills-menu__header">
               <Stack align="center" justify="space-between">
                 <Stack.Item grow>
-                  <Box bold>One-Time Skills Configuration</Box>
+                  <Box bold>
+                    {data.admin_mode
+                      ? 'Admin Skills Configuration'
+                      : 'One-Time Skills Configuration'}
+                  </Box>
                   <Box color="label" mt={0.5}>
-                    Education restrictions do not apply. Pre-existing skills
-                    cannot be lowered. Click Confirm Skills when finished to
-                    apply your choices.
+                    {data.admin_mode
+                      ? 'Point limits and education restrictions do not apply. Click Confirm Skills when finished to apply changes.'
+                      : 'Education restrictions do not apply. Pre-existing skills cannot be lowered. Click Confirm Skills when finished to apply your choices.'}
                   </Box>
                 </Stack.Item>
                 <Stack.Item>
@@ -77,10 +82,12 @@ export const SkillsMenu = () => {
               <Box className="skill-category" key={category.name}>
                 <Box className="skill-category__title">
                   <span>{category.name}</span>
-                  <span>
-                    {category.remaining} points remaining
-                    {category.bonus > 0 ? ` (+${category.bonus} bonus)` : ''}
-                  </span>
+                  {!data.admin_mode && (
+                    <span>
+                      {category.remaining} points remaining
+                      {category.bonus > 0 ? ` (+${category.bonus} bonus)` : ''}
+                    </span>
+                  )}
                 </Box>
                 {category.subcategories.map((subcategory) => (
                   <Box className="skill-subcategory" key={subcategory.name}>

@@ -1485,20 +1485,14 @@
 
 			show_player_panel(M)
 
-	else if(href_list["setskill"])
+	else if(href_list["skills_menu"])
 		if(check_rights(R_SPAWN))
-			var/mob/M = locate(href_list["setskill"])
-			var/singleton/skill/skill = GET_SINGLETON(text2path(href_list["skill"]))
-			var/skill_level = text2num(href_list["skill_level"])
-			if(!istype(M) || !istype(skill) || !(skill_level in skill.skill_level_descriptions))
+			var/mob/living/carbon/human/H = locate(href_list["skills_menu"])
+			if(!ishuman(H))
+				to_chat(usr, SPAN_WARNING("Skills menu can only be opened for humanoids."))
 				return
-
-			var/datum/component/skill/skill_component = M.GetComponent(skill.component_type)
-			if(skill_component)
-				qdel(skill_component)
-			skill.on_spawn(M, skill_level)
-
-			show_player_panel(M)
+			var/datum/tgui_module/skills_menu/menu = new(H, null, TRUE)
+			menu.ui_interact(usr)
 
 	// player info stuff
 

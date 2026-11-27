@@ -6,19 +6,24 @@
 	var/list/selected_skills = list()
 	/// Assoc list of skill category name -> bonus skill points.
 	var/list/bonus_skill_points = list()
+	/// Whether this menu was opened by an admin (unrestricted, allows lowering skills).
+	var/admin_mode = FALSE
 
-/datum/tgui_module/skills_menu/New(mob/living/carbon/human/target, list/bonus_points = null)
+/datum/tgui_module/skills_menu/New(mob/living/carbon/human/target, list/bonus_points = null, admin_edit = FALSE)
 	..()
 	target_human = WEAKREF(target)
+	admin_mode = admin_edit
 	if(islist(bonus_points))
 		bonus_skill_points = bonus_points.Copy()
 
 	for(var/singleton/skill/skill as anything in SSskills.all_skills)
-		var/level = target?.skills?[skill.type]
-		if(!level && skill.component_type)
+		var/level
+		if(skill.component_type)
 			var/datum/component/skill/comp = target?.GetComponent(skill.component_type)
 			if(comp)
 				level = comp.skill_level
+		if(!level)
+			level = target?.skills?[skill.type]
 		if(!level)
 			level = SKILL_LEVEL_UNFAMILIAR
 		initial_skills[skill.type] = level
@@ -34,13 +39,24 @@
 /datum/tgui_module/skills_menu/ui_state(mob/user)
 	return GLOB.always_state
 
+/datum/tgui_module/skills_menu/ui_close(mob/user)
+	. = ..()
+	if(admin_mode)
+		qdel(src)
+
 /datum/tgui_module/skills_menu/ui_interact(mob/user, datum/tgui/ui)
 	var/mob/living/carbon/human/owner = target_human?.resolve()
-	if(!istype(owner) || user != owner)
+	if(!istype(owner))
+		return
+	if(admin_mode)
+		if(!check_rights(R_SPAWN, FALSE, user))
+			return
+	else if(user != owner)
 		return
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SkillsMenu", "Skills Configuration", 850, 700)
+		var/title = admin_mode ? "Skills Configuration | [owner.real_name] ([owner.ckey || "None"])" : "Skills Configuration"
+		ui = new(user, src, "SkillsMenu", title, 850, 700)
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
@@ -72,13 +88,14 @@
 
 	return list(
 		"initialized" = TRUE,
+		"admin_mode" = admin_mode,
 		"categories" = categories
 	)
 
 /datum/tgui_module/skills_menu/proc/get_skill_ui_data(singleton/skill/skill, mob/living/carbon/human/owner)
 	var/current_level = selected_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR
 	var/initial_level = initial_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR
-	var/maximum_skill_level = get_maximum_skill_level(skill, owner)
+	var/maximum_skill_level = admin_mode ? skill.maximum_level : get_maximum_skill_level(skill, owner)
 	var/alist/level_descriptions = skill.get_skill_level_descriptions(null, owner.species)
 	var/current_description = replacetext(level_descriptions[current_level], "<br>", "\n")
 	current_description = html_decode(strip_html_properly(current_description))
@@ -103,7 +120,7 @@
 	var/state = "unavailable"
 	var/selectable = FALSE
 
-	if(selection_level < initial_level)
+	if(!admin_mode && selection_level < initial_level)
 		state = "forced"
 	else if(selection_level == current_level)
 		state = "current"
@@ -158,7 +175,12 @@
 		return
 
 	var/mob/living/carbon/human/owner = target_human?.resolve()
-	if(!istype(owner) || usr != owner)
+	if(!istype(owner))
+		return FALSE
+	if(admin_mode)
+		if(!check_rights(R_SPAWN, TRUE, usr))
+			return FALSE
+	else if(usr != owner)
 		return FALSE
 
 	switch(action)
@@ -170,8 +192,8 @@
 			if(!isnum(new_level))
 				return FALSE
 			new_level = round(new_level)
-			var/min_level = initial_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR
-			var/max_level = get_maximum_skill_level(skill, owner)
+			var/min_level = admin_mode ? SKILL_LEVEL_UNFAMILIAR : (initial_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR)
+			var/max_level = admin_mode ? skill.maximum_level : get_maximum_skill_level(skill, owner)
 			if(new_level < min_level || new_level > max_level)
 				return FALSE
 			selected_skills[skill.type] = new_level
@@ -179,9 +201,13 @@
 
 		if("confirm")
 			apply_skills(owner)
-			remove_verb(owner, /mob/living/carbon/human/proc/configure_skills_verb)
-			owner.pending_skills_menu = null
-			to_chat(owner, SPAN_NOTICE("Your skills have been finalized."))
+			if(admin_mode)
+				log_admin("[key_name(usr)] modified skills for [key_name(owner)].")
+				message_admins("[key_name_admin(usr)] modified skills for [key_name_admin(owner)].")
+			else
+				remove_verb(owner, /mob/living/carbon/human/proc/configure_skills_verb)
+				owner.pending_skills_menu = null
+				to_chat(owner, SPAN_NOTICE("Your skills have been finalized."))
 			ui.close()
 			qdel(src)
 			return TRUE
@@ -190,7 +216,7 @@
 	for(var/singleton/skill/skill as anything in SSskills.all_skills)
 		var/new_level = selected_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR
 		var/old_level = initial_skills[skill.type] || SKILL_LEVEL_UNFAMILIAR
-		if(new_level <= old_level)
+		if(admin_mode ? (new_level == old_level) : (new_level <= old_level))
 			continue
 
 		LAZYSET(owner.skills, skill.type, new_level)

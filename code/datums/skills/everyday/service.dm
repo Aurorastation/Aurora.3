@@ -182,7 +182,7 @@
 
 /singleton/skill/resolve/on_spawn(mob/owner, skill_level, previous_level = SKILL_LEVEL_UNFAMILIAR)
 	var/mob/living/carbon/character = astype(owner)
-	if (!character || skill_level <= previous_level || !character.species || !character.species.has_morale)
+	if (!character || skill_level == previous_level || !character.species || !character.species.has_morale)
 		return
 
 	// Using LoadComponent here lets me defeat any possible race conditions coming out of character creation.
