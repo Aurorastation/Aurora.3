@@ -26,7 +26,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/marker/airlock)
 	req_access = null
 
 	/// Doors/buttons/etc will be set to this access requirement. If null, they will not have any access requirements.
-	req_one_access = list(/datum/access/external_airlocks::id)
+	req_one_access = list(/datum/access/horizon/external_airlocks::id)
 
 /obj/effect/map_effect/marker/airlock/Initialize(mapload, ...)
 	..()

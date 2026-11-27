@@ -98,7 +98,7 @@
 	items = list(
 		/mob/living/carbon/human
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -112,7 +112,7 @@
 	items = list(
 		/mob/living/carbon/human/skrell
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -126,7 +126,7 @@
 	items = list(
 		/mob/living/carbon/human/tajaran
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -140,7 +140,7 @@
 	items = list(
 		/mob/living/carbon/human/unathi
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -154,7 +154,7 @@
 	items = list(
 		/mob/living/carbon/human/type_a/cargo
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
@@ -207,7 +207,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/sci
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -221,7 +221,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/sci
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -235,7 +235,7 @@
 	items = list(
 		/obj/item/circuitboard/research_shuttle
 	)
-	access = list(/datum/access/research::id)
+	access = list(/datum/access/horizon/research::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

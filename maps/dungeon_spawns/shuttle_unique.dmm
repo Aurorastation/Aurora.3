@@ -123,9 +123,9 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "at" = (
@@ -133,9 +133,9 @@
 	icon_state = "door_locked";
 	id_tag = "engine_access_hatch";
 	locked = 1;
-	req_access = list(11);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/dungeon/crashed_ship)
 "au" = (

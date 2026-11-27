@@ -1767,20 +1767,19 @@
 "iHR" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Kitchen";
-	req_access = list(202);
 	dir = 4
 	},
 /obj/effect/spider/stickyweb,
 /obj/item/tape/medical,
 /obj/structure/blocker,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "iJa" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(111)
-	},
+/obj/structure/machinery/computer/ship/helm,
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,
+/obj/effect/map_effect/marker/access/req_all/tcaf,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/racers_blue)
 "iKO" = (
@@ -1954,14 +1953,13 @@
 /area/racers)
 "jnP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = list(202)
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/noticeboard{
 	pixel_y = 28
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/white,
 /area/racers)
 "jrF" = (
@@ -2254,10 +2252,10 @@
 /area/racers)
 "kLy" = (
 /obj/structure/machinery/door/window{
-	name = "Bar";
-	req_access = list(202)
+	name = "Bar"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/lino/diamond,
 /area/racers)
 "kML" = (
@@ -3993,10 +3991,10 @@
 "tnT" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Staff Room";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/holofloor/tiled,
 /area/racers)
 "tpD" = (
@@ -4212,11 +4210,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/racers_red)
 "urT" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(111)
-	},
+/obj/structure/machinery/computer/ship/helm,
 /obj/item/gps,
 /obj/structure/machinery/camera/network/thunder,
+/obj/effect/map_effect/marker/access/req_all/tcaf,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/racers_red)
 "uuC" = (
@@ -4359,10 +4356,10 @@
 "vdz" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor,
 /area/racers)
 "ves" = (

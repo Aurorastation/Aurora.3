@@ -220,9 +220,9 @@
 /area/ship/militia_ship)
 "bci" = (
 /obj/structure/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
 "bdy" = (
@@ -544,11 +544,10 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/door/window{
-	req_one_access = list(28)
-	},
+/obj/structure/machinery/door/window,
 /obj/structure/curtain/open/shower,
 /obj/item/bikehorn/rubberducky,
+/obj/effect/map_effect/marker/access/req_one/galley,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "fRD" = (
@@ -1491,10 +1490,10 @@
 "vCD" = (
 /obj/structure/machinery/door/window/northleft{
 	dir = 2;
-	name = "Kitchen";
-	req_access = list(201)
+	name = "Kitchen"
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "vDJ" = (

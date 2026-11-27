@@ -4,9 +4,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	name = "VR Preparation Room Passage"
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -15,9 +15,9 @@
 "ab" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "ac" = (
@@ -39,17 +39,17 @@
 "ae" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "ag" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "ai" = (
@@ -81,9 +81,9 @@
 "al" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "am" = (
@@ -208,10 +208,10 @@
 "aW" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "wood-broken6"
 	},
@@ -728,10 +728,10 @@
 "dS" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
 	name = "Kitchen";
-	req_access = list(101);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -1093,12 +1093,13 @@
 	dir = 10
 	},
 /obj/structure/machinery/door/window/eastleft{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -1862,9 +1863,9 @@
 "jS" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Checkpoint";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "jW" = (
@@ -1899,12 +1900,12 @@
 /area/city/mendell)
 "kj" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage";
-	req_access = list(12)
+	name = "VR Preparation Room Passage"
 	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	icon_state = "tiles_small";
 	name = "small tiles"
@@ -2428,11 +2429,11 @@
 "nR" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "front_doors";
-	pixel_x = 25;
-	req_access = list(101)
+	pixel_x = 25
 	},
 /obj/random/pottedplant,
 /obj/effect/floor_decal/spline/fancy/wood/full,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "nS" = (
@@ -2578,13 +2579,13 @@
 /area/city/mendell/interior)
 "oN" = (
 /obj/structure/machinery/door/airlock/centcom{
-	name = "Special Operations";
-	req_access = list(109)
+	name = "Special Operations"
 	},
 /obj/structure/machinery/door/blast/odin{
 	id = "CCIAReadyRoom";
 	name = "Special Operations Blast Door"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_ccia,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -2670,10 +2671,11 @@
 /area/city/mendell/interior)
 "pt" = (
 /obj/structure/machinery/door/window/northright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -3338,10 +3340,10 @@
 "tC" = (
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -3440,9 +3442,9 @@
 "ue" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/marble/dark,
 /area/city/mendell/interior)
 "ug" = (
@@ -3664,9 +3666,9 @@
 "vy" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "vB" = (
@@ -3753,9 +3755,9 @@
 	id = "CCIAReadyRoom";
 	name = "Ready Room";
 	pixel_x = -23;
-	pixel_y = 7;
-	req_access = list(103)
+	pixel_y = 7
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -4338,9 +4340,9 @@
 /area/city/mendell)
 "zp" = (
 /obj/structure/machinery/door/airlock/centcom{
-	name = "Administrative Wing";
-	req_access = list(101)
+	name = "Administrative Wing"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/unsimulated/floor{
 	icon_state = "wood_willow"
 	},
@@ -4955,9 +4957,9 @@
 "CU" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "VR Control Center";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "CX" = (
@@ -5004,9 +5006,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -5362,9 +5364,9 @@
 "Fm" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Fn" = (
@@ -5539,9 +5541,9 @@
 "GF" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "GI" = (
@@ -6056,9 +6058,9 @@
 "JX" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Conference Room";
-	req_access = list(19);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/wood,
 /area/city/mendell)
 "Ka" = (
@@ -6665,9 +6667,8 @@
 	},
 /area/city/mendell/interior)
 "MT" = (
-/obj/structure/machinery/door/window{
-	req_access = list(101)
-	},
+/obj/structure/machinery/door/window,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "MY" = (
@@ -6860,9 +6861,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
-	req_access = list(12);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7023,9 +7024,9 @@
 "OR" = (
 /obj/structure/machinery/door/airlock/centcom{
 	id_tag = "exec_suite";
-	name = "Command Lounge and Suite";
-	req_access = list(101)
+	name = "Command Lounge and Suite"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "OT" = (
@@ -7145,9 +7146,9 @@
 /obj/effect/map_effect/door_helper/unres,
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Coalition Base Entry";
-	req_access = list(12);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -7273,10 +7274,11 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastleft{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -7538,9 +7540,9 @@
 /area/city/mendell/interior)
 "Rx" = (
 /obj/structure/machinery/door/airlock/glass_centcom{
-	name = "Kitchen";
-	req_access = list(101)
+	name = "Kitchen"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Ry" = (
@@ -7964,9 +7966,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/city/mendell/interior)
 "Ul" = (
-/obj/structure/machinery/door/window{
-	req_access = list(101)
-	},
+/obj/structure/machinery/door/window,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/tiled/ramp,
 /area/city/mendell)
 "Un" = (
@@ -8183,9 +8184,9 @@
 "VA" = (
 /obj/structure/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
-	req_access = list(101);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/wood,
 /area/city/mendell/interior)
 "VB" = (
@@ -8800,10 +8801,11 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/dropper,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},

@@ -3005,12 +3005,12 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(245)
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/medbay)
 "jk" = (
@@ -4800,11 +4800,11 @@
 /area/ruined_propellant_depot/bridge)
 "pz" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "pA" = (
@@ -4959,14 +4959,14 @@
 /area/ruined_propellant_depot/maint_storage)
 "qf" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/security)
 "qg" = (
@@ -5791,14 +5791,14 @@
 /area/ruined_propellant_depot/crew_quarters)
 "sP" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/reactor)
 "sQ" = (
@@ -7152,11 +7152,11 @@
 /area/ruined_propellant_depot/propellant_tanks)
 "wO" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/engineering)
 "wP" = (
@@ -9234,14 +9234,14 @@
 /area/ruined_propellant_depot/atmos_propellant)
 "Dt" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/bridge)
 "Du" = (
@@ -9985,8 +9985,7 @@
 /area/ruined_propellant_depot/gym)
 "FL" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -9995,6 +9994,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_propellant)
 "FM" = (
@@ -10030,11 +10030,11 @@
 /area/ruined_propellant_depot/maint)
 "FR" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "FS" = (
@@ -11562,11 +11562,11 @@
 /area/ruined_propellant_depot/hallways_east)
 "KO" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/directors_quarters)
 "KP" = (
@@ -12866,8 +12866,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(245)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12878,6 +12877,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/atmos_air)
 "OV" = (
@@ -13128,11 +13128,11 @@
 /area/ruined_propellant_depot/atmos_air_aux_fill)
 "PF" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/security)
 "PH" = (
@@ -15959,14 +15959,14 @@
 /area/ruined_propellant_depot/docks_south_west)
 "YH" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 1;
-	req_one_access = list(245)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/ruined_propellant_depot_access,
 /turf/simulated/floor/plating,
 /area/ruined_propellant_depot/directors_quarters)
 "YI" = (

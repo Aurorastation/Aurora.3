@@ -7,7 +7,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/trolley
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +21,7 @@
 	items = list(
 		/obj/vehicle/train/cargo/engine
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -412,7 +412,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -426,7 +426,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/rollable
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -440,7 +440,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/chewable
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -454,7 +454,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/smoking_accessory
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -468,7 +468,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/electronic_cig
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -482,7 +482,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -496,7 +496,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/xeno
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -510,7 +510,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/candy
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -524,7 +524,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/food/microwave
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -538,7 +538,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -552,7 +552,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/drink/booze_cheap
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -566,7 +566,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -580,7 +580,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/cards_dice
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -594,7 +594,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/mech
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -608,7 +608,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -622,7 +622,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/toy/comic/nka
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -636,7 +636,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/music
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -651,7 +651,7 @@
 	items = list(
 		/obj/item/storage/box/fancy/commissary_restock/tea
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -665,7 +665,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/ops
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -679,7 +679,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/ops
 	)
-	access = list(/datum/access/cargo::id)
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

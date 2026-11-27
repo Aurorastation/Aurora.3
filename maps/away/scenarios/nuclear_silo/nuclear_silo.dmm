@@ -549,10 +549,11 @@
 "bs" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Secondary Checkpoint";
-	req_one_access = list(248,247)
+	name = "Secondary Checkpoint"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/checkpoint)
 "bt" = (
@@ -644,13 +645,14 @@
 /area/nuclear_silo/lower_level/medbay)
 "bE" = (
 /obj/structure/machinery/door/airlock/glass_security{
-	req_one_access = list(248,247);
 	name = "Security Office"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "bF" = (
@@ -1179,9 +1181,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor,
 /area/nuclear_silo/lower_level/engineering)
 "cQ" = (
@@ -1192,8 +1195,7 @@
 "cR" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "Delivery Storage Room";
-	req_one_access = list(248,247)
+	name = "Delivery Storage Room"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -1207,6 +1209,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "cS" = (
@@ -1380,8 +1384,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1392,6 +1395,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/north)
 "dl" = (
@@ -2614,12 +2619,13 @@
 "fR" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_one_access = list(248,247);
 	name = "Surgical Theatre"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/medbay)
 "fS" = (
@@ -3402,8 +3408,7 @@
 "hC" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Secondary Checkpoint Hallway";
-	req_one_access = list(248,247)
+	name = "Secondary Checkpoint Hallway"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3411,6 +3416,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/checkpoint)
 "hD" = (
@@ -3427,8 +3434,7 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "hE" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -3442,6 +3448,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level_lift)
 "hF" = (
@@ -3671,7 +3679,6 @@
 "ih" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Morgue"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -3686,6 +3693,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "ii" = (
@@ -3941,9 +3950,10 @@
 	id = "bunker_lower_engineering_storage";
 	name = "Heavy Items Storage Shutters";
 	dir = 4;
-	pixel_x = 21;
-	req_one_access = list(248,247)
+	pixel_x = 21
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "iM" = (
@@ -4037,8 +4047,7 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "iZ" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4046,6 +4055,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/south)
 "ja" = (
@@ -4096,9 +4107,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "jf" = (
@@ -4603,10 +4615,10 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "km" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/medbay)
 "kn" = (
@@ -4675,9 +4687,7 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "ks" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/random/junk,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4685,6 +4695,8 @@
 /obj/random/dirt_75,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/south)
 "kt" = (
@@ -4713,10 +4725,11 @@
 	dir = 4;
 	name = "Emergency Barricade Storage";
 	id = "bunker_upper_barricades";
-	pixel_x = 21;
-	req_one_access = list(248,247)
+	pixel_x = 21
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "kv" = (
@@ -5293,13 +5306,14 @@
 /area/nuclear_silo/outside/buildings/town)
 "lI" = (
 /obj/structure/machinery/door/airlock/medical{
-	name = "CBRN Treatment Chamber";
-	req_one_access = list(248,247)
+	name = "CBRN Treatment Chamber"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "lJ" = (
@@ -5395,8 +5409,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5404,6 +5417,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/north)
 "lU" = (
@@ -5701,8 +5716,7 @@
 "mC" = (
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	name = "Kitchen";
-	req_one_access = list(248,247)
+	name = "Kitchen"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5713,6 +5727,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "mD" = (
@@ -7014,9 +7030,10 @@
 /area/nuclear_silo/lower_level/security)
 "pz" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "pA" = (
@@ -8110,8 +8127,7 @@
 "sd" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 4;
-	name = "Communal Cell";
-	req_one_access = list(248,247)
+	name = "Communal Cell"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8128,6 +8144,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/brig)
 "se" = (
@@ -8275,12 +8293,13 @@
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Medbay Office"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/medbay)
 "sx" = (
@@ -8725,15 +8744,13 @@
 	dir = 1;
 	pixel_x = -6;
 	id = "bunker_upper_checkpoint_inner";
-	name = "Inner Checkpoint";
-	req_one_access = list(248,247)
+	name = "Inner Checkpoint"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	dir = 1;
 	pixel_x = 6;
 	id = "bunker_upper_checkpoint_outer";
-	name = "Outer Checkpoint";
-	req_one_access = list(248,247)
+	name = "Outer Checkpoint"
 	},
 /obj/item/stamp/denied{
 	pixel_y = 12;
@@ -8747,6 +8764,8 @@
 	pixel_x = 7
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "tw" = (
@@ -8767,7 +8786,6 @@
 "ty" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/glass_engineering{
-	req_one_access = list(248,247);
 	name = "Engineering"
 	},
 /obj/structure/cable/green{
@@ -8776,6 +8794,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "tz" = (
@@ -8872,7 +8892,6 @@
 "tJ" = (
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 8;
-	req_one_access = list(248,247);
 	name = "Power Generation"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -8890,6 +8909,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "tK" = (
@@ -9052,7 +9073,6 @@
 "ue" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_one_access = list(248,247);
 	name = "Nuclear Missile Monitoring Room"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -9067,6 +9087,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "uf" = (
@@ -9255,8 +9277,7 @@
 "uz" = (
 /obj/structure/machinery/door/airlock/blue{
 	dir = 4;
-	name = "Bedroom";
-	req_access = list(247)
+	name = "Bedroom"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9264,6 +9285,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nuclear_missile_silo_access,
 /turf/simulated/floor/wood/ebony,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "uA" = (
@@ -9482,8 +9504,7 @@
 "uW" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "CBRN Wing Morgue";
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -9497,6 +9518,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "uX" = (
@@ -9794,7 +9817,6 @@
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
 	id_tag = "bunker_lower_armoury";
-	req_access = list(247);
 	name = "Armoury"
 	},
 /obj/effect/map_effect/door_helper/lock,
@@ -9811,6 +9833,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/security)
 "vJ" = (
@@ -9967,12 +9990,13 @@
 /area/nuclear_silo/outside/buildings)
 "wa" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "wb" = (
@@ -10524,9 +10548,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass_security{
-	req_one_access = list(248,247);
 	name = "Security"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "xn" = (
@@ -10940,7 +10965,6 @@
 	id = "bunker_lower_armoury";
 	pixel_x = 24;
 	specialfunctions = 4;
-	req_one_access = list(247);
 	name = "Armoury Bolts"
 	},
 /obj/structure/table/standard,
@@ -10960,6 +10984,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "yj" = (
@@ -11090,9 +11115,10 @@
 	pixel_x = 7;
 	pixel_y = -2;
 	id = "bunker_lower_checkpoint";
-	name = "Checkpoint Shutters";
-	req_one_access = list(248,247)
+	name = "Checkpoint Shutters"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "yA" = (
@@ -11130,13 +11156,14 @@
 /area/nuclear_silo/lower_level/security)
 "yF" = (
 /obj/structure/machinery/door/airlock/medical{
-	name = "CBRN Wing Decontamination";
-	req_one_access = list(248,247)
+	name = "CBRN Wing Decontamination"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "yG" = (
@@ -11226,7 +11253,6 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Tool Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -11238,6 +11264,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "yO" = (
@@ -11791,9 +11819,10 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "Ab" = (
@@ -11866,7 +11895,6 @@
 "Al" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_one_access = list(248,247);
 	name = "DANGER, RADIATION - Nuclear Missile Silo"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -11875,6 +11903,8 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_silo)
 "Am" = (
@@ -11942,8 +11972,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11951,6 +11980,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "Aw" = (
@@ -12370,8 +12401,7 @@
 "Bp" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "Interrogation Chamber";
-	req_one_access = list(248,247)
+	name = "Interrogation Chamber"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -12385,6 +12415,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Bq" = (
@@ -12597,9 +12629,9 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
 "BN" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/highsecurity,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/upper_level_lift)
 "BO" = (
@@ -12706,7 +12738,6 @@
 "Cb" = (
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Armoury Office"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -12715,6 +12746,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "Cc" = (
@@ -14255,8 +14288,7 @@
 /area/nuclear_silo/lower_level/maintenance/north)
 "Fx" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14264,6 +14296,8 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "Fy" = (
@@ -14329,7 +14363,6 @@
 /area/nuclear_silo/outside/buildings)
 "FG" = (
 /obj/structure/machinery/door/airlock/glass_security{
-	req_one_access = list(248,247);
 	name = "Security"
 	},
 /obj/structure/cable/green{
@@ -14337,6 +14370,8 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "FH" = (
@@ -14511,8 +14546,7 @@
 /area/nuclear_silo/outside/buildings)
 "Gb" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/structure/machinery/door/blast/regular{
 	name = "Emergency Barricade Storage";
@@ -14521,6 +14555,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "Gc" = (
@@ -14908,8 +14944,7 @@
 /area/nuclear_silo/lower_level/maintenance/north)
 "GT" = (
 /obj/structure/closet/secure_closet{
-	icon_state = "sec";
-	req_one_access = list(248,247)
+	icon_state = "sec"
 	},
 /obj/item/clothing/head/bandana/security,
 /obj/item/clothing/head/beret/security,
@@ -14922,6 +14957,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "GU" = (
@@ -15585,10 +15622,10 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Ix" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/highsecurity,
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/cave/bunker)
 "Iy" = (
@@ -16203,10 +16240,10 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "JM" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "JN" = (
@@ -16273,9 +16310,10 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass_engineering{
-	req_one_access = list(248,247);
 	name = "Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "JV" = (
@@ -16701,8 +16739,7 @@
 /area/nuclear_silo/lower_level/nuke_silo)
 "KQ" = (
 /obj/structure/closet/secure_closet{
-	icon_state = "sec";
-	req_one_access = list(248,247)
+	icon_state = "sec"
 	},
 /obj/item/clothing/head/bandana/security,
 /obj/item/clothing/head/beret/security,
@@ -16714,6 +16751,8 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "KR" = (
@@ -17383,12 +17422,12 @@
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "Mu" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/engineering)
 "Mv" = (
@@ -17630,11 +17669,11 @@
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "MY" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/plating,
 /area/nuclear_silo/lower_level/checkpoint)
 "MZ" = (
@@ -17870,7 +17909,6 @@
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "ND" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_one_access = list(248,247);
 	name = "HIGH SECURITY - Monitoring Sector"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -17880,6 +17918,8 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "NE" = (
@@ -18242,8 +18282,7 @@
 "Ov" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "Secondary Checkpoint";
-	req_one_access = list(248,247)
+	name = "Secondary Checkpoint"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -18257,6 +18296,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Ow" = (
@@ -18566,10 +18607,11 @@
 "Pi" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_one_access = list(248,247);
 	name = "Medbay Office"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/medbay)
 "Pj" = (
@@ -18675,7 +18717,6 @@
 "Pu" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	req_one_access = list(248,247);
 	name = "DANGER, RADIATION - Nuclear Missile Silo"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -18687,6 +18728,8 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_silo)
 "Pv" = (
@@ -18931,8 +18974,7 @@
 "PZ" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "Secondary Checkpoint";
-	req_one_access = list(248,247)
+	name = "Secondary Checkpoint"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -18946,6 +18988,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "Qa" = (
@@ -19468,8 +19512,7 @@
 "Rl" = (
 /obj/structure/machinery/door/airlock/blue{
 	dir = 4;
-	name = "Bedroom";
-	req_access = list(247)
+	name = "Bedroom"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -19477,6 +19520,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/nuclear_missile_silo_access,
 /turf/simulated/floor/wood/maple,
 /area/nuclear_silo/lower_level/civilian/crew_quarters)
 "Rm" = (
@@ -19566,8 +19610,7 @@
 "Rt" = (
 /obj/structure/machinery/door/airlock/freezer{
 	dir = 4;
-	name = "Freezer";
-	req_one_access = list(248,247)
+	name = "Freezer"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -19578,6 +19621,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/freezer)
 "Ru" = (
@@ -19911,7 +19956,6 @@
 "Si" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Medical Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -19926,6 +19970,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "Sj" = (
@@ -20133,11 +20179,12 @@
 /area/nuclear_silo/lower_level/hallway)
 "SF" = (
 /obj/structure/machinery/door/airlock/glass_security{
-	req_one_access = list(248,247);
 	name = "Security Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/lower_level/security)
 "SG" = (
@@ -21047,10 +21094,11 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_one_access = list(248,247);
 	name = "HIGH SECURITY - Monitoring Sector"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/steel,
 /area/nuclear_silo/lower_level/nuke_monitoring)
 "UI" = (
@@ -21067,7 +21115,6 @@
 "UK" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Heavy Items Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -21082,6 +21129,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "UL" = (
@@ -22066,13 +22115,14 @@
 	pixel_x = 8;
 	pixel_y = -4;
 	id = "bunker_lower_messhall";
-	name = "Messhall Shutters";
-	req_one_access = list(248,247)
+	name = "Messhall Shutters"
 	},
 /obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "WM" = (
@@ -22173,7 +22223,6 @@
 "WX" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	req_one_access = list(248,247);
 	name = "Atmosphere Recycling and Scrubbing"
 	},
 /obj/structure/cable/green{
@@ -22191,6 +22240,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "WY" = (
@@ -22369,12 +22420,12 @@
 /turf/simulated/wall/r_wall,
 /area/nuclear_silo/outside/buildings)
 "Xo" = (
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/civilian/messhall)
 "Xq" = (
@@ -22500,10 +22551,11 @@
 "XE" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_one_access = list(248,247);
 	name = "Pharmacy"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/medbay)
 "XF" = (
@@ -22619,8 +22671,7 @@
 "XS" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "CBRN Wing Decontamination";
-	dir = 4;
-	req_one_access = list(248,247)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -22634,6 +22685,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
 "XT" = (
@@ -22655,11 +22708,11 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/security)
 "XU" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	req_one_access = list(248,247)
-	},
+/obj/structure/machinery/door/airlock/highsecurity,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access,
+/obj/effect/map_effect/marker/access/req_one/nuclear_missile_silo_access_high,
 /turf/simulated/floor/exoplanet/plating,
 /area/nuclear_silo/outside/cave/bunker)
 "XV" = (

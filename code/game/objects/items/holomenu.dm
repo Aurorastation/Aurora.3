@@ -9,7 +9,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.4
 
-	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/hydroponics::id)
+	req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/hydroponics::id)
 
 	var/rave_mode = FALSE
 	var/menu_text = ""

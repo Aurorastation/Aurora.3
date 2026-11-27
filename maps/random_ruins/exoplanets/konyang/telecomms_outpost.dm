@@ -57,9 +57,9 @@
 	id = /obj/item/card/id/konyang_army
 
 /obj/outfit/admin/konyang/army/get_id_access()
-	return list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/portofcall_police::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/item/card/id/konyang_army
 	name = "konyang army id"
-	access = list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/away/portofcall_police::id, /datum/access/horizon/external_airlocks::id)
 

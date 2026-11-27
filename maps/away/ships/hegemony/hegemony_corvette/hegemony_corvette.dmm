@@ -108,9 +108,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Engineering";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
 "aB" = (
@@ -373,13 +373,13 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
 	id = "hegemony3"
 	},
 /obj/structure/machinery/firealarm/east,
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "cw" = (
@@ -649,15 +649,14 @@
 	pixel_x = -32;
 	pixel_y = -7;
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113);
 	id = "hegemony_cic"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
 	pixel_y = 3;
-	req_one_access = list(113);
 	id = "hegemony3"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "ef" = (
@@ -925,9 +924,8 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(113)
-	},
+/obj/structure/machinery/computer/ship/targeting,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "fB" = (
@@ -1023,9 +1021,9 @@
 /obj/structure/machinery/firealarm/west,
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Auxiliary CIC Blastdoors";
-	req_one_access = list(113);
 	id = "hegemony_cic"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/aux_cic)
 "gf" = (
@@ -1095,7 +1093,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	req_one_access = list(113);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1106,6 +1103,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
 "gC" = (
@@ -1197,8 +1195,7 @@
 "hj" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "EVA Equipment";
-	req_one_access = list(113)
+	name = "EVA Equipment"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -1209,6 +1206,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
 "hm" = (
@@ -1683,29 +1681,25 @@
 	name = "Ship Lockdown";
 	pixel_y = 8;
 	pixel_x = -5;
-	req_one_access = list(113);
 	desc = "It controls blast doors, remotely. This button looks to be non-functional."
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Bridge Blastdoors";
 	pixel_x = 5;
 	pixel_y = 8;
-	id = "hegemony_bridge";
-	req_one_access = list(113)
+	id = "hegemony_bridge"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -5;
 	pixel_y = -1;
 	name = "Ship Window Shields";
-	req_one_access = list(113);
 	id = "hegemony_window"
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Auxiliary CIC Blastdoors";
 	pixel_x = 5;
 	pixel_y = -1;
-	id = "hegemony_cic";
-	req_one_access = list(113)
+	id = "hegemony_cic"
 	},
 /obj/item/clothing/head/helmet/pilot{
 	pixel_y = 4
@@ -1713,6 +1707,7 @@
 /obj/item/clothing/head/helmet/pilot{
 	pixel_y = -4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "kG" = (
@@ -1868,9 +1863,9 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "lH" = (
@@ -1954,9 +1949,9 @@
 /obj/structure/machinery/light,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113);
 	id = "hegemony1"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "lY" = (
@@ -2368,9 +2363,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/port_propulsion)
 "os" = (
@@ -2772,9 +2767,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Shuttle Dock";
-	req_one_access = list(113);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
 "qu" = (
@@ -3142,12 +3137,12 @@
 "sK" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Boarding Pods";
-	req_one_access = list(113)
+	name = "Boarding Pods"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "sO" = (
@@ -3709,9 +3704,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
 "vW" = (
@@ -4311,9 +4306,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "zr" = (
@@ -4334,9 +4329,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/starboard_propulsion)
 "zt" = (
@@ -5287,10 +5282,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
 "EY" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(113)
-	},
+/obj/structure/machinery/computer/ship/helm,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "Ff" = (
@@ -5318,9 +5312,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113);
 	id = "hegemony5"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Fq" = (
@@ -5834,9 +5828,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(113)
-	},
+/obj/structure/machinery/computer/ship/targeting,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "HJ" = (
@@ -5873,9 +5866,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = -32;
-	req_one_access = list(113);
 	id = "hegemony4"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Ii" = (
@@ -6068,7 +6061,6 @@
 "Jo" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gun Bay";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6085,6 +6077,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "Jt" = (
@@ -6139,9 +6132,8 @@
 /area/hegemony_ship)
 "JG" = (
 /obj/effect/floor_decal/spline/plain,
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(113)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "JN" = (
@@ -6178,9 +6170,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113);
 	id = "hegemony2"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "JW" = (
@@ -6362,7 +6354,6 @@
 "KZ" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Ammo Store";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -6377,6 +6368,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/gun_deck_bruiser)
 "Lf" = (
@@ -6608,8 +6600,7 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Healer's Bay";
-	req_one_access = list(113)
+	name = "Healer's Bay"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6619,6 +6610,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
 "Mr" = (
@@ -6636,9 +6628,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
 	id = "hegemony5"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Mv" = (
@@ -6652,12 +6644,12 @@
 "MB" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
 "MF" = (
@@ -6687,9 +6679,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_x = 32;
-	req_one_access = list(113);
 	id = "hegemony4"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "MM" = (
@@ -6739,7 +6731,6 @@
 "MZ" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(114);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -6756,6 +6747,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract_knight,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/captains_quarters)
 "Nb" = (
@@ -6871,9 +6863,9 @@
 	name = "Shuttle Blastdoors";
 	pixel_x = -7;
 	pixel_y = -2;
-	id = "hegemony_shuttle";
-	req_one_access = list(113)
+	id = "hegemony_shuttle"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
 "Nk" = (
@@ -6942,9 +6934,9 @@
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = 32;
-	req_one_access = list(113);
 	id = "hegemony1"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "NI" = (
@@ -7017,9 +7009,9 @@
 /obj/structure/machinery/light,
 /obj/structure/machinery/button/remote/blast_door{
 	pixel_y = -32;
-	req_one_access = list(113);
 	id = "hegemony2"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Ol" = (
@@ -7212,7 +7204,6 @@
 "PG" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Gunnery Foyer";
-	req_one_access = list(113);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -7223,6 +7214,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "PI" = (
@@ -7752,7 +7744,6 @@
 "SN" = (
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospheric Waste";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7764,6 +7755,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/atmos_waste)
 "SP" = (
@@ -7996,7 +7988,6 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecommunications";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8011,6 +8002,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/tcomms)
 "Uh" = (
@@ -8475,11 +8467,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "Xa" = (
@@ -8603,11 +8595,11 @@
 /area/space)
 "XN" = (
 /obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "XU" = (
@@ -8818,7 +8810,6 @@
 "YM" = (
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospherics Air Supply";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8832,6 +8823,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/atmos_distro)
 "YN" = (
@@ -8994,12 +8986,12 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Brig";
-	req_one_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
 "ZR" = (

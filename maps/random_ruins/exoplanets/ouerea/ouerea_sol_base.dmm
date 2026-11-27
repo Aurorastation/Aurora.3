@@ -177,9 +177,9 @@
 "kh" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Commander's Office";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "lg" = (
@@ -438,9 +438,9 @@
 /area/ouerea_sol)
 "xA" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Checkpoint";
-	req_access = list(203)
+	name = "Checkpoint"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -496,9 +496,9 @@
 "CX" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Hangar Supplies";
-	req_access = list(203);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Du" = (
@@ -718,9 +718,9 @@
 /area/ouerea_sol)
 "Jv" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Hangar Supplies";
-	req_access = list(203)
+	name = "Hangar Supplies"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "JQ" = (
@@ -913,9 +913,8 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Uw" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/highsecurity,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "US" = (

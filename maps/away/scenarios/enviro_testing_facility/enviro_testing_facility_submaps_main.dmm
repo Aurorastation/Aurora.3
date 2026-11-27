@@ -4703,9 +4703,7 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
+/obj/structure/machinery/vending/robotics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/engineering/robo_lab)
@@ -12400,9 +12398,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
 "mwN" = (
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
+/obj/structure/machinery/vending/robotics,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/machinery/light{
 	dir = 1
@@ -15554,9 +15550,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
+/obj/structure/machinery/vending/robotics,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/engineering/equipment)
 "pEm" = (
@@ -23599,9 +23593,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/structure/machinery/vending/robotics{
-	req_access = null
-	},
+/obj/structure/machinery/vending/robotics,
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/research/hallway)

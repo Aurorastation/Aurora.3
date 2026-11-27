@@ -250,16 +250,6 @@
 /obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
-"dB" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/scc_event_shuttle)
 "dI" = (
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
@@ -468,6 +458,14 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"gS" = (
+/obj/structure/machinery/door/airlock/centcom{
+	dir = 4;
+	name = "Power Maintanence"
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
+/turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "gX" = (
 /obj/structure/sign/directions/science{
@@ -904,6 +902,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
+"lz" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 4;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "lB" = (
 /obj/structure/machinery/light/small/emergency{
 	brightness_range = 5;
@@ -928,14 +938,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"mi" = (
-/obj/structure/machinery/door/airlock/centcom{
-	dir = 4;
-	name = "Power Maintanence";
-	req_access = list(103)
-	},
-/turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "mn" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -1641,18 +1643,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
-"AG" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 4;
-	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/scc_event_shuttle)
 "AU" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "556 ammo cabinet"
@@ -1732,6 +1722,34 @@
 "BZ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
+/area/scc_event_shuttle)
+"Cn" = (
+/obj/structure/table/standard,
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/flashlight{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = -3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Cs" = (
 /obj/structure/machinery/light/floor{
@@ -1897,6 +1915,16 @@
 	},
 /obj/effect/floor_decal/corner/green,
 /turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Fu" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/heads,
+/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "Fz" = (
 /obj/effect/floor_decal/corner/black{
@@ -2134,16 +2162,6 @@
 	req_one_access = list(7,47)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"Kp" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "bridge_foyer";
-	name = "Bridge";
-	req_one_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "Kv" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
@@ -2438,6 +2456,16 @@
 	},
 /turf/simulated/floor,
 /area/scc_event_shuttle)
+"QA" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "QN" = (
 /obj/structure/machinery/status_display/supply_display{
 	pixel_x = 32
@@ -2452,34 +2480,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/scc_event_shuttle)
-"QX" = (
-/obj/structure/table/standard,
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/flashlight{
-	pixel_y = 9;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = 3;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = -3;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "QY" = (
 /obj/effect/floor_decal/corner/black{
@@ -3471,7 +3471,7 @@ WA
 iE
 cw
 Ub
-dB
+QA
 Mr
 hd
 uq
@@ -3552,7 +3552,7 @@ LW
 cw
 eQ
 bp
-QX
+Cn
 OV
 pk
 ep
@@ -3593,7 +3593,7 @@ cw
 eQ
 bp
 bp
-AG
+lz
 bp
 bp
 bp
@@ -3671,7 +3671,7 @@ Ny
 SK
 cw
 Ub
-Kp
+Fu
 aS
 cw
 qs
@@ -3682,7 +3682,7 @@ Uc
 kQ
 bp
 bp
-mi
+gS
 bp
 bp
 qY
@@ -3871,7 +3871,7 @@ WA
 iE
 cw
 Ub
-Kp
+Fu
 aS
 cw
 il

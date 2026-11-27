@@ -1393,13 +1393,12 @@
 "dKg" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/alarm/east{
-	req_access = list(226)
-	},
+/obj/structure/machinery/alarm/east,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/starboard_hall)
 "dMj" = (
@@ -2175,9 +2174,8 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(226)
-	},
+/obj/structure/machinery/computer/ship/targeting,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "fUz" = (
@@ -3842,7 +3840,6 @@
 /area/ship/dominian_science_vessel/port_propulsion)
 "liI" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(226);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
@@ -3858,6 +3855,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_science_vessel/officer)
 "lkY" = (
@@ -4521,9 +4519,9 @@
 "nke" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 8;
-	accellimit = 0.005;
-	req_access = list(226)
+	accellimit = 0.005
 	},
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "noq" = (
@@ -4972,7 +4970,6 @@
 "oDy" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(226);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4981,6 +4978,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_science_vessel/bridge)
 "oEd" = (
@@ -5022,10 +5020,10 @@
 "oNi" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(226);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/dominian_science_vessel/bridge)
 "oNj" = (
@@ -6101,9 +6099,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/port_hall)
 "sBA" = (
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(226)
-	},
+/obj/structure/machinery/computer/ship/targeting,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "sBG" = (
@@ -6495,9 +6492,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "tCH" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(226)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/house_volvalaad_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "tEo" = (

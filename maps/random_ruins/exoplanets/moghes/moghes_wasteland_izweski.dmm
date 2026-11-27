@@ -109,9 +109,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
 	pixel_y = -24
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -550,9 +550,9 @@
 "oh" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(113)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -574,9 +574,9 @@
 "oD" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -651,9 +651,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
-	req_access = list(113);
 	pixel_y = -24
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -872,10 +872,10 @@
 /area/moghes/hegemony_wasteland/outdoors)
 "Bw" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(113);
 	name = "Barracks";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -923,9 +923,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
 	name = "Garage";
-	req_access = list(113);
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -949,9 +949,9 @@
 /area/moghes/hegemony_wasteland/outdoors)
 "FI" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Briefing Room";
-	req_access = list(113)
+	name = "Briefing Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1298,9 +1298,9 @@
 /area/moghes/hegemony_wasteland/outdoors)
 "PI" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Checkpoint";
-	req_access = list(113)
+	name = "Checkpoint"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1434,10 +1434,10 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
 	pixel_y = 32
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1463,9 +1463,9 @@
 "Wo" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},

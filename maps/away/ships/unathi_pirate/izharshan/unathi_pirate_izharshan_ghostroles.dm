@@ -61,7 +61,7 @@
 	)
 
 /obj/outfit/admin/izharshan/get_id_access()
-	return list(/datum/access/unathi_pirate::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/unathi_pirate::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/izharshan/captain
 	name = "Izharshan Captain"

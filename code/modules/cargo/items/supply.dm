@@ -384,7 +384,7 @@
 	items = list(
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
-	access = list(/datum/access/engine::id)
+	access = list(/datum/access/horizon/engine::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

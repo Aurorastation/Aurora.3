@@ -275,9 +275,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "Port Engineering";
-	req_access = list(201)
+	name = "Port Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
 "ce" = (
@@ -328,13 +328,13 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Reactor Access";
-	req_access = list(201);
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/reactor)
 "cu" = (
@@ -1423,13 +1423,13 @@
 /area/shuttle/orion_miner/main_engineering_stbd)
 "mo" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Telecommunications Mainframe";
-	req_access = list(201)
+	name = "Telecommunications Mainframe"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "ms" = (
@@ -1454,8 +1454,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
-	name = "Hydroponics";
-	req_access = list(201)
+	name = "Hydroponics"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1466,6 +1465,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/hydro)
 "mJ" = (
@@ -1503,9 +1503,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "Starboard Engineering";
-	req_access = list(201)
+	name = "Starboard Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
 "nb" = (
@@ -2727,8 +2727,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 4;
-	name = "Ammunition Storage";
-	req_access = list(201)
+	name = "Ammunition Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2739,6 +2738,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/ammo_storage)
 "yU" = (
@@ -3553,13 +3553,13 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/door/airlock/glass_mining{
-	name = "Mining Preparation";
-	req_access = list(201)
+	name = "Mining Preparation"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/corridor)
 "Fx" = (
@@ -3593,9 +3593,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "Starboard Engineering";
-	req_access = list(201)
+	name = "Starboard Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
 "FI" = (
@@ -3652,7 +3652,6 @@
 	icon_state = "2-8"
 	},
 /obj/structure/closet/walllocker/secure{
-	req_access = list(201);
 	name = "Fuel Supply";
 	pixel_y = 32
 	},
@@ -3664,6 +3663,7 @@
 /obj/structure/machinery/light/colored/decayed{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/reactor)
 "Gg" = (
@@ -4193,11 +4193,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass{
-	name = "EVA Storage";
-	req_access = list(201)
+	name = "EVA Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/eva)
 "LN" = (
@@ -4423,8 +4423,7 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "Technical Storage";
-	req_access = list(201)
+	name = "Technical Storage"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4432,6 +4431,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/tech_storage)
 "OC" = (
@@ -4786,9 +4786,9 @@
 /area/shuttle/orion_miner/main_engineering_stbd)
 "Qz" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(201)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
 "QF" = (
@@ -4904,13 +4904,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Grauwolf Access";
-	req_access = list(201)
+	name = "Grauwolf Access"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/grauwolf)
 "RC" = (
@@ -4962,7 +4962,6 @@
 	},
 /obj/structure/machinery/door/airlock{
 	dir = 4;
-	req_access = list(201);
 	name = "Dormitory"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4971,6 +4970,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/dorm)
 "RZ" = (
@@ -5557,11 +5557,11 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(201)
+	name = "Bridge"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/bridge)
 "WD" = (
@@ -5998,9 +5998,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 4;
-	name = "Port Engineering";
-	req_access = list(201)
+	name = "Port Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/exress_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor/aft)
 

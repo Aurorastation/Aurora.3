@@ -1090,34 +1090,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
-"qg" = (
-/obj/structure/table/standard,
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/flashlight{
-	pixel_y = 9;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = 3;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = -3;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled,
-/area/scc_event_shuttle)
 "qn" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1584,6 +1556,16 @@
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"xi" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "xn" = (
 /obj/structure/table/standard,
@@ -2600,14 +2582,6 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
-"Oy" = (
-/obj/structure/machinery/door/airlock/centcom{
-	dir = 4;
-	name = "Power Maintanence";
-	req_access = list(103)
-	},
-/turf/simulated/floor/tiled/full,
-/area/scc_event_shuttle)
 "OH" = (
 /obj/structure/machinery/vending/dinnerware{
 	anchored = 0
@@ -2630,6 +2604,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"OW" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 4;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "OY" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
@@ -2698,16 +2684,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
-"PE" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/scc_event_shuttle)
 "PU" = (
 /obj/structure/sink{
 	pixel_y = 26
@@ -2744,6 +2720,14 @@
 /obj/structure/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
+"Qo" = (
+/obj/structure/machinery/door/airlock/centcom{
+	dir = 4;
+	name = "Power Maintanence"
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
+/turf/simulated/floor/tiled/full,
+/area/scc_event_shuttle)
 "QG" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -2778,16 +2762,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"Sk" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "bridge_foyer";
-	name = "Bridge";
-	req_one_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "Ss" = (
 /obj/effect/floor_decal/industrial/outline_door/service{
@@ -2978,6 +2952,16 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
+"Vz" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "VA" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -3087,6 +3071,34 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/scc_event_shuttle)
+"WC" = (
+/obj/structure/table/standard,
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/flashlight{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = -3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "WY" = (
 /obj/structure/machinery/vending/robotics{
@@ -3213,18 +3225,6 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"Ys" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 4;
-	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "YE" = (
 /obj/structure/machinery/atm{
@@ -3548,7 +3548,7 @@ Ta
 Cn
 kN
 no
-PE
+xi
 tp
 yM
 fY
@@ -3629,7 +3629,7 @@ Bl
 kN
 Gh
 lz
-qg
+WC
 Jm
 qx
 eg
@@ -3670,7 +3670,7 @@ kN
 Gh
 lz
 lz
-Ys
+OW
 lz
 lz
 lz
@@ -3748,7 +3748,7 @@ po
 Xh
 kN
 no
-Sk
+Vz
 CL
 kN
 AK
@@ -3759,7 +3759,7 @@ zp
 CM
 lz
 lz
-Oy
+Qo
 lz
 lz
 wY
@@ -3948,7 +3948,7 @@ Ta
 Cn
 kN
 no
-Sk
+Vz
 CL
 kN
 cj

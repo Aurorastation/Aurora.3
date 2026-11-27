@@ -139,7 +139,7 @@
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
 	storage_type = null
-	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
+	req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id)
 	/// Physical currencies accepted by this register.
 	var/accepted_currencies = CURRENCY_ALL
 	var/destination = "Operations"
@@ -190,7 +190,7 @@
 	idle_power_usage = 10
 	anchored = TRUE
 	var/turned_on = FALSE
-	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
+	req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id)
 	var/destination = "Operations"
 
 /obj/structure/machinery/commissary_wall_shop/mechanics_hints(mob/user, distance, is_adjacent)

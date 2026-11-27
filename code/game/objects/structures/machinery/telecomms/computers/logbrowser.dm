@@ -20,7 +20,7 @@
 
 	var/universal_translate = 0 // set to 1 if it can translate nonhuman speech
 
-	req_access = list(/datum/access/tcomsat::id)
+	req_access = list(/datum/access/horizon/tcomsat::id)
 
 	var/last_print_time
 

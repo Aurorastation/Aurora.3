@@ -127,7 +127,6 @@
 /area/exoplanet/adhomai)
 "mf" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "rifle cabinet"
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle,
@@ -135,6 +134,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "mj" = (
@@ -243,7 +243,6 @@
 "tT" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "bayonet cabinet"
 	},
 /obj/item/clothing/accessory/storage/bayonet,
@@ -252,6 +251,7 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
 /obj/item/clothing/accessory/storage/bayonet,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "uO" = (
@@ -289,7 +289,6 @@
 /area/nka_base)
 "vQ" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "revolver ammunition cabinet"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -299,6 +298,7 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "vX" = (
@@ -323,7 +323,6 @@
 /area/nka_base)
 "wC" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "explosive cabinet"
 	},
 /obj/item/grenade/frag,
@@ -335,18 +334,19 @@
 /obj/item/landmine,
 /obj/item/landmine,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xj" = (
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "revolver ammunition cabinet"
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xN" = (
@@ -356,12 +356,12 @@
 /obj/item/gun/projectile/revolver/adhomian,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "revolver cabinet"
 	},
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "xQ" = (
@@ -410,12 +410,12 @@
 /obj/item/clothing/shoes/tajara/armored,
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "armor cabinet"
 	},
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
 	},
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Ab" = (
@@ -440,7 +440,6 @@
 /area/nka_base)
 "BZ" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "rifle ammunition cabinet"
 	},
 /obj/item/ammo_magazine/boltaction,
@@ -452,6 +451,7 @@
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "CO" = (
@@ -542,13 +542,13 @@
 /area/nka_base)
 "Jg" = (
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(213);
 	name = "submachine gun ammunition cabinet"
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinedrum,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Md" = (

@@ -93,9 +93,8 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "aH" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(216)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
 "aJ" = (
@@ -195,8 +194,7 @@
 /area/heph_security_ship/captain)
 "by" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(216)
+	dir = 2
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "heph_lockdown"
@@ -210,6 +208,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/dock)
 "bz" = (
@@ -340,8 +339,7 @@
 /area/shuttle/heph_security)
 "cp" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Starboard Gunnery Deck";
-	req_access = list(216)
+	name = "Starboard Gunnery Deck"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -349,6 +347,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/grauwolf)
 "cq" = (
@@ -503,9 +502,9 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(216);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/plating/cooled,
 /area/heph_security_ship/thrusterport)
 "dJ" = (
@@ -527,8 +526,7 @@
 "dK" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Medbay";
-	req_access = list(216)
+	name = "Medbay"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "heph_lockdown"
@@ -542,6 +540,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/dock)
 "dQ" = (
@@ -559,8 +558,7 @@
 "dU" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -568,6 +566,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "eb" = (
@@ -831,9 +830,9 @@
 "fD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 8;
-	req_access = list(216)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/bridge)
 "fF" = (
@@ -1061,12 +1060,11 @@
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
 "hw" = (
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(216)
-	},
+/obj/structure/machinery/computer/ship/targeting,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/francisca)
 "hy" = (
@@ -1132,8 +1130,7 @@
 "ih" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
-	dir = 4;
-	req_access = list(216)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1144,6 +1141,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/brig)
 "ij" = (
@@ -1711,8 +1709,7 @@
 "ls" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Port Engine Compartment";
-	req_access = list(216)
+	name = "Port Engine Compartment"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1721,6 +1718,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "lu" = (
@@ -1779,9 +1777,9 @@
 "lN" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "lW" = (
@@ -1881,8 +1879,7 @@
 /area/heph_security_ship/thrusterstarb)
 "mz" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(216)
+	dir = 2
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1896,6 +1893,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "mE" = (
@@ -2002,8 +2000,7 @@
 "nN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Reactor Bay";
-	req_access = list(216)
+	name = "Reactor Bay"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2012,6 +2009,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/medbay)
 "nP" = (
@@ -2192,9 +2190,9 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/door/window{
 	dir = 1;
-	name = "Brig Office";
-	req_access = list(216)
+	name = "Brig Office"
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
 "oN" = (
@@ -2283,9 +2281,8 @@
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/structure/machinery/vending/tool{
-	req_access = list(216)
-	},
+/obj/structure/machinery/vending/tool,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
 "pn" = (
@@ -2311,10 +2308,10 @@
 "pq" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Holding Cell";
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/shuttle/heph_security)
 "pv" = (
@@ -2367,8 +2364,7 @@
 "pG" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	dir = 8;
-	name = "Crew Armory";
-	req_access = list(216)
+	name = "Crew Armory"
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2383,6 +2379,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "pI" = (
@@ -2424,8 +2421,7 @@
 "qc" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/machinery/door/airlock/glass_security{
-	name = "Brig";
-	req_access = list(216)
+	name = "Brig"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2433,6 +2429,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/brig)
 "qf" = (
@@ -2851,8 +2848,7 @@
 /area/shuttle/heph_security)
 "sc" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Starboard Engine Compartment";
-	req_access = list(216)
+	name = "Starboard Engine Compartment"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2861,6 +2857,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "sh" = (
@@ -3176,10 +3173,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "uJ" = (
-/obj/structure/machinery/computer/shuttle_control/explore/hephsec_shuttle{
-	req_access = list(216)
-	},
+/obj/structure/machinery/computer/shuttle_control/explore/hephsec_shuttle,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/heph_security)
 "uM" = (
@@ -3735,8 +3731,7 @@
 /area/space)
 "zK" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Atmospherics Bay";
-	req_access = list(216)
+	name = "Atmospherics Bay"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3746,6 +3741,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor,
 /area/heph_security_ship)
 "zL" = (
@@ -3990,10 +3986,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window{
 	dir = 1;
-	name = "Brig Office Desk";
-	req_access = list(216)
+	name = "Brig Office Desk"
 	},
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/brig)
 "BH" = (
@@ -4440,12 +4436,11 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterstarb)
 "FF" = (
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(216)
-	},
+/obj/structure/machinery/computer/ship/targeting,
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/carpet/rubber,
 /area/heph_security_ship/grauwolf)
 "FJ" = (
@@ -4470,11 +4465,11 @@
 "FQ" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Medbay";
-	req_access = list(216)
+	name = "Medbay"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "FU" = (
@@ -4673,10 +4668,10 @@
 "Hw" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Bridge";
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "Hx" = (
@@ -5680,8 +5675,7 @@
 /area/heph_security_ship/atmos)
 "NL" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Port Gunnery Deck";
-	req_access = list(216)
+	name = "Port Gunnery Deck"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5689,6 +5683,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/heph_security_ship/francisca)
 "NP" = (
@@ -6560,9 +6555,9 @@
 "Vu" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/bridge)
 "Vy" = (

@@ -124,7 +124,7 @@
 	items = list(
 		/obj/item/grenade/chem_grenade/cleaner
 	)
-	access = list(/datum/access/janitor::id)
+	access = list(/datum/access/horizon/janitor::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -138,7 +138,7 @@
 	items = list(
 		/obj/structure/cart/storage/janitorialcart/full
 	)
-	access = list(/datum/access/janitor::id)
+	access = list(/datum/access/horizon/janitor::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

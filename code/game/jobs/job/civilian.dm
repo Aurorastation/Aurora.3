@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(/datum/access/bar::id)
+	job_access = list(/datum/access/horizon/bar::id)
 	alt_titles = list("Barista")
 	outfit = /obj/outfit/job/bartender
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -61,7 +61,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(/datum/access/galley::id)
+	job_access = list(/datum/access/horizon/galley::id)
 	alt_titles = list("Cook")
 	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -111,7 +111,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	job_access = list(/datum/access/hydroponics::id)
+	job_access = list(/datum/access/horizon/hydroponics::id)
 	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_titles = list("Hydroponicist")
@@ -163,7 +163,7 @@
 	spawn_positions = 2
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(/datum/access/janitor::id, /datum/access/maint_tunnels::id, /datum/access/engine::id, /datum/access/research::id, /datum/access/sec_doors::id, /datum/access/medical::id)
+	job_access = list(/datum/access/horizon/janitor::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/engine::id, /datum/access/horizon/research::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/medical::id)
 	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
@@ -201,10 +201,10 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(/datum/access/library::id)
+	job_access = list(/datum/access/horizon/library::id)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
-	title_accesses = list("Tech Support" = list(/datum/access/tech_support::id, /datum/access/tech_storage::id))
+	title_accesses = list("Tech Support" = list(/datum/access/horizon/tech_support::id, /datum/access/horizon/tech_storage::id))
 	outfit = /obj/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -269,7 +269,7 @@
 	spawn_positions = 1
 	supervisors = "the executive officer"
 	selection_color = "#90524b"
-	job_access = list(/datum/access/chapel_office::id)
+	job_access = list(/datum/access/horizon/chapel_office::id)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Priestess", "Shaman", "Counselor", "Keeper", "Shaper", "Sleepwalker")
 	outfit = /obj/outfit/job/chaplain
 
@@ -347,8 +347,8 @@
 		SPECIES_SKRELL_AXIORI = 70
 	)
 
-	job_access = list(/datum/access/mailsorting::id, /datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/qm::id, /datum/access/mining::id, /datum/access/ship_weapons::id, /datum/access/mining_station::id, /datum/access/keycard_auth::id, /datum/access/RC_announce::id, /datum/access/heads::id,
-						/datum/access/sec_doors::id, /datum/access/research::id, /datum/access/medical::id, /datum/access/robotics::id, /datum/access/engine::id, /datum/access/teleporter::id, /datum/access/eva::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/canary::id)
+	job_access = list(/datum/access/horizon/mailsorting::id, /datum/access/horizon/cargo::id, /datum/access/horizon/cargo_bot::id, /datum/access/horizon/qm::id, /datum/access/horizon/mining::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/mining_station::id, /datum/access/horizon/keycard_auth::id, /datum/access/horizon/RC_announce::id, /datum/access/horizon/heads::id,
+						/datum/access/horizon/sec_doors::id, /datum/access/horizon/research::id, /datum/access/horizon/medical::id, /datum/access/horizon/robotics::id, /datum/access/horizon/engine::id, /datum/access/horizon/teleporter::id, /datum/access/horizon/eva::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/canary::id)
 
 	outfit = /obj/outfit/job/operations_manager
 
@@ -401,7 +401,7 @@
 	)
 
 	job_access = list(
-		/datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/ship_weapons::id, /datum/access/mailsorting::id, /datum/access/eva::id
+		/datum/access/horizon/cargo::id, /datum/access/horizon/cargo_bot::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/eva::id
 	)
 	outfit = /obj/outfit/job/hangar_tech
 
@@ -451,7 +451,7 @@
 	)
 
 	job_access = list(
-		/datum/access/mining::id, /datum/access/mining_station::id, /datum/access/mailsorting::id, /datum/access/spark::id
+		/datum/access/horizon/mining::id, /datum/access/horizon/mining_station::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/spark::id
 	)
 	outfit = /obj/outfit/job/mining
 
@@ -509,7 +509,7 @@
 	)
 
 	job_access = list(
-		/datum/access/robotics::id, /datum/access/tech_storage::id, /datum/access/mailsorting::id
+		/datum/access/horizon/robotics::id, /datum/access/horizon/tech_storage::id, /datum/access/horizon/mailsorting::id
 	)
 
 	minimal_player_age = 7

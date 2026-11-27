@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		/datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/tech_storage::id, /datum/access/maint_tunnels::id, /datum/access/teleporter::id, /datum/access/external_airlocks::id, /datum/access/atmospherics::id,
-		/datum/access/emergency_storage::id, /datum/access/eva::id, /datum/access/leviathan::id, /datum/access/ship_weapons::id, /datum/access/heads::id, /datum/access/construction::id, /datum/access/sec_doors::id, /datum/access/research::id,
-		/datum/access/medical::id, /datum/access/mining::id, /datum/access/mailsorting::id, /datum/access/ce::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id, /datum/access/tcomsat::id, /datum/access/ai_upload::id, /datum/access/tech_support::id,
-		/datum/access/bridge_crew::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/network::id
+		/datum/access/horizon/engine::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/tech_storage::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/teleporter::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/atmospherics::id,
+		/datum/access/horizon/emergency_storage::id, /datum/access/horizon/eva::id, /datum/access/horizon/leviathan::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/heads::id, /datum/access/horizon/construction::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/research::id,
+		/datum/access/horizon/medical::id, /datum/access/horizon/mining::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/ce::id, /datum/access/horizon/RC_announce::id, /datum/access/horizon/keycard_auth::id, /datum/access/horizon/tcomsat::id, /datum/access/horizon/ai_upload::id, /datum/access/horizon/tech_support::id,
+		/datum/access/horizon/bridge_crew::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id, /datum/access/horizon/network::id
 	)
 
 	minimal_player_age = 7
@@ -95,7 +95,7 @@
 	)
 
 	job_access = list(
-		/datum/access/eva::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/tech_storage::id, /datum/access/maint_tunnels::id, /datum/access/ship_weapons::id, /datum/access/external_airlocks::id, /datum/access/construction::id, /datum/access/leviathan::id
+		/datum/access/horizon/eva::id, /datum/access/horizon/engine::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/tech_storage::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/construction::id, /datum/access/horizon/leviathan::id
 	)
 	outfit = /obj/outfit/job/engineer
 
@@ -174,7 +174,7 @@
 	)
 
 	job_access = list(
-		/datum/access/eva::id, /datum/access/engine::id, /datum/access/maint_tunnels::id, /datum/access/external_airlocks::id, /datum/access/construction::id, /datum/access/atmospherics::id, /datum/access/leviathan::id
+		/datum/access/horizon/eva::id, /datum/access/horizon/engine::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/construction::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/leviathan::id
 	)
 	outfit = /obj/outfit/job/atmos
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -246,7 +246,7 @@
 	selection_color = "#c67519"
 
 	job_access = list(
-		/datum/access/maint_tunnels::id, /datum/access/construction::id, /datum/access/engine_equip::id, /datum/access/engine::id
+		/datum/access/horizon/maint_tunnels::id, /datum/access/horizon/construction::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/engine::id
 	)
 	outfit = /obj/outfit/job/intern_eng
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

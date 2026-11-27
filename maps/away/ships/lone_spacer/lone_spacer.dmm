@@ -193,8 +193,7 @@
 	pixel_x = -22;
 	name = "Cargo Hold #4 Shutters";
 	id = "lone_spacer_cargo3";
-	pixel_y = 5;
-	req_access = list(243)
+	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/machinery/atmospherics/portables_connector{
@@ -202,6 +201,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/anomaly_container,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "be" = (
@@ -547,11 +547,11 @@
 	pixel_x = 22;
 	name = "Cargo Hold #2 Shutters";
 	id = "lone_spacer_cargo2";
-	pixel_y = 5;
-	req_access = list(243)
+	pixel_y = 5
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/portable_atmospherics/canister/empty,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "gi" = (
@@ -567,10 +567,10 @@
 	pixel_x = -22;
 	name = "Cargo Hold #1 Shutters";
 	id = "lone_spacer_cargo1";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "go" = (
@@ -849,10 +849,10 @@
 	pixel_x = 22;
 	name = "Cargo Hold #4 Shutters";
 	id = "lone_spacer_cargo3";
-	pixel_y = 5;
-	req_access = list(243)
+	pixel_y = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "jl" = (
@@ -1048,10 +1048,10 @@
 	pixel_x = 22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "nQ" = (
@@ -1384,8 +1384,7 @@
 "tA" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
-	name = "Bridge";
-	req_access = list(243)
+	name = "Bridge"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1397,6 +1396,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/bridge)
 "tQ" = (
@@ -1748,13 +1748,13 @@
 /area/shuttle/lone_spacer/starboard_nacelle)
 "zJ" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/lone_spacer{
-	dir = 4;
-	req_access = list(243)
+	dir = 4
 	},
 /obj/item/radio/intercom/expedition/hailing/north{
 	pixel_y = 19
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "zV" = (
@@ -1876,8 +1876,7 @@
 	name = "Cargo Hold #2 Window Shutters";
 	id = "lone_spacer_harvesting_shutters";
 	dir = 1;
-	pixel_y = 28;
-	req_access = list(243)
+	pixel_y = 28
 	},
 /obj/structure/table/rack/folding_table,
 /obj/item/toy/comic/inspector{
@@ -1889,6 +1888,7 @@
 	pixel_x = -8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor,
 /area/shuttle/lone_spacer/storage)
 "CC" = (
@@ -2147,10 +2147,10 @@
 /area/shuttle/lone_spacer/bridge)
 "Ha" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(243)
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Hb" = (
@@ -2182,13 +2182,13 @@
 /area/space)
 "HF" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 8;
-	req_access = list(243)
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/lone_spacer/bridge)
 "Ie" = (
@@ -2495,10 +2495,10 @@
 	pixel_x = -22;
 	name = "Cargo Hold #2 Shutters";
 	id = "lone_spacer_cargo2";
-	pixel_y = 5;
-	req_access = list(243)
+	pixel_y = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/lone_spacer/storage)
 "Ok" = (

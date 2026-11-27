@@ -108,10 +108,10 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	outfit = /obj/outfit/job/xo
 
 	job_access = list(
-		/datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/ship_weapons::id, /datum/access/engine::id, /datum/access/change_ids::id, /datum/access/eva::id, /datum/access/heads::id, /datum/access/all_personal_lockers::id,
-		/datum/access/maint_tunnels::id, /datum/access/bar::id, /datum/access/janitor::id, /datum/access/construction::id, /datum/access/crematorium::id, /datum/access/galley::id, /datum/access/hydroponics::id, /datum/access/chapel_office::id,
-		/datum/access/library::id, /datum/access/research::id, /datum/access/mining::id, /datum/access/mailsorting::id, /datum/access/janitor::id, /datum/access/hop::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id, /datum/access/gateway::id,
-		/datum/access/weapons::id, /datum/access/journalist::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/teleporter::id
+		/datum/access/horizon/sec_doors::id, /datum/access/horizon/medical::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/engine::id, /datum/access/horizon/change_ids::id, /datum/access/horizon/eva::id, /datum/access/horizon/heads::id, /datum/access/horizon/all_personal_lockers::id,
+		/datum/access/horizon/maint_tunnels::id, /datum/access/horizon/bar::id, /datum/access/horizon/janitor::id, /datum/access/horizon/construction::id, /datum/access/horizon/crematorium::id, /datum/access/horizon/galley::id, /datum/access/horizon/hydroponics::id, /datum/access/horizon/chapel_office::id,
+		/datum/access/horizon/library::id, /datum/access/horizon/research::id, /datum/access/horizon/mining::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/janitor::id, /datum/access/horizon/hop::id, /datum/access/horizon/RC_announce::id, /datum/access/horizon/keycard_auth::id, /datum/access/horizon/gateway::id,
+		/datum/access/horizon/weapons::id, /datum/access/horizon/journalist::id, /datum/access/horizon/bridge_crew::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id, /datum/access/horizon/teleporter::id
 	)
 
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
@@ -168,8 +168,8 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	outfit = /obj/outfit/job/bridge_crew
 
 	job_access = list(
-		/datum/access/heads::id, /datum/access/eva::id, /datum/access/gateway::id, /datum/access/weapons::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id,
-		/datum/access/teleporter::id, /datum/access/external_airlocks::id
+		/datum/access/horizon/heads::id, /datum/access/horizon/eva::id, /datum/access/horizon/gateway::id, /datum/access/horizon/weapons::id, /datum/access/horizon/bridge_crew::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id,
+		/datum/access/horizon/teleporter::id, /datum/access/horizon/external_airlocks::id
 	)
 
 	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
