@@ -1479,6 +1479,22 @@
 	illustration = "fpen"
 	starts_with = list(/obj/item/pen/fountain = 7)
 
+/obj/item/storage/box/pens
+	name = "box of pens"
+	desc = "A box full of black ink ballpoint pens."
+	illustration = "fpen"
+	starts_with = list(/obj/item/pen = 7)
+
+/obj/item/storage/box/pens/blue
+	name = "box of blue pens"
+	desc = "A box full of blue ink ballpoint pens."
+	starts_with = list(/obj/item/pen/blue = 7)
+
+/obj/item/storage/box/pens/red
+	name = "box of red pens"
+	desc = "A box full of red ink ballpoint pens."
+	starts_with = list(/obj/item/pen/red = 7)
+
 /obj/item/storage/box/aggression
 	illustration = "implant"
 	max_storage_space = DEFAULT_BOX_STORAGE
