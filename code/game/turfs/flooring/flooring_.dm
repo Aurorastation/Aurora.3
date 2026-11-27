@@ -32,6 +32,8 @@
 	var/obj/item/stack/build_type
 	var/build_cost = 1  // Stack units.
 	var/build_time = 0  // BYOND ticks.
+	/// Installed in an opening and leaves an opening when removed with a crowbar.
+	var/covers_open_space = FALSE
 
 	var/descriptor = "tiles"
 	var/flags
@@ -63,28 +65,40 @@
 /singleton/flooring/proc/get_base_icon_state(turf/simulated/floor/floor)
 	return icon_base
 
-/singleton/flooring/glass
-	name = "glass floor"
-	desc = "A clear, load-bearing glass panel in a metal frame."
-	icon = 'icons/turf/flooring/glass.dmi'
-	icon_base = "glass-0"
-	descriptor = "glass panel"
-	build_type = /obj/item/stack/material/glass
-	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+/// Optional appearance under this flooring when there is no connected deck below.
+/singleton/flooring/proc/get_zmimic_backdrop(turf/simulated/floor/floor)
+	return null
 
-/singleton/flooring/glass/get_base_icon_state(turf/simulated/floor/floor)
-	var/junction = 0
-	var/turf/simulated/floor/neighbor
-	CALCULATE_NEIGHBORS(floor, junction, neighbor, istype(neighbor) && neighbor.flooring == src)
-	return "glass-[junction]"
+/singleton/flooring/proc/can_build_on(turf/target)
+	if(covers_open_space)
+		return isopenspace(target) || (isspaceturf(target) && !istype(target, /turf/space/transit))
+	var/turf/simulated/floor/plating = target
+	return istype(plating) && plating.is_plating() && !plating.broken && !plating.burnt
 
-/singleton/flooring/glass/on_install(turf/simulated/floor/floor)
-	ADD_TRAIT(floor, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_FLOORING)
-	floor.enable_zmimic()
+/// Start construction using the same stack, timing, and flooring rules on plating and in openings.
+/singleton/flooring/proc/try_build(turf/target, obj/item/stack/material_stack, mob/user)
+	if(!can_build_on(target))
+		if(covers_open_space)
+			to_chat(user, SPAN_WARNING("You can only install [descriptor] over open space."))
+		return TRUE
+	if(material_stack.get_amount() < build_cost)
+		to_chat(user, SPAN_WARNING("You require at least [build_cost] [material_stack.name] to complete the [descriptor]."))
+		return TRUE
+	if(build_time)
+		if(!do_after(user, build_time, target, DO_REPAIR_CONSTRUCT))
+			return TRUE
+		if(QDELETED(user) || QDELETED(material_stack) || QDELETED(target) || user.get_active_hand() != material_stack || !can_build_on(target))
+			return TRUE
+	if(!material_stack.use(build_cost))
+		return TRUE
 
-/singleton/flooring/glass/on_remove(turf/simulated/floor/floor)
-	REMOVE_TRAIT(floor, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_FLOORING)
-	floor.disable_zmimic()
+	var/turf/simulated/floor/floor = target
+	if(covers_open_space)
+		floor = target.ChangeTurf(/turf/simulated/floor/airless)
+	floor.set_flooring(src)
+	floor.update_icon(TRUE)
+	playsound(floor, 'sound/items/Deconstruct.ogg', 80, 1)
+	return TRUE
 
 /singleton/flooring/grass
 	name = "grass"

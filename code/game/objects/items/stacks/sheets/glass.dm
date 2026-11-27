@@ -33,15 +33,6 @@
 	if(type == /obj/item/stack/material/glass)
 		. += "Apply a sheet directly to open space to install a glass floor."
 
-/obj/item/stack/material/glass/proc/build_floor(turf/open_tile)
-	var/singleton/flooring/glass/glass_floor = GET_SINGLETON(/singleton/flooring/glass)
-	if(!use(glass_floor.build_cost))
-		return
-	var/turf/simulated/floor/pane = open_tile.ChangeTurf(/turf/simulated/floor/airless)
-	pane.set_flooring(glass_floor)
-	pane.update_icon(TRUE)
-	playsound(pane, 'sound/items/Deconstruct.ogg', 80, 1)
-
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
 

@@ -5,25 +5,23 @@
 
 	if(flooring && (!ismob(user) || user.a_intent != I_HURT))
 		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-			if(istype(flooring, /singleton/flooring/glass))
-				if(broken || burnt)
-					to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
-				else
-					to_chat(user, SPAN_NOTICE("You lever off the [flooring.descriptor]."))
-					new flooring.build_type(src)
-				ChangeToOpenturf()
-			else if(broken || burnt)
+			var/recover_material = FALSE
+			if(broken || burnt)
 				to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
-				make_plating()
 			else if(flooring.flags & TURF_IS_FRAGILE)
 				to_chat(user, SPAN_DANGER("You forcefully pry off the [flooring.descriptor], destroying them in the process."))
-				make_plating()
 			else if(flooring.flags & TURF_REMOVE_CROWBAR)
 				to_chat(user, SPAN_NOTICE("You lever off the [flooring.descriptor]."))
-				make_plating(1)
+				recover_material = TRUE
 			else
 				return
 			playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
+			if(flooring.covers_open_space)
+				if(recover_material && flooring.build_type)
+					new flooring.build_type(src)
+				ChangeToOpenturf()
+			else
+				make_plating(recover_material)
 			return
 		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
 			if(broken || burnt)
@@ -78,25 +76,7 @@
 				if((ispath(S.type, F.build_type) && (S.type == F.build_type)) || (ispath(S.build_type, F.build_type) && (S.build_type == F.build_type)))
 					use_flooring = F
 					break
-			if(!use_flooring)
-				return
-			if(istype(use_flooring, /singleton/flooring/glass))
-				to_chat(user, SPAN_WARNING("Glass floors can only be installed over open space."))
-				return
-			// Do we have enough?
-			if(use_flooring.build_cost && S.get_amount() < use_flooring.build_cost)
-				to_chat(user, SPAN_WARNING("You require at least [use_flooring.build_cost] [S.name] to complete the [use_flooring.descriptor]."))
-				return
-			// Stay still and focus...
-			if(use_flooring.build_time && !do_after(user, use_flooring.build_time, flooring, DO_REPAIR_CONSTRUCT))
-				return
-			if(flooring || !S || !user || !use_flooring)
-				return
-			if(S.use(use_flooring.build_cost))
-				set_flooring(use_flooring)
-				update_icon(TRUE)
-				playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
-				return
+			return use_flooring?.try_build(src, S, user)
 		// Repairs and deconstruction
 		else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			var/area/A = get_area(src)

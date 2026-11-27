@@ -137,11 +137,7 @@
 	return TRUE
 
 /turf/simulated/floor/get_zmimic_backdrop()
-	if(istype(flooring, /singleton/flooring/glass) && istype(SSatlas.current_map, /datum/map/sccv_horizon) && is_station_level(z) \
-		&& istype(loc, /area/horizon) && !istype(loc, /area/horizon/exterior))
-		var/static/mutable_appearance/plating = mutable_appearance('icons/turf/flooring/plating.dmi', "plating", TURF_LAYER, OPEN_SPACE_PLANE_END)
-		return plating
-	return ..()
+	return flooring?.get_zmimic_backdrop(src) || ..()
 
 /turf/simulated/floor/on_change_area(area/old_area, area/new_area)
 	..()

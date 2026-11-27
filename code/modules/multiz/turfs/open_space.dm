@@ -258,9 +258,8 @@
 
 /turf/simulated/open/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item?.type == /obj/item/stack/material/glass)
-		var/obj/item/stack/material/glass/sheet = attacking_item
-		sheet.build_floor(src)
-		return
+		var/singleton/flooring/glass/pane = GET_SINGLETON(/singleton/flooring/glass)
+		return pane.try_build(src, attacking_item, user)
 
 	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)

@@ -1,10 +1,4 @@
 
-/turf/simulated/floor/glass
-	name = "glass floor"
-	icon = 'icons/turf/flooring/glass.dmi'
-	icon_state = "glass-0"
-	initial_flooring = /singleton/flooring/glass
-
 /turf/simulated/floor/silver
 	name = "silver floor"
 	icon = 'icons/turf/flooring/material.dmi'
