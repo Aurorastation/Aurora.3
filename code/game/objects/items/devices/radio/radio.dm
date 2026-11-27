@@ -99,6 +99,8 @@ var/global/list/default_interrogation_channels = list(
 
 	/// Both the range around the radio in which mobs can hear what it receives and the range the radio can hear
 	var/canhear_range = 3
+	/// Runechat above the radio
+	var/runechat_on_receive = FALSE
 
 	var/last_transmission
 	/// tune to frequency to unlock traitor supplies
@@ -676,10 +678,7 @@ var/global/list/default_interrogation_channels = list(
 	if(!on || !listening || !get_turf(src))
 		return
 	SEND_SIGNAL(src, COMSIG_RADIO_RECEIVE_MESSAGE, data)
-	if(QDELETED(src))
-		return
-	// Received radio speech must not appear over the person carrying the receiver.
-	if(ismob(recursive_holder_check(src)))
+	if(QDELETED(src) || !runechat_on_receive)
 		return
 	// Use this receiver's range and LOS, and retain the broadcast's preference/access filtering.
 	var/list/local_listeners = get_hearers_in_radio_ranges(list(src)) & recipients

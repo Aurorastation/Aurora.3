@@ -29,6 +29,7 @@ pixel_x = 8;
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = WEIGHT_CLASS_BULKY
 	canhear_range = 2
+	runechat_on_receive = TRUE
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
 	var/number = 0

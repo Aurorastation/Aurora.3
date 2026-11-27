@@ -145,8 +145,8 @@
 		TEST_FAIL("Radio identity must be captured at transmission time")
 	if(radio.received != 1 || intercom.received != 1)
 		TEST_FAIL("Radios and intercoms must not retransmit received radio speech")
-	if(radio.presented != 1 || intercom.presented != 1 || !(listener in intercom.presentation_listeners))
-		TEST_FAIL("Each receiving radio and intercom must present relayed speech to nearby listeners")
+	if(radio.presented || intercom.presented != 1 || !(listener in intercom.presentation_listeners))
+		TEST_FAIL("Only receivers with runechat_on_receive enabled must present relayed speech")
 	if(intercom.presented_message?.speaker != speaker || intercom.presented_message?.say_mode != SAYMODE_RADIO)
 		TEST_FAIL("Intercom presentation must retain the transmitted speaker and radio transport")
 	intercom.ImmediateOverlayUpdate()
@@ -218,7 +218,6 @@
 	if(!("notice" in device.last_message.spans))
 		TEST_FAIL("Human speech overrides must forward spans to the shared speech path")
 
-	// A carried receiver must not anchor incoming radio chatter to its holder.
 	var/datum/say_message/radio_echo = device.last_message.copy()
 	radio_echo.say_mode = SAYMODE_RADIO
 	radio.forceMove(human)
@@ -238,8 +237,8 @@
 		TEST_FAIL("A radio inside a carried container must not present speech above its holder")
 	radio.forceMove(location)
 	radio.on_receive_message(list(), radio_echo, list(listener, human))
-	if(radio.presented != presented_before + 1)
-		TEST_FAIL("A separate receiving radio must still present the transmitted speech")
+	if(radio.presented != presented_before)
+		TEST_FAIL("A radio without runechat_on_receive must not present speech when placed on the ground")
 
 	// Understanding is computed independently for each language segment and listener.
 	var/mob/living/atom_say_test_listener/other = new(location)

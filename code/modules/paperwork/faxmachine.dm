@@ -20,6 +20,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	active_power_usage = 200
 	print_animation = "faxreceive"
 	pda_linkable = TRUE
+	persistent_toner = FALSE
 
 	var/static/const/adminfax_cooldown = 1800
 	var/static/const/normalfax_cooldown = 300

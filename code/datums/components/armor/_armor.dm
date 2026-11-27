@@ -44,7 +44,7 @@
 		return args.Copy()
 
 	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)
-	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
+	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked, victim)
 
 	// Blocking values that mean the damage was under armor, so all dangerous flags are removed (edge/sharp)
 	var/armor_border_blocking = 1 - (under_armor_mult * 1/armor_range_mult)
@@ -64,7 +64,7 @@
 			to_chat(victim, SPAN_NOTICE(partial_block_message))
 	return args.Copy()
 
-/datum/component/armor/proc/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
+/datum/component/armor/proc/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked, mob/living/victim)
 
 /**
  * A simpler proc used as a helper for above but can also be used externally. Does not modify state.
