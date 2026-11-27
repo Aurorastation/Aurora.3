@@ -725,6 +725,9 @@
 		/obj/item/clothing/head/surgery/zavod = 2,
 		/obj/item/clothing/head/surgery/idris = 2,
 		/obj/item/clothing/gloves/latex/nitrile = 2,
+		/obj/item/clothing/gloves/latex/nitrile/tajara = 2,
+		/obj/item/clothing/gloves/latex/nitrile/unathi = 2,
+		/obj/item/clothing/gloves/latex/nitrile/vaurca = 2,
 		/obj/item/clothing/gloves/latex/nitrile/zeng = 2,
 		/obj/item/clothing/mask/surgical = 2,
 		/obj/item/clothing/mask/surgical/w = 2
