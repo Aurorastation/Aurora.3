@@ -718,6 +718,7 @@
 		/obj/item/clothing/suit/storage/surgical_gown/pmc/alt = 2,
 		/obj/item/clothing/suit/storage/surgical_gown/zavod = 2,
 		/obj/item/clothing/suit/storage/surgical_gown/idris = 2,
+		/obj/item/clothing/suit/storage/hooded/tajaran/surgery = 2,
 		/obj/item/clothing/head/surgery = 2,
 		/obj/item/clothing/head/surgery/zeng = 2,
 		/obj/item/clothing/head/surgery/pmc = 2,
