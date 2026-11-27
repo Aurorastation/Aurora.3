@@ -29,10 +29,8 @@
 
 /obj/item/stack/material/glass/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Combining this item with metal rods will create reinforced glass."
-	var/singleton/flooring/glass/pane = GET_SINGLETON(/singleton/flooring/glass)
-	if(pane.accepts_build_material(src))
-		. += "Apply a reinforced glass sheet directly to open space to install a glass floor."
+	if(material?.rod_product)
+		. += "Combining this item with metal rods will create reinforced glass."
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
@@ -119,6 +117,10 @@
 	created_window = /obj/structure/window/reinforced
 	is_reinforced = 1
 	construction_options = list("One Direction", "Full Window", "Windoor")
+
+/obj/item/stack/material/glass/reinforced/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Apply a reinforced glass sheet directly to open space to install a glass floor."
 
 /*
  * Wired glass sheets
