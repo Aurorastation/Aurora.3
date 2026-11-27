@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -44,7 +45,10 @@ def check_forbidden_types():
 
             # Search for each forbidden type
             for forbidden_type in forbidden_types:
-                if forbidden_type in map_content:
+                # Match mapped atoms of this type or any subtype, but not type paths
+                # embedded in map variable values such as spawn lists.
+                pattern = rf"^{re.escape(forbidden_type)}(?:/|\s*[,{{])"
+                if re.search(pattern, map_content, re.MULTILINE):
                     illegal_types.append(f"- {map_name} - {forbidden_type} (step: {title})")
                     failed = True
 
