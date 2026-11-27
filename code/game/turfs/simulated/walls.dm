@@ -156,8 +156,6 @@
 /turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	if(isliving(hitting_atom))
-		var/mob/living/M = hitting_atom
-		M.turf_collision(src, throwingdatum.speed)
 		return
 
 	if(isobj(hitting_atom))

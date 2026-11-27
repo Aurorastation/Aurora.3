@@ -704,8 +704,6 @@ Class Procs:
 /obj/structure/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(isliving(hitting_atom))
-		var/mob/living/M = hitting_atom
-		M.turf_collision(src, throwingdatum.speed)
 		return
 	else
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)

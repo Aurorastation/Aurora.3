@@ -157,13 +157,9 @@
 	..()
 	var/tforce = 0
 	if(ismob(hitting_atom))
-		if(isliving(hitting_atom))
-			var/mob/living/M = hitting_atom
-			M.turf_collision(src, throwingdatum.speed, SFX_GLASS_CRACK)
-			return
-		else
+		if(!isliving(hitting_atom))
 			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
-		tforce = 40
+		tforce = 40 * (throwingdatum ? throwingdatum.speed / THROWFORCE_SPEED_DIVISOR : 1)
 	else if(isobj(hitting_atom))
 		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 		var/obj/item/I = hitting_atom

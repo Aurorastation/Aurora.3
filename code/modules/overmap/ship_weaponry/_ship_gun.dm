@@ -314,11 +314,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 /obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
 		connected.hitby(arglist(args))
-	if(ismob(hitting_atom))
-		if(isliving(hitting_atom))
-			var/mob/living/M = hitting_atom
-			M.turf_collision(src, throwingdatum.speed)
-			return
 
 /obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

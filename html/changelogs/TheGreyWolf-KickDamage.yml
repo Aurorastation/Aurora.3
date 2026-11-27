@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Kicking people into solid objects is now harmful, but less so than solid walls."
