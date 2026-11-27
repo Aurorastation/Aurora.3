@@ -5,7 +5,14 @@
 
 	if(flooring && (!ismob(user) || user.a_intent != I_HURT))
 		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
-			if(broken || burnt)
+			if(istype(flooring, /singleton/flooring/glass))
+				if(broken || burnt)
+					to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
+				else
+					to_chat(user, SPAN_NOTICE("You lever off the [flooring.descriptor]."))
+					new flooring.build_type(src)
+				ChangeToOpenturf()
+			else if(broken || burnt)
 				to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
 				make_plating()
 			else if(flooring.flags & TURF_IS_FRAGILE)
@@ -72,6 +79,9 @@
 					use_flooring = F
 					break
 			if(!use_flooring)
+				return
+			if(istype(use_flooring, /singleton/flooring/glass))
+				to_chat(user, SPAN_WARNING("Glass floors can only be installed over open space."))
 				return
 			// Do we have enough?
 			if(use_flooring.build_cost && S.get_amount() < use_flooring.build_cost)
