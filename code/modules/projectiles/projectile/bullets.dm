@@ -363,7 +363,7 @@
 	var/mob/living/L = target
 
 	if(isanimal(target))
-		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.")
+		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.", visible_message_flags = (ismob(target) ? NONE : LOCAL_MESSAGE))
 		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
 
 		//Determine in how long the mob will be put to rest, depending on its size
@@ -422,13 +422,16 @@
 
 /obj/projectile/bullet/pistol/practice
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/rifle/a556/practice
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/shotgun/practice
 	name = "practice"
 	damage = 5
+	armor_penetration = 0
 
 /obj/projectile/bullet/pistol/cap
 	name = "cap"

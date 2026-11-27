@@ -39,7 +39,7 @@
 		unload(load)
 		to_chat(user, "You climb on \the [src]")
 	else if(user != load && load)
-		user.visible_message ("[user] starts to remove [load] from \the [src]!")
+		user.visible_message("[user] starts to remove [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You remove [load] from \the [src]")

@@ -108,7 +108,7 @@
 				L.buckled_to.unbuckle()
 		spark(AM, 5, 2)
 		AM.forceMove(destination)
-		AM.visible_message(SPAN_NOTICE("\The [AM] vanishes!"))
+		AM.visible_message(SPAN_NOTICE("\The [AM] vanishes!"), visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))
 		to_chat(AM, SPAN_NOTICE("You suddenly appear somewhere else!"))
 	return
 

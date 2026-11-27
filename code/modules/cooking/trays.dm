@@ -184,7 +184,7 @@
 	if (user)
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
-		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
+		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."), visible_message_flags = LOCAL_MESSAGE)
 	playsound(dropspot, SFX_TRAY_HIT, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)

@@ -90,7 +90,7 @@
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents?.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
+	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), deaf_message = SPAN_WARNING("\The [src] breaks."), audible_message_flags = LOCAL_MESSAGE)
 	playsound(src, shatter_sound, 70, 1)
 	shatter_material.place_shard(loc)
 	qdel(src)
@@ -103,7 +103,7 @@
 	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
 		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
-				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 				user.do_attack_animation(src)
 				shatter(attacking_item, user)
 				return TRUE
@@ -304,7 +304,7 @@
 		if(H.isSynthetic() && !isipc(H))
 			return
 
-		visible_message(SPAN_NOTICE("[H] starts chugging from \the [src]!"))
+		visible_message(SPAN_NOTICE("[H] starts chugging from \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		var/chugs = 0
 		while(reagents.total_volume)
 			if(do_after(H, 1.5 SECONDS))

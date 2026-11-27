@@ -5073,19 +5073,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/hallway)
-"aHx" = (
-/obj/structure/machinery/light{
-	dir = 8
-	},
-/obj/structure/engineer_maintenance/electric,
-/obj/effect/floor_decal/corner_wide/seafoam/full{
-	dir = 8
-	},
-/obj/structure/engineer_maintenance/pipe{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/surgery)
 "aHz" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -9755,24 +9742,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/command/bridge/bridge_crew)
-"bmA" = (
-/obj/structure/machinery/camera/network/service{
-	c_tag = "Service - Kitchen 2";
-	dir = 8
-	},
-/obj/structure/table/rack/retail_shelf,
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_y = 17;
-	pixel_x = -4
-	},
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_y = 17;
-	pixel_x = 5
-	},
-/turf/simulated/floor/tiled/dark/full{
-	temperature = 278
-	},
-/area/horizon/service/kitchen)
 "bmC" = (
 /obj/structure/machinery/door/firedoor{
 	dir = 4
@@ -12734,6 +12703,19 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_2/wing/port/nacelle)
+"bET" = (
+/obj/structure/machinery/light{
+	dir = 8
+	},
+/obj/structure/engineer_maintenance/electric,
+/obj/effect/floor_decal/corner_wide/seafoam/full{
+	dir = 8
+	},
+/obj/structure/engineer_maintenance/pipe{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/surgery)
 "bEU" = (
 /obj/structure/machinery/light/small{
 	brightness_power = 0.5;
@@ -36928,6 +36910,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenobiology/xenoflora)
+"eJp" = (
+/obj/structure/machinery/camera/network/service{
+	c_tag = "Service - Kitchen 2";
+	dir = 8
+	},
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_y = 17;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_y = 17;
+	pixel_x = 5
+	},
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 278
+	},
+/area/horizon/service/kitchen)
 "eJt" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -43386,13 +43388,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/hallway/primary/deck_3/central)
-"fDW" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/brown{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/horizon/operations/lobby)
 "fEb" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65690,6 +65685,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/checkpoint2)
+"ivK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/machinery/firealarm/south,
+/obj/structure/machinery/vending/wardrobe/horizon/surgical,
+/turf/simulated/floor/tiled/white,
+/area/horizon/security/autopsy_laboratory)
 "ivL" = (
 /obj/structure/sign/double/map/right{
 	desc = "A framed picture of a station.";
@@ -79071,6 +79074,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/horizon/maintenance/deck_1/operations/starboard/far)
+"kgZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/horizon/operations/lobby)
 "khd" = (
 /obj/structure/bed/stool/padded{
 	pixel_y = 10
@@ -89745,6 +89754,25 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/engineering/break_room)
+"lyb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/horizon/service/kitchen)
 "lyf" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -107490,6 +107518,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/service/bar)
+"nNF" = (
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/seafoam/full{
+	dir = 1
+	},
+/obj/structure/machinery/vending/wardrobe/horizon/surgical,
+/turf/simulated/floor/tiled/white,
+/area/horizon/medical/surgery)
 "nNG" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -145991,26 +146029,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/horizon/engineering/hallway/interior)
-"sFo" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c"
-	},
-/obj/structure/machinery/light/small/floor,
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/horizon/service/kitchen)
 "sFt" = (
 /obj/item/destTagger,
 /obj/item/hand_labeler,
@@ -156539,16 +156557,6 @@
 /obj/structure/machinery/atmospherics/pipe/tank/air/scc_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/shuttle/intrepid/starboard_nacelle)
-"tYS" = (
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/seafoam/full{
-	dir = 1
-	},
-/obj/structure/machinery/vending/wardrobe/horizon/surgical,
-/turf/simulated/floor/tiled/white,
-/area/horizon/medical/surgery)
 "tYT" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/holofloor/grass,
@@ -183012,14 +183020,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/specops)
-"xlH" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 10
-	},
-/obj/structure/machinery/firealarm/south,
-/obj/structure/machinery/vending/wardrobe/horizon/surgical,
-/turf/simulated/floor/tiled/white,
-/area/horizon/security/autopsy_laboratory)
 "xlL" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -280562,7 +280562,7 @@ eUU
 shd
 qAo
 nds
-fDW
+kgZ
 mdk
 mdk
 aHt
@@ -281827,7 +281827,7 @@ fQk
 tdj
 tNq
 fXk
-aHx
+bET
 iib
 jej
 cUW
@@ -283883,7 +283883,7 @@ mfn
 nti
 hdD
 fXk
-tYS
+nNF
 bvg
 wSR
 cJS
@@ -290094,7 +290094,7 @@ dDV
 jsn
 alT
 wHz
-sFo
+lyb
 oqK
 tBf
 sQT
@@ -291643,7 +291643,7 @@ bwb
 kSu
 wbt
 cyI
-bmA
+eJp
 xzx
 ocv
 pjB
@@ -368173,7 +368173,7 @@ jBK
 frv
 vJw
 frv
-xlH
+ivK
 lRV
 pCZ
 vPd

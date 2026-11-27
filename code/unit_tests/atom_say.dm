@@ -217,7 +217,7 @@
 	if(!("notice" in device.last_message.spans))
 		TEST_FAIL("Human speech overrides must forward spans to the shared speech path")
 
-	// A carried receiver would anchor its echo to the same mob as the original local speech.
+	// A carried receiver must not anchor incoming radio chatter to its holder.
 	var/datum/say_message/radio_echo = device.last_message.copy()
 	radio_echo.say_mode = SAYMODE_RADIO
 	radio.forceMove(human)
@@ -227,11 +227,17 @@
 		TEST_FAIL("A held or worn radio must not repeat its holder's speech above that holder")
 	radio.forceMove(listener)
 	radio.on_receive_message(list(), radio_echo, list(listener, human))
-	if(radio.presented != presented_before + 1)
-		TEST_FAIL("A carried radio must still present speech from a different speaker")
+	if(radio.presented != presented_before)
+		TEST_FAIL("A carried radio must not present another speaker's speech above its holder")
+	var/obj/item/storage/backpack/radio_bag = new(listener)
+	fixtures += radio_bag
+	radio.forceMove(radio_bag)
+	radio.on_receive_message(list(), radio_echo, list(listener, human))
+	if(radio.presented != presented_before)
+		TEST_FAIL("A radio inside a carried container must not present speech above its holder")
 	radio.forceMove(location)
 	radio.on_receive_message(list(), radio_echo, list(listener, human))
-	if(radio.presented != presented_before + 2)
+	if(radio.presented != presented_before + 1)
 		TEST_FAIL("A separate receiving radio must still present the transmitted speech")
 
 	// Understanding is computed independently for each language segment and listener.

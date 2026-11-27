@@ -50,7 +50,7 @@ Deployable Kits
 		return .
 
 	if(!check_dismantle())
-		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"))
+		visible_message(SPAN_WARNING("\The [src] is hit by \the [hitting_projectile]!"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
@@ -68,7 +68,7 @@ Deployable Kits
 				if(I.use_tool(src, user, 20, volume = 50) && health < maxhealth)
 					if(D.use(1))
 						set_health(maxhealth)
-						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."))
+						visible_message("<b>[user]</b> repairs \the [src].", SPAN_NOTICE("You repair \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -80,7 +80,7 @@ Deployable Kits
 
 /obj/structure/blocker/proc/check_dismantle()
 	if(src.health <= 0)
-		visible_message(SPAN_DANGER("The barricade is smashed apart!"))
+		visible_message(SPAN_DANGER("The barricade is smashed apart!"), visible_message_flags = LOCAL_MESSAGE)
 		dismantle()
 		qdel(src)
 		return TRUE
@@ -161,7 +161,7 @@ Deployable Kits
 					return
 			else
 				spark(src, 2, src)
-				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
+				visible_message(SPAN_WARNING("BZZzZZzZZzZT"), visible_message_flags = LOCAL_MESSAGE)
 				return
 		return
 	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -170,13 +170,13 @@ Deployable Kits
 			src.health = src.maxhealth
 			src.emagged = 0
 			src.req_access = list(/datum/access/security::id)
-			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
 			src.req_access = list(/datum/access/security::id)
-			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			return
 		return
 	else
@@ -223,7 +223,7 @@ Deployable Kits
 		return 0
 
 /obj/structure/machinery/deployable/barrier/proc/explode()
-	visible_message(SPAN_DANGER("[src] blows apart!"))
+	visible_message(SPAN_DANGER("[src] blows apart!"), visible_message_flags = LOCAL_MESSAGE)
 
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
@@ -240,13 +240,13 @@ Deployable Kits
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"), visible_message_flags = LOCAL_MESSAGE)
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"), visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/structure/machinery/deployable/barrier/legion
