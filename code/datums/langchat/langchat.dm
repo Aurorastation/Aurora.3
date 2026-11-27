@@ -81,7 +81,7 @@
 	bubble.maptext = generate_text_image(maptext_string, additional_styles)
 	bubble.maptext_width = LANGCHAT_WIDTH
 	bubble.maptext_x = get_maptext_x_offset(bubble)
-	bubble.loc = isturf(loc) ? src : recursive_holder_check(src)
+	bubble.loc = isturf(src) ? src : get_atom_on_turf(src)
 
 	for(var/mob/listener as anything in listeners)
 		listener.client.images += bubble
@@ -191,15 +191,6 @@
 			if(LANGCHAT_FAST_POP)
 				bubble.alpha = 0
 				animate(bubble, pixel_y = bubble.pixel_y + LANGCHAT_MESSAGE_FAST_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_FAST_POP_TIME)
-
-/// Attempts to return what's holding this item if being contained by something. e.g. Cortical borer returns their host.
-/proc/recursive_holder_check(obj/item/held_item, recursion_limit = 3)
-	if(recursion_limit <= 0)
-		return held_item
-	if(!held_item.loc || isturf(held_item.loc))
-		return held_item
-	recursion_limit--
-	return recursive_holder_check(held_item.loc, recursion_limit)
 
 #undef LANGCHAT_LONGEST_TEXT
 #undef LANGCHAT_WIDTH
