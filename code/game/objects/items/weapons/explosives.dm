@@ -194,6 +194,15 @@
 	desc = "A small explosive laced with radium. The explosion is small, but the radioactive material will remain for a fair while."
 	timer = 30 SECONDS
 
+/obj/item/plastique/dirty/proc/can_place_goo(turf/location)
+	if(location.density)
+		return FALSE
+	for(var/atom/movable/obstacle in location)
+		// The bomb's target may still be awaiting deletion after being destroyed.
+		if(obstacle.density && !QDELETED(obstacle))
+			return FALSE
+	return TRUE
+
 /obj/item/plastique/dirty/explode(turf/location) //Does not call parent because we need a different order of operations.
 	if(!target)
 		target = get_atom_on_turf(src)
@@ -212,10 +221,12 @@
 	if(location)
 		explosion(location, devastation_range, heavy_impact_range, light_impact_range, 3, spreading = 0)
 		SSradiation.radiate(location, 250)
-		new /obj/effect/decal/cleanable/greenglow/radioactive/extreme(location)
+		if(can_place_goo(location))
+			new /obj/effect/decal/cleanable/greenglow/radioactive/extreme(location)
 
 		for(var/turf/T in RANGE_TURFS(4, location))
-			if(T == location)
+			// Keep radioactive puddles out from under solid obstacles so they can be cleaned.
+			if(T == location || !can_place_goo(T))
 				continue
 
 			if(T in RANGE_TURFS(1, location)) //High radioactive puddles 1 tile from the epicenter, medium up to 4 tiles away.
