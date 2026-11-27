@@ -144,6 +144,10 @@
 	ENFORCE_POSITIVE_MASS(mass)
 	update_emissive_blocker()
 
+	// Spawning directly on a turf doesn't call Entered() like movement does.
+	if(!mapload && isturf(loc) && !(z_flags & ZMM_IGNORE))
+		loc.update_above()
+
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
 	if(light_system == MOVABLE_LIGHT)
@@ -573,15 +577,8 @@
 	loc.Entered(src, oldloc)
 	Moved(oldloc, get_dir(oldloc, destination), TRUE)
 
-	//Zmimic
 	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(destination))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
+		move_bound_overlay()
 
 	if(opacity)
 		updateVisibility(src)
@@ -1186,21 +1183,11 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Openturf.
 	if(bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
+		move_bound_overlay()
 
 	if(opacity)
 		updateVisibility(src)
-
-	//Mimics
-	if(bound_overlay)
-		bound_overlay.forceMove(get_step(src, UP))
-		if(bound_overlay.dir != dir)
-			bound_overlay.set_dir(dir)
 
 	src.move_speed = world.time - src.l_move_time
 	src.l_move_time = world.time

@@ -814,12 +814,11 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	var/turf/down_step = get_step(target_turf, DOWN)
-	/// If we move down more than 1 step, don't move down again.
-	if((GET_Z(owner) - down_step.z) < 2)
-		forceMove(down_step)
-	if(owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir))
-		return
+	var/turf/down_step = GET_TURF_BELOW(target_turf)
+	if(down_step && TURF_IS_MIMICING(target_turf))
+		if(get_turf(owner) == target_turf || (owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir)))
+			forceMove(down_step)
+			return
 	owner.reset_view(null)
 	owner.z_eye = null
 	qdel(src)

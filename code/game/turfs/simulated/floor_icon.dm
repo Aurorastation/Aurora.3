@@ -14,7 +14,7 @@
 		if(flooring_override)
 			icon_state = flooring_override
 		else
-			icon_state = flooring.icon_base
+			icon_state = flooring.get_base_icon_state(src)
 			if(flooring.has_base_range)
 				icon_state = "[icon_state][rand(0,flooring.has_base_range)]"
 				flooring_override = icon_state
@@ -75,6 +75,9 @@
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			AddOverlays(I)
+
+	if(above)
+		update_above()
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))

@@ -207,6 +207,12 @@
 		other.zone.remove(other)
 	return 1
 
+/turf/simulated/floor/transport_properties_from(turf/simulated/floor/other)
+	. = ..()
+	if(. && flooring != other.flooring)
+		change_flooring(other.flooring)
+		update_icon(TRUE)
+
 // Copies this turf to other, overwriting it.
 // Returns a ref to the other turf post-change.
 /turf/proc/copy_turf(turf/other)
@@ -253,8 +259,9 @@
 
 /turf/simulated/floor/copy_turf(turf/simulated/floor/other, ignore_air = FALSE)
 	.=..()
-	other.flooring = flooring
-	other.update_icon()
+	var/flooring_changed = other.flooring != flooring
+	other.change_flooring(flooring)
+	other.update_icon(flooring_changed)
 
 /turf/simulated/wall/shuttle/dark/corner/underlay/copy_turf(turf/simulated/wall/shuttle/dark/corner/underlay/other, ignore_air = FALSE)
 	.=..()

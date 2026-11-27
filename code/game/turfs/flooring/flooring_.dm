@@ -54,8 +54,37 @@
 	var/space_smooth = SMOOTH_ALL
 	//There are no lists for spaces
 
-/singleton/flooring/proc/on_remove()
+/singleton/flooring/proc/on_install(turf/simulated/floor/floor)
 	return
+
+/singleton/flooring/proc/on_remove(turf/simulated/floor/floor)
+	return
+
+/singleton/flooring/proc/get_base_icon_state(turf/simulated/floor/floor)
+	return icon_base
+
+/singleton/flooring/glass
+	name = "glass floor"
+	desc = "A clear, load-bearing glass panel in a metal frame."
+	icon = 'icons/turf/flooring/glass.dmi'
+	icon_base = "glass-0"
+	descriptor = "glass panel"
+	build_type = /obj/item/stack/material/glass
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+
+/singleton/flooring/glass/get_base_icon_state(turf/simulated/floor/floor)
+	var/junction = 0
+	var/turf/simulated/floor/neighbor
+	CALCULATE_NEIGHBORS(floor, junction, neighbor, istype(neighbor) && neighbor.flooring == src)
+	return "glass-[junction]"
+
+/singleton/flooring/glass/on_install(turf/simulated/floor/floor)
+	ADD_TRAIT(floor, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_FLOORING)
+	floor.enable_zmimic()
+
+/singleton/flooring/glass/on_remove(turf/simulated/floor/floor)
+	REMOVE_TRAIT(floor, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_FLOORING)
+	floor.disable_zmimic()
 
 /singleton/flooring/grass
 	name = "grass"

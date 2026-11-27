@@ -23,6 +23,12 @@
 	if (TURF_IS_MIMICING(above))
 		above.update_mimic()
 
+/// Appearance beneath a transparent turf with no connected deck below it.
+/turf/proc/get_zmimic_backdrop()
+	if(z_flags & ZM_MIMIC_BASETURF)
+		return get_base_turf_by_area(src)
+	return SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
+
 /turf/proc/update_mimic()
 	if (!(z_flags & ZM_MIMIC_BELOW))
 		return
@@ -46,6 +52,8 @@
 
 	z_flags &= ~ZM_MIMIC_BELOW
 	cleanup_zmimic()
+	mouse_opacity = initial(mouse_opacity)
+	z_eventually_space = initial(z_eventually_space)
 	return TRUE
 
 /// Sets up Z-mimic for this turf. You shouldn't call this directly 99% of the time.
@@ -81,5 +89,7 @@
 		above.update_mimic()
 
 	if (below)
+		QDEL_NULL(below.mimic_proxy)
+		QDEL_NULL(below.mimic_above_copy)
 		below.above = null
 		below = null

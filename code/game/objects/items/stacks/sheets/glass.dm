@@ -30,6 +30,8 @@
 /obj/item/stack/material/glass/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Combining this item with metal rods will create reinforced glass."
+	if(type == /obj/item/stack/material/glass)
+		. += "Apply a sheet to bare plating to install a glass floor."
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
