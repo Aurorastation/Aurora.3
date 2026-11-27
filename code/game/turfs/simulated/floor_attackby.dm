@@ -71,9 +71,7 @@
 			var/list/decls = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
 			for(var/flooring_type in decls)
 				var/singleton/flooring/F = decls[flooring_type]
-				if(!F.build_type)
-					continue
-				if((ispath(S.type, F.build_type) && (S.type == F.build_type)) || (ispath(S.build_type, F.build_type) && (S.build_type == F.build_type)))
+				if(F.accepts_build_material(S))
 					use_flooring = F
 					break
 			return use_flooring?.try_build(src, S, user)

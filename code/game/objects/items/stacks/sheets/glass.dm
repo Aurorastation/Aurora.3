@@ -30,7 +30,8 @@
 /obj/item/stack/material/glass/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Combining this item with metal rods will create reinforced glass."
-	if(type == /obj/item/stack/material/glass)
+	var/singleton/flooring/glass/pane = GET_SINGLETON(/singleton/flooring/glass)
+	if(pane.accepts_build_material(src))
 		. += "Apply a sheet directly to open space to install a glass floor."
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)

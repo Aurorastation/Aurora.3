@@ -69,6 +69,9 @@
 /singleton/flooring/proc/get_zmimic_backdrop(turf/simulated/floor/floor)
 	return null
 
+/singleton/flooring/proc/accepts_build_material(obj/item/stack/material_stack)
+	return build_type && istype(material_stack) && (material_stack.type == build_type || material_stack.build_type == build_type)
+
 /singleton/flooring/proc/can_build_on(turf/target)
 	if(covers_open_space)
 		return isopenspace(target) || (isspaceturf(target) && !istype(target, /turf/space/transit))

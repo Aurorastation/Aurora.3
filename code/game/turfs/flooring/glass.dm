@@ -9,6 +9,9 @@
 	covers_open_space = TRUE
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 
+/singleton/flooring/glass/accepts_build_material(obj/item/stack/material_stack)
+	return istype(material_stack, build_type) && material_stack.stacktype == build_type
+
 /singleton/flooring/glass/get_base_icon_state(turf/simulated/floor/floor)
 	var/junction = 0
 	var/turf/simulated/floor/neighbor
