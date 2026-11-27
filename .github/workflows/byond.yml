@@ -453,11 +453,12 @@ jobs:
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
+        id: flyway-cache
         if: steps.check.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
@@ -493,6 +494,14 @@ jobs:
           PORT: ${{ job.services.mariadb.ports[3306] }}
         run: |
           $HOME/flyway/flyway-$FLYWAY_BUILD/flyway migrate -user=root -password=root -url="jdbc:mariadb://localhost:$PORT/game" -validateMigrationNaming="true"
+
+      #Only this job seeds the shared cache; PRs and merge groups restore without saving.
+      - name: Save Flyway cache
+        if: steps.check.outputs.skip != 'true' && github.event_name == 'push' && github.ref == 'refs/heads/master' && steps.flyway-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ steps.flyway-cache.outputs.cache-primary-key }}
 
       - name: Install BYOND & rust_g
         if: steps.check.outputs.skip != 'true'
@@ -599,10 +608,10 @@ jobs:
 
       - name: Restore FlyWay cache
         if: steps.check.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
@@ -743,11 +752,11 @@ jobs:
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         if: steps.check.outputs.skip != 'true'
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
@@ -889,10 +898,10 @@ jobs:
 
       - name: Restore FlyWay cache
         if: steps.check.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
@@ -1034,10 +1043,10 @@ jobs:
 
       - name: Restore FlyWay cache
         if: steps.check.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
@@ -1179,10 +1188,10 @@ jobs:
 
       - name: Restore FlyWay cache
         if: steps.check.outputs.skip != 'true'
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
-          path: ~/flyway
-          key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
+          path: ~/flyway/flyway-${{ env.FLYWAY_BUILD }}
+          key: ${{ runner.os }}-flyway-v2-${{ env.FLYWAY_BUILD }}
 
       #Add the x86 architecture and update apt-get's local indexes
       - name: Prepare OS Environment
