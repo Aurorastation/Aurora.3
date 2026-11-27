@@ -15,12 +15,16 @@
 	attack_verb = list("attacked", "slapped", "whacked")
 	toxin_type = CE_NEUROTOXIC
 
-	damage_reduction = 0
+	damage_reduction = 0.5
 	relative_size = 85
 
 	var/mob/living/carbon/brain/brainmob = null
 	var/prepared = FALSE
 	var/can_prepare = TRUE
+	/// Maximum fraction of the brain's health that one traumatic internal hit can deal.
+	var/traumatic_damage_per_hit_cap = 0.1
+	/// Maximum fraction of the brain's health that traumatic internal hits can damage in total.
+	var/traumatic_damage_cap = 0.5
 
 	var/const/damage_threshold_count = 10
 	var/damage_threshold_value
@@ -163,6 +167,12 @@
 
 /obj/item/organ/internal/brain/proc/past_damage_threshold(var/threshold)
 	return (get_current_damage_threshold() > threshold)
+
+/// Limits trauma transferred to the brain through the head. Direct damage such as hypoxia bypasses this.
+/obj/item/organ/internal/brain/proc/get_traumatic_damage(var/amount)
+	var/per_hit_cap = max_damage * traumatic_damage_per_hit_cap
+	var/remaining_damage = max((max_damage * traumatic_damage_cap) - get_damage(), 0)
+	return max(min(amount, per_hit_cap, remaining_damage), 0)
 
 /obj/item/organ/internal/brain/set_max_damage(var/ndamage)
 	..()

@@ -695,6 +695,30 @@
 
 	return 1
 
+/datum/unit_test/brain_traumatic_damage_limits
+	name = "ORGANS: Brain traumatic damage limits"
+	groups = list("mob")
+
+/datum/unit_test/brain_traumatic_damage_limits/start_test()
+	var/obj/item/organ/internal/brain/brain = new(null)
+	brain.set_max_damage(200)
+
+	TEST_ASSERT_EQUAL(brain.damage_reduction, 0.5, "The brain did not use the standard internal organ damage reduction.")
+	TEST_ASSERT_EQUAL(brain.get_traumatic_damage(100), 20, "A traumatic hit exceeded ten percent of the brain's maximum health.")
+
+	brain.set_damage(90)
+	TEST_ASSERT_EQUAL(brain.get_traumatic_damage(20), 10, "Traumatic damage was not limited by the fifty percent total ceiling.")
+
+	brain.set_damage(100)
+	TEST_ASSERT_EQUAL(brain.get_traumatic_damage(20), 0, "Traumatic damage exceeded the fifty percent total ceiling.")
+
+	brain.take_internal_damage(20)
+	TEST_ASSERT_EQUAL(brain.get_damage(), 120, "Direct internal brain damage was incorrectly limited by the traumatic damage ceiling.")
+
+	qdel(brain)
+	TEST_PASS("Brain trauma is reduced, limited per hit, and capped without limiting direct internal damage.")
+	return TRUE
+
 #undef IMMUNE
 #undef SUCCESS
 #undef FAILURE
