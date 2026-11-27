@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "The various handguns on the Horizon now come unloaded. The mag is now instead found in the same locker."
-  - rscadd: "All command now get both an energy pistol and a .45, rather than just one or the other."
+  - rscadd: "The Captain and Head of Security receive an energy pistol, while the rest of command receive a .45."

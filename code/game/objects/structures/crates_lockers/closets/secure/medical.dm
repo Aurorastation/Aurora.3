@@ -157,7 +157,6 @@
 	new /obj/item/gun/projectile/sec/unloaded(src)
 	new /obj/item/ammo_magazine/c45m/rubber(src)
 	new /obj/item/ammo_magazine/c45m/rubber(src)
-	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/eftpos(src)
 
