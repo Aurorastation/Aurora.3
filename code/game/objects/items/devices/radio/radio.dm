@@ -218,7 +218,7 @@ var/global/list/default_interrogation_channels = list(
 	var/mob/living/carbon/human/wearer = accessory.loc
 	if(wearer.l_ear != accessory && wearer.r_ear != accessory && wearer.wrists != accessory)
 		return
-	if(recursive_holder_check(src) != wearer)
+	if(get_atom_on_turf(src) != wearer)
 		return
 	return wearer
 
