@@ -9796,6 +9796,8 @@
 	pixel_y = 17;
 	pixel_x = 5
 	},
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 278
 	},
@@ -28182,10 +28184,6 @@
 /obj/structure/table/steel,
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /obj/item/reagent_containers/glass/beaker/bluespace,
-/obj/item/reagent_containers/chem_disp_cartridge/rezadone{
-	pixel_x = 9;
-	pixel_y = 11
-	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/hapt)
 "dBi" = (
@@ -43454,7 +43452,6 @@
 /turf/simulated/floor/wood,
 /area/horizon/hallway/primary/deck_3/central)
 "fDW" = (
-/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
 	},
@@ -65552,30 +65549,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = -5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = 5;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/chem_disp_cartridge{
-	pixel_x = 5;
-	pixel_y = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/rnd/xenobiology/xenoflora)
 "iuh" = (
@@ -146291,7 +146264,6 @@
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
 	},
-/obj/structure/machinery/light/small/floor,
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},

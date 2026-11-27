@@ -379,6 +379,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/anti_materiel_practice_cannon_cartridge
+	category = "weaponry"
+	name = "anti-materiel practice cannon cartridges"
+	supplier = "zavodskoi"
+	description = "Three single-use, low-velocity practice cartridges for a point-entry anti-materiel cannon."
+	price = 75
+	items = list(
+		/obj/item/ammo_casing/peac/practice
+	)
+	access = /datum/access/security::id
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 3
+
 /singleton/cargo_item/carbinemagazine_556
 	category = "weaponry"
 	name = "C-type carbine magazine (5.56mm)"

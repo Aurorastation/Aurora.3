@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: GeneralCamo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -53,7 +53,6 @@ delete-after: True
 # INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
 # SCREW THIS UP AND IT WON'T WORK.
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
-# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.'
 changes:
-  - qol: "Added the Sol Alliance as a citizenship option for the Eridani Corporate Federation origin."
-  - rscadd: "Added a clause to the Sol Alliance culture to reflect that Eridanian Foreign Service Officers must have Sol Alliance citizenship selected."
+  - bugfix: "Fix an issue where recursion can break after a few levels with langchat, by checking for an atom on a turf instead, as in tgstation."

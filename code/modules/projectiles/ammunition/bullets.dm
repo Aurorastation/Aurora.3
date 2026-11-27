@@ -510,6 +510,13 @@
 	name = "anti-materiel FRAG cannon cartridge"
 	projectile_type = /obj/projectile/bullet/peac/shrapnel
 
+/obj/item/ammo_casing/peac/practice
+	name = "anti-materiel practice cannon cartridge"
+	desc = "A low-velocity PEAC cartridge loaded with a conspicuous polymer training projectile. It is intended for drills, but its sheer size can still cause serious injury."
+	icon_state = "peac_practice"
+	spent_icon = "peac_practice_spent"
+	projectile_type = /obj/projectile/bullet/peac_practice
+
 /obj/item/ammo_casing/peac/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!istype(target_mob, /mob/living/carbon/human))
 		return ..()
