@@ -2996,11 +2996,6 @@
 	id = "shutters_custodialdesk";
 	name = "Custodial Desk Shutter"
 	},
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
 /obj/structure/machinery/door/window/desk/westright{
 	name = "Custodial Closet Desk Internal"
 	},
@@ -3009,25 +3004,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/access/req_all/janitor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/blast/shutters{
-	dir = 4;
-	id = "shutters_custodialdesk";
-	name = "Custodial Desk Shutter"
-	},
-/obj/structure/machinery/door/window/desk/westright{
-	name = "Custodial Closet Desk Internal";
-	req_access = list(26)
-	},
-/obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,73);
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/custodial)
 "ate" = (
@@ -3636,8 +3612,6 @@
 /area/horizon/storage/eva)
 "awr" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "seconddeckdockdesk";
@@ -3650,24 +3624,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/access/req_all/security,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/blast/shutters{
-	dir = 4;
-	id = "seconddeckdockdesk";
-	name = "Security Checkpoint Desk Shutter"
-	},
-/obj/structure/machinery/door/window/desk/westright{
-	name = "Arrivals Processing Desk";
-	req_access = list(1)
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint2)
 "aws" = (
@@ -19241,39 +19197,6 @@
 	name = "Hydroponics Desk"
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/pen{
-	pixel_x = -4;
-	pixel_y = 3
-	},
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = 8;
-	pixel_y = 6
-	},
-/obj/structure/machinery/door/blast/shutters{
-	id = "hydroponics_desk";
-	dir = 4
-	},
-/obj/structure/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/hydroponics,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/machinery/door/window/westright{
-	name = "Hydroponics Desk";
-	req_access = list(35)
-	},
-/obj/structure/table/reinforced/steel,
 /obj/item/pen{
 	pixel_x = -4;
 	pixel_y = 3
@@ -19292,6 +19215,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hydroponics,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/service/hydroponics)
 "cxB" = (
@@ -31377,8 +31301,6 @@
 	name = "brig flashes";
 	pixel_y = 23
 	},
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/structure/machinery/light{
 	dir = 1
 	},
@@ -31387,31 +31309,6 @@
 	},
 /obj/item/wrench,
 /obj/effect/map_effect/marker/access/req_all/holding,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/table/standard,
-/obj/structure/machinery/button/flasher{
-	id = "permflash";
-	name = "brig flashes";
-	pixel_y = 23;
-	req_access = list(2)
-	},
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/item/wrench,
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "dWy" = (
@@ -54356,10 +54253,6 @@
 	dir = 8
 	},
 /obj/structure/table/steel,
-/obj/item/paper_bin{
-	pixel_x = -4;
-	pixel_y = 7
-	},
 /obj/item/pen{
 	pixel_x = -4;
 	pixel_y = 8
@@ -54375,40 +54268,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/unary/vent_pump/on,
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = 10;
-	pixel_y = -3
-	},
-/obj/effect/map_effect/marker/access/req_all/janitor,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/corner/purple/full{
-	dir = 8
-	},
-/obj/structure/table/steel,
-/obj/item/pen{
-	pixel_x = -4;
-	pixel_y = 8
-	},
-/obj/item/hand_labeler,
-/obj/structure/machinery/ringer/west{
-	department = "Auxiliary Custodial";
-	id = "ringers_custodialaux";
-	name = "\improper Auxiliary Custodial Ringer Terminal";
-	pixel_y = 5;
-	req_access = list(26)
-	},
-/obj/structure/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
+/obj/effect/map_effect/marker/access/req_all/janitor,
 /turf/simulated/floor/tiled,
 /area/horizon/service/custodial/auxiliary)
 "gXd" = (
@@ -63367,8 +63231,6 @@
 "ieN" = (
 /obj/structure/machinery/door/firedoor,
 /obj/structure/table/reinforced/steel,
-/obj/item/paper_bin,
-/obj/item/pen,
 /obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "shutters_hangarseccpdesk";
@@ -63378,22 +63240,6 @@
 	name = "Arrivals Checkpoint Processing Desk"
 	},
 /obj/effect/map_effect/marker/access/req_all/sec_doors,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/machinery/door/firedoor,
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/blast/shutters{
-	dir = 2;
-	id = "shutters_hangarseccpdesk";
-	name = "Security Checkpoint Desk Shutter"
-	},
-/obj/structure/machinery/door/window/desk/northleft{
-	name = "Arrivals Checkpoint Processing Desk";
-	req_access = list(63)
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/checkpoint)
 "ieO" = (
@@ -63733,21 +63579,6 @@
 	department = "Security";
 	id = "investigation_ringer"
 	},
-/obj/effect/map_effect/marker/access/req_all/security,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 4
-	},
-/obj/structure/machinery/ringer/south{
-	department = "Security";
-	id = "investigation_ringer";
-	req_access = list(1)
-	},
 /obj/item/pen/red,
 /obj/item/folder/sec{
 	pixel_x = 7;
@@ -63757,6 +63588,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/security,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "ihG" = (
@@ -65350,37 +65182,11 @@
 	department = "Consular A";
 	id = "consular_a_ringer"
 	},
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = -10;
-	pixel_y = -3
-	},
-/obj/effect/map_effect/marker/access/req_one/consular,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/wood,
-/obj/structure/machinery/light,
-/obj/structure/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Consular Office A";
-	pixel_y = 4;
-	req_one_access = list(38,19,72)
-	},
-/obj/structure/machinery/ringer/north{
-	dir = 8;
-	pixel_y = 0;
-	pixel_x = -10;
-	department = "Consular A";
-	id = "consular_a_ringer";
-	req_access = null;
-	req_one_access = list(72)
-	},
 /obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
+/obj/effect/map_effect/marker/access/req_one/consular,
 /turf/simulated/floor/carpet,
 /area/horizon/repoffice/consular_one)
 "irC" = (
@@ -75590,34 +75396,11 @@
 	dir = 4
 	},
 /obj/structure/machinery/firealarm/west,
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = -10;
-	pixel_y = -3
-	},
-/obj/effect/map_effect/marker/access/req_one/consular,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/sign/flag/scc{
-	pixel_y = 30
-	},
-/obj/structure/table/standard,
-/obj/structure/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Human Resources";
-	pixel_y = 4;
-	req_one_access = list(38,19,72)
-	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/structure/machinery/firealarm/west,
 /obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
+/obj/effect/map_effect/marker/access/req_one/consular,
 /turf/simulated/floor/tiled/full,
 /area/horizon/command/bridge/cciaroom)
 "jIc" = (
@@ -93115,37 +92898,11 @@
 	department = "Consular B";
 	id = "consular_b_ringer"
 	},
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = -10;
-	pixel_y = -3
-	},
-/obj/effect/map_effect/marker/access/req_one/consular,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/machinery/light,
-/obj/structure/table/wood,
-/obj/structure/machinery/photocopier/faxmachine{
-	anchored = 0;
-	department = "Consular Office B";
-	pixel_y = 4;
-	req_one_access = list(38,19,72)
-	},
-/obj/structure/machinery/ringer/north{
-	dir = 4;
-	pixel_y = 0;
-	pixel_x = 10;
-	department = "Consular B";
-	id = "consular_b_ringer";
-	req_access = null;
-	req_one_access = list(72)
-	},
 /obj/item/stickynote_pad/random{
 	pixel_x = -10;
 	pixel_y = -3
 	},
+/obj/effect/map_effect/marker/access/req_one/consular,
 /turf/simulated/floor/carpet,
 /area/horizon/repoffice/consular_two)
 "lSa" = (
@@ -95714,25 +95471,7 @@
 /area/antag/actor)
 "mjb" = (
 /obj/structure/table/wood,
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/item/pen/fountain/black{
-	pixel_x = -1;
-	pixel_y = 6
-	},
 /obj/structure/machinery/door/window/southright,
-/obj/effect/map_effect/marker/access/req_all/library,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/wood,
-/obj/structure/machinery/door/window/southright{
-	req_access = list(37)
-	},
 /obj/item/paper{
 	pixel_x = -1;
 	pixel_y = 7
@@ -95741,6 +95480,7 @@
 	pixel_x = -1;
 	pixel_y = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/library,
 /turf/simulated/floor/lino/diamond,
 /area/horizon/service/library)
 "mjc" = (
@@ -153297,45 +153037,7 @@
 	req_one_access = list(24,11,67,73);
 	dir = 4
 	},
-/obj/item/paper_bin{
-	pixel_y = 2
-	},
-/obj/item/pen{
-	pixel_y = 1
-	},
 /obj/effect/map_effect/marker/access/req_all/security,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/structure/machinery/door/blast/shutters/open{
-	dir = 8;
-	id = "shutters_deck2_seclobbydesk";
-	name = "Safety Shutter"
-	},
-/obj/structure/machinery/door/window/desk/eastright{
-	name = "Security Office";
-	req_access = list(1)
-	},
-/obj/structure/machinery/door/firedoor{
-	req_one_access = list(24,11,67,73);
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/office)
 "tyo" = (
@@ -169385,23 +169087,10 @@
 /obj/structure/machinery/door/window{
 	name = "Reception Desk"
 	},
-/obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/map_effect/marker/access/req_all/medical,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/machinery/door/window{
-	name = "Reception Desk";
-	req_access = list(5)
-	},
-/obj/item/pen,
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/horizon/medical/reception)
 "vCu" = (
@@ -185836,61 +185525,11 @@
 /obj/item/paper/sentencing,
 /obj/item/folder/sec,
 /obj/item/pen,
-/obj/item/paper_bin,
-/obj/item/paper/stickynotes/pad/random{
-	pixel_x = 10;
-	pixel_y = -3
-	},
-/obj/effect/map_effect/marker/access/req_all/armory,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 8
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "shutters_deck1_security_cell_1";
-	name = "Cell A Blast Door";
-	pixel_x = -4;
-	pixel_y = 35;
-	req_access = list(3)
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "shutters_deck1_security_cell_3";
-	name = "Cell C Blast Door";
-	pixel_x = -4;
-	pixel_y = 25;
-	req_access = list(3)
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "shutters_deck1_security_cell_2";
-	name = "Cell B Blast Door";
-	pixel_x = 7;
-	pixel_y = 35;
-	req_access = list(3)
-	},
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "Brig Lockdown";
-	name = "Brig Lockdown Blast Doors";
-	pixel_x = 7;
-	pixel_y = 25;
-	req_access = list(3)
-	},
-/obj/structure/table/standard,
-/obj/item/book/manual/wiki/security_space_law,
-/obj/item/paper/sentencing,
-/obj/item/folder/sec,
-/obj/item/pen,
 /obj/item/stickynote_pad/random{
 	pixel_x = 10;
 	pixel_y = -3
 	},
+/obj/effect/map_effect/marker/access/req_all/armory,
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "xCE" = (
