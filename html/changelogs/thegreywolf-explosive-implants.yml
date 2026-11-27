@@ -1,4 +1,0 @@
-author: thegreywolf
-delete-after: True
-changes:
-  - bugfix: "Fixed several explosive implant issues involving limb detonation sounds, EMP behavior, deadman processing and activation, outfit implantation, and configuration prompts."

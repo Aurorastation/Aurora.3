@@ -3,9 +3,15 @@
 		{
 			"title": "Objects excluded due to persistent mechanics",
 			"maps": ["sccv_horizon.dmm", "ops_warehouse_small_storage.dmm"],
+			"ignored_z_levels": {
+				"sccv_horizon.dmm": [4]
+			},
 			"forbidden_types": [
 				"/obj/item/material/ashtray",
+				"/obj/item/paper_bin",
+				"/obj/item/paper_bin_refill",
 				"/obj/item/reagent_containers/chem_disp_cartridge",
+				"/obj/item/toner",
 				"/obj/structure/reagent_dispensers/extinguisher",
 				"/obj/structure/reagent_dispensers/watertank",
 				"/obj/structure/reagent_dispensers/fueltank",

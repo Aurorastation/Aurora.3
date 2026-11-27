@@ -12,8 +12,24 @@
 	layer = BELOW_OBJ_LAYER
 	/// How much generic paper stock is in the bin.
 	var/amount = 30
-	/// The of physical papers put in the bin for reference.
+	/// Maximum amount of generic paper stock that can be stored at once.
+	var/max_amount = 30
+	/// The list of physical papers put in the bin for reference.
 	var/list/papers = new/list()
+
+/obj/item/paper_bin/Initialize(mapload)
+	var/obj/item/paper/paper_type = /obj/item/paper
+	persistent_objects_expiration_time_days = initial(paper_type.persistent_objects_expiration_time_days)
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+	update_icon()
+
+/obj/item/paper_bin/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can return unused regular or carbon paper to the bin by clicking the bin with it."
+	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
+	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+	. += SPAN_TOOLTIP("This is a persistence mechanic. This bin and its remaining blank-paper stock remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
 
 /obj/item/paper_bin/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -79,9 +95,37 @@
 /obj/item/paper_bin/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/i = attacking_item
+		if((i.type == /obj/item/paper || i.type == /obj/item/paper/carbon) && i.is_unused())
+			if(amount >= max_amount)
+				to_chat(user, SPAN_NOTICE("[src] is already fully stocked with generic paper."))
+				return
+
+			user.drop_from_inventory(i, get_turf(src))
+			amount++
+			to_chat(user, SPAN_NOTICE("You return [i] to [src]."))
+			qdel(i)
+			update_icon()
+			return
+
 		user.drop_from_inventory(i,src)
 		to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 		papers.Add(i)
+		update_icon()
+	else if(istype(attacking_item, /obj/item/paper_bin_refill))
+		if(amount >= max_amount)
+			to_chat(user, SPAN_NOTICE("[src] is already fully stocked with generic paper."))
+			return
+
+		var/obj/item/paper_bin_refill/refill = attacking_item
+		var/refill_amount = min(refill.paper_amount, max_amount - amount)
+		amount += refill_amount
+		refill.paper_amount -= refill_amount
+		to_chat(user, SPAN_NOTICE("You refill [src] with [refill_amount] sheet[refill_amount == 1 ? "" : "s"] of paper."))
+		if(refill.paper_amount <= 0)
+			var/turf/refill_turf = get_turf(src)
+			user.drop_from_inventory(refill, refill_turf)
+			new /obj/item/trash/paper_ream(refill_turf)
+			qdel(refill)
 		update_icon()
 
 /obj/item/paper_bin/proc/consume_generic_paper(amount_to_consume)
@@ -98,3 +142,69 @@
 		icon_state = "paper_bin0"
 	else
 		icon_state = "paper_bin1"
+
+/obj/item/paper_bin/persistent_objects_get_content()
+	var/list/content = ..()
+	content["amount"] = amount
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
+	return content
+
+/obj/item/paper_bin/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(isnum(content["amount"]))
+		amount = clamp(content["amount"], 0, max_amount)
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
+	update_icon()
+
+/obj/item/paper_bin_refill
+	name = "paper ream"
+	desc = "A wrapped ream of blank paper used to refill paper bins."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_ream"
+	w_class = WEIGHT_CLASS_NORMAL
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	/// How much generic paper stock this ream adds to a paper bin.
+	var/paper_amount = 30
+
+/obj/item/paper_bin_refill/Initialize(mapload)
+	. = ..()
+	SSpersistence.objectsRegisterTrack(src)
+
+/obj/item/paper_bin_refill/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
+	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
+	. += SPAN_TOOLTIP("This is a persistence mechanic. This ream and its remaining paper stock remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
+
+/obj/item/paper_bin_refill/persistent_objects_get_content()
+	var/list/content = ..()
+	content["paper_amount"] = paper_amount
+	content["pixel_x"] = pixel_x
+	content["pixel_y"] = pixel_y
+	return content
+
+/obj/item/paper_bin_refill/persistent_objects_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	if(isnum(content["paper_amount"]))
+		paper_amount = clamp(content["paper_amount"], 0, initial(paper_amount))
+	if(isnum(content["pixel_x"]))
+		pixel_x = content["pixel_x"]
+	if(isnum(content["pixel_y"]))
+		pixel_y = content["pixel_y"]
+
+/obj/item/trash/paper_ream
+	name = "empty paper ream wrapper"
+	desc = "The crumpled remains of a paper ream's packaging."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "paper_ream_trash"
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'

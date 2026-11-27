@@ -36,7 +36,9 @@
 		user.drop_from_inventory(attacking_item, src)
 		notices++
 		update_icon()
-		SSpersistence.objectsRegisterTrack(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+		var/obj/item/paper/paper = attacking_item
+		if(!paper.is_blank())
+			SSpersistence.objectsRegisterTrack(paper, ckey(user.key)) // Add non-blank paper to persistent tracker
 		to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 	else
 		to_chat(user, SPAN_NOTICE("\The [src] is already full of papers and can not fit another."))
