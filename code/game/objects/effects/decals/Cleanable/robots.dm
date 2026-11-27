@@ -51,3 +51,15 @@
 	color = COLOR_OIL
 	basecolor = COLOR_OIL
 	dries = FALSE
+
+/obj/effect/decal/cleanable/blood/oil/coolant
+	name = "coolant"
+	desc = "A puddle of pale blue synthetic coolant."
+	color = COLOR_COOLANT
+	basecolor = COLOR_COOLANT
+
+/obj/effect/decal/cleanable/blood/drip/oil/coolant
+	name = "drips of coolant"
+	desc = "Drops of pale blue synthetic coolant."
+	color = COLOR_COOLANT
+	basecolor = COLOR_COOLANT

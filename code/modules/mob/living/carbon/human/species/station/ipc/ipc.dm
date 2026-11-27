@@ -183,7 +183,10 @@
 	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
 	if(!cooling || (cooling?.status & ORGAN_DEAD))
 		base_heat_gain *= 4 //uh oh
-	human.bodytemperature += base_heat_gain
+	// Internal heat generation should remain dangerous without increasing forever. External
+	// sources such as fire and hot atmospheres can still raise body temperature above this.
+	if(human.bodytemperature < heat_level_2)
+		human.bodytemperature = min(human.bodytemperature + base_heat_gain, heat_level_2)
 
 /datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
 	var/stance_damage = 0
