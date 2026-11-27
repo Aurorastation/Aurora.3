@@ -322,35 +322,35 @@
 			for(var/i = 1 to 4)
 				if(material.table_icon)
 					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(material.table_icon)))
-						I = image(material.table_icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+						I = fixed_direction_image(material.table_icon, "reinf_[material.icon_base]_[connections[i]]", 1<<(i-1))
 					else
-						I = image(material.table_icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+						I = fixed_direction_image(material.table_icon, "[material.icon_base]_[connections[i]]", 1<<(i-1))
 				else
 					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
-						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+						I = fixed_direction_image(icon, "reinf_[material.icon_base]_[connections[i]]", 1<<(i-1))
 					else
-						I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+						I = fixed_direction_image(icon, "[material.icon_base]_[connections[i]]", 1<<(i-1))
 					if(material.icon_colour)
 						I.color = material.icon_colour
 				AddOverlays(I)
 		else // Table frame
 			for(var/i = 1 to 4)
-				I = image(icon, "[connections[i]]", dir = 1<<(i-1))
+				I = fixed_direction_image(icon, "[connections[i]]", 1<<(i-1))
 				AddOverlays(I)
 
 		if(reinforced)	// Reinforcements.
 			for(var/i = 1 to 4)
 				if("reinf_[reinforced.name]_[connections[i]]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
-					I = image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_[connections[i]]", dir = 1<<(i-1))
+					I = fixed_direction_image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_[connections[i]]", 1<<(i-1))
 				else
-					I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_[connections[i]]", dir = 1<<(i-1)) // else use the generic recolorable one
+					I = fixed_direction_image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_[connections[i]]", 1<<(i-1)) // else use the generic recolorable one
 				if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
 					I.color = reinforced.icon_colour
 				AddOverlays(I)
 
 		if(carpeted)
 			for(var/i = 1 to 4)
-				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
+				I = fixed_direction_image(icon, "carpet_[connections[i]]", 1<<(i-1))
 				AddOverlays(I)
 
 	else	// Flipped table

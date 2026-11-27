@@ -1,0 +1,5 @@
+author: TheGreyWolf
+delete-after: True
+changes:
+  - rscadd: "Added digital cameras."
+  - bugfix: "Stopped camears from taking photos when placing them down."

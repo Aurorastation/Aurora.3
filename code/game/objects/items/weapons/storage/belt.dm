@@ -387,7 +387,7 @@
 	starts_with = list(
 		/obj/item/taperoll/police = 1,
 		/obj/item/flash = 1,
-		/obj/item/camera/detective = 1,
+		/obj/item/camera/digital/investigator = 1,
 		/obj/item/taperecorder = 1
 	)
 

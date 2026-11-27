@@ -142,7 +142,7 @@
 
 		if(track.overlay)
 			track.overlay = null
-		var/image/I = image(icon, icon_state = state, dir = num2dir(truedir))
+		var/image/I = fixed_direction_image(icon, state, num2dir(truedir))
 		I.color = track.basecolor
 
 		switch(truedir)
