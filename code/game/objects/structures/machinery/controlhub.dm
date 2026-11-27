@@ -249,7 +249,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/bar
 	name = "bar control hub"
 	icon_state = "holocontrol"
-	req_access = list(/datum/access/bar::id)
+	req_access = list(/datum/access/horizon/bar::id)
 	controls = list(
 		"counter shutters" = list("type" = "blast_door", "id" = "bar_counter_shutter"),
 		"holosign" = list("type" = "holosign", "id" = "bar"),
@@ -261,7 +261,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/media_office
 	name = "media office control hub"
 	icon_state = "holocontrol"
-	req_access = list(/datum/access/journalist::id)
+	req_access = list(/datum/access/horizon/journalist::id)
 	controls = list(
 		"door control" = list("type" = "airlock", "id" = "media_office_door", "functions" = 1),
 		"door bolts" = list("type" = "airlock", "id" = "media_office_door", "functions" = 4),
@@ -273,7 +273,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/xo_office/private
 	name = "executive officers office control hub"
 	icon_state = "holocontrol"
-	req_access = list(/datum/access/hop::id)
+	req_access = list(/datum/access/horizon/hop::id)
 	controls = list(
 		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
 		"conference room window tint" = list("type" = "windowtint", "id" = "xo_conference_tint"),
@@ -283,9 +283,50 @@ ABSTRACT_TYPE(/obj/structure/machinery/controlhub)
 /obj/structure/machinery/controlhub/xo_office/desk
 	name = "executive officers desk control hub"
 	icon_state = "holocontrol"
-	req_access = list(/datum/access/hop::id)
+	req_access = list(/datum/access/horizon/hop::id)
 	controls = list(
 		"interior window tint" = list("type" = "windowtint", "id" = "xo_office_tint"),
 		"privacy window tint" = list("type" = "windowtint", "id" = "xo_privacy_tint"),
 		"privacy shutter" = list("type" = "blast_door", "id" = "xo_office_privacy_shutter"),
+	)
+
+/obj/structure/machinery/controlhub/weapon_systems/fire_control
+	name = "fire control hub"
+	icon_state = "holocontrol"
+	req_access = list(/datum/access/horizon/ship_weapons::id)
+	controls = list(
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Fire Control
+		"Compartment Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_fc"),
+// Longbow
+		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
+// Grauwolf
+		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf")
+	)
+
+/obj/structure/machinery/controlhub/weapon_systems/longbow
+	name = "longbow weapon system control hub"
+	icon_state = "holocontrol"
+	req_access = list(/datum/access/horizon/ship_weapons::id)
+	controls = list(
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Longbow
+		"Longbow Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_longbow"),
+		"Longbow Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_longbow"),
+		"Longbow Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_longbow")
+	)
+
+/obj/structure/machinery/controlhub/weapon_systems/grauwolf
+	name = "grauwolf weapon system control hub"
+	icon_state = "holocontrol"
+	req_access = list(/datum/access/horizon/ship_weapons::id)
+	controls = list(
+// Magazine
+		"Ammunition Magazine Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_magazine"),
+// Grauwolf
+		"Grauwolf Casemate Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_casemate_grauwolf"),
+		"Grauwolf Viewport Blast Doors" = list("type" = "blast_door", "id" = "gunnery_bulkhead_window_grauwolf"),
+		"Grauwolf Loading Access Shutter" = list("type" = "blast_door", "id" = "gunnery_shutter_loading_grauwolf")
 	)

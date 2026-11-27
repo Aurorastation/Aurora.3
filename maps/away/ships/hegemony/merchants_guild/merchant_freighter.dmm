@@ -359,10 +359,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(215);
 	name = "Reactor";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/reinforced,
 /area/merchants_guild/portengine)
 "eZ" = (
@@ -396,9 +396,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	dir = 4;
-	req_access = list(215)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/crew)
 "fm" = (
@@ -431,10 +431,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
 	name = "Cargo Office";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "fy" = (
@@ -695,10 +695,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
 	name = "Warehouse";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/plating,
 /area/merchants_guild/hangar)
 "jk" = (
@@ -861,10 +861,10 @@
 /area/merchants_guild/starboardengine)
 "kM" = (
 /obj/structure/machinery/computer/ship/helm{
-	dir = 4;
-	req_access = list(215)
+	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchants_guild)
 "kN" = (
@@ -1000,10 +1000,10 @@
 /area/merchants_guild/canteen)
 "nV" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
 	name = "Cargo Office";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "nX" = (
@@ -1037,9 +1037,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "ol" = (
@@ -1203,9 +1203,8 @@
 "qL" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(215)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "qN" = (
@@ -1760,9 +1759,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/plating,
 /area/merchants_guild/starboardengine)
 "yh" = (
@@ -2618,9 +2617,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Starboard Engineering";
-	req_access = list(215);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/plating,
 /area/merchants_guild/portengine)
 "IO" = (
@@ -2650,9 +2649,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_service{
 	name = "Crew Quarters";
-	req_access = list(215);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/canteen)
 "IY" = (
@@ -3008,10 +3007,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(215);
 	name = "Reactor";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/armory)
 "ND" = (
@@ -3220,9 +3219,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	req_access = list(215);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/bridge)
 "ST" = (
@@ -3496,9 +3495,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Captain's Quarters";
-	req_access = list(215);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/captain)
 "Wi" = (
@@ -3646,10 +3645,10 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(215);
 	name = "Warehouse";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/merchants_guild,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/warehouse)
 "ZH" = (

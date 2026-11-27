@@ -7,7 +7,7 @@
 	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = /datum/access/cargo::id
+	required_access_download = /datum/access/horizon/cargo::id
 	usage_flags = PROGRAM_ALL
 	tgui_id = "CargoDelivery"
 
@@ -195,12 +195,12 @@
 				to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 				return
 			else
-				computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+				computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		return TRUE
 
 // Cargo access check
 /datum/computer_file/program/civilian/cargodelivery/proc/access_check(var/obj/item/card/id/I)
-	if(!istype(I) || !I.registered_name || !(/datum/access/cargo::id in I.access) || issilicon(usr))
+	if(!istype(I) || !I.registered_name || !(/datum/access/horizon/cargo::id in I.access) || issilicon(usr))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return FALSE
 	return TRUE

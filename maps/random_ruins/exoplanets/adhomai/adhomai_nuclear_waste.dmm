@@ -16,10 +16,10 @@
 /area/exoplanet/adhomai)
 "d" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
 	name = "Storage";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -91,10 +91,10 @@
 /area/adhomai_nuclear_waste)
 "q" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
 	name = "Compound";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -150,11 +150,11 @@
 /area/adhomai_nuclear_waste)
 "E" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
 	name = "Entry";
 	locked = 1;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -240,10 +240,10 @@
 /area/adhomai_nuclear_waste)
 "V" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(209);
 	name = "Storage";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},

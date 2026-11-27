@@ -876,9 +876,10 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/text, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
+/mob/living/simple_animal/say(text, datum/language/speaking = null, list/message_mods = null, ghost_hearing = GHOSTS_ALL_HEAR, whisper = FALSE, skip_edit = FALSE, message_range = null, list/spans = null, sanitize = TRUE)
+	message_mods = message_mods ? message_mods.Copy() : list()
 	if(speak_emote.len)
-		verb = pick(speak_emote)
+		message_mods[SAY_MOD_VERB] = pick(speak_emote)
 
 	if(LAZYLEN(emote_sounds))
 		var/sound_chance = TRUE
@@ -886,8 +887,8 @@
 			sound_chance = prob(50)
 		make_noise(sound_chance)
 
-	var/can_ghosts_hear = client ? GHOSTS_ALL_HEAR : ONLY_GHOSTS_IN_VIEW
-	..(text, speaking, verb, ghost_hearing = can_ghosts_hear)
+	var/can_ghosts_hear = client ? ghost_hearing : ONLY_GHOSTS_IN_VIEW
+	return ..(text, speaking, message_mods, can_ghosts_hear, whisper, skip_edit, message_range, spans, sanitize)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb

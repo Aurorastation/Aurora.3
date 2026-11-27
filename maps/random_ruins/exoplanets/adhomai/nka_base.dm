@@ -60,7 +60,7 @@
 	l_pocket = /obj/item/radio
 
 /obj/outfit/admin/nka_base/get_id_access()
-	return list(/datum/access/nka::id)
+	return list(/datum/access/away/nka::id)
 
 /datum/ghostspawner/human/nka_base/commander
 	short_name = "nka_base_commander"

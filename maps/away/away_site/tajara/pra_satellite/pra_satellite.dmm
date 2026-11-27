@@ -189,13 +189,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -440,9 +440,9 @@
 "gb" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -639,13 +639,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Sleeping Quarters";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -744,20 +744,19 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Crew Area";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/pra_satellite)
 "mt" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 4
 	},
@@ -771,6 +770,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2103,7 +2103,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Power";
 	dir = 4
 	},
@@ -2117,6 +2116,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2148,13 +2148,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Atmospherics";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

@@ -44,3 +44,6 @@
 
 ///called when the movable's glide size is updated: (new_glide_size)
 #define COMSIG_MOVABLE_UPDATE_GLIDE_SIZE "movable_glide_size"
+
+/// After speech attribution is chosen, before final edits: (datum/say_message/message).
+#define COMSIG_MOVABLE_SAY_QUOTE "movable_say_quote"

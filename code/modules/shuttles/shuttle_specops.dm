@@ -1,7 +1,7 @@
 /obj/structure/machinery/computer/shuttle_control/specops
 	name = "special operations shuttle console"
 	shuttle_tag = "Phoenix Shuttle"
-	req_access = list(/datum/access/cent_specops::id)
+	req_access = list(/datum/access/centcomm/cent_specops::id)
 
 /obj/structure/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
 	to_chat(user, SPAN_WARNING("Access denied."))
@@ -34,14 +34,14 @@
 		var/obj/structure/machinery/computer/C = user
 
 		if(world.time <= reset_time)
-			C.visible_message(SPAN_NOTICE("[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet."))
+			C.visible_message(SPAN_NOTICE("[SSatlas.current_map.boss_name] will not allow the Special Operations shuttle to launch yet."), visible_message_flags = LOCAL_MESSAGE)
 			if (((world.time - reset_time)/10) > 60)
-				C.visible_message(SPAN_NOTICE("[-((world.time - reset_time)/10)/60] minutes remain!"))
+				C.visible_message(SPAN_NOTICE("[-((world.time - reset_time)/10)/60] minutes remain!"), visible_message_flags = LOCAL_MESSAGE)
 			else
-				C.visible_message(SPAN_NOTICE("[-(world.time - reset_time)/10] seconds remain!"))
+				C.visible_message(SPAN_NOTICE("[-(world.time - reset_time)/10] seconds remain!"), visible_message_flags = LOCAL_MESSAGE)
 			return
 
-		C.visible_message(SPAN_NOTICE("The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds."))
+		C.visible_message(SPAN_NOTICE("The Special Operations shuttle will depart in [(specops_countdown_time/10)] seconds."), visible_message_flags = LOCAL_MESSAGE)
 
 	if (location)	//returning
 		radio_announce("THE SPECIAL OPERATIONS SHUTTLE IS PREPARING TO RETURN")
@@ -83,7 +83,7 @@
 	radio_announce("ALERT: LAUNCH SEQUENCE ABORTED")
 	if (istype(in_use, /obj/structure/machinery/computer))
 		var/obj/structure/machinery/computer/C = in_use
-		C.visible_message(SPAN_WARNING("Launch sequence aborted."))
+		C.visible_message(SPAN_WARNING("Launch sequence aborted."), visible_message_flags = LOCAL_MESSAGE)
 
 	..()
 
@@ -215,10 +215,10 @@
 
 /obj/structure/machinery/computer/shuttle_control/multi/legion
 	name = "dropship control console"
-	req_access = list(/datum/access/tcaf::id)
+	req_access = list(/datum/access/centcomm/tcaf::id)
 	shuttle_tag = "Legion Shuttle"
 
 /obj/structure/machinery/computer/shuttle_control/multi/distress
 	name = "shuttle control computer"
-	req_access = list(/datum/access/distress::id)
+	req_access = list(/datum/access/centcomm/distress::id)
 	shuttle_tag = "Distress Shuttle"

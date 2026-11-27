@@ -27,7 +27,7 @@
 	/// Position in a cleanbot patrol route. Zero disables automatic numbered patrol routing.
 	var/patrol_number = 0
 
-	req_one_access = list(/datum/access/engine::id, /datum/access/robotics::id)
+	req_one_access = list(/datum/access/horizon/engine::id, /datum/access/horizon/robotics::id)
 
 /obj/structure/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -289,7 +289,7 @@
 			if(!F || !istype(F))
 				return FALSE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,/datum/access/tech_support::id))
+			if(can_run(usr,FALSE,/datum/access/horizon/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
@@ -315,7 +315,7 @@
 			if(!F || !istype(F))
 				return TRUE
 			var/is_usr_tech_support = FALSE
-			if(can_run(usr,FALSE,/datum/access/tech_support::id))
+			if(can_run(usr,FALSE,/datum/access/horizon/tech_support::id))
 				is_usr_tech_support = TRUE
 			if(!is_usr_tech_support && computer.enrolled != DEVICE_PRIVATE && istype(F, /datum/computer_file/program))
 				to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))

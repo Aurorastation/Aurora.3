@@ -64,7 +64,7 @@
 	l_ear = /obj/item/radio/headset/ship
 
 /obj/outfit/admin/ssrm_navy_chief_petty_officer/solfrig_xo/get_id_access()
-	return list(/datum/access/sol_ships::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/sol_ships::id, /datum/access/horizon/external_airlocks::id)
 
 /datum/ghostspawner/human/ssrm_ipc/solfrig_ipc
 	short_name = "solfrig_ipc"

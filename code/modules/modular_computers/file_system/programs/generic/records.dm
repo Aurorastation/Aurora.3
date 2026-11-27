@@ -33,9 +33,9 @@
 	var/comments_error = FALSE
 	var/comments_loaded = FALSE
 	var/comments_request_id = 0
-	var/list/medical_access = list(/datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id, /datum/access/hop::id)
-	var/list/security_access = list(/datum/access/security::id, /datum/access/forensics_lockers::id, /datum/access/lawyer::id, /datum/access/hop::id)
-	var/list/employment_access = list(/datum/access/heads::id, /datum/access/lawyer::id, /datum/access/consular::id)
+	var/list/medical_access = list(/datum/access/horizon/medical_equip::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/robotics::id, /datum/access/horizon/hop::id)
+	var/list/security_access = list(/datum/access/horizon/security::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/lawyer::id, /datum/access/horizon/hop::id)
+	var/list/employment_access = list(/datum/access/horizon/heads::id, /datum/access/horizon/lawyer::id, /datum/access/horizon/consular::id)
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),

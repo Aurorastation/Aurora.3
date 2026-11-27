@@ -50,7 +50,7 @@
 //Target turns to ash.
 /obj/effect/decal/remains/proc/crumble()
 	var/turf/simulated/floor/F = get_turf(src)
-	visible_message(SPAN_NOTICE("\The [src] sink together into a pile of ash."))
+	visible_message(SPAN_NOTICE("\The [src] sink together into a pile of ash."), visible_message_flags = LOCAL_MESSAGE)
 	if (istype(F))
 		new /obj/effect/decal/cleanable/ash(F)
 	qdel(src)
@@ -58,7 +58,7 @@
 //Target turns to oil.
 /obj/effect/decal/remains/robot/crumble()
 	var/turf/simulated/floor/F = get_turf(src)
-	visible_message(SPAN_NOTICE("\The [src] degrade into a pool of oil."))
+	visible_message(SPAN_NOTICE("\The [src] degrade into a pool of oil."), visible_message_flags = LOCAL_MESSAGE)
 	if (istype(F))
 		new /obj/effect/decal/cleanable/blood/oil(F)
 	qdel(src)

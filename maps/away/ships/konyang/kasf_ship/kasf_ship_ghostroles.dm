@@ -42,7 +42,7 @@
 		tag.citizenship_info = CITIZENSHIP_COALITION
 
 /obj/outfit/admin/kasf_crewman/get_id_access()
-	return list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/portofcall_police::id, /datum/access/horizon/external_airlocks::id)
 
 // kasf engineer
 /datum/ghostspawner/human/kasf_crewman/engineer
@@ -106,4 +106,4 @@
 
 /obj/item/card/id/kasf_corvette
 	name = "kasf corvette id"
-	access = list(/datum/access/portofcall_police::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/away/portofcall_police::id, /datum/access/horizon/external_airlocks::id)

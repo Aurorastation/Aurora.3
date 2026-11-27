@@ -474,7 +474,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 	var/dispersion_increase = 0
 	var/mob/living/accuracy_user = accuracy_user_override ? accuracy_user_override : user
 	if(!QDELETED(accuracy_user))
-		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase)
+		SEND_SIGNAL(accuracy_user, COMSIG_BEFORE_GUN_FIRE, &accuracy_decrease, &dispersion_increase, src)
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
@@ -528,7 +528,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 /// Equipment controllers opt in and verify that the weapon is still installed.
 /atom/proc/can_operate_gun(obj/item/gun/gun)
-	return FALSE
+		return FALSE
 
 /// called by a timer to remove the light range from muzzle flash
 /obj/item/gun/proc/reset_light_range(lightrange)
@@ -554,13 +554,14 @@ ABSTRACT_TYPE(/obj/item/gun)
 		balloon_alert_to_viewers("*click*", ignored_mobs = list(user))
 		balloon_alert(user, reason)
 	else
-		balloon_alert_to_viewers("*click*")
+		balloon_alert_to_hearers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
 	if(user && notify_empty)
 		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
 
-/// Called after successfully firing
-/obj/item/gun/proc/post_fire(mob/user, atom/target, pointblank = FALSE, announce_reflex = FALSE)
+//called after successfully firing
+/obj/item/gun/proc/post_fire(mob/user, atom/target, var/pointblank = FALSE, var/announce_reflex = FALSE)
+	SEND_SIGNAL(user, COMSIG_GUN_FIRED)
 	play_fire_sound()
 	if(!suppressed)
 		if(user && announce_reflex)
@@ -569,8 +570,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 				SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!")
 			)
 		else
-			src.visible_message(
-				SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
+			visible_message(SPAN_DANGER("\The [src] fires[target ? " at [target]" : ""]!"))
 
 		if(muzzle_flash)
 			var/prev_light = light_range
@@ -795,6 +795,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 // Safety Procs
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_GUN_TOGGLE_SAFETY, src, &cancelled)
+	if(cancelled)
+		return
 	safety_state = !safety_state
 	update_icon()
 	if(user)
@@ -1105,10 +1109,10 @@ ABSTRACT_TYPE(/obj/item/gun)
 		return TRUE
 
 	if(pin && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
+		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"), visible_message_flags = LOCAL_MESSAGE)
 		if(attacking_item.use_tool(src, user, 45, volume = 50))
 			if(pin.durable || prob(50))
-				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

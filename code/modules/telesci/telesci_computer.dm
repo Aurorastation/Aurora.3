@@ -261,7 +261,7 @@
 	SHOULD_NOT_SLEEP(TRUE)
 
 	sparks()
-	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
+	visible_message(SPAN_WARNING("The telepad weakly fizzles."), visible_message_flags = LOCAL_MESSAGE)
 	return
 
 /obj/structure/machinery/computer/telescience/proc/check_bluespace_inhibitors(atom/target)

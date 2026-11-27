@@ -67,9 +67,7 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior)
 "acK" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
@@ -79,6 +77,7 @@
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/dark,
 /area/port_volturno/interior/police/brig)
 "acM" = (
@@ -1737,10 +1736,10 @@
 	name = "Store Shutters";
 	pixel_y = 27;
 	dir = 1;
-	req_access = list(219);
 	pixel_x = 26
 	},
 /obj/effect/decal/rolling_fog,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "brX" = (
@@ -1924,11 +1923,11 @@
 	id = "music_store";
 	name = "Store Shutters";
 	dir = 8;
-	req_access = list(219);
 	pixel_x = -20;
 	pixel_y = -32
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
 "bzx" = (
@@ -2158,13 +2157,13 @@
 /area/port_volturno/interior/parking)
 "bHC" = (
 /obj/structure/machinery/door/airlock/medical{
-	name = "Operating Theatre";
-	req_access = list(219)
+	name = "Operating Theatre"
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/clinic)
 "bHE" = (
@@ -2218,9 +2217,9 @@
 	id = "cell2";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "bII" = (
@@ -2431,10 +2430,10 @@
 	id = "minimart";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
 /obj/effect/decal/rolling_fog,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "bQN" = (
@@ -4341,11 +4340,11 @@
 	id = "bar";
 	name = "Store Shutters";
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 22;
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/dark/full,
 /area/port_volturno/interior/witch_hand/bar)
 "dbx" = (
@@ -4378,9 +4377,7 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/riad/garden)
 "dcd" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -4400,6 +4397,7 @@
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/dark,
 /area/port_volturno/interior/police/brig)
 "dcp" = (
@@ -4910,12 +4908,12 @@
 	name = "Cell Door Bolts";
 	pixel_x = -19;
 	pixel_y = 7;
-	req_access = list(218);
 	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "dso" = (
@@ -5821,9 +5819,9 @@
 	id = "minimart";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/lino,
 /area/port_volturno/interior/minimart)
 "dVk" = (
@@ -5987,10 +5985,10 @@
 	id = "police2";
 	name = "Building Lockdown";
 	dir = 1;
-	req_access = list(218);
 	pixel_y = -2;
 	pixel_x = 7
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/carpet/lightblue,
 /area/port_volturno/interior/police/overseer)
 "eaV" = (
@@ -6372,12 +6370,12 @@
 /area/port_volturno/interior/riad)
 "eqf" = (
 /obj/structure/machinery/door/urban{
-	req_one_access = list(219);
 	support_ids = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/hotel)
 "eqg" = (
@@ -7168,9 +7166,8 @@
 /obj/structure/cash_register{
 	pixel_y = 1
 	},
-/obj/structure/machinery/door/window/desk/northright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/northright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/clothing_store)
 "eXf" = (
@@ -7301,9 +7298,8 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/machinery/door/window/northleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/northleft,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "faV" = (
@@ -7563,9 +7559,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "minimart";
 	name = "Store Shutters";
-	pixel_y = -19;
-	req_access = list(219)
+	pixel_y = -19
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "fiG" = (
@@ -9108,12 +9104,12 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	door_color = "#46334d";
-	req_access = list(218);
 	name = "Spaceport Security Office"
 	},
 /obj/structure/machinery/door/blast/shutters{
 	id = "police1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "gpz" = (
@@ -9970,13 +9966,13 @@
 "gTq" = (
 /obj/structure/machinery/door/urban{
 	dir = 4;
-	req_one_access = list(219);
 	support_ids = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/hotel)
 "gTV" = (
@@ -10702,10 +10698,10 @@
 	id = "police3";
 	name = "Armory";
 	dir = 1;
-	req_access = list(218);
 	pixel_y = 27;
 	pixel_x = 26
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "htL" = (
@@ -10970,12 +10966,12 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "clinic";
 	name = "Clinic Shutters";
-	pixel_y = -22;
-	req_access = list(219)
+	pixel_y = -22
 	},
 /obj/structure/machinery/light/spot{
 	pixel_y = -2
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
 "hDF" = (
@@ -12109,9 +12105,8 @@
 /area/port_volturno/interior/spaceport)
 "izk" = (
 /obj/structure/table/stone/marble,
-/obj/structure/machinery/door/window/desk/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/southright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/port_volturno/interior/music_store)
 "izv" = (
@@ -12122,7 +12117,6 @@
 	req_one_access = null
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(218);
 	name = "Armory and Equipment"
 	},
 /obj/structure/machinery/door/blast/regular{
@@ -12130,6 +12124,7 @@
 	id = "police3";
 	name = "Armory and Equipment"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police/brig)
 "izA" = (
@@ -12396,14 +12391,14 @@
 	id = "assun_clothing_shutters";
 	name = "Store Shutters";
 	pixel_y = 32;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
 /obj/effect/decal/curb,
 /obj/effect/decal/curb{
 	dir = 5
 	},
 /obj/effect/decal/rolling_fog,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/exterior)
 "iLE" = (
@@ -13050,9 +13045,9 @@
 "jhe" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "cell1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police/brig)
 "jhq" = (
@@ -13422,13 +13417,13 @@
 "jBh" = (
 /obj/structure/machinery/door/airlock/medical{
 	dir = 1;
-	name = "Morgue";
-	req_access = list(219)
+	name = "Morgue"
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/clinic)
 "jBx" = (
@@ -13443,10 +13438,10 @@
 	name = "Store Shutters";
 	pixel_y = 38;
 	dir = 8;
-	req_access = list(219);
 	pixel_x = -20
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/riad)
 "jCN" = (
@@ -14024,9 +14019,9 @@
 	name = "Store Shutters";
 	pixel_y = 27;
 	dir = 1;
-	req_access = list(219);
 	pixel_x = -1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "jZy" = (
@@ -15342,9 +15337,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/window/desk/northleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/northleft,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/clothing_store)
 "kOd" = (
@@ -15604,9 +15598,9 @@
 	id = "minimart";
 	name = "Store Shutters";
 	pixel_y = 24;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
 "kTZ" = (
@@ -15770,9 +15764,9 @@
 	name = "Store Shutters";
 	pixel_y = 4;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 19
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/exoplanet/assunzione,
 /area/port_volturno/interior/maintenance)
 "kYT" = (
@@ -17100,9 +17094,8 @@
 /turf/simulated/floor/concrete/square,
 /area/port_volturno/exterior)
 "lRu" = (
-/obj/structure/machinery/door/window/northright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/northright,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "lRM" = (
@@ -17317,15 +17310,14 @@
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/machinery/door/window/desk/westleft{
-	req_access = list(218)
-	},
+/obj/structure/machinery/door/window/desk/westleft,
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "assun_police_spaceport";
 	name = "Safety Shutter"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/spaceport/security_office)
 "mat" = (
@@ -17445,7 +17437,6 @@
 	id = "assun_police_spaceport";
 	name = "Front Desk Lockdown";
 	dir = 1;
-	req_access = list(218);
 	idle_power_usage = 4;
 	pixel_x = -5
 	},
@@ -17461,6 +17452,7 @@
 	pixel_x = -8;
 	pixel_y = 11
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/spaceport/security_office)
 "meu" = (
@@ -17673,15 +17665,14 @@
 /area/port_volturno/exterior)
 "moL" = (
 /obj/structure/table/wood,
-/obj/structure/machinery/door/window/southleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/southleft,
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
 /obj/structure/machinery/door/blast/shutters{
 	id = "mechanic1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "moP" = (
@@ -17754,13 +17745,13 @@
 	id = "liquor_store";
 	name = "Store Shutters";
 	pixel_y = 32;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
 /obj/random/dirt_75,
 /obj/effect/landmark/minimap_poi{
 	name = "Liquor Store"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "msj" = (
@@ -18637,7 +18628,6 @@
 "neE" = (
 /obj/structure/machinery/door/urban{
 	dir = 4;
-	req_one_access = list(219);
 	name = "Hotel";
 	support_ids = 1
 	},
@@ -18646,6 +18636,7 @@
 	dir = 4;
 	req_one_access = null
 	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/hotel)
 "neV" = (
@@ -18960,11 +18951,11 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "music_store";
 	name = "Store Shutters";
-	pixel_y = -24;
-	req_access = list(219)
+	pixel_y = -24
 	},
 /obj/effect/decal/rolling_fog,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "nps" = (
@@ -19317,9 +19308,9 @@
 "nDv" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "cell2"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police/brig)
 "nDw" = (
@@ -19392,9 +19383,9 @@
 	dir = 9;
 	id = "keeper_office";
 	pixel_x = -26;
-	pixel_y = -23;
-	req_access = list(38)
+	pixel_y = -23
 	},
+/obj/effect/map_effect/marker/access/req_all/lawyer,
 /turf/simulated/floor/exoplanet/carpet/art,
 /area/port_volturno/interior/chapel)
 "nGD" = (
@@ -19628,13 +19619,13 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "assun_clothing_shutters";
 	name = "Store Shutters";
-	req_access = list(219);
 	pixel_y = -20
 	},
 /obj/structure/coatrack{
 	pixel_x = -10;
 	pixel_y = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/clothing_store)
 "nNO" = (
@@ -19790,7 +19781,6 @@
 	id = "police2";
 	name = "Building Lockdown";
 	dir = 1;
-	req_access = list(218);
 	pixel_y = 4;
 	pixel_x = 7
 	},
@@ -19798,11 +19788,11 @@
 	id = "police1";
 	name = "Front Desk Lockdown";
 	dir = 1;
-	req_access = list(218);
 	pixel_y = 4;
 	pixel_x = -7
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "nTf" = (
@@ -20754,9 +20744,9 @@
 	dir = 9;
 	id = "police_overseer";
 	pixel_x = -26;
-	pixel_y = -23;
-	req_access = list(38)
+	pixel_y = -23
 	},
+/obj/effect/map_effect/marker/access/req_all/lawyer,
 /turf/simulated/floor/carpet/lightblue,
 /area/port_volturno/interior/police/overseer)
 "owF" = (
@@ -22595,9 +22585,9 @@
 /obj/structure/machinery/door/airlock/security{
 	dir = 4;
 	door_color = "#46334d";
-	req_access = list(218);
 	name = "Spaceport Security Office"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/concrete,
 /area/port_volturno/interior/parking)
 "pEn" = (
@@ -25621,9 +25611,7 @@
 /area/port_volturno/interior/chapel)
 "rKU" = (
 /obj/structure/table/stone/marble,
-/obj/structure/machinery/door/window/desk/southleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/desk/southleft,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -25631,6 +25619,7 @@
 	pixel_x = -5;
 	pixel_y = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/port_volturno/interior/music_store)
 "rLc" = (
@@ -25770,9 +25759,9 @@
 	id = "cell4";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "rQd" = (
@@ -25933,7 +25922,6 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "police3";
 	name = "Garden Shutters";
-	req_access = list(218);
 	pixel_y = -35;
 	pixel_x = 7
 	},
@@ -25941,6 +25929,7 @@
 	name = "igs - assunzione_cop";
 	identifier = "assunzione_cop"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/police)
 "rVp" = (
@@ -26055,9 +26044,9 @@
 	id = "cell3";
 	name = "Cell Door Bolts";
 	pixel_x = 20;
-	req_access = list(218);
 	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/full,
 /area/port_volturno/interior/police/brig)
 "rZh" = (
@@ -26067,9 +26056,7 @@
 /turf/simulated/floor/grass1/no_edge,
 /area/port_volturno/interior/chapel)
 "rZS" = (
-/obj/structure/machinery/door/window/westleft{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner/purple/diagonal{
 	dir = 4
 	},
@@ -26078,6 +26065,7 @@
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
 "sbL" = (
@@ -26368,9 +26356,9 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	door_color = "#46334d";
-	req_access = list(218);
 	name = "Spaceport Security Office"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police)
 "slz" = (
@@ -26902,9 +26890,7 @@
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/exterior)
 "sKe" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(218)
-	},
+/obj/structure/closet/secure_closet,
 /obj/item/flashlight/maglight,
 /obj/item/flashlight/maglight,
 /obj/item/flashlight/maglight,
@@ -26915,6 +26901,7 @@
 /obj/item/taperoll/police,
 /obj/item/taperoll/police,
 /obj/item/taperoll/police,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police/brig)
 "sKP" = (
@@ -27294,10 +27281,10 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "police4";
 	name = "Garden Shutters";
-	req_access = list(218);
 	pixel_y = -35;
 	pixel_x = 7
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/police)
 "sWV" = (
@@ -27696,7 +27683,6 @@
 	id = "assun_clothing_shutters";
 	name = "Store Shutters";
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 22;
 	pixel_y = 6
 	},
@@ -27705,6 +27691,7 @@
 	pixel_y = 5;
 	pixel_x = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/clothing_store)
 "tpP" = (
@@ -27792,9 +27779,9 @@
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 8;
-	req_access = list(219);
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood,
 /area/port_volturno/interior/stafylia)
 "tsR" = (
@@ -28345,9 +28332,9 @@
 	name = "Store Shutters";
 	pixel_y = 6;
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/ridged,
 /area/port_volturno/interior/stafylia)
 "tKe" = (
@@ -28791,9 +28778,9 @@
 /area/port_volturno/exterior)
 "tXh" = (
 /obj/structure/machinery/door/window/eastright{
-	req_access = list(219);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/port_volturno/interior/music_store)
 "tXs" = (
@@ -29570,10 +29557,9 @@
 /turf/simulated/floor/sidewalk/assunzione/blocks,
 /area/port_volturno/exterior)
 "uvY" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(211)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "uwu" = (
@@ -30315,9 +30301,9 @@
 "uWL" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "cell4"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police/brig)
 "uXF" = (
@@ -30696,12 +30682,11 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
-/obj/structure/machinery/door/window/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/southright,
 /obj/structure/machinery/door/blast/shutters{
 	id = "mechanic1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/robotics)
 "vop" = (
@@ -30753,9 +30738,9 @@
 	id = "music_store";
 	name = "Store Shutters";
 	dir = 4;
-	req_access = list(219);
 	pixel_x = 22
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/port_volturno/interior/music_store)
 "vqh" = (
@@ -31146,9 +31131,9 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	door_color = "#46334d";
-	req_access = list(218);
 	name = "Spaceport Security Office"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/spaceport/security_office)
 "vDZ" = (
@@ -31226,15 +31211,14 @@
 /area/port_volturno/interior/clinic/pharmacy)
 "vHJ" = (
 /obj/structure/table/wood,
-/obj/structure/machinery/door/window/southleft{
-	req_access = list(218)
-	},
+/obj/structure/machinery/door/window/southleft,
 /obj/structure/machinery/door/firedoor{
 	req_one_access = null
 	},
 /obj/structure/machinery/door/blast/shutters{
 	id = "police1"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/port_volturno/interior/police)
 "vHM" = (
@@ -31633,9 +31617,9 @@
 	},
 /obj/structure/machinery/door/airlock/medical{
 	dir = 4;
-	name = "Infirmary";
-	req_access = list(219)
+	name = "Infirmary"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/clinic)
 "wbc" = (
@@ -31986,9 +31970,9 @@
 "wpq" = (
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
-	req_access = list(218);
 	id_tag = "cell3"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/police/brig)
 "wpx" = (
@@ -32067,11 +32051,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/port_volturno/interior/clinic/pharmacy)
 "wqu" = (
-/obj/structure/machinery/door/window/southright{
-	req_access = list(219)
-	},
+/obj/structure/machinery/door/window/southright,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/tiled/white,
 /area/port_volturno/interior/minimart)
 "wri" = (
@@ -32882,9 +32865,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "assun_clothing_shutters";
 	name = "Store Shutters";
-	req_access = list(219);
 	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/assunzione/flat,
 /area/port_volturno/interior)
 "wVD" = (
@@ -33053,9 +33036,9 @@
 	id = "liquor_store";
 	name = "Store Shutters";
 	pixel_y = 32;
-	dir = 1;
-	req_access = list(219)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/birch,
 /area/port_volturno/interior/liquor_store)
 "xcO" = (
@@ -33658,9 +33641,9 @@
 	name = "Store Shutters";
 	pixel_y = 32;
 	dir = 8;
-	req_access = list(219);
 	pixel_x = -20
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/wood/maple,
 /area/port_volturno/interior/riad)
 "xEu" = (
@@ -33891,9 +33874,9 @@
 	name = "Clinic Shutters";
 	pixel_y = 29;
 	dir = 1;
-	req_access = list(219);
 	pixel_x = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_vendors,
 /turf/simulated/floor/sidewalk/assunzione,
 /area/port_volturno/exterior)
 "xMN" = (
@@ -33905,14 +33888,13 @@
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/structure/machinery/door/window/desk/westright{
-	req_access = list(218)
-	},
+/obj/structure/machinery/door/window/desk/westright,
 /obj/structure/machinery/door/blast/shutters/open{
 	dir = 8;
 	id = "assun_police_spaceport";
 	name = "Safety Shutter"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/cargo/brass/full,
 /area/port_volturno/interior/spaceport/security_office)
 "xMR" = (

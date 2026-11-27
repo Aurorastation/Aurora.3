@@ -40,10 +40,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "av" = (
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(210)
-	},
+/obj/structure/machinery/computer/ship/targeting,
 /obj/effect/floor_decal/corner_wide/dark_green/full,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "bl" = (
@@ -213,12 +212,12 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "eD" = (
 /obj/structure/machinery/computer/shuttle_control/explore/unathi_pirate_izharshan{
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "eG" = (
@@ -387,7 +386,6 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "iW" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(210);
 	dir = 4;
 	name = "Gunnery"
 	},
@@ -395,6 +393,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "jr" = (
@@ -535,12 +534,12 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "ns" = (
 /obj/structure/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "nB" = (
@@ -993,9 +992,8 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
-/obj/structure/machinery/computer/ship/targeting{
-	req_access = list(210)
-	},
+/obj/structure/machinery/computer/ship/targeting,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "zZ" = (
@@ -1272,7 +1270,6 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Fg" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(210);
 	dir = 4;
 	name = "Engineering"
 	},
@@ -1294,6 +1291,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Fj" = (
@@ -1807,12 +1805,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(210);
 	dir = 1;
 	name = "Gunnery"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "RS" = (
@@ -1883,7 +1881,6 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "TF" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(210);
 	dir = 4;
 	name = "Washroom";
 	id_tag = "izharshan_washroom"
@@ -1898,6 +1895,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Up" = (
@@ -2032,7 +2030,6 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Wv" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(210);
 	dir = 4;
 	name = "Crew Dormitories"
 	},
@@ -2054,6 +2051,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "WN" = (
@@ -2127,10 +2125,10 @@
 	name = "Washroom Bolt Control";
 	pixel_x = -24;
 	pixel_y = 4;
-	specialfunctions = 4;
-	req_access = list(210)
+	specialfunctions = 4
 	},
 /obj/structure/table/rack,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Yf" = (
@@ -2201,10 +2199,10 @@
 	name = "Cockpit Blast Shutters";
 	id = "izharshan_cockpit";
 	pixel_y = 8;
-	pixel_x = -5;
-	req_access = list(210)
+	pixel_x = -5
 	},
 /obj/item/eftpos,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Zj" = (

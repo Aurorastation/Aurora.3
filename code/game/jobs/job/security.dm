@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/armory::id, /datum/access/forensics_lockers::id, /datum/access/morgue::id,
-		/datum/access/maint_tunnels::id, /datum/access/all_personal_lockers::id, /datum/access/research::id, /datum/access/engine::id, /datum/access/ship_weapons::id, /datum/access/mining::id,
-		/datum/access/medical::id, /datum/access/construction::id, /datum/access/mailsorting::id, /datum/access/heads::id, /datum/access/hos::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id,
-		/datum/access/gateway::id, /datum/access/external_airlocks::id, /datum/access/weapons::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/teleporter::id
+		/datum/access/horizon/security::id, /datum/access/horizon/eva::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/holding::id, /datum/access/horizon/armory::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/morgue::id,
+		/datum/access/horizon/maint_tunnels::id, /datum/access/horizon/all_personal_lockers::id, /datum/access/horizon/research::id, /datum/access/horizon/engine::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/mining::id,
+		/datum/access/horizon/medical::id, /datum/access/horizon/construction::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/heads::id, /datum/access/horizon/hos::id, /datum/access/horizon/RC_announce::id, /datum/access/horizon/keycard_auth::id,
+		/datum/access/horizon/gateway::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/weapons::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id, /datum/access/horizon/teleporter::id
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/hos
@@ -87,7 +87,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/armory::id, /datum/access/external_airlocks::id, /datum/access/weapons::id)
+	job_access = list(/datum/access/horizon/security::id, /datum/access/horizon/eva::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/holding::id, /datum/access/horizon/armory::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/weapons::id)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/warden
 
@@ -148,7 +148,7 @@
 	)
 
 	job_access = list(
-		/datum/access/security::id, /datum/access/sec_doors::id, /datum/access/forensics_lockers::id, /datum/access/morgue::id, /datum/access/weapons::id
+		/datum/access/horizon/security::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/morgue::id, /datum/access/horizon/weapons::id
 	)
 	minimal_player_age = 3
 	outfit = /obj/outfit/job/forensics
@@ -206,7 +206,7 @@
 	)
 
 	job_access = list(
-		/datum/access/security::id, /datum/access/eva::id, /datum/access/sec_doors::id, /datum/access/holding::id, /datum/access/external_airlocks::id, /datum/access/weapons::id
+		/datum/access/horizon/security::id, /datum/access/horizon/eva::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/holding::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/weapons::id
 	)
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer
@@ -270,7 +270,7 @@
 	supervisors = "the Head of Security"
 	selection_color = "#991818"
 
-	job_access = list(/datum/access/security::id, /datum/access/sec_doors::id)
+	job_access = list(/datum/access/horizon/security::id, /datum/access/horizon/sec_doors::id)
 	outfit = /obj/outfit/job/intern_sec/officer
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,

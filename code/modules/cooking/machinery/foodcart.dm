@@ -7,7 +7,7 @@
 	anchored = FALSE
 	stat = POWEROFF
 	use_power = POWER_USE_OFF
-	req_access = list(/datum/access/galley::id)
+	req_access = list(/datum/access/horizon/galley::id)
 	var/unpacked = FALSE
 	/// When it's anchored and has all it's things outside
 	var/obj/structure/machinery/appliance/cooker/grill/stand/cart_griddle
@@ -58,7 +58,7 @@
 /obj/structure/machinery/food_cart/proc/pack_up()
 	if(!unpacked)
 		return
-	visible_message(SPAN_NOTICE("[src] retracts all of it's unpacked components."))
+	visible_message(SPAN_NOTICE("[src] retracts all of it's unpacked components."), visible_message_flags = LOCAL_MESSAGE)
 	for(var/obj/object as anything in packed_things)
 		UnregisterSignal(object, COMSIG_MOVABLE_MOVED)
 		object.forceMove(src)
@@ -80,7 +80,7 @@
 	if(!check_setup_place())
 		to_chat(user, SPAN_WARNING("There isn't enough room to unpack here! Bad spaces were marked in red."))
 		return
-	visible_message(SPAN_NOTICE("[src] expands into a full stand."))
+	visible_message(SPAN_NOTICE("[src] expands into a full stand."), visible_message_flags = LOCAL_MESSAGE)
 	anchored = TRUE
 	if(!(cart_griddle?.stat & BROKEN))
 		cart_griddle.stat = POWEROFF

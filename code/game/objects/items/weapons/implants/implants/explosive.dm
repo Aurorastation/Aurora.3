@@ -83,7 +83,9 @@
 	if(href_list["code"])
 		var/adj = text2num(href_list["code"])
 		if(!adj)
-			code = tgui_input_number(usr, "Set radio activation code.", "Radio Activation")
+			var/new_code = tgui_input_number(usr, "Set radio activation code.", "Radio Activation", code, 100, 1)
+			if(!isnull(new_code))
+				code = new_code
 		else
 			code += adj
 		code = clamp(code,1,100)
@@ -95,12 +97,12 @@
 		interact(usr)
 	if(href_list["msg"])
 		var/msg = tgui_input_text(usr, "Set tampering message, or leave blank for no broadcasting.", "Anti-Tampering", warning_message)
-		if(msg)
+		if(!isnull(msg))
 			warning_message = msg
 		interact(usr)
 	if(href_list["phrase"])
 		var/talk = tgui_input_text(usr, "Set activation phrase", "Audio Activation", phrase)
-		if(talk)
+		if(!isnull(talk))
 			phrase = sanitizePhrase(talk)
 		interact(usr)
 
@@ -115,7 +117,7 @@
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_CHAT)
 
-/obj/item/implant/explosive/hear_talk(mob/M, msg)
+/obj/item/implant/explosive/hear_talk(atom/movable/M, msg, verb, datum/language/speaking, datum/say_message/say_message = null)
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
@@ -132,8 +134,8 @@
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")
 	return replace_characters(phrase, replacechars)
 
-/obj/item/implant/explosive/activate()
-	if(malfunction)
+/obj/item/implant/explosive/activate(ignore_malfunction = FALSE)
+	if(malfunction && !ignore_malfunction)
 		return
 
 	if(!imp_in)
@@ -165,7 +167,7 @@
 
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
-		audible_message(SPAN_WARNING("[src] beeps ominously!"))
+		audible_message(SPAN_WARNING("[src] beeps ominously!"), audible_message_flags = LOCAL_MESSAGE)
 	if(ishuman(imp_in))
 		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
 		imp_in.audible_message(SPAN_WARNING(message))
@@ -178,6 +180,8 @@
 	if(!imp_in)
 		explosion(get_turf(src), -1, 0, 2, 4, spreading = TRUE)
 	if(ishuman(imp_in) && part)
+		var/turf/explosion_turf = get_turf(imp_in)
+		var/is_robotic = BP_IS_ROBOTIC(part)
 		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
 			part.createwound(INJURY_TYPE_BRUISE, 70)
@@ -187,7 +191,8 @@
 									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_EDGE)
-		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)
+		playsound(explosion_turf, SFX_EXPLOSION, 70, TRUE)
+		playsound(explosion_turf, is_robotic ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()	//Simple mobs just get got
@@ -204,34 +209,39 @@
 
 /obj/item/implant/explosive/implanted(mob/source, mob/user)
 	var/memo = "\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate. It can also be triggered with a radio signal on frequency <b>[format_frequency(src.frequency)]</b> with code <b>[code]</b>."
-	if(user.mind)
-		user.mind.store_memory(memo, 0, 0)
-	to_chat(usr, memo)
+	var/mob/recipient = user ? user : source
+	if(recipient?.mind)
+		recipient.mind.store_memory(memo, 0, 0)
+	to_chat(recipient, memo)
 	return TRUE
 
 /obj/item/implant/explosive/emp_act(severity)
 	. = ..()
+	handle_emp(severity)
 
+/obj/item/implant/explosive/proc/handle_emp(severity)
 	if(malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
 	switch (severity)
-		if(2.0)	//Weak EMP will make implant tear limbs off.
+		if(EMP_LIGHT)	//Weak EMP will make implant tear limbs off.
 			if(prob(50))
 				small_countdown()
-		if(1.0)	//strong EMP will melt implant either making it go off, or disarming it
+		if(EMP_HEAVY)	//strong EMP will melt implant either making it go off, or disarming it
 			if(prob(70))
 				if(prob(50))
 					small_countdown()
 				else
 					if(prob(50))
-						activate()	//50% chance of bye bye
+						activate(TRUE)	//50% chance of bye bye
 					else
 						meltdown()	//50% chance of implant disarming
-	addtimer(CALLBACK(src, PROC_REF(self_correct)), 20)
+	if(malfunction == MALFUNCTION_TEMPORARY)
+		addtimer(CALLBACK(src, PROC_REF(self_correct)), 20)
 
 /obj/item/implant/explosive/proc/self_correct()
-	malfunction--
+	if(malfunction == MALFUNCTION_TEMPORARY)
+		malfunction = 0
 
 /obj/item/implant/explosive/isLegal()
 	return FALSE
@@ -243,6 +253,7 @@
 	name = "deadman explosive"
 	desc = "A military grade micro bio-explosive that detonates upon death."
 	icon_state = "implant_evil"
+	default_action_type = null
 
 /obj/item/implant/explosive/deadman/get_data()
 	. = {"
@@ -263,8 +274,10 @@
 	return
 
 /obj/item/implant/explosive/deadman/process()
-	if(malfunction)
+	if(malfunction == MALFUNCTION_PERMANENT)
 		STOP_PROCESSING(SSprocessing, src)
+		return
+	if(malfunction == MALFUNCTION_TEMPORARY)
 		return
 	if (!implanted)
 		return
@@ -274,6 +287,8 @@
 		activate()
 
 /obj/item/implant/explosive/deadman/activate(var/cause)
+	if(malfunction)
+		return
 	small_countdown(src)
 	STOP_PROCESSING(SSprocessing, src)
 
@@ -287,9 +302,7 @@
 	START_PROCESSING(SSprocessing, src)
 	return TRUE
 
-/obj/item/implant/explosive/deadman/emp_act(severity)
-	. = ..()
-
+/obj/item/implant/explosive/deadman/handle_emp(severity)
 	if(malfunction)
 		return
 
@@ -305,6 +318,8 @@
 				small_countdown()
 			else if (prob(30))
 				meltdown()
+	if(malfunction == MALFUNCTION_TEMPORARY)
+		addtimer(CALLBACK(src, PROC_REF(self_correct)), 20)
 
 #undef MALFUNCTION_TEMPORARY
 #undef MALFUNCTION_PERMANENT

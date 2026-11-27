@@ -324,9 +324,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor,
 /area/cursed/hangar)
 "bIU" = (
@@ -436,10 +436,10 @@
 /area/cursed/medical)
 "cjQ" = (
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/mineral_processing)
 "ckH" = (
@@ -1332,14 +1332,14 @@
 /area/cursed/engineering)
 "iee" = (
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/reinforced,
 /area/cursed/computer_core)
 "ihW" = (
@@ -1906,9 +1906,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/greengrid,
 /area/cursed/computer_core)
 "lHg" = (
@@ -2427,10 +2427,10 @@
 /area/cursed/engineering)
 "oDz" = (
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/engineering)
 "oFM" = (
@@ -2955,9 +2955,9 @@
 /area/cursed/mineral_processing)
 "qUl" = (
 /obj/structure/machinery/alarm/east{
-	pixel_x = 28;
-	req_one_access = list(24,11,55)
+	pixel_x = 28
 	},
+/obj/effect/map_effect/marker/access/req_one/xenobiology,
 /turf/simulated/floor/tiled/yellow,
 /area/cursed/bridge)
 "qUP" = (

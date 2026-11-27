@@ -47,7 +47,7 @@
 	name = "Primary Airlock"
 	master_tag = "airlock_burzsia_mining_primary"
 	cycle_to_external_air = TRUE
-	req_one_access = list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
+	req_one_access = list(/datum/access/away/generic_away_site::id, /datum/access/horizon/external_airlocks::id)
 
 //ghost roles
 
@@ -83,7 +83,7 @@
 	accessory = /obj/item/clothing/accessory/badge/passcard/burzsia
 
 /obj/outfit/admin/burzsia_miner/get_id_access()
-	return list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/generic_away_site::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/burzsia_miner/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]

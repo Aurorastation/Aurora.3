@@ -186,9 +186,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_access = list(212);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "bm" = (
@@ -216,7 +216,6 @@
 /area/ship/dominian_unathi/bridge)
 "bG" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(212);
 	name = "Custodial Closet"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -224,6 +223,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
 "bJ" = (
@@ -289,9 +289,9 @@
 /area/ship/dominian_unathi/hangar)
 "cr" = (
 /obj/structure/machinery/door/airlock/medical{
-	name = "Operating Theatre";
-	req_access = list(212)
+	name = "Operating Theatre"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "cs" = (
@@ -715,9 +715,9 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	name = "Temple of The Holy Tribunal";
-	req_access = list(212);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/chapel)
 "fx" = (
@@ -1240,9 +1240,9 @@
 	dir = 9
 	},
 /obj/structure/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list(212)
+	name = "Bridge"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "jK" = (
@@ -1419,9 +1419,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Primary Ship Armament";
-	req_access = list(212);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "le" = (
@@ -1635,8 +1635,7 @@
 /area/ship/dominian_unathi/porthall)
 "mE" = (
 /obj/structure/machinery/door/airlock/medical{
-	name = "Infirmary";
-	req_access = list(212)
+	name = "Infirmary"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1647,6 +1646,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "mF" = (
@@ -2036,9 +2036,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Fighter Bay";
-	req_access = list(212);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/hangar)
 "pe" = (
@@ -2167,11 +2167,11 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(212);
 	name = "Port Engineering";
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "qg" = (
@@ -2506,7 +2506,6 @@
 "rS" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Boarding Pods";
-	req_access = list(212);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2518,6 +2517,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/pods)
 "rV" = (
@@ -3002,9 +3002,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Battle Bridge";
-	req_access = list(212);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/cic)
 "vi" = (
@@ -3448,9 +3448,9 @@
 	dir = 6
 	},
 /obj/structure/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list(212)
+	name = "Bridge"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "yG" = (
@@ -3507,12 +3507,12 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(212);
 	name = "Starboard Engineering";
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "zb" = (
@@ -3614,9 +3614,9 @@
 /area/ship/dominian_unathi/toilet)
 "zU" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list(212)
+	name = "Bridge"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "zW" = (
@@ -4184,8 +4184,7 @@
 "CY" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Docking Bay";
-	req_access = list(212)
+	name = "Docking Bay"
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -4193,6 +4192,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/dock)
 "Dd" = (
@@ -4279,9 +4279,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list(212)
+	name = "Bridge"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridgefoyer)
 "Dx" = (
@@ -4460,10 +4460,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass_engineering{
-	name = "Engineering";
-	req_access = list(212)
+	name = "Engineering"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "EO" = (
@@ -4642,9 +4642,9 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	name = "Ammunition Storage";
-	req_access = list(212)
+	name = "Ammunition Storage"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "FK" = (
@@ -4861,10 +4861,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock{
-	req_access = list(212);
 	name = "Mess Hall";
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/canteen)
 "GW" = (
@@ -4957,9 +4957,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(212)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "HA" = (
@@ -5425,9 +5424,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Fighter Bay";
-	req_access = list(212);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/eva)
 "KT" = (
@@ -5641,10 +5640,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock{
-	req_access = list(212);
 	name = "Crew Quarters";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "Mn" = (
@@ -5937,9 +5936,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 8;
-	req_access = list(212)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
 "Pj" = (
@@ -6027,9 +6026,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Treasure Room";
-	req_access = list(212);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "Qd" = (
@@ -6448,9 +6447,9 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/machinery/door/airlock/medical{
 	name = "Equipment Storage";
-	req_access = list(212);
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_unathi/med)
 "SM" = (
@@ -6548,13 +6547,13 @@
 /area/ship/dominian_unathi/bridge)
 "Tj" = (
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 8;
-	req_access = list(212)
+	dir = 8
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
 	pixel_x = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/bridge)
 "Tk" = (
@@ -6618,9 +6617,9 @@
 /area/ship/dominian_unathi/engineering)
 "TC" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Armory & Munitions";
-	req_access = list(212)
+	name = "Armory & Munitions"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/armory)
 "TE" = (
@@ -6817,9 +6816,9 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Reactor";
-	req_access = list(212)
+	name = "Reactor"
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/plating,
 /area/ship/dominian_unathi/engineering)
 "Vc" = (
@@ -7306,9 +7305,9 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory & Munitions";
-	req_access = list(212);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/starboardhall)
 "XV" = (
@@ -7463,9 +7462,9 @@
 	dir = 10
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 4;
-	req_access = list(212)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/imperial_fleet_voidsman_ship,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_unathi)
 "YH" = (

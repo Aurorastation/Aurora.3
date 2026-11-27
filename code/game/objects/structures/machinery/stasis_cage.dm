@@ -5,7 +5,7 @@
 	icon_state = "stasis_cage"
 	density = TRUE
 	layer = ABOVE_OBJ_LAYER
-	req_access = list(/datum/access/research::id)
+	req_access = list(/datum/access/horizon/research::id)
 	idle_power_usage = 0
 	active_power_usage = 5000
 	use_power = POWER_USE_IDLE
@@ -203,13 +203,13 @@
 	. = ..()
 	if(contained)
 		if(prob(30))
-			visible_message(SPAN_DANGER("\The [src]'s lights flicker, unlocking the container!"))
+			visible_message(SPAN_DANGER("\The [src]'s lights flicker, unlocking the container!"), visible_message_flags = LOCAL_MESSAGE)
 			release()
 			broken = TRUE
 			update_icon()
 			spark(src, 1)
 			return
-	visible_message(SPAN_DANGER("\The [src] sparks violently, damaging the lid!"))
+	visible_message(SPAN_DANGER("\The [src] sparks violently, damaging the lid!"), visible_message_flags = LOCAL_MESSAGE)
 	broken = TRUE
 	spark(src, 1)
 

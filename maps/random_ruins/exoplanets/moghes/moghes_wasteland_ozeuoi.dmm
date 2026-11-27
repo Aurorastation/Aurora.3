@@ -11,14 +11,14 @@
 "cf" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_gate";
-	pixel_y = 25;
-	req_access = list(227)
+	pixel_y = 25
 	},
 /obj/structure/table/steel,
 /obj/item/radio,
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/moghes_wasteland_ozeuoi,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
@@ -109,12 +109,12 @@
 "kK" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_water";
-	pixel_y = 25;
-	req_access = list(227)
+	pixel_y = 25
 	},
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/moghes_wasteland_ozeuoi,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -423,12 +423,12 @@
 "KU" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ozeuoi_bikes";
-	pixel_y = 25;
-	req_access = list(227)
+	pixel_y = 25
 	},
 /obj/structure/machinery/light{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/moghes_wasteland_ozeuoi,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},

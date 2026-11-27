@@ -128,7 +128,7 @@
 				if(transaction_locked && !transaction_paid)
 					if(transaction_amount <= E.worth)
 						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+						src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 						transaction_paid = 1
 
 						//transfer the money
@@ -223,7 +223,7 @@
 				var/obj/item/I = usr.get_active_hand()
 				if (istype(I, /obj/item/card))
 					var/obj/item/card/id/C = I
-					if((/datum/access/cent_ccia::id in C.access) || (/datum/access/hop::id in C.access) || (/datum/access/captain::id in C.access))
+					if((/datum/access/centcomm/cent_ccia::id in C.access) || (/datum/access/horizon/hop::id in C.access) || (/datum/access/horizon/captain::id in C.access))
 						access_code = 0
 						to_chat(usr, "[icon2html(src, usr)]<span class='info'>Access code reset to 0.</span>")
 				else if (istype(I, /obj/item/card/emag))
@@ -247,7 +247,7 @@
 					to_chat(usr,"[icon2html(src, usr)]<span class='warning'>[message].</span>")
 				else
 					playsound(src, 'sound/machines/chime.ogg', 50, 1)
-					src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+					src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 					transaction_paid = 1
 			else
 				to_chat(usr, "[icon2html(src, usr)]<span class='warning'>EFTPOS is not connected to an account.</span>")
@@ -260,5 +260,5 @@
 			else
 				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
-				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
+				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.", visible_message_flags = LOCAL_MESSAGE)
 				transaction_paid = 1

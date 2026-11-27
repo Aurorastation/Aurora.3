@@ -14,12 +14,13 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(/datum/access/lawyer::id, /datum/access/heads::id)
+	req_one_access = list(/datum/access/horizon/lawyer::id, /datum/access/horizon/heads::id)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200
 	print_animation = "faxreceive"
 	pda_linkable = TRUE
+	persistent_toner = FALSE
 
 	var/static/const/adminfax_cooldown = 1800
 	var/static/const/normalfax_cooldown = 300
@@ -233,9 +234,9 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	if (display_message)
 		// Normal fax
 		if (success)
-			visible_message("[src] beeps, \"Message transmitted successfully.\"")
+			visible_message("[src] beeps, \"Message transmitted successfully.\"", visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message("[src] beeps, \"Error transmitting message.\"")
+			visible_message("[src] beeps, \"Error transmitting message.\"", visible_message_flags = LOCAL_MESSAGE)
 	return success
 
 /obj/structure/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
@@ -273,10 +274,10 @@ GLOBAL_LIST_EMPTY(admin_departments)
 		if(!success)// Stop on first error
 			break
 	if (success)
-		visible_message("[src] beeps, \"Messages transmitted successfully.\"")
+		visible_message("[src] beeps, \"Messages transmitted successfully.\"", visible_message_flags = LOCAL_MESSAGE)
 		set_cooldown(broadcastfax_cooldown)
 	else
-		visible_message("[src] beeps, \"Error transmitting messages.\"")
+		visible_message("[src] beeps, \"Error transmitting messages.\"", visible_message_flags = LOCAL_MESSAGE)
 		set_cooldown(normalfax_cooldown)
 
 /obj/structure/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
@@ -287,7 +288,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	if(SSatlas.current_sector.ccia_link == FALSE)
 		if(destination in GLOB.admin_departments)
-			visible_message("[src] beeps, \"Unable to connect to route to [SSatlas.current_map.boss_name].\"")
+			visible_message("[src] beeps, \"Unable to connect to route to [SSatlas.current_map.boss_name].\"", visible_message_flags = LOCAL_MESSAGE)
 			return
 
 	var/obj/item/rcvdcopy
@@ -298,7 +299,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 	else if (istype(copy_item, /obj/item/paper_bundle))
 		rcvdcopy = bundlecopy(src, copy_item, FALSE, toner = toner)
 	else
-		visible_message("[src] beeps, \"Error transmitting message.\"")
+		visible_message("[src] beeps, \"Error transmitting message.\"", visible_message_flags = LOCAL_MESSAGE)
 		return
 
 	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
@@ -312,7 +313,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 
 	set_cooldown(adminfax_cooldown)
 	spawn(50)
-		visible_message("[src] beeps, \"Message transmitted successfully.\"")
+		visible_message("[src] beeps, \"Message transmitted successfully.\"", visible_message_flags = LOCAL_MESSAGE)
 
 
 /obj/structure/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")

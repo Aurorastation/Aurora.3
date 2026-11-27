@@ -843,7 +843,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class, holder)
-		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
+		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."), visible_message_flags = LOCAL_MESSAGE)
 
 /singleton/reagent/usolve
 	name = "Universal Solvent"
@@ -858,7 +858,7 @@
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
-		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
+		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."), visible_message_flags = LOCAL_MESSAGE)
 		remove_self(10*I.w_class, holder)
 
 /singleton/reagent/shapesand
@@ -879,7 +879,7 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class, holder)
-		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
+		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/shapesand
 	name = "shapesand"

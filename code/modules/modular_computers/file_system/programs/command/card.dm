@@ -4,8 +4,8 @@
 	program_icon_state = "id"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
-	required_access_run = /datum/access/change_ids::id
-	required_access_download = /datum/access/change_ids::id
+	required_access_run = /datum/access/horizon/change_ids::id
+	required_access_download = /datum/access/horizon/change_ids::id
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = FALSE
 	size = 8
@@ -117,7 +117,7 @@
 					to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					return
 				else
-					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 					. = TRUE
 
 		if("eject")
@@ -152,7 +152,7 @@
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
-						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."))
+						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."), visible_message_flags = LOCAL_MESSAGE)
 				else if(params["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num

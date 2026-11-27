@@ -38,7 +38,11 @@ emp_act
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && hitting_projectile.can_embed())
 		var/armor = get_blocked_ratio(def_zone, DAMAGE_BRUTE, hitting_projectile.damage_flags(), armor_pen = hitting_projectile.armor_penetration, damage = hitting_projectile.damage)*100
-		if(prob(20 + max(hitting_projectile.damage + hitting_projectile.embed_chance - armor, -10)))
+		var/embed_chance = 20 + max(hitting_projectile.damage - armor, -10) + hitting_projectile.embed_chance
+		if(!(hitting_projectile.damage_flags() & DAMAGE_FLAG_BULLET)) //If our armour blocked the bullet it should be less likely to embed.
+			embed_chance = (20 + hitting_projectile.damage - armor + hitting_projectile.embed_chance) //Stripped bullet flags remove the minimum chance.
+		embed_chance = max(embed_chance, 0) //No negative embed chances.
+		if(prob(embed_chance))
 			hitting_projectile.do_embed(organ)
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/damage_type, var/def_zone, var/used_weapon, var/damage_flags, var/check_armor)
@@ -95,6 +99,10 @@ emp_act
 
 /mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
 	. = ..()
+	// Synthetic chassis plating is the innermost armor layer and is reached after worn protection.
+	var/datum/component/armor/synthetic/chassis_plating = GetComponent(/datum/component/armor/synthetic)
+	if(chassis_plating)
+		. -= chassis_plating
 	if(!def_zone)
 		def_zone = ran_zone()
 	if(!istype(def_zone))
@@ -113,6 +121,8 @@ emp_act
 			var/armor = gear.GetComponent(/datum/component/armor)
 			if(armor)
 				. += armor
+	if(chassis_plating)
+		. += chassis_plating
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
 /mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)

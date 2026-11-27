@@ -14,7 +14,7 @@
 	var/obj/structure/machinery/camera/camera = null
 	var/obj/item/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
-	var/list/req_access = list(/datum/access/robotics::id) //Access needed to pop out the brain.
+	var/list/req_access = list(/datum/access/horizon/robotics::id) //Access needed to pop out the brain.
 	var/positronic
 
 	name = "spider-bot"
@@ -151,7 +151,7 @@
 			if("Eject")
 				if(use_check_and_message(user))
 					return 0
-				if(/datum/access/robotics::id in id_card.access)
+				if(/datum/access/horizon/robotics::id in id_card.access)
 					to_chat(user, SPAN_NOTICE("You swipe your access card and pop the brain out of \the [src]."))
 					eject_brain()
 					if(held_item)
@@ -352,15 +352,15 @@
 				whisper(text, primary, say_verb = TRUE, msg = msg)
 				return TRUE
 		if("headset")
-			radio.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+			radio.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 			used_radios += radio
 		if("intercom")
 			var/turf/T = get_turf(src)
 			for(var/obj/item/radio/intercom/I in view(1, T))
-				I.talk_into(src, text, null, msg.verb, primary, say_message = msg)
+				I.talk_into(src, text, null, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 				used_radios += I
 	if(message_mode)
-		radio.talk_into(src, text, message_mode, msg.verb, primary, say_message = msg)
+		radio.talk_into(src, text, message_mode, msg.message_mods[SAY_MOD_VERB], primary, say_message = msg)
 		used_radios += radio
 
 /mob/living/simple_animal/spiderbot/proc/control_integrated_radio()

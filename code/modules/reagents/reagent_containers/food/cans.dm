@@ -177,7 +177,7 @@
 	var/fuel = REAGENT_VOLUME(reagents, /singleton/reagent/fuel)
 	switch(round(fuel))
 		if(0)
-			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."))
+			visible_message(SPAN_NOTICE("\The [name]'s fuse burns out and nothing happens."), visible_message_flags = LOCAL_MESSAGE)
 			fuselength = 0
 			fuselit = FALSE
 			update_icon()
@@ -188,15 +188,15 @@
 			popped_can.icon_state = icon_state
 			popped_can.name = "popped can"
 			playsound(get_turf(src), 'sound/effects/snap.ogg', 50)
-			visible_message(SPAN_WARNING("\The [name] pops harmlessly!"))
+			visible_message(SPAN_WARNING("\The [name] pops harmlessly!"), visible_message_flags = LOCAL_MESSAGE)
 		if(11 to 20) // slightly less baby explosion
 			new /obj/item/material/shard/shrapnel(get_turf(src))
 			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
-			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
+			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"), visible_message_flags = LOCAL_MESSAGE)
 		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
 			fragem(src, shrapnelcount, shrapnelcount, 3, 5, 15, 3, TRUE, 5)
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
-			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
+			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"), visible_message_flags = LOCAL_MESSAGE)
 	qdel(src)
 
 /obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
@@ -217,7 +217,7 @@
 		return .
 
 	if(hitting_projectile.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
-		visible_message(SPAN_DANGER("\The [name] is hit by the [hitting_projectile]!"))
+		visible_message(SPAN_DANGER("\The [name] is hit by the [hitting_projectile]!"), visible_message_flags = LOCAL_MESSAGE)
 		log_and_message_admins("shot an improvised [name] explosive", hitting_projectile.firer)
 		log_game("[key_name(hitting_projectile.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
 	detonate(TRUE)
@@ -230,7 +230,7 @@
 	if(can_light())
 		fuselit = TRUE
 		INVOKE_ASYNC(src, PROC_REF(detonate), FALSE)
-		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
+		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"), visible_message_flags = LOCAL_MESSAGE)
 	. = ..()
 
 #undef LETHAL_FUEL_CAPACITY

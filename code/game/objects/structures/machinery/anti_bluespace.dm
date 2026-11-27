@@ -59,16 +59,16 @@ GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/structure/machinery/anti_blues
 	if(stat & BROKEN)
 		return
 	playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
-	visible_message(SPAN_WARNING("\The [src] breaks!"))
+	visible_message(SPAN_WARNING("\The [src] breaks!"), visible_message_flags = LOCAL_MESSAGE)
 	stat |= BROKEN
 	anchored = 0
 	update_icon()
 
 /obj/structure/machinery/anti_bluespace/attackby(obj/item/attacking_item, mob/user)
 	if(user.a_intent == I_HURT)
-		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"))
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), visible_message_flags = LOCAL_MESSAGE)
 	else
-		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [attacking_item]."))
+		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		if(prob(66))
 			return TRUE
 
@@ -116,7 +116,7 @@ GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/structure/machinery/anti_blues
 			temp_apc.flicker_lights()
 
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
-	visible_message(SPAN_DANGER("\The [src] goes haywire!"))
+	visible_message(SPAN_DANGER("\The [src] goes haywire!"), visible_message_flags = LOCAL_MESSAGE)
 	do_break()
 	addtimer(CALLBACK(src, PROC_REF(haywire_teleport)), 10 SECONDS)
 
@@ -135,4 +135,4 @@ GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/structure/machinery/anti_blues
 		var/turf/target = A.random_space()
 		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
-		AM.visible_message("\The [AM] phases in!")
+		AM.visible_message("\The [AM] phases in!", visible_message_flags = (ismob(AM) ? NONE : LOCAL_MESSAGE))

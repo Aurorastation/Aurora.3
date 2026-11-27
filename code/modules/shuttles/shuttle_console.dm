@@ -260,5 +260,5 @@
 /obj/structure/machinery/computer/shuttle_control/proc/handle_bullet_act(datum/source, obj/projectile/projectile)
 	SIGNAL_HANDLER
 
-	visible_message("\The [projectile] ricochets off \the [src]!")
+	visible_message("\The [projectile] ricochets off \the [src]!", visible_message_flags = LOCAL_MESSAGE)
 	return COMPONENT_BULLET_BLOCKED

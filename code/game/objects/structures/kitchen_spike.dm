@@ -21,7 +21,7 @@
 		to_chat(user, SPAN_DANGER("The spike already has something on it, finish collecting its meat first!"))
 	else
 		if(spike(G.affecting))
-			visible_message(SPAN_DANGER("[user] has forced [G.affecting] onto the spike, killing them instantly!"))
+			visible_message(SPAN_DANGER("[user] has forced [G.affecting] onto the spike, killing them instantly!"), visible_message_flags = LOCAL_MESSAGE)
 			qdel(G.affecting)
 			qdel(G)
 		else

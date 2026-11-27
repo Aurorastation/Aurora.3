@@ -608,9 +608,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "ds" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(242)
-	},
+/obj/structure/closet/crate/secure,
 /obj/item/stack/material/phoron/full,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
@@ -618,6 +616,7 @@
 /obj/random/highvalue/no_weapon,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "dt" = (
@@ -731,11 +730,11 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Cargo Bay";
-	req_one_access = list(242)
+	name = "Cargo Bay"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "dT" = (
@@ -1076,11 +1075,11 @@
 /area/tramp_freighter/starboard_docking)
 "fl" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(242)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "fp" = (
@@ -1483,11 +1482,11 @@
 /area/tramp_freighter/starboard_docking)
 "hy" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(242)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/light,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "hB" = (
@@ -1772,12 +1771,12 @@
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Crew Quarters";
-	req_one_access = list(242)
+	name = "Crew Quarters"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "ja" = (
@@ -2511,10 +2510,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Thruster Compartment";
-	req_one_access = list(242)
+	name = "Thruster Compartment"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboardthrust)
 "no" = (
@@ -2763,9 +2762,9 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Disposals";
-	req_one_access = list(242)
+	name = "Disposals"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/disposals)
 "ol" = (
@@ -2916,9 +2915,9 @@
 	name = "Port Docking Arm Bolt Control";
 	pixel_x = 22;
 	pixel_y = -3;
-	specialfunctions = 4;
-	req_one_access = list(242)
+	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "pf" = (
@@ -3090,9 +3089,9 @@
 	name = "Starboard Docking Arm Bolt Control";
 	pixel_x = -22;
 	pixel_y = -3;
-	specialfunctions = 4;
-	req_one_access = list(242)
+	specialfunctions = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "qp" = (
@@ -3288,10 +3287,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Portside Thrust Control";
-	req_one_access = list(242)
+	name = "Portside Thrust Control"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/portthrust)
 "rl" = (
@@ -3342,11 +3341,11 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Crew Amenities";
-	req_one_access = list(242)
+	name = "Crew Amenities"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "rF" = (
@@ -3595,19 +3594,19 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Starboard Thrust Control";
-	req_one_access = list(242)
+	name = "Starboard Thrust Control"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboardthrust)
 "sN" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 8;
-	req_access = list(242)
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/freighter_shuttle)
 "sP" = (
@@ -3793,11 +3792,11 @@
 /area/tramp_freighter/lounge)
 "tE" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(242)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "tF" = (
@@ -3828,10 +3827,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Engineering Storage";
-	req_one_access = list(242)
+	name = "Engineering Storage"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/engi)
 "tK" = (
@@ -3915,9 +3914,9 @@
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Hydroponics";
-	req_one_access = list(242)
+	name = "Hydroponics"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/hydroponics)
 "uf" = (
@@ -4420,10 +4419,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Crew Amenities";
-	req_one_access = list(242)
+	name = "Crew Amenities"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "wl" = (
@@ -4901,10 +4900,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Thruster Compartment";
-	req_one_access = list(242)
+	name = "Thruster Compartment"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/portthrust)
 "yu" = (
@@ -5225,10 +5224,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "EVA Storage";
-	req_one_access = list(242)
+	name = "EVA Storage"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/equipment)
 "zW" = (
@@ -5702,10 +5701,10 @@
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Captain's Office";
-	req_one_access = list(242)
+	name = "Captain's Office"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/captain)
 "CH" = (
@@ -6363,10 +6362,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Reactor Chamber";
-	req_one_access = list(242)
+	name = "Reactor Chamber"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
 "GN" = (
@@ -6761,9 +6760,9 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Anti-Piracy Armory";
-	req_one_access = list(242)
+	name = "Anti-Piracy Armory"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/armory)
 "IV" = (
@@ -7202,9 +7201,9 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Captain's Quarters";
-	req_one_access = list(242)
+	name = "Captain's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/captain_bed)
 "LI" = (
@@ -7370,11 +7369,11 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Engineering & Shuttle Dock";
-	req_one_access = list(242)
+	name = "Engineering & Shuttle Dock"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "My" = (
@@ -7406,8 +7405,7 @@
 	pixel_y = -32
 	},
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(242)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -7424,6 +7422,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
 "MC" = (
@@ -7454,9 +7453,9 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Reactor Foyer";
-	req_one_access = list(242)
+	name = "Reactor Foyer"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
 "MI" = (
@@ -8223,9 +8222,9 @@
 	pixel_x = 4
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle{
-	dir = 1;
-	req_access = list(242)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/tramp_freighter_access,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/freighter_shuttle)
 "QN" = (
@@ -8922,10 +8921,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Atmospherics";
-	req_one_access = list(242)
+	name = "Atmospherics"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/atmos)
 "UA" = (
@@ -9012,9 +9011,9 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Refinery";
-	req_one_access = list(242)
+	name = "Refinery"
 	},
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery)
 "UW" = (
@@ -9451,10 +9450,10 @@
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Cargo Bay";
-	req_one_access = list(242)
+	name = "Cargo Bay"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "WD" = (
@@ -9468,11 +9467,11 @@
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Bridge";
-	req_one_access = list(242)
+	name = "Bridge"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
+/obj/effect/map_effect/marker/access/req_one/tramp_freighter_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "WF" = (

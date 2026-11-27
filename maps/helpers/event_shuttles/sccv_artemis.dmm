@@ -412,10 +412,10 @@
 /obj/structure/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	name = "Bridge Officer Preparation"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "hq" = (
@@ -917,12 +917,12 @@
 /obj/structure/machinery/door/airlock/glass_command{
 	dir = 4;
 	id_tag = "";
-	name = "Bridge Officer Preparation";
-	req_access = list(19)
+	name = "Bridge Officer Preparation"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "qr" = (
@@ -2915,9 +2915,9 @@
 "Sa" = (
 /obj/structure/machinery/door/airlock/centcom{
 	dir = 4;
-	name = "Power Maintanence";
-	req_access = list(103)
+	name = "Power Maintanence"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "Sd" = (
@@ -3130,10 +3130,10 @@
 /obj/structure/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "bridge_foyer";
-	name = "Bridge";
-	req_one_access = list(19)
+	name = "Bridge"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/heads,
 /turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "UE" = (

@@ -5,6 +5,7 @@
 	var/stamina_cost = 10
 	var/reflexive_modifier = 1
 	var/charge_cost = 0 //Charge cost for robot species.
+	var/required_intent = I_GRAB
 
 /singleton/maneuver/proc/can_be_used_by(var/mob/living/user, var/atom/target, var/silent = FALSE)
 	if(!istype(user) || !user.can_do_maneuver(src, silent))
@@ -35,6 +36,9 @@
 			to_chat(user, SPAN_WARNING("You cannot maneuver to a different z-level!"))
 		return FALSE
 	return TRUE
+
+/singleton/maneuver/proc/can_activate_with_intent(var/intent)
+	return !required_intent || intent == required_intent
 
 /singleton/maneuver/proc/show_initial_message(var/mob/user, var/atom/target)
 	return

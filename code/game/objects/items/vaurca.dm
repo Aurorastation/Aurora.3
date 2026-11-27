@@ -133,7 +133,7 @@
 
 
 		if(hologram_message)
-			visible_message(SPAN_NOTICE("[hologram_message]"))
+			visible_message(SPAN_NOTICE("[hologram_message]"), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/item/storage/box/fancy/vkrexi_swollen_organ
 	name = "V'krexi swollen organ"

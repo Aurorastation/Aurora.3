@@ -12,7 +12,7 @@
 	icon_state = "generator0"
 	density = TRUE
 	use_power = POWER_USE_OFF	//doesn't use APC power
-	req_one_access = list(/datum/access/captain::id, /datum/access/security::id, /datum/access/engine::id)
+	req_one_access = list(/datum/access/horizon/captain::id, /datum/access/horizon/security::id, /datum/access/horizon/engine::id)
 	/// Our owned energy field.
 	var/datum/energy_field/energy_field
 	/// If the machine is powered or not.
@@ -98,7 +98,7 @@
 			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
-		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."))
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor":"unbolted from the floor"] by \the [user]."), visible_message_flags = LOCAL_MESSAGE)
 
 		if(active)
 			toggle()

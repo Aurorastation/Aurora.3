@@ -184,7 +184,7 @@
 		arrow.throw_at(H, 10, 9, src) //same values as a full draw crossbow shot would have
 
 	else if(prob(33))
-		visible_message(SPAN_DANGER("Flames engulf \the [H]!"))
+		visible_message(SPAN_DANGER("Flames engulf \the [H]!"), visible_message_flags = LOCAL_MESSAGE)
 		H.apply_damage(30, DAMAGE_BURN)
 		H.IgniteMob(5)
 

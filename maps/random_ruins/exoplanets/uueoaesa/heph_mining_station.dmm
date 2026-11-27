@@ -189,18 +189,17 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Engineering";
-	req_access = list(216)
+	name = "Engineering"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station)
 "du" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(216)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/marker/access/req_one/hephaestus,
 /turf/simulated/floor/reinforced{
 	temperature = 303.15
 	},
@@ -372,10 +371,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/medical{
-	name = "Infirmary";
-	req_access = list(216)
+	name = "Infirmary"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -732,12 +731,12 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
-	dir = 4;
-	req_access = list(216)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/reinforced{
 	temperature = 303.15
 	},
@@ -902,12 +901,12 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	name = "Warehouse";
-	dir = 4;
-	req_access = list(216)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1080,12 +1079,12 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Equipment Storage";
-	dir = 8;
-	req_access = list(216)
+	dir = 8
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2345,8 +2344,7 @@
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -2355,6 +2353,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -3024,10 +3023,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/mining{
-	name = "Processing";
-	req_access = list(216)
+	name = "Processing"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -3117,12 +3116,12 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "EVA Storage";
-	dir = 4;
-	req_access = list(216)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},

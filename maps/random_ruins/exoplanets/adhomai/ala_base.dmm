@@ -374,9 +374,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ala_garage";
 	name = "Garage Door";
-	req_access = list(214);
 	pixel_x = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "ui" = (
@@ -759,12 +759,12 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ala_camp_entry";
 	name = "Entry";
-	req_access = list(214);
 	pixel_y = 32
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Ec" = (
@@ -866,9 +866,9 @@
 "In" = (
 /obj/structure/machinery/door/airlock/glass_security{
 	name = "Cell";
-	req_access = list(214);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "IO" = (
@@ -919,9 +919,9 @@
 "Lg" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(214);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/exoplanet/tiled/dark,
 /area/ala_base)
 "LP" = (
@@ -955,12 +955,12 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "ala_camp_entry";
 	name = "Entry";
-	req_access = list(214);
 	pixel_y = 32
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/exoplanet/wood,
 /area/ala_base)
 "Md" = (

@@ -2,8 +2,8 @@
 	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
-	req_one_access = list(/datum/access/medical::id, /datum/access/robotics::id)
-	botcard_access = list(/datum/access/medical::id, /datum/access/morgue::id, /datum/access/surgery::id, /datum/access/pharmacy::id, /datum/access/virology::id, /datum/access/genetics::id)
+	req_one_access = list(/datum/access/horizon/medical::id, /datum/access/horizon/robotics::id)
+	botcard_access = list(/datum/access/horizon/medical::id, /datum/access/horizon/morgue::id, /datum/access/horizon/surgery::id, /datum/access/horizon/pharmacy::id, /datum/access/horizon/virology::id, /datum/access/horizon/genetics::id)
 
 	var/obj/item/storage/firstaid/firstaid_item
 
