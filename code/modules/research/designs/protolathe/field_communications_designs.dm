@@ -79,74 +79,8 @@
 	build_path = /obj/item/tvcamera
 
 /datum/design/item/communications/encryption_key
-	name = "Security Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_sec
-
-/datum/design/item/communications/encryption_key/warden
-	name = "Warden Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_warden
-
-/datum/design/item/communications/encryption_key/engineering
-	name = "Engineering Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_eng
-
-/datum/design/item/communications/encryption_key/medical
-	name = "Medical Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_med
-
-/datum/design/item/communications/encryption_key/science
-	name = "Science Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_sci
-
-/datum/design/item/communications/encryption_key/xenology
-	name = "Xenology Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_xenology
-
-/datum/design/item/communications/encryption_key/command
-	name = "Command Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_com
-
-/datum/design/item/communications/encryption_key/cargo
-	name = "Operations Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_cargo
-
-/datum/design/item/communications/encryption_key/operations_manager
-	name = "Operations Manager Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_operations_manager
-
-/datum/design/item/communications/encryption_key/service
-	name = "Service Encryption Key"
-	build_path = /obj/item/encryptionkey/headset_service
-
-/datum/design/item/communications/encryption_key/head
-	name = null
-	req_tech = list(TECH_DATA = 5, TECH_MAGNET = 4)
-	materials = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 300, MATERIAL_GOLD = 100)
-	build_path = null
-
-/datum/design/item/communications/encryption_key/head/captain
-	name = "Captain Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/captain
-
-/datum/design/item/communications/encryption_key/head/research_director
-	name = "Research Director Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/rd
-
-/datum/design/item/communications/encryption_key/head/security
-	name = "Head of Security Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/hos
-
-/datum/design/item/communications/encryption_key/head/engineering
-	name = "Chief Engineer Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/ce
-
-/datum/design/item/communications/encryption_key/head/medical
-	name = "Chief Medical Officer Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/cmo
-
-/datum/design/item/communications/encryption_key/head/executive_officer
-	name = "Executive Officer Encryption Key"
-	build_path = /obj/item/encryptionkey/heads/xo
+	name = "Standard Encryption Key"
+	build_path = /obj/item/encryptionkey
 
 /datum/design/item/communications/headset
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)

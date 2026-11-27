@@ -4,6 +4,6 @@ delete-after: True
 
 changes:
   - rscadd: "Expanded the autolathe with additional tools, empty tanks and toolboxes, evidence supplies, payment and scanning devices, departmental radios, dinnerware, and plastic and steel cutlery."
-  - rscadd: "Expanded the protolathe with field and communications equipment, encryption keys, keyless headset variants, medical devices, standard firing pins, and empty departmental PDA chassis."
+  - rscadd: "Expanded the protolathe with field and communications equipment, common-channel encryption keys, keyless headset variants, medical devices, standard firing pins, and empty departmental PDA chassis."
   - rscadd: "Added the medical and security HUD eyewear styles available through the standard loadout selections to the protolathe, including HUD patches and goggles."
   - qol: "Separated autolathe devices from components and grouped printable kitchen equipment under the existing Dinnerware category."
