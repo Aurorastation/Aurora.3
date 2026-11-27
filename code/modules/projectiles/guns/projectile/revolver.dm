@@ -357,3 +357,6 @@
 	ammo_type = /obj/item/ammo_casing/c45/rubber
 	magazine_type = /obj/item/ammo_magazine/c45/revolver
 	max_shells = 6
+
+/obj/item/gun/projectile/revolver/security/unloaded
+	ammo_type = null
