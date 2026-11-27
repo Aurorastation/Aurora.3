@@ -389,7 +389,7 @@
 	items = list(
 		/obj/item/ammo_casing/peac/practice
 	)
-	access = /datum/access/horizon/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
