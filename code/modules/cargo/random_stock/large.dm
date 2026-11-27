@@ -87,22 +87,6 @@ STOCK_ITEM_LARGE(floorlayer, 2)
 STOCK_ITEM_LARGE(heater, 1.3)
 	new /obj/structure/machinery/space_heater(L)
 
-STOCK_ITEM_LARGE(dispenser, 3.5)
-	var/list/dispensers = list(
-		/obj/structure/machinery/chemical_dispenser/bar_alc/full = 0.6,
-		/obj/structure/machinery/chemical_dispenser/bar_soft/full = 1,
-		/obj/structure/machinery/chemical_dispenser/coffeemaster/full = 0.6,
-		/obj/structure/machinery/chemical_dispenser/coffee/full = 1,
-		/obj/structure/machinery/chemical_dispenser/full = 0.3
-	)
-	var/type = pickweight(dispensers)
-	var/obj/structure/machinery/chemical_dispenser/CD = new type(L)
-	CD.anchored = FALSE
-	CD.update_use_power(POWER_USE_OFF)
-	for (var/cart in CD.cartridges)
-		if (prob(90))
-			CD.cartridges -= cart
-
 STOCK_ITEM_LARGE(jukebox, 1.2)
 	new /obj/structure/machinery/media/jukebox(L)
 

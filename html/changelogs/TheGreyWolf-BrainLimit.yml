@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - balance: "The brain now only takes half damage from external sources."
+  - balance: "Limited the damage directly induced on a brain to 10% of its health at most per hit, and no extra damage beyond 50% brain health."

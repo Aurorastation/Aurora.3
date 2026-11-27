@@ -10,6 +10,7 @@
 				"/obj/item/material/ashtray",
 				"/obj/item/paper_bin",
 				"/obj/item/paper_bin_refill",
+				"/obj/item/reagent_containers/chem_disp_cartridge",
 				"/obj/item/toner",
 				"/obj/structure/reagent_dispensers/extinguisher",
 				"/obj/structure/reagent_dispensers/watertank",

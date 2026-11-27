@@ -18,6 +18,8 @@
 	var/label = ""
 	/// Whether this cartridge type uses object persistence on supported maps.
 	var/is_persistent = FALSE
+	/// Whether this cartridge originated in a non-persistent chemistry dispenser.
+	var/tmp/persistence_excluded = FALSE
 	/// Whether object persistence supplied a canonical amount before atom initialization.
 	var/tmp/persistent_stock_loaded = FALSE
 	/// Canonical amount supplied by object persistence.
@@ -72,7 +74,11 @@
 	var/obj/structure/machinery/chemical_dispenser/dispenser = loc
 	if(istype(dispenser) && dispenser.persistent_cartridges)
 		dispenser.add_cartridge(src)
-	if(is_persistent && SSpersistence.map_supports_persistence)
+	else if(istype(dispenser))
+		persistence_excluded = TRUE
+	// Eligible loose cartridges and cartridges supplied by bar/coffee dispensers
+	// persist. Shared types created in a pharmacy/chemistry dispenser do not.
+	if(is_persistent && !persistence_excluded && SSpersistence.map_supports_persistence)
 		SSpersistence.objectsRegisterTrack(src)
 
 /** Saves canonical contents and the mapped dispenser containing this cartridge, if any. */
