@@ -332,7 +332,7 @@
 	items = list(
 		/obj/item/seeds/libertymycelium
 	)
-	access = list(/datum/access/hydroponics::id)
+	access = list(/datum/access/horizon/hydroponics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -346,7 +346,7 @@
 	items = list(
 		/obj/item/seeds/reishimycelium
 	)
-	access = list(/datum/access/hydroponics::id)
+	access = list(/datum/access/horizon/hydroponics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -360,7 +360,7 @@
 	items = list(
 		/obj/item/seeds/wulumunushaseed
 	)
-	access = list(/datum/access/hydroponics::id)
+	access = list(/datum/access/horizon/hydroponics::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

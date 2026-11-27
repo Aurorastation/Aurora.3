@@ -101,10 +101,10 @@
 "aC" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular,
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "aD" = (
@@ -174,25 +174,25 @@
 "aV" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "aX" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(19);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/heads,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/derelict)
 "aY" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Kitchen";
-	req_access = list(28);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/galley,
 /turf/simulated/floor/airless,
 /area/derelict)
 "aZ" = (
@@ -474,20 +474,20 @@
 "bQ" = (
 /obj/structure/machinery/access_button/airlock_exterior{
 	master_tag = "constructionsite_airlock";
-	pixel_x = 20;
-	req_access = list(10)
+	pixel_x = 20
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict)
 "bR" = (
 /obj/structure/machinery/access_button/airlock_interior{
 	master_tag = "constructionsite_airlock";
-	pixel_x = -20;
-	req_access = list(10)
+	pixel_x = -20
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled/dark,
 /area/derelict)
 "bS" = (
@@ -519,9 +519,9 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_outer";
 	locked = 1;
-	req_access = list(10);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor,
 /area/derelict)
 "bX" = (
@@ -553,9 +553,9 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor,
 /area/derelict)
 "ca" = (
@@ -586,7 +586,6 @@
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "constructionsite_airlock";
 	pixel_y = -25;
-	req_access = list(10);
 	tag_airpump = "constructionsite_vent";
 	tag_chamber_sensor = "constructionsite_sensor";
 	tag_exterior_door = "constructionsite_outer";
@@ -595,6 +594,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor,
 /area/derelict)
 "ce" = (
@@ -617,9 +617,9 @@
 	icon_state = "door_locked";
 	id_tag = "constructionsite_inner";
 	locked = 1;
-	req_access = list(10);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor,
 /area/derelict)
 "cg" = (
@@ -886,9 +886,9 @@
 "da" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Messaging Server";
-	req_access = list(30);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/rd,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dc" = (
@@ -898,9 +898,9 @@
 "dd" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Cyborg Station";
-	req_access = list(16);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ai_upload,
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
 "de" = (
@@ -1003,9 +1003,10 @@
 "dC" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medbay";
-	req_one_access = list(65,5);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/medical,
+/obj/effect/map_effect/marker/access/req_one/xenoarch,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dD" = (
@@ -1072,17 +1073,18 @@
 "dS" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medbay Storage";
-	req_one_access = list(65,5);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/medical,
+/obj/effect/map_effect/marker/access/req_one/xenoarch,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dT" = (
 /obj/structure/machinery/door/airlock/glass_atmos{
 	name = "Atmospherics";
-	req_access = list(24);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/atmospherics,
 /turf/simulated/floor/airless,
 /area/derelict)
 "dU" = (
@@ -1463,9 +1465,9 @@
 "fd" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	name = "Engine Access";
-	req_access = list(11);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/airless,
 /area/derelict)
 "fe" = (
@@ -1508,9 +1510,9 @@
 "fm" = (
 /obj/structure/machinery/door/airlock/glass_engineering{
 	name = "SMES";
-	req_access = list(11);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/airless,
 /area/derelict)
 "fn" = (
@@ -1677,9 +1679,9 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	icon_state = "door_closed";
 	name = "AI Upload";
-	req_access = list(16);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ai_upload,
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
 "fM" = (
@@ -1698,9 +1700,9 @@
 /obj/structure/machinery/door/airlock/highsecurity{
 	icon_state = "door_closed";
 	name = "AI Upload Access";
-	req_access = list(16);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ai_upload,
 /turf/simulated/floor/bluegrid/airless,
 /area/derelict)
 "fU" = (

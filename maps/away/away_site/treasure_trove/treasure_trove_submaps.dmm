@@ -2732,9 +2732,8 @@
 	},
 /area/trove/tunnels)
 "RK" = (
-/obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(150)
-	},
+/obj/structure/machinery/door/airlock/hatch,
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "RR" = (
@@ -3216,9 +3215,8 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Zq" = (
-/obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(150)
-	},
+/obj/structure/machinery/door/airlock/hatch,
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Zs" = (

@@ -10,7 +10,7 @@
 	slot_flags = SLOT_BELT
 	var/destinationact = "Service"
 	var/shop_name
-	req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
+	req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id)
 
 /obj/item/quikpay/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

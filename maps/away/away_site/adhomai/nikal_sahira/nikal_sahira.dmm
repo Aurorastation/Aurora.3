@@ -1358,9 +1358,8 @@
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal{
-	req_one_access = list(/datum/access/crevus_firearm_store)
-	},
+/obj/structure/machinery/door/urban/metal,
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store)
 "aUO" = (
@@ -1496,10 +1495,10 @@
 /area/crevus/outside)
 "aYv" = (
 /obj/structure/machinery/door/urban/metal_red{
-	dir = 4;
-	req_one_access = list(/datum/access/crevus_the_lock)
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
+/obj/effect/map_effect/marker/access/req_one/crevus_the_lock,
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/inside/the_lock)
 "aYA" = (
@@ -1671,7 +1670,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Guns";
 	req_access = null;
-	req_one_access = list(/datum/access/crevus_firearm_store)
+	req_one_access = list(/datum/access/away/crevus_firearm_store)
 	},
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
@@ -2037,14 +2036,14 @@
 "btF" = (
 /obj/structure/machinery/door/urban{
 	name = "Staff Room";
-	dir = 4;
-	req_one_access = list(/datum/access/crevus_general_store)
+	dir = 4
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 22;
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/crevus_general_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/general_store)
 "btT" = (
@@ -3908,14 +3907,14 @@
 /area/crevus/inside/transit_centre)
 "cDK" = (
 /obj/structure/machinery/door/urban{
-	name = "The Bank";
-	req_one_access = list(/datum/access/crevus_casino)
+	name = "The Bank"
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 22;
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/crevus_casino,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino)
 "cEb" = (
@@ -6443,14 +6442,14 @@
 "ete" = (
 /obj/structure/machinery/door/urban/metal_red{
 	dir = 4;
-	name = "Rhan-Cresh Charities' Highway Patrol Office";
-	req_one_access = list(/datum/access/crevus_rhan_cresh)
+	name = "Rhan-Cresh Charities' Highway Patrol Office"
 	},
 /obj/random/dirt_75,
 /obj/structure/machinery/door/blast/shutters{
 	dir = 4;
 	id = "crevus_rhan_cresh_office_shutters"
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_rhan_cresh,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/rhan_cresh_office)
 "eto" = (
@@ -8392,9 +8391,8 @@
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/pistol/adhomai,
-/obj/structure/weapons_rack{
-	req_one_access = list(/datum/access/crevus_firearm_store)
-	},
+/obj/structure/weapons_rack,
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store)
 "fvv" = (
@@ -11442,10 +11440,9 @@
 /turf/simulated/floor/exoplanet/concrete,
 /area/crevus/outside)
 "hvW" = (
-/obj/structure/machinery/door/urban/jail_door/rusted{
-	req_one_access = list(/datum/access/crevus_the_lock)
-	},
+/obj/structure/machinery/door/urban/jail_door/rusted,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/crevus_the_lock,
 /turf/simulated/floor/exoplanet/tiled/dark/full,
 /area/crevus/inside/sewers)
 "hvY" = (
@@ -12983,9 +12980,9 @@
 	pixel_x = -1
 	},
 /obj/structure/machinery/door/urban/metal{
-	dir = 8;
-	req_one_access = list(/datum/access/crevus_artisan_shop)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_artisan_shop,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/artisan_shop)
 "ixU" = (
@@ -16531,13 +16528,13 @@
 /area/crevus/inside/general_store/storage)
 "kJa" = (
 /obj/structure/machinery/door/urban/metal{
-	dir = 8;
-	req_one_access = list(/datum/access/crevus_clothing_store)
+	dir = 8
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 22;
 	pixel_x = -1
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_clothing_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/clothing_store)
 "kJd" = (
@@ -17758,13 +17755,12 @@
 /turf/simulated/floor/exoplanet/plating/snow,
 /area/crevus/outside)
 "luf" = (
-/obj/structure/weapons_rack{
-	req_one_access = list(/datum/access/crevus_firearm_store)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/dpra,
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store)
 "lug" = (
@@ -19285,9 +19281,8 @@
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal{
-	req_one_access = list(/datum/access/crevus_general_store)
-	},
+/obj/structure/machinery/door/urban/metal,
+/obj/effect/map_effect/marker/access/req_one/crevus_general_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/general_store)
 "mpR" = (
@@ -19850,7 +19845,7 @@
 "mOH" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition Storage";
-	req_one_access = list(/datum/access/crevus_firearm_store);
+	req_one_access = list(/datum/access/away/crevus_firearm_store);
 	req_access = null
 	},
 /obj/structure/machinery/light/small,
@@ -22705,9 +22700,8 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/blank,
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
-/obj/structure/weapons_rack{
-	req_one_access = list(/datum/access/crevus_firearm_store)
-	},
+/obj/structure/weapons_rack,
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store)
 "oJH" = (
@@ -23759,9 +23753,8 @@
 /obj/item/gun/projectile/revolver/adhomian,
 /obj/item/gun/projectile/deagle/adhomai,
 /obj/item/gun/projectile/deagle/adhomai,
-/obj/structure/weapons_rack{
-	req_one_access = list(/datum/access/crevus_firearm_store)
-	},
+/obj/structure/weapons_rack,
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store)
 "pvo" = (
@@ -26586,9 +26579,8 @@
 /turf/simulated/open,
 /area/crevus/outside)
 "rpK" = (
-/obj/structure/machinery/door/urban/jail_door{
-	req_one_access = list(/datum/access/crevus_casino)
-	},
+/obj/structure/machinery/door/urban/jail_door,
+/obj/effect/map_effect/marker/access/req_one/crevus_casino,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/casino/basement)
 "rpL" = (
@@ -27751,9 +27743,9 @@
 	},
 /obj/structure/machinery/door/urban/metal_red{
 	dir = 4;
-	name = "Storage Room";
-	req_one_access = list(/datum/access/crevus_firearm_store)
+	name = "Storage Room"
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/firearm_store/basement)
 "rYk" = (
@@ -29235,9 +29227,8 @@
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
-/obj/structure/machinery/door/urban/metal{
-	req_one_access = list(/datum/access/crevus_general_store)
-	},
+/obj/structure/machinery/door/urban/metal,
+/obj/effect/map_effect/marker/access/req_one/crevus_general_store,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/library)
 "sVg" = (
@@ -30540,9 +30531,9 @@
 /area/crevus/inside/sewers)
 "tNj" = (
 /obj/structure/machinery/door/urban/metal_red{
-	dir = 4;
-	req_one_access = list(/datum/access/crevus_firearm_store)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_firearm_store,
 /turf/simulated/floor/cave/adhomai,
 /area/crevus/inside/sewers)
 "tNv" = (
@@ -31570,10 +31561,9 @@
 /turf/simulated/floor/exoplanet/water/alt,
 /area/crevus/inside/sewers)
 "uvi" = (
-/obj/structure/machinery/door/urban/jail_door{
-	req_one_access = list(/datum/access/crevus_azaula_enforcer)
-	},
+/obj/structure/machinery/door/urban/jail_door,
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/map_effect/marker/access/req_one/crevus_azaula_enforcer,
 /turf/simulated/floor/lino,
 /area/crevus/inside/restaurant/azaula_enforcers)
 "uvl" = (
@@ -31610,7 +31600,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition";
 	req_access = null;
-	req_one_access = list(/datum/access/crevus_firearm_store)
+	req_one_access = list(/datum/access/away/crevus_firearm_store)
 	},
 /obj/item/ammo_magazine/c9mm,
 /obj/item/ammo_magazine/c9mm,
@@ -32156,7 +32146,7 @@
 "uOC" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Guns";
-	req_one_access = list(/datum/access/crevus_firearm_store);
+	req_one_access = list(/datum/access/away/crevus_firearm_store);
 	req_access = null
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -32683,9 +32673,8 @@
 /turf/simulated/floor/wood,
 /area/crevus/inside/commercial_complex/rhan_cresh_office)
 "vij" = (
-/obj/structure/machinery/door/urban/jail_door{
-	req_one_access = list(/datum/access/crevus_rhan_cresh)
-	},
+/obj/structure/machinery/door/urban/jail_door,
+/obj/effect/map_effect/marker/access/req_one/crevus_rhan_cresh,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/commercial_complex/rhan_cresh_office)
 "vir" = (
@@ -33409,10 +33398,10 @@
 /area/crevus/inside/commercial_complex/floor_2)
 "vHa" = (
 /obj/structure/machinery/door/urban{
-	dir = 4;
-	req_one_access = list(/datum/access/crevus_the_lock)
+	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/crevus_the_lock,
 /turf/simulated/floor/wood,
 /area/crevus/outside/public_park)
 "vHe" = (
@@ -33975,13 +33964,13 @@
 /area/crevus/outside)
 "wcr" = (
 /obj/structure/machinery/door/urban{
-	name = "Azaula Entertainment Enforcer Office";
-	req_one_access = list(/datum/access/crevus_azaula_enforcer)
+	name = "Azaula Entertainment Enforcer Office"
 	},
 /obj/structure/machinery/door/blast/shutters{
 	dir = 2;
 	id = "crevus_azaula_office_shutters"
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_azaula_enforcer,
 /turf/simulated/floor/tiled/dark/full,
 /area/crevus/inside/restaurant/azaula_enforcers)
 "wcA" = (
@@ -37236,9 +37225,9 @@
 /obj/effect/floor_decal/industrial/hatch_door/security,
 /obj/structure/machinery/door/urban/metal_alt{
 	name = "NanoTrasen Pharmacy";
-	dir = 4;
-	req_one_access = list(/datum/access/crevus_nt_pharmacy)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/crevus_nt_pharmacy,
 /turf/simulated/floor/tiled/light/full,
 /area/crevus/inside/nt_pharmacy)
 "yio" = (

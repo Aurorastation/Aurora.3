@@ -843,7 +843,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
 	)
-	access = list(/datum/access/medical::id)
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -857,7 +857,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
 	)
-	access = list(/datum/access/medical::id)
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -871,7 +871,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
 	)
-	access = list(/datum/access/medical::id)
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -885,7 +885,7 @@
 	items = list(
 		/obj/item/reagent_containers/chem_disp_cartridge/perconol
 	)
-	access = list(/datum/access/medical::id)
+	access = list(/datum/access/horizon/medical::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

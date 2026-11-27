@@ -4,24 +4,24 @@ var/global/list/default_internal_channels = list(
 	num2text(PUB_FREQ) = list(),
 	num2text(ENT_FREQ) = list(),
 	num2text(EXP_FREQ) = list(),
-	num2text(AI_FREQ)  = list(/datum/access/equipment::id),
-	num2text(ERT_FREQ) = list(/datum/access/cent_specops::id),
-	num2text(COMM_FREQ)= list(/datum/access/heads::id),
-	num2text(ENG_FREQ) = list(/datum/access/engine_equip::id, /datum/access/atmospherics::id),
-	num2text(MED_FREQ) = list(/datum/access/medical_equip::id),
-	num2text(MED_I_FREQ)=list(/datum/access/medical_equip::id),
-	num2text(SEC_FREQ) = list(/datum/access/security::id),
-	num2text(SEC_I_FREQ)=list(/datum/access/security::id),
-	num2text(PEN_FREQ) = list(/datum/access/armory::id),
-	num2text(SCI_FREQ) = list(/datum/access/tox::id,/datum/access/robotics::id,/datum/access/xenobiology::id,/datum/access/xenobotany::id),
-	num2text(SUP_FREQ) = list(/datum/access/cargo::id),
-	num2text(SRV_FREQ) = list(/datum/access/janitor::id, /datum/access/hydroponics::id)
+	num2text(AI_FREQ)  = list(/datum/access/away/equipment::id),
+	num2text(ERT_FREQ) = list(/datum/access/centcomm/cent_specops::id),
+	num2text(COMM_FREQ)= list(/datum/access/horizon/heads::id),
+	num2text(ENG_FREQ) = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/atmospherics::id),
+	num2text(MED_FREQ) = list(/datum/access/horizon/medical_equip::id),
+	num2text(MED_I_FREQ)=list(/datum/access/horizon/medical_equip::id),
+	num2text(SEC_FREQ) = list(/datum/access/horizon/security::id),
+	num2text(SEC_I_FREQ)=list(/datum/access/horizon/security::id),
+	num2text(PEN_FREQ) = list(/datum/access/horizon/armory::id),
+	num2text(SCI_FREQ) = list(/datum/access/horizon/tox::id,/datum/access/horizon/robotics::id,/datum/access/horizon/xenobiology::id,/datum/access/horizon/xenobotany::id),
+	num2text(SUP_FREQ) = list(/datum/access/horizon/cargo::id),
+	num2text(SRV_FREQ) = list(/datum/access/horizon/janitor::id, /datum/access/horizon/hydroponics::id)
 )
 
 var/global/list/default_medbay_channels = list(
 	num2text(PUB_FREQ) = list(),
-	num2text(MED_FREQ) = list(/datum/access/medical_equip::id),
-	num2text(MED_I_FREQ) = list(/datum/access/medical_equip::id)
+	num2text(MED_FREQ) = list(/datum/access/horizon/medical_equip::id),
+	num2text(MED_I_FREQ) = list(/datum/access/horizon/medical_equip::id)
 )
 
 var/global/list/default_expedition_channels = list(

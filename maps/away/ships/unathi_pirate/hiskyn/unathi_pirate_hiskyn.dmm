@@ -632,8 +632,7 @@
 /area/hiskyn_ship/bridge)
 "aca" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Trophy Room";
-	req_access = list(210)
+	name = "Trophy Room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -641,6 +640,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/curtain/black,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/cargobay)
 "acb" = (
@@ -891,8 +891,7 @@
 "aev" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Bridge";
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -902,6 +901,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "aeI" = (
@@ -1121,9 +1121,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Engineering";
-	req_access = list(210)
+	name = "Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "amx" = (
@@ -1268,10 +1268,10 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	name = "Captain's Office";
-	req_access = list(210)
+	name = "Captain's Office"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "are" = (
@@ -1563,8 +1563,7 @@
 "aBz" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "Medical Bay";
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1578,6 +1577,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/medbay)
 "aBG" = (
@@ -1872,9 +1872,9 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/external{
 	name = "Gunnery";
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/blaster)
 "aHo" = (
@@ -2404,10 +2404,10 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Bathroom";
-	req_one_access = list(210)
+	name = "Bathroom"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bathroom)
 "aVy" = (
@@ -3328,10 +3328,10 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Port Propulsion";
-	req_access = list(210)
+	name = "Port Propulsion"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "fBY" = (
@@ -3718,10 +3718,10 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Starboard Propulsion";
-	req_access = list(210)
+	name = "Starboard Propulsion"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "hhv" = (
@@ -4182,8 +4182,7 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/external{
 	name = "Battle Bridge";
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4196,6 +4195,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "jaX" = (
@@ -5345,7 +5345,6 @@
 /area/hiskyn_ship/cic)
 "obd" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(210);
 	name = "Captain's Quarters";
 	dir = 4
 	},
@@ -5356,6 +5355,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "odb" = (
@@ -5490,10 +5490,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Central Hallway";
-	req_access = list(210)
+	name = "Central Hallway"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "oIS" = (
@@ -5613,9 +5613,9 @@
 	},
 /obj/structure/machinery/door/airlock/external{
 	name = "Cargo Storage Module";
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
 "pvA" = (
@@ -6180,10 +6180,10 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Crew Quarters";
-	req_one_access = list(210)
+	name = "Crew Quarters"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "sgc" = (
@@ -6685,8 +6685,7 @@
 "upB" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Francisca";
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6700,13 +6699,13 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "uqk" = (
 /obj/structure/machinery/door/airlock/hatch{
 	dir = 4;
-	name = "Armory";
-	req_one_access = list(210)
+	name = "Armory"
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -6720,6 +6719,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
 "uqN" = (
@@ -7385,7 +7385,6 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/walllocker/secure{
 	pixel_y = 31;
-	req_access = list(210);
 	name = "Battle Bridge Equipment"
 	},
 /obj/item/clothing/head/helmet/pilot,
@@ -7398,6 +7397,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "yeK" = (

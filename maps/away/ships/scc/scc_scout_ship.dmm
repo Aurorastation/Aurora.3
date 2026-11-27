@@ -365,9 +365,7 @@
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38/rubber,
-/obj/structure/closet/secure_closet/cabinet{
-	req_access = list(20)
-	},
+/obj/structure/closet/secure_closet/cabinet,
 /obj/structure/sign/flag/scc{
 	pixel_y = 32;
 	pixel_x = 16
@@ -384,6 +382,7 @@
 	pixel_y = -1
 	},
 /obj/item/storage/stickersheet/goldstar,
+/obj/effect/map_effect/marker/access/req_all/captain,
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)
 "bV" = (

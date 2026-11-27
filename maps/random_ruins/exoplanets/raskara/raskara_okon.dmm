@@ -28,7 +28,6 @@
 /area/raskara_okon/barracks)
 "aD" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Engine";
 	dir = 1
 	},
@@ -42,6 +41,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -59,7 +59,6 @@
 /area/raskara_okon/eva)
 "aO" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Mess Hall";
 	dir = 4
 	},
@@ -78,6 +77,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -761,7 +761,6 @@
 /area/raskara_okon/observatory)
 "jJ" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 1
 	},
@@ -775,6 +774,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -802,7 +802,6 @@
 /area/raskara_okon/mess_hall)
 "kd" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Engineering";
 	dir = 1
 	},
@@ -816,6 +815,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1690,7 +1690,6 @@
 /area/raskara_okon/engineer)
 "vJ" = (
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
 	name = "Laboratory";
 	dir = 4
 	},
@@ -1709,6 +1708,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2117,7 +2117,6 @@
 "Ac" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2135,6 +2134,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2264,7 +2264,6 @@
 "BR" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2277,6 +2276,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2547,7 +2547,6 @@
 /area/raskara_okon)
 "Gh" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 4
 	},
@@ -2555,6 +2554,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -2852,13 +2852,13 @@
 /area/raskara_okon/medbay)
 "Ky" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -2901,7 +2901,6 @@
 /area/raskara_okon/mess_hall)
 "Lu" = (
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(209);
 	name = "Mining";
 	dir = 1
 	},
@@ -2915,6 +2914,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3389,7 +3389,6 @@
 /area/raskara_okon/engineer)
 "Rh" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
@@ -3408,6 +3407,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3531,10 +3531,9 @@
 	},
 /area/raskara_okon/medbay)
 "TD" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(209)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3965,7 +3964,6 @@
 /area/raskara_okon)
 "Yr" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Observatory";
 	dir = 1
 	},
@@ -3979,6 +3977,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4006,8 +4005,7 @@
 	},
 /obj/structure/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -4016,6 +4014,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4032,7 +4031,6 @@
 /area/raskara_okon/barracks)
 "YV" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Atmospherics";
 	dir = 4
 	},
@@ -4045,6 +4043,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

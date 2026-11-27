@@ -280,8 +280,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cr" = (
 /obj/structure/machinery/door/airlock/mining{
-	name = "Bathroom";
-	req_access = list(216)
+	name = "Bathroom"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -289,6 +288,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "cv" = (
@@ -531,8 +531,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass{
-	name = "Recreation";
-	req_access = list(216)
+	name = "Recreation"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -542,12 +541,12 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "ec" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Quarters";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -562,6 +561,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "ee" = (
@@ -1012,11 +1012,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/closet/crate/secure/phoron{
-	req_access = list(216)
-	},
+/obj/structure/closet/crate/secure/phoron,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "iC" = (
@@ -1044,7 +1043,6 @@
 "iM" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "EVA Access";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/operations{
@@ -1054,6 +1052,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "iR" = (
@@ -1273,7 +1272,6 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Captain's Office";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1288,6 +1286,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_captain)
 "lu" = (
@@ -1588,8 +1587,7 @@
 /area/hephmining_ship/cyclops/cyclops_vault)
 "oh" = (
 /obj/structure/machinery/door/airlock/mining{
-	name = "Bridge";
-	req_access = list(216)
+	name = "Bridge"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1600,6 +1598,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "on" = (
@@ -1651,8 +1650,7 @@
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "oZ" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Hangar";
-	req_access = list(216)
+	name = "Hangar"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1660,6 +1658,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "pc" = (
@@ -1920,14 +1919,14 @@
 /area/space)
 "qT" = (
 /obj/structure/machinery/door/airlock/glass{
-	name = "Recreation";
-	req_access = list(216)
+	name = "Recreation"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "qU" = (
@@ -2074,12 +2073,12 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "sJ" = (
@@ -2239,9 +2238,9 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "cyclops_bridge_lockdown";
 	name = "Bridge Blastdoor";
-	req_access = list(216);
 	dir = 0
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "ur" = (
@@ -2809,13 +2808,13 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Hangar";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "yZ" = (
@@ -2838,10 +2837,10 @@
 	dir = 1
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/cyclops_shuttle{
-	dir = 4;
-	req_access = list(216)
+	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "zi" = (
@@ -3548,7 +3547,6 @@
 	},
 /obj/structure/machinery/door/airlock/mining{
 	name = "Bathroom";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3560,6 +3558,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "EI" = (
@@ -3721,7 +3720,6 @@
 "Gg" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -3730,6 +3728,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "Gs" = (
@@ -3868,8 +3867,7 @@
 /area/hephmining_ship/cyclops/cyclops_captain)
 "HB" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Propulsion Maintenance";
-	req_access = list(216)
+	name = "Propulsion Maintenance"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3880,6 +3878,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "HM" = (
@@ -4111,8 +4110,7 @@
 "JC" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Propulsion Maintenance";
-	req_access = list(216)
+	name = "Propulsion Maintenance"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
@@ -4122,6 +4120,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "JE" = (
@@ -4184,7 +4183,6 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "Barracks";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -4196,6 +4194,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "JQ" = (
@@ -4540,7 +4539,6 @@
 "Nz" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Secure Storage";
-	req_access = list(216);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4558,6 +4556,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_vault)
 "ND" = (
@@ -5267,8 +5266,7 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "VC" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Atmospherics";
-	req_one_access = list(216)
+	name = "Atmospherics"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
@@ -5277,6 +5275,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "VE" = (
@@ -5291,14 +5290,13 @@
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "VH" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/vending/tool{
-	req_access = list(216)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/engineering,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "VI" = (
@@ -5529,9 +5527,9 @@
 	dir = 10
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(216)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "YZ" = (
@@ -5648,9 +5646,8 @@
 /area/hephmining_ship/cyclops)
 "ZH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(216)
-	},
+/obj/structure/machinery/computer/ship/helm/terminal,
+/obj/effect/map_effect/marker/access/req_all/hephaestus,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "ZI" = (

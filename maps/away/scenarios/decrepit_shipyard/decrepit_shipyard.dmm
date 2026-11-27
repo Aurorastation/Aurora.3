@@ -1235,9 +1235,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_hallway)
 "aVP" = (
@@ -2641,12 +2640,12 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(255);
 	name = "Atmospherics"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/central_north_hallway)
 "bSN" = (
@@ -4398,7 +4397,6 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255);
 	name = "Meeting Room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4407,6 +4405,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/accounts_reception)
 "dcP" = (
@@ -6537,12 +6536,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/plasticflaps/airtight{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/kitchen)
 "eCP" = (
@@ -6658,9 +6656,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/infirmary_maintenance)
 "eGQ" = (
@@ -8520,9 +8517,9 @@
 	locked = 1;
 	id_tag = "decrepit_shipyard_engine_int";
 	frequency = 1756;
-	req_one_access = list(255);
 	name = "Reactor"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "fOH" = (
@@ -13596,9 +13593,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_foyer)
 "jjT" = (
@@ -14451,9 +14447,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/accounts_reception)
 "jLA" = (
@@ -14836,9 +14832,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "jXZ" = (
@@ -15146,7 +15142,6 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(255);
 	name = "Dry Dock #06-F Workshop"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -15155,6 +15150,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "kfT" = (
@@ -15213,9 +15209,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_foyer)
 "kjW" = (
@@ -15464,9 +15459,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_equipment_room)
 "ksL" = (
@@ -15684,12 +15678,12 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "kEC" = (
@@ -16296,9 +16290,9 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/operations,
 /obj/structure/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/accounts_reception)
 "ldY" = (
@@ -17135,10 +17129,10 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(255);
 	name = "Core B"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "lFp" = (
@@ -17647,12 +17641,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "lWo" = (
@@ -20539,9 +20532,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255);
 	name = "Supplies"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/commercial_atrium)
 "nTI" = (
@@ -21935,8 +21928,7 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/maintenance{
-	name = "Kitchen";
-	req_one_access = list(255)
+	name = "Kitchen"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
@@ -21947,6 +21939,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/kitchen)
 "oIS" = (
@@ -22079,7 +22072,6 @@
 	locked = 1;
 	id_tag = "decrepit_shipyard_engine_int";
 	frequency = 1756;
-	req_one_access = list(255);
 	name = "Reactor"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -22090,16 +22082,15 @@
 	pixel_y = 1;
 	pixel_x = -28;
 	frequency = 1756;
-	id_tag = "decrepit_shipyard_engine_airlock";
-	req_one_access = list(255)
+	id_tag = "decrepit_shipyard_engine_airlock"
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = -38;
 	frequency = 1756;
 	master_tag = "decrepit_shipyard_engine_airlock";
-	command = "cycle_interior";
-	req_one_access = list(255)
+	command = "cycle_interior"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "oMN" = (
@@ -22750,12 +22741,12 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/meeting_room_maintenance)
 "plG" = (
@@ -23004,9 +22995,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "puo" = (
@@ -25144,12 +25135,12 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "reN" = (
@@ -25913,12 +25904,12 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/freezer{
-	name = "Freezer";
-	req_one_access = list(255)
+	name = "Freezer"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/kitchen)
 "rFG" = (
@@ -27401,7 +27392,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	req_one_access = list(255);
 	name = "Engineering Workshop"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
@@ -27414,6 +27404,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_foyer)
 "sEi" = (
@@ -27971,15 +27962,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/operations{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/accounts_reception)
 "tfx" = (
@@ -28006,8 +27996,7 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28018,6 +28007,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engineering_foyer)
 "tgf" = (
@@ -28279,9 +28269,9 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(255);
 	name = "Dry Dock #06-F EVA"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/workshop)
 "trA" = (
@@ -28740,8 +28730,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -28752,6 +28741,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "tKy" = (
@@ -29789,9 +29779,9 @@
 	locked = 1;
 	id_tag = "decrepit_shipyard_engine_ext";
 	frequency = 1756;
-	req_one_access = list(255);
 	name = "Reactor"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "uGz" = (
@@ -29851,9 +29841,8 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255)
-	},
+/obj/structure/machinery/door/airlock/maintenance,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/main_workshop)
 "uIL" = (
@@ -30222,10 +30211,10 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(255);
 	name = "Core A"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "uXl" = (
@@ -31179,9 +31168,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
-	dir = 4;
-	req_one_access = list(255)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/accounts_reception_maintenance)
 "vIv" = (
@@ -32225,8 +32214,7 @@
 	frequency = 1756;
 	id_tag = "decrepit_shipyard_engine_airlock";
 	tag_exterior_door = "decrepit_shipyard_engine_ext";
-	tag_interior_door = "decrepit_shipyard_engine_int";
-	req_one_access = list(255)
+	tag_interior_door = "decrepit_shipyard_engine_int"
 	},
 /obj/structure/machinery/access_button{
 	pixel_y = -38;
@@ -32234,20 +32222,19 @@
 	pixel_x = -1;
 	frequency = 1756;
 	master_tag = "decrepit_shipyard_engine_airlock";
-	command = "cycle_exterior";
-	req_one_access = list(255)
+	command = "cycle_exterior"
 	},
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 4;
 	locked = 1;
 	id_tag = "decrepit_shipyard_engine_ext";
 	frequency = 1756;
-	req_one_access = list(255);
 	name = "Reactor"
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/engine_room)
 "wzT" = (
@@ -32425,7 +32412,6 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/airlock/maintenance{
-	req_one_access = list(255);
 	name = "Dry Dock #06-F Workshop"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -32437,6 +32423,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_one/decrepit_shipyard_staff,
 /turf/simulated/floor/tiled/dark/full,
 /area/decrepit_shipyard/lounge)
 "wHA" = (

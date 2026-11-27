@@ -18,10 +18,10 @@
 	)
 
 	job_access = list(
-		/datum/access/rd::id, /datum/access/heads::id, /datum/access/tox::id, /datum/access/genetics::id, /datum/access/morgue::id, /datum/access/eva::id, /datum/access/external_airlocks::id, /datum/access/tox_storage::id,
-		/datum/access/teleporter::id, /datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/ship_weapons::id, /datum/access/construction::id, /datum/access/mining::id, /datum/access/mailsorting::id, /datum/access/research::id,
-		/datum/access/xenobiology::id, /datum/access/xenobotany::id, /datum/access/ai_upload::id, /datum/access/tech_storage::id, /datum/access/RC_announce::id, /datum/access/keycard_auth::id, /datum/access/tcomsat::id, /datum/access/gateway::id,
-		/datum/access/xenoarch::id, /datum/access/network::id, /datum/access/maint_tunnels::id, /datum/access/tech_support::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id
+		/datum/access/horizon/rd::id, /datum/access/horizon/heads::id, /datum/access/horizon/tox::id, /datum/access/horizon/genetics::id, /datum/access/horizon/morgue::id, /datum/access/horizon/eva::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/tox_storage::id,
+		/datum/access/horizon/teleporter::id, /datum/access/horizon/sec_doors::id, /datum/access/horizon/medical::id, /datum/access/horizon/engine::id, /datum/access/horizon/ship_weapons::id, /datum/access/horizon/construction::id, /datum/access/horizon/mining::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/research::id,
+		/datum/access/horizon/xenobiology::id, /datum/access/horizon/xenobotany::id, /datum/access/horizon/ai_upload::id, /datum/access/horizon/tech_storage::id, /datum/access/horizon/RC_announce::id, /datum/access/horizon/keycard_auth::id, /datum/access/horizon/tcomsat::id, /datum/access/horizon/gateway::id,
+		/datum/access/horizon/xenoarch::id, /datum/access/horizon/network::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/tech_support::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/rd
@@ -75,7 +75,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(/datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/research::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
+	job_access = list(/datum/access/horizon/tox::id, /datum/access/horizon/tox_storage::id, /datum/access/horizon/research::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist
@@ -129,7 +129,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(/datum/access/research::id, /datum/access/xenoarch::id, /datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
+	job_access = list(/datum/access/horizon/research::id, /datum/access/horizon/xenoarch::id, /datum/access/horizon/tox::id, /datum/access/horizon/tox_storage::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/xenoarchaeologist
@@ -181,7 +181,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(/datum/access/tox::id, /datum/access/research::id, /datum/access/xenobiology::id, /datum/access/tox_storage::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
+	job_access = list(/datum/access/horizon/tox::id, /datum/access/horizon/research::id, /datum/access/horizon/xenobiology::id, /datum/access/horizon/tox_storage::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id)
 
 	minimal_player_age = 14
 
@@ -218,7 +218,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	job_access = list(/datum/access/tox::id, /datum/access/tox_storage::id, /datum/access/research::id, /datum/access/xenobotany::id, /datum/access/intrepid::id, /datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id)
+	job_access = list(/datum/access/horizon/tox::id, /datum/access/horizon/tox_storage::id, /datum/access/horizon/research::id, /datum/access/horizon/xenobotany::id, /datum/access/horizon/intrepid::id, /datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id)
 
 	minimal_player_age = 14
 
@@ -250,7 +250,7 @@
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
 
-	job_access = list(/datum/access/research::id, /datum/access/tox::id)
+	job_access = list(/datum/access/horizon/research::id, /datum/access/horizon/tox::id)
 	outfit = /obj/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 

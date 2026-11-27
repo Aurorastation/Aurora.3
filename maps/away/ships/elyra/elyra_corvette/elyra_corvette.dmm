@@ -167,10 +167,10 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	dir = 4;
 	name = "Messhall"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/messhall)
 "ay" = (
@@ -922,9 +922,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Engineering Foyer"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portthrust)
 "fe" = (
@@ -1143,9 +1143,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Starboard Thrusters"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardthrust)
 "fP" = (
@@ -1202,9 +1202,9 @@
 /area/ship/elyran_corvette/prayerhall)
 "fX" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(207)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
 "fY" = (
@@ -1524,12 +1524,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "hv" = (
-/obj/structure/machinery/door/window/southleft{
-	req_access = list(207)
-	},
+/obj/structure/machinery/door/window/southleft,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "hw" = (
@@ -2017,7 +2016,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	dir = 4;
 	name = "Crew Quarters"
 	},
@@ -2027,12 +2025,12 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/dorm)
 "kJ" = (
-/obj/structure/machinery/door/window/westleft{
-	req_access = list(207)
-	},
+/obj/structure/machinery/door/window/westleft,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
 "kL" = (
@@ -2570,13 +2568,13 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
 	name = "Control Center";
 	dir = 4
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "elyran_corvette_cic_lockdown"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/cic)
 "nO" = (
@@ -2706,9 +2704,9 @@
 	pixel_y = 32;
 	id = "elyra_brig_bolts";
 	specialfunctions = 4;
-	name = "Holding Cell Bolts";
-	req_access = list(207)
+	name = "Holding Cell Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
 "ow" = (
@@ -2927,13 +2925,13 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	dir = 4;
 	name = "Captain's Office"
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/captain)
 "pT" = (
@@ -2948,9 +2946,9 @@
 "pW" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	name = "Messhall"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/dorm)
 "qm" = (
@@ -2995,13 +2993,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
 	name = "Starboard Armament"
 	},
 /obj/structure/sign/securearea{
 	name = "\improper WARNING: MUNITIONS BAY sign";
 	pixel_x = -32
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardwep)
 "qB" = (
@@ -3012,9 +3010,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(207)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
 "qI" = (
@@ -3124,13 +3122,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
 	name = "Port Armament"
 	},
 /obj/structure/sign/securearea{
 	name = "\improper WARNING: MUNITIONS BAY sign";
 	pixel_x = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portwep)
 "ri" = (
@@ -3373,11 +3371,11 @@
 "sJ" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
 	name = "Starboard Armament"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardwep)
 "sL" = (
@@ -3753,10 +3751,10 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	dir = 4;
 	name = "Ready Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/briefing)
 "ve" = (
@@ -3794,12 +3792,12 @@
 "vz" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Dorm";
-	req_access = list(207);
 	door_color = "#bdb6ae"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	req_one_access = null
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/dorm)
 "vA" = (
@@ -4592,9 +4590,9 @@
 	dir = 10
 	},
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(207)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "zO" = (
@@ -4701,11 +4699,11 @@
 "Aw" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass{
-	req_access = list(207);
 	name = "Holding Cell";
 	dir = 4;
 	id_tag = "elyra_brig_bolts"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/brig)
 "AB" = (
@@ -5030,18 +5028,17 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Port Thrusters"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portthrust)
 "Cj" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/machinery/computer/ship/targeting/terminal{
-	req_access = list(207)
-	},
+/obj/structure/machinery/computer/ship/targeting/terminal,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Cm" = (
@@ -5176,13 +5173,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Engineering"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "elyran_corvette_cic_lockdown"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/cic)
 "Dv" = (
@@ -5614,10 +5611,10 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Telecommunications";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardthrust)
 "FN" = (
@@ -6428,13 +6425,13 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
 	name = "Control Center"
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "elyran_corvette_cic_lockdown"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/cic)
 "KK" = (
@@ -6459,7 +6456,6 @@
 /area/ship/elyran_corvette/medbay)
 "KW" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Engineering";
 	dir = 4
 	},
@@ -6475,6 +6471,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/engineering)
 "KZ" = (
@@ -6495,9 +6492,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/elyran_corvette/portwep)
 "Lc" = (
-/obj/structure/machinery/door/window/westleft{
-	req_access = list(207)
-	},
+/obj/structure/machinery/door/window/westleft,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
 	},
@@ -6507,6 +6502,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "Ld" = (
@@ -6710,9 +6706,8 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/machinery/door/window/southright{
-	req_access = list(207)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
 "LD" = (
@@ -7241,9 +7236,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "OQ" = (
-/obj/structure/machinery/door/window/eastright{
-	req_access = list(207)
-	},
+/obj/structure/machinery/door/window/eastright,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/starboardwep)
 "OS" = (
@@ -7441,9 +7435,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/security{
-	name = "Brig";
-	req_access = list(207)
+	name = "Brig"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/brig)
 "PN" = (
@@ -7475,13 +7469,13 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	req_access = list(207);
 	name = "Control Center";
 	dir = 4
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	id = "elyran_corvette_cic_lockdown"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/cic)
 "PT" = (
@@ -7579,7 +7573,6 @@
 "Qi" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/mining{
-	req_access = list(207);
 	dir = 4;
 	name = "Captain's Quarters"
 	},
@@ -7589,6 +7582,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/captain)
 "Qk" = (
@@ -8431,9 +8425,9 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Power Compartment"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/engineering)
 "UL" = (
@@ -8740,9 +8734,9 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(207);
 	name = "Engineering Foyer"
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/starboardthrust)
 "WK" = (
@@ -8861,12 +8855,11 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/structure/machinery/vending/tool{
-	req_access = list(207)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
 "Xx" = (
@@ -9064,11 +9057,11 @@
 "Yk" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(207);
 	name = "Port Armament"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/portwep)
 "Yn" = (
@@ -9273,9 +9266,9 @@
 	dir = 1
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(207)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/elyran_naval_infantry_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)
 "Zz" = (

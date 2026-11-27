@@ -128,7 +128,6 @@
 "aGz" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(202);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -137,6 +136,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -213,7 +213,6 @@
 "bdp" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Cockpit";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -222,6 +221,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -954,7 +954,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Staff";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -962,6 +961,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1212,10 +1212,10 @@
 /area/adhomian_circus/starboard)
 "fPY" = (
 /obj/structure/machinery/door/window{
-	req_access = list(202);
 	name = "Food Stand";
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
@@ -3100,7 +3100,6 @@
 	icon_state = "door_locked";
 	id_tag = "circus_hangar_door";
 	locked = 1;
-	req_access = list(202);
 	dir = 1
 	},
 /obj/effect/shuttle_landmark/adhomian_circus_shuttle/hangar{
@@ -3111,6 +3110,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3192,7 +3192,6 @@
 "qhw" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Animal Tamer";
-	req_access = list(202);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3207,6 +3206,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3344,7 +3344,6 @@
 "qWL" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(202);
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -3353,6 +3352,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3734,7 +3734,6 @@
 "tqA" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Clown";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3743,6 +3742,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3870,10 +3870,10 @@
 "uub" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(202);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -4312,9 +4312,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window{
-	req_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

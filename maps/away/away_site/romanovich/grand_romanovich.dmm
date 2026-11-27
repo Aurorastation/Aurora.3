@@ -337,9 +337,9 @@
 "bd" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Vault";
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "bh" = (
@@ -408,17 +408,17 @@
 /area/grand_romanovich)
 "bt" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "bu" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "bv" = (
@@ -1013,9 +1013,9 @@
 "cJ" = (
 /obj/structure/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/tiled/freezer,
 /area/grand_romanovich)
 "cL" = (
@@ -1120,9 +1120,9 @@
 /area/grand_romanovich)
 "cW" = (
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "cX" = (
@@ -1579,10 +1579,10 @@
 /area/grand_romanovich)
 "eo" = (
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
+	dir = 8
 	},
 /obj/item/radio/intercom/north,
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
 "ep" = (
@@ -2477,15 +2477,14 @@
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "gz" = (
-/obj/structure/closet/crate/secure/weapon{
-	req_one_access = list(150)
-	},
+/obj/structure/closet/crate/secure/weapon,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "gA" = (
@@ -2504,12 +2503,11 @@
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "gC" = (
-/obj/structure/closet/crate/secure/weapon{
-	req_one_access = list(150)
-	},
+/obj/structure/closet/crate/secure/weapon,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "gD" = (
@@ -2866,7 +2864,6 @@
 /area/grand_romanovich)
 "hF" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2874,6 +2871,7 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hG" = (
@@ -2888,13 +2886,13 @@
 /area/grand_romanovich)
 "hH" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "hI" = (
@@ -3155,9 +3153,9 @@
 /area/grand_romanovich)
 "iF" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor,
 /area/grand_romanovich/outdoors)
 "iG" = (
@@ -3180,17 +3178,17 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "iJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "iK" = (
@@ -3457,9 +3455,9 @@
 /area/grand_romanovich)
 "jE" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/tiled/dark,
 /area/grand_romanovich)
 "jI" = (
@@ -3616,9 +3614,9 @@
 /area/grand_romanovich)
 "ki" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "kj" = (
@@ -5355,9 +5353,9 @@
 "sF" = (
 /obj/structure/machinery/door/airlock/glass{
 	name = "Staff Area";
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/carpet/art,
 /area/grand_romanovich)
 "sH" = (
@@ -5371,9 +5369,9 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/structure/machinery/door/airlock/command{
 	name = "Administration";
-	req_one_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "sZ" = (
@@ -5484,10 +5482,11 @@
 /area/grand_romanovich)
 "uJ" = (
 /obj/structure/machinery/door/window/northright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "uR" = (
@@ -6236,9 +6235,9 @@
 /area/grand_romanovich)
 "Ib" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor/wood,
 /area/grand_romanovich)
 "Id" = (
@@ -6370,10 +6369,10 @@
 /area/grand_romanovich)
 "Kd" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_one_access = list(202);
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/generic_away_site,
 /turf/simulated/floor,
 /area/grand_romanovich)
 "Kh" = (
@@ -6643,10 +6642,11 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastleft{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "Og" = (
@@ -6984,10 +6984,11 @@
 /obj/structure/window/reinforced/crescent,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/machinery/door/window/eastright{
-	name = "dispensary";
-	req_one_access = list(33,104)
+	name = "dispensary"
 	},
 /obj/item/reagent_containers/dropper,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
 /turf/simulated/floor/tiled/white,
 /area/grand_romanovich)
 "TP" = (

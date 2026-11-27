@@ -20,11 +20,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/penguin,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "ad" = (
@@ -101,11 +101,11 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(220)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "aC" = (
@@ -129,11 +129,11 @@
 	},
 /obj/structure/machinery/access_button{
 	pixel_x = -28;
-	pixel_y = -5;
-	req_access = list(222)
+	pixel_y = -5
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "aG" = (
@@ -224,10 +224,10 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "bl" = (
@@ -422,11 +422,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/tomato,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "cI" = (
@@ -595,11 +595,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/lizard,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "dv" = (
@@ -813,11 +813,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler/male,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "eq" = (
@@ -978,11 +978,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/penguin/baby,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "fi" = (
@@ -1070,11 +1070,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/hostile/commanded/dog/bullterrier,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "fS" = (
@@ -1100,11 +1100,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/corgi/puppy,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "fV" = (
@@ -1175,15 +1175,14 @@
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "go" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "gp" = (
@@ -1218,11 +1217,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/cat/kitten,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "gB" = (
@@ -1475,10 +1474,10 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(220)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "ig" = (
@@ -1533,11 +1532,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/irish,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "iu" = (
@@ -1551,7 +1550,6 @@
 	dir = 6;
 	id = "gd_shuttle";
 	name = "Desk Shutters";
-	req_one_access = list(229, 217);
 	pixel_y = 33;
 	pixel_x = 9
 	},
@@ -1559,6 +1557,8 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "ix" = (
@@ -1686,11 +1686,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/snake,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "jg" = (
@@ -1881,15 +1881,12 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/item/rig/zero/xanu{
-	req_access = list(222)
-	},
-/obj/item/rig/zero/xanu{
-	req_access = list(222)
-	},
+/obj/item/rig/zero/xanu,
+/obj/item/rig/zero/xanu,
 /obj/item/clothing/under/xanu/pilot,
 /obj/item/clothing/under/xanu/pilot,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "kt" = (
@@ -2337,10 +2334,10 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(220);
 	name = "Cockpit"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "nb" = (
@@ -2645,11 +2642,11 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
-	req_access = list(220);
 	name = "Engine Compartment"
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "oQ" = (
@@ -2833,11 +2830,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/threshbeast/saddle,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "qf" = (
@@ -2886,18 +2883,17 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/cat,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "qx" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/structure/machinery/light/small{
 	dir = 8
@@ -2905,6 +2901,8 @@
 /obj/item/gun/energy/pistol/goldendeep,
 /obj/item/flag/goldendeep,
 /obj/item/flag/goldendeep/l,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "qz" = (
@@ -2994,11 +2992,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/hostile/commanded/dog,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "qU" = (
@@ -3021,9 +3019,7 @@
 /turf/simulated/floor/exoplanet/asteroid/basalt/air,
 /area/trove/tunnels)
 "qZ" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/vault_rig,
 /obj/random/vault_rig,
 /obj/random/vault_rig,
@@ -3037,6 +3033,7 @@
 /obj/random/rig_module,
 /obj/random/rig_module,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "ra" = (
@@ -3102,11 +3099,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/pig,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "rm" = (
@@ -3267,14 +3264,13 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "sr" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/vault_weapon,
 /obj/random/vault_weapon,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "ss" = (
@@ -3287,10 +3283,10 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "st" = (
@@ -3334,11 +3330,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/hostile/commanded/dog/amaskan,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "sF" = (
@@ -3955,11 +3951,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/cosmozoan,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "wR" = (
@@ -4415,11 +4411,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/parrot,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Ap" = (
@@ -4468,11 +4464,12 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/item/clothing/suit/space/void/golden_deep/menial,
 /obj/item/clothing/head/helmet/space/void/golden_deep/menial,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "AK" = (
@@ -4721,11 +4718,12 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/item/clothing/suit/space/void/golden_deep/hoplan,
 /obj/item/clothing/head/helmet/space/void/golden_deep/hoplan,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Ca" = (
@@ -4774,8 +4772,7 @@
 "Ci" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/structure/window/reinforced{
 	dir = 8
@@ -4783,6 +4780,8 @@
 /obj/item/clothing/head/goldendeep/cubehood,
 /obj/item/clothing/head/goldendeep/hoplan,
 /obj/item/clothing/under/goldendeep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Co" = (
@@ -4870,11 +4869,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/otzek,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "CN" = (
@@ -5119,11 +5118,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/climber,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Ev" = (
@@ -5391,11 +5390,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/cow,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "FX" = (
@@ -5867,11 +5866,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/miervesh,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Ik" = (
@@ -5975,11 +5974,12 @@
 	dir = 6;
 	id = "gd_shuttle_windows";
 	name = "Window Shutters";
-	req_one_access = list(229, 217);
 	pixel_y = 33;
 	pixel_x = -9
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/lino/diamond,
 /area/trove/vault)
 "IK" = (
@@ -6093,8 +6093,7 @@
 /obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
 	dir = 4;
-	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	name = "Cargo Hold"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -6104,6 +6103,8 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Jy" = (
@@ -6211,11 +6212,12 @@
 /obj/structure/machinery/door/airlock/glass{
 	dir = 4;
 	name = "Cockpit";
-	door_color = "#8c792e";
-	req_one_access = list(229, 217)
+	door_color = "#8c792e"
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Ke" = (
@@ -6384,8 +6386,7 @@
 	dir = 8
 	},
 /obj/structure/closet/crate/secure{
-	name = "damage control crate";
-	req_access = list(222)
+	name = "damage control crate"
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
@@ -6393,6 +6394,7 @@
 /obj/item/oxycandle,
 /obj/item/storage/bag/inflatable,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "Li" = (
@@ -6427,11 +6429,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/gray,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Lz" = (
@@ -6472,11 +6474,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/crab,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "LM" = (
@@ -6605,11 +6607,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/hostile/commanded/dog/pug,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Ms" = (
@@ -6671,10 +6673,10 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(220)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "MR" = (
@@ -7089,8 +7091,7 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/item/clothing/suit/storage/goldendeep,
 /obj/item/clothing/under/dressshirt/deepv,
@@ -7098,6 +7099,8 @@
 /obj/item/clothing/under/dressshirt/goldendeep,
 /obj/item/clothing/under/dressshirt/goldendeep/black,
 /obj/item/clothing/under/dressshirt/goldendeep/clothwrappeduniform,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "OX" = (
@@ -7118,11 +7121,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/corgi,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Pc" = (
@@ -7221,11 +7224,11 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(220)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "PA" = (
@@ -7271,10 +7274,10 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(220)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/idris,
 /turf/simulated/floor/tiled,
 /area/trove/vault)
 "PM" = (
@@ -7323,11 +7326,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/mushroom,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "PS" = (
@@ -7335,11 +7338,12 @@
 	color = "#5b5b5b";
 	frame_color = "#5b5b5b";
 	spawn_firedoor = 1;
-	spawn_grille = 1;
-	req_one_access = list(221,222)
+	spawn_grille = 1
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/coalition,
+/obj/effect/map_effect/marker/access/req_one/coalition_navy,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "PU" = (
@@ -7349,10 +7353,10 @@
 /obj/structure/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
-	pixel_y = 12;
-	req_access = list(222)
+	pixel_y = 12
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "PV" = (
@@ -7422,11 +7426,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/brown,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Qw" = (
@@ -7491,11 +7495,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler/baby,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "QX" = (
@@ -7528,11 +7532,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/fatshouter,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Re" = (
@@ -7868,11 +7872,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/ice_tunneler,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Ta" = (
@@ -7893,11 +7897,12 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_one_access = list(229, 217)
+	name = "display case"
 	},
 /obj/item/clothing/suit/space/void/golden_deep,
 /obj/item/clothing/head/helmet/space/void/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Te" = (
@@ -8203,11 +8208,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/carp/baby,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "UL" = (
@@ -8271,10 +8276,10 @@
 	},
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	dir = 8;
-	req_access = list(220);
 	name = "Engine Compartment"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating,
 /area/trove/vault)
 "Vc" = (
@@ -8321,11 +8326,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /obj/random/dirt_75,
 /mob/living/simple_animal/rat/white,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Vs" = (
@@ -8359,11 +8364,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/chicken,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "VD" = (
@@ -8693,14 +8698,15 @@
 /obj/structure/machinery/door/airlock{
 	door_color = "#8c792e";
 	dir = 4;
-	name = "Cargo Hold";
-	req_one_access = list(229, 217)
+	name = "Cargo Hold"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "Xj" = (
@@ -8760,11 +8766,11 @@
 	dir = 8
 	},
 /obj/structure/machinery/door/window/southleft{
-	name = "display case";
-	req_access = list(110)
+	name = "display case"
 	},
 /mob/living/simple_animal/chick,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Xw" = (
@@ -8786,9 +8792,7 @@
 /turf/simulated/wall/shuttle/idris,
 /area/trove/vault)
 "XP" = (
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
@@ -8796,6 +8800,7 @@
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/plating/asteroid,
 /area/trove/vault)
 "XR" = (
@@ -9002,11 +9007,11 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window/southleft{
 	name = "display case";
-	req_access = list(110);
 	dir = 1
 	},
 /mob/living/simple_animal/capybara,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/merchant,
 /turf/simulated/floor/exoplanet/barren/cave,
 /area/trove/vault)
 "Zh" = (

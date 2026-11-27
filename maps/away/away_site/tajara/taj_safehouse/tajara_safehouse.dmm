@@ -1388,9 +1388,9 @@
 /area/tajara_safehouse/hangar)
 "YT" = (
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_one_access = list(150)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/syndicate,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "Zh" = (

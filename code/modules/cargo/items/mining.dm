@@ -7,7 +7,7 @@
 	items = list(
 		/obj/item/clothing/suit/space/void/mining
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -21,7 +21,7 @@
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/mining
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -35,7 +35,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame05/prebuilt
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -49,7 +49,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame04/prebuilt
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -63,7 +63,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame03/prebuilt
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -77,7 +77,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame02/prebuilt
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -91,7 +91,7 @@
 	items = list(
 		/obj/item/gun/custom_ka/frame01/prebuilt
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -107,7 +107,7 @@
 		/obj/structure/machinery/mining/brace,
 		/obj/structure/machinery/mining/brace
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -134,7 +134,7 @@
 	items = list(
 		/obj/item/pickaxe
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -148,7 +148,7 @@
 	items = list(
 		/obj/item/pickaxe/drill
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -162,7 +162,7 @@
 	items = list(
 		/obj/item/pickaxe/jackhammer
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -176,7 +176,7 @@
 	items = list(
 		/obj/item/pickaxe/hammer
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -216,7 +216,7 @@
 	items = list(
 		/obj/item/storage/bag/ore
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -230,7 +230,7 @@
 	items = list(
 		/obj/item/resonator
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -244,7 +244,7 @@
 	items = list(
 		/obj/item/mining_scanner
 	)
-	access = list(/datum/access/mining::id)
+	access = list(/datum/access/horizon/mining::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

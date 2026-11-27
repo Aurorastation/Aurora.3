@@ -9,7 +9,7 @@
 	maxhealth = 45
 	health = 45
 	pass_flags = PASSTABLE|PASSRAILING
-	req_access = list(/datum/access/mining::id, /datum/access/robotics::id)
+	req_access = list(/datum/access/horizon/mining::id, /datum/access/horizon/robotics::id)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
 	hat_x_offset = 1
