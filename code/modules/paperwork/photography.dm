@@ -538,3 +538,5 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	icon_state = "camera_investigator"
 	icon_on = "camera_investigator"
 	icon_off = "camera_investigator_off"
+	pictures_left = 30
+	storage_capacity = 30
