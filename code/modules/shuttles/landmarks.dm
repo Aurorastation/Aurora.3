@@ -78,11 +78,14 @@
 				LOG_DEBUG("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 	if(auto_register)
+		var/obj/effect/overmap/visitable/map_origin
 		if(z)
-			var/obj/effect/overmap/visitable/map_origin = get_map_sector(src)
+			map_origin = get_map_sector(src)
+		if(map_origin)
 			map_origin.add_landmark(src, shuttle_restricted)
 			dbg_assert(!ispath(base_turf, /turf/space/transit), "auto_register is enabled for a transit landmark: [name], [landmark_tag]")
 		else
+			// Runtime map loading can initialize landmarks before their sector is registered.
 			LAZYDISTINCTADD(SSshuttle.landmarks_awaiting_sector, src)
 
 /obj/effect/shuttle_landmark/forceMove(atom/destination)
