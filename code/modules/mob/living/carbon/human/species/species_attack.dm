@@ -120,19 +120,19 @@
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/punch/ipc
-	damage = 3
+	damage = 7
 
 /datum/unarmed_attack/kick/ipc
-	damage = 3
+	damage = 7
 
 /datum/unarmed_attack/stomp/ipc
-	damage = 3
+	damage = 7
 
 /datum/unarmed_attack/industrial
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("heavy fist")
 	desc = "Beat your opponent to death like you're a trash compactor and they're a piece of discarded Go-Go Gwok packaging! Murder has never been so efficient!"
-	damage = 7
+	damage = 13
 	attack_sound = 'sound/weapons/smash.ogg'
 	attack_name = "heavy fist"
 	shredding = TRUE
@@ -140,17 +140,17 @@
 	attack_effect = ATTACK_EFFECT_SMASH
 
 /datum/unarmed_attack/industrial/heavy
-	damage = 9
+	damage = 15
 
 /datum/unarmed_attack/industrial/xion
-	damage = 5
+	damage = 10
 	shredding = 0
 
 /datum/unarmed_attack/terminator
 	attack_verb = list("pulverized", "crushed", "pounded")
 	attack_noun = list("power fist")
 	desc = "Hunt down your foes and shove your arm straight through their torso with your highly advanced power fist! You are built to kill, show the world!"
-	damage = 12
+	damage = 20
 	attack_sound = 'sound/weapons/beartrap_shut.ogg'
 	attack_name = "power fist"
 	shredding = TRUE
