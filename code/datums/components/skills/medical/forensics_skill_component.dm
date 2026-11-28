@@ -29,8 +29,25 @@
 	var/datum/action/noir_mode/noir_action
 	/// Whether Noir Mode is currently active.
 	var/noir_active = FALSE
-	/// Client images currently highlighting blood and bullet casings while Noir Mode is active.
+	/// Client images currently highlighting evidence while Noir Mode is active.
 	var/list/image/noir_images = list()
+	/// Weakrefs to objects whose forensic clues have been discovered by examining them.
+	var/list/datum/weakref/discovered_clues
+	/// Associative list of weakref -> marker number (1-7) for mind palace evidence markers.
+	var/list/mind_palace_markers
+	/// Next marker number (1-7) to assign when placing a mind palace evidence marker.
+	var/next_marker_number = 1
+	/// Base item paths treated as weapons for Noir Vision highlighting.
+	var/static/list/noir_weapon_types = list(
+		/obj/item/gun,
+		/obj/item/melee,
+		/obj/item/grenade,
+		/obj/item/material/sword,
+		/obj/item/material/knife,
+		/obj/item/material/hatchet,
+		/obj/item/material/twohanded,
+		/obj/item/material/star,
+	)
 
 /datum/component/skill/forensics/Initialize(level)
 	. = ..()
@@ -50,6 +67,7 @@
 		noir_action.Grant(parent)
 		RegisterSignal(parent, COMSIG_MOB_AFTER_LOGIN, PROC_REF(setup_action_button), override = TRUE)
 		RegisterSignal(parent, COMSIG_MOB_LOGOUT, PROC_REF(on_mob_logout), override = TRUE)
+		RegisterSignal(parent, COMSIG_MOB_ALTCLICKON, PROC_REF(handle_alt_click), override = TRUE)
 
 /datum/component/skill/forensics/Destroy(force)
 	if (!parent)
@@ -64,8 +82,11 @@
 	UnregisterSignal(parent, COMSIG_FORENSICS_USE_SPECTROMETER)
 	UnregisterSignal(parent, COMSIG_MOB_AFTER_LOGIN)
 	UnregisterSignal(parent, COMSIG_MOB_LOGOUT)
+	UnregisterSignal(parent, COMSIG_MOB_ALTCLICKON)
 	noir_action?.Remove(parent)
 	QDEL_NULL(noir_action)
+	LAZYCLEARLIST(discovered_clues)
+	LAZYCLEARLIST(mind_palace_markers)
 	return ..()
 
 /datum/component/skill/forensics/proc/setup_action_button()
@@ -100,7 +121,7 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_parent_moved), override = TRUE)
 	START_PROCESSING(SSprocessing, src)
 	update_noir_highlights()
-	to_chat(user, SPAN_NOTICE("<i>The colors of the world wash out into muted tones. Only the crimson of spilled blood and the brass glint of spent casings stand out in the gloom...</i>"))
+	to_chat(user, SPAN_NOTICE("<i>The colors of the world wash out into muted tones. Only the evidence of crimes stand out starkly in the gloom...</i>"))
 
 /datum/component/skill/forensics/proc/disable_noir_mode(silent = FALSE)
 	if (!noir_active)
@@ -153,35 +174,67 @@
 	if (!istype(user) || !user.client)
 		return
 
+	var/list/resolved_clues = get_discovered_clues()
+	var/list/resolved_markers = get_mind_palace_markers()
 	var/view_range = user.client.view ? user.client.view : world.view
 	for (var/turf/T in view(view_range, user))
+		if (T in resolved_markers)
+			noir_images += create_mind_palace_marker_image(T, resolved_markers[T])
+
 		for (var/atom/movable/A as anything in T.contents)
 			if (A.invisibility > user.see_invisible || A.alpha <= 0)
 				continue
 
-			if (istype(A, /obj/effect/decal/cleanable/blood) || istype(A, /obj/effect/rune))
-				var/image/I = create_noir_highlight_image(A)
-				noir_images += I
+			if ((A in resolved_clues) && isobj(A))
+				noir_images += create_noir_highlight_image(A, "#44ccffee")
+			else if (istype(A, /obj/effect/decal/cleanable/blood) || istype(A, /obj/effect/rune))
+				noir_images += create_noir_highlight_image(A)
 			else if (istype(A, /obj/item/ammo_casing) || istype(A, /obj/item/ammo_pile))
-				var/image/I = create_noir_highlight_image(A, "#ffcc00ee")
-				noir_images += I
+				noir_images += create_noir_highlight_image(A, "#ffcc00ee")
+			else if (istype(A, /obj/effect/overlay/bmark))
+				add_bmark_noir_highlights(A)
+			else if (istype(A, /obj/item/organ))
+				noir_images += create_noir_highlight_image(A, "#dd1111cc")
+			else if (is_type_in_list(A, noir_weapon_types))
+				if (has_forensic_evidence(A))
+					noir_images += create_noir_highlight_image(A, "#ff6600ee")
 			else if (istype(A, /obj/item))
 				var/obj/item/item = A
 				if (LAZYLEN(item.blood_DNA))
-					var/image/I = create_noir_highlight_image(item, "#dd1111cc")
-					noir_images += I
+					noir_images += create_noir_highlight_image(item, "#dd1111cc")
 			else if (isliving(A))
 				add_mob_noir_blood_highlights(A)
+
+			if (A in resolved_markers)
+				noir_images += create_mind_palace_marker_image(A, resolved_markers[A])
 
 	if (length(noir_images))
 		user.client.images += noir_images
 
+/datum/component/skill/forensics/proc/add_bmark_noir_highlights(obj/effect/overlay/bmark/B)
+	var/image/base_image = image(icon = B.icon, loc = B, icon_state = B.icon_state, layer = B.layer, dir = B.dir)
+	base_image.plane = ABOVE_GAME_PLANE
+	base_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_COLOR
+	base_image.filters += filter(type = "outline", size = 0.5, color = "#ffcc00ee")
+	noir_images += base_image
+
+	var/list/extra_marks = length(B.atom_overlay_cache) ? B.atom_overlay_cache : B.overlays
+	for (var/image/O as anything in extra_marks)
+		var/image/extra_image = image(icon = O.icon ? O.icon : B.icon, loc = B, icon_state = O.icon_state, layer = B.layer, dir = O.dir)
+		extra_image.plane = ABOVE_GAME_PLANE
+		extra_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_COLOR
+		extra_image.pixel_x = O.pixel_x
+		extra_image.pixel_y = O.pixel_y
+		extra_image.filters += filter(type = "outline", size = 0.5, color = "#ffcc00ee")
+		noir_images += extra_image
+
 /datum/component/skill/forensics/proc/create_noir_highlight_image(atom/movable/A, outline_color)
-	var/image/I = image(icon = A.icon, loc = A, icon_state = A.icon_state, layer = A.layer)
+	var/image/I = image(icon = A.icon, loc = A, icon_state = A.icon_state, layer = A.layer, dir = A.dir)
 	I.plane = ABOVE_GAME_PLANE
 	I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_COLOR
 	I.color = A.color
-	if (length(A.overlays))
+	I.CopyOverlays(A)
+	if (!length(I.overlays) && length(A.overlays))
 		I.overlays = A.overlays
 	if (length(A.filters))
 		I.filters = A.filters
@@ -269,6 +322,92 @@
 			I.filters += filter(type = "outline", size = 1, color = "#ff1111cc")
 			noir_images += I
 
+/// Returns TRUE if the atom carries any forensic evidence (fingerprints, suit fibers, or blood DNA).
+/datum/component/skill/forensics/proc/has_forensic_evidence(atom/A)
+	return LAZYLEN(A.fingerprints) || LAZYLEN(A.suit_fibers) || LAZYLEN(A.blood_DNA)
+
+/// Creates a Noir Vision client image of a numbered evidence marker offset beside the target atom.
+/datum/component/skill/forensics/proc/create_mind_palace_marker_image(atom/A, marker_number)
+	var/image/I = image(icon = 'icons/obj/forensics.dmi', loc = A, icon_state = "card[clamp(marker_number, 1, 7)]", layer = A.layer + 0.02)
+	I.plane = ABOVE_GAME_PLANE
+	I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | NO_CLIENT_COLOR | RESET_COLOR
+	I.pixel_x = 10
+	I.pixel_y = -4
+	return I
+
+/// Resolves valid mind palace marker weakrefs to their marker numbers and prunes deleted targets.
+/datum/component/skill/forensics/proc/get_mind_palace_markers()
+	var/list/resolved = list()
+	if (!LAZYLEN(mind_palace_markers))
+		return resolved
+	var/list/valid_markers = list()
+	for (var/datum/weakref/ref as anything in mind_palace_markers)
+		var/atom/target = ref?.resolve()
+		if (target && !QDELETED(target))
+			var/marker_num = mind_palace_markers[ref]
+			resolved[target] = marker_num
+			valid_markers[ref] = marker_num
+	mind_palace_markers = length(valid_markers) ? valid_markers : null
+	return resolved
+
+/// Toggles a mind palace evidence marker beside an atom when Alt-clicked while Noir Vision is active.
+/datum/component/skill/forensics/proc/handle_alt_click(mob/user, atom/target)
+	SIGNAL_HANDLER
+	if (!noir_active || skill_level < SKILL_LEVEL_PROFESSIONAL)
+		return
+	if (!istype(target) || isarea(target) || (!isturf(target) && !isturf(target.loc)))
+		return
+
+	var/datum/weakref/ref = WEAKREF(target)
+	if (!ref)
+		return
+
+	if (LAZYLEN(mind_palace_markers) && (ref in mind_palace_markers))
+		mind_palace_markers -= ref
+		if (!length(mind_palace_markers))
+			mind_palace_markers = null
+		to_chat(user, SPAN_NOTICE("You clear the mental evidence marker from \the [target]."))
+	else
+		var/marker_num = next_marker_number
+		next_marker_number = (next_marker_number % 7) + 1
+		LAZYSET(mind_palace_markers, ref, marker_num)
+		to_chat(user, SPAN_NOTICE("You place a mental evidence marker (#[marker_num]) beside \the [target]."))
+		user.playsound_local(null, 'sound/items/pickup/card.ogg', 30, FALSE)
+
+	update_noir_highlights()
+	return COMSIG_MOB_CANCEL_CLICKON
+
+/// Plays the clue discovery audio cue only while Noir Vision is active.
+/datum/component/skill/forensics/proc/play_clue_sound(mob/user)
+	if (noir_active)
+		user.playsound_local(null, pick('sound/effects/clue1.ogg', 'sound/effects/clue2.ogg'), 50, FALSE)
+
+/// Records an examined object as a discovered clue and refreshes Noir Vision highlights if active.
+/datum/component/skill/forensics/proc/mark_discovered_clue(atom/target)
+	if (!isobj(target))
+		return
+	var/datum/weakref/ref = WEAKREF(target)
+	if (!ref)
+		return
+	if (!(ref in discovered_clues))
+		LAZYADD(discovered_clues, ref)
+	if (noir_active)
+		update_noir_highlights()
+
+/// Resolves valid discovered clue weakrefs and prunes deleted targets.
+/datum/component/skill/forensics/proc/get_discovered_clues()
+	var/list/resolved = list()
+	if (!LAZYLEN(discovered_clues))
+		return resolved
+	var/list/datum/weakref/valid_refs = list()
+	for (var/datum/weakref/ref as anything in discovered_clues)
+		var/atom/clue = ref?.resolve()
+		if (clue && !QDELETED(clue))
+			resolved |= clue
+			valid_refs += ref
+	discovered_clues = length(valid_refs) ? valid_refs : null
+	return resolved
+
 /datum/component/skill/forensics/proc/handle_examine(mob/user, atom/target, distance, is_adjacent)
 	SIGNAL_HANDLER
 	if (!is_adjacent || skill_level <= SKILL_LEVEL_UNFAMILIAR)
@@ -294,7 +433,7 @@
 					cause_hints += "exsanguination"
 				var/cause_text = length(cause_hints) ? " Signs point to [english_list(cause_hints)]." : ""
 				to_chat(user, SPAN_NOTICE("<b>Forensic assessment:</b> Estimated time of death is <b>[worldtime2text(H.timeofdeath)]</b>.[cause_text]"))
-				user.playsound_local(null, pick('sound/effects/clue1.ogg', 'sound/effects/clue2.ogg'), 50, FALSE)
+				play_clue_sound(user)
 			else
 				var/elapsed = world.time - H.timeofdeath
 				var/tod_estimate
@@ -337,7 +476,8 @@
 	if (length(traces))
 		to_chat(user, SPAN_NOTICE("Your forensic training reveals [english_list(traces)] on \the [target]."))
 		if (skill_level >= SKILL_LEVEL_PROFESSIONAL)
-			user.playsound_local(null, pick('sound/effects/clue1.ogg', 'sound/effects/clue2.ogg'), 50, FALSE)
+			mark_discovered_clue(target)
+			play_clue_sound(user)
 
 /datum/component/skill/forensics/proc/handle_collect_sample(mob/user, atom/target, delay, preserve_evidence, reconstruct_prints, botch_sample)
 	SIGNAL_HANDLER
