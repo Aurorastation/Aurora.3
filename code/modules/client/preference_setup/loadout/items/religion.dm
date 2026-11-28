@@ -1,5 +1,5 @@
 ABSTRACT_TYPE(/datum/gear/religion)
-	sort_category = "Religion"
+	misc_tags = list("Religion")
 	flags = GEAR_HAS_DESC_SELECTION
 
 ABSTRACT_TYPE(/datum/gear/religion/trinary)

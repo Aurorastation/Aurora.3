@@ -7,7 +7,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of shoes and boots fitted for Tajara."
 	path = /obj/item/clothing/shoes/jackboots/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara/boots/New()
 	..()
@@ -45,7 +44,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran gloves."
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/gloves/tajara/New()
 	..()
@@ -72,7 +70,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native uniforms and dresses."
 	path = /obj/item/clothing/under/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara/New()
 	..()
@@ -118,7 +115,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native pants and skirts."
 	path = /obj/item/clothing/pants/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/pants/tajara/New()
 	..()
@@ -132,7 +128,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native shirts."
 	path = /obj/item/clothing/under/dressshirt/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shirts/tajara/New()
 	..()
@@ -146,7 +141,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/under/tajaran/fancy/colorable
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_colorable/New()
 	..()
@@ -166,7 +160,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara. Only \
 	Tajara connected to Himeo and the Free Tajaran Council would have this."
 	path = /obj/item/voidsuit_modkit/himeo/tajara
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/free_council)
@@ -176,7 +169,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_coat/New()
 	..()
@@ -202,14 +194,12 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajaran_surgeon
 	display_name = "adhomian surgeon garb"
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/surgery
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Xenobiologist", "Machinist", "Medical Intern", "Medical Personnel")
-	sort_category = "Xenowear - Tajara"
 
 // Cloaks
 
@@ -218,7 +208,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of colorable tajaran native cloaks."
 	path = /obj/item/clothing/accessory/poncho/tajarancloak/colorable
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/colorable_tajara_cloak/New()
@@ -237,7 +226,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native cloaks."
 	path = /obj/item/clothing/accessory/poncho/tajarancloak
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	cost = 1
 
 /datum/gear/suit/tajara_cloak/New()
@@ -266,7 +254,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/under/tajaran/consular/female
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Consular Officer")
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_consular/New()
 	..()
@@ -284,7 +271,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/under/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/archaeologist_jacket
 	display_name = "archeologist jacket"
@@ -292,7 +278,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/suit/storage/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/archaeologist_hat
 	display_name = "archeologist hat"
@@ -300,7 +285,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/head/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
-	sort_category = "Xenowear - Tajara"
 
 // Religion
 
@@ -309,7 +293,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran religious robes."
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tajara_priest/New()
@@ -327,7 +310,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
 	path = /obj/item/storage/belt/shumaila_buckle
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_god_banners
@@ -335,7 +317,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of banners used to represent the Adhomian gods."
 	path = /obj/item/flag/srendarr
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_god_banners/New()
@@ -358,7 +339,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/storage/box/suns_flags
 	cost = 2
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara_god_banners_set/New()
 	..()
@@ -372,7 +352,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of small altars used to worship the matake gods."
 	path = /obj/item/storage/altar/kraszar
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/tajara_god_altars/New()
@@ -390,7 +369,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "tajaran religious books"
 	description = "Tajaran religious texts."
 	path = /obj/item/versebook/twinsuns
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -407,7 +385,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "fur scarf (colorable)"
 	path = /obj/item/clothing/accessory/tajaran/colorable
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tajara
@@ -415,7 +392,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran colored fur scarfs."
 	path = /obj/item/clothing/accessory/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara/New()
 	..()
@@ -436,7 +412,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "Because of the cultural impact of the civil wars in the Tajara species, medals are treated with the utmost respect by society. Veterans commonly wear their decorations to formal occasions."
 	path = /obj/item/clothing/accessory/medal/dasnrra_evac
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_medal/New()
@@ -454,7 +429,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "democratic peoples republic party pins selection"
 	description = "A selection of DPRA party pins."
 	path = /obj/item/clothing/accessory/tajaran/nawparty_pin
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -472,7 +446,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "tajaran accessories selection"
 	description = "A selection of tajaran related accessories."
 	path = /obj/item/clothing/accessory/tajaran/zbrojny_badge
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -494,7 +467,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "tajaran faction cards, badges and pins selection"
 	description = "A selection of Tajaran related cards, badges and pins."
 	path = /obj/item/clothing/accessory/badge/hadii_card
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -512,7 +484,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "Charms and talismans often thought of to bring good luck, or of religious significance."
 	path = /obj/item/clothing/accessory/tajaran/charm
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
 /datum/gear/accessory/tajara_charm/New()
@@ -534,7 +505,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "Charms and talismans often thought of to bring good luck, or of religious significance. These should only be taken by true raskariim, and can be identified by other raskariim."
 	path = /obj/item/clothing/accessory/tajaran/charm/raskariim
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 	religion = list(RELIGION_RASKARA, RELIGION_RASKARA_ALT)
 
@@ -550,7 +520,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "adhomian passports selection"
 	description = "A selection of Adhomian passports."
 	path = /obj/item/clothing/accessory/badge/pra_passport
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 	cost = 1
@@ -569,7 +538,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A colorable set of accessories used by the New Kingdom's Tajara."
 	path = /obj/item/clothing/accessory/tajaran/nka_waistcoat
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/nka_colorable_accessory/New()
@@ -584,7 +552,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "Items from the S'rand'marr and Ma'ta'ke signifying marriage between two people."
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_wrap/New()
@@ -599,14 +566,12 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "adhomian costume ring"
 	path = /obj/item/clothing/ring/tajara
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara_dogtags
 	display_name = "adhomian dogtags"
 	description = "An engraved metal identification tag. The description you assign to the dogtags will carry over to both halves when separated."
 	path = /obj/item/clothing/accessory/dogtags/adhomai
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 // Hats, masks and earrings
@@ -616,7 +581,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 
 /datum/gear/head/tajara/New()
 	..()
@@ -639,7 +603,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	path = /obj/item/clothing/mask/tajara
 	cost = 1
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/ears/tajara
@@ -660,14 +623,12 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/tail_cloth
 	display_name = "tail cloth"
 	path = /obj/item/clothing/tail_accessory/tail_cloth
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/prosthetic_tail
 	display_name = "prosthetic tail selection"
 	description = "A selection of colourable prosthetics tails for tajara. Only useable with the Hakh'jar tail."
 	path = /obj/item/clothing/tail_accessory/prosthetic
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -681,7 +642,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/tesla_prosthetic_tail
 	display_name = "tesla prosthetic tail"
 	path = /obj/item/clothing/tail_accessory/prosthetic/tesla
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -692,7 +652,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A selection of Adhomian watches."
 	path = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	slot = slot_wrists
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -713,14 +672,12 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	cost = 2
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	citizenship = CITIZENSHIP_PRA
-	sort_category = "Xenowear - Tajara"
 
 ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 
 /datum/gear/augment/tesla_accessory
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	citizenship = CITIZENSHIP_PRA
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/tesla_accessory/cant_spawn_item_reason(var/location, var/metadata, var/mob/living/carbon/human/human, var/datum/job/job, var/datum/preferences/prefs)
@@ -837,7 +794,6 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	display_name = "tajaran political books"
 	description = "Tajaran books on the Adhomian ideologies."
 	path = /obj/item/versebook/pra
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -853,7 +809,6 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	display_name = "tajaran leader portrait selection"
 	description = "A selection of tajaran leaders portraits."
 	path = /obj/item/sign/painting_frame/hadii
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -873,21 +828,18 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 /datum/gear/adhomai_zippo
 	display_name = "adhomian lighter"
 	path = /obj/item/flame/lighter/adhomai
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/tajaran_dice
 	display_name = "bag of adhomian dice"
 	path = /obj/item/storage/pill_bottle/dice/tajara
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/tajaran_tarot
 	display_name = "adhomian divination cards deck"
 	path = /obj/item/deck/tarot/adhomai
-	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -897,7 +849,6 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	path = /obj/item/storage/field_ration
 
 /datum/gear/taj_rations/New()
@@ -914,10 +865,10 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 	display_name = "adhomian camera"
 	path = /obj/item/camera/adhomai
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/tajara_camera_film
+	misc_tags = list("General")
 	display_name = "adhomian film canister"
 	description = "Spare film for the Adhomian camera."
 	path = /obj/item/camera_film/taj_film
@@ -927,14 +878,12 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 /datum/gear/typewriter
 	display_name = "adhomian portable typewriter"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	path = /obj/item/typewriter_case
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/prrama
 	display_name = "p'rrama"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	path = /obj/item/synthesized_instrument/guitar/prrama
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
@@ -942,7 +891,6 @@ ABSTRACT_TYPE(/datum/gear/augment/tesla_accessory)
 /datum/gear/maikahar
 	display_name = "maikahar"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
 	path = /obj/item/cane/maikahar
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 

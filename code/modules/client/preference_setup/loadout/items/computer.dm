@@ -1,7 +1,7 @@
 /datum/gear/computer
 	display_name = "laptop computer"
 	path = /obj/item/modular_computer/laptop/preset/loadout
-	sort_category = "Modular Computers"
+	misc_tags = list("Modular Computers")
 	cost = 2
 
 ABSTRACT_TYPE(/datum/gear/computer/handheld)

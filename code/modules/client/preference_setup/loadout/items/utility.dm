@@ -1,7 +1,7 @@
 /datum/gear/utility
 	display_name = "clipboard"
 	path = /obj/item/clipboard
-	sort_category = "Utility"
+	misc_tags = list("Utility")
 
 /datum/gear/utility/briefcase
 	display_name = "briefcase selection"
