@@ -131,6 +131,7 @@
 	uneducated_skill_cap = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/occupational
 	subcategory = SKILL_SUBCATEGORY_OPERATIONS
+	skill_flags = SKILL_FLAG_PHYSICAL
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from your Conditioning.",
 		SKILL_LEVEL_FAMILIAR = "Your maximum Lift Capacity is increased by 25%, you climb 15% faster, and you have a 20% chance to catch yourself during sudden shuttle acceleration when something is within reach.",

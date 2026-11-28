@@ -64,6 +64,7 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category =  /singleton/skill_category/everyday
 	subcategory = SKILL_SUBCATEGORY_PHYSICAL
+	skill_flags = SKILL_FLAG_PHYSICAL
 	component_type = CAROUSING_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers to drinking or doing drugs.",

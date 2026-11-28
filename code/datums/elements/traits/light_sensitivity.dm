@@ -33,7 +33,7 @@
 		return
 
 	// Then check if they've got protection from bright lights
-	if (human.get_flash_protection() <= 0 || !istype(human.glasses, /obj/item/clothing/glasses/fakesunglasses))
+	if (human.get_flash_protection() > FLASH_PROTECTION_NONE && !istype(human.glasses, /obj/item/clothing/glasses/fakesunglasses))
 		return
 
 	// And check if someone cut their eyes out.

@@ -1100,7 +1100,7 @@
 	if(!check_has_mouth() || isSynthetic() || !timevomit || !level || stat == DEAD || lastpuke)
 		return
 
-	if(chem_effects[CE_ANTIEMETIC])
+	if(chem_effects[CE_ANTIEMETIC] || (!deliberate && HAS_TRAIT(src, TRAIT_IRON_STOMACH)))
 		to_chat(src, SPAN_WARNING("You feel a very brief wave of nausea, but it quickly disapparates."))
 		return
 

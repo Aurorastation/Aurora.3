@@ -168,6 +168,21 @@
 	morale_points += input
 	UPDATE_MORALE
 
+/// Multiplies all morale effect contribution ceilings by factor.
+/datum/component/morale/proc/scale_contributions(factor)
+	unarmed_chance_contribution *= factor
+	unarmed_rank_contribution *= factor
+	panic_chance_ceiling *= factor
+	surgery_success_contribution *= factor
+	firearm_dispersion_contribution *= factor
+	firearm_accuracy_contribution *= factor
+	melee_damage_contribution *= factor
+	mech_move_delay_contribution *= factor
+	crafting_speed_contribution *= factor
+	plant_yield_contribution *= factor
+	harvest_speed_contribution *= factor
+	surgery_speed_contribution *= factor
+
 /// Returns the "B" constant for the morale component's internal equation.
 /datum/component/morale/proc/get_beta_value()
 	return beta_value

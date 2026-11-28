@@ -28,6 +28,9 @@
 	/// How much of a modifier to a character's Arterial bleed resistance is provided by this component.
 	var/bonus_arterial_resist_per_rank = 0.0375
 
+	/// When TRUE, inverts all Tenacity modifiers into penalties.
+	var/inverted = FALSE
+
 /datum/component/skill/tenacity/Initialize()
 	. = ..()
 	if (!parent)
@@ -47,7 +50,7 @@
 /datum/component/skill/tenacity/proc/stabilize_circulation(owner, obj/item/organ/internal/heart/heart, blood_volume, recent_pump, pulse_mod, min_efficiency)
 	SIGNAL_HANDLER
 	// Bonus per this skill starts at rank 2 rather than 1, they simply won't have this component at rank 1.
-	var/offset_skill = skill_level - 1
+	var/offset_skill = (skill_level - 1) * (inverted ? -1 : 1)
 
 	*min_efficiency = *min_efficiency * (1 + (bonus_min_efficiency_per_rank * offset_skill))
 	*blood_volume = *blood_volume + (bonus_effective_bv_per_rank * offset_skill)
@@ -56,7 +59,7 @@
 /datum/component/skill/tenacity/proc/reduce_bloodloss(owner, blood_volume, cut_bloodloss_modifier, arterial_bloodloss_modifier)
 	SIGNAL_HANDLER
 	// Bonus per this skill starts at rank 2 rather than 1, they simply won't have this component at rank 1.
-	var/offset_skill = skill_level - 1
+	var/offset_skill = (skill_level - 1) * (inverted ? -1 : 1)
 
 	*cut_bloodloss_modifier = *cut_bloodloss_modifier * (1 - (offset_skill * bonus_bleed_resist_per_rank))
 	*arterial_bloodloss_modifier = *arterial_bloodloss_modifier * (1 - (offset_skill * bonus_arterial_resist_per_rank))

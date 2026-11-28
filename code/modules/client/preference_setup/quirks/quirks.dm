@@ -99,7 +99,7 @@
 	pref.quirks = list()
 	for(var/quirk_type in candidate_quirks)
 		var/singleton/quirk/quirk = GET_SINGLETON(quirk_type)
-		if(quirk.point_cost > 0)
+		if(quirk.get_point_cost(pref) > 0)
 			continue
 		var/list/proposed_quirks = pref.quirks.Copy()
 		proposed_quirks[quirk.type] = candidate_quirks[quirk_type]
@@ -107,7 +107,7 @@
 			pref.quirks = proposed_quirks
 	for(var/quirk_type in candidate_quirks)
 		var/singleton/quirk/quirk = GET_SINGLETON(quirk_type)
-		if(quirk.point_cost <= 0)
+		if(quirk.get_point_cost(pref) <= 0)
 			continue
 		var/list/proposed_quirks = pref.quirks.Copy()
 		proposed_quirks[quirk.type] = candidate_quirks[quirk_type]
@@ -121,8 +121,8 @@
 		var/singleton/quirk/quirk = GET_SINGLETON(quirk_type)
 		if(!istype(quirk))
 			continue
-		point_cost += quirk.point_cost
-		slot_cost += quirk.slot_cost
+		point_cost += quirk.get_point_cost(pref)
+		slot_cost += quirk.get_slot_cost(pref)
 	return list("points" = point_cost, "slots" = slot_cost)
 
 /datum/category_item/player_setup_item/quirks/proc/quirk_budget_valid(list/selected_quirks)
@@ -152,9 +152,9 @@
 		quirk_data += list(list(
 			"type" = "[quirk.type]",
 			"name" = quirk.name,
-			"description" = quirk.description,
-			"point_cost" = quirk.point_cost,
-			"slot_cost" = quirk.slot_cost,
+			"description" = quirk.get_description(pref),
+			"point_cost" = quirk.get_point_cost(pref),
+			"slot_cost" = quirk.get_slot_cost(pref),
 			"selected" = selected,
 			"available" = available,
 			"unavailable_reason" = available ? null : quirk.get_unavailable_reason(pref),
