@@ -542,14 +542,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
-"lI" = (
-/obj/structure/machinery/door/airlock/centcom{
-	dir = 1;
-	name = "Power Maintanence"
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_specops,
-/turf/simulated/floor,
-/area/scc_event_shuttle)
 "lO" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -721,16 +713,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"qs" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "bridge_foyer";
-	name = "Bridge"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker/access/req_one/heads,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "qI" = (
 /obj/structure/bed/handrail{
@@ -1039,34 +1021,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
-"vW" = (
-/obj/structure/table/standard,
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/flashlight{
-	pixel_y = 9;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = 3;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = -3;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled,
-/area/scc_event_shuttle)
 "wv" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/machinery/vending/hydroseeds{
@@ -1114,18 +1068,6 @@
 /obj/item/radio,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
-/area/scc_event_shuttle)
-"xH" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 4;
-	id_tag = "";
-	name = "Bridge Officer Preparation"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/heads,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "xK" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -1494,6 +1436,34 @@
 	},
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
+"Hk" = (
+/obj/structure/table/standard,
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/flashlight{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = -3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
 "Ho" = (
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
@@ -1783,6 +1753,16 @@
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
+"My" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "Mz" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/research,
@@ -1807,6 +1787,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"Ny" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "NK" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -2084,15 +2074,13 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
-"TZ" = (
-/obj/structure/machinery/door/airlock/glass_command{
+"TP" = (
+/obj/structure/machinery/door/airlock/centcom{
 	dir = 1;
-	id_tag = "";
-	name = "Bridge Officer Preparation"
+	name = "Power Maintanence"
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker/access/req_all/heads,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
+/turf/simulated/floor,
 /area/scc_event_shuttle)
 "Ul" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2150,6 +2138,163 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor,
+/area/scc_event_shuttle)
+"VB" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/item/gps{
+	pixel_x = -3
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "VZ" = (
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -2279,163 +2424,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
-"Zf" = (
-/obj/structure/table/rack/retail_shelf{
-	name = "shelves"
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/crowbar/red{
-	pixel_y = 5;
-	pixel_x = -4
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/flashlight/maglight{
-	pixel_y = -9
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/item/gps{
-	pixel_x = -3
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
 "Zp" = (
 /obj/structure/closet/crate{
 	name = "insulated gloves crate"
@@ -2449,6 +2437,18 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
+/area/scc_event_shuttle)
+"ZL" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 4;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 
 (1,1,1) = {"
@@ -2581,7 +2581,7 @@ Co
 Fl
 ck
 Tz
-lI
+TP
 Aa
 Ho
 ao
@@ -2630,7 +2630,7 @@ sm
 kY
 mG
 Tg
-TZ
+Ny
 jA
 Jd
 Eo
@@ -2693,7 +2693,7 @@ uu
 mG
 oD
 Fl
-vW
+Hk
 Ho
 Nu
 rC
@@ -2725,7 +2725,7 @@ mG
 oD
 Fl
 Fl
-xH
+ZL
 Fl
 Fl
 Fl
@@ -2785,7 +2785,7 @@ uf
 LR
 mG
 Tg
-qs
+My
 HD
 mG
 Tn
@@ -2940,7 +2940,7 @@ sm
 kY
 mG
 Tg
-qs
+My
 HD
 mG
 xK
@@ -3161,7 +3161,7 @@ Fl
 oQ
 Id
 Id
-Zf
+VB
 Fl
 "}
 (24,1,1) = {"

@@ -20,7 +20,7 @@ ABSTRACT_TYPE(/singleton/fabricator_recipe/general)
 
 /singleton/fabricator_recipe/general/radio_bounced
 	name = "shortwave radio"
-	path = /obj/item/radio/off
+	path = /obj/item/radio
 
 /singleton/fabricator_recipe/general/weldermask
 	name = "welding mask"

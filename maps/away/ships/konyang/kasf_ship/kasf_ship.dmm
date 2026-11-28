@@ -67,19 +67,6 @@
 /obj/effect/shuttle_landmark/kasf_corvette/nav5,
 /turf/template_noop,
 /area/space)
-"aw" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	name = "Primary Armament"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/starboardwep)
 "ax" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -100,6 +87,22 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/starboardthrust)
+"aD" = (
+/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/machinery/button/remote/blast_door{
+	pixel_y = -18;
+	pixel_x = -8;
+	id = "reactor_lockdown";
+	name = "Reactor Blast Doors"
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/kasf_corvette/engie)
 "aH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -123,6 +126,31 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
+"aP" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 8;
+	id = "starboard_warehouse_shutters";
+	name = "Starboard Warehouse Shutters"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin";
+	pixel_y = 8
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "aT" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -280,6 +308,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
+"bQ" = (
+/obj/structure/machinery/door/airlock/command/gold{
+	name = "Command Center"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "kasf_cic_lockdown"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/cic)
 "bR" = (
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 9
@@ -292,6 +337,16 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardwep)
+"bW" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	open_duration = 20;
+	name = "Starboard Thruster Pod Access"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardthrust)
 "bY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -364,6 +419,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"ck" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	name = "Port Thruster Pod Access";
+	open_duration = 20
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/portthrust)
 "cn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -677,6 +747,23 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/mainhall)
+"ed" = (
+/obj/structure/machinery/door/airlock/multi_tile/glass{
+	name = "Starboard Hangar Foyer";
+	door_color = "#475057"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "eg" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/cryo)
@@ -757,6 +844,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/starboardthrust)
+"eI" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/obj/structure/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = -24
+	},
+/obj/structure/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/cic)
 "eM" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -787,23 +886,6 @@
 /obj/structure/flora/pottedplant/woodyshrubbloom,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
-"eR" = (
-/obj/structure/machinery/door/airlock/command/gold{
-	name = "Command Center"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "kasf_cic_lockdown"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/cic)
 "eS" = (
 /obj/structure/machinery/light,
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -928,20 +1010,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
-"fG" = (
-/obj/effect/floor_decal/spline/plain/white{
-	dir = 6
-	},
-/obj/structure/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/portofcall_police,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/portwep)
 "fK" = (
 /obj/structure/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
@@ -1060,6 +1128,19 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
+"gi" = (
+/obj/structure/machinery/door/airlock/highsecurity{
+	name = "Secondary Armament"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/portwep)
 "gj" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 4
@@ -1085,6 +1166,21 @@
 /obj/structure/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
+"gm" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/security/gold{
+	dir = 4;
+	name = "Armory"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/armory)
 "gt" = (
 /obj/structure/sign/securearea{
 	name = "\improper WARNING: MUNITIONS BAY sign";
@@ -1280,6 +1376,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
+"ho" = (
+/obj/structure/machinery/door/airlock/multi_tile/glass{
+	name = "Port Hangar Foyer";
+	door_color = "#475057"
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/porthangarfoyer)
 "hs" = (
 /obj/structure/machinery/atmospherics/pipe/tank{
 	dir = 8
@@ -1309,24 +1420,6 @@
 /obj/structure/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
-"hK" = (
-/obj/structure/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Atmospherics"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/atmos)
 "hL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1599,23 +1692,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
-"jH" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Starboard Hangar Foyer";
-	door_color = "#475057"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/starboardhangarfoyer)
 "jJ" = (
 /obj/structure/bed/stool/chair/sofa/left/beige,
 /obj/structure/machinery/button/remote/blast_door{
@@ -1627,6 +1703,37 @@
 /obj/item/toy/plushie/ipc,
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/kasf_corvette/mess)
+"jN" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/structure/machinery/door/window/eastright,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardwep)
+"jO" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/command/gold{
+	dir = 4;
+	name = "Captain's Quarters"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/captain)
 "jP" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
@@ -1674,6 +1781,29 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/ship/kasf_corvette/exterior)
+"kl" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/machinery/light{
+	dir = 1
+	},
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 24;
+	pixel_y = 8;
+	id = "port_warehouse_shutters";
+	name = "Port Warehouse Shutters"
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin";
+	pixel_y = 8
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/porthangarfoyer)
 "kr" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -1735,18 +1865,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/mainhall)
-"kP" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/full,
-/obj/structure/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -24
-	},
-/obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/cic)
 "kT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/airlock/external{
@@ -1790,6 +1908,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardwep)
+"lc" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	name = "Port Thruster Pod Access";
+	open_duration = 20
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/portthrust)
 "le" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1872,6 +2000,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/captain)
+"lK" = (
+/obj/structure/machinery/door/airlock/glass{
+	name = "Starboard Thruster";
+	door_color = "#475057"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/starboardthrust)
 "lL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2038,24 +2178,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
-"mu" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/door/airlock/command/gold{
-	dir = 4;
-	name = "Captain's Quarters"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/captain)
 "mx" = (
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
@@ -2069,33 +2191,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardwep)
-"mz" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
-/obj/item/stack/rods/full,
-/obj/item/stack/material/glass/reinforced/full,
-/obj/item/stack/material/glass/full,
-/obj/structure/machinery/light,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -24;
-	pixel_y = 8;
-	id = "mechbay_shutters";
-	name = "Mechbay Garage Shutters"
+"mC" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/item/circuitboard/exosystem/engineering,
-/obj/item/circuitboard/exosystem/medical,
-/obj/item/circuitboard/exosystem/utility,
-/obj/item/circuitboard/exosystem/weapons,
-/obj/item/stack/material/lead/full,
-/obj/item/stack/material/aluminium/full,
-/obj/item/stack/material/plastic/full,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/door/airlock/command{
+	dir = 4
+	},
 /obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/engie)
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/dorm)
 "mG" = (
 /obj/structure/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
@@ -2134,23 +2246,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/portwep)
-"mW" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 24;
-	id = "kasf_co2_blast_port";
-	name = "CO2 Tank Shutters"
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/plating,
-/area/ship/kasf_corvette/portthrust)
 "mZ" = (
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/portthrust)
@@ -2300,23 +2395,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
-"nJ" = (
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -24;
-	id = "kasf_co2_blast_starboard";
-	name = "CO2 Tank Shutters"
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/plating,
-/area/ship/kasf_corvette/starboardthrust)
 "nP" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2341,19 +2419,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
-"nQ" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	name = "Secondary Armament Munitions Bay"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/portwep)
 "nU" = (
 /obj/structure/machinery/body_scanconsole{
 	dir = 4
@@ -2375,16 +2440,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/mainhall)
-"ob" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	name = "Port Thruster Pod Access";
-	open_duration = 20
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/porthangarfoyer)
 "od" = (
 /obj/effect/floor_decal/spline/plain/white{
 	dir = 5
@@ -2462,16 +2517,29 @@
 /obj/structure/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/atmos)
-"oB" = (
-/obj/structure/machinery/door/firedoor/noid,
+"oz" = (
+/obj/structure/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Hangar";
+	door_color = "#475057"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	name = "Port Thruster Pod Access";
-	open_duration = 20
+/obj/structure/machinery/door/firedoor/multi_tile{
+	req_one_access = null;
+	dir = 2
 	},
 /obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/portthrust)
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/hangar)
 "oC" = (
 /obj/structure/machinery/power/apc/west{
 	req_access = list(218)
@@ -2591,6 +2659,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/hangar)
+"pK" = (
+/obj/structure/machinery/door/airlock/security{
+	dir = 4;
+	name = "Security"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/brig)
 "pO" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2739,26 +2825,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
-"qy" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 24;
-	pixel_y = 8;
-	id = "starboard_warehouse_shutters";
-	name = "Starboard Warehouse Shutters"
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled,
-/area/ship/kasf_corvette/starboardhangarfoyer)
 "qD" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -2795,21 +2861,6 @@
 /obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/portwep)
-"qM" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Port Hangar Foyer";
-	door_color = "#475057"
-	},
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/porthangarfoyer)
 "qN" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin";
@@ -2922,6 +2973,33 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portwep)
+"ri" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/rods/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/glass/full,
+/obj/structure/machinery/light,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -24;
+	pixel_y = 8;
+	id = "mechbay_shutters";
+	name = "Mechbay Garage Shutters"
+	},
+/obj/item/circuitboard/exosystem/engineering,
+/obj/item/circuitboard/exosystem/medical,
+/obj/item/circuitboard/exosystem/utility,
+/obj/item/circuitboard/exosystem/weapons,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/kasf_corvette/engie)
 "rj" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -3072,22 +3150,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/portthrust)
-"rU" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	open_duration = 20;
-	name = "Starboard Thruster Pod Access"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardthrust)
 "rZ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -3126,16 +3188,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
-"sk" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	open_duration = 20;
-	name = "Starboard Thruster Pod Access"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardhangarfoyer)
 "sq" = (
 /obj/structure/weightlifter,
 /obj/effect/floor_decal/corner_wide/dark_blue{
@@ -3323,6 +3375,21 @@
 /obj/effect/floor_decal/sign/srg,
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
+"tE" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/structure/machinery/door/window/eastleft{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardwep)
 "tG" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -3367,21 +3434,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/forehall)
-"tS" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/structure/machinery/door/window/eastleft{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/sign/securearea{
-	pixel_y = -32
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardwep)
 "tT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -3393,41 +3445,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)
-"tU" = (
-/obj/structure/machinery/door/airlock/glass{
-	name = "Port Thruster";
-	door_color = "#475057"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/portthrust)
-"ub" = (
-/obj/effect/floor_decal/corner_wide/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/button/remote/blast_door{
-	pixel_y = 8;
-	pixel_x = -24;
-	dir = 8;
-	id = "port_warehouse_shutters";
-	name = "Port Warehouse Shutters"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled,
-/area/ship/kasf_corvette/porthangarfoyer)
 "uc" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -3453,6 +3470,22 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/captain)
+"uk" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	open_duration = 20;
+	name = "Starboard Thruster Pod Access"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardthrust)
 "un" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -3509,21 +3542,6 @@
 /obj/structure/lattice/catwalk,
 /turf/space,
 /area/ship/kasf_corvette/exterior)
-"uH" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/door/airlock/security/gold{
-	dir = 4;
-	name = "Armory"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/armory)
 "uI" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/porthangarfoyer)
@@ -3699,21 +3717,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
-"vI" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	name = "Port Thruster Pod Access";
-	open_duration = 20
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/portthrust)
 "vL" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -3825,18 +3828,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/atmos)
-"wF" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/structure/machinery/door/window/eastright{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardwep)
 "wK" = (
 /obj/structure/machinery/media/jukebox{
 	anchored = 1
@@ -3918,6 +3909,23 @@
 "xn" = (
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/hangar)
+"xo" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 24;
+	id = "kasf_co2_blast_port";
+	name = "CO2 Tank Shutters"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/plating,
+/area/ship/kasf_corvette/portthrust)
 "xq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/yellow{
@@ -3969,32 +3977,7 @@
 	},
 /turf/simulated/floor/lino,
 /area/ship/kasf_corvette/mess)
-"xO" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	name = "Secondary Armament"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/portwep)
-"xQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
-/area/ship/kasf_corvette/exterior)
-"xR" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
-/area/ship/kasf_corvette/captain)
-"xS" = (
+"xM" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4009,6 +3992,18 @@
 /obj/effect/map_effect/marker/access/req_one/portofcall_police,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
+"xQ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/airless,
+/area/ship/kasf_corvette/exterior)
+"xR" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/ship/kasf_corvette/captain)
 "xW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/light{
@@ -4286,16 +4281,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
-"yQ" = (
-/obj/structure/machinery/door/airlock/medical{
-	name = "Operating Theatre"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/medbay)
 "yY" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4374,6 +4359,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
+"zs" = (
+/obj/structure/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Atmospherics"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/atmos)
 "zu" = (
 /obj/structure/machinery/light/small/emergency{
 	dir = 4
@@ -4655,6 +4658,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/washroom)
+"AV" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/structure/machinery/door/window/eastright{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardwep)
 "AW" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
@@ -4792,21 +4807,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/mess)
-"BB" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	open_duration = 20;
-	name = "Starboard Thruster Pod Access"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardhangarfoyer)
 "BG" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -4832,15 +4832,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/atmos)
-"BN" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/door/airlock/security/gold{
-	name = "EVA"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/armory)
 "BQ" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
@@ -4882,6 +4873,23 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/portwep)
+"BW" = (
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 8;
+	pixel_x = -24;
+	id = "kasf_co2_blast_starboard";
+	name = "CO2 Tank Shutters"
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/plating,
+/area/ship/kasf_corvette/starboardthrust)
 "BX" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -4944,18 +4952,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/atmos)
-"Ch" = (
-/obj/structure/machinery/door/airlock/glass{
-	name = "Starboard Thruster";
-	door_color = "#475057"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/starboardthrust)
 "Cr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -5132,20 +5128,6 @@
 	},
 /obj/effect/floor_decal/spline/plain/blue,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/cic)
-"DG" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/full{
-	dir = 4
-	},
-/obj/structure/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -24
-	},
-/obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/cic)
 "DH" = (
 /obj/structure/lattice/catwalk,
@@ -5402,23 +5384,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/armory)
-"EY" = (
-/obj/effect/floor_decal/corner/orange/full{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/sign/electricshock{
-	pixel_x = 32
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/vending/robotics,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/engie)
 "Fa" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -5571,6 +5536,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/kasf_shuttle)
+"FL" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/security/gold{
+	dir = 4;
+	name = "Armory"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/armory)
 "FM" = (
 /obj/structure/table/wood,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
@@ -5616,6 +5599,22 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/kasf_corvette/starboardwep)
+"FS" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/machinery/door/window/eastright{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/plating,
+/area/shuttle/kasf_shuttle)
 "FU" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -5634,16 +5633,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
-"FV" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/airlock/external{
-	open_duration = 20;
-	name = "Starboard Thruster Pod Access"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardthrust)
 "FW" = (
 /obj/structure/sink{
 	dir = 8;
@@ -5690,6 +5679,19 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/kasf_corvette/exterior)
+"Gf" = (
+/obj/structure/machinery/door/airlock/highsecurity{
+	name = "Secondary Armament Munitions Bay"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/portwep)
 "Gl" = (
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5736,17 +5738,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
-"GA" = (
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/machinery/computer/ship/helm/terminal,
-/obj/effect/map_effect/marker/access/req_all/portofcall_police,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/kasf_shuttle)
 "GD" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable{
@@ -5900,6 +5891,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
+"HC" = (
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 10
+	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/kasf_corvette/starboardwep)
 "HE" = (
 /obj/structure/machinery/computer/general_air_control/large_tank_control/wall{
 	pixel_y = 32;
@@ -5956,6 +5961,35 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space,
 /area/ship/kasf_corvette/exterior)
+"HK" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	open_duration = 20;
+	name = "Starboard Thruster Pod Access"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
+"HP" = (
+/obj/structure/machinery/door/airlock/command/gold{
+	name = "Command Center"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "kasf_cic_lockdown"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/cic)
 "HV" = (
 /obj/structure/table/standard,
 /obj/structure/machinery/light,
@@ -6040,6 +6074,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"Ik" = (
+/obj/structure/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Secondary Armament Access"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/atmos)
 "Im" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -6133,6 +6185,20 @@
 "Is" = (
 /turf/template_noop,
 /area/space)
+"Iu" = (
+/obj/structure/machinery/door/airlock/hatch{
+	name = "Reactor Compartment"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "reactor_lockdown"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/engie)
 "Iz" = (
 /obj/structure/machinery/alarm/west{
 	req_one_access = list(218)
@@ -6154,29 +6220,19 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/kasf_shuttle)
-"IK" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/full{
-	dir = 1
+"II" = (
+/obj/structure/machinery/door/airlock/highsecurity{
+	name = "Primary Armament Munitions Bay"
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/structure/machinery/light{
-	dir = 1
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 4;
-	pixel_x = 24;
-	pixel_y = 8;
-	id = "port_warehouse_shutters";
-	name = "Port Warehouse Shutters"
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin";
-	pixel_y = 8
-	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled,
-/area/ship/kasf_corvette/porthangarfoyer)
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/starboardwep)
 "IM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6261,6 +6317,24 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kasf_shuttle)
+"Jk" = (
+/obj/structure/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Engineering"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/engie)
 "Jn" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/r_n_d/material_silo,
@@ -6309,18 +6383,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/captain)
-"Ju" = (
-/obj/structure/machinery/door/airlock/command/gold{
-	dir = 4;
-	name = "Command Center"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/door/blast/regular/open{
-	id = "kasf_cic_lockdown"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/cic)
 "Jz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -6382,21 +6444,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/kasf_corvette/forehall)
-"JY" = (
-/obj/structure/machinery/door/airlock/glass_security{
-	name = "Holding Area";
-	id_tag = "kasf_brig_bolts"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "kasf_brig_lockdown"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/brig)
 "Ke" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6432,6 +6479,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/dorm)
+"Kw" = (
+/obj/structure/machinery/door/airlock/glass{
+	name = "Port Thruster";
+	door_color = "#475057"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/portthrust)
 "Ky" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/machinery/light{
@@ -6484,6 +6543,16 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"KM" = (
+/obj/structure/machinery/door/airlock/medical{
+	name = "Operating Theatre"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/medbay)
 "KN" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -6555,31 +6624,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
-"Li" = (
-/obj/effect/floor_decal/corner_wide/dark_blue/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/structure/machinery/light{
-	dir = 1
-	},
-/obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/machinery/button/remote/blast_door{
-	dir = 8;
-	pixel_x = -24;
-	pixel_y = 8;
-	id = "starboard_warehouse_shutters";
-	name = "Starboard Warehouse Shutters"
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin";
-	pixel_y = 8
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled,
-/area/ship/kasf_corvette/starboardhangarfoyer)
 "Lj" = (
 /obj/structure/machinery/appliance/cooker/stove,
 /obj/structure/sink/kitchen{
@@ -6612,22 +6656,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
-"Lv" = (
-/obj/structure/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/machinery/light{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/structure/machinery/button/remote/blast_door{
-	pixel_y = -18;
-	pixel_x = -8;
-	id = "reactor_lockdown";
-	name = "Reactor Blast Doors"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/engie)
 "Lw" = (
 /obj/effect/shuttle_landmark/kasf_corvette/nav1,
 /turf/template_noop,
@@ -6668,6 +6696,26 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"LI" = (
+/obj/structure/table/steel,
+/obj/structure/machinery/alarm/north{
+	req_one_access = list(218)
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/item/radio{
+	pixel_y = 10
+	},
+/obj/item/radio{
+	pixel_y = 10
+	},
+/obj/item/binoculars,
+/obj/item/binoculars{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/cic)
 "LO" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -6779,23 +6827,6 @@
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
-"Mi" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/door/airlock/command{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/dorm)
 "Ml" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6819,20 +6850,6 @@
 /obj/item/reagent_containers/food/drinks/dry_ramen,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
-"Ms" = (
-/obj/structure/machinery/door/airlock/hatch{
-	name = "Reactor Compartment"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "reactor_lockdown"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/engie)
 "Mx" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -6892,29 +6909,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kasf_shuttle)
-"MY" = (
-/obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Hangar";
-	door_color = "#475057"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/machinery/door/firedoor/multi_tile{
-	req_one_access = null;
-	dir = 2
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/hangar)
 "MZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/firedoor/noid,
@@ -7061,6 +7055,29 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/kasf_corvette/mess)
+"NM" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/button/remote/blast_door{
+	pixel_y = 8;
+	pixel_x = -24;
+	dir = 8;
+	id = "port_warehouse_shutters";
+	name = "Port Warehouse Shutters"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/porthangarfoyer)
 "NO" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -7222,6 +7239,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
+"OU" = (
+/obj/structure/machinery/door/airlock/glass_security{
+	name = "Holding Area";
+	id_tag = "kasf_brig_bolts"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "kasf_brig_lockdown"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/brig)
 "OW" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -7366,6 +7398,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/porthangarfoyer)
+"PM" = (
+/obj/structure/machinery/door/airlock/command/gold{
+	dir = 4;
+	name = "Command Center"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/door/blast/regular/open{
+	id = "kasf_cic_lockdown"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/cic)
 "PP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -7378,6 +7422,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/kasf_corvette/mainhall)
+"PQ" = (
+/obj/effect/floor_decal/spline/plain/white{
+	dir = 6
+	},
+/obj/structure/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/kasf_corvette/portwep)
 "PR" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -7392,6 +7450,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"PS" = (
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/structure/machinery/door/window/eastleft,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardwep)
 "PY" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, munitions compartment"
@@ -7475,6 +7543,16 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
+"Qp" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	name = "Port Thruster Pod Access";
+	open_duration = 20
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/porthangarfoyer)
 "Qq" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -7525,20 +7603,30 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardhangarfoyer)
-"QG" = (
+"QC" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/machinery/door/airlock/external{
+	open_duration = 20;
+	name = "Starboard Thruster Pod Access"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/starboardhangarfoyer)
+"QF" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	name = "Hangar";
 	door_color = "#475057"
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/door/firedoor/multi_tile{
@@ -7591,26 +7679,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/dorm)
-"QV" = (
-/obj/structure/table/steel,
-/obj/structure/machinery/alarm/north{
-	req_one_access = list(218)
-	},
-/obj/effect/floor_decal/corner_wide/dark_blue{
-	dir = 5
-	},
-/obj/item/radio/off{
-	pixel_y = 10
-	},
-/obj/item/radio/off{
-	pixel_y = 10
-	},
-/obj/item/binoculars,
-/obj/item/binoculars{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/cic)
 "Ra" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7935,24 +8003,6 @@
 "SJ" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/kasf_corvette/brig)
-"SP" = (
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/door/airlock/security/gold{
-	dir = 4;
-	name = "Armory"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/armory)
 "SU" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -8022,24 +8072,6 @@
 /obj/structure/machinery/computer/ship/engines/terminal,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/portthrust)
-"Tq" = (
-/obj/structure/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Secondary Armament Access"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/atmos)
 "Tt" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cargo bay"
@@ -8179,6 +8211,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/brig)
+"UF" = (
+/obj/structure/machinery/door/airlock/highsecurity{
+	name = "Primary Armament"
+	},
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/starboardwep)
 "UG" = (
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -8219,6 +8264,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
+"UX" = (
+/obj/structure/machinery/door/firedoor/noid,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/door/airlock/security/gold{
+	name = "EVA"
+	},
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled/full,
+/area/ship/kasf_corvette/armory)
 "UZ" = (
 /obj/structure/machinery/light/small/emergency{
 	dir = 8
@@ -8241,6 +8295,23 @@
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
+"Vf" = (
+/obj/effect/floor_decal/corner/orange/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/sign/electricshock{
+	pixel_x = 32
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/vending/robotics,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/engie)
 "Vi" = (
 /obj/structure/machinery/atmospherics/binary/pump/on{
 	dir = 1
@@ -8339,22 +8410,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
-"VI" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/structure/machinery/door/window/eastright{
-	dir = 1
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/plating,
-/area/shuttle/kasf_shuttle)
 "VP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -8391,20 +8446,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
-"VZ" = (
-/obj/effect/floor_decal/spline/plain/white{
-	dir = 10
-	},
-/obj/structure/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/portofcall_police,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/starboardwep)
 "Wa" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -8414,24 +8455,17 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/mess)
-"Wl" = (
-/obj/structure/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Engineering"
+"Wq" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
 	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/engie)
+/obj/structure/machinery/computer/ship/helm/terminal,
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/kasf_shuttle)
 "Wz" = (
 /obj/structure/sign/poster{
 	pixel_x = 32
@@ -8804,20 +8838,6 @@
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/kasf_corvette/mess)
-"Ys" = (
-/obj/structure/machinery/door/airlock/command/gold{
-	name = "Command Center"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/door/blast/regular/open{
-	dir = 4;
-	id = "kasf_cic_lockdown"
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/cic)
 "Yu" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -8904,6 +8924,20 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/kasf_shuttle)
+"YQ" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
+/obj/structure/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = -24
+	},
+/obj/structure/machinery/computer/ship/targeting/terminal{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/kasf_corvette/cic)
 "YV" = (
 /obj/effect/shuttle_landmark/kasf_shuttle/transit,
 /turf/space/transit/north,
@@ -8916,37 +8950,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
-"YY" = (
-/obj/structure/machinery/door/airlock/security{
-	dir = 4;
-	name = "Security"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/brig)
-"Za" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/structure/machinery/door/window/eastright,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/sign/securearea{
-	pixel_y = -32
-	},
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardwep)
 "Zc" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -8964,16 +8967,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/brig)
-"Zd" = (
-/obj/structure/table/rack,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/structure/machinery/door/window/eastleft,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/kasf_corvette/starboardwep)
 "Zf" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden,
@@ -9076,19 +9069,6 @@
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/starboardhangarfoyer)
-"ZE" = (
-/obj/structure/machinery/door/airlock/highsecurity{
-	name = "Primary Armament Munitions Bay"
-	},
-/obj/structure/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/marker/access/req_one/portofcall_police,
-/turf/simulated/floor/tiled/full,
-/area/ship/kasf_corvette/starboardwep)
 "ZH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ship_weapon_dummy,
@@ -9109,6 +9089,26 @@
 /obj/item/ammo_magazine/a357,
 /turf/simulated/floor/carpet/brown,
 /area/ship/kasf_corvette/captain)
+"ZL" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 24;
+	pixel_y = 8;
+	id = "starboard_warehouse_shutters";
+	name = "Starboard Warehouse Shutters"
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/map_effect/marker/access/req_one/portofcall_police,
+/turf/simulated/floor/tiled,
+/area/ship/kasf_corvette/starboardhangarfoyer)
 "ZO" = (
 /obj/structure/machinery/ammunition_loader/francisca{
 	weapon_id = "KASF Francisca Rotary Gun"
@@ -37813,11 +37813,11 @@ Is
 zJ
 zJ
 tj
-Zd
-Za
+PS
+jN
 tj
 OM
-VZ
+HC
 TW
 mG
 ZH
@@ -38326,10 +38326,10 @@ zJ
 ph
 fi
 le
-ZE
+II
 Vv
 Zz
-aw
+UF
 hx
 Yu
 Aw
@@ -38841,8 +38841,8 @@ Bo
 qr
 dY
 tj
-wF
-tS
+AV
+tE
 tj
 tj
 tj
@@ -39353,7 +39353,7 @@ Ie
 SF
 TN
 NB
-mz
+ri
 zJ
 gH
 zJ
@@ -39611,7 +39611,7 @@ DO
 rD
 NB
 zV
-Ms
+Iu
 AM
 Vs
 zJ
@@ -39845,9 +39845,9 @@ uW
 HE
 yv
 al
-FV
+bW
 Yn
-sk
+QC
 he
 bn
 UG
@@ -40095,20 +40095,20 @@ KO
 iZ
 rQ
 Ug
-nJ
+BW
 gO
 zm
-Ch
+lK
 bF
 jl
 zB
-rU
+uk
 ij
-BB
+HK
 Os
 nn
 nf
-qy
+ZL
 Jq
 Mx
 qD
@@ -40123,8 +40123,8 @@ zJ
 Xt
 vH
 jd
-EY
-Lv
+Vf
+aD
 zJ
 wR
 zJ
@@ -40378,7 +40378,7 @@ Sw
 Sw
 zJ
 zJ
-Wl
+Jk
 zJ
 zJ
 zJ
@@ -40622,13 +40622,13 @@ Is
 DN
 DN
 DN
-Li
+aP
 Pv
 zS
 xW
 un
 fE
-jH
+ed
 ax
 oh
 PP
@@ -41137,15 +41137,15 @@ be
 be
 be
 Qe
-MY
+QF
 Ui
 Ui
-SP
+FL
 Ui
 yx
 yx
 yx
-Ju
+PM
 yx
 yx
 LG
@@ -41662,7 +41662,7 @@ xg
 yp
 JL
 yr
-Ys
+HP
 Uo
 hG
 Sa
@@ -41909,12 +41909,12 @@ mH
 uA
 xn
 XL
-BN
+UX
 CW
 Py
 Ui
 yx
-QV
+LI
 zF
 yp
 vq
@@ -41925,7 +41925,7 @@ Si
 pO
 Sa
 Sa
-Mi
+mC
 Sa
 Sa
 Sa
@@ -42175,7 +42175,7 @@ kr
 zF
 yp
 xg
-kP
+eI
 yx
 BQ
 Nr
@@ -42411,10 +42411,10 @@ uE
 Ok
 xn
 OS
-GA
+Wq
 ED
 Rh
-VI
+FS
 MT
 IO
 YN
@@ -42689,7 +42689,7 @@ hf
 zF
 DF
 xg
-DG
+YQ
 yx
 DK
 Dr
@@ -42713,7 +42713,7 @@ FE
 NO
 za
 SJ
-YY
+pK
 SJ
 SJ
 XK
@@ -42937,7 +42937,7 @@ mH
 uA
 xn
 LT
-BN
+UX
 CW
 NV
 Ui
@@ -42966,13 +42966,13 @@ lZ
 Nd
 Nd
 Nd
-mu
+jO
 Nd
 Nd
 SJ
 fw
 cP
-JY
+OU
 yE
 wU
 Pi
@@ -43204,7 +43204,7 @@ YK
 Ke
 ya
 Zj
-eR
+bQ
 Lz
 SI
 CM
@@ -43467,7 +43467,7 @@ ec
 CM
 OT
 Sm
-yQ
+KM
 qT
 eM
 IM
@@ -43707,15 +43707,15 @@ be
 be
 be
 zK
-QG
+oz
 Ui
 Ui
-uH
+gm
 Ui
 yx
 yx
 yx
-Ju
+PM
 yx
 yx
 sQ
@@ -43969,7 +43969,7 @@ sI
 cR
 Fa
 lU
-qM
+ho
 ep
 ru
 Of
@@ -44220,7 +44220,7 @@ BT
 uI
 uI
 uI
-IK
+kl
 dp
 hn
 rz
@@ -44490,7 +44490,7 @@ Sw
 Sw
 ns
 ns
-hK
+zs
 ns
 ns
 ns
@@ -44721,20 +44721,20 @@ QQ
 by
 ze
 yy
-mW
+xo
 Sn
 Bg
-tU
+Kw
 fc
 qS
 ZB
-vI
+ck
 ao
-xS
+xM
 Jz
 zx
 qU
-ub
+NM
 FU
 KT
 zn
@@ -44985,9 +44985,9 @@ Cb
 ae
 mZ
 Dx
-oB
+lc
 rS
-ob
+Qp
 Ns
 HA
 gI
@@ -45776,7 +45776,7 @@ Is
 ns
 ns
 ns
-Tq
+Ik
 ns
 ns
 ns
@@ -46550,10 +46550,10 @@ ns
 LF
 qo
 pw
-nQ
+Gf
 vN
 Bt
-xO
+gi
 BV
 Es
 KW
@@ -47069,7 +47069,7 @@ zL
 Ec
 iv
 gY
-fG
+PQ
 ff
 gz
 Rs

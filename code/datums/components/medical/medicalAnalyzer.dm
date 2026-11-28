@@ -30,6 +30,36 @@
 /datum/component/health_analyzer/simple
 	device_level = 1
 
+/datum/component/health_analyzer/pda
+	name = "PDA health analyzer"
+	device_level = 2
+
+/datum/component/health_analyzer/vitals
+	name = "vitals monitor"
+
+/datum/component/health_analyzer/vitals/ui_interact(mob/user, datum/tgui/ui)
+	..()
+	ui = SStgui.get_open_ui(user, src)
+	ui?.set_autoupdate(FALSE)
+	var/obj/item/vitals_monitor/monitor = owner
+	monitor.next_ui_update = world.time + 2 SECONDS
+
+/datum/component/health_analyzer/vitals/ui_status(mob/user, datum/ui_state/state)
+	var/obj/item/vitals_monitor/monitor = owner
+	return (monitor?.bed && monitor.bed.Adjacent(user)) ? UI_INTERACTIVE : UI_CLOSE
+
+/datum/component/health_analyzer/vitals/ui_data(mob/user)
+	var/obj/item/vitals_monitor/monitor = owner
+	var/mob/living/carbon/human/patient = monitor?.get_patient()
+	if(patient)
+		health_scan_mob(patient, user, TRUE, FALSE, FALSE)
+	else
+		clear_scan()
+		scan_title = "No patient detected"
+	var/list/data = ..()
+	data["can_clear"] = FALSE
+	return data
+
 /datum/component/health_analyzer/mech
 	name = "mech health analyzer"
 
@@ -61,6 +91,7 @@
 
 /datum/component/health_analyzer/ui_data(mob/user)
 	var/list/data = list()
+	data["can_clear"] = TRUE
 	data["scan_title"] = scan_title
 	data["status_results"] = status_results
 	data["trauma_results"] = trauma_results
@@ -76,13 +107,16 @@
 
 	switch(action)
 		if("clear_list")
-			scan_title = null
-			status_results = list()
-			trauma_results = list()
-			limb_results = list()
-			internal_results = list()
-			reagent_results = list()
+			clear_scan()
 			return TRUE
+
+/datum/component/health_analyzer/proc/clear_scan()
+	scan_title = null
+	status_results = list()
+	trauma_results = list()
+	limb_results = list()
+	internal_results = list()
+	reagent_results = list()
 
 /datum/component/health_analyzer/ui_status(mob/user, datum/ui_state/state)
 	var/obj/item/rig_module/containing_rig_module = owner?.loc
@@ -103,6 +137,8 @@
 	var/time = max(5 - (0.5 * (device_level + (anatomy ? anatomy : 1))), 1)
 
 	if(do_after(user, time SECONDS, target_mob)) //This can't be DO_UNIQUE because prevents two people from scanning the same patient.
+		if(!owner.consume_analyzer_power(user))
+			return
 		flick("[owner.icon_state]-scan", owner)
 
 		health_scan_mob(target_mob, user, FALSE, sound_scan = sound_scan)
@@ -114,18 +150,15 @@
 
 /datum/component/health_analyzer/proc/attack_self(mob/user)
 	if(scan_title == "" || scan_title == null)
+		if(!owner.consume_analyzer_power(user))
+			return
 		health_scan_mob(user, user, FALSE, sound_scan = sound_scan)
 	ui_interact(user)
 
 	owner.add_fingerprint(user)
 
-/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/just_scan = FALSE, var/sound_scan = FALSE)
-	scan_title = null
-	status_results = list()
-	trauma_results = list()
-	limb_results = list()
-	internal_results = list()
-	reagent_results = list()
+/datum/component/health_analyzer/proc/health_scan_mob(var/mob/M, var/mob/user, var/just_scan = FALSE, var/sound_scan = FALSE, var/open_ui = TRUE)
+	clear_scan()
 
 	if(!just_scan)
 		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
@@ -155,7 +188,8 @@
 	scan_title = "Scan results for \the [H]"
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, SPAN_WARNING("This scanner is designed for organic humanoid patients only."))
+		if(!just_scan)
+			to_chat(user, SPAN_WARNING("This scanner is designed for organic humanoid patients only."))
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
@@ -402,7 +436,8 @@
 			dat += "No results."
 
 	reagent_results += dat
-	ui_interact(user)
+	if(open_ui)
+		ui_interact(user)
 
 #undef SPAN_SCAN_GREEN
 #undef SPAN_SCAN_BLUE

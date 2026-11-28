@@ -168,10 +168,10 @@
 /area/ouerea_guild_mining)
 "ps" = (
 /obj/structure/table/rack,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/structure/machinery/light,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 298.15

@@ -1,4 +1,5 @@
 /obj/item/radio/electropack
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	name = "electropack"
 	desc = "Dance my monkeys! DANCE!!!"

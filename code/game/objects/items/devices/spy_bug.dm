@@ -178,6 +178,7 @@
 	return FALSE
 
 /obj/item/radio/spy
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	canhear_range = 7
 	name = "spy device"

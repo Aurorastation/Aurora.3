@@ -329,6 +329,7 @@
 
 /// Special health analyzer used by the exosuit health analyzer.
 /obj/item/healthanalyzer/mech
+	uses_device_cell = FALSE
 	name = "mounted health analyzer"
 	var/obj/structure/machinery/body_scanconsole/connected = null
 	/// Toggle whether to do full or basic scan

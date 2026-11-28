@@ -1256,8 +1256,8 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/tiled/dark/full,
@@ -3177,12 +3177,12 @@
 	},
 /obj/structure/machinery/cell_charger,
 /obj/random/powercell,
-/obj/item/radio/off,
+/obj/item/radio,
 /obj/item/analyzer,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/plastique/seismic{
 	pixel_y = 15;
 	pixel_x = -5

@@ -59,7 +59,18 @@ var/global/list/default_interrogation_channels = list(
 	/// volume of clicksound
 	var/clickvol = 10
 
-	var/obj/item/cell/cell = /obj/item/cell/device
+	/// Only handheld shortwaves opt into this. Other radio families override it.
+	var/uses_device_cell = TRUE
+	var/datum/device_power_supply/power_supply
+	/// A standard 250 charge device cell lasts two hours in standby.
+	var/power_usage_per_second = 250 / (2 * 60 * 60)
+	/// A full standard cell supports 500 transmissions before standby drain.
+	var/transmit_power_cost = 250 / 500
+	/// A full standard cell supports 1000 received messages before standby drain.
+	var/receive_power_cost = 250 / 1000
+	/// Optional wearable radio used as this shortwave's microphone and speaker.
+	var/datum/weakref/connected_audio_accessory
+	var/route_audio_to_accessory = FALSE
 	var/last_radio_sound = -INFINITY
 
 	/// Whether to show screen overlays or not.
@@ -125,9 +136,19 @@ var/global/list/default_interrogation_channels = list(
 		. += "The following channels are available:"
 		. += radio_desc
 
+	if(uses_device_cell && distance <= 1)
+		. += "It is switched <b>[power_supply?.powered ? "on" : "off"]</b>."
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
 /obj/item/radio/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The radio key .i will allow you to speak into a nearby intercom, .r will speak into a radio in your right hand, and .l will speak into your left. The microphone does not need to be enabled for this to work."
+	if(uses_device_cell)
+		. += "ALT-click to turn the radio on or off. While holding it, click it with your empty hand to remove its device power cell."
+		. += "Use a headset, wristbound radio, or clip-on radio on the shortwave to connect or disconnect it as the shortwave's microphone and speaker."
 
 /obj/item/radio/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
@@ -141,6 +162,8 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/radio/Initialize()
 	. = ..()
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
 
 	wires = new(src)
 	internal_channels = set_internal_channels()
@@ -154,10 +177,15 @@ var/global/list/default_interrogation_channels = list(
 	set_listening(listening)
 	set_broadcasting(broadcasting)
 	set_frequency(default_frequency)
-	set_on(on)
+	set_on(uses_device_cell ? FALSE : on)
+	if(uses_device_cell)
+		START_PROCESSING(SSprocessing, src)
 
 /obj/item/radio/Destroy()
 	SSradio.remove_object_all(src)
+	disconnect_audio_accessory()
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(power_supply)
 	QDEL_NULL(wires)
 	return ..()
 
@@ -184,6 +212,98 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/radio/proc/get_listening()
 	return listening
+
+/obj/item/radio/proc/get_connected_audio_wearer()
+	if(!validate_audio_accessory_distance())
+		return
+	var/obj/item/radio/headset/accessory = connected_audio_accessory?.resolve()
+	if(!istype(accessory) || !ishuman(accessory.loc))
+		return
+	var/mob/living/carbon/human/wearer = accessory.loc
+	if(wearer.l_ear != accessory && wearer.r_ear != accessory && wearer.wrists != accessory)
+		return
+	if(get_atom_on_turf(src) != wearer)
+		return
+	return wearer
+
+/// Disconnect audio accessories which are no longer close enough to have a physical connection.
+/obj/item/radio/proc/validate_audio_accessory_distance()
+	if(!connected_audio_accessory)
+		return TRUE
+
+	var/obj/item/radio/headset/accessory = connected_audio_accessory.resolve()
+	if(!istype(accessory))
+		disconnect_audio_accessory()
+		return FALSE
+
+	var/turf/radio_turf = get_turf(src)
+	var/turf/accessory_turf = get_turf(accessory)
+	if(!radio_turf || !accessory_turf || radio_turf.z != accessory_turf.z || get_dist(radio_turf, accessory_turf) > 1)
+		disconnect_audio_accessory()
+		return FALSE
+
+	return TRUE
+
+/obj/item/radio/proc/connect_audio_accessory(obj/item/radio/headset/accessory, mob/user)
+	if(!uses_device_cell)
+		return FALSE
+	if(connected_audio_accessory?.resolve() == accessory)
+		disconnect_audio_accessory()
+		to_chat(user, SPAN_NOTICE("You disconnect \the [accessory] from \the [src]."))
+		return TRUE
+
+	accessory.disconnect_shortwave()
+	disconnect_audio_accessory()
+	connected_audio_accessory = WEAKREF(accessory)
+	accessory.linked_shortwave = WEAKREF(src)
+	route_audio_to_accessory = TRUE
+	canhear_range = accessory.canhear_range
+	to_chat(user, SPAN_NOTICE("You connect \the [accessory] to \the [src]."))
+	SStgui.update_uis(src)
+	return TRUE
+
+/obj/item/radio/proc/disconnect_audio_accessory(preserve_route = FALSE)
+	var/obj/item/radio/headset/accessory = connected_audio_accessory?.resolve()
+	connected_audio_accessory = null
+	if(accessory?.linked_shortwave?.resolve() == src)
+		accessory.linked_shortwave = null
+	if(!preserve_route)
+		route_audio_to_accessory = FALSE
+	canhear_range = route_audio_to_accessory ? 0 : initial(canhear_range)
+	SStgui.update_uis(src)
+
+/obj/item/radio/get_cell()
+	return power_supply?.cell
+
+/obj/item/radio/process(seconds_per_tick)
+	validate_audio_accessory_distance()
+	if(!uses_device_cell || !power_supply?.powered)
+		return
+	power_supply.use(power_usage_per_second * seconds_per_tick)
+
+/obj/item/radio/AltClick(mob/user)
+	if(!uses_device_cell || !user.Adjacent(src))
+		return ..()
+	power_supply.toggle_power(user)
+
+/obj/item/radio/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/radio/on_device_power_change(powered, mob/user)
+	set_on(powered)
+	if(user)
+		balloon_alert(user, "switched [powered ? "on" : "off"]")
+	else if(!powered)
+		audible_message(SPAN_WARNING("\The [src] emits a low-power chirp and switches off."), hearing_distance = 1)
+	update_icon()
+	SStgui.update_uis(src)
+
+/obj/item/radio/on_device_cell_changed()
+	update_icon()
+	SStgui.update_uis(src)
 
 /**
  * setter for the listener var, adds or removes this radio from the global radio list if we are also on
@@ -263,6 +383,14 @@ var/global/list/default_interrogation_channels = list(
 	data["freq"] = frequency
 	data["default_freq"] = default_frequency
 	data["rawfreq"] = frequency
+	data["powered"] = uses_device_cell ? power_supply?.powered : on
+	data["uses_cell"] = uses_device_cell
+	data["has_cell"] = !!power_supply?.cell
+	data["charge"] = power_supply?.cell ? power_supply.cell.percent() : 0
+	var/obj/item/radio/headset/audio_accessory = connected_audio_accessory?.resolve()
+	data["audio_accessory"] = audio_accessory ? audio_accessory.name : null
+	data["route_to_accessory"] = route_audio_to_accessory
+	data["audio_accessory_available"] = !!get_connected_audio_wearer()
 
 	data["mic_cut"] = (wires.is_cut(WIRE_TRANSMIT) || wires.is_cut(WIRE_SIGNAL))
 	data["spk_cut"] = (wires.is_cut(WIRE_RECEIVE) || wires.is_cut(WIRE_SIGNAL))
@@ -287,6 +415,8 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/radio/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return TRUE
+	if(uses_device_cell && !power_supply?.powered && action != "toggle_power" && action != "toggle_audio_route")
+		return FALSE
 
 	if(action == "start_track")
 		var/mob/target = locate(params["target"])
@@ -306,6 +436,18 @@ var/global/list/default_interrogation_channels = list(
 		. = TRUE
 	else if (action == "toggle_talk")
 		set_broadcasting(!broadcasting)
+		. = TRUE
+	else if(action == "toggle_power")
+		if(uses_device_cell)
+			power_supply.toggle_power(usr)
+		. = TRUE
+	else if(action == "toggle_audio_route")
+		route_audio_to_accessory = !route_audio_to_accessory
+		if(route_audio_to_accessory)
+			var/obj/item/radio/headset/audio_accessory = connected_audio_accessory?.resolve()
+			canhear_range = audio_accessory ? audio_accessory.canhear_range : 0
+		else
+			canhear_range = initial(canhear_range)
 		. = TRUE
 	else if (action == "toggle_listen")
 		var/channel_name = num2text(params["channel_name"])
@@ -407,7 +549,7 @@ var/global/list/default_interrogation_channels = list(
 			"}
 
 /obj/item/radio/ui_status(mob/user, datum/ui_state/state)
-	if(!on)
+	if(!on && !uses_device_cell)
 		return UI_CLOSE
 	return ..()
 
@@ -501,6 +643,8 @@ var/global/list/default_interrogation_channels = list(
 	var/datum/radio_frequency/connection = handle_message_mode(M, message, channel)
 	if (!istype(connection))
 		return FALSE
+	if(uses_device_cell && !power_supply.use(transmit_power_cost))
+		return FALSE
 
 	// Determine the identify information attached to the signal
 	var/datum/weakref/speaker_weakref = WEAKREF(M)
@@ -517,6 +661,8 @@ var/global/list/default_interrogation_channels = list(
 	addtimer(CALLBACK(src, PROC_REF(backup_transmission), signal), 2 SECONDS)
 
 /obj/item/radio/proc/backup_transmission(datum/signal/subspace/vocal/signal)
+	if(!on)
+		return
 	var/turf/T = get_turf(src)
 	if (signal.data["done"] && (T.z in signal.levels))
 		return
@@ -536,6 +682,8 @@ var/global/list/default_interrogation_channels = list(
 /// Received speech is presented at the receiver, while the payload retains the original speaker.
 /obj/item/radio/proc/on_receive_message(list/data, datum/say_message/msg, list/recipients)
 	if(!on || !listening || !get_turf(src))
+		return
+	if(uses_device_cell && !power_supply.use(receive_power_cost))
 		return
 	SEND_SIGNAL(src, COMSIG_RADIO_RECEIVE_MESSAGE, data)
 	if(QDELETED(src) || !runechat_on_receive)
@@ -578,6 +726,8 @@ var/global/list/default_interrogation_channels = list(
 	// check if the radio can receive on the given frequency
 	if (!listening)
 		return
+	if(route_audio_to_accessory && !get_connected_audio_wearer())
+		return FALSE
 
 	if (levels != RADIO_NO_Z_LEVEL_RESTRICTION)
 		var/turf/position = get_turf(src)
@@ -607,6 +757,12 @@ var/global/list/default_interrogation_channels = list(
 	return get_hearers_in_view(canhear_range, src)
 
 /obj/item/radio/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/radio/headset))
+		connect_audio_accessory(attacking_item, user)
+		return
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
 	..()
 	user.set_machine(src)
 	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER ))
@@ -624,6 +780,8 @@ var/global/list/default_interrogation_channels = list(
 
 /obj/item/radio/emp_act(severity)
 	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
 
 	set_broadcasting(FALSE)
 	set_listening(FALSE)
@@ -635,6 +793,7 @@ var/global/list/default_interrogation_channels = list(
 //
 
 /obj/item/radio/borg
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	var/mob/living/silicon/robot/myborg = null // Cyborg which owns this radio. Used for power checks
 	var/obj/item/encryptionkey/keyslot = null//Borg radios can handle a single encryption key
@@ -843,49 +1002,25 @@ var/global/list/default_interrogation_channels = list(
 	)
 	return ..()
 
-// Radio (Off)
-/obj/item/radio/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Medical
 /obj/item/radio/med
 	icon_state = "walkietalkie-med"
-
-// Medical (Off)
-/obj/item/radio/med/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
 
 // Security
 /obj/item/radio/sec
 	icon_state = "walkietalkie-sec"
 
-// Security (Off)
-/obj/item/radio/sec/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Engineering
 /obj/item/radio/eng
 	icon_state = "walkietalkie-eng"
-
-// Engineering (Off)
-/obj/item/radio/eng/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
 
 // Science
 /obj/item/radio/sci
 	icon_state = "walkietalkie-sci"
 
-// Science (Off)
-/obj/item/radio/sci/off/Initialize()
-	. = ..()
-	set_listening(FALSE)
-
 // Phone
 /obj/item/radio/phone
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"

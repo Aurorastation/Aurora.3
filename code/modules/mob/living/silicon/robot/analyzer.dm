@@ -18,12 +18,67 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(MATERIAL_STEEL = 500, MATERIAL_GLASS = 200)
 	var/analyzer_component_type = /datum/component/robotics_analyzer
+	var/uses_device_cell = TRUE
+	var/datum/device_power_supply/power_supply
+	var/scan_power_cost = 10
 
 /obj/item/robotanalyzer/Initialize(mapload, ...)
 	. = ..()
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
 	LoadComponent(analyzer_component_type)
 
+/obj/item/robotanalyzer/Destroy()
+	QDEL_NULL(power_supply)
+	return ..()
+
+/obj/item/robotanalyzer/emp_act(severity)
+	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
+
+/obj/item/robotanalyzer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell && distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/robotanalyzer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell)
+		. += "It uses one twenty-fifth of a standard device cell per scan."
+
+/obj/item/robotanalyzer/consume_analyzer_power(mob/user)
+	if(!uses_device_cell)
+		return TRUE
+	if(!power_supply.use_per_use(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return FALSE
+	return TRUE
+
+/obj/item/robotanalyzer/get_cell()
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
+
+/obj/item/robotanalyzer/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/robotanalyzer/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
+
 /obj/item/robotanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(uses_device_cell && !power_supply?.has_charge(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return
 	var/datum/component/robotics_analyzer/analyzer = GetComponent(analyzer_component_type)
 	if(analyzer)
 		analyzer.attack(target_mob, user)
@@ -83,17 +138,23 @@
 	tesla_results = list()
 
 /datum/component/robotics_analyzer/proc/attack(mob/living/target_mob, mob/living/user)
+	if(!owner.consume_analyzer_power(user))
+		return
 	robotics_scan_mob(target_mob, user)
 	ui_interact(user)
 	owner.add_fingerprint(user)
 
 /datum/component/robotics_analyzer/proc/attack_self(mob/living/user)
 	if(!scan_title)
+		if(!owner.consume_analyzer_power(user))
+			return
 		robotics_scan_mob(user, user)
 	ui_interact(user)
 	owner.add_fingerprint(user)
 
 /datum/component/robotics_analyzer/proc/attack_mech(mob/living/heavy_vehicle/mech, mob/living/user)
+	if(!owner.consume_analyzer_power(user))
+		return
 	clear_scan()
 	user.visible_message(SPAN_NOTICE("\The [user] has analyzed \the [mech]'s components."), SPAN_NOTICE("You have analyzed \the [mech]'s components."))
 	scan_title = "Diagnostic report for [mech]"
@@ -318,6 +379,7 @@
 		. = "minor"
 
 /obj/item/robotanalyzer/augment
+	uses_device_cell = FALSE
 	name = "retractable cyborg analyzer"
 	desc = "A scanner implanted directly into the hand and deployed through a finger. It can diagnose robotic injuries and prosthetic damage."
 	slot_flags = null

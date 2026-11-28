@@ -209,6 +209,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
+"dw" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "dE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/railing/mapped{
@@ -241,6 +251,14 @@
 	},
 /obj/effect/floor_decal/industrial/loading/security,
 /turf/simulated/floor/tiled/white,
+/area/scc_event_shuttle)
+"eE" = (
+/obj/structure/machinery/door/airlock/centcom{
+	dir = 4;
+	name = "Power Maintanence"
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
+/turf/simulated/floor/tiled/full,
 /area/scc_event_shuttle)
 "eF" = (
 /obj/structure/table/rack/retail_shelf{
@@ -407,16 +425,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/scc_event_shuttle)
-"gJ" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "";
-	name = "Bridge Officer Preparation"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker/access/req_all/heads,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "hq" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -774,6 +782,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
+"mV" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 1;
+	id_tag = "bridge_foyer";
+	name = "Bridge"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_one/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "nj" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
@@ -880,6 +898,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
+"pi" = (
+/obj/structure/machinery/door/airlock/glass_command{
+	dir = 4;
+	id_tag = "";
+	name = "Bridge Officer Preparation"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/heads,
+/turf/simulated/floor/tiled/dark/full,
+/area/scc_event_shuttle)
 "pk" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -912,18 +942,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
-"qh" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 4;
-	id_tag = "";
-	name = "Bridge Officer Preparation"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/heads,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "qr" = (
 /obj/structure/machinery/bodyscanner{
@@ -2165,58 +2183,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
-"HS" = (
-/obj/structure/table/rack/retail_shelf{
-	name = "shelves"
-	},
-/obj/item/storage/box/led_collars{
-	pixel_y = -5;
-	pixel_x = 6
-	},
-/obj/item/storage/box/led_collars{
-	pixel_y = -5;
-	pixel_x = 6
-	},
-/obj/item/storage/box/led_collars{
-	pixel_y = -5;
-	pixel_x = 6
-	},
-/obj/item/storage/box/led_collars{
-	pixel_y = -5;
-	pixel_x = 6
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/obj/item/radio/off{
-	pixel_x = -8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/scc_event_shuttle)
 "Ia" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
@@ -2383,6 +2349,58 @@
 	id = "shuttle_blast_doors"
 	},
 /turf/simulated/floor,
+/area/scc_event_shuttle)
+"Kg" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -5;
+	pixel_x = 6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -5;
+	pixel_x = 6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -5;
+	pixel_x = 6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -5;
+	pixel_x = 6
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/obj/item/radio{
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "Kh" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2912,14 +2930,6 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
-"Sa" = (
-/obj/structure/machinery/door/airlock/centcom{
-	dir = 4;
-	name = "Power Maintanence"
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_specops,
-/turf/simulated/floor/tiled/full,
-/area/scc_event_shuttle)
 "Sd" = (
 /obj/structure/machinery/light/floor{
 	pixel_x = 16
@@ -3053,34 +3063,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
-"Tw" = (
-/obj/structure/table/standard,
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/radio/off{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/flashlight{
-	pixel_y = 9;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = 3;
-	pixel_x = -9
-	},
-/obj/item/flashlight{
-	pixel_y = -3;
-	pixel_x = -9
-	},
-/turf/simulated/floor/tiled,
-/area/scc_event_shuttle)
 "Ty" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
@@ -3125,16 +3107,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/scc_event_shuttle)
-"UB" = (
-/obj/structure/machinery/door/airlock/glass_command{
-	dir = 1;
-	id_tag = "bridge_foyer";
-	name = "Bridge"
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/effect/map_effect/marker/access/req_one/heads,
-/turf/simulated/floor/tiled/dark/full,
 /area/scc_event_shuttle)
 "UE" = (
 /obj/structure/machinery/door/blast/regular/open{
@@ -3288,6 +3260,34 @@
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
 /turf/simulated/floor/tiled/dark,
+/area/scc_event_shuttle)
+"XW" = (
+/obj/structure/table/standard,
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/radio{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/flashlight{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = 3;
+	pixel_x = -9
+	},
+/obj/item/flashlight{
+	pixel_y = -3;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Ya" = (
 /obj/structure/window/reinforced{
@@ -3719,7 +3719,7 @@ eZ
 kJ
 Bh
 NZ
-gJ
+dw
 kM
 SZ
 ve
@@ -3800,7 +3800,7 @@ cL
 Bh
 gb
 NI
-Tw
+XW
 yh
 YB
 si
@@ -3841,7 +3841,7 @@ Bh
 gb
 NI
 NI
-qh
+pi
 NI
 NI
 NI
@@ -3919,7 +3919,7 @@ Cz
 ZB
 Bh
 NZ
-UB
+mV
 Ta
 Bh
 Zy
@@ -3930,7 +3930,7 @@ lc
 tG
 NI
 NI
-Sa
+eE
 NI
 NI
 pw
@@ -4119,7 +4119,7 @@ eZ
 kJ
 Bh
 NZ
-UB
+mV
 Ta
 Bh
 HB
@@ -4382,7 +4382,7 @@ Dg
 vo
 Bh
 NI
-HS
+Kg
 CY
 Gl
 AI

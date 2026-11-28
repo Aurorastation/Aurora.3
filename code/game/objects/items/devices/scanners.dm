@@ -22,18 +22,70 @@ BREATH ANALYZER
 	throw_range = 10
 	matter = list(MATERIAL_ALUMINIUM = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
+	var/uses_device_cell = TRUE
+	var/datum/device_power_supply/power_supply
+	var/scan_power_cost = 250 / 40
 
 /obj/item/healthanalyzer/Initialize(mapload, ...)
 	. = ..()
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
 	src.LoadComponent(/datum/component/health_analyzer)
 	flick("[icon_state]-scan", src)
+
+/obj/item/healthanalyzer/Destroy()
+	QDEL_NULL(power_supply)
+	return ..()
+
+/obj/item/healthanalyzer/emp_act(severity)
+	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
 
 /obj/item/healthanalyzer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Health analyzers are faster at scanning people, the higher grade it is and the higher the anatomy skill of the user is."
 	. += "Clicking it in hand will pull up the last scan, if it has not been cleared."
+	if(uses_device_cell)
+		. += "It uses one fortieth of a standard device cell per completed scan."
+
+/obj/item/healthanalyzer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell && distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/healthanalyzer/consume_analyzer_power(mob/user)
+	if(!uses_device_cell)
+		return TRUE
+	if(!power_supply.use_per_use(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return FALSE
+	return TRUE
+
+/obj/item/healthanalyzer/get_cell()
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
+
+/obj/item/healthanalyzer/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/healthanalyzer/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
 
 /obj/item/healthanalyzer/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(uses_device_cell && !power_supply?.has_charge(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return
 	var/datum/component/health_analyzer/h_analyzer = src.GetComponent(/datum/component/health_analyzer)
 	if(!h_analyzer)
 		return
@@ -117,6 +169,61 @@ BREATH ANALYZER
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
+	var/uses_device_cell = TRUE
+	var/datum/device_power_supply/power_supply
+	var/scan_power_cost = 10
+
+/obj/item/analyzer/Initialize()
+	. = ..()
+	if(istype(loc, /obj/item/robot_module) || issilicon(loc))
+		uses_device_cell = FALSE
+	if(uses_device_cell)
+		power_supply = new(src, /obj/item/cell/device, FALSE)
+
+/obj/item/analyzer/Destroy()
+	QDEL_NULL(power_supply)
+	return ..()
+
+/obj/item/analyzer/emp_act(severity)
+	. = ..()
+	if(uses_device_cell)
+		power_supply.emp_act(severity)
+
+/obj/item/analyzer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell && distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/analyzer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(uses_device_cell)
+		. += "It uses one twenty-fifth of a standard device cell per scan."
+
+/obj/item/analyzer/consume_analyzer_power(mob/user)
+	if(!uses_device_cell)
+		return TRUE
+	if(!power_supply.use_per_use(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return FALSE
+	return TRUE
+
+/obj/item/analyzer/get_cell()
+	return uses_device_cell ? power_supply?.cell : DEVICE_NO_CELL
+
+/obj/item/analyzer/attack_hand(mob/user)
+	if(uses_device_cell && user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/analyzer/attackby(obj/item/attacking_item, mob/user)
+	if(uses_device_cell && istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
 
 /obj/item/analyzer/atmosanalyze(var/mob/user)
 	if(!user) return
@@ -131,6 +238,8 @@ BREATH ANALYZER
 		return
 	if (!usr.IsAdvancedToolUser())
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
+		return
+	if(!consume_analyzer_power(user))
 		return
 
 	analyze_gases(src, user)

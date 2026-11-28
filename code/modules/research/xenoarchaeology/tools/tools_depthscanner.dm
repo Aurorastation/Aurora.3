@@ -14,6 +14,47 @@
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
 	var/datum/depth_scan/current
+	var/datum/device_power_supply/power_supply
+	var/scan_power_cost = 10
+
+/obj/item/depth_scanner/Initialize()
+	. = ..()
+	power_supply = new(src, /obj/item/cell/device, FALSE)
+
+/obj/item/depth_scanner/Destroy()
+	QDEL_NULL(power_supply)
+	return ..()
+
+/obj/item/depth_scanner/emp_act(severity)
+	. = ..()
+	power_supply.emp_act(severity)
+
+/obj/item/depth_scanner/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(power_supply?.cell)
+			. += "Its power cell has <b>[round(power_supply.cell.percent())]%</b> charge remaining."
+		else
+			. += SPAN_WARNING("It has no power cell installed.")
+
+/obj/item/depth_scanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A standard device cell powers twenty-five scans."
+
+/obj/item/depth_scanner/get_cell()
+	return power_supply?.cell
+
+/obj/item/depth_scanner/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src && power_supply?.cell)
+		power_supply.eject_cell(user)
+		return
+	return ..()
+
+/obj/item/depth_scanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
+		power_supply.install_cell(attacking_item, user)
+		return
+	return ..()
 
 /datum/depth_scan
 	var/time = ""
@@ -25,6 +66,9 @@
 	var/material = "unknown"
 
 /obj/item/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
+	if(!power_supply.use_per_use(scan_power_cost))
+		balloon_alert(user, "not enough charge!")
+		return
 	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A

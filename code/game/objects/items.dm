@@ -312,6 +312,10 @@
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
 
+/// Portable analyzers override this; integrated analyzer components remain free.
+/atom/proc/consume_analyzer_power(mob/user)
+	return TRUE
+
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_held_icon()
 	if(ismob(src.loc))

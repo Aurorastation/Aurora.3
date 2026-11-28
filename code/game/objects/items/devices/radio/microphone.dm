@@ -1,5 +1,6 @@
 #define MICROPHONE_LISTEN_RANGE 5
 /obj/item/radio/microphone
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	name = "handheld microphone"
 	desc = "A handheld microphone, used for on-the-fly interviewing. Pose for the fans!"

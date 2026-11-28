@@ -3,6 +3,7 @@ import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type HealthAnalyzerData = {
+  can_clear: boolean;
   scan_title?: string;
   status_results: string[];
   trauma_results: string[];
@@ -19,6 +20,7 @@ type LimbResult = {
 export const HealthAnalyzer = (props) => {
   const { act, data } = useBackend<HealthAnalyzerData>();
   const {
+    can_clear,
     scan_title,
     status_results,
     trauma_results,
@@ -33,11 +35,11 @@ export const HealthAnalyzer = (props) => {
         {/* Basic info, brain damage and such */}
         <Section
           title={scan_title || 'Health Analyzer'}
-          buttons={
+          buttons={can_clear && (
             <Button icon={'fa-notes-medical'} onClick={() => act('clear_list')}>
               Clear scan
             </Button>
-          }
+          )}
         >
           {!status_results?.length ? (
             <Box color="label">No scan data.</Box>

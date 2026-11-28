@@ -96,6 +96,8 @@
 	if(!grown_seed)
 		to_chat(user, SPAN_DANGER("[src] can tell you nothing about \the [target]."))
 		return
+	if(!consume_analyzer_power(user))
+		return
 
 	form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"
 	var/dat = "<h3>Plant data for [form_title]</h3>"

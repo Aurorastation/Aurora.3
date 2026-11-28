@@ -1,7 +1,10 @@
 import {
+  Box,
   Button,
   Input,
   LabeledControls,
+  LabeledList,
+  ProgressBar,
   Section,
   Table,
 } from 'tgui-core/components';
@@ -13,6 +16,10 @@ export type GPSData = {
   own_tag: string;
   tracking_list: Tracking[];
   compass_list: string[];
+  powered: BooleanLike;
+  has_cell: BooleanLike;
+  uses_cell: BooleanLike;
+  charge: number;
 };
 
 type Tracking = {
@@ -27,11 +34,18 @@ type GPSDevice = {
   pos_z: number;
   area: string;
   emped: BooleanLike;
+  powered: BooleanLike;
+  offline_for: number;
   compass_color: string;
 };
 
 export const GPS = (props) => {
   const { act, data } = useBackend<GPSData>();
+  const formatOfflineAge = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')} ago`;
+  };
 
   return (
     <Window>
@@ -40,20 +54,59 @@ export const GPS = (props) => {
           title="Controls"
           buttons={
             <>
-              <Button content="Track All" onClick={() => act('add_all')} />
-              <Button content="Untrack All" onClick={() => act('clear_all')} />
+              <Button
+                content="Track All"
+                disabled={!data.powered}
+                onClick={() => act('add_all')}
+              />
+              <Button
+                content="Untrack All"
+                disabled={!data.powered}
+                onClick={() => act('clear_all')}
+              />
             </>
           }
         >
+          <Box mb={1}>
+            <LabeledList>
+              <LabeledList.Item label="Power">
+                {data.uses_cell ? (
+                  <Button
+                    icon="power-off"
+                    selected={data.powered}
+                    color={data.powered ? 'good' : 'bad'}
+                    content={data.powered ? 'ON' : 'OFF'}
+                    disabled={!data.has_cell}
+                    onClick={() => act('toggle_power')}
+                  />
+                ) : (
+                  'External power'
+                )}
+              </LabeledList.Item>
+              {data.uses_cell && (
+                <LabeledList.Item label="Battery">
+                  {data.has_cell ? (
+                    <ProgressBar value={data.charge / 100}>
+                      {Math.round(data.charge)}%
+                    </ProgressBar>
+                  ) : (
+                    'No cell installed'
+                  )}
+                </LabeledList.Item>
+              )}
+            </LabeledList>
+          </Box>
           <LabeledControls>
             <LabeledControls.Item label="Set New Tag">
               <Input
                 placeholder={data.own_tag}
+                disabled={!data.powered}
                 onChange={(value) => act('tag', { tag: value })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Track New Tag">
               <Input
+                disabled={!data.powered}
                 onChange={(value) => act('add_tag', { add_tag: value })}
               />
             </LabeledControls.Item>
@@ -74,11 +127,17 @@ export const GPS = (props) => {
                 <Table.Cell>
                   {track.gps.pos_x}, {track.gps.pos_y}, {track.gps.pos_z}
                 </Table.Cell>
-                <Table.Cell>{track.gps.area}</Table.Cell>
+                <Table.Cell>
+                  {track.gps.powered
+                    ? track.gps.area
+                    : `Offline (${formatOfflineAge(track.gps.offline_for)})`}
+                </Table.Cell>
                 <Table.Cell>
                   <Button
                     content="Untrack"
-                    disabled={data.own_tag === track.gps.tag}
+                    disabled={
+                      !data.powered || data.own_tag === track.gps.tag
+                    }
                     onClick={() =>
                       act('remove_tag', { remove_tag: track.gps.tag })
                     }
@@ -87,7 +146,11 @@ export const GPS = (props) => {
                 <Table.Cell>
                   <Button
                     content="Compass"
-                    disabled={data.own_tag === track.gps.tag}
+                    disabled={
+                      !data.powered ||
+                      data.own_tag === track.gps.tag ||
+                      !track.gps.powered
+                    }
                     selected={data.compass_list?.includes(track.gps.tag)}
                     onClick={() => act('compass', { compass: track.gps.tag })}
                   />

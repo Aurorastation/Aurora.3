@@ -16,6 +16,7 @@ pixel_x = 8;
 
 
 /obj/item/radio/intercom
+	uses_device_cell = FALSE
 	shortwave_overlays = FALSE
 	name = "intercom (general)"
 	desc = "An intercom with buttons for transmitting, receiving, and for volume control."

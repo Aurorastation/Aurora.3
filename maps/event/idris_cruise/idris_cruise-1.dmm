@@ -1,26 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aaa" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "VR Checkpoint";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "aab" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/machinery/door/airlock/external{
 	dir = 1
 	},
 /obj/effect/map_effect/door_helper/unres,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
-"aac" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "VR Checkpoint";
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "aae" = (
@@ -334,17 +318,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
-"amx" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Security Armory";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/security)
 "amX" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -550,18 +523,6 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/library)
-"auT" = (
-/obj/effect/map_effect/door_helper/unres,
-/obj/structure/machinery/door/airlock/glass_security{
-	name = "Coalition Base Entry";
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/virtual_reality)
 "auZ" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -1017,17 +978,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
-"aMt" = (
-/obj/structure/machinery/door/window/northright{
-	name = "dispensary"
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/map_effect/marker/access/req_one/cent_medical,
-/obj/effect/map_effect/marker/access/req_one/pharmacy,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/virtual_reality)
 "aMO" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/closet/secure_closet/freezer,
@@ -1881,6 +1831,19 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"bpY" = (
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
+/obj/structure/machinery/door/airlock/hatch{
+	name = "VR Preparation Room Passage"
+	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small";
+	name = "small tiles"
+	},
+/area/cruise/virtual_reality)
 "bqk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -2364,17 +2327,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"bME" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Living Hall Reception Desk";
-	dir = 1
-	},
-/obj/structure/machinery/door/firedoor,
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "floor7"
-	},
-/area/cruise/fore)
 "bNG" = (
 /obj/structure/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -2651,15 +2603,6 @@
 /obj/item/ammo_magazine/gauss,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
-"ccJ" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Armory"
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/escort)
 "cei" = (
 /obj/structure/machinery/smartfridge/secure,
 /turf/unsimulated/floor,
@@ -3150,6 +3093,22 @@
 	icon_state = "plating"
 	},
 /area/cruise/tcomms_sat)
+"czR" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/machinery/door/window/eastleft{
+	name = "dispensary"
+	},
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/medical)
 "cAb" = (
 /obj/structure/railing/mapped{
 	color = "#6e472b"
@@ -3609,16 +3568,6 @@
 	icon_state = "white"
 	},
 /area/cruise/medical)
-"cQK" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Administrative Lift";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "floor7"
-	},
-/area/cruise/aft_s)
 "cQO" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -4268,6 +4217,17 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar/aft)
+"duO" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Ship Security Chief Office";
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/security)
 "dvD" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -4685,16 +4645,6 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
-"dWM" = (
-/obj/structure/machinery/door/airlock/glass_centcom{
-	name = "Upper Deck Security";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/security)
 "dXh" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -5121,20 +5071,6 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/beach)
-"eqY" = (
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
-/obj/structure/machinery/door/airlock/glass_security{
-	name = "Coalition Base Entry";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/virtual_reality)
 "era" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/spline/fancy,
@@ -6739,6 +6675,17 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
+"fGR" = (
+/obj/structure/machinery/door/window/northright{
+	name = "dispensary"
+	},
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/virtual_reality)
 "fHC" = (
 /obj/structure/table/steel,
 /obj/item/flag/idris,
@@ -6926,20 +6873,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"fQQ" = (
-/obj/structure/table/standard,
-/obj/structure/window/reinforced/crescent,
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/machinery/door/window/eastright{
-	name = "dispensary"
-	},
-/obj/item/reagent_containers/dropper,
-/obj/effect/map_effect/marker/access/req_one/cent_medical,
-/obj/effect/map_effect/marker/access/req_one/pharmacy,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/medical)
 "fQU" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7891,6 +7824,24 @@
 	icon_state = "dark"
 	},
 /area/cruise/aft_p)
+"gAQ" = (
+/obj/structure/table/steel,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/obj/item/radio,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
+/area/cruise/e_supplies)
 "gAS" = (
 /obj/effect/decal/fake_object{
 	desc = "An automated gun turret.";
@@ -8476,6 +8427,16 @@
 	icon_state = "desert"
 	},
 /area/cruise/jungle)
+"hax" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Ship Security";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small"
+	},
+/area/cruise/security)
 "haN" = (
 /obj/structure/machinery/seed_extractor,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -8722,16 +8683,6 @@
 	icon_state = "white"
 	},
 /area/cruise/pool)
-"hnK" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Security";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "tiles_small"
-	},
-/area/cruise/security)
 "hof" = (
 /obj/structure/closet/firecloset/full,
 /turf/unsimulated/floor{
@@ -9090,6 +9041,14 @@
 	icon_state = "carpet"
 	},
 /area/cruise/library)
+"hCK" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "VR Checkpoint";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "hCW" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -9876,6 +9835,17 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/aft)
+"ilv" = (
+/obj/structure/machinery/door/window/northright{
+	name = "dispensary"
+	},
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/medical)
 "ilE" = (
 /obj/structure/machinery/door/firedoor,
 /turf/unsimulated/floor{
@@ -12038,6 +12008,17 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/custodial_p)
+"kiS" = (
+/obj/structure/machinery/door/airlock/external{
+	name = "Solarian Base Entry";
+	dir = 1
+	},
+/obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	icon_state = "wood-broken6"
+	},
+/area/cruise/virtual_reality)
 "kjl" = (
 /obj/structure/machinery/computer/arcade/battle,
 /obj/structure/window/reinforced{
@@ -12644,17 +12625,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/jungle)
-"kFQ" = (
-/obj/structure/machinery/door/airlock/external{
-	name = "Solarian Base Entry";
-	dir = 1
-	},
-/obj/effect/map_effect/door_helper/unres,
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	icon_state = "wood-broken6"
-	},
-/area/cruise/virtual_reality)
 "kGs" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor,
@@ -13409,18 +13379,6 @@
 "lku" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/start)
-"lky" = (
-/obj/structure/machinery/door/airlock/external{
-	name = "Solarian Base Entry";
-	dir = 1
-	},
-/obj/effect/map_effect/door_helper/unres,
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/virtual_reality)
 "lls" = (
 /obj/structure/table/wood,
 /obj/item/flame/lighter/zippo/gold{
@@ -13906,16 +13864,6 @@
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/cruise/pool/sauna2)
-"lHS" = (
-/obj/structure/machinery/door/airlock/glass_centcom{
-	name = "Brig";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/security)
 "lHV" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -14551,17 +14499,6 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/hangar)
-"mif" = (
-/obj/structure/machinery/door/airlock/glass_centcom{
-	name = "Hangar Oversight";
-	dir = 1
-	},
-/obj/structure/machinery/door/firedoor,
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/hangar)
 "miO" = (
 /obj/structure/holohoop{
 	dir = 8
@@ -14857,6 +14794,16 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
+"mwE" = (
+/obj/structure/machinery/door/airlock/glass_centcom{
+	name = "Upper Deck Security";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/security)
 "mwH" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15733,19 +15680,6 @@
 /obj/structure/sink/puddle,
 /turf/simulated/floor/grass,
 /area/cruise/hydroponics)
-"nlR" = (
-/obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage"
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	icon_state = "tiles_small";
-	name = "small tiles"
-	},
-/area/cruise/virtual_reality)
 "nlU" = (
 /obj/structure/machinery/light{
 	dir = 8
@@ -15912,6 +15846,14 @@
 	icon_state = "plating"
 	},
 /area/cruise/hangar)
+"nug" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "VR Checkpoint";
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "nvO" = (
 /obj/random/pottedplant,
 /obj/structure/railing/mapped,
@@ -16500,22 +16442,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/centerline)
-"nRg" = (
-/obj/structure/table/standard,
-/obj/structure/window/reinforced/crescent{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/machinery/door/window/eastleft{
-	name = "dispensary"
-	},
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/effect/map_effect/marker/access/req_one/cent_medical,
-/obj/effect/map_effect/marker/access/req_one/pharmacy,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/medical)
 "nRv" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "lavarocks2"
@@ -17125,19 +17051,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
-"ors" = (
-/obj/effect/map_effect/door_helper/unres{
-	dir = 8
-	},
-/obj/structure/machinery/door/airlock/hatch{
-	name = "VR Preparation Room Passage"
-	},
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	icon_state = "tiles_small";
-	name = "small tiles"
-	},
-/area/cruise/virtual_reality)
 "osf" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -17273,6 +17186,13 @@
 "owa" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/pool/sauna3)
+"oww" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "VR Checkpoint"
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "owB" = (
 /obj/structure/closet,
 /obj/item/flag/coalition,
@@ -17526,6 +17446,17 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hydroponics)
+"oKZ" = (
+/obj/structure/machinery/door/airlock/glass_centcom{
+	name = "Hangar Oversight";
+	dir = 1
+	},
+/obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/hangar)
 "oMh" = (
 /obj/structure/machinery/button/remote/blast_door{
 	id = "bar_southwest";
@@ -18383,6 +18314,17 @@
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/cruise/security)
+"ptg" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Ship Security Armory";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/security)
 "ptw" = (
 /obj/structure/machinery/door/blast/odin{
 	dir = 8
@@ -18741,6 +18683,16 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
+"pKd" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Ship Security Armory";
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/security)
 "pKY" = (
 /obj/structure/machinery/light{
 	dir = 4
@@ -18913,24 +18865,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"pSr" = (
-/obj/structure/table/steel,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/obj/item/radio/off,
-/turf/unsimulated/floor{
-	icon_state = "floor7"
-	},
-/area/cruise/e_supplies)
 "pSE" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 6
@@ -19103,6 +19037,16 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
+"qbi" = (
+/obj/structure/machinery/door/airlock/glass_centcom{
+	name = "Brig";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/security)
 "qbE" = (
 /obj/structure/machinery/shieldwallgen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -19268,16 +19212,6 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
-"qkI" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Security Armory";
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/security)
 "qkL" = (
 /obj/structure/machinery/atm{
 	pixel_y = 30
@@ -20201,6 +20135,18 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft)
+"reD" = (
+/obj/structure/machinery/door/airlock/external{
+	name = "Solarian Base Entry";
+	dir = 1
+	},
+/obj/effect/map_effect/door_helper/unres,
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/virtual_reality)
 "reR" = (
 /obj/structure/closet/secure_closet/hydroponics{
 	req_access = null
@@ -20508,6 +20454,20 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
+"rrA" = (
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
+/obj/structure/machinery/door/airlock/external{
+	name = "Solarian Base Entry";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/virtual_reality)
 "rrF" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -21099,6 +21059,16 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/cruise/tcomms_sat)
+"rRt" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Administrative Lift";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
+/area/cruise/aft_s)
 "rSA" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -21324,13 +21294,6 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/beach)
-"sej" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "VR Checkpoint"
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "sek" = (
 /obj/item/radio/intercom/east{
 	pixel_y = -22
@@ -22478,17 +22441,6 @@
 	icon_state = "beach"
 	},
 /area/cruise/virtual_reality)
-"tci" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Ship Security Chief Office";
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/security)
 "tcm" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass{
@@ -23125,17 +23077,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"tAO" = (
-/obj/structure/machinery/door/window/northright{
-	name = "dispensary"
-	},
-/obj/effect/floor_decal/corner/orange/diagonal,
-/obj/effect/map_effect/marker/access/req_one/cent_medical,
-/obj/effect/map_effect/marker/access/req_one/pharmacy,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/medical)
 "tAP" = (
 /obj/structure/machinery/hologram/holopad,
 /turf/unsimulated/floor,
@@ -23398,6 +23339,20 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft_s)
+"tMQ" = (
+/obj/effect/map_effect/door_helper/unres{
+	dir = 8
+	},
+/obj/structure/machinery/door/airlock/glass_security{
+	name = "Coalition Base Entry";
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/virtual_reality)
 "tNf" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/door_assembly.dmi';
@@ -23786,6 +23741,20 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
+"uaP" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced/crescent,
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/machinery/door/window/eastright{
+	name = "dispensary"
+	},
+/obj/item/reagent_containers/dropper,
+/obj/effect/map_effect/marker/access/req_one/cent_medical,
+/obj/effect/map_effect/marker/access/req_one/pharmacy,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/medical)
 "uaU" = (
 /obj/effect/mist,
 /turf/simulated/floor/beach/water/pool,
@@ -24660,6 +24629,18 @@
 /obj/structure/machinery/light,
 /turf/unsimulated/floor/plating,
 /area/template_noop)
+"uIx" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Living Hall Reception Desk";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
+/area/cruise/fore)
 "uJc" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -24682,6 +24663,18 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/fore_s)
+"uJP" = (
+/obj/effect/map_effect/door_helper/unres,
+/obj/structure/machinery/door/airlock/glass_security{
+	name = "Coalition Base Entry";
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/cruise/virtual_reality)
 "uJY" = (
 /obj/structure/machinery/status_display,
 /turf/simulated/wall/shuttle/idris,
@@ -24986,6 +24979,19 @@
 	dir = 8
 	},
 /area/cruise/virtual_reality)
+"uUs" = (
+/obj/structure/machinery/door/airlock/hatch{
+	name = "VR Preparation Room Passage"
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
+/turf/unsimulated/floor{
+	icon_state = "tiles_small";
+	name = "small tiles"
+	},
+/area/cruise/virtual_reality)
 "uUO" = (
 /obj/structure/machinery/door/window/westright,
 /turf/unsimulated/floor{
@@ -25164,18 +25170,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/security)
-"vbV" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Living Hall Reception Desk";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/door/firedoor,
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "floor7"
-	},
-/area/cruise/fore)
 "vcL" = (
 /obj/item/modular_computer/console/preset/research{
 	dir = 1
@@ -25289,6 +25283,15 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
+"vgU" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Ship Armory"
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
 "vhV" = (
 /obj/item/storage/backpack/rucksack/navy,
 /obj/item/storage/backpack/rucksack/navy,
@@ -25543,6 +25546,16 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
+"vuT" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Teleporter Room";
+	dir = 1
+	},
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/escort)
 "vvb" = (
 /obj/structure/machinery/light/small{
 	dir = 1
@@ -26454,16 +26467,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"wkx" = (
-/obj/structure/machinery/door/airlock/centcom{
-	name = "Teleporter Room";
-	dir = 1
-	},
-/obj/effect/map_effect/marker/access/req_all/cent_general,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/escort)
 "wky" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/cookiesnack,
@@ -27718,20 +27721,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/fore_p)
-"xqO" = (
-/obj/effect/map_effect/door_helper/unres{
-	dir = 4
-	},
-/obj/structure/machinery/door/airlock/external{
-	name = "Solarian Base Entry";
-	dir = 4
-	},
-/obj/effect/map_effect/marker/access/req_all/maint_tunnels,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/cruise/virtual_reality)
 "xqP" = (
 /obj/structure/bed/stool/chair/sofa/red,
 /turf/unsimulated/floor{
@@ -27814,6 +27803,17 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
+"xtL" = (
+/obj/structure/machinery/door/airlock/centcom{
+	name = "Living Hall Reception Desk";
+	dir = 1
+	},
+/obj/structure/machinery/door/firedoor,
+/obj/effect/map_effect/marker/access/req_all/cent_general,
+/turf/unsimulated/floor{
+	icon_state = "floor7"
+	},
+/area/cruise/fore)
 "xvq" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -49757,7 +49757,7 @@ jjH
 vbU
 jjH
 jjH
-qkI
+pKd
 jWD
 aET
 aET
@@ -50020,7 +50020,7 @@ bWr
 nsC
 chy
 psP
-lHS
+qbi
 bWr
 bWr
 bWr
@@ -50784,7 +50784,7 @@ tLw
 fok
 kVu
 lZD
-qkI
+pKd
 jjH
 hIo
 hIo
@@ -51037,7 +51037,7 @@ oSt
 lIu
 bWr
 bWr
-amx
+ptg
 bWr
 bWr
 bWr
@@ -51298,7 +51298,7 @@ bdw
 iJb
 dAA
 bdw
-tci
+duO
 qwr
 jjH
 lnY
@@ -51560,11 +51560,11 @@ jBz
 jjH
 bWr
 bWr
-hnK
+hax
 psP
 bWr
-dWM
-dWM
+mwE
+mwE
 psP
 bWr
 rqB
@@ -51825,7 +51825,7 @@ dJf
 dJf
 gET
 itl
-pSr
+gAQ
 ucm
 rXf
 rXf
@@ -62811,7 +62811,7 @@ jJY
 soG
 soG
 soG
-vbV
+uIx
 soG
 soG
 nnJ
@@ -63579,7 +63579,7 @@ uGN
 rCz
 dBU
 dBU
-bME
+xtL
 pfD
 pfD
 pfD
@@ -66743,7 +66743,7 @@ faM
 soC
 soC
 cKw
-cQK
+rRt
 cKw
 sjz
 gsh
@@ -67035,7 +67035,7 @@ gjF
 dqM
 eZj
 nWh
-tAO
+ilv
 eSr
 vlW
 iXJ
@@ -67292,8 +67292,8 @@ sOP
 vlW
 jfk
 nWh
-nRg
-fQQ
+czR
+uaP
 vlW
 iXJ
 omN
@@ -69807,10 +69807,10 @@ nAA
 mPU
 mPU
 bAc
-mif
+oKZ
 brk
 cWB
-mif
+oKZ
 uxb
 mPU
 mPU
@@ -81515,7 +81515,7 @@ jSp
 xDq
 bSi
 tua
-sej
+oww
 tua
 tua
 tua
@@ -81770,7 +81770,7 @@ oog
 ddu
 jSp
 jSp
-aaa
+hCK
 jSp
 jSp
 bDb
@@ -82021,7 +82021,7 @@ dxK
 tmW
 oOK
 dxK
-aMt
+fGR
 mqD
 oog
 ddu
@@ -82039,19 +82039,19 @@ lUh
 lUh
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 oJH
@@ -82199,7 +82199,7 @@ arG
 xla
 arG
 nMY
-ccJ
+vgU
 iTi
 arG
 blf
@@ -82286,7 +82286,7 @@ jSp
 dzw
 dNn
 dzw
-aac
+nug
 vQu
 pVq
 tua
@@ -82449,11 +82449,11 @@ kPk
 iTi
 arG
 nMY
-wkx
+vuT
 wfn
 dyf
 hCW
-wkx
+vuT
 iTi
 arG
 xla
@@ -83047,7 +83047,7 @@ tmr
 dxK
 dxK
 dxK
-lky
+reD
 dxK
 dxK
 dxK
@@ -83067,19 +83067,19 @@ jSp
 bDb
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 oJH
@@ -83304,7 +83304,7 @@ aDy
 dxK
 dxK
 dxK
-kFQ
+kiS
 dxK
 dxK
 dxK
@@ -83562,9 +83562,9 @@ dxK
 dxK
 oog
 oog
-xqO
-xqO
-xqO
+rrA
+rrA
+rrA
 oog
 oog
 jSp
@@ -84590,9 +84590,9 @@ dxK
 dxK
 oog
 oog
-eqY
-eqY
-eqY
+tMQ
+tMQ
+tMQ
 oog
 oog
 jSp
@@ -84846,7 +84846,7 @@ iSI
 dxK
 dxK
 dxK
-auT
+uJP
 dxK
 dxK
 dxK
@@ -85103,7 +85103,7 @@ tmr
 dxK
 dxK
 dxK
-auT
+uJP
 dxK
 dxK
 dxK
@@ -85123,19 +85123,19 @@ jSp
 lUh
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 jSp
-ors
+bpY
 jSp
 jSp
 oJH
@@ -86133,7 +86133,7 @@ dxK
 bFr
 dxK
 dxK
-aMt
+fGR
 mqD
 oog
 ddu
@@ -86151,19 +86151,19 @@ wGw
 bDb
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 jSp
-nlR
+uUs
 jSp
 jSp
 oJH

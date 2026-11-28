@@ -95,7 +95,7 @@
 	initial_name = name
 	listener = new("modular_computers", src)
 	sync_linked()
-	src.LoadComponent(/datum/component/health_analyzer)
+	src.LoadComponent(/datum/component/health_analyzer/pda)
 
 /obj/item/modular_computer/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

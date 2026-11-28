@@ -273,8 +273,8 @@
 /area/moghes_klax)
 "ox" = (
 /obj/structure/table/rack,
-/obj/item/radio/off,
-/obj/item/radio/off,
+/obj/item/radio,
+/obj/item/radio,
 /obj/item/gps,
 /obj/item/gps,
 /turf/simulated/floor/exoplanet/tiled,

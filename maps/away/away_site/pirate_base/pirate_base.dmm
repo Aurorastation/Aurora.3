@@ -9724,27 +9724,27 @@
 "Wt" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/radio/off{
+/obj/item/radio{
 	pixel_x = 6;
 	pixel_y = 6
 	},
