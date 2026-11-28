@@ -16,7 +16,6 @@
 
 #define ECHO_ADJECTIVES list("Faint", "Distant", "Fading", "Fleeting", "Drifting", "Low", "Weak", "Far", "Pinging", "Whispering")
 #define HIVENET_MESSAGE(speaker, verb, msg) "<i><span class='game say'>Hivenet, <span class='name'>[speaker]</span> [verb] <span class='vaurca'>[msg]</span></span></i>"
-#define SEND_HIVENET_ECHO(verb, msg) HIVENET_MESSAGE("a [pick(ECHO_ADJECTIVES)] Echo", "[verb]", "[msg]")
 
 /datum/element/HiveEchoes/Attach(datum/target)
 	. = ..()
@@ -64,26 +63,28 @@
 		return
 	starter_string = "[pick(echo_starter)]"
 	response_string = "[pick(echo_response)]"
+	var/list/echo_adj = list(pick(ECHO_ADJECTIVES), pick(ECHO_ADJECTIVES)) // consistent adjectives for everyone, damn it!
 	if(!joined)
 		for(var/mob/living/carbon/human/H in targets)
 			if(H.stat != CONSCIOUS || !H.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(H))
 				continue
-			to_chat(H, SEND_HIVENET_ECHO("broadcasts,", "\"[starter_string]\""))
+			to_chat(H, HIVENET_MESSAGE("a [echo_adj[1]] Echo", "broadcasts,", "\"[starter_string]\""))
 			spawn(rand(0.5 SECOND, 1 SECONDS))
-				to_chat(H, SEND_HIVENET_ECHO("broadcasts", "\"[response_string]\""))
+				to_chat(H, HIVENET_MESSAGE("a [echo_adj[2]] Echo", "broadcasts", "\"[response_string]\""))
 	else
 		for(var/mob/living/carbon/human/vaurca in targets)
 			if(vaurca.stat != CONSCIOUS || !vaurca.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(vaurca))
 				continue
-			to_chat(vaurca, SEND_HIVENET_ECHO("broadcasts,", "\"[starter_string] [response_string]\""))
+			to_chat(vaurca, HIVENET_MESSAGE("a [echo_adj[1]]", "broadcasts,", "\"[starter_string] [response_string]\""))
 
 /datum/element/HiveEchoes/proc/GetProjectionEcho()
 	var/list/echo_projections = file2list("config/hivenet_echoes/echo_projections.txt")
 	projection_string = "[pick(echo_projections)]"
+	var/echo_adj = pick(ECHO_ADJECTIVES)
 	for(var/mob/living/carbon/human/H in targets)
 		if(H.stat != CONSCIOUS || !H.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(H))
 			continue
-		to_chat(H, SEND_HIVENET_ECHO("projects", "[projection_string]"))
+		to_chat(H, HIVENET_MESSAGE("[echo_adj]", "projects", "[projection_string]"))
 
 //Serverside admin toggle
 /datum/admins/proc/ToggleEchoes()
@@ -124,4 +125,3 @@
 
 #undef ECHO_ADJECTIVES
 #undef HIVENET_MESSAGE
-#undef SEND_HIVENET_ECHO
