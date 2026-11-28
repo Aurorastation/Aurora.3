@@ -284,8 +284,14 @@
 						continue
 					TA.ChangeTurf(ceiling_type, TRUE, TRUE, TRUE)
 
+	// Rotation can move a wide object's origin across a compartment boundary.
+	// Snapshot the passengers first so each receives exactly one callback.
+	var/list/moved_atoms = list()
 	for(var/area/sub_area in shuttle_area)
 		for(var/atom/movable/movable in sub_area)
+			moved_atoms |= movable
+	for(var/atom/movable/movable as anything in moved_atoms)
+		if(!QDELETED(movable))
 			movable.afterShuttleMove(destination, rotation)
 
 	// Remove all powernets that were affected, and rebuild them.
