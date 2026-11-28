@@ -22,6 +22,63 @@
 		return FALSE
 	return TRUE
 
+/singleton/surgery_step/generic/keyhole
+	name = "Make Keyhole Incision"
+	allowed_tools = list(
+	/obj/item/surgery/scalpel = 100
+	)
+	priority = 2
+	base_surgery_time = 8 SECONDS
+	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+
+/singleton/surgery_step/generic/keyhole/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected || affected.open != ORGAN_OPEN_INCISION)
+		return FALSE
+
+	var/obj/structure/machinery/optable/table = locate(/obj/structure/machinery/optable) in target.loc
+	if(!table)
+		to_chat(user, SPAN_WARNING("Keyhole surgery requires real time computer assisted imaging, from a patient monitoring console connected to an operating table."))
+		return FALSE
+
+	var/obj/structure/machinery/computer/operating/console = table.computer
+	if(!console || console.table != table)
+		to_chat(user, SPAN_WARNING("Keyhole surgery requires real time computer assisted imaging, from a patient monitoring console connected to the operating table."))
+		return FALSE
+
+	if(console.stat & BROKEN)
+		to_chat(user, SPAN_WARNING("The patient monitoring console is broken, so keyhole surgery cannot be performed."))
+		return FALSE
+	if(console.stat & NOPOWER)
+		to_chat(user, SPAN_WARNING("The patient monitoring console is unpowered, so keyhole surgery cannot be performed."))
+		return FALSE
+
+	if(!console.primer)
+		to_chat(user, SPAN_WARNING("The patient monitoring console is missing a primer, so keyhole surgery cannot be performed."))
+		return FALSE
+
+	var/atom/primer_scan_target = console.primer.scan_target?.resolve()
+	if(primer_scan_target != target)
+		to_chat(user, SPAN_WARNING("The patient monitoring console's primer does not match this patient, so keyhole surgery cannot be performed."))
+		return FALSE
+
+	return TRUE
+
+/singleton/surgery_step/generic/keyhole/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("[user] starts cutting deep inside [target]'s [affected.name] with \the [tool].", \
+		"You start cutting deep inside [target]'s [affected.name] with \the [tool].")
+	target.custom_pain("You feel a horrible, deep stabbing pain in [affected.name]!", 135)
+	..()
+
+/singleton/surgery_step/generic/keyhole/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> has made a keyhole incision on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You have made a keyhole incision on [target]'s [affected.name] with \the [tool]."))
+	affected.open = ORGAN_OPEN_KEYHOLE
+
 /singleton/surgery_step/generic/cut_with_laser
 	name = "Make Laser Incision"
 	allowed_tools = list(
@@ -252,7 +309,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_OPEN_INCISION
+	return affected && (affected.open == ORGAN_OPEN_INCISION || affected.open == ORGAN_OPEN_KEYHOLE)
 
 /singleton/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

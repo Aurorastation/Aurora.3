@@ -653,6 +653,8 @@
 			return BP_IS_ROBOTIC(affected) ? "Hatch closed" : "Closed"
 		if(ORGAN_OPEN_INCISION)
 			return BP_IS_ROBOTIC(affected) ? "Hatch unscrewed" : "Incision made"
+		if(ORGAN_OPEN_KEYHOLE)
+			return BP_IS_ROBOTIC(affected) ? "Unknown" : "Keyhole incision made" //It shouldn't ever be in a keyhole state for a robot, but just in case.
 		if(ORGAN_OPEN_RETRACTED)
 			return BP_IS_ROBOTIC(affected) ? "Hatch access prepared" : "Incision retracted"
 		if(ORGAN_ENCASED_OPEN)

@@ -21,6 +21,8 @@
 	var/requires_surgery_compatibility = TRUE
 	/// Whether this step may be performed on oneself while standing and away from an operating surface.
 	var/standing_self_surgery = FALSE
+	///If this step can be performed with a keyhole incision, it will be set to TRUE. This is used by the surgery planner to determine if a step can be performed with a keyhole incision.
+	var/possible_with_keyhole = FALSE
 
 	/**
 	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.

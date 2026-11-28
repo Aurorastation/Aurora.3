@@ -3,6 +3,7 @@
 // organ open flags
 #define ORGAN_CLOSED            0
 #define ORGAN_OPEN_INCISION     1 // skin incision OR hatch unscrewed
+#define ORGAN_OPEN_KEYHOLE	  	1.5 // skin incision + keyhole
 #define ORGAN_OPEN_RETRACTED    2 // skin retracted
 #define ORGAN_ENCASED_OPEN      2.5 // bones e.g. ribcage sawed open
 #define ORGAN_ENCASED_RETRACTED 3 // bones retracted OR hatch opened
