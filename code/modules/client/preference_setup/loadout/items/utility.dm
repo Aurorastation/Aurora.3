@@ -122,6 +122,10 @@
 	display_name = "camera"
 	path = /obj/item/camera
 
+/datum/gear/utility/digital_camera
+	display_name = "digital camera"
+	path = /obj/item/camera/digital
+
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
 	path = /obj/item/voidsuit_modkit/himeo

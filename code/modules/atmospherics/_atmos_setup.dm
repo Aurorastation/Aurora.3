@@ -177,10 +177,10 @@
 		var/cache_name = state
 
 		for(var/D in GLOB.cardinals)
-			var/image/I = image('icons/atmos/pipe_underlays.dmi', icon_state = state, dir = D)
+			var/image/I = fixed_direction_image('icons/atmos/pipe_underlays.dmi', state, D)
 			underlays[cache_name + "[D]"] = I
 			for(var/pipe_color in GLOB.pipe_colors)
-				I = image('icons/atmos/pipe_underlays.dmi', icon_state = state, dir = D)
+				I = fixed_direction_image('icons/atmos/pipe_underlays.dmi', state, D)
 				I.color = GLOB.pipe_colors[pipe_color]
 				underlays[state + "[D]" + "[GLOB.pipe_colors[pipe_color]]"] = I
 

@@ -172,10 +172,17 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	var/black_white = FALSE
 	var/pictures_max = 10
 	var/pictures_left = 10
-	var/on = 1
+	var/on = FALSE
 	var/icon_on = "camera"
 	var/icon_off = "camera_off"
 	var/size = 3
+
+/obj/item/camera/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/camera/update_icon()
+	icon_state = on ? icon_on : icon_off
 
 /obj/item/camera/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -197,10 +204,7 @@ GLOBAL_VAR_INIT(photo_count, 1)
 
 /obj/item/camera/attack_self(mob/user as mob)
 	on = !on
-	if(on)
-		src.icon_state = icon_on
-	else
-		src.icon_state = icon_off
+	update_icon()
 	to_chat(user, "You switch the camera [on ? "on" : "off"].")
 	return
 
@@ -239,6 +243,9 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	return mob_detail
 
 /obj/item/camera/afterattack(atom/target as mob|obj|turf|area, mob/user as mob, flag)
+	// Placement/storage interactions may already have moved us out of a hand.
+	if(loc != user || (user.get_active_hand() != src && user.get_inactive_hand() != src))
+		return
 	if(!on || !pictures_left || ismob(target.loc)) return
 	captureimage(target, user, flag)
 
@@ -295,7 +302,9 @@ GLOBAL_VAR_INIT(photo_count, 1)
 		return null
 
 	var/photo_radius = (size - 1) / 2
-	var/view_range = get_dist(viewpoint, target) + photo_radius
+	// get_dist returns -1 for the same turf, which would trim the outer ring
+	// from photos centered on the photographer.
+	var/view_range = max(0, get_dist(viewpoint, target)) + photo_radius
 	FOR_DVIEW(var/turf/T, view_range, viewpoint, INVISIBILITY_LIGHTING)
 		if(T.x < x_c || T.x >= x_c + size || T.y < y_c || T.y >= y_c + size)
 			continue
@@ -360,6 +369,10 @@ GLOBAL_VAR_INIT(photo_count, 1)
 	p.pixel_y = pixel_y
 	p.photo_size = photo_size
 	p.scribble = scribble
+	p.time_taken = time_taken
+	p.location_taken = location_taken
+	p.taken_by = taken_by
+	p.caption = caption
 
 	if(copy_id)
 		p.id = id
@@ -380,3 +393,150 @@ GLOBAL_VAR_INIT(photo_count, 1)
 /obj/item/camera/adhomai/do_photo_sound()
 	flick("taj_camera_flash", src)
 	playsound(loc, 'sound/items/camerabulb.ogg', 75, 1, -3)
+
+/obj/item/camera/digital
+	name = "digital camera"
+	desc = "A digital camera with internal photo storage and a built-in printer. Film cartridges refill the printer."
+	icon_state = "camera_digital"
+	icon_on = "camera_digital"
+	icon_off = "camera_digital_off"
+	on = FALSE
+	/// Stored originals are kept inside the camera; printing produces a copy.
+	var/list/obj/item/photo/stored_photos = list()
+	var/storage_capacity = 20
+	var/next_capture = 0
+	var/next_print = 0
+
+/obj/item/camera/digital/Destroy()
+	QDEL_LIST(stored_photos)
+	return ..()
+
+/obj/item/camera/digital/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Use in hand to open the photo gallery. Click a subject to take a photo, or Alt-click to change the focus."
+	. += "Photos stay in memory until deleted. Printing uses film, but keeps the stored original. Insert a film cartridge when the printer is empty."
+
+/obj/item/camera/digital/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("Its memory holds <b>[length(stored_photos)] of [storage_capacity] photos</b>. Film is only used when printing.")
+
+/obj/item/camera/digital/attack_self(mob/user)
+	ui_interact(user)
+
+/obj/item/camera/digital/afterattack(atom/target, mob/user, proximity_flag)
+	if(loc != user || (user.get_active_hand() != src && user.get_inactive_hand() != src))
+		return
+	if(!on || world.time < next_capture || ismob(target.loc) || !isliving(user))
+		return
+	if(length(stored_photos) >= storage_capacity)
+		to_chat(user, SPAN_WARNING("\The [src]'s memory is full. Delete a photo to make room."))
+		return
+	next_capture = world.time + 2 SECONDS
+	if(!captureimage(target, user, proximity_flag))
+		next_capture = 0
+		return
+	do_photo_sound()
+	to_chat(user, SPAN_NOTICE("Photo saved. [storage_capacity - length(stored_photos)] photo slots remaining."))
+	SStgui.update_uis(src)
+
+/obj/item/camera/digital/captureimage(atom/target, mob/living/user, flag)
+	if(length(stored_photos) >= storage_capacity)
+		return FALSE
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf)
+		return FALSE
+	var/obj/item/photo/photo = createpicture(target_turf, user, flag)
+	if(!photo)
+		return FALSE
+	photo.name = "Photo [photo.id]"
+	photo.forceMove(src)
+	stored_photos += photo
+	return TRUE
+
+/obj/item/camera/digital/record_data(mob/living/user, obj/item/photo/photo)
+	photo.time_taken = worldtime2text()
+	photo.location_taken = get_area_display_name(get_area(user))
+	photo.taken_by = user.name
+
+/obj/item/camera/digital/do_photo_sound()
+	playsound(loc, 'sound/items/polaroid1.ogg', 50, TRUE, -3)
+
+/obj/item/camera/digital/ui_state(mob/user)
+	return GLOB.hands_state
+
+/obj/item/camera/digital/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "DigitalCamera", name, 760, 600)
+		ui.open()
+
+/obj/item/camera/digital/ui_data(mob/user)
+	var/list/data = list()
+	data["capacity"] = storage_capacity
+	data["prints_left"] = pictures_left
+	data["on"] = on
+	data["focus"] = size
+	data["printing"] = world.time < next_print
+	var/list/photos = list()
+	for(var/obj/item/photo/photo in stored_photos)
+		// Use the same client-side photo resources as the case dossier.
+		var/filename = "tmp_photo_[photo.id].png"
+		send_rsc(user, photo.img, filename)
+		photos += list(list(
+			"id" = photo.id,
+			"name" = photo.name,
+			"image" = filename,
+			"description" = photo.picture_desc,
+			"taken_at" = photo.time_taken,
+			"location" = photo.location_taken,
+			"taken_by" = photo.taken_by,
+			"size" = photo.photo_size
+		))
+	data["photos"] = photos
+	return data
+
+/obj/item/camera/digital/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	switch(action)
+		if("toggle_power")
+			on = !on
+			update_icon()
+			return TRUE
+		if("set_focus")
+			var/focus = text2num(params["size"])
+			if(focus in list(1, 3, 5, 7))
+				size = focus
+			return TRUE
+		if("delete", "print")
+			var/photo_id = text2num(params["id"])
+			var/obj/item/photo/selected_photo
+			for(var/obj/item/photo/photo in stored_photos)
+				if(photo.id == photo_id)
+					selected_photo = photo
+					break
+			if(!selected_photo)
+				return
+			if(action == "delete")
+				stored_photos -= selected_photo
+				qdel(selected_photo)
+				return TRUE
+			if(!pictures_left || world.time < next_print)
+				return
+			var/obj/item/photo/printed_photo = selected_photo.copy()
+			printpicture(usr, printed_photo)
+			pictures_left--
+			next_print = world.time + 2 SECONDS
+			playsound(loc, SFX_PRINT, 50, TRUE, -3)
+			return TRUE
+
+/obj/item/camera/digital/investigator
+	name = "investigator's digital camera"
+	desc = "A rugged digital camera for documenting evidence, with internal photo storage and a built-in printer. Film cartridges refill the printer."
+	icon_state = "camera_investigator"
+	icon_on = "camera_investigator"
+	icon_off = "camera_investigator_off"
+	pictures_left = 30
+	storage_capacity = 30

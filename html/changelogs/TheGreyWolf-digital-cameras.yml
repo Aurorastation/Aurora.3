@@ -1,0 +1,6 @@
+author: TheGreyWolf & ontzaglijk
+delete-after: True
+changes:
+  - rscadd: "Added digital cameras."
+  - bugfix: "Stopped camears from taking photos when placing them down."
+  - rscadd: "Borgs and the AI now use the digital camera UI for stored photos and adjusting photo size."

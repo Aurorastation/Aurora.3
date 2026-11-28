@@ -555,6 +555,20 @@ world
 	else return BlendRGB(tone, "#ffffff", (gray-tone_gray)/((255-tone_gray) || 1))
 
 
+/// Build an explicitly oriented overlay without leaving SOUTH ambiguous to
+/// getFlatIcon. Cache the selected sprite so frequently rebuilt tracks and
+/// pipe underlays do not repeatedly extract icons. Direction zero still inherits.
+/proc/fixed_direction_image(icon_file, icon_state, direction)
+	if(!direction)
+		return image(icon_file, icon_state, dir = direction)
+	var/static/list/directional_icons = list()
+	var/cache_key = "[icon_file]|[icon_state]|[direction]"
+	var/icon/directional_icon = directional_icons[cache_key]
+	if(!directional_icon)
+		directional_icon = icon(icon_file, icon_state, direction)
+		directional_icons[cache_key] = directional_icon
+	return image(directional_icon, dir = direction)
+
 /// Create a single [/icon] from a given [/atom] or [/image].
 ///
 /// Very low-performance. Should usually only be used for HTML, where BYOND's

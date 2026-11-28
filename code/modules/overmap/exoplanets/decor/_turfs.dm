@@ -109,7 +109,7 @@
 		for(var/direction in GLOB.cardinals)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))
-				var/image/rock_side = image(icon, "edge[pick(0,1,2)]", dir = turn(direction, 180))
+				var/image/rock_side = fixed_direction_image(icon, "edge[pick(0,1,2)]", turn(direction, 180))
 				rock_side.layer = ABOVE_PLATING_LAYER
 				switch(direction)
 					if(NORTH)
