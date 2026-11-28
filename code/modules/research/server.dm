@@ -16,6 +16,8 @@
 	req_access = list(/datum/access/horizon/rd::id) //Only the R&D can change server settings.
 
 	var/list/linked_processors
+	var/processor_tick_counter = 0
+	var/processor_point_buffer = 0
 
 	component_types = list(
 		/obj/item/circuitboard/rdserver,
@@ -90,17 +92,34 @@
 		delay = initial(delay)
 	upgrade_techs()
 
+/obj/structure/machinery/r_n_d/server/proc/calculate_processor_cycle_points(total_rate)
+	if(total_rate <= 0)
+		return 0
+	var/effective_rate = 1 + 0.5 * (log(max(1, total_rate)) / log(2))
+	return 1.5 * effective_rate
+
 /obj/structure/machinery/r_n_d/server/proc/upgrade_techs()
+	if(!length(linked_processors))
+		return
+	processor_tick_counter++
+	if(processor_tick_counter < 15)
+		return
+	processor_tick_counter = 0
+
+	var/total_rate = 0
 	for(var/obj/structure/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		if(TP.stat & (NOPOWER|BROKEN))
 			continue
-		TP.processing_stage++
-		if(TP.processing_stage == 5)
-			for(var/tech_id in files.known_tech)
-				var/datum/tech/T = files.known_tech[tech_id]
-				if(T.level)
-					files.UpdateTech(T.id, round(TP.tech_rate))
-			TP.processing_stage = 0
+		total_rate += max(0.5, TP.tech_rate)
+
+	if(total_rate <= 0)
+		return
+
+	processor_point_buffer += calculate_processor_cycle_points(total_rate)
+	var/whole_points = floor(processor_point_buffer)
+	if(whole_points > 0)
+		processor_point_buffer -= whole_points
+		files.add_research_points(whole_points)
 
 /obj/structure/machinery/r_n_d/server/emp_act(severity)
 	. = ..()
@@ -117,6 +136,8 @@
 		for(var/id in files.known_tech)
 			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
+		C.files.research_points = max(C.files.research_points, files.research_points)
+		C.files.unlocked_nodes |= files.unlocked_nodes
 		C.files.RefreshResearch()
 
 /obj/structure/machinery/r_n_d/server/proc/produce_heat()

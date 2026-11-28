@@ -1,6 +1,6 @@
 /obj/structure/machinery/r_n_d/tech_processor
 	name = "\improper R&D tech processor"
-	desc = "A highly advanced analytical computation engine, when connected to an R&D server with a multitool, it will start processing known technology and add research points to it."
+	desc = "A passive analytical computation engine that generates modest research data points for maintaining unlocked technologies when linked to an R&D server. Multiple linked units scale logarithmically with diminishing returns."
 	icon_state = "RD-server"
 
 	component_types = list(

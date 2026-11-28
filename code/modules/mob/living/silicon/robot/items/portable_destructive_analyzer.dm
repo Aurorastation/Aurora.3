@@ -32,9 +32,14 @@
 				to_chat(user, SPAN_NOTICE("You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."))
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
+				var/pts = 0
 				for(var/T in loaded_item.origin_tech)
 					files.UpdateTech(T, loaded_item.origin_tech[T])
 					to_chat(user, SPAN_NOTICE("\The [loaded_item] had level [loaded_item.origin_tech[T]] in [CallTechName(T)]."))
+					pts += loaded_item.origin_tech[T] * 200
+				if(pts)
+					files.add_research_points(pts)
+					to_chat(user, SPAN_NOTICE("Collected [pts] research data points. (Stored: [files.research_points])"))
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)
@@ -60,7 +65,11 @@
 			for(var/id in files.known_tech) //Uploading
 				var/datum/tech/T = files.known_tech[id]
 				S.files.AddTech2Known(T)
+			S.files.research_points += files.research_points
+			files.research_points = 0
+			S.files.unlocked_nodes |= files.unlocked_nodes
 			files.known_tech = S.files.known_tech.Copy()
+			files.unlocked_nodes = S.files.unlocked_nodes.Copy()
 			success = TRUE
 			files.RefreshResearch()
 		if(success)

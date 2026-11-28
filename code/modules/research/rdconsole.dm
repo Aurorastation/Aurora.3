@@ -176,6 +176,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/queue_amount = 1
 	/// Counts of machinery currently linked to the console.
 	var/datum/research_console_device_tgui_data/devices
+	/// Available research data points.
+	var/research_points = 0
+	/// Technology nodes displayed by tech tree screens.
+	var/list/tech_nodes
 	/// Technology rows displayed by technology-related screens.
 	var/list/technologies
 	/// Design rows displayed by design-related screens.
@@ -192,6 +196,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /datum/research_console_tgui_data/Destroy()
 	QDEL_NULL(loaded_disk)
 	QDEL_NULL(devices)
+	tech_nodes = null
 	technologies = null
 	designs = null
 	analyzer = null
@@ -209,6 +214,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		"loaded_disk" = loaded_disk?.to_list(),
 		"queue_amount" = queue_amount,
 		"devices" = devices.to_list(),
+		"research_points" = research_points,
+		"tech_nodes" = tech_nodes,
 		"technologies" = technologies,
 		"designs" = designs,
 		"analyzer" = analyzer,
@@ -323,9 +330,17 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			for(var/tech_id in files.known_tech)
 				var/datum/tech/T = files.known_tech[tech_id]
 				S.files.AddTech2Known(T)
+			S.files.research_points = max(S.files.research_points, files.research_points)
+			S.files.unlocked_nodes |= files.unlocked_nodes
+			for(var/nid in files.invested_points)
+				S.files.invested_points[nid] = max(S.files.invested_points[nid] || 0, files.invested_points[nid])
 			S.files.RefreshResearch()
 			server_processed = 1
 		files.known_tech = S.files.known_tech.Copy()
+		files.research_points = max(files.research_points, S.files.research_points)
+		files.unlocked_nodes |= S.files.unlocked_nodes
+		for(var/nid in S.files.invested_points)
+			files.invested_points[nid] = max(files.invested_points[nid] || 0, S.files.invested_points[nid])
 		if(!istype(S, /obj/structure/machinery/r_n_d/server/centcom) && server_processed)
 			S.produce_heat()
 	files.RefreshResearch()
@@ -338,7 +353,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	for(var/obj/structure/machinery/r_n_d/server/centcom/C in SSmachinery.machinery)
 		for(var/tech_id in files.known_tech)
 			var/datum/tech/T = files.known_tech[tech_id]
-			C.files.AddTech2Known(files.known_tech[T])
+			C.files.AddTech2Known(T)
+		C.files.research_points = max(C.files.research_points, files.research_points)
+		C.files.unlocked_nodes |= files.unlocked_nodes
 		C.files.RefreshResearch()
 
 /obj/structure/machinery/computer/rdconsole/proc/dispatch_fabrication_jobs()
@@ -454,6 +471,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			t_disk = attacking_item
 		else if (istype(attacking_item, /obj/item/disk/design_disk))
 			d_disk = attacking_item
+		else if (istype(attacking_item, /obj/item/disk/survey_data))
+			to_chat(user, SPAN_NOTICE("\The [src] displays a prompt: \"Planetary survey data must be analyzed via the Destructive Analyzer or exported via Cargo.\""))
+			return
 		else
 			to_chat(user, SPAN_NOTICE("Machine cannot accept disks in that format."))
 			return
@@ -477,7 +497,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/structure/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
-	dat += "<UL>"
+	dat += "<center><b>Available Research Data Points:</b> [files.research_points]</center><br>"
+	dat += "<h3>Researched Technology Nodes</h3><UL>"
+	for(var/node_id in files.unlocked_nodes)
+		var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+		if(node)
+			dat += "<LI><b>[node.name]</b> ([node.branch] - Tier [node.tier]): [node.desc]</LI>"
+	dat += "</UL>"
+	dat += "<h3>Underlying Technology Fields</h3><UL>"
 	for(var/tech_id in files.known_tech)
 		var/datum/tech/T = files.known_tech[tech_id]
 		if(T.level < 1)
@@ -492,6 +519,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat +=  "<LI>Progress: [T.next_level_progress]/[T.next_level_threshold]"
 		dat +=  "<LI>Summary: [T.desc]"
 		dat += "</UL>"
+	dat += "</UL>"
 	return dat
 
 /obj/structure/machinery/computer/rdconsole/proc/GetResearchListInfo()
@@ -608,30 +636,261 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		))
 	return result
 
+/obj/structure/machinery/computer/rdconsole/proc/get_tech_nodes_tgui_data()
+	var/list/result = list()
+	for(var/node_id in GLOB.tech_nodes)
+		var/datum/tech_node/N = GLOB.tech_nodes[node_id]
+		if(N.antag_tech && !emagged)
+			continue
+		var/is_unlocked = (node_id in files.unlocked_nodes)
+		var/can_unlock = files.can_unlock_node(node_id)
+		var/can_afford = (files.research_points >= N.cost)
+		var/invested = N.starts_unlocked ? 0 : (files.invested_points[node_id] || 0)
+		var/is_outermost = is_unlocked && files.is_outermost_node(node_id)
+		var/needs_maintenance = is_unlocked && !N.starts_unlocked && N.cost > 0 && invested < N.cost
+
+		var/list/unlocks = list()
+		for(var/design_path in N.unlocked_designs)
+			var/datum/design/D = GLOB.designs[design_path]
+			if(D)
+				unlocks += D.name
+
+		result += list(list(
+			"id" = N.id,
+			"name" = N.name,
+			"description" = N.desc,
+			"branch" = N.branch,
+			"corporation" = N.corporation,
+			"tier" = N.tier,
+			"cost" = N.cost,
+			"prereqs" = N.prereq_ids.Copy(),
+			"unlocks" = unlocks,
+			"icon" = N.icon,
+			"unlocked" = is_unlocked,
+			"can_unlock" = can_unlock,
+			"can_afford" = can_afford,
+			"invested" = invested,
+			"is_outermost" = is_outermost,
+			"needs_maintenance" = needs_maintenance
+		))
+	return result
+
 /obj/structure/machinery/computer/rdconsole/proc/get_analyzer_tgui_data()
-	var/list/result = list("linked" = !!linked_destroy)
+	var/list/result = list(
+		"linked" = !!linked_destroy,
+		"bounty_rerolls" = files.bounty_rerolls
+	)
+	var/list/bounties_data = list()
+	for(var/datum/research_bounty/B in files.active_bounties)
+		bounties_data += list(B.to_tgui_data(linked_destroy?.loaded_item))
+	result["bounties"] = bounties_data
+
 	if(!linked_destroy)
 		return result
 	result["busy"] = linked_destroy.busy
 	if(!linked_destroy.loaded_item)
 		return result
-	result["item"] = list(
-		"name" = linked_destroy.loaded_item.name,
-		"stack" = istype(linked_destroy.loaded_item, /obj/item/stack),
+
+	var/obj/loaded = linked_destroy.loaded_item
+	var/estimated_points = 0
+	var/matched_title = null
+
+	var/list/item_data = list(
+		"name" = loaded.name,
+		"stack" = istype(loaded, /obj/item/stack),
+		"is_prototype" = FALSE,
+		"is_seed" = FALSE,
+		"is_slime_core" = FALSE,
+		"is_circuit" = FALSE,
+		"is_survey_disk" = FALSE,
+		"is_artifact" = FALSE,
 		"technologies" = list()
 	)
-	var/list/techs = result["item"]["technologies"]
-	for(var/tech_id in linked_destroy.loaded_item.origin_tech)
-		var/datum/tech/T = files.known_tech[tech_id]
-		if(!T)
-			continue
-		techs += list(list(
-			"name" = T.name,
-			"item_level" = linked_destroy.loaded_item.origin_tech[tech_id],
-			"current_level" = T.level,
-			"progress" = T.next_level_progress,
-			"threshold" = T.next_level_threshold
-		))
+
+	if(istype(loaded, /obj/item/gun/energy/laser/prototype))
+		var/obj/item/gun/energy/laser/prototype/P = loaded
+		item_data["is_prototype"] = TRUE
+
+		var/l_modified_damage = 1 / max(1, P.burst - 1)
+		var/l_modified_max_shots = 1
+		for(var/obj/item/laser_components/l_component in list(P.capacitor, P.focusing_lens, P.modulator) + P.gun_mods)
+			if(l_component.damage != 0)
+				l_modified_damage *= l_component.damage
+			if(l_component.shots != 0)
+				l_modified_max_shots *= l_component.shots
+
+		var/obj/projectile/proj = P.projectile_type
+		item_data["specs"] = list(
+			"damage" = round(min(60, l_modified_damage), 1),
+			"max_shots" = max(P.max_shots, round(l_modified_max_shots)),
+			"burst" = P.burst,
+			"fire_delay" = P.fire_delay,
+			"reliability" = round(P.reliability, 1),
+			"self_recharge" = !!P.self_recharge,
+			"mods_count" = length(P.gun_mods),
+			"armor_penetration" = proj ? initial(proj.armor_penetration) : 0,
+			"stun" = proj ? (initial(proj.stun) > 0) : FALSE
+		)
+
+		var/datum/research_bounty/matched = files.get_matching_bounty(P)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			estimated_points = 150
+	else if(istype(loaded, /obj/item/seeds))
+		var/obj/item/seeds/seed_pkt = loaded
+		item_data["is_seed"] = TRUE
+		var/datum/seed/S = seed_pkt.seed
+		if(S)
+			var/list/traits_list = list()
+			if(GET_SEED_TRAIT(S, TRAIT_HARVEST_REPEAT) >= 1)
+				traits_list += "Perennial"
+			if(GET_SEED_TRAIT(S, TRAIT_BIOLUM) >= 1)
+				traits_list += "Bioluminescent"
+			if(GET_SEED_TRAIT(S, TRAIT_PRODUCES_POWER) >= 1)
+				traits_list += "Produces Power"
+			if(GET_SEED_TRAIT(S, TRAIT_TELEPORTING) >= 1)
+				traits_list += "Bluespace / Teleporting"
+			if(GET_SEED_TRAIT(S, TRAIT_EXPLOSIVE) >= 1)
+				traits_list += "Explosive"
+			if(GET_SEED_TRAIT(S, TRAIT_CARNIVOROUS) >= 1)
+				traits_list += "Carnivorous"
+			if(GET_SEED_TRAIT(S, TRAIT_SPREAD) >= 1)
+				traits_list += "Spreading"
+			if(GET_SEED_TRAIT(S, TRAIT_SPOROUS) >= 1)
+				traits_list += "Sporous"
+			if(GET_SEED_TRAIT(S, TRAIT_STINGS) >= 1)
+				traits_list += "Stinging"
+
+			item_data["seed_specs"] = list(
+				"species" = S.display_name || S.seed_name || loaded.name,
+				"potency" = GET_SEED_TRAIT(S, TRAIT_POTENCY),
+				"yield" = GET_SEED_TRAIT(S, TRAIT_YIELD),
+				"endurance" = GET_SEED_TRAIT(S, TRAIT_ENDURANCE),
+				"maturation" = GET_SEED_TRAIT(S, TRAIT_MATURATION),
+				"production" = GET_SEED_TRAIT(S, TRAIT_PRODUCTION),
+				"toxins_tolerance" = GET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE),
+				"heat_tolerance" = GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE),
+				"special_traits" = traits_list
+			)
+		var/datum/research_bounty/matched = files.get_matching_bounty(seed_pkt)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			estimated_points = 100
+	else if(istype(loaded, /obj/item/slime_extract))
+		var/obj/item/slime_extract/E = loaded
+		item_data["is_slime_core"] = TRUE
+		item_data["slime_specs"] = list(
+			"uses" = E.uses,
+			"enhanced" = !!E.enhanced
+		)
+		var/datum/research_bounty/matched = files.get_matching_bounty(E)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			estimated_points = 100
+	else if(istype(loaded, /obj/item/electronic_assembly))
+		var/obj/item/electronic_assembly/A = loaded
+		item_data["is_circuit"] = TRUE
+		var/num_pads = 0
+		var/txt_pads = 0
+		var/btns = 0
+		var/toggles = 0
+		var/scrs = 0
+		var/comp_count = 0
+		for(var/obj/item/integrated_circuit/IC in A.contents)
+			comp_count++
+			if(istype(IC, /obj/item/integrated_circuit/input/numberpad))
+				num_pads++
+			else if(istype(IC, /obj/item/integrated_circuit/input/textpad))
+				txt_pads++
+			else if(istype(IC, /obj/item/integrated_circuit/input/button))
+				btns++
+			else if(istype(IC, /obj/item/integrated_circuit/input/toggle_button))
+				toggles++
+			else if(istype(IC, /obj/item/integrated_circuit/output/screen))
+				scrs++
+		item_data["circuit_specs"] = list(
+			"components" = comp_count,
+			"numberpads" = num_pads,
+			"textpads" = txt_pads,
+			"buttons" = btns,
+			"toggles" = toggles,
+			"screens" = scrs
+		)
+		var/datum/research_bounty/matched = files.get_matching_bounty(A)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			estimated_points = 100
+	else if(istype(loaded, /obj/item/disk/survey_data))
+		var/obj/item/disk/survey_data/SD = loaded
+		item_data["is_survey_disk"] = TRUE
+		item_data["survey_specs"] = list(
+			"planet" = SD.planet_name,
+			"survey_type" = SD.survey_type ? capitalize(SD.survey_type) : "General"
+		)
+		var/datum/research_bounty/matched = files.get_matching_bounty(SD)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			for(var/tech_id in SD.origin_tech)
+				estimated_points += SD.origin_tech[tech_id] * 200
+			estimated_points = round(estimated_points * (1 + linked_destroy.decon_mod))
+	else if(istype(loaded, /obj/structure/machinery/artifact))
+		var/obj/structure/machinery/artifact/A = loaded
+		item_data["is_artifact"] = TRUE
+		var/trig_label = "Unknown"
+		var/eff_label = "Unknown"
+		if(A.my_effect)
+			if(A.my_effect.trigger >= 0 && A.my_effect.trigger <= 4)
+				trig_label = "Physical / Touch"
+			else if(A.my_effect.trigger >= 5 && A.my_effect.trigger <= 8)
+				trig_label = "Energetic"
+			else if(A.my_effect.trigger >= 9 && A.my_effect.trigger <= 12)
+				trig_label = "Atmospheric / Thermal"
+			switch(A.my_effect.effect_type)
+				if(1)
+					eff_label = "Concentrated Energy"
+				if(2)
+					eff_label = "Psionic Wavefront"
+				if(3)
+					eff_label = "Electromagnetic"
+				if(4)
+					eff_label = "Particle Field"
+				if(5)
+					eff_label = "Bio-Reactive"
+				if(6)
+					eff_label = "Bluespace Phasing"
+				if(7)
+					eff_label = "Atomic Synthesis"
+		item_data["artifact_specs"] = list(
+			"artifact_id" = A.my_effect?.artifact_id || "Unknown",
+			"trigger_type" = trig_label,
+			"effect_type" = eff_label,
+			"has_secondary" = !!A.secondary_effect
+		)
+		var/datum/research_bounty/matched = files.get_matching_bounty(A)
+		if(matched)
+			matched_title = matched.title
+			estimated_points = round(matched.reward_points * (1 + linked_destroy.decon_mod * 0.25))
+		else
+			estimated_points = 200
+	else if(istype(loaded, /obj/item))
+		var/obj/item/I_loaded = loaded
+		for(var/tech_id in I_loaded.origin_tech)
+			estimated_points += I_loaded.origin_tech[tech_id] * 200
+		estimated_points = round(estimated_points * (1 + linked_destroy.decon_mod))
+
+	item_data["points"] = estimated_points
+	item_data["matched_bounty"] = matched_title
+	result["item"] = item_data
 	return result
 
 /obj/structure/machinery/computer/rdconsole/proc/get_stored_reagent_amount(datum/reagents/reagent_holder, reagent_id)
@@ -829,6 +1088,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	data.network_sync = sync
 	data.busy_message = busy_message
 	data.queue_amount = queue_amount
+	data.research_points = files.research_points
+	data.tech_nodes = get_tech_nodes_tgui_data()
 
 	data.devices.analyzer = linked_destroy ? 1 : 0
 	data.devices.protolathe = length(get_fabricators(PROTOLATHE))
@@ -892,6 +1153,42 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if("back")
 			screen = 1.0
 			. = TRUE
+		if("unlock_node")
+			if(!allowed(usr) && !emagged)
+				to_chat(usr, SPAN_WARNING("Unauthorized access."))
+				return FALSE
+			var/node_id = params["id"]
+			if(!node_id)
+				return FALSE
+			if(files.unlock_node(node_id))
+				playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
+				var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+				to_chat(usr, SPAN_NOTICE("Technology unlocked: [node?.name]!"))
+				invalidate_fabricator_catalogues()
+				griefProtection()
+				. = TRUE
+			else
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				to_chat(usr, SPAN_WARNING("Unable to unlock technology node."))
+				return FALSE
+		if("maintain_node")
+			if(!allowed(usr) && !emagged)
+				to_chat(usr, SPAN_WARNING("Unauthorized access."))
+				return FALSE
+			var/node_id = params["id"]
+			if(!node_id)
+				return FALSE
+			var/spent = files.maintain_node(node_id)
+			if(spent > 0)
+				playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
+				var/datum/tech_node/node = GLOB.tech_nodes[node_id]
+				to_chat(usr, SPAN_NOTICE("Reinvested [spent] research data points into [node?.name]."))
+				griefProtection()
+				. = TRUE
+			else
+				playsound(src, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
+				to_chat(usr, SPAN_WARNING("Unable to reinvest points into this technology node."))
+				return FALSE
 		if("upload_disk")
 			if(t_disk?.stored)
 				files.AddTech2Known(t_disk.stored)
@@ -932,7 +1229,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if("analyzer_eject")
 			if(linked_destroy && !linked_destroy.busy && linked_destroy.loaded_item)
 				linked_destroy.loaded_item.forceMove(linked_destroy.loc)
-				if(linked_destroy.Adjacent(usr))
+				if(istype(linked_destroy.loaded_item, /obj/item) && linked_destroy.Adjacent(usr))
 					usr.put_in_hands(linked_destroy.loaded_item)
 				linked_destroy.loaded_item = null
 				linked_destroy.icon_state = "d_analyzer"
@@ -943,6 +1240,17 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				screen = 0.1
 				flick("d_analyzer_process", linked_destroy)
 				addtimer(CALLBACK(src, PROC_REF(finish_analyzer_deconstruction)), 24)
+				. = TRUE
+		if("reroll_bounty")
+			if(!allowed(usr) && !emagged)
+				to_chat(usr, SPAN_WARNING("Unauthorized access."))
+				return FALSE
+			if(files.bounty_rerolls <= 0)
+				to_chat(usr, SPAN_WARNING("No contract rerolls remaining. Complete a bounty to earn another reroll."))
+				return FALSE
+			var/bounty_id = params["id"]
+			if(bounty_id && files.reroll_bounty(bounty_id))
+				playsound(src, 'sound/machines/twobeep.ogg', 50, TRUE)
 				. = TRUE
 		if("fabricator_build")
 			var/design_text = params["design"]
@@ -1109,13 +1417,37 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 1.0
 		SStgui.update_uis(src)
 		return
-	for(var/T in linked_destroy.loaded_item.origin_tech)
-		files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
+	var/awarded_points = 0
+	var/obj/loaded = linked_destroy.loaded_item
+	if(istype(loaded, /obj/item/gun/energy/laser/prototype) || istype(loaded, /obj/item/seeds) || istype(loaded, /obj/item/slime_extract) || istype(loaded, /obj/item/electronic_assembly) || istype(loaded, /obj/item/disk/survey_data) || istype(loaded, /obj/structure/machinery/artifact))
+		var/datum/research_bounty/matched = files.get_matching_bounty(loaded)
+		if(matched)
+			var/corp = matched.corporation
+			var/bounty_title = matched.title
+			var/base_reward = files.complete_bounty(matched)
+			awarded_points = round(base_reward * (1 + linked_destroy.decon_mod * 0.25))
+			files.add_research_points(awarded_points)
+			visible_message(SPAN_NOTICE("\The [src] chimes: \"Corporate contract '[bounty_title]' fulfilled for [corp]! +[awarded_points] research data points awarded.\""))
+		else
+			awarded_points = istype(loaded, /obj/structure/machinery/artifact) ? 200 : (istype(loaded, /obj/item/gun/energy/laser/prototype) ? 150 : 100)
+			files.add_research_points(awarded_points)
+			visible_message(SPAN_NOTICE("\The [src] chimes: \"Baseline telemetry recorded (+[awarded_points] research data points).\""))
+	else if(istype(loaded, /obj/item))
+		var/obj/item/I_loaded = loaded
+		for(var/T in I_loaded.origin_tech)
+			files.UpdateTech(T, I_loaded.origin_tech[T])
+			awarded_points += I_loaded.origin_tech[T] * 200
+		if(awarded_points)
+			awarded_points = round(awarded_points * (1 + linked_destroy.decon_mod))
+			files.add_research_points(awarded_points)
+			visible_message(SPAN_NOTICE("\The [src] chimes: \"Survey telemetry processed! +[awarded_points] research data points awarded.\""))
 	files.RefreshResearch()
 	invalidate_fabricator_catalogues()
-	if(linked_silo && linked_destroy.loaded_item.matter)
-		for(var/t in linked_destroy.loaded_item.matter)
-			linked_silo.add_material(t, linked_destroy.loaded_item.matter[t] * linked_destroy.decon_mod)
+	if(linked_silo && istype(loaded, /obj/item))
+		var/obj/item/I_mat = loaded
+		if(I_mat.matter)
+			for(var/t in I_mat.matter)
+				linked_silo.add_material(t, I_mat.matter[t] * linked_destroy.decon_mod)
 	linked_destroy.loaded_item = null
 	for(var/obj/I in linked_destroy.contents)
 		for(var/mob/M in I.contents)

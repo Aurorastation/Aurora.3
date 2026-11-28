@@ -31,16 +31,24 @@
 /obj/structure/survey_probe/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The probe has to be deployed first before it is used: wrench it to deploy, then click with empty hand to activate."
+	. += "When activated on an exoplanet, each probe type can record planetary survey data once per planet, producing a valuable research data disk."
 
 /obj/structure/survey_probe/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries."
+	. += desc_extra
 	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
-		desc += "When deployed, this probe will read and relay weather data to compatible devices."
+		. += "When deployed, this probe will read and relay weather data to compatible devices."
 	if(survey_type == SURVEY_TYPE_GROUND)
-		desc += "When deployed, this probe will read and relay seismic data to compatible devices."
+		. += "When deployed, this probe will read and relay seismic data to compatible devices."
 	if(survey_type == SURVEY_TYPE_GEOMAGNETIC)
-		desc += "When deployed, this probe will read and relay geomagnetic data to compatible devices."
+		. += "When deployed, this probe will read and relay geomagnetic data to compatible devices."
+
+	var/obj/effect/overmap/visitable/sector/sector = get_map_sector(src)
+	if(istype(sector))
+		if(LAZYISIN(sector.surveyed_probe_types, survey_type))
+			. += SPAN_NOTICE("The diagnostic display indicates [survey_type] survey data has already been recorded for [sector.name].")
+		else
+			. += SPAN_NOTICE("The diagnostic display indicates [sector.name] has uncollected [survey_type] survey data.")
 
 /obj/structure/survey_probe/Initialize(mapload)
 	. = ..()
@@ -169,9 +177,42 @@
 		playsound(get_turf(src), 'sound/machines/dotprinter.ogg', 30, 1)
 		new /obj/item/paper/(get_turf(src), report_contents, report_name)
 
+		// planetary survey data disk handling
+		var/obj/effect/overmap/visitable/sector/sector = get_map_sector(src)
+		var/disk_ejected = FALSE
+		if(can_survey_planet(turf, turf_is_exoplanet, turf_is_asteroid, sector))
+			if(!LAZYISIN(sector.surveyed_probe_types, survey_type))
+				LAZYADD(sector.surveyed_probe_types, survey_type)
+				give_survey_disk(get_turf(src), sector, report)
+				disk_ejected = TRUE
+				playsound(get_turf(src), 'sound/machines/ping.ogg', 30, 1)
+			else
+				visible_message(SPAN_NOTICE("\The [src] reports that [survey_type] survey data for [sector.name] has already been logged."))
+		else if(istype(sector, /obj/effect/overmap/visitable/sector/exoplanet) && survey_type == SURVEY_TYPE_GROUND)
+			visible_message(SPAN_WARNING("\The [src] was unable to penetrate the ground to collect planetary survey data."))
+
+		if(disk_ejected)
+			src.visible_message(
+				SPAN_NOTICE("\The [src] finishes the surveying process, prints out a report, and ejects a planetary survey data disk."),
+			)
+		else
+			src.visible_message(
+				SPAN_NOTICE("\The [src] finishes the surveying process, and prints out a report."),
+			)
+
 		// fin
 		timer_id = null
 		icon_state = "[initial(icon_state)]_deployed"
+
+/obj/structure/survey_probe/proc/can_survey_planet(turf/T, is_exoplanet, is_asteroid, obj/effect/overmap/visitable/sector/sector)
+	if(!istype(sector))
+		return FALSE
+	if(!istype(sector, /obj/effect/overmap/visitable/sector/exoplanet) && !is_exoplanet && !is_asteroid)
+		return FALSE
+	return TRUE
+
+/obj/structure/survey_probe/proc/give_survey_disk(turf/T, obj/effect/overmap/visitable/sector/sector, report_contents)
+	return new /obj/item/disk/survey_data(T, sector, survey_type, report_contents)
 
 /obj/structure/survey_probe/proc/get_report(var/turf/T, var/is_exoplanet, var/is_asteroid)
 	. = "<b>Atmospheric survey results:</b>"
@@ -266,6 +307,15 @@
 		else
 			. += "<br>No data available from ground analysis"
 
+/obj/structure/survey_probe/ground/can_survey_planet(turf/T, is_exoplanet, is_asteroid, obj/effect/overmap/visitable/sector/sector)
+	if(!..())
+		return FALSE
+	var/is_hard_floor = istype(T, /turf/simulated/floor/tiled)
+	var/is_fake_grass = istype(T, /turf/simulated/floor/grass)
+	if(is_hard_floor || is_fake_grass || !(is_exoplanet || is_asteroid))
+		return FALSE
+	return TRUE
+
 /obj/structure/survey_probe/magnet
 	name = "geomagnetic probe"
 	desc = "\
@@ -297,6 +347,114 @@
 			. += "<br>No data available from geomagnetic analysis"
 	else
 		. += "<br>No data available from geomagnetic analysis"
+
+/*
+ * Planetary Survey Data Disk
+ */
+/obj/item/disk/survey_data
+	name = "planetary survey data disk"
+	desc = "A high-capacity research data disk containing comprehensive planetary survey telemetry."
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "datadisk2"
+	item_state = "card-id"
+	w_class = WEIGHT_CLASS_SMALL
+	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 10)
+	var/planet_name = "Unknown"
+	var/survey_type = ""
+	var/survey_details = ""
+
+/obj/item/disk/survey_data/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This disk contains valuable planetary survey data. It can be deconstructed in a destructive analyzer to gain research points, or sold via cargo export."
+
+/obj/item/disk/survey_data/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(planet_name)
+		. += "Target Planet: [planet_name]"
+	if(survey_type)
+		. += "Survey Category: [capitalize(survey_type)]"
+	if(distance <= 1 && length(origin_tech))
+		. += "Stored Research Disciplines:"
+		for(var/tech_id in origin_tech)
+			var/tname = CallTechName(tech_id) || tech_id
+			. += " - [tname]: Level [origin_tech[tech_id]]"
+
+/obj/item/disk/survey_data/Initialize(mapload, obj/effect/overmap/visitable/sector/sector, survey_category, report_text)
+	. = ..()
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
+
+	if(istype(sector))
+		planet_name = sector.name
+	if(survey_category)
+		survey_type = survey_category
+	if(report_text)
+		survey_details = report_text
+
+	setup_survey_data(sector)
+
+/obj/item/disk/survey_data/proc/setup_survey_data(obj/effect/overmap/visitable/sector/sector)
+	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
+	var/is_exo = istype(exoplanet)
+
+	switch(survey_type)
+		if(SURVEY_TYPE_ATMOSPHERIC)
+			icon_state = "datadisk0"
+			name = "planetary survey data - '[planet_name]' (Atmosphere)"
+			desc = "A high-capacity research data disk storing atmospheric, climate, and meteorological survey data from [planet_name]."
+			origin_tech = list(
+				TECH_BIO = 4,
+				TECH_DATA = 3,
+				TECH_ENGINEERING = 3,
+			)
+			if(is_exo)
+				if(exoplanet.atmosphere && exoplanet.atmosphere.gas[GAS_PHORON] >= 0.1)
+					origin_tech[TECH_PHORON] = 3
+				if(exoplanet.weather && exoplanet.weather != "No substantial meteorological readings")
+					origin_tech[TECH_DATA] = 4
+
+		if(SURVEY_TYPE_GROUND)
+			icon_state = "datadisk2"
+			name = "planetary survey data - '[planet_name]' (Ground)"
+			desc = "A high-capacity research data disk storing geological, seismic, and mineralogical survey data from [planet_name]."
+			origin_tech = list(
+				TECH_MATERIAL = 4,
+				TECH_ENGINEERING = 3,
+				TECH_DATA = 3,
+			)
+			if(is_exo)
+				if(istype(exoplanet, /obj/effect/overmap/visitable/sector/exoplanet/crystal) || istype(exoplanet, /obj/effect/overmap/visitable/sector/exoplanet/barren) || istype(exoplanet, /obj/effect/overmap/visitable/sector/exoplanet/lava))
+					origin_tech[TECH_MATERIAL] = 5
+				if(sector.ground_survey_result && (findtext(sector.ground_survey_result, "fissile") || findtext(sector.ground_survey_result, "fusile")))
+					origin_tech[TECH_POWER] = 3
+
+		if(SURVEY_TYPE_GEOMAGNETIC)
+			icon_state = "datadisk1"
+			name = "planetary survey data - '[planet_name]' (Geomagnetic)"
+			desc = "A high-capacity research data disk storing geomagnetic, magnetospheric, and radiation survey data from [planet_name]."
+			origin_tech = list(
+				TECH_MAGNET = 4,
+				TECH_POWER = 3,
+				TECH_DATA = 3,
+			)
+			if(is_exo)
+				if(sector.magnet_survey_result && (findtext(sector.magnet_survey_result, "Major energy flux") || findtext(sector.magnet_survey_result, "ferromagnetic") || findtext(sector.magnet_survey_result, "Magnetic resonance")))
+					origin_tech[TECH_MAGNET] = 5
+					origin_tech[TECH_POWER] = 4
+		else
+			name = "planetary survey data - '[planet_name]'"
+			origin_tech = list(TECH_DATA = 3)
+
+/obj/item/disk/survey_data/attack_self(mob/user)
+	to_chat(user, SPAN_NOTICE("<b>[name]</b>"))
+	to_chat(user, SPAN_NOTICE("Target Sector: [planet_name]"))
+	to_chat(user, SPAN_NOTICE("Survey Category: [survey_type ? capitalize(survey_type) : "General"]"))
+	if(length(origin_tech))
+		var/list/tech_names = list()
+		for(var/tech_id in origin_tech)
+			var/tname = CallTechName(tech_id) || tech_id
+			tech_names += "[tname] (Level [origin_tech[tech_id]])"
+		to_chat(user, SPAN_NOTICE("Stored Research Potential: [english_list(tech_names)]."))
 
 #undef SURVEY_TYPE_ATMOSPHERIC
 #undef SURVEY_TYPE_GROUND
