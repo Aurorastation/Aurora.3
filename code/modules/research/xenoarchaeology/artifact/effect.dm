@@ -104,6 +104,10 @@
 	for(var/obj/item/clothing/C in clothing)
 		protected += C.anomaly_protection
 
+	var/arch_skill = GET_SKILL_LEVEL(H, ARCHAOLOGY_SKILL_COMPONENT)
+	if(arch_skill > SKILL_LEVEL_UNFAMILIAR)
+		protected += 0.05 * (arch_skill - SKILL_LEVEL_UNFAMILIAR)
+
 	/*
 	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have
 		0.6 + 0.3 + 0.1 + 0.1 = 1.1

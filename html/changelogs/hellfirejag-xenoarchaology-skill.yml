@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Implemented the Xenoarchaeology skill. It provides both a variety of QoL features for an actual xenoarchaologist, and also serves as a general purpose 'Rogue' skill for expedition focused characters. High ranks in xenoarchaology allow characters to identify, disarm, and occasionally avoid traps."
