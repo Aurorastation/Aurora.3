@@ -2,6 +2,7 @@
 	/// Fallback turf if no PLANET_TURF generator is specified, which is true in most cases
 	var/turf_type
 	var/list/generators = list()
+	/// Assoc list of generator type to either a weighted list of paths, or a weighted list of path-lists (picked once per theme).
 	var/list/spawn_types = list()
 	var/list/exclusive_generators = list(LARGE_FLORA)
 

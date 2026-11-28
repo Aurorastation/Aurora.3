@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Some exoplanets now have a small chance to generate Psirens instead of their usual threats."
+  - rscadd: "Psirens now ignore psi-deaf characters unless provoked by them."
+  - rscadd: "Psirens spawned by either the Overmap or Wandering Psirens event will now actively try to hunt characters with high psionic sensitivity."
+  - rscadd: "Wandering Psirens now have a one-time use ability to 'jump' through exterior windows from space, so that they can quickly enter ships in search of prey."
