@@ -19,6 +19,7 @@
 
 	var/set_temperature = T20C	//thermostat
 	var/heating = 0		//mainly for icon updates
+	var/atmos_tuned = FALSE
 
 	component_types = list(
 		/obj/item/circuitboard/unary_atmos/heater,
@@ -145,6 +146,16 @@
 
 	add_fingerprint(usr)
 
+/obj/structure/machinery/atmospherics/unary/heater/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "calibrating the heating elements of", "\the [src] for +20% heating capacity")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		max_power_rating = round(max_power_rating * 1.2)
+		set_power_level(power_setting)
+	return TRUE
+
 //upgrading parts
 /obj/structure/machinery/atmospherics/unary/heater/RefreshParts()
 	..()
@@ -156,7 +167,7 @@
 		else if(ismatterbin(P))
 			bin_rating += P.rating
 
-	max_power_rating = initial(max_power_rating) * cap_rating / 2
+	max_power_rating = round(initial(max_power_rating) * cap_rating / 2 * (atmos_tuned ? 1.2 : 1))
 	max_temperature = max(initial(max_temperature) - T20C, 0) * ((bin_rating * 4 + cap_rating) / 5) + T20C
 	air_contents.volume = max(initial(internal_volume) - 200, 0) + 200 * bin_rating
 	set_power_level(power_setting)

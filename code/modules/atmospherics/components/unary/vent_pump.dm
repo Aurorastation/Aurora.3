@@ -41,6 +41,7 @@
 	var/pressure_checks_default = PRESSURE_CHECKS
 
 	var/welded = 0 // Added for aliens -- TLE
+	var/atmos_tuned = FALSE
 
 	var/frequency = 1439
 	var/datum/radio_frequency/radio_connection
@@ -49,6 +50,15 @@
 	var/radio_filter_in
 
 	var/broadcast_status_next_process = FALSE
+
+/obj/structure/machinery/atmospherics/unary/vent_pump/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "tuning the airflow baffles of", "\the [src] for +25% vent throughput")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		power_rating = round(power_rating * 1.25)
+	return TRUE
 
 /obj/structure/machinery/atmospherics/unary/vent_pump/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -35,6 +35,7 @@
 		manipulator_rating += manipulator.rating
 	mat_efficiency = 1 - (manipulator_rating - 2) / 8
 	production_speed = manipulator_rating / 2
+	apply_tuning_modifiers()
 	update_icon()
 
 /obj/structure/machinery/r_n_d/fabricator/protolathe/dismantle()

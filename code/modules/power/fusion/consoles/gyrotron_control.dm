@@ -35,7 +35,7 @@
 	switch(action)
 		if("modifypower")
 			G.mega_energy = clamp(params["modifypower"], 1, 250)
-			G.change_power_consumption(G.mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
+			G.change_power_consumption(G.get_effective_gyro_power(), POWER_USE_ACTIVE)
 			return TRUE
 
 		if("modifyrate")
@@ -62,7 +62,7 @@
 			gyrotron["active"] = G.active
 			gyrotron["firedelay"] = G.rate
 			gyrotron["energy"] = G.mega_energy
-			gyrotron["power_status"] = power_wattage_readable(G.mega_energy * GYRO_POWER)
+			gyrotron["power_status"] = power_wattage_readable(G.get_effective_gyro_power())
 			gyrotrons += list(gyrotron)
 	data["gyrotrons"] = gyrotrons
 	return data

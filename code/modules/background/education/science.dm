@@ -39,7 +39,7 @@
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_PROFESSIONAL,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR,
 	)
 
@@ -63,7 +63,7 @@
 		/singleton/skill/research = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/robotics = SKILL_LEVEL_TRAINED,
 		/singleton/skill/electrical_engineering = SKILL_LEVEL_FAMILIAR,
-		/singleton/skill/mechanical_engineering = SKILL_LEVEL_PROFESSIONAL,
+		/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED,
 		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR,
 	)
 

@@ -128,6 +128,7 @@
 	var/setting = 1.0
 	/// Audio for when the gravgen is on
 	var/datum/looping_sound/gravgen/soundloop
+	var/elec_tuned = FALSE
 	var/list/sprite_parts = list()
 	var/obj/middle = null
 	/// When broken, what stage it is at (GRAV_NEEDS_SCREWDRIVER:0) (GRAV_NEEDS_WELDING:1) (GRAV_NEEDS_PLASTEEL:2) (GRAV_NEEDS_WRENCH:3)
@@ -135,6 +136,15 @@
 	var/list/localareas = list()
 	var/round_start = 2 //To help stop a bug with round start
 	var/panel_open_heavy = 0
+
+/obj/structure/machinery/gravity_generator/main/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, elec_tuned, "tuning the power regulation of", "\the [src] for 20% lower active power draw")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !elec_tuned)
+		elec_tuned = TRUE
+		change_power_consumption(round(initial(active_power_usage) * 0.8), POWER_USE_ACTIVE)
+	return TRUE
 
 /obj/structure/machinery/gravity_generator/main/Initialize()
 	. = ..()

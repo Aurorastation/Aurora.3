@@ -63,7 +63,16 @@ const TurbineBroken = (props) => {
 // Element Tree for if the turbine is working
 const TurbineWorking = (props) => {
   const { data } = useBackend();
-  const { rpm, temperature, power, bearing_heat } = data;
+  const {
+    rpm,
+    temperature,
+    power,
+    bearing_heat,
+    professional,
+    efficiency,
+    productivity,
+    cooldown_remaining,
+  } = data;
   return (
     <LabeledList>
       <LabeledList.Item label="Turbine Speed">{rpm} RPM</LabeledList.Item>
@@ -83,6 +92,21 @@ const TurbineWorking = (props) => {
           {`${toFixed(bearing_heat)}%`}
         </ProgressBar>
       </LabeledList.Item>
+      {Boolean(professional) && (
+        <>
+          <LabeledList.Item label="Compressor Efficiency">
+            {efficiency}%
+          </LabeledList.Item>
+          <LabeledList.Item label="Turbine Productivity">
+            {productivity}%
+          </LabeledList.Item>
+          {cooldown_remaining > 0 && (
+            <LabeledList.Item label="Cooldown Remaining" color="bad">
+              {cooldown_remaining} s
+            </LabeledList.Item>
+          )}
+        </>
+      )}
     </LabeledList>
   );
 };

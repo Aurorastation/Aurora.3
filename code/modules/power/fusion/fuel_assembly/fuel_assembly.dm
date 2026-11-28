@@ -51,6 +51,13 @@
 	AddOverlays(list(I, image(icon, "fuel_assembly_bracket")))
 	rod_quantities[fuel_type] = initial_amount
 
+/obj/item/fuel_assembly/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		var/remaining_pct = initial_amount ? round((1 - percent_depleted) * 100, 1) : 0
+		. += SPAN_NOTICE("<b>Fuel Diagnostics:</b> Remaining Fuel: [remaining_pct]% | Radiation Rating: [radioactivity ? "[radioactivity] (Hazardous)" : "None"]")
+
 /obj/item/fuel_assembly/process()
 	. = ..()
 	if(!radioactivity)

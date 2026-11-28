@@ -39,6 +39,11 @@
 		cells_amount++
 		self_charge_rate += (PC.self_charge_percentage * PC.maxcharge) / 100
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
+	apply_tuning_modifiers()
+	charge = between(0, charge, capacity)
+
+/obj/structure/machinery/power/smes/batteryrack/reapply_electrical_tuning()
+	RefreshParts()
 
 /obj/structure/machinery/power/smes/batteryrack/process()
 	..()

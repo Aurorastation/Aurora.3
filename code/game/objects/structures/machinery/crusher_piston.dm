@@ -49,6 +49,7 @@
 	var/initial = 1 // initial run of the piston process
 
 	var/process_lock = 0 //If the call to process is locked because it is still running
+	var/mech_tuned = FALSE
 
 	component_types = list(
 		/obj/item/circuitboard/crusher,
@@ -56,6 +57,19 @@
 		/obj/item/stock_parts/manipulator = 3,
 		/obj/item/reagent_containers/glass/beaker = 3
 	)
+
+/obj/structure/machinery/crusher_base/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, mech_tuned, "tuning the hydraulic actuators of", "\the [src] for 25% faster cycling")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !mech_tuned)
+		mech_tuned = TRUE
+		time_stage_pre = round(time_stage_pre * 0.75)
+		time_stage_1 = round(time_stage_1 * 0.75)
+		time_stage_2 = round(time_stage_2 * 0.75)
+		time_stage_3 = round(time_stage_3 * 0.75)
+		time_stage_full = round(time_stage_full * 0.75)
+	return TRUE
 
 /obj/structure/machinery/crusher_base/Initialize()
 	. = ..()

@@ -36,6 +36,8 @@
 	var/capacitor_bonus = 0.000005
 	/// How much the micro laser rating decreased the field dissipation rate. This reduces the amount of shield strength lost per tick, reducing the shield upkeep.
 	var/micro_laser_bonus = 0.002
+	/// Current Electrical Engineering tuning mode ("Power Efficiency" or "Field Recovery").
+	var/tuned_mode
 
 	component_types = list(
 		/obj/item/circuitboard/shield_gen,
@@ -115,6 +117,15 @@
 	else
 		..()
 
+/obj/structure/machinery/shield_gen/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the field emitters of", "\the [src]", tuning_options = list(TUNE_MODE_EFFICIENCY, TUNE_MODE_SPEED))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/shield_gen/RefreshParts()
 	..()
 	var/max_strengthen_rate_increase = 0
@@ -133,6 +144,10 @@
 		energy_field.max_strengthen_rate = initial(energy_field.max_strengthen_rate) + (max_strengthen_rate_increase * manipulator_bonus)
 		energy_field.energy_conversion_rate = initial(energy_field.energy_conversion_rate) + (energy_conversion_rate_increase * capacitor_bonus)
 		energy_field.dissipation_rate = max(0, initial(energy_field.dissipation_rate) - (dissipation_rate_decrease * micro_laser_bonus))
+		if(tuned_mode == TUNE_MODE_EFFICIENCY)
+			energy_field.energy_conversion_rate *= 1.25
+		else if(tuned_mode == TUNE_MODE_SPEED)
+			energy_field.max_strengthen_rate *= 1.25
 		energy_field.strengthen_rate = min(energy_field.strengthen_rate, energy_field.max_strengthen_rate) ///If the strengthen rate got decreased and the current strengthen rate is now above the max, reduce it to the max.
 
 /obj/structure/machinery/shield_gen/attack_ai(mob/user)

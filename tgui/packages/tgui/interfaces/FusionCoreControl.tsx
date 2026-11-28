@@ -19,6 +19,7 @@ import { Window } from '../layouts';
 export type FusionCoreData = {
   cores: Core[];
   manufacturer: string;
+  read_only?: BooleanLike;
 };
 
 type Core = {
@@ -52,6 +53,12 @@ export const FusionCoreControl = (props) => {
   return (
     <Window width={800} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
+        {data.read_only ? (
+          <NoticeBox info>
+            Read-only monitoring mode. Formal Reactor Systems training is
+            required for core control.
+          </NoticeBox>
+        ) : null}
         {data.cores?.length ? (
           data.cores.map((core) => (
             <Section
@@ -64,7 +71,11 @@ export const FusionCoreControl = (props) => {
                     color="red"
                     icon="radiation"
                     onClick={() => act('toggle_active', { machine: core.ref })}
-                    disabled={!core.field || (!core.shutdown_safe && !override)}
+                    disabled={
+                      Boolean(data.read_only) ||
+                      !core.field ||
+                      (!core.shutdown_safe && !override)
+                    }
                   />
                 ) : (
                   <Button
@@ -76,7 +87,7 @@ export const FusionCoreControl = (props) => {
                         machine: core.ref,
                       })
                     }
-                    disabled={core.field}
+                    disabled={Boolean(data.read_only) || core.field}
                   />
                 )
               }
@@ -88,7 +99,7 @@ export const FusionCoreControl = (props) => {
                     content="Override"
                     color="red"
                     icon="radiation"
-                    disabled={override}
+                    disabled={Boolean(data.read_only) || override}
                     onClick={() => setOverride(!override)}
                   />
                 </NoticeBox>
@@ -137,6 +148,7 @@ export const FusionCoreControl = (props) => {
                           minValue={20}
                           maxValue={core.field_strength_max * 100}
                           stepPixelSize={15}
+                          disabled={Boolean(data.read_only)}
                           onChange={(value) =>
                             act('strength', {
                               strength: value,

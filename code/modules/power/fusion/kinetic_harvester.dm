@@ -12,6 +12,15 @@
 	var/list/harvesting =  list()
 	var/list/can_harvest = list()
 	var/obj/structure/machinery/power/fusion_core/harvest_from
+	var/reactor_tuned = FALSE
+
+/obj/structure/machinery/kinetic_harvester/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "tuning the particle condenser on", "\the [src] for improved material extraction")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+	return TRUE
 
 /obj/structure/machinery/kinetic_harvester/Initialize()
 	can_harvest = list(
@@ -90,6 +99,10 @@
 			return reactant
 
 /obj/structure/machinery/kinetic_harvester/ui_interact(mob/user, datum/tgui/ui)
+	var/cancelled = FALSE
+	SEND_SIGNAL(user, COMSIG_USE_REACTOR_COMPUTER, &cancelled)
+	if(cancelled)
+		return
 
 	if(!harvest_from && !find_core())
 		to_chat(user, SPAN_WARNING("This machine cannot locate a fusion core. Please ensure the machine is correctly configured to share a fusion plant network."))
@@ -161,7 +174,7 @@
 				return
 			var/singleton/material/material = get_harvest_material(mat)
 			if(material)
-				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
+				var/sheet_cost = SHEET_MATERIAL_AMOUNT * (reactor_tuned ? 1.25 : 1.5)
 				var/stored_amount = stored[mat] || 0
 				var/sheets = min(FLOOR(stored_amount/sheet_cost, 1), 50)
 				if(sheets > 0)

@@ -114,6 +114,54 @@
 	/// cooldown tracker for accent sounds,
 	var/last_accent_sound = 0
 
+/obj/structure/machinery/power/supermatter/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level))
+		skill_level = SKILL_LEVEL_TRAINED
+
+	if(skill_level <= SKILL_LEVEL_UNFAMILIAR)
+		return
+
+	var/integrity = get_integrity()
+	if(skill_level == SKILL_LEVEL_FAMILIAR)
+		if(damage > emergency_point)
+			. += SPAN_DANGER("The crystal's hyperstructure looks critically unstable!")
+		else if(damage > warning_point)
+			. += SPAN_WARNING("The crystal's surface shows signs of thermal stress.")
+		else
+			. += SPAN_NOTICE("The crystal's hyperstructure appears stable.")
+		if(power > 0)
+			. += SPAN_NOTICE("It is currently energized and emitting radiation.")
+		return
+
+	. += SPAN_NOTICE("<b>Reactor Diagnostics:</b> Integrity: [integrity]% | Power: [round(power, 1)]")
+	var/turf/L = loc
+	var/datum/gas_mixture/env = (istype(L) && !istype(L, /turf/space)) ? L.return_air() : null
+	if(!env || !env.total_moles)
+		. += SPAN_WARNING("No surrounding coolant gas detected; vacuum operation will cause rapid overheating.")
+	else
+		var/temp_msg = "Ambient Temperature: [round(env.temperature, 0.1)] K"
+		if(env.temperature >= CRITICAL_TEMPERATURE)
+			. += SPAN_DANGER("[temp_msg] (CRITICAL: above [CRITICAL_TEMPERATURE] K threshold!)")
+		else
+			. += SPAN_NOTICE("[temp_msg] (Critical threshold: [CRITICAL_TEMPERATURE] K)")
+
+	if(skill_level < SKILL_LEVEL_PROFESSIONAL)
+		return
+
+	if(damage > damage_archived)
+		. += SPAN_WARNING("Trend: Integrity is actively degrading.")
+	else if(damage < damage_archived)
+		. += SPAN_NOTICE("Trend: Crystal structure is recovering.")
+	else
+		. += SPAN_NOTICE("Trend: Integrity is holding steady.")
+
+	if(env && env.total_moles)
+		var/oxy_factor = max(min((env.gas[GAS_OXYGEN] - (env.gas[GAS_NITROGEN] * NITROGEN_RETARDATION_FACTOR)) / env.total_moles, 1), 0)
+		var/reaction_note = oxy_factor > 0.8 ? " (Chain-reaction regime)" : (oxy_factor > 0 ? " (Moderated)" : " (Inert / N2-retarded)")
+		. += SPAN_NOTICE("Effective Oxygen Factor: [round(oxy_factor * 100, 1)]%[reaction_note]")
+
 /obj/structure/machinery/power/supermatter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "When energized by a laser (or something hitting it), it emits radiation and heat. If the heat reaches above 7000 kelvin, it will send an alert and start taking damage."

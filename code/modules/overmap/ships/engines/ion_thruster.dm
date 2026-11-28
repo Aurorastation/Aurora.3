@@ -55,6 +55,16 @@
 	var/on = TRUE
 	var/burn_cost = 36000
 	var/generated_thrust = 2.5
+	var/reactor_tuned = FALSE
+
+/obj/structure/machinery/ion_engine/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "calibrating the ion injectors of", "\the [src] for 15% lower burn power cost")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		burn_cost = round(burn_cost * 0.85)
+	return TRUE
 
 /obj/structure/machinery/ion_engine/Initialize()
 	. = ..()
@@ -83,6 +93,12 @@
 
 /obj/structure/machinery/ion_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on
+
+/obj/structure/machinery/ion_engine/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		. += SPAN_NOTICE("<b>Thruster Diagnostics:</b> Status: [on && powered() ? "Online" : "Offline"] | Thrust Limit: [round(thrust_limit * 100)]% | Burn Cost: [power_wattage_readable(burn_cost * thrust_limit)]")
 
 /obj/structure/machinery/ion_engine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()

@@ -30,6 +30,7 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
+	var/reactor_tuned = FALSE
 	/// Special emitters notify admins if something happens to them, to prevent grief.
 	var/special_emitter = FALSE
 
@@ -81,6 +82,27 @@
 	QDEL_NULL(spark_system)
 	QDEL_NULL(signaler)
 	return ..()
+
+/obj/structure/machinery/power/emitter/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
+	if(isnull(skill_level) || skill_level >= SKILL_LEVEL_TRAINED)
+		var/list/issues = list()
+		if(!locked)
+			issues += "access lock disengaged"
+		if(state != EMITTER_WELDED)
+			issues += "not welded to floor"
+		if(length(issues))
+			. += SPAN_WARNING("<b>Reactor Inspection:</b> Tampering/setup issue detected ([jointext(issues, ", ")]).")
+
+/obj/structure/machinery/power/emitter/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, REACTOR_SYSTEMS_SKILL_COMPONENT, reactor_tuned, "aligning the focusing lenses of", "\the [src] for 15% lower power draw")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !reactor_tuned)
+		reactor_tuned = TRUE
+		change_power_consumption(round(initial(active_power_usage) * 0.85), POWER_USE_ACTIVE)
+	return TRUE
 
 /obj/structure/machinery/power/emitter/Initialize()
 	. = ..()

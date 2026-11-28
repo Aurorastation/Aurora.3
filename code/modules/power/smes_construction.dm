@@ -268,10 +268,14 @@
 			capacity += C.ChargeCapacity
 			input_level_max += C.IOCapacity
 			output_level_max += C.IOCapacity
+		apply_tuning_modifiers()
 		charge = between(0, charge, capacity)
 		return 1
 	else
 		return 0
+
+/obj/structure/machinery/power/smes/buildable/reapply_electrical_tuning()
+	recalc_coils()
 
 // Proc: total_system_failure()
 // Parameters: 2 (intensity - how strong the failure is, user - person which caused the failure)

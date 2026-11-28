@@ -30,6 +30,16 @@
 	var/welded = 0
 
 	var/broadcast_status_next_process = FALSE
+	var/atmos_tuned = FALSE
+
+/obj/structure/machinery/atmospherics/unary/vent_scrubber/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT, atmos_tuned, "tuning the airflow baffles of", "\the [src] for +25% scrub throughput")
+	if(isnull(tune_result))
+		return ..()
+	if(tune_result && !atmos_tuned)
+		atmos_tuned = TRUE
+		power_rating = round(power_rating * 1.25)
+	return TRUE
 
 /obj/structure/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -19,6 +19,8 @@
 	var/charge_per_scanner_rating = 0.25
 	var/repair_per_scanner_rating = 0.25
 	var/repair_per_manipulator_rating = 0.5
+	/// Current Electrical Engineering tuning mode ("Charging Speed" or "Repair Speed").
+	var/tuned_mode
 
 	component_types = list(
 		/obj/item/circuitboard/mech_recharger,
@@ -68,6 +70,15 @@
 		return TRUE
 	return ..()
 
+/obj/structure/machinery/mech_recharger/AltClick(mob/user)
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the dock conduits of", "\the [src]", tuning_options = list(TUNE_MODE_SPEED, TUNE_MODE_PRODUCTIVITY))
+	if(isnull(tune_result))
+		return ..()
+	if(istext(tune_result))
+		tuned_mode = tune_result
+		RefreshParts()
+	return TRUE
+
 /obj/structure/machinery/mech_recharger/RefreshParts()
 	..()
 	charge = -0.25
@@ -81,6 +92,11 @@
 			repair += P.rating * repair_per_scanner_rating
 		else if(ismanipulator(P))
 			repair += P.rating * repair_per_manipulator_rating
+
+	if(tuned_mode == TUNE_MODE_SPEED)
+		charge *= 1.2
+	else if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
+		repair *= 1.25
 
 	change_power_consumption(initial(base_charge_rate) * charge, POWER_USE_ACTIVE)
 

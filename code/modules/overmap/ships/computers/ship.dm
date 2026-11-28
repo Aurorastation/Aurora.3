@@ -27,12 +27,12 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/structure/machinery/computer/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level >= SKILL_LEVEL_FAMILIAR)
+	if(max(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level, user.GetComponent(REACTOR_SYSTEMS_SKILL_COMPONENT)?.skill_level) >= SKILL_LEVEL_FAMILIAR)
 		. += "Ship consoles like these can be directly given batterylife in emergencies. Simply use a power cell on it when unpowered to attempt a bypass with some of the charge." \
-		+ " Batterylife efficiency scales with Electrical Engineering and bypass completion is faster when Familiar with Piloting Spacecraft."
+		+ " Batterylife efficiency scales with Electrical Engineering or Reactor Systems and bypass completion is faster when Familiar with Piloting Spacecraft."
 
 /obj/structure/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
-	var/electrical_level = user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level
+	var/electrical_level = max(user.GetComponent(ELECTRICAL_ENGINEERING_SKILL_COMPONENT)?.skill_level, user.GetComponent(REACTOR_SYSTEMS_SKILL_COMPONENT)?.skill_level)
 
 	if(electrical_level > SKILL_LEVEL_UNFAMILIAR && (emergency_power_window || stat & NOPOWER) && istype(attacking_item, /obj/item/cell))
 		var/obj/item/cell/battery = attacking_item

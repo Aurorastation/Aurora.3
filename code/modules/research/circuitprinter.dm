@@ -39,6 +39,7 @@
 		manipulator_rating += manipulator.rating
 	mat_efficiency = 1 - (manipulator_rating - 1) / 8
 	production_speed = manipulator_rating
+	apply_tuning_modifiers()
 	update_icon()
 
 /obj/structure/machinery/r_n_d/fabricator/circuit_imprinter/update_icon()
