@@ -10,4 +10,3 @@ changes:
   - qol: "Emotes are no longer automatically italicized in chat."
   - bugfix: "Fixed light-theme heading spacing, MOTD link colors, and the root stylesheet selector."
   - code_imp: "Converted font datums to singletons and removed redundant and obsolete chat styles."
-  - qol: "LOOC is now shown in langchat, with special formatting and an icon ported from shiptest."
