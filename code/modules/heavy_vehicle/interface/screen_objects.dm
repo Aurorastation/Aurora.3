@@ -13,7 +13,7 @@
 /atom/movable/screen/mecha/radio
 	name = "radio"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'>RADIO</span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>RADIO</span></span>"
 	maptext_x = 2
 	maptext_y = 11
 
@@ -165,7 +165,7 @@
 /atom/movable/screen/mecha/eject
 	name = "eject"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'>EJECT</span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>EJECT</span></span>"
 	maptext_x = 3
 	maptext_y = 10
 
@@ -176,7 +176,7 @@
 /atom/movable/screen/mecha/rename
 	name = "rename"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'>RENAME</span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>RENAME</span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
@@ -206,7 +206,7 @@
 /atom/movable/screen/mecha/toggle/air
 	name = "air"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>AIR</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>AIR</span></span></span>"
 	maptext_x = 8
 
 /atom/movable/screen/mecha/toggle/air/toggled()
@@ -222,7 +222,7 @@
 /atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>MAINT</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>MAINT</span></span></span>"
 	maptext_x = 2
 	maptext_y = 10
 
@@ -237,7 +237,7 @@
 /atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
 	icon_state = "large_base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>POWER</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>POWER</span></span></span>"
 	maptext_x = 1
 	maptext_y = 11
 
@@ -254,7 +254,7 @@
 /atom/movable/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>GEAR</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>GEAR</span></span></span>"
 	maptext_x = 4
 
 /atom/movable/screen/mecha/toggle/hardpoint/toggled()
@@ -271,7 +271,7 @@
 /atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'>LOCK</span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>LOCK</span></span>"
 	maptext_x = 5
 
 /atom/movable/screen/mecha/toggle/hatch/toggled()
@@ -297,7 +297,7 @@
 /atom/movable/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'>CLOSE</span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>CLOSE</span></span>"
 	maptext_x = 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/update_icon()
@@ -337,7 +337,7 @@
 /atom/movable/screen/mecha/toggle/sensor
 	name = "toggle sensor matrix"
 	icon_state = "base"
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>SENSOR</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>SENSOR</span></span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
@@ -357,7 +357,7 @@
 /atom/movable/screen/mecha/toggle/megaspeakers
 	name = "toggle integrated megaspeakers"
 	icon_state = "base" // based
-	maptext = MAPTEXT_SPESSFONT("<span class='mecha_label'><span class='mecha_inactive'>VOLUME</span></span>")
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>VOLUME</span></span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
