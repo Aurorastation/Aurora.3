@@ -68,6 +68,8 @@
 
 	var/datum/seed/grown_seed
 	var/datum/reagents/grown_reagents
+	var/obj/structure/machinery/portable_atmospherics/hydroponics/scanned_tray
+	var/obj/item/seeds/scanned_packet
 	if(istype(target,/obj/structure/table))
 		return ..()
 	else if(istype(target,/obj/item/reagent_containers/food/snacks/grown))
@@ -86,16 +88,28 @@
 
 		var/obj/item/seeds/S = target
 		grown_seed = S.seed
+		scanned_packet = S
 
 	else if(istype(target,/obj/structure/machinery/portable_atmospherics/hydroponics))
 
 		var/obj/structure/machinery/portable_atmospherics/hydroponics/H = target
 		grown_seed = H.seed
 		grown_reagents = H.reagents
+		scanned_tray = H
+
+	else if(istype(target, /obj/structure/flora/harvestable))
+		var/obj/structure/flora/harvestable/FH = target
+		grown_seed = FH.seed
+
+	else if(istype(target, /obj/effect/plant))
+		var/obj/effect/plant/EP = target
+		grown_seed = EP.seed
 
 	if(!grown_seed)
 		to_chat(user, SPAN_DANGER("[src] can tell you nothing about \the [target]."))
 		return
+
+	var/botany_skill = GET_SKILL_LEVEL(user, XENOBOTANY_SKILL_COMPONENT) || SKILL_LEVEL_UNFAMILIAR
 
 	form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"
 	var/dat = "<h3>Plant data for [form_title]</h3>"
@@ -109,7 +123,30 @@
 	dat += "<tr><td><b>Maturation time</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_MATURATION)]</td></tr>"
 	dat += "<tr><td><b>Production time</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_PRODUCTION)]</td></tr>"
 	dat += "<tr><td><b>Potency</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_POTENCY)]</td></tr>"
+	if(botany_skill >= SKILL_LEVEL_FAMILIAR && scanned_packet)
+		dat += "<tr><td><b>Genetic modification decay</b></td><td>[scanned_packet.modified]%</td></tr>"
 	dat += "</table>"
+
+	if(botany_skill >= SKILL_LEVEL_FAMILIAR)
+		dat += "<h2>Exact Environmental & Tolerance Profile</h2>"
+		dat += "<table>"
+		dat += "<tr><td><b>Ideal Temperature</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_IDEAL_HEAT)] K (Pref: &plusmn;[GET_SEED_TRAIT(grown_seed, TRAIT_HEAT_PREFERENCE)] K, Tol: &plusmn;[GET_SEED_TRAIT(grown_seed, TRAIT_HEAT_TOLERANCE)] K)</td></tr>"
+		dat += "<tr><td><b>Ideal Light</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_IDEAL_LIGHT)] lm (Pref: &plusmn;[GET_SEED_TRAIT(grown_seed, TRAIT_LIGHT_PREFERENCE)] lm, Tol: &plusmn;[GET_SEED_TRAIT(grown_seed, TRAIT_LIGHT_TOLERANCE)] lm)</td></tr>"
+		dat += "<tr><td><b>Pressure Tolerance</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_LOWKPA_TOLERANCE)] kPa &ndash; [GET_SEED_TRAIT(grown_seed, TRAIT_HIGHKPA_TOLERANCE)] kPa</td></tr>"
+		dat += "<tr><td><b>Toxin / Pest / Weed Tol.</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_TOXINS_TOLERANCE)] / [GET_SEED_TRAIT(grown_seed, TRAIT_PEST_TOLERANCE)] / [GET_SEED_TRAIT(grown_seed, TRAIT_WEED_TOLERANCE)]</td></tr>"
+		dat += "<tr><td><b>Nutrient / Water Use</b></td><td>[GET_SEED_TRAIT(grown_seed, TRAIT_REQUIRES_NUTRIENTS) ? "[GET_SEED_TRAIT(grown_seed, TRAIT_NUTRIENT_CONSUMPTION)]/cycle" : "None"] / [GET_SEED_TRAIT(grown_seed, TRAIT_REQUIRES_WATER) ? "[GET_SEED_TRAIT(grown_seed, TRAIT_WATER_CONSUMPTION)]/cycle" : "None"]</td></tr>"
+		dat += "</table>"
+
+		if(scanned_tray)
+			dat += "<h2>Live Tray Diagnostics</h2>"
+			dat += "<table>"
+			dat += "<tr><td><b>Plant Health</b></td><td>[round(scanned_tray.plant_health, 0.1)] / [GET_SEED_TRAIT(grown_seed, TRAIT_ENDURANCE)][scanned_tray.dead ? " (DEAD)" : ""]</td></tr>"
+			dat += "<tr><td><b>Plant Age</b></td><td>[scanned_tray.age] (Last produce: [scanned_tray.lastproduce])</td></tr>"
+			dat += "<tr><td><b>Water / Nutrients</b></td><td>[round(scanned_tray.waterlevel, 0.1)]/100 / [round(scanned_tray.nutrilevel, 0.1)]/10</td></tr>"
+			dat += "<tr><td><b>Toxins / Weeds / Pests</b></td><td>[round(scanned_tray.toxins, 0.1)] / [round(scanned_tray.weedlevel, 0.1)] / [round(scanned_tray.pestlevel, 0.1)]</td></tr>"
+			dat += "<tr><td><b>Mutation / Yield Mod</b></td><td>[round(scanned_tray.mutation_level, 0.1)]% / +[scanned_tray.yield_mod]</td></tr>"
+			dat += "<tr><td><b>Status Flags</b></td><td>[scanned_tray.stunted ? "Stunted " : ""][scanned_tray.sampled ? "Sampled " : ""][(!scanned_tray.stunted && !scanned_tray.sampled) ? "Nominal" : ""]</td></tr>"
+			dat += "</table>"
 
 	if(LAZYLEN(grown_reagents?.reagent_volumes))
 		dat += "<h2>Reagent Data</h2>"
@@ -118,6 +155,21 @@
 		for(var/_R in grown_reagents.reagent_volumes)
 			var/singleton/reagent/R = GET_SINGLETON(_R)
 			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, _R)] unit(s)"
+
+	if(botany_skill >= SKILL_LEVEL_TRAINED && islist(grown_seed.chems) && length(grown_seed.chems))
+		dat += "<h2>Genetic Chemical Synthesis Profile</h2>"
+		var/potency = GET_SEED_TRAIT(grown_seed, TRAIT_POTENCY)
+		for(var/rid in grown_seed.chems)
+			var/singleton/reagent/R = GET_SINGLETON(rid)
+			if(!R)
+				continue
+			var/list/reagent_data = grown_seed.chems[rid]
+			var/expected_vol = 1
+			if(islist(reagent_data) && length(reagent_data))
+				expected_vol = reagent_data[1]
+				if(length(reagent_data) > 1 && potency > 0 && reagent_data[2])
+					expected_vol += round(potency / reagent_data[2])
+			dat += "- <b>[R.name]</b>: ~[max(1, expected_vol)] u per product at current potency<br>"
 
 	dat += "<h2>Other Data</h2>"
 
@@ -146,7 +198,10 @@
 			dat += "It requires a stable supply of water.<br>"
 
 	if(grown_seed.mutants && grown_seed.mutants.len)
-		dat += "It exhibits a high degree of potential subspecies shift.<br>"
+		if(botany_skill >= SKILL_LEVEL_TRAINED)
+			dat += "It exhibits a high degree of potential subspecies shift into: <b>[english_list(grown_seed.mutants)]</b>.<br>"
+		else
+			dat += "It exhibits a high degree of potential subspecies shift.<br>"
 
 	dat += "It thrives in a temperature of [GET_SEED_TRAIT(grown_seed, TRAIT_IDEAL_HEAT)] Kelvin."
 
@@ -219,11 +274,24 @@
 	if(GET_SEED_TRAIT(grown_seed, TRAIT_TELEPORTING))
 		dat += "<br>The fruit is temporal/spatially unstable."
 
-	if(GET_SEED_TRAIT(grown_seed, TRAIT_EXUDE_GASSES))
-		dat += "<br>It will release gas into the environment."
+	if(GET_SEED_TRAIT(grown_seed, TRAIT_EXUDE_GASSES) || (islist(grown_seed.exude_gasses) && length(grown_seed.exude_gasses)))
+		if(botany_skill >= SKILL_LEVEL_TRAINED && islist(grown_seed.exude_gasses) && length(grown_seed.exude_gasses))
+			dat += "<br>It will release gas into the environment (<b>[english_list(grown_seed.exude_gasses)]</b>)."
+		else
+			dat += "<br>It will release gas into the environment."
 
-	if(GET_SEED_TRAIT(grown_seed, TRAIT_CONSUME_GASSES))
-		dat += "<br>It will remove gas from the environment."
+	if(GET_SEED_TRAIT(grown_seed, TRAIT_CONSUME_GASSES) || (islist(grown_seed.consume_gasses) && length(grown_seed.consume_gasses)))
+		if(botany_skill >= SKILL_LEVEL_TRAINED && islist(grown_seed.consume_gasses) && length(grown_seed.consume_gasses))
+			dat += "<br>It will remove gas from the environment (<b>[english_list(grown_seed.consume_gasses)]</b>)."
+		else
+			dat += "<br>It will remove gas from the environment."
+
+	if(botany_skill >= SKILL_LEVEL_PROFESSIONAL && SSplants?.gene_masked_list)
+		dat += "<h2>Decoded Gene Locus Reference</h2>"
+		dat += "<table>"
+		for(var/list/entry in SSplants.gene_masked_list)
+			dat += "<tr><td><b>[entry["mask"]]</b></td><td>[entry["tag"]]</td></tr>"
+		dat += "</table>"
 
 	if(dat)
 		last_data = dat

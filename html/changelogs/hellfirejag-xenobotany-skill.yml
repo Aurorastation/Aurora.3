@@ -1,0 +1,7 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Implemented the Xenobotany skill and associated pointer signals (also integrated with the Morale component), granting progressive bonuses to plant genetics machinery, obfuscated gene mask decoding, floral somatorays and directed mutations, Plant Analyzer diagnostics, tissue sampling, exoplanet flora harvesting, and hazardous/spreading flora handling."
+  - bugfix: "Fixed the Xenobiology skill singleton referencing the Xenobotany skill component instead of the Xenobiology skill component."
+
+

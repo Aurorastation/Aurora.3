@@ -53,7 +53,11 @@
 	// Other plants also mutate if enough mutagenic compounds have been added.
 	if(!GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE))
 		if(prob(min(mutation_level,100)))
-			mutate((rand(100) < 15) ? 2 : 1)
+			var/mob/mut_user = last_mutagen_user?.resolve()
+			var/species_mut_chance = 15
+			if(mut_user)
+				SEND_SIGNAL(mut_user, COMSIG_BOTANY_INDUCE_MUTATION, seed, &species_mut_chance, null, null)
+			mutate((rand(100) < clamp(species_mut_chance, 0, 100)) ? 2 : 1, mut_user)
 			mutation_level = 0
 
 	// Maintain tray nutrient and water levels.
