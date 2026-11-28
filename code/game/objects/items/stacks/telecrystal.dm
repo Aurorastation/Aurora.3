@@ -17,20 +17,14 @@
 	. += ..()
 	. += "Crystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 
-/obj/item/stack/telecrystal/five/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/five
 	amount = 5
-	update_icon()
 
-/obj/item/stack/telecrystal/twentyfive/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/twentyfive
 	amount = 25
-	update_icon()
 
-/obj/item/stack/telecrystal/fifty/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/fifty
 	amount = 50
-	update_icon()
 
 /obj/item/stack/telecrystal/afterattack(var/obj/item/I, mob/user, proximity)
 	if(!proximity)
@@ -52,20 +46,14 @@
 	icon_state = "bluecrystal"
 	crystal_type = CRYSTAL_TYPE_BLUECRYSTAL
 
-/obj/item/stack/telecrystal/blue/five/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/blue/five
 	amount = 5
-	update_icon()
 
-/obj/item/stack/telecrystal/blue/twentyfive/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/blue/twentyfive
 	amount = 25
-	update_icon()
 
-/obj/item/stack/telecrystal/blue/fifty/Initialize()
-	. = ..()
+/obj/item/stack/telecrystal/blue/fifty
 	amount = 50
-	update_icon()
 
 #undef CRYSTAL_TYPE_TELECRYSTAL
 #undef CRYSTAL_TYPE_BLUECRYSTAL
