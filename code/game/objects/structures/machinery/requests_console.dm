@@ -116,6 +116,8 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	//Form intregration
 	var/sql_filter_dept = ""
 	var/paperstock = 20
+	/// When the next low-paper reminder may sound.
+	var/next_paper_alert = 0
 	/// Whether this initially mapped Horizon console's paper stock persists between rounds.
 	var/persistent_paperstock = TRUE
 	/// Original map identity used to persist paper stock without persisting the console itself.
@@ -262,6 +264,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 
 /obj/structure/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
+	next_paper_alert = world.time + 10 MINUTES
 
 	desc = "A console intended to send requests to different departments on the [station_name(TRUE)]."
 	if(building)
@@ -294,6 +297,18 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 
 	if(!mapload)
 		set_pixel_offsets()
+
+/obj/structure/machinery/requests_console/process(seconds_per_tick)
+	if(paperstock > 4)
+		next_paper_alert = world.time + 10 MINUTES
+		return
+	if(silent || !operable(MAINT|EMPED) || world.time < next_paper_alert)
+		return
+
+	next_paper_alert = world.time + 10 MINUTES
+	playsound(loc, 'sound/machines/twobeep.ogg', 40)
+	var/paper_warning = paperstock <= 0 ? "Out of paper! Please refill the paper tray." : "Paper running low: [paperstock] sheet[paperstock == 1 ? "" : "s"] remaining. Please refill the paper tray."
+	audible_message("<b>\The [src]</b> beeps, \"[paper_warning]\"", audible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/requests_console/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)
