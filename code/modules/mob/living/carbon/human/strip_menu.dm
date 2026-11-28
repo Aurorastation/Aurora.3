@@ -398,6 +398,28 @@
 		return TRUE
 	return FALSE
 
+/obj/item/clothing/get_strip_actions(mob/living/carbon/human/target, mob/living/user)
+	. = ..()
+	if(attached_radio && (target.w_uniform == src || target.wear_suit == src))
+		.["radio"] = "Strip radio"
+
+/obj/item/clothing/perform_strip_action(action, mob/living/carbon/human/target, mob/living/user)
+	if(action != "radio")
+		return ..()
+	var/slot = target.w_uniform == src ? slot_w_uniform : slot_wear_suit
+	var/obj/item/radio/headset/wrist/clip/radio = attached_radio
+	if(!radio || !target.can_strip(user) || target.get_strip_item(slot) != src || target.is_strip_slot_obscured(slot))
+		return FALSE
+	target.visible_message(SPAN_DANGER("\The [user] is trying to remove \the [target]'s [radio.name]!"))
+	if(!do_after(user, HUMAN_STRIP_DELAY, target, do_flags = DO_EQUIP))
+		return FALSE
+	if(QDELETED(src) || QDELETED(radio) || !target.can_strip(user) || target.get_strip_item(slot) != src || target.is_strip_slot_obscured(slot) || attached_radio != radio || radio.attached_clothing != src)
+		return FALSE
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had \the [radio] removed by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to remove [target.name]'s ([target.ckey]) [radio.name]</span>"
+	remove_attached_radio(user)
+	return TRUE
+
 /obj/item/clothing/mask/get_strip_actions(mob/living/carbon/human/target, mob/living/user)
 	. = ..()
 	if(target.wear_mask == src && adjustable)

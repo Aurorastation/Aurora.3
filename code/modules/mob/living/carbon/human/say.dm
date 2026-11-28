@@ -182,12 +182,18 @@
 
 /mob/living/carbon/human/get_radio()
 	var/list/headsets = list()
+	var/obj/item/clothing/under/uniform = w_uniform
+	var/obj/item/clothing/suit/outerwear = wear_suit
 	if(istype(l_ear, /obj/item/radio))
 		headsets["Left Ear"] = l_ear
 	if(istype(r_ear, /obj/item/radio))
 		headsets["Right Ear"] = r_ear
 	if(istype(wrists, /obj/item/radio))
 		headsets["Wrist"] = wrists
+	if(uniform?.attached_radio)
+		headsets["Uniform"] = uniform.attached_radio
+	if(outerwear?.attached_radio)
+		headsets["Outerwear"] = outerwear.attached_radio
 
 	if(length(headsets))
 		if(client && (client.prefs.primary_radio_slot in headsets))

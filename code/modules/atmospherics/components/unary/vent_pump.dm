@@ -168,6 +168,8 @@
 		update_use_power(POWER_USE_OFF)
 
 	var/vent_icon = ""
+	var/list/light_overlays = list()
+	ClearOverlays()
 
 	if(welded)
 		vent_icon += "weld"
@@ -175,8 +177,12 @@
 		vent_icon += "off"
 	else
 		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		var/light_state = use_power ? (pump_direction ? "light_out" : "light_in") : "light_standby"
+		light_overlays += mutable_appearance(icon, light_state)
+		light_overlays += emissive_appearance(icon, "light-emissive")
 
 	icon_state = vent_icon
+	AddOverlays(light_overlays)
 
 	update_underlays()
 

@@ -320,10 +320,6 @@
 /obj/vehicle/bike/motor/brown,
 /turf/template_noop,
 /area/template_noop)
-"hD" = (
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/turf/template_noop,
-/area/template_noop)
 "hY" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/glass/wired/full,
@@ -457,20 +453,6 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
-/turf/template_noop,
-/area/template_noop)
-"kO" = (
-/obj/item/reagent_containers/chem_disp_cartridge/espresso,
-/obj/item/reagent_containers/chem_disp_cartridge/espresso,
-/obj/item/reagent_containers/chem_disp_cartridge/espresso,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/obj/item/reagent_containers/chem_disp_cartridge/milk,
-/obj/item/reagent_containers/chem_disp_cartridge/cream,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /turf/template_noop,
 /area/template_noop)
 "kY" = (
@@ -3509,7 +3491,7 @@ Qb
 sX
 Gz
 lu
-kO
+Gz
 nn
 Gz
 Gz
@@ -5669,7 +5651,7 @@ Gz
 Gz
 jB
 Gz
-hD
+Gz
 Gz
 iR
 Gz
@@ -5717,7 +5699,7 @@ Ao
 OL
 lu
 lu
-kO
+Gz
 nn
 Gz
 Gz

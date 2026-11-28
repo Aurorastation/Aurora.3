@@ -2,9 +2,9 @@
 "aa" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "am" = (
@@ -192,9 +192,9 @@
 "qm" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "qI" = (
@@ -327,10 +327,10 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "labor_entry";
 	name = "Entry";
-	req_access = list(209);
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Aq" = (

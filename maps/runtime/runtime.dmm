@@ -4066,9 +4066,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 1;
-	name = "Gravity Generator Monitoring";
-	req_access = list(11)
+	name = "Gravity Generator Monitoring"
 	},
+/obj/effect/map_effect/marker/access/req_all/engine_equip,
 /turf/simulated/floor/tiled/dark/full,
 /area/runtime/floor_two/main)
 "tC" = (
@@ -4607,10 +4607,10 @@
 /area/runtime/floor_one/atmospherics)
 "wu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/telecomms/server/presets/common,
 /obj/structure/machinery/status_display{
 	pixel_y = 32
 	},
+/obj/structure/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/tiled/techfloor,
 /area/runtime/floor_two/comms)
 "wy" = (
@@ -4715,7 +4715,6 @@
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "AI Upload";
-	req_access = list(16);
 	dir = 1
 	},
 /obj/structure/cable/yellow{
@@ -4727,6 +4726,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ai_upload,
 /turf/unsimulated/floor/dark_monotile,
 /area/runtime/floor_two/comms)
 "xr" = (
@@ -8811,10 +8811,11 @@
 	frequency = 1380;
 	id_tag = "cargo_shuttle";
 	name = "cargo elevator docking controller";
-	req_one_access = list(13,31);
 	tag_door = "cargo_shuttle_airlock";
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker/access/req_one/cargo,
+/obj/effect/map_effect/marker/access/req_one/external_airlocks,
 /turf/simulated/floor/tiled/full,
 /area/supply/dock)
 "Um" = (

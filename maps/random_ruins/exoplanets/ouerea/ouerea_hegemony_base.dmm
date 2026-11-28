@@ -190,9 +190,9 @@
 "eR" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -359,9 +359,9 @@
 "jz" = (
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -439,9 +439,8 @@
 	},
 /area/ouerea/ouerea_hegemony_base/outdoors)
 "mH" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(113)
-	},
+/obj/structure/closet/secure_closet,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -705,10 +704,10 @@
 /area/ouerea/ouerea_hegemony_base)
 "vD" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(113);
 	name = "Barracks";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1084,9 +1083,9 @@
 "GV" = (
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(113)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1094,9 +1093,9 @@
 "GW" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/machinery/door/airlock/security{
-	name = "Briefing Room";
-	req_access = list(113)
+	name = "Briefing Room"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1310,18 +1309,17 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet{
-	req_access = list(113)
-	},
+/obj/structure/closet/secure_closet,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/ouerea/ouerea_hegemony_base)
 "MP" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Checkpoint";
-	req_access = list(113)
+	name = "Checkpoint"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -1351,9 +1349,9 @@
 /area/ouerea/ouerea_hegemony_base)
 "Ol" = (
 /obj/structure/machinery/door/airlock/security{
-	name = "Brig";
-	req_one_access = list(113)
+	name = "Brig"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1502,18 +1500,17 @@
 "TI" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(113)
+	dir = 8
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
 	pixel_y = 32;
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
@@ -1630,18 +1627,17 @@
 "Wa" = (
 /obj/structure/table/steel,
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(113)
+	dir = 4
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(113);
 	pixel_y = 32;
 	dir = 6
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},

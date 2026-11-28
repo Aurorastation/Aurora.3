@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(pdalist, list("Nothing", "Standard PDA", "Classic PDA", "Rugged
 GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio", "Clip-on Radio"))
 
 /// Primary Radio Slot loadout choices.
-GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
+GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist", "Uniform", "Outerwear"))
 
 /// Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())
@@ -130,7 +130,7 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
 
-GLOBAL_LIST_INIT(syndicate_access, list(/datum/access/maint_tunnels::id, /datum/access/syndicate::id, /datum/access/external_airlocks::id))
+GLOBAL_LIST_INIT(syndicate_access, list(/datum/access/horizon/maint_tunnels::id, /datum/access/antag/syndicate::id, /datum/access/horizon/external_airlocks::id))
 
 /// Cloaking devices.
 GLOBAL_LIST_EMPTY(cloaking_devices)

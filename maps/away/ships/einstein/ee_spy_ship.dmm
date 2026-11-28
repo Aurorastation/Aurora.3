@@ -167,9 +167,9 @@
 /area/ship/ee_spy_ship)
 "bci" = (
 /obj/structure/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = list(205)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "bkQ" = (
@@ -416,9 +416,9 @@
 "fQq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Head";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/white,
 /area/ship/ee_spy_ship)
 "fRD" = (
@@ -451,9 +451,9 @@
 "fZq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Horizon Refuse Sorting";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "gcq" = (
@@ -554,9 +554,9 @@
 "hZq" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Dock";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/yellow,
 /area/ship/ee_spy_ship)
 "iaK" = (
@@ -647,9 +647,9 @@
 "krH" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Research Officer's Quarters";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "kwe" = (
@@ -689,9 +689,9 @@
 "lhC" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Operations";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "liN" = (
@@ -1035,9 +1035,9 @@
 "sGi" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Cockpit";
-	req_access = list(205);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ee_spy_ship)
 "sOb" = (
@@ -1217,9 +1217,9 @@
 "wji" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Crew Quarters";
-	req_access = list(205);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/ee_spy_ship)
 "wrJ" = (
@@ -1274,9 +1274,8 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/ee_shuttle)
 "xPN" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_access = list(205)
-	},
+/obj/structure/machinery/computer/ship/helm,
+/obj/effect/map_effect/marker/access/req_all/ee_spy_ship,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/ee_shuttle)
 "xQS" = (

@@ -32,7 +32,7 @@
 	anchored = 1
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(/datum/access/medical_equip::id) //since we have no genetics for now
+	req_access = list(/datum/access/horizon/medical_equip::id) //since we have no genetics for now
 	var/mob/living/occupant
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
@@ -182,7 +182,7 @@
 
 		if(GetCloneReadiness() >= 100 && !eject_wait)
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
-			src.audible_message("\The [src] signals that the cloning process is complete.")
+			src.audible_message("\The [src] signals that the cloning process is complete.", audible_message_flags = LOCAL_MESSAGE)
 			connected_message("Cloning Process Complete.")
 			locked = 0
 			go_out()

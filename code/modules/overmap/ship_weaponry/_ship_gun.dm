@@ -108,7 +108,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 			add_damage(10)
 
 /obj/structure/machinery/ship_weapon/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] explodes in a shower of sparks and fire!")))
+	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] explodes in a shower of sparks and fire!")), visible_message_flags = LOCAL_MESSAGE)
 	explosion(get_turf(src), 5, 7, 9)
 	. = ..()
 
@@ -314,11 +314,6 @@ ABSTRACT_TYPE(/obj/structure/machinery/ship_weapon)
 /obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
 		connected.hitby(arglist(args))
-	if(ismob(hitting_atom))
-		if(isliving(hitting_atom))
-			var/mob/living/M = hitting_atom
-			M.turf_collision(src, throwingdatum.speed)
-			return
 
 /obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()

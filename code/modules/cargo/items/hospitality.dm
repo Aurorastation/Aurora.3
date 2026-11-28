@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -21,7 +20,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -35,7 +33,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -49,7 +46,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -63,7 +59,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -77,7 +72,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -91,7 +85,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/squidmeat
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -105,7 +98,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
-	access = /datum/access/galley::id
+	access = list(/datum/access/horizon/galley::id)
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 5
@@ -119,7 +112,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/roe
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -133,7 +125,6 @@
 	items = list(
 		/obj/item/storage/box/crabmeat
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -147,7 +138,6 @@
 	items = list(
 		/obj/item/storage/box/clams
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -161,7 +151,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/hmatrrameat
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -175,7 +164,6 @@
 	items = list(
 		/obj/item/storage/box/large/produce
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -189,7 +177,6 @@
 	items = list(
 		/obj/item/storage/box/large/produce/adhomai
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -203,7 +190,6 @@
 	items = list(
 		/obj/item/storage/box/large/produce/moghes
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -217,7 +203,6 @@
 	items = list(
 		/obj/item/storage/box/large/produce/nralakk
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -231,7 +216,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/spacespice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 2
@@ -245,7 +229,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/food/sliced_bread
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -259,7 +242,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/food/packaged_shrimp
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -273,7 +255,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -287,7 +268,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/salt
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -301,7 +281,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/barbecue
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -315,7 +294,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/hot_sauce
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -329,7 +307,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/garlicsauce
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -343,7 +320,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/honey
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -357,7 +333,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/soysauce
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -371,7 +346,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/ketchup
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -385,7 +359,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/mayonnaise
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -399,7 +372,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/ntella
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -413,7 +385,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/peanut_butter
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -427,7 +398,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/cherry_jelly
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -441,7 +411,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/grape_jelly
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -455,7 +424,6 @@
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/triglyceride
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -469,7 +437,6 @@
 	items = list(
 		/obj/item/storage/box/drinkingglasses
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -483,7 +450,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/egg_box
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -497,7 +463,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/flour
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -511,7 +476,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/sugar
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -525,7 +489,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/rice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -539,7 +502,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/enzyme
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -553,7 +515,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/milk
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -567,7 +528,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/soymilk
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -581,7 +541,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/cream
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -595,7 +554,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/condiment/cream_cheese
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -609,7 +567,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -623,7 +580,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -637,7 +593,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -651,7 +606,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/limejuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -665,7 +619,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -679,7 +632,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -693,7 +645,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -707,7 +658,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/applejuice
 	)
-	access = 0
 	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
@@ -726,24 +676,9 @@
 		/obj/item/storage/box/fancy/chips/phoron,
 		/obj/item/storage/box/fancy/chips/variety
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
-/singleton/cargo_item/dryrag
-	category = "hospitality"
-	name = "dry rags (x5)"
-	supplier = "blam"
-	description = "For cleaning up messes, you suppose."
-	price = 10
-	items = list(
-		/obj/item/reagent_containers/glass/rag,
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 5
 
 /singleton/cargo_item/flask
 	category = "hospitality"
@@ -754,7 +689,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/flask/barflask
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -768,7 +702,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -782,7 +715,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/champagne
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -796,7 +728,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/patron
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -810,7 +741,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -824,7 +754,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/shaker
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -838,7 +767,6 @@
 	items = list(
 		/obj/item/pizzabox/margherita
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -852,7 +780,6 @@
 	items = list(
 		/obj/item/pizzabox/meat
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -866,7 +793,6 @@
 	items = list(
 		/obj/item/pizzabox/mushroom
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -880,10 +806,10 @@
 	items = list(
 		/obj/item/pizzabox/pineapple
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/pizzabox_vegetable
 	category = "hospitality"
 	name = "pizza box, vegetable"
@@ -893,7 +819,6 @@
 	items = list(
 		/obj/item/pizzabox/vegetable
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -907,7 +832,6 @@
 	items = list(
 		/obj/item/pizzabox/pepperoni
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -921,21 +845,6 @@
 	items = list(
 		/obj/random/pizzabox
 	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/redlipstick
-	category = "hospitality"
-	name = "red lipstick"
-	supplier = "nanotrasen"
-	description = "A generic brand of lipstick."
-	price = 5
-	items = list(
-		/obj/item/lipstick/random
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -949,7 +858,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/keg/xuizikeg
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -963,7 +871,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/keg/beerkeg
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -977,7 +884,6 @@
 	items = list(
 		/obj/structure/reagent_dispensers/keg/mead
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -991,7 +897,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/beer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1004,7 +909,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/ebisu
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1017,7 +921,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/shimauma
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1030,7 +933,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/moonlabor
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1043,7 +945,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/earthmover
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1056,7 +957,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/whistlingforest
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1069,7 +969,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/cola
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1082,7 +981,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/space_mountain_wind
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1095,7 +993,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/thirteenloko
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1108,7 +1005,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/dr_gibb
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1121,7 +1017,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/starkist
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1134,7 +1029,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/space_up
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1147,7 +1041,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/lemon_lime
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1160,7 +1053,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/iced_tea
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1173,7 +1065,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/grape_juice
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1186,7 +1077,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/tonic
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1199,7 +1089,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/sodawater
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1212,7 +1101,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/root_beer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1225,7 +1113,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/diet_cola
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1238,7 +1125,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/peach_soda
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1251,7 +1137,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/melon_soda
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1264,7 +1149,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/himeokvass
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1277,7 +1161,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/xanuchai
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1290,7 +1173,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/yoke/beetle_milk
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1303,11 +1185,10 @@
 	items = list(
 		/obj/item/storage/box/ale
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
-/singleton/cargo_item/beer
+/singleton/cargo_item/beer_box
 	category = "hospitality"
 	name = "Virklunder Beer (x6)"
 	supplier = "getmore"
@@ -1316,7 +1197,6 @@
 	items = list(
 		/obj/item/storage/box/beer
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1329,7 +1209,6 @@
 	items = list(
 		/obj/item/storage/box/skrellbeerdyn
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1342,7 +1221,6 @@
 	items = list(
 		/obj/item/storage/box/xuizijuice
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1355,7 +1233,6 @@
 	items = list(
 		/obj/item/storage/box/khlibnyz
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1368,7 +1245,6 @@
 	items = list(
 		/obj/item/storage/box/cola
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1381,7 +1257,6 @@
 	items = list(
 		/obj/item/storage/box/space_mountain_wind
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1394,7 +1269,6 @@
 	items = list(
 		/obj/item/storage/box/space_up
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1407,7 +1281,6 @@
 	items = list(
 		/obj/item/storage/box/hrozamal_soda
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1420,20 +1293,6 @@
 	items = list(
 		/obj/item/storage/box/midynhr_water
 	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/dental_hygiene
-	category = "hospitality"
-	name = "Dental Hygiene Kit"
-	supplier = "getmore"
-	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
-	price = 25
-	items = list(
-		/obj/item/storage/box/toothpaste
-	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1446,7 +1305,6 @@
 	items = list(
 		/obj/item/storage/box/unique/tea
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1459,7 +1317,6 @@
 	items = list(
 		/obj/item/storage/box/unique/tea/tieguanyin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1472,7 +1329,6 @@
 	items = list(
 		/obj/item/storage/box/unique/tea/jaekseol
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1485,7 +1341,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/vkrexi_swollen_organ
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 
@@ -1498,7 +1353,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1512,7 +1366,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/algae_wine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1526,7 +1379,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1540,7 +1392,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1554,7 +1405,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1568,7 +1418,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1582,7 +1431,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1596,7 +1444,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1610,7 +1457,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/kvass
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1624,7 +1470,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1638,7 +1483,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1652,7 +1496,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1666,7 +1509,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1680,7 +1522,6 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/nemiik
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -1694,7 +1535,19 @@
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/ogogoro
 	)
-	access = 0
 	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cookingoil
+	category = "hospitality"
+	name = "cooking oil tank"
+	supplier = "orion"
+	description = "A tank filled with cooking oil."
+	price = 450
+	items = list(
+		/obj/structure/reagent_dispensers/cookingoil
+	)
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1

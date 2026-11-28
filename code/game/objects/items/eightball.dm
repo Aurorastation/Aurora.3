@@ -61,7 +61,7 @@
 	if(do_after(user, shake_time))
 		var/answer = get_answer()
 
-		visible_message(SPAN_NOTICE("\The [src] rattles, \"[answer]\"."))
+		visible_message(SPAN_NOTICE("\The [src] rattles, \"[answer]\"."), visible_message_flags = LOCAL_MESSAGE)
 
 		on_cooldown = TRUE
 		addtimer(CALLBACK(src, PROC_REF(clear_cooldown)), cooldown_time)

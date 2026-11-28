@@ -1,22 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ar" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/item/nullrod/athame,
 /obj/item/nullrod/rredouane,
 /obj/item/nullrod/luceiansceptre,
 /obj/item/storage/assunzionesheath/filled,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "br" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/random/finances,
 /obj/random/finances,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "bs" = (
@@ -70,11 +72,12 @@
 /area/template_noop)
 "co" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/item/melee/vaurca/rock,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "cS" = (
@@ -110,13 +113,14 @@
 /area/template_noop)
 "fy" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/random/dirt_75,
 /obj/random/highvalue/no_weapon,
 /obj/random/highvalue/no_weapon,
 /obj/random/highvalue/no_weapon,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "fM" = (
@@ -190,14 +194,14 @@
 /turf/template_noop,
 /area/template_noop)
 "lc" = (
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_one_access = list(229, 217)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/item/melee/telebaton/nlom,
 /obj/random/dirt_75,
 /obj/item/gun/energy/blaster/himeo,
 /obj/item/gun/energy/gun/qukala,
 /obj/random/civgun/rifle,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "lT" = (
@@ -288,12 +292,13 @@
 /area/template_noop)
 "vl" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/item/skrell_projector/vaurca_projector,
 /obj/item/vaurca/box,
 /obj/item/stellascope,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "vs" = (
@@ -323,14 +328,14 @@
 /area/template_noop)
 "xt" = (
 /obj/item/melee/ceremonial_sword,
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_one_access = list(229, 217)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/item/clothing/head/sol/dress/officer,
 /obj/item/clothing/under/rank/sol/dress/officer,
 /obj/item/clothing/under/rank/sol/dress/pettyofficer,
 /obj/item/clothing/head/sol/dress,
 /obj/item/clothing/accessory/sol_pin,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "xA" = (
@@ -410,10 +415,10 @@
 "Bp" = (
 /obj/random/civgun/rifle,
 /obj/random/civgun,
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_one_access = list(229, 217)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/random/prebuilt_ka,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "Bw" = (
@@ -439,8 +444,7 @@
 /area/template_noop)
 "CG" = (
 /obj/structure/closet/crate/secure/phoron{
-	name = "secure crate";
-	req_one_access = list(229, 217)
+	name = "secure crate"
 	},
 /obj/item/clothing/suit/armor/amohda,
 /obj/item/clothing/head/helmet/amohda,
@@ -448,6 +452,8 @@
 /obj/item/clothing/accessory/poncho/tajarancloak/amohda,
 /obj/random/dirt_75,
 /obj/item/clothing/gloves/tajaran_gauntlets,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
@@ -519,14 +525,14 @@
 /turf/template_noop,
 /area/template_noop)
 "Ge" = (
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_one_access = list(229, 217)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/random/high_grade_weapon,
 /obj/random/civgun/rifle,
 /obj/random/civgun,
 /obj/item/gun/energy/galatea,
 /obj/random/melee/highvalue,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "GC" = (
@@ -748,12 +754,12 @@
 /turf/template_noop,
 /area/template_noop)
 "Wr" = (
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_one_access = list(229, 217)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/item/melee/energy/vaurca_zweihander,
 /obj/item/melee/energy/vaurca,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_one/golden_deep,
+/obj/effect/map_effect/marker/access/req_one/golden_deep_owned,
 /turf/template_noop,
 /area/template_noop)
 "YM" = (

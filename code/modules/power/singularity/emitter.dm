@@ -11,7 +11,7 @@
 	icon_state = "emitter"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(/datum/access/engine_equip::id)
+	req_access = list(/datum/access/horizon/engine_equip::id)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
 	/// Uses powernet power, not APC power.
@@ -316,7 +316,7 @@
 	if(!locked)
 		activate(null)
 	else
-		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"", visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/emitter/proc/get_initial_fire_delay()
 	return 10 SECONDS

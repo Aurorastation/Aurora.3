@@ -299,7 +299,6 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(211);
 	name = "Workshop";
 	dir = 4
 	},
@@ -312,6 +311,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/engineering)
 "auL" = (
@@ -448,12 +448,12 @@
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Pharmacy";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/blue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
 "aHw" = (
@@ -545,7 +545,6 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(211);
 	name = "Coordinator's Office";
 	dir = 4
 	},
@@ -557,6 +556,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/coord)
 "aLC" = (
@@ -634,8 +634,7 @@
 "aXh" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "EVA Preparation";
-	req_access = list(211)
+	name = "EVA Preparation"
 	},
 /obj/structure/machinery/door/firedoor/multi_tile{
 	dir = 2
@@ -643,6 +642,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/emergency_closet{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/evaprep)
 "bci" = (
@@ -1252,10 +1252,10 @@
 /area/ship/iac_rescue_ship/engineering)
 "cpE" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(211);
 	name = "Engineering"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/engineering)
 "cqy" = (
@@ -2023,7 +2023,6 @@
 	},
 /obj/structure/machinery/door/airlock/glass{
 	name = "Lounge";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/structure/cable/cyan{
@@ -2034,6 +2033,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/dorms)
 "ecX" = (
@@ -2096,10 +2096,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/portdocking)
 "eji" = (
-/obj/structure/machinery/computer/ship/helm/terminal{
-	req_access = list(211)
-	},
+/obj/structure/machinery/computer/ship/helm/terminal,
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "ejl" = (
@@ -3006,10 +3005,10 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "gcF" = (
@@ -3041,7 +3040,6 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3051,6 +3049,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)
 "gik" = (
@@ -3385,7 +3384,6 @@
 "gQH" = (
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3397,6 +3395,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "gTy" = (
@@ -3562,13 +3561,13 @@
 "hlD" = (
 /obj/structure/machinery/door/airlock/maintenance{
 	dir = 1;
-	name = "Reactor";
-	req_access = list(211)
+	name = "Reactor"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/engineering)
 "hns" = (
@@ -4315,8 +4314,7 @@
 "iNm" = (
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
-	name = "Hydroponics";
-	req_access = list(211)
+	name = "Hydroponics"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -4335,6 +4333,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/service{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/hydro)
 "iOh" = (
@@ -4744,7 +4743,6 @@
 	},
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Atmospherics";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/structure/cable/cyan{
@@ -4756,6 +4754,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/engineering)
 "jTd" = (
@@ -4837,10 +4836,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock{
-	name = "Bathroom";
-	req_access = list(211)
+	name = "Bathroom"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/service,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bathroom)
 "kak" = (
@@ -5137,7 +5136,6 @@
 	},
 /obj/structure/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/structure/machinery/holosign/surgery{
@@ -5146,6 +5144,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/blue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)
 "kVk" = (
@@ -5579,16 +5578,15 @@
 	id = "chemdeskIAC";
 	name = "Desk Shutter Control";
 	pixel_x = -6;
-	pixel_y = -20;
-	req_access = list(211)
+	pixel_y = -20
 	},
 /obj/structure/machinery/button/remote/blast_door{
 	id = "chemwindowIAC";
 	name = "Window Shutter Control";
 	pixel_x = 6;
-	pixel_y = -20;
-	req_access = list(211)
+	pixel_y = -20
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
 "mkv" = (
@@ -5774,10 +5772,10 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Bridge";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "mMD" = (
@@ -6160,11 +6158,11 @@
 "nSP" = (
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 1;
-	name = "Hydroponics";
-	req_access = list(211)
+	name = "Hydroponics"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/service,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/hydro)
 "nTV" = (
@@ -6672,7 +6670,6 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6682,6 +6679,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
 "phz" = (
@@ -7378,8 +7376,7 @@
 "qMU" = (
 /obj/structure/machinery/door/airlock/glass_service{
 	dir = 4;
-	name = "Kitchen";
-	req_access = list(211)
+	name = "Kitchen"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -7398,6 +7395,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/service{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/kitchen)
 "qPm" = (
@@ -7484,8 +7482,7 @@
 "qYV" = (
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	name = "Custodial Closet";
-	req_access = list(211)
+	name = "Custodial Closet"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -7504,6 +7501,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/custodial{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/custodial)
 "rbr" = (
@@ -7632,7 +7630,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(211);
 	name = "Engineering and Hangar"
 	},
 /obj/structure/cable/cyan{
@@ -7642,6 +7639,7 @@
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/engineering,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/hangar)
 "rtZ" = (
@@ -8453,7 +8451,6 @@
 "tyf" = (
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -8465,6 +8462,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "tyj" = (
@@ -8732,10 +8730,10 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "uoC" = (
@@ -9348,10 +9346,10 @@
 "vEZ" = (
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/medical{
-	name = "EVA Preparation";
-	req_access = list(211)
+	name = "EVA Preparation"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/emergency_closet,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/evaprep)
 "vFx" = (
@@ -9436,8 +9434,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/medical{
-	name = "Engineering and Habitation";
-	req_access = list(211)
+	name = "Engineering and Habitation"
 	},
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -9446,6 +9443,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/hatch_door/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/afthallway)
 "vSL" = (
@@ -9656,10 +9654,9 @@
 /turf/space/dynamic,
 /area/space)
 "wEW" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(211)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/full,
 /area/ship/iac_rescue_ship/engineering)
 "wIv" = (
@@ -9718,10 +9715,10 @@
 /area/ship/iac_rescue_ship/afthallway)
 "wTK" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(211)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "wUA" = (
@@ -9764,12 +9761,12 @@
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Main Storage";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/blue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/mainstorage)
 "wZf" = (
@@ -9882,12 +9879,12 @@
 	},
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(211);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door/engineering{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -10162,7 +10159,6 @@
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/glass_medical{
 	name = "Medical";
-	req_access = list(211);
 	dir = 1
 	},
 /obj/structure/cable/cyan{
@@ -10173,6 +10169,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/hatch_door/blue,
+/obj/effect/map_effect/marker/access/req_all/iac_rescue_shit,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "yjO" = (

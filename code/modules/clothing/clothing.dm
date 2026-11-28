@@ -12,6 +12,8 @@ ABSTRACT_TYPE(/obj/item/clothing)
 	var/list/valid_accessory_slots
 	var/list/restricted_accessory_slots
 	var/list/starting_accessories
+	/// A clip-on radio attached directly to this piece of clothing.
+	var/obj/item/radio/headset/wrist/clip/attached_radio
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
@@ -65,6 +67,8 @@ ABSTRACT_TYPE(/obj/item/clothing)
 	. += ..()
 	. += "You can <b>Alt-Click</b> to adjust \the [src]'s layer, if it's applicable to this item."
 	. += "You can <b>Alt-Shift-Click</b> to remove any attached accessories."
+	if(ACCESSORY_SLOT_RADIO in valid_accessory_slots)
+		. += "A clip-on radio can be attached to this item and removed or configured through the Object.Equipped verbs."
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -74,6 +78,7 @@ ABSTRACT_TYPE(/obj/item/clothing)
 		action_circuit = null // Will get deleted by qdel-ing the IC assembly.
 		qdel(IC)
 
+	QDEL_NULL(attached_radio)
 	QDEL_LIST(accessories)
 	return ..()
 
@@ -158,12 +163,14 @@ ABSTRACT_TYPE(/obj/item/clothing)
 
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		bling.on_clothing_change(user)
+	attached_radio?.possibly_deactivate_in_loc()
 
 // taking off
 /obj/item/clothing/dropped(mob/user)
 	. = ..()
 	if(tint)
 		user.handle_vision()
+	attached_radio?.possibly_deactivate_in_loc()
 
 /obj/item/clothing/handle_middle_mouse_click(mob/user)
 	if(Adjacent(user))
@@ -330,7 +337,7 @@ ABSTRACT_TYPE(/obj/item/clothing)
 	if(!material)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
+	T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"), visible_message_flags = LOCAL_MESSAGE)
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
@@ -352,7 +359,7 @@ ABSTRACT_TYPE(/obj/item/clothing)
 			if(!(def_zone in list(BP_CHEST, BP_GROIN)))
 				reflectchance /= 2
 			if(P.starting && prob(reflectchance))
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -428,7 +435,7 @@ ABSTRACT_TYPE(/obj/item/clothing)
 		body_temperature_change += accessory.body_temperature_change
 
 /obj/item/clothing/CtrlClick(var/mob/user)
-	if(loc == user && LAZYLEN(accessories))
+	if(loc == user && (LAZYLEN(accessories) || attached_radio))
 		remove_accessory_handler(user, TRUE)
 		return
 	return ..()
@@ -1097,7 +1104,7 @@ ABSTRACT_TYPE(/obj/item/clothing/suit)
 	siemens_coefficient = 0.9
 	w_class = WEIGHT_CLASS_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_RADIO)
 
 	var/fire_resist = T0C+100
 	var/blood_overlay_type = "suit"
@@ -1127,6 +1134,9 @@ ABSTRACT_TYPE(/obj/item/clothing/suit)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
+		if(attached_radio)
+			var/radio_state = attached_radio.item_state ? attached_radio.item_state : attached_radio.icon_state
+			I.AddOverlays(attached_radio.get_mob_overlay(H, attached_radio.icon, "[radio_state][WORN_WRISTS]", slot_wrists_str))
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
@@ -1183,7 +1193,7 @@ ABSTRACT_TYPE(/obj/item/clothing/under)
 	///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
 	var/worn_state = null
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_PANTS)
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_PANTS, ACCESSORY_SLOT_RADIO)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
 /obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
@@ -1244,6 +1254,9 @@ ABSTRACT_TYPE(/obj/item/clothing/under)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H, FALSE)
 			I.AddOverlays(accessory_image)
+		if(attached_radio)
+			var/radio_state = attached_radio.item_state ? attached_radio.item_state : attached_radio.icon_state
+			I.AddOverlays(attached_radio.get_mob_overlay(H, attached_radio.icon, "[radio_state][WORN_WRISTS]", slot_wrists_str))
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")

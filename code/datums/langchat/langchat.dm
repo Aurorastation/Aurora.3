@@ -1,6 +1,3 @@
-/// Returns whether langchat is enabled for a given mob.
-#define LANGCHAT_CLIENT_ENABLED(M) (M && M.client && M.client.prefs && (M.client.prefs.toggles_secondary & FLOATING_MESSAGES))
-
 #define LANGCHAT_LONGEST_TEXT 64
 #define LANGCHAT_WIDTH 96
 #define LANGCHAT_MAX_ALPHA 196
@@ -84,7 +81,7 @@
 	bubble.maptext = generate_text_image(maptext_string, additional_styles)
 	bubble.maptext_width = LANGCHAT_WIDTH
 	bubble.maptext_x = get_maptext_x_offset(bubble)
-	bubble.loc = isturf(loc) ? src : recursive_holder_check(src)
+	bubble.loc = isturf(src) ? src : get_atom_on_turf(src)
 
 	for(var/mob/listener as anything in listeners)
 		listener.client.images += bubble
@@ -101,13 +98,17 @@
 		bubble.color = "#c51fb7"
 	bubble.appearance_flags |= RESET_ALPHA
 
-/// Floats flat text to everybody who can see it.
-/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
+/// Checks the existing floating-message toggle for this listener.
+/atom/proc/runechat_prefs_check(mob/target)
+	return target?.client?.prefs && (target.client.prefs.toggles_secondary & FLOATING_MESSAGES)
+
+/// Floats flat text to listeners whose presentation preferences allow it.
+/atom/proc/langchat_speech(message, list/mob/listeners, override_color, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"), check_hearing = TRUE)
 	langchat_drop_images()
 
 	var/list/mob/shown = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener) || listener.ear_deaf)
+		if(!runechat_prefs_check(listener) || (check_hearing && listener.ear_deaf))
 			continue
 		shown += listener
 	if(!length(shown))
@@ -126,7 +127,7 @@
 	// Group listeners by exact text perceived.
 	var/list/groups = list()
 	for(var/mob/listener in listeners)
-		if(!LANGCHAT_CLIENT_ENABLED(listener))
+		if(!runechat_prefs_check(listener))
 			continue
 		var/clarity = listener.get_clarity(msg, feedback = FALSE)
 		if(clarity == CLARITY_NONE || clarity == CLARITY_DROWSY)
@@ -157,7 +158,7 @@
 	var/text_to_display = message
 	var/use_mob_style = TRUE
 
-	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
+	if(length_char(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."
 	if("emote" in styles)
 		styles.Remove("emote")
@@ -191,11 +192,17 @@
 				bubble.alpha = 0
 				animate(bubble, pixel_y = bubble.pixel_y + LANGCHAT_MESSAGE_FAST_POP_Y_SINK, alpha = LANGCHAT_MAX_ALPHA, time = LANGCHAT_MESSAGE_FAST_POP_TIME)
 
-/// Attempts to return what's holding this item if being contained by something. e.g. Cortical borer returns their host.
-/proc/recursive_holder_check(obj/item/held_item, recursion_limit = 3)
-	if(recursion_limit <= 0)
-		return held_item
-	if(!held_item.loc || isturf(held_item.loc))
-		return held_item
-	recursion_limit--
-	return recursive_holder_check(held_item.loc, recursion_limit)
+#undef LANGCHAT_LONGEST_TEXT
+#undef LANGCHAT_WIDTH
+#undef LANGCHAT_MAX_ALPHA
+#undef LANGCHAT_DEFAULT_POP
+#undef LANGCHAT_PANIC_POP
+#undef LANGCHAT_MESSAGE_POP_TIME
+#undef LANGCHAT_MESSAGE_POP_Y_SINK
+#undef LANGCHAT_MESSAGE_PANIC_POP_TIME
+#undef LANGCHAT_MESSAGE_PANIC_POP_Y_SINK
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_SIZE
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_TIMES
+#undef LANGCHAT_MESSAGE_PANIC_SHAKE_TIME_TAKEN
+#undef LANGCHAT_MESSAGE_FAST_POP_TIME
+#undef LANGCHAT_MESSAGE_FAST_POP_Y_SINK

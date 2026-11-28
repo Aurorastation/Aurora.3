@@ -6,7 +6,7 @@
 	/// Maximum armor values.
 	var/list/max_armor_values
 	/// How fast armor degrades with blocked damage, with armor value reduced by [coef * damage taken]
-	var/armor_degradation_coef = 0.8
+	var/armor_degradation_coef = 0.25
 	/// Wearer feedback.
 	var/list/last_reported_damage
 
@@ -16,7 +16,7 @@
 	if(!isnull(_armor_degradation_speed))
 		armor_degradation_coef = _armor_degradation_speed
 
-/datum/component/armor/synthetic/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
+/datum/component/armor/synthetic/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked, mob/living/victim)
 	if (!(damage_type == DAMAGE_BRUTE || damage_type == DAMAGE_BURN))
 		return
 	if(armor_degradation_coef)
@@ -26,6 +26,13 @@
 			damage_taken = damage * (1 - blocked)
 		else
 			damage_taken = damage
+		// Chassis damage modifiers also determine how quickly the synthetic's plating degrades.
+		if(ishuman(victim))
+			var/mob/living/carbon/human/human_victim = victim
+			if(damage_type == DAMAGE_BRUTE)
+				damage_taken *= human_victim.species.brute_mod
+			else
+				damage_taken *= human_victim.species.burn_mod
 		var/new_armor = max(0, get_value(key) - armor_degradation_coef * damage_taken)
 		set_value(key, new_armor)
 		var/mob/M = parent

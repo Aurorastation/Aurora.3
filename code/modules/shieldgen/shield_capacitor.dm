@@ -7,7 +7,7 @@
 	density = TRUE
 	/// Doesn't use APC power.
 	use_power = POWER_USE_OFF
-	req_one_access = list(/datum/access/captain::id, /datum/access/security::id, /datum/access/engine::id)
+	req_one_access = list(/datum/access/horizon/captain::id, /datum/access/horizon/security::id, /datum/access/horizon/engine::id)
 
 	var/active = FALSE
 	/// Not to be confused with power cell charge, this is in Joules.
@@ -90,7 +90,7 @@
 			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
-		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."), visible_message_flags = LOCAL_MESSAGE)
 
 		if(anchored)
 			for(var/obj/structure/machinery/shield_gen/gen in range(1, src))

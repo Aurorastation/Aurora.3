@@ -44,7 +44,7 @@
 		return args.Copy()
 
 	var/blocked = get_blocked(damage_type, damage_flags, armor_pen, damage, check_armor)
-	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
+	on_blocking(damage, damage_type, damage_flags, armor_pen, blocked, victim)
 
 	// Blocking values that mean the damage was under armor, so all dangerous flags are removed (edge/sharp)
 	var/armor_border_blocking = 1 - (under_armor_mult * 1/armor_range_mult)
@@ -64,7 +64,7 @@
 			to_chat(victim, SPAN_NOTICE(partial_block_message))
 	return args.Copy()
 
-/datum/component/armor/proc/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked)
+/datum/component/armor/proc/on_blocking(damage, damage_type, damage_flags, armor_pen, blocked, mob/living/victim)
 
 /**
  * A simpler proc used as a helper for above but can also be used externally. Does not modify state.
@@ -80,12 +80,14 @@
 		key = get_armor_key(damage_type, damage_flags)
 	if(!key)
 		return 0
-
-	var/armor = max(0, get_value(key) - armor_pen)
+	var/armor = max(0, get_value(key))
 	if(!armor)
 		return 0
-	var/efficiency = min(damage / (armor_range_mult * armor), 1)
-	var/coef = damage <= armor ? under_armor_mult : over_armor_mult
+	var/armor_after_pen = max(0, armor - armor_pen)
+	if(!armor_after_pen)
+		return 0
+	var/efficiency = min(damage / (armor_range_mult * armor_after_pen), 1)
+	var/coef = damage <= armor_after_pen ? under_armor_mult : over_armor_mult
 	return max(1 - coef * efficiency, 0)
 
 /datum/component/armor/proc/get_value(key)

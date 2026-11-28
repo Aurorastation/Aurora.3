@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "off"
 	anchored = TRUE
-	req_access = list(/datum/access/bar::id) //Has to initalize at first, this is updated by instance's req_access
+	req_access = list(/datum/access/horizon/bar::id) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
@@ -120,7 +120,7 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "off"
-	req_access = list(/datum/access/galley::id)
+	req_access = list(/datum/access/horizon/galley::id)
 	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/kitchensign/get_target_cache()
@@ -135,7 +135,7 @@ GLOBAL_LIST_EMPTY(marketsign_overlay_cache)
 	icon = 'icons/obj/marketsigns.dmi'
 	icon_state = "off"
 	req_access = null
-	req_one_access = list(/datum/access/cargo::id, /datum/access/janitor::id, /datum/access/robotics::id, /datum/access/mining::id, /datum/access/paramedic::id, /datum/access/hydroponics::id, /datum/access/galley::id, /datum/access/library::id)
+	req_one_access = list(/datum/access/horizon/cargo::id, /datum/access/horizon/janitor::id, /datum/access/horizon/robotics::id, /datum/access/horizon/mining::id, /datum/access/horizon/paramedic::id, /datum/access/horizon/hydroponics::id, /datum/access/horizon/galley::id, /datum/access/horizon/library::id)
 	choice_types = /singleton/sign/double/market
 
 /obj/structure/sign/double/barsign/marketsign/get_target_cache()

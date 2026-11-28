@@ -169,7 +169,7 @@
 	if(reagents.total_volume > 0)
 		var/splash_area = max(1, round(sqrt(reagents.total_volume / 60.0))) //Splash roughly 60u on every turf.
 		reagents.splash_area(get_turf(src), splash_area, reagents.total_volume)
-		visible_message(SPAN_WARNING("As \the [src] is destroyed, it spills [reagents.get_primary_reagent_name()] everywhere!"))
+		visible_message(SPAN_WARNING("As \the [src] is destroyed, it spills [reagents.get_primary_reagent_name()] everywhere!"), visible_message_flags = LOCAL_MESSAGE)
 	dismantle()
 
 //Fire extinguisher tank
@@ -407,7 +407,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attack_hand(var/mob/user)
 	if(cups > 0)
 		var/visible_messages = DispenserMessages(user)
-		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]))
+		visible_message(SPAN_NOTICE(visible_messages[1]), SPAN_NOTICE(visible_messages[2]), visible_message_flags = LOCAL_MESSAGE)
 		var/cup = new cup_type(loc)
 		user.put_in_active_hand(cup)
 		cups--

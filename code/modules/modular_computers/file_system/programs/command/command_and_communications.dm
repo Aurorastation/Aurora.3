@@ -4,8 +4,8 @@
 	program_icon_state = "comm"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Used to command and control the station. Can relay long-range communications."
-	required_access_run = /datum/access/heads::id
-	required_access_download = /datum/access/heads::id
+	required_access_run = /datum/access/horizon/heads::id
+	required_access_download = /datum/access/horizon/heads::id
 	requires_ntnet = TRUE
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON_AI
@@ -218,7 +218,7 @@
 					if(!computer.nano_printer.print_text(params["contents"], params["title"]))
 						to_chat(usr, SPAN_WARNING("Hardware error: Printer was unable to print the file. It may be out of paper."))
 					else
-						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
+						computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."), visible_message_flags = LOCAL_MESSAGE)
 		if("toggleintercept")
 			if(is_authenticated(user) && ntn_comm)
 				if(computer?.nano_printer)

@@ -77,15 +77,15 @@
 	active = 0
 	if(failed_task)
 		failed_task = 0
-		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings unhappily, flashing a red warning light.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings unhappily, flashing a red warning light.", visible_message_flags = LOCAL_MESSAGE)
 	else
-		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings happily.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings happily.", visible_message_flags = LOCAL_MESSAGE)
 
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
 			loaded_disk.forceMove(get_turf(src))
-			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].", visible_message_flags = LOCAL_MESSAGE)
 			loaded_disk = null
 
 /obj/structure/machinery/botany/attackby(obj/item/attacking_item, mob/user)
@@ -164,7 +164,7 @@
 				SSplants.seeds[seed.seed.name] = seed.seed
 
 			seed.update_seed()
-			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [seed].")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [seed].", visible_message_flags = LOCAL_MESSAGE)
 			seed = null
 
 		if("eject_disk")
@@ -172,7 +172,7 @@
 				return FALSE
 
 			loaded_disk.forceMove(get_turf(src))
-			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].", visible_message_flags = LOCAL_MESSAGE)
 			loaded_disk = null
 
 		else

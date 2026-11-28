@@ -18,6 +18,7 @@
 	name = "Drink"
 	description = "Uh, some kind of drink."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	metabolism = REM * 10
 	color = "#E78108"
 	var/nutrition = 0 // Per unit

@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Clip-on radios can now be worn on both uniforms and suits."
+  - rscadd: "Accessories are now set up in categories when examining a person."
+  - rscadd: "Set a limit of only 2 of a specific type of accessory, separately from categories."

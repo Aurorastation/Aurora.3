@@ -4,7 +4,7 @@
 	airlock_type = "Lift"
 	door_color = COLOR_GRAY20
 	door_frame_color = COLOR_GRAY20
-	req_access = list(/datum/access/maint_tunnels::id)
+	req_access = list(/datum/access/horizon/maint_tunnels::id)
 	glass = TRUE
 	opacity = FALSE
 	autoclose = FALSE
@@ -43,7 +43,7 @@
 				if(!moved) // nowhere to go....
 					LM.gib()
 			else // the mob is too big to just move, so we need to give up what we're doing
-				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.")
+				audible_message("\The [src]'s motors grind as they quickly reverse direction, unable to safely close.", audible_message_flags = LOCAL_MESSAGE)
 				cur_command = null // the door will just keep trying otherwise
 				return 0
 	return ..()

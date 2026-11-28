@@ -145,9 +145,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
-	dir = 4;
-	req_access = list(10)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/atmos)
 "dA" = (
@@ -1331,9 +1331,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
-	dir = 4;
-	req_access = list(10)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/engineering)
 "zM" = (
@@ -1621,9 +1621,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
-	dir = 4;
-	req_access = list(10)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/atmos)
 "DW" = (
@@ -2191,9 +2191,9 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
-	dir = 4;
-	req_access = list(10)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/engine,
 /turf/simulated/floor/tiled,
 /area/orion_automated_station/engineering)
 "Mz" = (

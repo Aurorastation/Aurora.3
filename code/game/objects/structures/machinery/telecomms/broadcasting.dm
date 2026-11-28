@@ -246,9 +246,16 @@
 
 		hearer.Hear(radio_msg)
 
-	// Chat is delivered once above; each receiver provides its own in-world speech origin.
+	var/list/runechat_anchors = list()
 	for(var/obj/item/radio/receiver as anything in radios)
-		receiver.on_receive_message(data, radio_msg, receive)
+		if(receiver.runechat_on_receive)
+			for(var/mob/radio_hearer in (get_hearers_in_radio_ranges(list(receiver)) & receive))
+				runechat_anchors[radio_hearer] = receiver
+	var/list/runechat_listeners = list()
+	for(var/mob/radio_hearer as anything in runechat_anchors)
+		LAZYADD(runechat_listeners[runechat_anchors[radio_hearer]], radio_hearer)
+	for(var/obj/item/radio/receiver as anything in radios)
+		receiver.on_receive_message(data, radio_msg, runechat_listeners[receiver] || list())
 
 	// --- This following recording is intended for research and feedback in the use of department radio channels ---
 

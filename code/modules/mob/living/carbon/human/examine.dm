@@ -32,6 +32,26 @@
 			else
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
+/mob/living/carbon/human/proc/get_examine_attachment_lines(mob/user, obj/item/clothing/clothing)
+	var/list/grouped_items = list()
+	for(var/obj/item/clothing/accessory/accessory in clothing.accessories)
+		var/group = accessory.get_examine_group()
+		if(!grouped_items[group])
+			grouped_items[group] = list()
+		var/list/group_items = grouped_items[group]
+		group_items += accessory
+
+	if(clothing.attached_radio)
+		grouped_items["Radios"] = list(clothing.attached_radio)
+
+	var/list/lines = list()
+	for(var/group in grouped_items)
+		var/list/item_texts = list()
+		for(var/obj/item/item as anything in grouped_items[group])
+			item_texts += "[icon2html(item, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(item)]'>\a [item]</a>"
+		lines += "&nbsp;&nbsp;- <b>[group]:</b> [english_list(item_texts)].\n"
+	return lines
+
 /mob/living/carbon/human/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
 
@@ -69,28 +89,12 @@
 
 	//uniform
 	if(w_uniform && !skipjumpsuit)
-		//Ties
-		var/tie_msg
-		var/tie_msg_warn
-		if(istype(w_uniform,/obj/item/clothing/under))
-			var/obj/item/clothing/under/U = w_uniform
-			if(LAZYLEN(U.accessories))
-				tie_msg += ". Attached to it is"
-				tie_msg_warn += "! Attached to it is"
-				var/list/accessory_descs = list()
-				for(var/accessory in U.accessories)
-					if(istype(accessory, /obj/item/clothing/accessory/holster)) //so you can't see what kind of gun a holster is holding from afar
-						accessory_descs += "\a [accessory]"
-					else
-						accessory_descs += "<a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(accessory)]'>\a [accessory]</a>"
-
-				tie_msg += " [lowertext(english_list(accessory_descs))]"
-				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
-
+		var/obj/item/clothing/under/examined_uniform = w_uniform
 		if(w_uniform.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>[w_uniform.name]</a>[tie_msg_warn].\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>[w_uniform.name]</a>!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>\a [w_uniform]</a>[tie_msg].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(w_uniform, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(w_uniform)]'>\a [w_uniform]</a>.\n"
+		msg += get_examine_attachment_lines(user, examined_uniform)
 
 	//head
 	if(head)
@@ -101,24 +105,12 @@
 
 	//suit/armor
 	if(wear_suit)
-		var/tie_msg
-		var/tie_msg_warn
-		if(istype(wear_suit,/obj/item/clothing/suit))
-			var/obj/item/clothing/suit/U = wear_suit
-			if(LAZYLEN(U.accessories))
-				tie_msg += ". Attached to it is"
-				tie_msg_warn += "! Attached to it is"
-				var/list/accessory_descs = list()
-				for(var/accessory in U.accessories)
-					accessory_descs += "<a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(accessory)]'>\a [accessory]</a>"
-
-				tie_msg += " [lowertext(english_list(accessory_descs))]"
-				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
-
+		var/obj/item/clothing/suit/examined_outerwear = wear_suit
 		if(wear_suit.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>[wear_suit.name]</a>[tie_msg_warn].\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>[wear_suit.name]</a>!\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>\a [wear_suit]</a>[tie_msg].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wear_suit, user)] <a href='byond://?src=[REF(src)];lookitem_desc_only=[REF(wear_suit)]'>\a [wear_suit]</a>.\n"
+		msg += get_examine_attachment_lines(user, examined_outerwear)
 
 		//suit/armor storage
 		if(s_store && !skipsuitstorage)

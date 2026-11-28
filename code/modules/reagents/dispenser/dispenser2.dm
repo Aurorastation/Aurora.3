@@ -45,6 +45,8 @@
 	. = ..()
 	if(mapload && persistent_cartridges && SSpersistence.map_supports_persistence)
 		persistent_cartridge_id = get_persistent_cartridge_map_id()
+		if(persistent_cartridge_id)
+			add_missing_persistent_cartridges()
 	if(spawn_cartridges && !(mapload && persistent_cartridge_id))
 		for(var/cartridge_path in spawn_cartridges)
 			var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = new cartridge_path(src)
@@ -70,6 +72,23 @@
 		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = cartridges[label]
 		if(cartridge.type == cartridge_type)
 			return cartridge
+
+/** Adds empty replacements for preset cartridge types not restored by object persistence. */
+/obj/structure/machinery/chemical_dispenser/proc/add_missing_persistent_cartridges()
+	if(!persistent_cartridge_id || !spawn_cartridges)
+		return
+
+	var/list/installed_types = list()
+	for(var/obj/item/reagent_containers/chem_disp_cartridge/cartridge in contents)
+		installed_types[cartridge.type] = TRUE
+
+	for(var/cartridge_path in spawn_cartridges)
+		var/cartridge_type = initial(cartridge_path:type)
+		if(installed_types[cartridge_type])
+			continue
+		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge = new cartridge_path(src)
+		cartridge.apply_persistent_stock(0)
+		installed_types[cartridge_type] = TRUE
 
 /obj/structure/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
@@ -100,6 +119,10 @@
 
 	cartridges[C.label] = C
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
+	// Register eligible loose cartridges inserted into a mapped persistent dispenser.
+	if(C.is_persistent && !C.persistence_excluded)
+		if(persistent_cartridge_id && SSpersistence.map_supports_persistence)
+			SSpersistence.objectsRegisterTrack(C)
 	SStgui.update_uis(src)
 
 /obj/structure/machinery/chemical_dispenser/proc/remove_cartridge(label)
@@ -187,10 +210,13 @@
 	data["is_beaker_loaded"] = !!container
 	data["beaker_max_volume"] = container?.reagents?.maximum_volume
 	data["beaker_current_volume"] = container?.reagents?.total_volume
+	var/pharm_skill = get_pharmacology_skill(user)
+	var/obfuscate_chems = !accept_drinking && (pharm_skill <= SKILL_LEVEL_UNFAMILIAR)
 	var/list/beakerD = list()
 	for(var/_R in container?.reagents?.reagent_volumes)
 		var/singleton/reagent/R = GET_SINGLETON(_R)
-		beakerD += list(list("name" = R.name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
+		var/display_name = (obfuscate_chems && !is_basic_everyday_reagent(R)) ? "Unknown Reagent" : R.name
+		beakerD += list(list("name" = display_name, "volume" = REAGENT_VOLUME(container.reagents, _R)))
 	data["beaker_contents"] = beakerD
 	var/list/chemicals = list()
 	for(var/label in cartridges)
@@ -220,8 +246,13 @@
 			var/label = params["dispense"]
 			if(cartridges[label] && container?.is_open_container())
 				var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[label]
+				var/dispense_amount = amount
+				if(!accept_drinking && get_pharmacology_skill(usr) <= SKILL_LEVEL_UNFAMILIAR)
+					var/jitter = pick(-3, -2, -1, 1, 2, 3)
+					dispense_amount = clamp(amount + jitter, 1, container?.reagents?.maximum_volume || 120)
+					to_chat(usr, SPAN_WARNING("Unfamiliar with the dispenser's calibration, you clumsily dispense [dispense_amount] units instead of [amount]!"))
 				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
-				C.reagents.trans_to(container, amount)
+				C.reagents.trans_to(container, dispense_amount)
 				. = TRUE
 
 		if("ejectBeaker")

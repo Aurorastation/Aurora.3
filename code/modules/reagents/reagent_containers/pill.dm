@@ -21,6 +21,31 @@
 	if(!icon_state)
 		icon_state = "pill[rand(1, 20)]"
 
+/obj/item/reagent_containers/pill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1 || !LAZYLEN(reagents?.reagent_volumes))
+		return
+	var/pharm_skill = get_pharmacology_skill(user)
+	if(pharm_skill <= SKILL_LEVEL_UNFAMILIAR)
+		return
+	var/list/identified_parts = list()
+	var/unidentified_count = 0
+	for(var/_R in reagents.reagent_volumes)
+		var/singleton/reagent/R = GET_SINGLETON(_R)
+		var/vol = REAGENT_VOLUME(reagents, _R)
+		if(can_identify_reagent_visually(user, R, pharm_skill))
+			if(pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+				identified_parts += "[R.name] ([round(vol, 0.1)]u)"
+			else if(pharm_skill == SKILL_LEVEL_TRAINED)
+				identified_parts += "[R.name] (~[max(1, round(vol, 5))]u)"
+			else
+				identified_parts += R.name
+		else
+			unidentified_count++
+	if(length(identified_parts))
+		var/extra_unknown = unidentified_count ? " alongside [unidentified_count] unfamiliar compound[(unidentified_count > 1) ? "s" : ""]" : ""
+		. += SPAN_NOTICE("From the pill's markings, color, and odor, you identify: [english_list(identified_parts)][extra_unknown].")
+
 /obj/item/reagent_containers/pill/attack(mob/living/target_mob, mob/living/user, target_zone)
 	//TODO: replace with standard_feed_mob() call.
 
@@ -29,6 +54,7 @@
 			return
 
 		target_mob.visible_message("<b>[target_mob]</b> swallows a pill.", SPAN_NOTICE("You swallow \the [src]."), null, 2)
+		SEND_SIGNAL(src, COMSIG_PILL_SWALLOWED, target_mob, user)
 		if(reagents.total_volume)
 			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
@@ -51,6 +77,7 @@
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target_mob)] Reagents: [contained]</span>"
 		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
+		SEND_SIGNAL(src, COMSIG_PILL_SWALLOWED, target_mob, user)
 		if(reagents.total_volume)
 			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
 		qdel(src)

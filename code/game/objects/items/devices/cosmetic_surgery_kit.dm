@@ -26,16 +26,16 @@
 	user.visible_message(
 		SPAN_WARNING("\The [user] places \the [src] up to [user.get_pronoun("his")] face."),
 		SPAN_WARNING("You place \the [src] up to your face."),
-		range = 3
+		vision_distance = 3
 	)
 	if(!do_after(user, 2 SECONDS))
 		return
-	user.visible_message(SPAN_DANGER("\The [src] purrs maliciously and unfurls its armatures with frightening speed!"), range = 3)
+	user.visible_message(SPAN_DANGER("\The [src] purrs maliciously and unfurls its armatures with frightening speed!"), vision_distance = 3)
 	playsound(user, 'sound/items/crank.ogg', 50, TRUE)
 	user.visible_message(
 		SPAN_DANGER("\The [src]'s armatures begin chipping away at \the [user]'s face!"),
 		SPAN_DANGER("\The [src]'s armatures begin chipping away at your face!"),
-		range = 3
+		vision_distance = 3
 	)
 	user.custom_pain("Your face feels like it's being shredded apart!", 160)
 	playsound(user, 'sound/effects/squelch1.ogg', 25, TRUE)

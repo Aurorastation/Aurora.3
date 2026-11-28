@@ -1,5 +1,6 @@
 ABSTRACT_TYPE(/obj/item/clothing/accessory/storage)
 	name = "load bearing equipment"
+	examine_group = ACCESSORY_EX_GROUP_UTILITY
 	desc = "Used to hold things when you don't have enough hands."
 	icon_state = "webbing"
 	slot = ACCESSORY_SLOT_UTILITY

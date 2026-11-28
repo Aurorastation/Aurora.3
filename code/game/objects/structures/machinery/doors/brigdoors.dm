@@ -11,7 +11,7 @@
 	desc = "A remote control for a door."
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	req_access = list(/datum/access/holding::id)
+	req_access = list(/datum/access/horizon/holding::id)
 	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	density = FALSE

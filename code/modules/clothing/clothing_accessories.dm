@@ -3,12 +3,97 @@
 		.=1
 	else
 		return 0
-	if(LAZYLEN(accessories) && restricted_accessory_slots && (A.slot in restricted_accessory_slots))
+	if(LAZYLEN(accessories))
+		var/matching_type_count = 0
 		for(var/obj/item/clothing/accessory/AC in accessories)
-			if (AC.slot == A.slot)
+			// Compare exact types so variants and subtypes retain their own limits.
+			if(AC.type == A.type)
+				matching_type_count++
+				if(matching_type_count >= 2)
+					return 0
+			if(restricted_accessory_slots && (A.slot in restricted_accessory_slots) && AC.slot == A.slot)
 				return 0
 
+/obj/item/clothing/proc/can_attach_radio(obj/item/radio/headset/wrist/clip/radio)
+	return istype(radio) && !radio.attached_clothing && (ACCESSORY_SLOT_RADIO in valid_accessory_slots) && !attached_radio
+
+/obj/item/clothing/proc/attach_radio(mob/user, obj/item/radio/headset/wrist/clip/radio)
+	if(!can_attach_radio(radio))
+		return FALSE
+
+	attached_radio = radio
+	radio.attached_clothing = src
+	radio.forceMove(src)
+	radio.possibly_deactivate_in_loc()
+	verbs |= /obj/item/clothing/proc/remove_attached_radio_verb
+	verbs |= /obj/item/clothing/proc/configure_attached_radio_verb
+	verbs |= /obj/item/clothing/proc/flip_attached_radio_verb
+	update_clothing_icon()
+	if(user)
+		to_chat(user, SPAN_NOTICE("You attach \the [radio] to \the [src]."))
+		radio.add_fingerprint(user)
+	return TRUE
+
+/obj/item/clothing/proc/remove_attached_radio(mob/user)
+	if(!attached_radio)
+		return FALSE
+
+	var/obj/item/radio/headset/wrist/clip/radio = attached_radio
+	attached_radio = null
+	radio.attached_clothing = null
+	verbs -= /obj/item/clothing/proc/remove_attached_radio_verb
+	verbs -= /obj/item/clothing/proc/configure_attached_radio_verb
+	verbs -= /obj/item/clothing/proc/flip_attached_radio_verb
+	update_clothing_icon()
+	if(user)
+		user.put_in_hands(radio)
+		to_chat(user, SPAN_NOTICE("You remove \the [radio] from \the [src]."))
+		radio.add_fingerprint(user)
+	else
+		radio.forceMove(get_turf(src))
+	radio.possibly_deactivate_in_loc()
+	return TRUE
+
+/obj/item/clothing/proc/remove_attached_radio_verb()
+	set name = "Remove Clip-on Radio"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+	remove_attached_radio(usr)
+
+/obj/item/clothing/proc/configure_attached_radio_verb()
+	set name = "Configure Clip-on Radio"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr) || !attached_radio)
+		return
+	attached_radio.interact(usr)
+
+/obj/item/clothing/proc/flip_attached_radio_verb()
+	set name = "Flip Clip-on Radio"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr) || !attached_radio)
+		return
+	attached_radio.flip_attached_side(usr)
+
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/radio/headset/wrist/clip))
+		var/obj/item/radio/headset/wrist/clip/radio = attacking_item
+		if(!(ACCESSORY_SLOT_RADIO in valid_accessory_slots))
+			to_chat(user, SPAN_WARNING("You cannot attach a clip-on radio to \the [src]."))
+			return TRUE
+		if(!can_attach_radio(radio))
+			to_chat(user, SPAN_WARNING("There is already a clip-on radio attached to \the [src]."))
+			return TRUE
+		if(user.drop_from_inventory(radio, src))
+			attach_radio(user, radio)
+		return TRUE
+
 	if(IC)
 		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			IC.attackby(attacking_item, user)
@@ -105,6 +190,8 @@
 
 /obj/item/clothing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
+	if(attached_radio)
+		. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(attached_radio)]'>\A [attached_radio]</a> [attached_radio.gender == PLURAL ? "are" : "is"] clipped to it.")
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]'>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
@@ -169,13 +256,14 @@
 	if(use_check_and_message(user))
 		return
 
-	if(!LAZYLEN(accessories))
+	var/removable_count = LAZYLEN(accessories) + !!attached_radio
+	if(!removable_count)
 		return
 
 	var/try_reopen_radial_after_removal = FALSE
 
-	var/obj/item/clothing/accessory/A
-	if(force_radial || LAZYLEN(accessories) > 1)
+	var/obj/item/selected_item
+	if(force_radial || removable_count > 1)
 		var/list/options = list()
 		for (var/obj/item/clothing/accessory/i in accessories)
 			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
@@ -185,17 +273,24 @@
 				radial_button.ClearOverlays()
 				radial_button.AddOverlays(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
-		A = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
-		if(!A)
+		if(attached_radio)
+			options[attached_radio] = image(icon = attached_radio.icon, icon_state = attached_radio.icon_state)
+		selected_item = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+		if(!selected_item)
 			return
 		try_reopen_radial_after_removal = TRUE
+	else if(attached_radio)
+		selected_item = attached_radio
 	else
-		A = accessories[1]
+		selected_item = accessories[1]
 
 	if(use_check_and_message(user))
 		return
 
-	remove_accessory(usr, A)
+	if(selected_item == attached_radio)
+		remove_attached_radio(user)
+	else
+		remove_accessory(user, selected_item)
 
 	if(try_reopen_radial_after_removal)
 		remove_accessory_handler(user, TRUE)
@@ -207,6 +302,7 @@
 
 	if(IC)
 		IC.emp_act(severity)
+	attached_radio?.emp_act(severity)
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)

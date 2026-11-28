@@ -363,7 +363,7 @@
 	var/mob/living/L = target
 
 	if(isanimal(target))
-		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.")
+		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.", visible_message_flags = (ismob(target) ? NONE : LOCAL_MESSAGE))
 		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
 
 		//Determine in how long the mob will be put to rest, depending on its size
@@ -423,15 +423,18 @@
 /obj/projectile/bullet/pistol/practice
 	damage = 5
 	armor_penetration = 0
+	embed = FALSE
 
 /obj/projectile/bullet/rifle/a556/practice
 	damage = 5
 	armor_penetration = 0
+	embed = FALSE
 
 /obj/projectile/bullet/shotgun/practice
 	name = "practice"
 	damage = 5
 	armor_penetration = 0
+	embed = FALSE
 
 /obj/projectile/bullet/pistol/cap
 	name = "cap"
@@ -583,6 +586,17 @@
 	devastation_range = 1
 	heavy_impact_range = 2
 	light_impact_range = 4
+
+/obj/projectile/bullet/peac_practice
+	name = "polymer practice projectile"
+	icon_state = "peac_practice"
+	damage = 15
+	armor_penetration = 0
+	anti_materiel_potential = 0
+	embed = FALSE
+	sharp = FALSE
+	penetrating = 0
+	projectile_piercing = NONE
 
 /obj/projectile/bullet/peac/shrapnel
 	name = "fragmentation missile"

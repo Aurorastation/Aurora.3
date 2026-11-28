@@ -148,7 +148,20 @@
 				return
 			last_jab = world.time
 			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
-			if(!do_mob(user, target, 1.5 SECONDS))
+			var/med_skill = get_medical_injection_skill(user)
+			var/rib_delay = 1.5 SECONDS
+			var/rib_damage = 3
+			switch(med_skill)
+				if(SKILL_LEVEL_UNFAMILIAR)
+					rib_delay = 2.5 SECONDS
+					rib_damage = 6
+				if(SKILL_LEVEL_TRAINED)
+					rib_delay = 1.2 SECONDS
+					rib_damage = 2
+				if(SKILL_LEVEL_PROFESSIONAL)
+					rib_delay = 1 SECOND
+					rib_damage = 1
+			if(!do_mob(user, target, rib_delay))
 				last_jab = 0 //Resets to try again immediately
 				user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 				return
@@ -157,7 +170,7 @@
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
 			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
-			H.apply_damage(3, DAMAGE_BRUTE, BP_CHEST)
+			H.apply_damage(rib_damage, DAMAGE_BRUTE, BP_CHEST)
 			H.custom_pain("The pain in your chest is living hell!", 50, affecting = H.organs_by_name[BP_CHEST])
 			L.oxygen_deprivation = 0
 			L.rescued = TRUE
@@ -244,8 +257,16 @@
 					to_chat(user, SPAN_DANGER("You cannot inject a robotic limb."))
 					return
 
+			var/med_skill = get_medical_injection_skill(user)
 			if(ismob(target) && target != user)
 				var/inject_time = time
+				switch(med_skill)
+					if(SKILL_LEVEL_UNFAMILIAR)
+						inject_time = round(inject_time * 1.33)
+					if(SKILL_LEVEL_TRAINED)
+						inject_time = round(inject_time * 0.75)
+					if(SKILL_LEVEL_PROFESSIONAL)
+						inject_time = round(inject_time * 0.5)
 				if(isliving(target))
 					last_jab = world.time
 					var/mob/living/L = target
@@ -262,11 +283,21 @@
 					user.visible_message("<b>[user]</b> fumbles with \the [src]!", SPAN_NOTICE("You fumble with \the [src]!"))
 					return
 				user.visible_message(SPAN_WARNING("[user] injects [target] with \the [src]!"))
+				if(med_skill <= SKILL_LEVEL_UNFAMILIAR && isliving(target))
+					var/mob/living/L = target
+					L.apply_damage(1, DAMAGE_BRUTE, user.zone_sel.selecting)
+					to_chat(L, SPAN_WARNING("[user] jabs the needle in clumsily!"))
 			var/trans
 			if(ismob(target))
 				var/contained = reagentlist()
 				trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BLOOD)
-				dirty(target, affected)
+				var/avoid_dirty_chance = 0
+				if(med_skill >= SKILL_LEVEL_PROFESSIONAL)
+					avoid_dirty_chance = 75
+				else if(med_skill == SKILL_LEVEL_TRAINED)
+					avoid_dirty_chance = 50
+				if(!prob(avoid_dirty_chance))
+					dirty(target, affected)
 				admin_inject_log(user, target, src, contained, reagents.get_temperature(), trans)
 			else
 				trans = reagents.trans_to(target, amount_per_transfer_from_this)

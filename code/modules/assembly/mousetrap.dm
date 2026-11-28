@@ -39,7 +39,7 @@
 	var/types = target.find_type()
 	if(israt(target))
 		var/mob/living/simple_animal/rat/M = target
-		audible_message(SPAN_DANGER("SPLAT!"))
+		audible_message(SPAN_DANGER("SPLAT!"), audible_message_flags = LOCAL_MESSAGE)
 		M.splat()
 	else
 		var/zone = BP_CHEST
@@ -116,7 +116,7 @@
 /obj/item/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
-	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."))
+	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."), visible_message_flags = LOCAL_MESSAGE)
 	triggered(null)
 
 /obj/item/assembly/mousetrap/armed

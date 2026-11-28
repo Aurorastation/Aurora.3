@@ -56,7 +56,7 @@
 		return
 
 	deployed = 1
-	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"))
+	visible_message(SPAN_DANGER("The explosive bolts on \the [src] detonate, throwing it open!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(src.loc, 'sound/effects/bang.ogg', 50, 1, 5)
 
 	// This is shit but it will do for the sake of testing.

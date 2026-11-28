@@ -4,6 +4,7 @@
 	name = "Inaprovaline"
 	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
@@ -27,6 +28,7 @@
 	name = "Bicaridine"
 	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color ="#BF0000"
 	scannable = TRUE
 	overdose = REAGENTS_OVERDOSE
@@ -82,6 +84,7 @@
 	name = "Kelotane"
 	description = "Kelotane is a complex medication which specifically targets tissues which have been lost to severe burning by encouraging the rate at which these damaged tissues are regenerated."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
@@ -134,6 +137,7 @@
 	name = "Dylovene"
 	description = "Dylovene is a broad-spectrum over-the-counter antitoxin. It is used in response to a variety of poisoning cases, being able to neutralise and remove harmful toxins from the bloodstream."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#00A000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
@@ -175,6 +179,7 @@
 	name = "Dexalin"
 	description = "Dexalin is a complex oxygen therapeutic and is available OTC. The chemical utilises carbon nanostructures which cling to oxygen and, in pathological conditions where tissues are hypoxic, will oxygenate these regions. Dexalin is twice as efficient when inhaled."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
@@ -215,6 +220,7 @@
 	name = "Tricordrazine"
 	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane's development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#8040FF"
 	overdose = 30
 	scannable = TRUE
@@ -307,6 +313,7 @@
 	name = "Perconol"
 	description = "Perconol is an advanced, analgesic medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	od_minimum_dose = 2
@@ -339,6 +346,7 @@
 	name = "Mortaphenyl"
 	description = "Mortaphenyl is a weak, synthetic, analgesic opioid which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#CB68FC"
 	overdose = 15
 	scannable = TRUE
@@ -456,6 +464,7 @@
 	name = "Tramarine"
 	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opioids, or an overdose."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#c4a05d"
 	overdose = 15
 	od_minimum_dose = 2
@@ -1033,6 +1042,7 @@
 	name = "Antidexafen"
 	description = "A complex antitussive medication available OTC which is very effective at suppressing cough reflexes. The medication also acts as a very weak analgesic medication, leading to it being a very cheap recreational drug or precursor to other recreational drugs."
 	scannable = TRUE
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	reagent_state = LIQUID
 	taste_description = "cough syrup"
 	color = "#c8a5dc"
@@ -1065,6 +1075,7 @@
 	name = "Cetahydramine"
 	description = "Cetahydramine is a complex antihistamine medication available OTC which blocks the release of histamine, thus making it effective at suppressing allergies and sneezing. Cetahydramine can cause drowsiness in larger doses, making it an effective sleep aid."
 	scannable = TRUE
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	reagent_state = LIQUID
 	taste_description = "bitterness"
 	metabolism = REM * 0.05 // only performs its effects while in blood
@@ -1083,6 +1094,7 @@
 	name = "Sterilizine"
 	description = "Sterilizine is a chemical product composed of bleach and anti-toxins which can thoroughly disinfect wound sites and any biohazardous waste."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#C8A5DC"
 	touch_met = 5
 	taste_description = "burning bleach"
@@ -1436,6 +1448,7 @@
 	name = "Truth Serum"
 	description = "Truth Serum is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_PROFESSIONAL
 	color = "#888888"
 	metabolism = 0.05 * REM
 	od_minimum_dose = 1

@@ -73,11 +73,11 @@
 
 /obj/structure/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
-		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
+		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, hitsound, 60, 1)
 		add_damage(damage)
 	else
-		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
@@ -262,7 +262,7 @@
 			destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential)) //Double dip for strong projectiles, like emitters or the PEAC.
 		destroy_hits -= max(1, (1 * hitting_projectile.anti_materiel_potential))
 		if (destroy_hits <= 0)
-			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
+			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"), visible_message_flags = LOCAL_MESSAGE)
 			switch (hitting_projectile.damage_type)
 				if(DAMAGE_BRUTE)
 					for(var/i = 1 to 3)
@@ -417,11 +417,11 @@
 	. = ..()
 	if(message)
 		if(src.health < src.maxhealth / 4 && initialhealth >= src.maxhealth / 4)
-			visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"))
+			visible_message(SPAN_WARNING("\The [src] looks like it's about to break!"), visible_message_flags = LOCAL_MESSAGE)
 		else if(src.health < src.maxhealth / 2 && initialhealth >= src.maxhealth / 2)
-			visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"))
+			visible_message(SPAN_WARNING("\The [src] looks seriously damaged!"), visible_message_flags = LOCAL_MESSAGE)
 		else if(src.health < src.maxhealth * 3/4 && initialhealth >= src.maxhealth * 3/4)
-			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"))
+			visible_message(SPAN_WARNING("\The [src] shows signs of damage!"), visible_message_flags = LOCAL_MESSAGE)
 	update_icon()
 
 /obj/structure/machinery/door/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
@@ -431,7 +431,7 @@
 
 /obj/structure/machinery/door/proc/set_broken()
 	stat |= BROKEN
-	visible_message(SPAN_WARNING("[src] breaks!"))
+	visible_message(SPAN_WARNING("[src] breaks!"), visible_message_flags = LOCAL_MESSAGE)
 	update_icon()
 
 /obj/structure/machinery/door/emp_act(severity)

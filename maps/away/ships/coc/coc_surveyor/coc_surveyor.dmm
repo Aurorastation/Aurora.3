@@ -510,7 +510,6 @@
 /area/coc_survey_ship/cryo)
 "eZ" = (
 /obj/structure/machinery/computer/ship/helm{
-	req_access = list(221);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -519,6 +518,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/coalition,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "fc" = (

@@ -217,7 +217,7 @@
 		START_PROCESSING(SSprocessing, src)
 
 		if(shield_power <= 0)
-			visible_message(SPAN_WARNING("\The [user]'s [src.name] overloads!"))
+			visible_message(SPAN_WARNING("\The [user]'s [src.name] overloads!"), visible_message_flags = LOCAL_MESSAGE)
 			active = FALSE
 			HandleShutOff(user)
 
@@ -226,7 +226,7 @@
 
 			var/reflectchance = 80 - (damage/3)
 			if(P.starting && prob(reflectchance))
-				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"), visible_message_flags = LOCAL_MESSAGE)
 
 				// Find a turf near or on the original location to bounce to
 				var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)

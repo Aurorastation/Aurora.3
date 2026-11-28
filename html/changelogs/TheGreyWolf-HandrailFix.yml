@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Handrails now rotate their buckled mob when the shuttle rotates."

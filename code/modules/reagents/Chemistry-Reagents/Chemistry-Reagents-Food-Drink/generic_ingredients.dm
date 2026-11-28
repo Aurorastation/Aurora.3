@@ -209,6 +209,7 @@
 	name = "Salt"
 	description = "A salt made of sodium chloride. Commonly used to season food."
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#FFFFFF"
 	overdose = 30
 	taste_description = "salt"
@@ -252,6 +253,7 @@
 	name = "Frost Oil"
 	description = "A special oil that chemically chills the body. Extracted from Ice Peppers."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#005BCC"
 	taste_description = "mint"
 	taste_mult = 1.5
@@ -275,6 +277,7 @@
 	name = "Capsaicin Oil"
 	description = "This is what makes chilis hot."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#B31008"
 	taste_description = "hot peppers"
 	taste_mult = 1.5
@@ -556,6 +559,7 @@
 	name = "Universal Enzyme"
 	description = "A universal enzyme used in the preparation of certain chemicals and foods."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	color = "#365E30"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "sweetness"

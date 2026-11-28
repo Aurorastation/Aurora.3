@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 
 	circuit = /obj/item/circuitboard/holodeckcontrol
 
-	req_one_access = list(/datum/access/heads::id, /datum/access/chapel_office::id)
+	req_one_access = list(/datum/access/horizon/heads::id, /datum/access/horizon/chapel_office::id)
 
 	/// How much power is consumed per item loaded
 	var/item_power_usage = 15
@@ -276,7 +276,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 
 	if(!silent)
 		var/obj/oldobj = obj
-		visible_message("The [oldobj.name] fades away!")
+		visible_message("The [oldobj.name] fades away!", visible_message_flags = LOCAL_MESSAGE)
 	qdel(obj)
 
 /obj/structure/machinery/computer/holodeck_control/proc/checkInteg(var/area/A)
@@ -389,7 +389,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/structure/machinery/computer/hol
 /obj/structure/machinery/computer/holodeck_control/proc/togglelock(var/mob/user)
 	if(allowed(user))
 		locked = !locked
-		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), range = 3)
+		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), vision_distance = 3, visible_message_flags = LOCAL_MESSAGE)
 		return FALSE
 	else
 		to_chat(user, SPAN_WARNING("Access denied."))

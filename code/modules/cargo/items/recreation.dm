@@ -7,7 +7,6 @@
 	items = list(
 		/obj/item/storage/box/fancy/crayons
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -24,7 +23,6 @@
 		/obj/item/storage/box/fancy/crayons,
 		/obj/item/reagent_containers/glass/rag,
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -38,7 +36,6 @@
 	items = list(
 		/obj/item/canvas
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -52,7 +49,6 @@
 	items = list(
 		/obj/item/canvas/nineteen_nineteen
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -66,7 +62,6 @@
 	items = list(
 		/obj/item/canvas/twentythree_twentythree
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -80,7 +75,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/trumpet
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -94,7 +88,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/guitar
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -108,7 +101,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/violin
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -122,7 +114,6 @@
 	items = list(
 		/obj/item/synthesized_instrument/guitar/multi
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -136,7 +127,6 @@
 	items = list(
 		/obj/structure/synthesized_instrument/synthesizer/piano
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -150,7 +140,6 @@
 	items = list(
 		/obj/structure/synthesized_instrument/synthesizer
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -164,7 +153,6 @@
 	items = list(
 		/obj/structure/machinery/media/jukebox
 	)
-	access = 0
 	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
@@ -178,7 +166,6 @@
 	items = list(
 		/obj/structure/machinery/media/jukebox/phonograph
 	)
-	access = 0
 	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
@@ -192,7 +179,6 @@
 	items = list(
 		/obj/item/toy/waterballoon
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 10
@@ -206,7 +192,6 @@
 	items = list(
 		/obj/item/toy/balloon
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 10
@@ -220,7 +205,6 @@
 	items = list(
 		/obj/item/toy/sword
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -234,7 +218,6 @@
 	items = list(
 		/obj/item/toy/katana
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -248,7 +231,6 @@
 	items = list(
 		/obj/item/toy/ammo/crossbow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -262,7 +244,6 @@
 	items = list(
 		/obj/item/toy/crossbow
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -276,7 +257,6 @@
 	items = list(
 		/obj/item/toy/spinningtoy
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -290,7 +270,6 @@
 	items = list(
 		/obj/random/plushie
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 4
@@ -304,7 +283,6 @@
 	items = list(
 		/obj/item/toy/plushie/therapy
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -318,7 +296,6 @@
 	items = list(
 		/obj/item/toy/snappop
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
@@ -334,7 +311,6 @@
 		/obj/item/clothing/suit/armor/riot/laser_tag,
 		/obj/item/gun/energy/lasertag/red
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -350,7 +326,6 @@
 		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
 		/obj/item/gun/energy/lasertag/blue
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
@@ -364,7 +339,6 @@
 	items = list(
 		/obj/item/storage/box/lyodii
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -378,35 +352,232 @@
 	items = list(
 		/obj/item/gamehelm
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/whiteboard
+/singleton/cargo_item/playingcards
 	category = "recreation"
-	name = "whiteboard"
-	supplier = "orion"
-	description = "A standard whiteboard."
-	price = 100
+	name = "deck of cards"
+	supplier = "getmore"
+	description = "A simple deck of playing cards."
+	price = 3
 	items = list(
-		/obj/structure/whiteboard
+		/obj/item/deck/cards
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/whiteboard_portable
+/singleton/cargo_item/tarotdeck
 	category = "recreation"
-	name = "portable whiteboard"
-	supplier = "orion"
-	description = "A portable whiteboard, smaller than the standard alternatives."
-	price = 75
+	name = "deck of tarot cards"
+	supplier = "getmore"
+	description = "A deck of tarot cards, for fortune-telling or parlor games."
+	price = 10
 	items = list(
-		/obj/item/portable_whiteboard
+		/obj/item/deck/tarot
 	)
-	access = 0
 	container_type = "crate"
 	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/kotahideck
+	category = "recreation"
+	name = "KOTAHI deck"
+	supplier = "getmore"
+	description = "A deck of KOTAHI cards. House rules to argue over not included."
+	price = 6
+	items = list(
+		/obj/item/deck/kotahi
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/dicepack
+	category = "recreation"
+	name = "pack of dice"
+	supplier = "getmore"
+	description = "A small pack containing a dozen six-sided dice and four twenty-sided dice."
+	price = 8
+	items = list(
+		/obj/item/storage/pill_bottle/dice
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/gamingdicepack
+	category = "recreation"
+	name = "pack of gaming dice"
+	supplier = "getmore"
+	description = "A small pack containing a set of polyhedral dice for tabletop games."
+	price = 12
+	items = list(
+		/obj/item/storage/pill_bottle/dice/gaming
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chessset
+	category = "recreation"
+	name = "chess set"
+	supplier = "getmore"
+	description = "A simple chess set with magnetic pieces."
+	price = 25
+	items = list(
+		/obj/item/chessboard
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chalkbox
+	category = "recreation"
+	name = "box of drafting chalk"
+	supplier = "getmore"
+	description = "A box of chalk, for drafting floor plans or drawing on floors."
+	price = 22
+	items = list(
+		/obj/item/storage/box/fancy/crayons/chalkbox
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/redlipstick
+	category = "recreation"
+	name = "red lipstick"
+	supplier = "nanotrasen"
+	description = "A generic brand of lipstick."
+	price = 5
+	items = list(
+		/obj/item/lipstick/random
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/auto_chisel
+	category = "recreation"
+	name = "auto-chisel"
+	supplier = "nanotrasen"
+	description = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
+	price = 125
+	items = list(
+		/obj/item/autochisel
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/sculptingblock
+	category = "recreation"
+	name = "sculpting block"
+	supplier = "nanotrasen"
+	description = "A finely chiselled sculpting block, it is ready to be your canvas."
+	price = 750
+	items = list(
+		/obj/structure/sculpting_block
+	)
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/camping_set
+	category = "recreation"
+	name = "camping set"
+	supplier = "orion"
+	description = "A set of camping supplies for two. For your lovely getaway to paradise. Or hell, whichever is your fancy. Contains a tent, two sleeping bags, two folding chairs and a folding table."
+	price = 500
+	items = list(
+		/obj/item/tent,
+		/obj/item/sleeping_bag,
+		/obj/item/sleeping_bag,
+		/obj/item/material/stool/chair/folding/camping,
+		/obj/item/material/stool/chair/folding/camping,
+		/obj/item/material/folding_table,
+	)
+	container_type = "box"
+	groupable = FALSE
+	spawn_amount = 1
+
+/singleton/cargo_item/firewood
+	category = "recreation"
+	name = "firewood"
+	supplier = "orion"
+	description = "25 logs for campfires and other wood-burning needs."
+	price = 50
+	items = list(
+		/obj/item/stack/material/wood/log/full
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/sleeping_bag
+	category = "recreation"
+	name = "sleeping bag"
+	supplier = "orion"
+	description = "A sleeping bag, for sleeping in. Great for a night under the stars."
+	price = 12.50
+	items = list(
+		/obj/item/sleeping_bag,
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/camera
+	category = "recreation"
+	name = "camera"
+	supplier = "nanotrasen"
+	description = "A polaroid camera. 10 photos left."
+	price = 45
+	items = list(
+		/obj/item/camera
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/filmcartridge
+	category = "recreation"
+	name = "film cartridge"
+	supplier = "nanotrasen"
+	description = "A camera film cartridge. Insert it into a camera to reload it."
+	price = 8
+	items = list(
+		/obj/item/camera_film
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/potted_plant_small
+	category = "recreation"
+	name = "small potted plant"
+	supplier = "nanotrasen"
+	description = "A random small potted plant, for when you want to add some greenery to your desk."
+	price = 35
+	items = list(
+		/obj/random/pottedplant_small
+	)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/potted_plant
+	category = "recreation"
+	name = "large potted plant"
+	supplier = "nanotrasen"
+	description = "A random large potted plant, for when you want to add some greenery to your office space."
+	price = 70
+	items = list(
+		/obj/random/pottedplant
+	)
+	container_type = "box"
+	groupable = FALSE
 	spawn_amount = 1

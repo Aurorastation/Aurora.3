@@ -99,6 +99,10 @@ emp_act
 
 /mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
 	. = ..()
+	// Synthetic chassis plating is the innermost armor layer and is reached after worn protection.
+	var/datum/component/armor/synthetic/chassis_plating = GetComponent(/datum/component/armor/synthetic)
+	if(chassis_plating)
+		. -= chassis_plating
 	if(!def_zone)
 		def_zone = ran_zone()
 	if(!istype(def_zone))
@@ -117,6 +121,8 @@ emp_act
 			var/armor = gear.GetComponent(/datum/component/armor)
 			if(armor)
 				. += armor
+	if(chassis_plating)
+		. += chassis_plating
 
 //this proc returns the Siemens coefficient of electrical resistivity for a particular external organ.
 /mob/living/carbon/human/proc/get_siemens_coefficient_organ(var/obj/item/organ/external/def_zone)

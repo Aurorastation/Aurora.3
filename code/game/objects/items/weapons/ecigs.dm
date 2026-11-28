@@ -76,7 +76,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable/ecig)
 		return
 
 	if(idle >= idle_threshold) //idle too long -> automatic shut down
-		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), null, 2)
+		visible_message(SPAN_NOTICE("\The [src] powers down automatically."), blind_message = null, vision_distance = 2, visible_message_flags = LOCAL_MESSAGE)
 		deactivate()
 		return
 

@@ -6,6 +6,7 @@
 
 /obj/item/clothing/accessory/badge
 	name = "badge"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	desc = "A corporate security badge, made from gold and set on false leather."
 	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "badge"
@@ -157,7 +158,7 @@
 		if(!istype(id_card))
 			return
 
-		if((/datum/access/security::id in id_card.access) || emagged)
+		if((/datum/access/horizon/security::id in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else

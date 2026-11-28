@@ -49,9 +49,9 @@
 /obj/effect/landmark/entry_point/fore,
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "al" = (
@@ -65,7 +65,6 @@
 "am" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -78,6 +77,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -347,10 +347,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
 	name = "Laboratory";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -387,12 +387,12 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/structure/machinery/computer/ship/helm{
-	dir = 1;
-	req_access = list(209)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -725,7 +725,6 @@
 /area/database_freighter)
 "cK" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Head Surveyor's Quarters";
 	dir = 4
 	},
@@ -744,6 +743,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1038,9 +1038,9 @@
 	pixel_y = -32
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
-	dir = 4;
-	req_access = list(209)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "ef" = (
@@ -1126,7 +1126,6 @@
 /area/database_freighter)
 "eA" = (
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
 	name = "Equipment Storage";
 	dir = 4
 	},
@@ -1145,6 +1144,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1262,7 +1262,6 @@
 /area/database_freighter/hangar)
 "fi" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Engines";
 	dir = 1
 	},
@@ -1276,6 +1275,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1413,13 +1413,13 @@
 "fU" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1430,13 +1430,13 @@
 /area/shuttle/database_freighter_shuttle)
 "fZ" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1820,7 +1820,6 @@
 /area/shuttle/database_freighter_shuttle)
 "hS" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Bridge";
 	dir = 1
 	},
@@ -1834,6 +1833,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1986,10 +1986,10 @@
 "iK" = (
 /obj/structure/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	req_one_access = list(209);
 	pixel_x = -25;
 	id_tag = "database_freighter_shuttle_dock"
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2131,13 +2131,13 @@
 "jJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "database_bridge"
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2256,7 +2256,6 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -2268,6 +2267,7 @@
 /obj/structure/window/reinforced,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/structure/machinery/light,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "ku" = (
@@ -2341,10 +2341,9 @@
 	},
 /area/database_freighter/bridge)
 "kE" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(209)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2471,9 +2470,9 @@
 "lv" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2557,7 +2556,6 @@
 /area/database_freighter/laboratory)
 "lU" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(209);
 	name = "Checkpoint";
 	dir = 4
 	},
@@ -2565,6 +2563,7 @@
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2626,20 +2625,19 @@
 "mk" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "database_bridge"
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/database_freighter/bridge)
 "mm" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
@@ -2658,6 +2656,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2665,7 +2664,6 @@
 "mr" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
 /obj/effect/landmark/entry_point/fore{
@@ -2675,6 +2673,7 @@
 	dir = 4;
 	id = "database_bridge"
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2712,10 +2711,10 @@
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/machinery/door/airlock/research{
-	req_access = list(209);
 	name = "Spectrometry";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2746,9 +2745,9 @@
 /area/database_freighter)
 "mF" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(209)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "mR" = (
@@ -2803,9 +2802,9 @@
 "nq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "nr" = (
@@ -2865,13 +2864,13 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "database_checkpoint";
 	name = "Checkpoint Blastdoor";
-	req_access = list(209);
 	dir = 8;
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3128,7 +3127,6 @@
 /area/database_freighter/engine)
 "rq" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(209);
 	name = "Checkpoint";
 	dir = 1
 	},
@@ -3142,6 +3140,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3157,13 +3156,13 @@
 "rM" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3728,7 +3727,6 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -3743,6 +3741,7 @@
 	dir = 4;
 	status = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "AM" = (
@@ -3763,10 +3762,10 @@
 "AY" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -3860,7 +3859,6 @@
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/structure/machinery/door/window/southleft{
 	name = "Anomaly Suit";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -3871,6 +3869,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark,
 /area/database_freighter/storage)
 "CJ" = (
@@ -4091,7 +4090,6 @@
 /obj/structure/machinery/button/remote/airlock{
 	id = "database_energy";
 	name = "Door Bolt Control";
-	req_access = list(209);
 	specialfunctions = 4;
 	dir = 4;
 	pixel_x = -25
@@ -4099,6 +4097,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4228,13 +4227,13 @@
 /area/database_freighter/barracks)
 "IA" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Restroom";
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -4447,7 +4446,6 @@
 "LS" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Eva Storage";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4460,6 +4458,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4591,7 +4590,6 @@
 /area/database_freighter/engineering)
 "Oe" = (
 /obj/structure/machinery/door/airlock/engineering{
-	req_access = list(209);
 	name = "Atmospherics";
 	dir = 1
 	},
@@ -4603,6 +4601,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4686,9 +4685,9 @@
 "PH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4696,9 +4695,9 @@
 "PO" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -4795,12 +4794,12 @@
 "Rg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hull"
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4822,13 +4821,13 @@
 /obj/structure/machinery/door/airlock/external{
 	id_tag = "database_energy";
 	name = "Exotic Energies Harvesting";
-	req_access = list(209);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor{
 	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -5023,7 +5022,6 @@
 "Vm" = (
 /obj/structure/machinery/door/airlock/mining{
 	name = "Hangar";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5036,6 +5034,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5291,9 +5290,9 @@
 "Zq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	spawn_firedoor = 1;
-	req_one_access = list(209);
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/pra,
 /turf/simulated/floor{
 	temperature = 278.15
 	},

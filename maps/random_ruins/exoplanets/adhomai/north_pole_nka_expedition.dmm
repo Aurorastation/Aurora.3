@@ -76,13 +76,13 @@
 /area/adhomai_archeology)
 "m" = (
 /obj/structure/closet/secure_closet/cabinet{
-	name = "secure locker (rifle)";
-	req_access = list(213)
+	name = "secure locker (rifle)"
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "n" = (
@@ -113,13 +113,13 @@
 /area/exoplanet/adhomai)
 "s" = (
 /obj/structure/closet/secure_closet/cabinet{
-	name = "secure locker (shotgun)";
-	req_access = list(213)
+	name = "secure locker (shotgun)"
 	},
 /obj/item/storage/box/shells/slugs,
 /obj/item/storage/box/shells/buckshot,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 /obj/item/clothing/accessory/storage/bandolier,
+/obj/effect/map_effect/marker/access/req_all/nka,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "t" = (

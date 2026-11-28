@@ -350,7 +350,7 @@
 
 	var/turf/T = get_turf(src)
 	if(loud && istype(T))
-		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
+		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."), visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	canmove = TRUE
 	resting = FALSE
@@ -470,7 +470,7 @@
 
 	var/turf/T = get_turf(src)
 	if(istype(T))
-		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.")
+		T.visible_message("<b>[src]</b> neatly folds inwards, compacting down to a rectangular card.", visible_message_flags = LOCAL_MESSAGE)
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 
 	src.stop_pulling()

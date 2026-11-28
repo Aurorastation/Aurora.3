@@ -132,13 +132,13 @@
 /area/sol_listening_post)
 "fW" = (
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(150)
+	dir = 8
 	},
 /obj/structure/table/steel,
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "gt" = (
@@ -281,13 +281,12 @@
 "nB" = (
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(150)
+	dir = 8
 	},
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(150)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "oG" = (
@@ -326,14 +325,13 @@
 /area/sol_listening_post)
 "rw" = (
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(150)
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(150)
+	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "rO" = (
@@ -772,13 +770,13 @@
 /area/sol_listening_post)
 "Rd" = (
 /obj/structure/machinery/door/window{
-	dir = 8;
-	req_access = list(150)
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/tiled,
 /area/sol_listening_post)
 "Ri" = (

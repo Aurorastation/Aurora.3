@@ -304,6 +304,15 @@
 	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
 		return
 	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
+	if(isliving(src) && isobj(hit_atom))
+		var/obj/obstacle = hit_atom
+		if(obstacle.density && obstacle.anchored)
+			var/mob/living/thrown_mob = src
+			var/impact_speed = throwingdatum ? throwingdatum.speed : THROWFORCE_SPEED_DIVISOR
+			if(istype(obstacle, /obj/structure/window))
+				thrown_mob.turf_collision(obstacle, impact_speed, SFX_GLASS_CRACK)
+			else
+				thrown_mob.turf_collision(obstacle, impact_speed)
 	return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
@@ -1076,7 +1085,7 @@
 /atom/movable/proc/begin_falling(var/lastloc, var/below)
 	return
 
-/atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/atom/movable/proc/show_message(msg, type, alt, alt_type, avoid_highlighting = FALSE)
 	return
 
 /**

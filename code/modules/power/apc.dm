@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	icon_state = "apc0"
 	anchored = TRUE
 	use_power = POWER_USE_OFF
-	req_access = list(/datum/access/engine_equip::id)
+	req_access = list(/datum/access/horizon/engine_equip::id)
 	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
@@ -912,12 +912,12 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			if(beenhit >= pick(3, 4) && !panel_open)
 				panel_open = TRUE
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"))
+				visible_message(SPAN_WARNING("The [name]'s cover flies open, exposing the wires!"), visible_message_flags = LOCAL_MESSAGE)
 
 			else if(panel_open && !allcut)
 				wires.cut_all()
 				update_icon()
-				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"))
+				visible_message(SPAN_WARNING("The [name]'s wires are shredded!"), visible_message_flags = LOCAL_MESSAGE)
 			else
 				beenhit += 1
 			return
@@ -1183,7 +1183,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 			smoke.start()
 			spark(src, 5, GLOB.alldirs)
 			visible_message(SPAN_DANGER("The [name] suddenly lets out a blast of smoke and some sparks!"), \
-							SPAN_DANGER("You hear sizzling electronics."))
+							blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 
 /obj/structure/machinery/power/apc/proc/last_surplus()
 	return terminal?.powernet?.last_surplus()
@@ -1394,13 +1394,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/proc/set_broken()
 	// Aesthetically much better!
-	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"))
+	visible_message(SPAN_NOTICE("[src]'s screen flickers with warnings briefly!"), visible_message_flags = LOCAL_MESSAGE)
 	spark(src, 5, GLOB.alldirs)
 	addtimer(CALLBACK(src, PROC_REF(break_timer)), rand(2, 5))
 
 /obj/structure/machinery/power/apc/proc/break_timer()
 	visible_message(SPAN_DANGER("[src]'s screen suddenly explodes in rain of sparks and small debris!"), \
-					SPAN_DANGER("You hear sizzling electronics."))
+					blind_message = SPAN_DANGER("You hear sizzling electronics."), visible_message_flags = LOCAL_MESSAGE)
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 	smoke.set_up(3, 0, loc)
 	smoke.attach(src)
@@ -1548,7 +1548,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 /obj/structure/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
 	req_access = null
-	req_one_access = list(/datum/access/engine_equip::id,/datum/access/research::id,/datum/access/xenobiology::id)
+	req_one_access = list(/datum/access/horizon/engine_equip::id,/datum/access/horizon/research::id,/datum/access/horizon/xenobiology::id)
 
 /obj/structure/machinery/power/apc/isolation/north
 	dir = NORTH
@@ -1568,7 +1568,7 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 
 /obj/structure/machinery/power/apc/vault
 	cell_type = /obj/item/cell
-	req_access = list(/datum/access/captain::id)
+	req_access = list(/datum/access/horizon/captain::id)
 
 /obj/structure/machinery/power/apc/vault/north
 	dir = NORTH
@@ -1612,13 +1612,13 @@ ABSTRACT_TYPE(/obj/structure/machinery/power/apc)
 	var/area = get_area(src)
 
 	if(istype(area, /area/horizon/shuttle/intrepid))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/intrepid::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/intrepid::id)
 	if(istype(area, /area/horizon/shuttle/quark))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/quark::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/quark::id)
 	if(istype(area, /area/horizon/shuttle/mining))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/spark::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/spark::id)
 	if(istype(area, /area/horizon/shuttle/canary))
-		req_one_access = list(/datum/access/engine_equip::id, /datum/access/canary::id)
+		req_one_access = list(/datum/access/horizon/engine_equip::id, /datum/access/horizon/canary::id)
 
 // Construction site APC, starts turned off
 /obj/structure/machinery/power/apc/high/inactive

@@ -248,3 +248,15 @@
 	desc = "A crate containing gear for a single individual. The voidsuit is only usable by humans."
 	path = /obj/structure/closet/crate/secure/gear_loadout/zavodskoi/single
 	telecrystal_cost = 10
+
+/datum/uplink_item/item/gear_loadout/siib
+	name = "SIIB Assets (Group)"
+	desc = "A crate containing gear for a group. While most of the gear is usable by non-humans, what is a non-human doing in this gear anyway?"
+	path = /obj/structure/closet/crate/secure/gear_loadout/siib
+	telecrystal_cost = 35
+
+/datum/uplink_item/item/gear_loadout/siib_single
+	name = "SIIB Assets (Single)"
+	desc = "A crate containing gear for a single individual. While most of the gear is usable by non-humans, what is a non-human doing in this gear anyway?"
+	path = /obj/structure/closet/crate/secure/gear_loadout/siib/single
+	telecrystal_cost = 10

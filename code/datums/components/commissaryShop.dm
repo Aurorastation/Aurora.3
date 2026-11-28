@@ -30,7 +30,7 @@
 	/// The the longer version of the shop name
 	var/shop_long_name = "Idris Quik-Pay Register"
 	/// The access types that can configure the shop
-	var/req_one_access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id)
+	var/req_one_access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id)
 
 /datum/component/quikpay_shop/quikpay
 	shop_name = "Quik-Pay"
@@ -70,7 +70,7 @@
 	return TRUE
 
 
-/datum/component/quikpay_shop/Initialize(access = list(/datum/access/bar::id, /datum/access/galley::id, /datum/access/cargo::id), destination = "Operations")
+/datum/component/quikpay_shop/Initialize(access = list(/datum/access/horizon/bar::id, /datum/access/horizon/galley::id, /datum/access/horizon/cargo::id), destination = "Operations")
 	. = ..()
 	machine_id = "[station_name()] [shop_long_name] #[SSeconomy.num_financial_terminals++]"
 	if(!isobj(parent))
@@ -326,7 +326,7 @@
 		if("confirm")
 			buying_receipt(usr)
 			playsound(owner, 'sound/machines/ping.ogg', 25, TRUE)
-			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."))
+			owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] pings."), audible_message_flags = (ismob(owner) ? NONE : LOCAL_MESSAGE))
 			. = TRUE
 
 		if("locking")
@@ -372,7 +372,7 @@
 /// Ends the transaction by using a card, giving a message
 /datum/component/quikpay_shop/proc/end_transaction(mob/user)
 	user.visible_message("\The [user] swipes a card on \the [owner]." )
-	owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."))
+	owner.audible_message(SPAN_NOTICE("[icon2html(owner, viewers(get_turf(owner)))] \The [owner] chimes."), audible_message_flags = (ismob(owner) ? NONE : LOCAL_MESSAGE))
 	playsound(owner, 'sound/machines/chime.ogg', 50, TRUE)
 	print_receipt()
 	to_chat(user, SPAN_NOTICE("Transaction completed, please return to the home screen."))

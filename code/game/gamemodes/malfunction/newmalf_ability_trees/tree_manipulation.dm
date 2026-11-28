@@ -221,7 +221,7 @@
 
 
 	log_ability_use(user, "machine overload", M)
-	M.visible_message(SPAN_NOTICE("BZZZZZZZT"))
+	M.visible_message(SPAN_NOTICE("BZZZZZZZT"), visible_message_flags = LOCAL_MESSAGE)
 	sleep(50)
 	explosion(get_turf(M), min(1,round(explosion_intensity/4)),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
 	if(M)

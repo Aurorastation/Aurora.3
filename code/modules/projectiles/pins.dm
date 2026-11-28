@@ -97,7 +97,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message(SPAN_DANGER("SELF-DESTRUCTING...<br>"), 1)
-		visible_message(SPAN_DANGER("\The [gun] explodes!"))
+		visible_message(SPAN_DANGER("\The [gun] explodes!"), visible_message_flags = LOCAL_MESSAGE)
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? BP_L_HAND : BP_R_HAND]
 		E.droplimb(0,DROPLIMB_BLUNT)
@@ -243,7 +243,7 @@ Pins Below.
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
 	fail_message = SPAN_WARNING("ACCESS CHECK FAILED.")
-	req_access = list(/datum/access/weapons::id)
+	req_access = list(/datum/access/horizon/weapons::id)
 
 /obj/item/firing_pin/access/pin_auth(mob/living/user)
 	return allowed(user)

@@ -13,9 +13,9 @@
 	selection_color = "#c9ad12"
 
 	job_access = list(
-		/datum/access/sec_doors::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/eva::id, /datum/access/heads::id, /datum/access/maint_tunnels::id,
-		/datum/access/construction::id, /datum/access/research::id, /datum/access/gateway::id, /datum/access/weapons::id, /datum/access/bridge_crew::id, /datum/access/intrepid::id,
-		/datum/access/spark::id, /datum/access/quark::id, /datum/access/canary::id, /datum/access/cent_ccia::id
+		/datum/access/horizon/sec_doors::id, /datum/access/horizon/medical::id, /datum/access/horizon/engine::id, /datum/access/horizon/eva::id, /datum/access/horizon/heads::id, /datum/access/horizon/maint_tunnels::id,
+		/datum/access/horizon/construction::id, /datum/access/horizon/research::id, /datum/access/horizon/gateway::id, /datum/access/horizon/weapons::id, /datum/access/horizon/bridge_crew::id, /datum/access/horizon/intrepid::id,
+		/datum/access/horizon/spark::id, /datum/access/horizon/quark::id, /datum/access/horizon/canary::id, /datum/access/centcomm/cent_ccia::id
 	)
 
 	outfit = /obj/outfit/job/hra

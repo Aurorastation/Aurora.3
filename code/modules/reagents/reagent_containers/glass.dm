@@ -24,8 +24,12 @@
 	. += ..()
 	if(distance > 2)
 		return
+	var/pharm_skill = get_pharmacology_skill(user)
 	if(LAZYLEN(reagents.reagent_volumes))
-		. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent.")
+		if(pharm_skill <= SKILL_LEVEL_UNFAMILIAR)
+			. += SPAN_NOTICE("It contains roughly [max(5, round(reagents.total_volume, 5))] units of a reagent.")
+		else
+			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of a reagent.")
 		for(var/_T in reagents.reagent_volumes)
 			var/singleton/reagent/T = GET_SINGLETON(_T)
 			if(T.reagent_state == LIQUID)
@@ -37,6 +41,28 @@
 			if(T.reagent_state == SOLID)
 				. += SPAN_NOTICE("You see something solid in the beaker.")
 				break
+
+		if(distance <= 1 && pharm_skill >= SKILL_LEVEL_FAMILIAR && is_open_container())
+			var/list/identified_parts = list()
+			var/unidentified_count = 0
+			for(var/_R in reagents.reagent_volumes)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				var/vol = REAGENT_VOLUME(reagents, _R)
+				if(can_identify_reagent_visually(user, R, pharm_skill))
+					if(pharm_skill >= SKILL_LEVEL_PROFESSIONAL)
+						identified_parts += "[R.name] ([round(vol, 0.1)]u)"
+					else if(pharm_skill == SKILL_LEVEL_TRAINED)
+						identified_parts += "[R.name] (~[max(1, round(vol, 5))]u)"
+					else
+						identified_parts += R.name
+				else
+					unidentified_count++
+
+			if(length(identified_parts))
+				var/extra_unknown = unidentified_count ? " alongside [unidentified_count] unfamiliar substance[(unidentified_count > 1) ? "s" : ""]" : ""
+				. += SPAN_NOTICE("By its color, viscosity, and scent, you recognize: [english_list(identified_parts)][extra_unknown].")
+			else if(unidentified_count)
+				. += SPAN_WARNING("You cannot visually identify the specific chemical[(unidentified_count > 1) ? "s" : ""] inside.")
 	else
 		. += SPAN_NOTICE("It is empty.")
 	if(!is_open_container())

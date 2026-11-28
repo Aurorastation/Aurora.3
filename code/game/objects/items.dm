@@ -822,7 +822,16 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
-			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
+			if(istype(src, /obj/item/radio/headset/wrist/clip))
+				if(!uniform)
+					if(!disable_warning)
+						to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
+					return 0
+				if(!uniform.can_attach_radio(src))
+					if(!disable_warning)
+						to_chat(H, SPAN_WARNING("You cannot attach another clip-on radio to your [uniform]."))
+					return 0
+			else if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
 					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
 				return 0
@@ -887,13 +896,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 		if(H != user)
 			M.visible_message(
-				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
-				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
+				SPAN_DANGER("[user] stabs \the [M] in the [eyes.singular_name] with \the [src]!"),
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with \the [src]!")
 			)
 		else
 			user.visible_message( \
-				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
-				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with \the [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with \the [src]!")
 			)
 
 		eyes.take_damage(rand(3,4))

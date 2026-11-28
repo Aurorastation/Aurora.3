@@ -4,7 +4,7 @@
 	icon_state = "injector0"
 	density = TRUE
 	anchored = FALSE
-	req_access = list(/datum/access/engine::id)
+	req_access = list(/datum/access/horizon/engine::id)
 	idle_power_usage = 10
 	active_power_usage = 500
 
@@ -48,9 +48,9 @@
 		if(!user.unEquip(attacking_item, 0, src))
 			return
 		if(cur_assembly)
-			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."))
+			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
 		else
-			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."))
+			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		if(cur_assembly)
 			cur_assembly.dropInto(loc)
 			user.put_in_hands(cur_assembly)
@@ -88,7 +88,7 @@
 				return TRUE
 		cur_assembly.dropInto(loc)
 		user.put_in_hands(cur_assembly)
-		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."), visible_message_flags = LOCAL_MESSAGE)
 		cur_assembly = null
 		return TRUE
 	else

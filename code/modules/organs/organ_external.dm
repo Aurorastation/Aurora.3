@@ -696,6 +696,11 @@
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
 		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
+		if(istype(victim, /obj/item/organ/internal/brain))
+			var/obj/item/organ/internal/brain/brain = victim
+			damage_amt = brain.get_traumatic_damage(damage_amt)
+			if(!damage_amt)
+				return FALSE
 		victim.take_internal_damage(damage_amt)
 		START_PROCESSING(SSprocessing, src)
 		return TRUE

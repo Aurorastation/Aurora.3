@@ -387,15 +387,13 @@
 			open_hatch = 1
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] opens the maintenance hatch of \the [src]."),\
-				SPAN_NOTICE("You open the maintenance hatch of \the [src]."),\
-				range = 4)
+				SPAN_NOTICE("You open the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 		else
 			open_hatch = 0
 			user.visible_message(\
 				SPAN_NOTICE("\The [user] closes the maintenance hatch of \the [src]."),\
-				SPAN_NOTICE("You close the maintenance hatch of \the [src]."),\
-				range = 4)
+				SPAN_NOTICE("You close the maintenance hatch of \the [src]."), vision_distance = 4)
 			return 0
 
 	if (!open_hatch)

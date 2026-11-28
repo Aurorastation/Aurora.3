@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet/personal
 	name = "personal closet"
 	desc = "It's a secure locker for personnel. The first card swiped gains control."
-	req_access = list(/datum/access/all_personal_lockers::id)
+	req_access = list(/datum/access/horizon/all_personal_lockers::id)
 	var/registered_name = null
 
 /obj/structure/closet/secure_closet/personal/fill()
@@ -82,7 +82,7 @@
 		desc = "It appears to be broken."
 		update_icon()
 		if(visual_feedback)
-			visible_message(SPAN_WARNING("[visual_feedback]"), SPAN_WARNING("[audible_feedback]"))
+			visible_message(SPAN_WARNING("[visual_feedback]"), blind_message = SPAN_WARNING("[audible_feedback]"), visible_message_flags = LOCAL_MESSAGE)
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()

@@ -28,6 +28,8 @@ ABSTRACT_TYPE(/obj/item/clothing/suit/storage)
 	return FALSE
 
 /obj/item/clothing/suit/storage/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/radio/headset/wrist/clip))
+		return ..()
 	..()
 	if(istype(attacking_item, /obj/item/clothing/accessory))
 		return

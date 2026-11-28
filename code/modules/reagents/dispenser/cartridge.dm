@@ -18,6 +18,8 @@
 	var/label = ""
 	/// Whether this cartridge type uses object persistence on supported maps.
 	var/is_persistent = FALSE
+	/// Whether this cartridge originated in a non-persistent chemistry dispenser.
+	var/tmp/persistence_excluded = FALSE
 	/// Whether object persistence supplied a canonical amount before atom initialization.
 	var/tmp/persistent_stock_loaded = FALSE
 	/// Canonical amount supplied by object persistence.
@@ -52,6 +54,11 @@
 		. += "It contains [reagents.total_volume] units of liquid."
 	if(!is_open_container())
 		. += "The cap is sealed."
+	else if(distance <= 1 && reagents?.total_volume > 0 && label && get_pharmacology_skill(user) >= SKILL_LEVEL_TRAINED)
+		var/singleton/reagent/primary = reagents.get_primary_reagent_decl()
+		if(primary && !primary.spectro_hidden)
+			if(length(reagents.reagent_volumes) > 1 || lowertext(primary.name) != lowertext(label))
+				. += SPAN_WARNING("Something seems off—the contents don't appear to match the '[label]' label.")
 
 /obj/item/reagent_containers/chem_disp_cartridge/Initialize(mapload,temperature_override)
 	. = ..()
@@ -72,7 +79,11 @@
 	var/obj/structure/machinery/chemical_dispenser/dispenser = loc
 	if(istype(dispenser) && dispenser.persistent_cartridges)
 		dispenser.add_cartridge(src)
-	if(is_persistent && SSpersistence.map_supports_persistence)
+	else if(istype(dispenser))
+		persistence_excluded = TRUE
+	// Eligible loose cartridges and cartridges supplied by bar/coffee dispensers
+	// persist. Shared types created in a pharmacy/chemistry dispenser do not.
+	if(is_persistent && !persistence_excluded && SSpersistence.map_supports_persistence)
 		SSpersistence.objectsRegisterTrack(src)
 
 /** Saves canonical contents and the mapped dispenser containing this cartridge, if any. */

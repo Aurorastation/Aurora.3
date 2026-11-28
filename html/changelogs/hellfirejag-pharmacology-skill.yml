@@ -1,0 +1,10 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Fully implemented the Pharmacology skill."
+  - rscadd: "Pharmacology rank now governs visual reagent identification in beakers and pills, scaling from rounded volume estimates at Unfamiliar to exact reagent and volume identification (excluding spectro-hidden compounds) at Professional."
+  - rscadd: "Trained+ Pharmacology highlights active medication overdoses on Health and Breath Analyzers, and improves Mass Spectrometer and Reagent Scanner detail up to full quantitative and spectro-hidden breakdowns at Professional."
+  - rscadd: "Unfamiliar Pharmacology users now see unfamiliar cartridges and reagents obfuscated as unknown compounds in non-drink Chemical Dispensers and ChemMasters, and dispense/transfer with slight imprecision."
+  - rscadd: "Trained and Professional Pharmacology users can produce larger pill batches in the ChemMaster 3000, grind reagents faster with 10-20% bonus yield, assemble Chemical Heaters from flatpaks, and compound coated pills that mask bitter chemical tastes and grant a morale boost when swallowed."
+  - rscadd: "Medication administration (syringes, hyposprays, droppers, emergency needle thoracostomies, and IV drips) now scales speed and syringe cleanliness with the higher of the user's Pharmacology or Medicine skill."
+  - balance: "Reduced the baseline Pharmacology skill level granted by medical educations by 1 rank so reaching the Professional capstone requires investing skill points."

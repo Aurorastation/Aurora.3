@@ -22,7 +22,8 @@
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
-
+/// Sent from what entered the turf
+#define COMSIG_TURF_ENTERED "turf_entered"
 /// From base of turf/ChangeTurf(): (path)
 #define COMSIG_TURF_CHANGE "turf_change"
 
@@ -95,7 +96,13 @@
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
 
+#define COMSIG_GUN_TOGGLE_SAFETY "gun_toggle_safety"
+
 #define COMSIG_BEFORE_GUN_FIRE "before_gun_fire"
+/// Signal raised when a shot is successfully fired
+#define COMSIG_GUN_FIRED "gun_fired"
+
+#define COMSIG_GUN_SCOPE "gun_scope"
 
 // Mech signals
 
@@ -120,6 +127,11 @@
 
 /// Raised against a food item when someone takes a bite out of it: (mob/eater, mob/feeder)
 #define COMSIG_FOOD_EATEN "food_eaten"
+
+// Pharmacology Skill Signals
+
+/// Raised against a pill when someone swallows it: (mob/living/carbon/target, mob/living/user)
+#define COMSIG_PILL_SWALLOWED "pill_swallowed"
 
 // Hydroponics Signals
 /// Signal raised against the harvester of a plant during the Harvest() proc.

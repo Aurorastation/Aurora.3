@@ -46,7 +46,7 @@
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
 		var/chosen_emote = pick(SShallucinations.hal_emote)
 		if(prob(10))										//You are aware of it in this instance
-			holder.visible_message("<B>[holder]</B> [chosen_emote]")
+			holder.visible_message("<B>[holder]</B> [chosen_emote]", visible_message_flags = (ismob(holder) ? NONE : LOCAL_MESSAGE))
 		else
 			for(var/mob/M in oviewers(world.view, holder))	//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 				to_chat(M, "<B>[holder]</B> [chosen_emote]")

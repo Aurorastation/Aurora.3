@@ -73,7 +73,7 @@
 
 /obj/item/holowarrant/proc/play_message(var/message)
 	playsound(get_turf(src), 'sound/machines/ping.ogg', 40)
-	audible_message(message)
+	audible_message(message, audible_message_flags = LOCAL_MESSAGE)
 
 /// Called when a warrant is created
 /obj/item/holowarrant/proc/handle_warrant_created(datum/source, datum/record/record)
@@ -103,7 +103,6 @@
 
 		user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You hold up \the [src] to \the [target_mob]."))
 		show_content(target_mob)
-		return
 
 	if(awaiting_payment && fine_incident)
 		user.visible_message("<b>[user]</b> holds \the [src] up to \the [target_mob].", SPAN_NOTICE("You show the pending fine on \the [src] to \the [target_mob]."))
@@ -185,7 +184,7 @@
 	if(issilicon(user))
 		return
 	var/obj/item/card/id/id_card = user.GetIdCard()
-	if(istype(id_card) && id_card.registered_name && (/datum/access/security::id in id_card.access))
+	if(istype(id_card) && id_card.registered_name && (/datum/access/horizon/security::id in id_card.access))
 		return id_card
 
 /obj/item/holowarrant/proc/set_fine_target(mob/living/carbon/human/target, obj/item/card/id/target_id)

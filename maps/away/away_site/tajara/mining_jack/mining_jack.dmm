@@ -440,10 +440,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Power Room";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -816,13 +816,13 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	dir = 1;
-	req_access = list(202)
+	dir = 1
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/gps/mining,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1086,14 +1086,14 @@
 	dir = 4
 	},
 /obj/structure/machinery/door/window{
-	dir = 1;
-	req_access = list(202)
+	dir = 1
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/structure/machinery/light,
 /obj/item/gps/mining,
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1639,9 +1639,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Equipment Storage";
-	req_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1765,12 +1765,12 @@
 /obj/structure/table/standard,
 /obj/structure/machinery/button/remote/blast_door{
 	id = "mining_jack_bridge";
-	name = "Bridge Shutters";
-	req_access = list(202)
+	name = "Bridge Shutters"
 	},
 /obj/structure/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1784,10 +1784,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Atmospherics";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -1895,9 +1895,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Smelter";
-	req_access = list(202);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2057,7 +2057,6 @@
 /area/mining_jack_outpost/storage)
 "JU" = (
 /obj/structure/machinery/door/airlock/hatch{
-	req_access = list(202);
 	name = "Bridge";
 	dir = 1
 	},
@@ -2068,6 +2067,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},
@@ -2684,9 +2684,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	name = "Crew Quarters";
-	req_access = list(202);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/generic_away_site,
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
 	},

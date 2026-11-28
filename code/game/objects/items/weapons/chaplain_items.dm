@@ -297,7 +297,7 @@
 
 	if((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_DANGER("The [src] slips out of your hand and you hit yourself!"))
-		visible_message(SPAN_DANGER("[user] fumbles with the [src] and hits themselves in the process!"))
+		visible_message(SPAN_DANGER("[user] fumbles with the [src] and hits themselves in the process!"), visible_message_flags = LOCAL_MESSAGE)
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -368,7 +368,7 @@
 			rune_found = TRUE
 			R.set_invisibility(0)
 		if(rune_found)
-			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
+			visible_message(SPAN_NOTICE("A holy glow permeates the air!"), visible_message_flags = LOCAL_MESSAGE)
 		return
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		if(A.reagents && A.reagents.has_reagent(/singleton/reagent/water)) //blesses all the water in the holder
@@ -449,7 +449,7 @@
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/assunzioneorb/proc/shatter()
-	visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
+	visible_message(SPAN_WARNING("\The [src] shatters!"), blind_message = SPAN_WARNING("You hear a small glass object shatter!"), visible_message_flags = LOCAL_MESSAGE)
 	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
 	new /obj/item/material/shard(get_turf(src))
 	qdel(src)

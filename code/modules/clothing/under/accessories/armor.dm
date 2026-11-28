@@ -1,6 +1,7 @@
 //Leg guards.
 /obj/item/clothing/accessory/leg_guard
 	name = "corporate leg guards"
+	examine_group = ACCESSORY_EX_GROUP_ARMOR
 	desc = "These will protect your legs."
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "legguards_sec"
@@ -189,6 +190,7 @@
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
+	examine_group = ACCESSORY_EX_GROUP_ARMOR
 	desc = "A pair of arm pads reinforced with armor plating. Attaches to a plate carrier."
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
 	icon_state = "armguards_sec"

@@ -312,7 +312,7 @@
 	if(prob(min(25,max(1,GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2))))
 		if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"), visible_message_flags = LOCAL_MESSAGE)
 	update_icon()
 
 /// Process reagents being input into the tray.
@@ -383,7 +383,7 @@
 	// Reset values.
 	if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
-		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+		visible_message(SPAN_DANGER("\The [src] releases its spores!"), visible_message_flags = LOCAL_MESSAGE)
 	harvest = FALSE
 	stunted = FALSE
 	lastproduce = age
@@ -439,7 +439,7 @@
 	pestlevel = 0
 	sampled = 0
 	update_icon()
-	visible_message(SPAN_NOTICE("[src] has been overtaken by [seed.display_name]."))
+	visible_message(SPAN_NOTICE("[src] has been overtaken by [seed.display_name]."), visible_message_flags = LOCAL_MESSAGE)
 
 	return
 
@@ -517,7 +517,7 @@
 	weedlevel = 0
 
 	update_icon()
-	visible_message(SPAN_DANGER("The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!"))
+	visible_message(SPAN_DANGER("The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!"), visible_message_flags = LOCAL_MESSAGE)
 
 	return
 
