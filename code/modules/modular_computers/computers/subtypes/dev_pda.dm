@@ -34,3 +34,32 @@
 
 /obj/item/modular_computer/handheld/pda/smart
 	icon = 'icons/obj/modular_computers/pda_smart.dmi'
+
+/// Empty, unenrolled PDA shells intended for protolathe fabrication.
+/obj/item/modular_computer/handheld/pda/chassis
+	name = "PDA chassis"
+	enrolled = DEVICE_UNSET
+
+/obj/item/modular_computer/handheld/pda/chassis/install_default_hardware()
+	return
+
+/obj/item/modular_computer/handheld/pda/chassis/civilian
+	icon_add = null
+
+/obj/item/modular_computer/handheld/pda/chassis/engineering
+	icon_add = "e"
+
+/obj/item/modular_computer/handheld/pda/chassis/operations
+	icon_add = "sup"
+
+/obj/item/modular_computer/handheld/pda/chassis/medical
+	icon_add = "m"
+
+/obj/item/modular_computer/handheld/pda/chassis/research
+	icon_add = "tox"
+
+/obj/item/modular_computer/handheld/pda/chassis/security
+	icon_add = "s"
+
+/obj/item/modular_computer/handheld/pda/chassis/command
+	icon_add = "h"

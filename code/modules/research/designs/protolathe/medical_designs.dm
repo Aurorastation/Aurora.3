@@ -9,6 +9,48 @@
 	materials = list(MATERIAL_STEEL = 200)
 	build_path = /obj/item/healthanalyzer
 
+/datum/design/item/medical/breath_analyzer
+	name = "Breath Analyzer"
+	desc = "A handheld analyzer for measuring intoxication through a breath sample."
+	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+	materials = list(MATERIAL_STEEL = 300, MATERIAL_GLASS = 200)
+	build_path = /obj/item/breath_analyzer
+
+/datum/design/item/medical/advanced_health_analyzer
+	name = "Advanced Health Analyzer"
+	desc = "An advanced full-body scanner capable of producing detailed medical reports."
+	req_tech = list(TECH_MAGNET = 5, TECH_BIO = 5, TECH_DATA = 5)
+	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 1000, MATERIAL_SILVER = 500)
+	build_path = /obj/item/advanced_healthanalyzer
+
+/datum/design/item/medical/automatic_cpr
+	name = "Automatic CPR Device"
+	desc = "A medical harness capable of providing automatic chest compressions and emergency respiration."
+	req_tech = list(TECH_MAGNET = 5, TECH_BIO = 4, TECH_ENGINEERING = 3)
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 1500, MATERIAL_PLASTIC = 2500)
+	build_path = /obj/item/auto_cpr
+
+/datum/design/item/medical/compact_defibrillator
+	name = "Compact Defibrillator"
+	desc = "A compact belt-mounted defibrillator supplied without a power cell."
+	req_tech = list(TECH_BIO = 5, TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
+	build_path = /obj/item/defibrillator/compact
+
+/datum/design/item/medical/hypospray
+	name = "Hypospray"
+	desc = "A reusable, needleless reagent injector."
+	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 2)
+	materials = list(MATERIAL_STEEL = 2000, MATERIAL_GLASS = 1000, MATERIAL_PLASTIC = 500)
+	build_path = /obj/item/reagent_containers/hypospray
+
+/datum/design/item/medical/hypospray/premium
+	name = "Premium Hypospray"
+	desc = "A high-end hypospray with a near-instantaneous injection mechanism."
+	req_tech = list(TECH_BIO = 6, TECH_MATERIAL = 5, TECH_ENGINEERING = 5, TECH_MAGNET = 4)
+	materials = list(MATERIAL_STEEL = 4000, MATERIAL_GLASS = 2000, MATERIAL_PLASTIC = 1000, MATERIAL_SILVER = 1000, MATERIAL_GOLD = 500)
+	build_path = /obj/item/reagent_containers/hypospray/cmo
+
 /datum/design/item/medical/robot_scanner
 	name = "Robot Analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."

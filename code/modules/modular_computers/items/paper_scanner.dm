@@ -6,6 +6,7 @@
 	item_state = "paperscanner"
 	contained_sprite = TRUE
 	var/obj/item/computer_hardware/hard_drive/portable/drive
+	var/starts_with_drive = TRUE
 
 /obj/item/paper_scanner/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -14,8 +15,14 @@
 
 /obj/item/paper_scanner/Initialize(mapload, ...)
 	. = ..()
-	drive = new /obj/item/computer_hardware/hard_drive/portable(src)
+	if(starts_with_drive)
+		drive = new /obj/item/computer_hardware/hard_drive/portable(src)
 	update_icon()
+
+/obj/item/paper_scanner/empty
+	name = "paper scanner chassis"
+	desc = "A paper scanner without a portable data drive installed."
+	starts_with_drive = FALSE
 
 /obj/item/paper_scanner/update_icon()
 	ClearOverlays()

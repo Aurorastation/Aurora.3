@@ -1,6 +1,37 @@
 /datum/design/item/modularcomponent
 	p_category = "Modular Computer Component Designs"
 
+/datum/design/item/modularcomponent/pda_chassis
+	name = "Civilian PDA Chassis"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	materials = list(MATERIAL_STEEL = 1000, MATERIAL_GLASS = 500, MATERIAL_PLASTIC = 500)
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/civilian
+
+/datum/design/item/modularcomponent/pda_chassis/engineering
+	name = "Engineering PDA Chassis"
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/engineering
+
+/datum/design/item/modularcomponent/pda_chassis/operations
+	name = "Operations PDA Chassis"
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/operations
+
+/datum/design/item/modularcomponent/pda_chassis/medical
+	name = "Medical PDA Chassis"
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/medical
+
+/datum/design/item/modularcomponent/pda_chassis/research
+	name = "Research PDA Chassis"
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/research
+
+/datum/design/item/modularcomponent/pda_chassis/security
+	name = "Security PDA Chassis"
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/security
+
+/datum/design/item/modularcomponent/pda_chassis/command
+	name = "Command PDA Chassis"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/modular_computer/handheld/pda/chassis/command
+
 // Hard drives
 /datum/design/item/modularcomponent/disk/normal
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
