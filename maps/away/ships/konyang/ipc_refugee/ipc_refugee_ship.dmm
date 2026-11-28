@@ -3547,9 +3547,7 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/ipc_refugee/bridge)
 "AK" = (
-/obj/structure/machinery/vending/boozeomat/abandoned{
-	req_access = null
-	},
+/obj/structure/machinery/vending/boozeomat/abandoned,
 /turf/simulated/floor,
 /area/ship/ipc_refugee/cargopod_b)
 "AQ" = (

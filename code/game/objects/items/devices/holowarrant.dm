@@ -184,7 +184,7 @@
 	if(issilicon(user))
 		return
 	var/obj/item/card/id/id_card = user.GetIdCard()
-	if(istype(id_card) && id_card.registered_name && (/datum/access/security::id in id_card.access))
+	if(istype(id_card) && id_card.registered_name && (/datum/access/horizon/security::id in id_card.access))
 		return id_card
 
 /obj/item/holowarrant/proc/set_fine_target(mob/living/carbon/human/target, obj/item/card/id/target_id)

@@ -204,8 +204,8 @@
 
 /obj/outfit/admin/scc_scout_ship_crew/get_id_access()
 	return list(
-		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
-		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
+		/datum/access/horizon/external_airlocks::id, /datum/access/horizon/maint_tunnels::id,
+		/datum/access/horizon/security::id, /datum/access/horizon/medical::id, /datum/access/horizon/engine::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/research::id, /datum/access/horizon/cargo::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/captain
@@ -226,9 +226,9 @@
 
 /obj/outfit/admin/scc_scout_ship_crew/captain/get_id_access()
 	return list(
-		/datum/access/external_airlocks::id, /datum/access/maint_tunnels::id,
-		/datum/access/security::id, /datum/access/medical::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/research::id, /datum/access/cargo::id,
-		/datum/access/heads::id, /datum/access/captain::id,
+		/datum/access/horizon/external_airlocks::id, /datum/access/horizon/maint_tunnels::id,
+		/datum/access/horizon/security::id, /datum/access/horizon/medical::id, /datum/access/horizon/engine::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/research::id, /datum/access/horizon/cargo::id,
+		/datum/access/horizon/heads::id, /datum/access/horizon/captain::id,
 	)
 
 /obj/outfit/admin/scc_scout_ship_crew/orion

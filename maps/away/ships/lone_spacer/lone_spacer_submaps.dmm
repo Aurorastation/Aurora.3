@@ -9,11 +9,11 @@
 	pixel_x = 22;
 	name = "Cargo Hold #1 Shutters";
 	id = "lone_spacer_cargo1";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "d" = (
@@ -23,11 +23,11 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "e" = (
@@ -86,11 +86,11 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/machinery/r_n_d/material_silo,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "k" = (
@@ -310,11 +310,11 @@
 	pixel_x = -22;
 	name = "Cargo Hold #3 Shutters";
 	id = "lone_spacer_cargo4";
-	pixel_y = -1;
-	req_access = list(243)
+	pixel_y = -1
 	},
 /obj/structure/machinery/chem_master,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/access/req_all/lone_spacer_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/lone_spacer/storage)
 "J" = (

@@ -204,9 +204,9 @@
 /area/dungeon/crashed_ship)
 "oz" = (
 /obj/structure/machinery/door/airlock/highsecurity{
-	req_access = list(150);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
 "oZ" = (
@@ -518,14 +518,12 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(150)
+	dir = 4
 	},
 /obj/random/weapon_and_ammo,
-/obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(150)
-	},
+/obj/structure/closet/crate/secure/weapon/alt,
 /obj/item/clothing/accessory/storage/bayonet,
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
 "If" = (
@@ -690,11 +688,11 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window{
-	dir = 4;
-	req_access = list(150)
+	dir = 4
 	},
 /obj/item/clothing/suit/space/void/sol,
 /obj/item/clothing/head/helmet/space/void/sol,
+/obj/effect/map_effect/marker/access/req_all/syndicate,
 /turf/simulated/floor/shuttle/black,
 /area/dungeon/crashed_ship)
 "Uz" = (

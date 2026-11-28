@@ -392,10 +392,10 @@
 /area/pra_base)
 "pN" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(209);
 	name = "Commissar's Office";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/wood,
 /area/pra_base)
 "pS" = (
@@ -411,10 +411,10 @@
 /area/pra_base)
 "qa" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -492,10 +492,10 @@
 "tT" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Meeting Room";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -563,10 +563,10 @@
 /area/pra_base)
 "wE" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Restroom";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 268.15
 	},
@@ -604,9 +604,9 @@
 "xN" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(209);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -750,10 +750,10 @@
 /area/pra_base)
 "Ec" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Barracks";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 268.15
 	},
@@ -986,10 +986,10 @@
 "Nc" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Checkpoint";
-	req_access = list(209);
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -1134,12 +1134,12 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
-	req_access = list(209);
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -1188,7 +1188,6 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "pra_camp_entry";
 	name = "Entry";
-	req_access = list(209);
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/concrete{
@@ -1198,6 +1197,7 @@
 	pixel_y = 8
 	},
 /obj/item/storage/toolbox/electrical,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},

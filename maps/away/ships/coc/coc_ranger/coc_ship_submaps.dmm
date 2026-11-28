@@ -3,9 +3,7 @@
 /turf/template_noop,
 /area/space)
 "c" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine{
 	name = "ballistic police carbine";
 	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
@@ -13,12 +11,13 @@
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "e" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine{
 	name = "ballistic police carbine";
 	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
@@ -26,21 +25,23 @@
 /obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "f" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/revolver/knife,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/automatic/tommygun,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "h" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /obj/item/gun/projectile/automatic/rifle/dnac,
 /obj/item/gun/projectile/automatic/rifle/dominia{
@@ -49,6 +50,9 @@
 	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "i" = (
@@ -89,9 +93,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "j" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine{
 	name = "ballistic police carbine";
 	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
@@ -99,20 +101,25 @@
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/gun/projectile/automatic/rifle/konyang/k556,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "k" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "m" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/dragunov,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "r" = (
@@ -144,18 +151,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "s" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/gun/projectile/recoilless_rifle,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "t" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol/dominia,
 /obj/item/gun/projectile/automatic/tommygun,
@@ -164,12 +170,13 @@
 	desc = "A submachine gun featuring a novel top loading configuration, though intended to used by the Empire of Dominia's armed forces. This gun appears to have been pressed into the service of it's enemies instead.";
 	desc_extended = "The Moroz Pattern Machine Carbine, Model of 2430 is a lightweight, handy weapon intended for use by vehicle crews, airborne troops, and other units that do not require a full-length rifle. Simplistic in design and function, the MPMC-30 is highly reliable in nearly all environments, lending itself well to use by colonial forces. In particular, the Imperial Fisanduhian Gendarmerie are known to make heavy use of the weapon. This particular gun, however, seems to have been vandalized with maroon-colored stains along it's wooden furniture. And the magazine well has been defaced with a hastily knife-scrawn flag of the Coalition of Colonies."
 	},
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "u" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine{
 	name = "ballistic police carbine";
 	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
@@ -185,16 +192,20 @@
 	desc = "The standard-issue rifle of the Empire of Dominia's Imperial Army that was obviously siezed from the cold, dead hands of it's origional user. Loads from 30 round 5.56 magazines."
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "w" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/automatic/c20r/sol,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "x" = (
@@ -274,19 +285,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "F" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/recoilless_rifle,
 /obj/item/grenade,
 /obj/item/grenade,
 /obj/item/grenade,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "H" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/rifle/carbine{
 	name = "ballistic police carbine";
 	desc_extended = "The ST24-T is often considered the cousin of the little brother of its larger and fully automatic counterpart, the STS-35. Built and manufactured for the swathes of law enforcement in the Human Frontier who simply could not afford any better. When compared with it's baseline model, It offers several distinct, but rather unimporant niceities for long-range patrolling and extended use. This particular rifle's proof marks have simply been replaced with a flag of the Coalition of Colonies, as well as stentch of cordite and cheap beer. "
@@ -295,33 +305,39 @@
 /obj/item/gun/projectile/automatic/rifle/shorty,
 /obj/item/gun/projectile/shotgun/pump,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/coc_ranger_lockers,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "I" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/xanusmg,
 /obj/item/gun/projectile/xanupistol,
 /obj/item/gun/projectile/pistol,
 /obj/item/gun/projectile/pistol,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "J" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/pistol/sol/konyang,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/automatic/c20r,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "Q" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "R" = (
@@ -352,13 +368,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "U" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/gun/projectile/silenced,
 /obj/item/gun/projectile/pistol/adhomai,
 /obj/item/gun/projectile/automatic/tommygun,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "V" = (
@@ -393,10 +410,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 "Z" = (
-/obj/structure/weapons_rack{
-	req_access = list(13,221,222)
-	},
+/obj/structure/weapons_rack,
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia,
+/obj/effect/map_effect/marker/access/req_all/coalition,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
+/obj/effect/map_effect/marker/access/req_all/external_airlocks,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/gunnery)
 

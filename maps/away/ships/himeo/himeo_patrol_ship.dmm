@@ -545,10 +545,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/messhall)
 "cC" = (
@@ -805,10 +805,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/engineering)
 "dz" = (
@@ -1111,9 +1111,9 @@
 	dir = 8
 	},
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/himeo_patrol_shuttle{
-	dir = 1;
-	req_access = list(253)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "eD" = (
@@ -1578,10 +1578,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_starboard)
 "gB" = (
@@ -1825,9 +1825,9 @@
 /obj/item/gun/energy/blaster/himeo/pistol,
 /obj/item/gun/energy/blaster/himeo/pistol,
 /obj/structure/weapons_rack{
-	req_one_access = list(253);
 	name = "Sidearms"
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/armoury)
 "hJ" = (
@@ -1839,10 +1839,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
 "hL" = (
@@ -2402,9 +2402,9 @@
 	dir = 5
 	},
 /obj/structure/machinery/button/distress{
-	pixel_y = 24;
-	req_access = list(253)
+	pixel_y = 24
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "jX" = (
@@ -2591,10 +2591,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/barracks)
 "kQ" = (
@@ -2608,10 +2608,10 @@
 	name = "fore, docking arm"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "kY" = (
@@ -3600,8 +3600,7 @@
 /area/himeo_patrol_ship/washroom)
 "oO" = (
 /obj/structure/closet/secure_closet{
-	name = "engineer apparel and equipment";
-	req_access = list(253)
+	name = "engineer apparel and equipment"
 	},
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/item/clothing/head/bandana/engineering,
@@ -3614,6 +3613,7 @@
 	},
 /obj/item/storage/belt/utility/full,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
 "oP" = (
@@ -3724,9 +3724,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/himeo_patrol_ship/barracks)
 "px" = (
-/obj/structure/machinery/door/window/southleft{
-	req_one_access = list(253)
-	},
+/obj/structure/machinery/door/window/southleft,
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
 "pE" = (
@@ -3895,10 +3894,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
 "qI" = (
@@ -4339,10 +4338,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
 "sE" = (
@@ -4771,10 +4770,10 @@
 /obj/item/gun/energy/blaster/himeo,
 /obj/item/gun/energy/blaster/himeo,
 /obj/structure/weapons_rack{
-	req_one_access = list(253);
 	name = "Longarms"
 	},
 /obj/item/gun/projectile/automatic/rifle/shotgun,
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/armoury)
 "uI" = (
@@ -5465,17 +5464,16 @@
 "xC" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/machinery/door/window/southleft{
-	name = "Mass Driver Interior Windoor";
-	req_access = list(253)
+	name = "Mass Driver Interior Windoor"
 	},
 /obj/structure/machinery/door/window/desk/northleft{
-	req_access = list(253);
 	name = "Mass Driver External Access"
 	},
 /obj/structure/machinery/door/blast/regular{
 	id = "himeo_patrol_driver_in";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/reinforced,
 /area/himeo_patrol_ship)
 "xD" = (
@@ -5486,10 +5484,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/eva)
 "xG" = (
@@ -5855,10 +5853,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/engineering)
 "yN" = (
@@ -6116,8 +6114,7 @@
 /area/himeo_patrol_ship)
 "zN" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(253)
+	dir = 1
 	},
 /obj/structure/railing/mapped{
 	pixel_y = -6
@@ -6126,6 +6123,7 @@
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "zO" = (
@@ -6412,10 +6410,10 @@
 	name = "Fore Checkpoint Blast Door"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Ba" = (
@@ -6829,10 +6827,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "Ct" = (
@@ -7342,10 +7340,10 @@
 /area/himeo_patrol_ship/thruster_aft)
 "EB" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "EC" = (
@@ -7436,8 +7434,7 @@
 /area/himeo_patrol_ship/autocannon)
 "EX" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(253)
+	dir = 1
 	},
 /obj/structure/railing/mapped{
 	pixel_y = -6
@@ -7446,6 +7443,7 @@
 /obj/effect/floor_decal/industrial/outline_corner/firefighting_closet{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "Fa" = (
@@ -7656,10 +7654,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
 "FO" = (
@@ -7709,10 +7707,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
 "FT" = (
@@ -8036,12 +8034,12 @@
 /area/himeo_patrol_ship/deck_2_office)
 "HH" = (
 /obj/structure/weapons_rack{
-	req_one_access = list(253);
 	name = "Sidearms"
 	},
 /obj/item/gun/energy/blaster/himeo/pistol,
 /obj/item/gun/energy/blaster/himeo/pistol,
 /obj/item/gun/energy/blaster/himeo/pistol,
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/armoury)
 "HL" = (
@@ -8117,10 +8115,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
 "Ie" = (
@@ -8184,13 +8182,13 @@
 /area/himeo_patrol_ship/engineering)
 "Ix" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(253)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "IB" = (
@@ -8431,10 +8429,10 @@
 "JD" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_fore)
 "JJ" = (
@@ -8489,10 +8487,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/distribution)
 "JY" = (
@@ -8564,9 +8562,9 @@
 /area/himeo_patrol_ship/messhall)
 "Kl" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(253)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/blaster)
 "Kq" = (
@@ -9172,10 +9170,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/barracks)
 "Nt" = (
@@ -9360,10 +9358,10 @@
 /area/himeo_patrol_ship/deck_2_fore)
 "Oa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_checkpoint)
 "Oe" = (
@@ -9479,10 +9477,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/armoury)
 "Ox" = (
@@ -9522,9 +9520,9 @@
 	pixel_y = -6
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(253)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark/full,
 /area/himeo_patrol_ship/autocannon)
 "OH" = (
@@ -9547,10 +9545,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/armoury)
 "OO" = (
@@ -9561,10 +9559,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/infirmary)
 "OP" = (
@@ -9977,10 +9975,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/hydroponics)
 "Qq" = (
@@ -10008,9 +10006,8 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/blaster)
 "Qt" = (
-/obj/structure/machinery/door/window/southright{
-	req_one_access = list(253)
-	},
+/obj/structure/machinery/door/window/southright,
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/shuttle/himeo_patrol/central)
 "Qu" = (
@@ -10031,8 +10028,7 @@
 	pixel_y = 8;
 	pixel_x = -7;
 	id = "himeo_military_fore_blast";
-	name = "Fore Hallway Blast Doors";
-	req_access = list(253)
+	name = "Fore Hallway Blast Doors"
 	},
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 4
@@ -10042,8 +10038,7 @@
 	pixel_y = 8;
 	pixel_x = 7;
 	id = "himeo_military_bridge_glass";
-	name = "Bridge Window Doors";
-	req_access = list(253)
+	name = "Bridge Window Doors"
 	},
 /obj/item/clothing/head/helmet/pilot/himeo{
 	pixel_y = -7;
@@ -10054,9 +10049,9 @@
 	pixel_y = -3;
 	pixel_x = 7;
 	id = "himeo_military_lockdown";
-	name = "COMPLETE LOCKDOWN";
-	req_access = list(253)
+	name = "COMPLETE LOCKDOWN"
 	},
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/bridge)
 "QC" = (
@@ -10119,10 +10114,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor,
 /area/himeo_patrol_ship/thruster_port)
 "QT" = (
@@ -10210,8 +10205,7 @@
 /obj/item/clothing/accessory/flagpatch/himeo,
 /obj/structure/closet/walllocker/secure{
 	pixel_y = 32;
-	name = "Flagpatches";
-	req_access = list(253)
+	name = "Flagpatches"
 	},
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
@@ -10226,6 +10220,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/armoury)
 "Ri" = (
@@ -10796,10 +10791,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/bridge)
 "Tp" = (
@@ -11022,10 +11017,10 @@
 /area/himeo_patrol_ship/engineering)
 "TX" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/space)
 "TZ" = (
@@ -11127,10 +11122,10 @@
 /area/himeo_patrol_ship/aft)
 "Ut" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_storage)
 "Ux" = (
@@ -11487,13 +11482,13 @@
 	dir = 9
 	},
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(253)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red{
 	pixel_x = -1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/enviro_testing_facility_access_sec,
 /turf/simulated/floor/tiled/ridged,
 /area/shuttle/himeo_patrol/central)
 "VA" = (
@@ -11518,10 +11513,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/hydroponics)
 "VG" = (
@@ -11554,10 +11549,10 @@
 /area/himeo_patrol_ship/barracks)
 "VR" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "VS" = (
@@ -11842,10 +11837,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "Xn" = (
@@ -12200,10 +12195,10 @@
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#6C7364";
 	frame_color = "#6C7364";
-	req_one_access = list(253);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/enviro_testing_facility_access_sec,
 /turf/simulated/floor/plating,
 /area/himeo_patrol_ship)
 "YY" = (

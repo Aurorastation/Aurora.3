@@ -84,7 +84,7 @@
 /obj/structure/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Einstein Shuttle"
-	req_access = list(/datum/access/ee_spy_ship::id)
+	req_access = list(/datum/access/away/ee_spy_ship::id)
 
 /datum/shuttle/autodock/overmap/einstein_shuttle
 	name = "Einstein Shuttle"
@@ -141,7 +141,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
 /obj/outfit/admin/einstein_crew/get_id_access()
-	return list(/datum/access/ee_spy_ship::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/ee_spy_ship::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/outfit/admin/einstein_crew/post_equip(mob/living/carbon/human/H, visualsOnly)
 	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]

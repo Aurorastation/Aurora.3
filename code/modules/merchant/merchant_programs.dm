@@ -249,13 +249,13 @@
 				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
-	required_access_run = list(/datum/access/nka::id)
-	required_access_download = list(/datum/access/nka::id)
+	required_access_run = list(/datum/access/away/nka::id)
+	required_access_download = list(/datum/access/away/nka::id)
 
 /datum/computer_file/program/merchant/guild
-	required_access_run = list(/datum/access/merchants_guild::id)
-	required_access_download = list(/datum/access/merchants_guild::id)
+	required_access_run = list(/datum/access/away/merchants_guild::id)
+	required_access_download = list(/datum/access/away/merchants_guild::id)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(/datum/access/golden_deep::id, /datum/access/golden_deep_owned::id)
-	required_access_download = list(/datum/access/golden_deep::id, /datum/access/golden_deep_owned::id)
+	required_access_run = list(/datum/access/away/golden_deep::id, /datum/access/away/golden_deep_owned::id)
+	required_access_download = list(/datum/access/away/golden_deep::id, /datum/access/away/golden_deep_owned::id)

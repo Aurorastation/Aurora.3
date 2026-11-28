@@ -156,7 +156,6 @@
 /area/shuttle/saniorios_outpost)
 "cI" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
 	name = "Crew Section";
 	dir = 1
 	},
@@ -167,6 +166,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -212,10 +212,10 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_shuttle_torpedo";
 	name = "Missile Hangar Blastdoor";
-	req_access = list(214);
 	dir = 1;
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
 "dZ" = (
@@ -431,7 +431,6 @@
 "gg" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Gun Deck";
-	req_access = list(214);
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -445,6 +444,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -495,11 +495,11 @@
 /area/saniorios_outpost/atmos)
 "hz" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(209);
 	name = "Operating Room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -517,7 +517,6 @@
 /area/saniorios_outpost/barracks)
 "hR" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
 	name = "Barracks";
 	dir = 1
 	},
@@ -528,6 +527,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -666,7 +666,6 @@
 /area/saniorios_outpost)
 "jf" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(214);
 	name = "EVA Storage";
 	dir = 4
 	},
@@ -676,6 +675,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "jj" = (
@@ -766,10 +766,10 @@
 /area/saniorios_outpost/medbay)
 "jU" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
 	name = "Restroom";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -865,7 +865,6 @@
 "lL" = (
 /obj/structure/machinery/door/airlock/security{
 	name = "Hangar";
-	req_access = list(214);
 	dir = 8
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -879,6 +878,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1052,7 +1052,6 @@
 /area/space)
 "oJ" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
 	name = "Engine";
 	dir = 1
 	},
@@ -1063,6 +1062,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "oU" = (
@@ -1208,7 +1208,6 @@
 /area/shuttle/saniorios_outpost)
 "qk" = (
 /obj/structure/machinery/door/airlock{
-	req_access = list(214);
 	name = "Restroom";
 	dir = 1;
 	id_tag = "saniorios_stall"
@@ -1216,6 +1215,7 @@
 /obj/structure/machinery/door/firedoor{
 	req_one_access = list(24,11,67,214)
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -1599,7 +1599,6 @@
 "vW" = (
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(214);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1607,6 +1606,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1631,7 +1631,6 @@
 /area/space)
 "wp" = (
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(209);
 	name = "Medbay";
 	dir = 1
 	},
@@ -1640,6 +1639,7 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/pra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1881,10 +1881,10 @@
 /obj/structure/machinery/button/remote/blast_door{
 	id = "saniorios_gun";
 	name = "Guns Blastdoor";
-	req_access = list(214);
 	dir = 1;
 	pixel_y = 32
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2088,14 +2088,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
 "DC" = (
-/obj/structure/machinery/vending/tool{
-	req_access = list(214)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/machinery/firealarm/east,
 /obj/structure/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "DM" = (
@@ -2156,10 +2155,10 @@
 "Ex" = (
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Telecomms";
-	req_access = list(214);
 	dir = 1
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Ez" = (
@@ -2316,7 +2315,6 @@
 "FX" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Power Room";
-	req_access = list(214);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2330,6 +2328,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
 "Gd" = (
@@ -3266,7 +3265,6 @@
 "WT" = (
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Atmos";
-	req_access = list(214);
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3280,6 +3278,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/dpra,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "WU" = (

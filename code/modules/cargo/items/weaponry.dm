@@ -9,7 +9,7 @@
 	items = list(
 		/obj/item/gun/energy/taser
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -23,7 +23,7 @@
 	items = list(
 		/obj/item/gun/projectile/heavysniper/tranq
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -37,7 +37,7 @@
 	items = list(
 		/obj/item/gun/projectile/sec
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -51,7 +51,7 @@
 	items = list(
 		/obj/item/gun/projectile/revolver/security
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -65,7 +65,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/wt550
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -79,7 +79,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/carbine
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -93,7 +93,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/z8
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -107,7 +107,7 @@
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/combat
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -121,7 +121,7 @@
 	items = list(
 		/obj/item/gun/launcher/grenade
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -135,7 +135,7 @@
 	items = list(
 		/obj/item/gun/energy/gun
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -149,7 +149,7 @@
 	items = list(
 		/obj/item/gun/energy/pistol
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -163,10 +163,11 @@
 	items = list(
 		/obj/item/gun/energy/rifle/ionrifle
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
 /singleton/cargo_item/marksmanenergyrifle
 	category = "weaponry"
 	name = "marksman energy rifle"
@@ -176,7 +177,7 @@
 	items = list(
 		/obj/item/gun/energy/rifle/laser/sniper
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -190,7 +191,7 @@
 	items = list(
 		/obj/item/gun/energy/rifle/laser
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -204,7 +205,7 @@
 	items = list(
 		/obj/item/gun/projectile/peac
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -218,7 +219,7 @@
 	items = list(
 		/obj/item/gun/projectile/recoilless_rifle
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -232,7 +233,7 @@
 	items = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -246,7 +247,7 @@
 	items = list(
 		/obj/item/gun/projectile/automatic/rifle/adhomian
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -260,7 +261,7 @@
 	items = list(
 		/obj/item/gun/projectile/revolver/derringer
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -274,7 +275,7 @@
 	items = list(
 		/obj/item/gun/projectile/silenced
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -290,7 +291,7 @@
 	items = list(
 		/obj/item/storage/box/shells/beanbags
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -304,7 +305,7 @@
 	items = list(
 		/obj/item/storage/box/shells/haywireshells
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -318,7 +319,7 @@
 	items = list(
 		/obj/item/storage/box/shells/incendiaryshells
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -332,7 +333,7 @@
 	items = list(
 		/obj/item/storage/box/shells/buckshot
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -346,7 +347,7 @@
 	items = list(
 		/obj/item/storage/box/shells/slugs
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -360,7 +361,7 @@
 	items = list(
 		/obj/item/storage/box/shells/flashshells
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -374,10 +375,24 @@
 	items = list(
 		/obj/item/ammo_casing/peac
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/anti_materiel_practice_cannon_cartridge
+	category = "weaponry"
+	name = "anti-materiel practice cannon cartridges"
+	supplier = "zavodskoi"
+	description = "Three single-use, low-velocity practice cartridges for a point-entry anti-materiel cannon."
+	price = 75
+	items = list(
+		/obj/item/ammo_casing/peac/practice
+	)
+	access = list(/datum/access/horizon/security::id)
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 3
 
 /singleton/cargo_item/carbinemagazine_556
 	category = "weaponry"
@@ -388,7 +403,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -402,7 +417,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556/carbine/ap
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -416,7 +431,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -430,7 +445,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a556/ap
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -444,7 +459,7 @@
 	items = list(
 		/obj/item/ammo_magazine/d762
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -458,7 +473,7 @@
 	items = list(
 		/obj/item/ammo_magazine/boltaction/adhomai
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -472,7 +487,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a68
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -486,7 +501,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a68/ap
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -500,7 +515,7 @@
 	items = list(
 		/obj/item/ammo_magazine/a68/hotaki
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -514,7 +529,7 @@
 	items = list(
 		/obj/item/ammo_magazine/mc9mm
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -528,7 +543,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45m
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -542,7 +557,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45m/flash
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -556,7 +571,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45/revolver
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -570,7 +585,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45/revolver/rubber
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -584,7 +599,7 @@
 	items = list(
 		/obj/item/ammo_magazine/c45/revolver/flash
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -598,7 +613,7 @@
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -612,13 +627,13 @@
 	items = list(
 		/obj/item/ammo_magazine/mc9mmt/rubber
 	)
-	access = /datum/access/security::id
+	access = list(/datum/access/horizon/security::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
 /singleton/cargo_item/tranquilizerdarts_50cal_pps
-	category = "security"
+	category = "weaponry"
 	name = "tranquilizer darts (.50 cal PPS)"
 	supplier = "nanotrasen"
 	description = "A box of 50-caliber tranquilizer darts."
@@ -626,7 +641,7 @@
 	items = list(
 		/obj/item/storage/box/shells/tranquilizer
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -640,7 +655,7 @@
 	items = list(
 		/obj/item/storage/box/ammo/duslugs
 	)
-	access = /datum/access/armory::id
+	access = list(/datum/access/horizon/armory::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -654,7 +669,7 @@
 	items = list(
 		/obj/item/ship_ammunition/francisca/ap
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -668,12 +683,12 @@
 	items = list(
 		/obj/item/ship_ammunition/francisca
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/franciscafmjammo
+/singleton/cargo_item/franciscafragammo
 	category = "weaponry"
 	name = "francisca rotary cannon fragmentation ammunition box"
 	supplier = "zavodskoi"
@@ -682,7 +697,7 @@
 	items = list(
 		/obj/item/ship_ammunition/francisca/frag
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -696,7 +711,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle/ap
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -710,7 +725,7 @@
 	items = list(
 		/obj/item/ship_ammunition/grauwolf_bundle
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -724,7 +739,7 @@
 	items = list(
 		/obj/item/ship_ammunition/longbow
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -738,7 +753,7 @@
 	items = list(
 		/obj/item/warhead/longbow/ap
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -752,7 +767,7 @@
 	items = list(
 		/obj/item/warhead/longbow/bunker
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -766,7 +781,7 @@
 	items = list(
 		/obj/item/warhead/longbow
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -780,7 +795,7 @@
 	items = list(
 		/obj/item/primer/high
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -794,7 +809,7 @@
 	items = list(
 		/obj/item/primer
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
@@ -808,7 +823,7 @@
 	items = list(
 		/obj/item/primer/low
 	)
-	access = /datum/access/cargo::id
+	access = list(/datum/access/horizon/cargo::id)
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

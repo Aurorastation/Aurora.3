@@ -173,8 +173,7 @@
 "bz" = (
 /obj/structure/machinery/door/airlock/atmos{
 	dir = 8;
-	name = "Atmospherics";
-	req_access = list(220)
+	name = "Atmospherics"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -188,6 +187,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "bA" = (
@@ -483,9 +483,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_security{
 	dir = 4;
-	name = "EVA Storage";
-	req_access = list(220)
+	name = "EVA Storage"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
 "eq" = (
@@ -616,14 +616,13 @@
 /area/idris_wreck/atmos)
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "fL" = (
@@ -743,10 +742,10 @@
 /area/idris_wreck/central)
 "gS" = (
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "gT" = (
@@ -754,10 +753,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/vault)
 "gW" = (
@@ -1038,9 +1037,9 @@
 /area/idris_wreck/vault)
 "jx" = (
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
 	name = "Security Unit Storage"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "jy" = (
@@ -1349,15 +1348,14 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "nR" = (
@@ -1378,10 +1376,10 @@
 	name = "Door Bolt Control";
 	pixel_x = 7;
 	pixel_y = -25;
-	specialfunctions = 4;
-	req_access = list(220)
+	specialfunctions = 4
 	},
 /obj/structure/machinery/light,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "og" = (
@@ -1493,9 +1491,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/service{
-	name = "Cryogenics";
-	req_access = list(220)
+	name = "Cryogenics"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "pj" = (
@@ -1565,9 +1563,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
 	name = "Port Nacelle"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/portthrust)
 "pM" = (
@@ -1912,9 +1910,9 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	name = "Cafeteria";
-	req_access = list(220)
+	name = "Cafeteria"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/kitchen)
 "tJ" = (
@@ -1949,15 +1947,14 @@
 /area/idris_wreck/portthrust)
 "ue" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ug" = (
@@ -2414,9 +2411,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command{
-	name = "Bridge";
-	req_access = list(220)
+	name = "Bridge"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/forehall)
 "yO" = (
@@ -2499,9 +2496,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Reactor Array";
-	req_access = list(220)
+	name = "Reactor Array"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "zG" = (
@@ -2587,9 +2584,9 @@
 	},
 /obj/structure/machinery/door/airlock/command{
 	name = "Captain's Office";
-	req_access = list(220);
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/captain)
 "Ap" = (
@@ -2617,18 +2614,18 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
 	name = "Armory"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AL" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/security{
-	req_access = list(220);
 	name = "Security Unit Storage"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AM" = (
@@ -2861,10 +2858,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "CS" = (
@@ -3221,9 +3218,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
 	name = "Engineering"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "Ga" = (
@@ -3286,9 +3283,9 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Thrusters";
-	req_access = list(220)
+	name = "Thrusters"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/afthall)
 "GV" = (
@@ -3366,13 +3363,13 @@
 	name = "Door Bolt Control";
 	pixel_x = 7;
 	pixel_y = 25;
-	specialfunctions = 4;
-	req_access = list(220)
+	specialfunctions = 4
 	},
 /obj/effect/floor_decal/corner{
 	color = "#4B7A73";
 	dir = 5
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "HI" = (
@@ -3979,13 +3976,12 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/vault_weapon,
 /obj/random/vault_weapon,
 /obj/random/finances,
 /obj/random/finances,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ML" = (
@@ -4118,9 +4114,9 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	name = "Cryogenics";
-	req_access = list(220)
+	name = "Cryogenics"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
 "Pb" = (
@@ -4182,10 +4178,10 @@
 /area/idris_wreck/atmos)
 "PF" = (
 /obj/structure/machinery/door/airlock/vault/bolted{
-	req_access = list(103);
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
+/obj/effect/map_effect/marker/access/req_all/cent_specops,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/vault)
 "PT" = (
@@ -4203,9 +4199,9 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(220);
 	name = "Starboard Nacelle"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/mainthall)
 "PU" = (
@@ -4482,9 +4478,7 @@
 /area/idris_wreck/starbthrust)
 "Sf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/secure{
-	req_access = list(220)
-	},
+/obj/structure/closet/crate/secure,
 /obj/random/vault_rig,
 /obj/random/vault_rig,
 /obj/random/vault_rig,
@@ -4497,6 +4491,7 @@
 /obj/random/rig_module,
 /obj/random/rig_module,
 /obj/random/rig_module,
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Si" = (
@@ -4571,9 +4566,9 @@
 /area/idris_wreck/engi)
 "SP" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_access = list(220)
+	name = "Captain's Quarters"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/captain)
 "SQ" = (
@@ -4723,9 +4718,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass_command{
-	name = "Central Ring";
-	req_access = list(220)
+	name = "Central Ring"
 	},
+/obj/effect/map_effect/marker/access/req_all/idris,
 /turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "UH" = (

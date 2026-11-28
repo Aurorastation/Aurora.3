@@ -190,10 +190,10 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Armory & Ammo Storage";
-	req_access = list(210);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/armory)
 "bw" = (
@@ -319,10 +319,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(210);
 	name = "Cargo Hold";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "cs" = (
@@ -390,10 +390,10 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Reactor";
-	req_access = list(210);
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/reinforced,
 /area/tarwa_ship/engineering1)
 "cL" = (
@@ -677,11 +677,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(210);
 	name = "EVA Storage";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "fP" = (
@@ -1147,9 +1147,9 @@
 /area/tarwa_ship/oldhangar)
 "jS" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "kj" = (
@@ -1180,11 +1180,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(210);
 	name = "Captain's Quarters";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/captain)
 "kx" = (
@@ -1244,10 +1244,10 @@
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "kU" = (
@@ -1394,10 +1394,10 @@
 /area/tarwa_ship/bridge)
 "my" = (
 /obj/structure/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle{
-	dir = 8;
-	req_access = list(210)
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "mC" = (
@@ -1489,10 +1489,10 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(210);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "nK" = (
@@ -1678,10 +1678,10 @@
 	},
 /obj/structure/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(210);
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "pV" = (
@@ -2795,11 +2795,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/diona{
-	req_access = list(210);
 	name = "Diona Quarters";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/diona)
 "Bi" = (
@@ -2915,11 +2915,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_service{
-	req_access = list(210);
 	name = "Crew Quarters";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "BY" = (
@@ -3333,7 +3333,6 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/highsecurity{
 	name = "Auxiliary CIC";
-	req_access = list(210);
 	dir = 1
 	},
 /obj/structure/machinery/door/blast/regular/open{
@@ -3341,6 +3340,7 @@
 	id = "tarwa_cic"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/cic)
 "Fo" = (
@@ -3351,10 +3351,10 @@
 /area/tarwa_ship/oldhangar)
 "Fq" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 8;
-	req_access = list(210)
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Ft" = (
@@ -3610,7 +3610,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(210);
 	name = "Bridge";
 	dir = 1
 	},
@@ -3619,15 +3618,16 @@
 	id = "tarwa_lockdown"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "HR" = (
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(210);
 	name = "Hangar";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/hangar)
 "HV" = (
@@ -4122,11 +4122,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
-	req_access = list(210);
 	name = "Hangar";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/hangar)
 "Mn" = (
@@ -4142,12 +4142,12 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/diona{
-	req_access = list(210);
 	name = "Gun Deck";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/gun)
 "Mp" = (
@@ -4227,11 +4227,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(210);
 	name = "Infirmary";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "MP" = (
@@ -4306,11 +4306,11 @@
 	pixel_y = 4;
 	dir = 10;
 	name = "Cannon Blastdoors";
-	id = "tarwa_bruiser";
-	req_one_access = list(210)
+	id = "tarwa_bruiser"
 	},
 /obj/item/clothing/ears/earmuffs,
 /obj/item/binoculars/spyglass,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Nw" = (
@@ -4376,9 +4376,9 @@
 /area/tarwa_ship/engineering1)
 "NT" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(210)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "NU" = (
@@ -4665,10 +4665,10 @@
 /area/tarwa_ship/engineering1)
 "QH" = (
 /obj/structure/machinery/door/airlock/hatch{
-	name = "Telecommunications";
-	req_one_access = list(210)
+	name = "Telecommunications"
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "QN" = (
@@ -4814,9 +4814,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
 "Ry" = (
-/obj/structure/closet/secure_closet/cabinet{
-	req_one_access = list(210)
-	},
+/obj/structure/closet/secure_closet/cabinet,
 /obj/item/reagent_containers/inhaler/space_drugs,
 /obj/item/reagent_containers/inhaler/space_drugs,
 /obj/item/reagent_containers/inhaler/space_drugs,
@@ -4825,6 +4823,7 @@
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
+/obj/effect/map_effect/marker/access/req_one/unathi_pirate,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "Rz" = (
@@ -4833,9 +4832,9 @@
 "RA" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(210)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "RC" = (
@@ -5281,11 +5280,11 @@
 	icon_state = "4-8"
 	},
 /obj/structure/machinery/door/airlock/glass_service{
-	req_access = list(210);
 	name = "Canteen";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/map_effect/marker/access/req_all/unathi_pirate,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
 "Xf" = (

@@ -3182,9 +3182,9 @@
 "ud" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005;
-	req_access = list(208)
+	accellimit = 0.005
 	},
+/obj/effect/map_effect/marker/access/req_all/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "uj" = (
@@ -5242,9 +5242,9 @@
 	specialfunctions = 4;
 	pixel_y = -18;
 	id = "tirakqi_captains_bolts";
-	name = "Captain's Quarters Door Bolts";
-	req_access = list(208)
+	name = "Captain's Quarters Door Bolts"
 	},
+/obj/effect/map_effect/marker/access/req_all/skrell,
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/capt)
 "FD" = (
@@ -7188,12 +7188,12 @@
 	dir = 4;
 	id = "tirakqi_reactor_blast";
 	pixel_y = 6;
-	name = "Reactor Blast Door";
-	req_access = list(208)
+	name = "Reactor Blast Door"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/skrell,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/engi)
 "RO" = (
@@ -7865,9 +7865,9 @@
 "Wr" = (
 /obj/structure/machinery/computer/ship/helm{
 	dir = 1;
-	accellimit = 0.005;
-	req_access = list(208)
+	accellimit = 0.005
 	},
+/obj/effect/map_effect/marker/access/req_all/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/bridge)
 "Wu" = (

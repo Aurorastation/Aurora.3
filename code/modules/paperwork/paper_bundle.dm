@@ -19,9 +19,16 @@
 
 	/// How many sheet
 	var/amount = 0
+	/// Stable ID of the filing cabinet whose long-term storage contains this bundle.
+	var/tmp/persistent_filing_cabinet_id
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/paper_bundle/Initialize(mapload)
+	var/obj/item/paper/paper_type = /obj/item/paper
+	persistent_objects_expiration_time_days = initial(paper_type.persistent_objects_expiration_time_days)
+	return ..()
 
 /obj/item/paper_bundle/Destroy()
 	pages.Cut()
@@ -41,9 +48,6 @@
 
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (istype(attacking_item, /obj/item/paper/stickynotes/pad))
-		return
-
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
 		if (!C.iscopy && !C.copied)
@@ -87,6 +91,10 @@
 	if(!is_type_in_list(sheet, list(/obj/item/paper, /obj/item/photo)))
 		return
 	to_chat(user, SPAN_NOTICE("You stick \the [sheet] to \the [src]."))
+	if(istype(sheet, /obj/item/paper))
+		var/obj/item/paper/paper = sheet
+		paper.persistent_filing_cabinet_id = null
+		SSpersistence.objectsDeregisterTrack(paper)
 
 	user.drop_from_inventory(sheet,src)
 
@@ -304,3 +312,65 @@
 	if(photo)
 		desc += "\nThere is a photo attached to it."
 	AddOverlays("clip")
+
+/// Whether this bundle contains anything which cannot safely be serialized as paperwork.
+/obj/item/paper_bundle/proc/has_unsupported_persistent_content()
+	for(var/obj/item/item as anything in pages)
+		if(!istype(item, /obj/item/paper))
+			return TRUE
+	return FALSE
+
+/// Whether this bundle contains at least one nonblank paper and can enter long-term storage.
+/obj/item/paper_bundle/can_persist_in_filing_cabinet()
+	if(has_unsupported_persistent_content())
+		return FALSE
+	for(var/obj/item/paper/paper as anything in pages)
+		if(!paper.is_blank())
+			return TRUE
+	return FALSE
+
+/// Serializes the bundle and its ordered nonblank pages.
+/obj/item/paper_bundle/proc/get_persistent_document_content()
+	var/list/content = list(
+		"name" = name,
+		"color" = color,
+		"filing_cabinet_id" = persistent_filing_cabinet_id,
+		"page" = page
+	)
+	var/list/saved_pages = list()
+	for(var/obj/item/paper/paper as anything in pages)
+		var/list/paper_data = paper.get_persistent_document_data()
+		if(paper_data)
+			saved_pages += list(paper_data)
+	content["pages"] = saved_pages
+	return content
+
+/// Applies bundle data without assigning a world location, allowing bundles to be nested in folders.
+/obj/item/paper_bundle/proc/apply_persistent_document_content(list/content)
+	if(!islist(content))
+		return
+	for(var/obj/item/item in src)
+		qdel(item)
+	pages.Cut()
+
+	if(istext(content["name"]))
+		name = content["name"]
+	color = content["color"]
+	persistent_filing_cabinet_id = content["filing_cabinet_id"]
+	for(var/list/paper_data as anything in content["pages"])
+		var/obj/item/paper/paper = restore_persistent_document_paper(paper_data, src)
+		if(paper)
+			pages += paper
+	amount = length(pages)
+	page = amount ? clamp(content["page"], 1, amount) : 1
+	if(amount)
+		update_icon()
+
+/obj/item/paper_bundle/persistent_objects_get_content()
+	return get_persistent_document_content()
+
+/obj/item/paper_bundle/persistent_objects_apply_content(content, x, y, z)
+	apply_persistent_document_content(content)
+	src.x = x
+	src.y = y
+	src.z = z

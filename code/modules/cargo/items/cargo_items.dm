@@ -21,8 +21,9 @@
 	/// The list of objects this item has. Duplicate items are handled by the "spawn_amount" variable.
 	var/list/items = list()
 
-	/// The req_access level required to order/open the crate.
-	var/access = 0
+	/// A list of access IDs, any ONE of which is enough to open the crate this item ships in. Leave empty for unrestricted items.
+	/// A single-entry list is treated as a hard requirement, e.g. `list(/datum/access/security::id)`.
+	var/list/access = list()
 
 	/// What kind of container this object spawns in. Valid options: "crate", "freezer", "box" (wooden box, or shipping container if restricted), and "bodybag".
 	var/container_type = "crate"

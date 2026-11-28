@@ -89,12 +89,12 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Portside Hall";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
 "aN" = (
@@ -110,12 +110,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/command/gold{
-	name = "Officer's Quarters";
-	req_access = list(246)
+	name = "Officer's Quarters"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/office)
 "aR" = (
@@ -130,12 +130,12 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
-	req_access = list(246);
 	name = "Sensitive Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "bc" = (
@@ -156,12 +156,12 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Hall";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
 "bd" = (
@@ -249,12 +249,12 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Infirmary";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/medical)
 "bD" = (
@@ -1076,13 +1076,13 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #1";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_1)
 "fX" = (
@@ -1558,13 +1558,13 @@
 "jk" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
-	dir = 4;
-	req_access = list(246)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/lounge)
 "js" = (
@@ -1981,10 +1981,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/airlock/service{
-	req_access = list(246);
 	name = "Utilities Closet"
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/closet)
 "lz" = (
@@ -2149,7 +2149,6 @@
 	},
 /obj/structure/machinery/door/airlock/service{
 	dir = 4;
-	req_one_access = list(246);
 	name = "Crew Bunks"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2161,6 +2160,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_one/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/quarters)
 "mP" = (
@@ -2666,13 +2666,13 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 8;
-	name = "Combustion Engine";
-	req_access = list(246)
+	name = "Combustion Engine"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/starboard_hall)
 "pN" = (
@@ -2787,13 +2787,13 @@
 	},
 /obj/structure/machinery/door/airlock/glass_engineering{
 	dir = 8;
-	name = "Propellant Management";
-	req_access = list(246)
+	name = "Propellant Management"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/portside_hall)
 "qB" = (
@@ -3328,10 +3328,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Bridge";
-	req_access = list(246)
+	name = "Bridge"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/bridge)
 "sD" = (
@@ -3794,8 +3794,7 @@
 "vO" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
-	dir = 4;
-	req_access = list(246)
+	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -3804,6 +3803,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "vZ" = (
@@ -4028,13 +4028,13 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Starboard Module";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/starboard_slot)
 "xy" = (
@@ -4245,11 +4245,10 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
-	},
+/obj/structure/machinery/door/airlock/glass,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/central)
 "yO" = (
@@ -5076,13 +5075,13 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #2";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/cargo_2)
 "Dz" = (
@@ -5454,13 +5453,13 @@
 "Fq" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/structure/machinery/door/airlock/glass{
-	dir = 4;
-	req_access = list(246)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "Fu" = (
@@ -6078,13 +6077,13 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Portside Module";
-	req_access = list(246);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/portside_slot)
 "Ji" = (
@@ -6925,12 +6924,12 @@
 	},
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
-	req_access = list(246);
 	name = "Sensitive Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/ready)
 "Ok" = (
@@ -7094,9 +7093,9 @@
 "Pd" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Docking Array";
-	req_access = list(246);
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/full,
 /area/splf_raider/docking)
 "Pf" = (
@@ -7604,13 +7603,12 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
-	},
+/obj/structure/machinery/door/airlock/glass,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "RU" = (
@@ -7672,12 +7670,11 @@
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
 	},
-/obj/structure/machinery/door/airlock/glass{
-	req_access = list(246)
-	},
+/obj/structure/machinery/door/airlock/glass,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/access/req_all/splf_access,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/docking)
 "Sp" = (

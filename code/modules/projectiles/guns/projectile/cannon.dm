@@ -150,6 +150,7 @@
 	else
 		icon_state = "peac-empty"
 		item_state = "peac-empty"
+	update_held_icon()
 
 /obj/item/gun/projectile/peac/special_check(mob/user)
 	if(!wielded)

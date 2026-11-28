@@ -10,7 +10,7 @@
 	var/cooldown_time = 0
 	var/cooldown_timeleft = 0
 	var/cooldown_on = 0
-	req_access = list(/datum/access/ai_upload::id)
+	req_access = list(/datum/access/horizon/ai_upload::id)
 
 
 /obj/structure/machinery/ai_slipper/Initialize()

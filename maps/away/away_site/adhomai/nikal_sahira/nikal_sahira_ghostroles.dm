@@ -248,7 +248,7 @@
 	)
 
 /obj/outfit/admin/crevus/generic_vendor/firearm_salesperson/get_id_access()
-	return list(/datum/access/crevus_firearm_store)
+	return list(/datum/access/away/crevus_firearm_store)
 
 // ---------- Artisan Shop Vendor
 

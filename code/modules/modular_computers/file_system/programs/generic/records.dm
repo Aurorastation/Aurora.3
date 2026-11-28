@@ -47,8 +47,8 @@
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
-	required_access_run = list(/datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id, /datum/access/hop::id)
-	required_access_download = list(/datum/access/heads::id, /datum/access/medical_equip::id, /datum/access/forensics_lockers::id, /datum/access/robotics::id)
+	required_access_run = list(/datum/access/horizon/medical_equip::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/robotics::id, /datum/access/horizon/hop::id)
+	required_access_download = list(/datum/access/horizon/heads::id, /datum/access/horizon/medical_equip::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/robotics::id)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
@@ -64,8 +64,8 @@
 	extended_desc = "Used to view, edit and maintain security records"
 	record_prefix = "Security "
 
-	required_access_run = list(/datum/access/security::id, /datum/access/forensics_lockers::id, /datum/access/lawyer::id, /datum/access/hop::id)
-	required_access_download = list(/datum/access/heads::id, /datum/access/security::id)
+	required_access_run = list(/datum/access/horizon/security::id, /datum/access/horizon/forensics_lockers::id, /datum/access/horizon/lawyer::id, /datum/access/horizon/hop::id)
+	required_access_download = list(/datum/access/horizon/heads::id, /datum/access/horizon/security::id)
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
@@ -81,9 +81,9 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(/datum/access/heads::id, /datum/access/lawyer::id, /datum/access/consular::id)
+	required_access_run = list(/datum/access/horizon/heads::id, /datum/access/horizon/lawyer::id, /datum/access/horizon/consular::id)
 	requires_access_to_download = PROGRAM_ACCESS_ONE
-	required_access_download = /datum/access/heads::id
+	required_access_download = /datum/access/horizon/heads::id
 	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY

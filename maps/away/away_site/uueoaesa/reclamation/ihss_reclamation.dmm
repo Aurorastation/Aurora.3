@@ -128,10 +128,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass_research{
-	name = "Biological Research";
-	req_access = list(113)
+	name = "Biological Research"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -225,10 +225,9 @@
 /turf/template_noop,
 /area/space)
 "aS" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/fuel)
 "aT" = (
@@ -276,10 +275,10 @@
 /area/ihss_reclamation/plantroom)
 "bj" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/southhall)
 "bl" = (
@@ -370,10 +369,10 @@
 /area/ihss_reclamation/dock)
 "bK" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "bL" = (
@@ -389,9 +388,8 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "bQ" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
 "bR" = (
@@ -560,10 +558,10 @@
 /area/ihss_reclamation/fuel)
 "cF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/crew/five)
 "cG" = (
@@ -863,10 +861,10 @@
 	name = "Containment Airlock Bolts";
 	pixel_x = -6;
 	pixel_y = 24;
-	req_one_access = list(113);
 	specialfunctions = 4;
 	desiredstate = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
 /area/ihss_reclamation/envirosim)
 "ei" = (
@@ -1003,13 +1001,13 @@
 	},
 /obj/structure/machinery/door/airlock/atmos{
 	name = "Fuel Bay";
-	dir = 4;
-	req_access = list(113)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/fuel)
 "fd" = (
@@ -1100,10 +1098,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "fD" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/blue,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
 "fJ" = (
@@ -1249,13 +1246,13 @@
 	dir = 1
 	},
 /obj/structure/machinery/door/window{
-	name = "Hazardous Specimen";
-	req_access = list(113)
+	name = "Hazardous Specimen"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -1546,10 +1543,10 @@
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(113)
+	name = "Bridge"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "hZ" = (
@@ -1753,9 +1750,8 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/structure/machinery/computer/shuttle_control/explore/ihss_reclamation{
-	req_one_access = list(113)
-	},
+/obj/structure/machinery/computer/shuttle_control/explore/ihss_reclamation,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
 "iW" = (
@@ -1763,10 +1759,10 @@
 /area/ihss_reclamation/crew)
 "ja" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/easthall)
 "jd" = (
@@ -1907,10 +1903,10 @@
 	},
 /obj/structure/machinery/door/airlock/glass_research{
 	name = "Research and Development";
-	req_access = list(113);
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
 "jT" = (
@@ -2047,10 +2043,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ihss_reclamation/simulation)
 "ku" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/purple,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/fuel)
 "kF" = (
@@ -2415,9 +2410,7 @@
 /area/ihss_reclamation/bridge)
 "mp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/closet/secure_closet/freezer/meat{
-	req_one_access = list(113)
-	},
+/obj/structure/closet/secure_closet/freezer/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -2434,6 +2427,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2464,9 +2458,9 @@
 /area/ihss_reclamation/dock)
 "mt" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2574,13 +2568,13 @@
 /obj/structure/window/reinforced,
 /obj/structure/machinery/door/window{
 	dir = 4;
-	name = "Suit Storage";
-	req_one_access = list(113)
+	name = "Suit Storage"
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
 "ng" = (
@@ -2606,13 +2600,13 @@
 /area/ihss_reclamation/northhall)
 "nk" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, solars"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
 "nl" = (
@@ -2988,7 +2982,6 @@
 	},
 /obj/structure/machinery/door/airlock/research{
 	name = "Hazardous Specimens";
-	req_access = list(113);
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight{
@@ -2997,16 +2990,17 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
 /area/ihss_reclamation/botanyhazard)
 "oV" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/crew/three)
 "oY" = (
@@ -3302,14 +3296,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/equipment)
 "qc" = (
-/obj/structure/machinery/vending/tool{
-	req_one_access = list(113)
-	},
+/obj/structure/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "qg" = (
@@ -3448,10 +3441,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Solars";
-	req_access = list(113)
+	name = "Solars"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "qZ" = (
@@ -3726,12 +3719,12 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass_research{
-	name = "Botanical Lab";
-	req_access = list(113)
+	name = "Botanical Lab"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -3867,8 +3860,7 @@
 "sX" = (
 /obj/structure/machinery/door/airlock/glass_mining{
 	dir = 4;
-	name = "Survey Equipment Storage";
-	req_access = list(113)
+	name = "Survey Equipment Storage"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3883,6 +3875,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/storage)
 "sY" = (
@@ -3936,8 +3929,7 @@
 	},
 /obj/structure/closet/secure_closet{
 	icon_state = "science";
-	name = "scientist's locker";
-	req_access = list(113)
+	name = "scientist's locker"
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/item/clothing/suit/storage/toggle/labcoat,
@@ -3950,6 +3942,7 @@
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/taperecorder,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -4019,9 +4012,9 @@
 	pixel_x = 24;
 	id_tag = "reclamation_hangar";
 	name = "Hangar Docking Controller";
-	req_access = list(113);
 	frequency = 1380
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
 "tD" = (
@@ -4057,10 +4050,10 @@
 "tR" = (
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	req_access = list(113)
+	name = "Bridge"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "tS" = (
@@ -4240,13 +4233,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_one_access = list(113);
 	dir = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
 "uQ" = (
@@ -4634,13 +4627,12 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "wx" = (
-/obj/structure/machinery/computer/ship/helm{
-	req_one_access = list(113)
-	},
+/obj/structure/machinery/computer/ship/helm,
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
 "wy" = (
@@ -4734,12 +4726,12 @@
 	},
 /obj/structure/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "xd" = (
@@ -5218,9 +5210,9 @@
 /area/ihss_reclamation/crew/two)
 "yW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
 "yZ" = (
@@ -5428,10 +5420,10 @@
 /area/ihss_reclamation/plantroom)
 "Af" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/bridge)
 "Ai" = (
@@ -5465,9 +5457,9 @@
 	},
 /obj/structure/machinery/door/airlock/glass_research{
 	name = "Environmental Simulation Chamber";
-	req_access = list(113);
 	id_tag = "bolts_environment_cell"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -5529,9 +5521,9 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 4;
-	name = "Suit Storage";
-	req_one_access = list(113)
+	name = "Suit Storage"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
 "Az" = (
@@ -5626,10 +5618,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "AO" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/machinery/atmospherics/pipe/simple/visible/red,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
 "AP" = (
@@ -6050,9 +6041,8 @@
 	},
 /area/ihss_reclamation/medsci)
 "Dj" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/reinforced,
 /area/ihss_reclamation/solars)
 "Dl" = (
@@ -6137,12 +6127,12 @@
 "DP" = (
 /obj/structure/machinery/door/airlock/research{
 	name = "Sample Incineration";
-	req_access = list(113);
 	dir = 8
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -6164,10 +6154,10 @@
 "DT" = (
 /obj/structure/machinery/door/airlock/maintenance_hatch{
 	name = "Telecomms";
-	dir = 4;
-	req_access = list(113)
+	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "DW" = (
@@ -6526,9 +6516,9 @@
 /area/ihss_reclamation/research)
 "Gg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Gi" = (
@@ -7089,7 +7079,6 @@
 	id = "bolts_environment_cell";
 	name = "Chamber Airlock Bolts";
 	pixel_x = -6;
-	req_one_access = list(113);
 	specialfunctions = 4;
 	pixel_y = 8
 	},
@@ -7098,9 +7087,9 @@
 	id = "ihss_environment";
 	dir = 1;
 	pixel_y = -3;
-	pixel_x = -6;
-	req_one_access = list(113)
+	pixel_x = -6
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -7121,9 +7110,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/ihss_reclamation)
 "IL" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
-	req_one_access = list(113)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/fuel)
 "IQ" = (
@@ -7157,10 +7145,10 @@
 /area/ihss_reclamation/atmos)
 "Jd" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/crew/seven)
 "Jg" = (
@@ -7374,10 +7362,10 @@
 	color = "#941307"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Armory";
-	req_one_access = list(113)
+	name = "Armory"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
 "Ki" = (
@@ -7536,10 +7524,10 @@
 	color = "#ba9122"
 	},
 /obj/structure/machinery/door/airlock/glass_command{
-	name = "Hangar";
-	req_access = list(113)
+	name = "Hangar"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "KZ" = (
@@ -7586,10 +7574,10 @@
 /area/ihss_reclamation/westhall)
 "Lg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/westhall)
 "Lh" = (
@@ -7731,9 +7719,9 @@
 /area/ihss_reclamation/southhall)
 "LI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/westhall)
 "LK" = (
@@ -7941,10 +7929,10 @@
 /area/shuttle/ihss_reclamation)
 "Mz" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/crew/one)
 "MC" = (
@@ -8219,10 +8207,10 @@
 /area/ihss_reclamation/atmos)
 "Oe" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	req_one_access = list(113);
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
 "Of" = (
@@ -8518,10 +8506,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Reactor";
-	req_one_access = list(113)
+	name = "Reactor"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/reinforced,
 /area/ihss_reclamation/solars)
 "Pv" = (
@@ -8711,10 +8699,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/glass_research{
-	name = "Botanical Lab";
-	req_access = list(113)
+	name = "Botanical Lab"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -8754,9 +8742,9 @@
 	color = "#941307"
 	},
 /obj/structure/machinery/computer/ship/targeting{
-	dir = 4;
-	req_one_access = list(113)
+	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
 "QJ" = (
@@ -8993,13 +8981,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Engineering Storage";
-	req_access = list(113)
+	name = "Engineering Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "RI" = (
@@ -9100,9 +9088,9 @@
 /area/ihss_reclamation/westhall)
 "Su" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
 "Sw" = (
@@ -9111,8 +9099,7 @@
 	},
 /obj/structure/closet/secure_closet{
 	icon_state = "science";
-	name = "scientist's locker";
-	req_access = list(113)
+	name = "scientist's locker"
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/item/clothing/suit/storage/toggle/labcoat,
@@ -9128,6 +9115,7 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -9216,13 +9204,13 @@
 	},
 /obj/structure/machinery/door/airlock/glass_command{
 	name = "Hangar";
-	dir = 4;
-	req_access = list(113)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
 "SO" = (
@@ -9393,10 +9381,10 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/airlock/atmos{
-	name = "Atmospherics";
-	req_access = list(113)
+	name = "Atmospherics"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "Ty" = (
@@ -9794,10 +9782,10 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/airlock/command{
-	name = "Captain's Quarters";
-	req_one_access = list(114)
+	name = "Captain's Quarters"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract_knight,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew)
 "Vq" = (
@@ -9812,9 +9800,9 @@
 	name = "Hazardous Specimen Blast Doors";
 	id = "ihss_biglizard";
 	pixel_y = 25;
-	dir = 1;
-	req_access = list(113)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
 /area/ihss_reclamation/envirosim)
 "Vu" = (
@@ -9949,10 +9937,10 @@
 "Wj" = (
 /obj/structure/machinery/door/airlock/medical{
 	name = "Operating Theatre";
-	req_access = list(113);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -10066,11 +10054,11 @@
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
 	id_tag = "bolts_reclamation_cell";
-	req_access = list(113);
 	name = "Hazardous Specimen Containment";
 	locked = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/kataphract,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -10145,12 +10133,12 @@
 /area/shuttle/ihss_reclamation)
 "Xa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Xd" = (
@@ -10375,9 +10363,9 @@
 /area/shuttle/ihss_reclamation)
 "XS" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
 	spawn_firedoor = 1
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "XT" = (
@@ -10494,10 +10482,10 @@
 	color = "#941307"
 	},
 /obj/structure/machinery/door/airlock/highsecurity{
-	name = "Armory";
-	req_one_access = list(113)
+	name = "Armory"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
 "Yw" = (
@@ -10750,9 +10738,9 @@
 	},
 /obj/structure/machinery/door/window{
 	dir = 1;
-	name = "Armory";
-	req_one_access = list(113)
+	name = "Armory"
 	},
+/obj/effect/map_effect/marker/access/req_one/kataphract,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armoryfoyer)
 "ZX" = (

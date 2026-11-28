@@ -12,8 +12,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Compound Gates";
 	pixel_y = 25;
-	id = "autakh_base_entry";
-	req_access = list(228)
+	id = "autakh_base_entry"
 	},
 /obj/structure/machinery/light{
 	dir = 8
@@ -21,6 +20,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/autakh,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -296,8 +296,7 @@
 /obj/structure/machinery/button/remote/blast_door{
 	name = "Compound Gates";
 	pixel_y = 25;
-	id = "autakh_base_entry";
-	req_access = list(228)
+	id = "autakh_base_entry"
 	},
 /obj/structure/machinery/light{
 	dir = 4;
@@ -306,6 +305,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/autakh,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},

@@ -1230,9 +1230,9 @@
 /area/crystal_planet_outpost/landing)
 "qJ" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(218)
+	dir = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/engineering)
 "qL" = (
@@ -1923,9 +1923,9 @@
 /area/crystal_planet_outpost/power)
 "BI" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(218)
+	dir = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/power)
 "BP" = (
@@ -2452,9 +2452,9 @@
 /area/crystal_planet_outpost/living)
 "IM" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(218)
+	dir = 2
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/medbay)
 "IN" = (
@@ -3283,12 +3283,12 @@
 /area/crystal_planet_outpost/cave_entrance)
 "TD" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	req_access = list(218)
+	dir = 2
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/portofcall_police,
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
 "TE" = (

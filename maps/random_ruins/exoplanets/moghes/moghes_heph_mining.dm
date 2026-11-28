@@ -67,7 +67,7 @@
 		H.wear_suit.color = "#2a2b2e"
 
 /obj/outfit/admin/moghes_heph_miner/get_id_access()
-	return list(/datum/access/external_airlocks::id, /datum/access/hephaestus::id)
+	return list(/datum/access/horizon/external_airlocks::id, /datum/access/away/hephaestus::id)
 
 /obj/outfit/admin/moghes_heph_miner/klax
 	name = "Moghes Hephaestus Miner - K'lax"

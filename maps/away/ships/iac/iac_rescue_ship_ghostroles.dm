@@ -60,7 +60,7 @@
 			tag.modify_tag_data()
 
 /obj/outfit/admin/iac_volunteer/get_id_access()
-	return list(/datum/access/iac_rescue_shit::id, /datum/access/external_airlocks::id)
+	return list(/datum/access/away/iac_rescue_shit::id, /datum/access/horizon/external_airlocks::id)
 
 /datum/ghostspawner/human/iac_volunteer/technician
 	short_name = "iac_technician"
@@ -127,4 +127,4 @@
 
 /obj/item/card/id/iac_rescue_ship
 	name = "iac ship id"
-	access = list(/datum/access/iac_rescue_shit::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/away/iac_rescue_shit::id, /datum/access/horizon/external_airlocks::id)

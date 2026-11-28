@@ -65,7 +65,6 @@
 "ar" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Cargo Bay Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -75,6 +74,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "as" = (
@@ -116,15 +116,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "az" = (
-/obj/structure/machinery/door/airlock/hatch{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/hatch,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/door/blast/shutters/open{
 	id = "SFLD"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "aA" = (
@@ -389,8 +388,7 @@
 "bO" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 3;
-	name = "CIC";
-	req_access = list(203)
+	name = "CIC"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -402,6 +400,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "bQ" = (
@@ -678,10 +677,10 @@
 /area/ship/sol_frigate/hallway_fore)
 "dh" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(203)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "di" = (
@@ -903,7 +902,6 @@
 /area/ship/sol_frigate/bunks)
 "dQ" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(203);
 	dir = 4;
 	name = "Officer Country"
 	},
@@ -917,6 +915,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/ocountry)
 "dS" = (
@@ -1027,8 +1026,7 @@
 /area/ship/sol_frigate/oquarters)
 "ew" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Reactor Room";
-	req_access = list(203)
+	name = "Reactor Room"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -1042,6 +1040,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "ex" = (
@@ -1182,11 +1181,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "fd" = (
-/obj/structure/machinery/door/airlock/security{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/security,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
 "fe" = (
@@ -1380,9 +1378,9 @@
 	name = "Dock Shutters lockdown";
 	pixel_x = -6;
 	dir = 10;
-	pixel_y = 28;
-	req_access = list(203)
+	pixel_y = 28
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "fI" = (
@@ -1603,13 +1601,13 @@
 /area/ship/sol_frigate/port_thrusters)
 "ha" = (
 /obj/structure/machinery/computer/ship/helm/terminal{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/solfrig_shuttle)
 "hf" = (
@@ -1932,13 +1930,13 @@
 "ir" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Fore Catwalk Docks";
-	req_access = list(203)
+	name = "Fore Catwalk Docks"
 	},
 /obj/structure/machinery/door/blast/shutters/open{
 	id = "SFLD"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "iv" = (
@@ -2564,9 +2562,9 @@
 	name = "Dock Shutters lockdown";
 	pixel_x = -6;
 	dir = 10;
-	pixel_y = -1;
-	req_access = list(203)
+	pixel_y = -1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "lb" = (
@@ -2597,13 +2595,13 @@
 /area/ship/sol_frigate/hallway_fore)
 "le" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
-	name = "Head";
-	req_access = list(203)
+	name = "Head"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/head)
 "lf" = (
@@ -2839,14 +2837,14 @@
 /area/ship/sol_frigate/Port_docking_port)
 "mw" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Engineering";
-	req_access = list(203)
+	name = "Engineering"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "mx" = (
@@ -2972,8 +2970,7 @@
 "na" = (
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	name = "Starboard Propulsion & Atmos";
-	req_access = list(203)
+	name = "Starboard Propulsion & Atmos"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2987,6 +2984,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
 "nb" = (
@@ -3019,12 +3017,12 @@
 /area/ship/sol_frigate/hallway_fore)
 "nn" = (
 /obj/structure/machinery/door/airlock/vault{
-	name = "Port Battery";
-	req_access = list(203)
+	name = "Port Battery"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "np" = (
@@ -3066,7 +3064,6 @@
 "nt" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Midships hallway"
 	},
 /obj/structure/machinery/door/firedoor/noid{
@@ -3078,6 +3075,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "nw" = (
@@ -3094,9 +3092,9 @@
 "nE" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "nF" = (
@@ -3273,8 +3271,7 @@
 /area/ship/sol_frigate/canteen)
 "ol" = (
 /obj/structure/machinery/door/airlock/vault{
-	name = "Starboard Gunnery";
-	req_access = list(203)
+	name = "Starboard Gunnery"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -3284,17 +3281,18 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "on" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Telecomms Server";
-	req_access = list(203)
+	name = "Telecomms Server"
 	},
 /obj/structure/plasticflaps/airtight,
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "oo" = (
@@ -3622,7 +3620,6 @@
 "pR" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Starboard Ammo Storage";
-	req_access = list(203);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -3635,6 +3632,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "pS" = (
@@ -3697,8 +3695,7 @@
 "qb" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 3;
-	name = "Armory";
-	req_access = list(203)
+	name = "Armory"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -3710,6 +3707,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "qc" = (
@@ -3972,12 +3970,12 @@
 /area/ship/sol_frigate/head)
 "rx" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "rC" = (
@@ -4155,8 +4153,7 @@
 /area/ship/sol_frigate/canteen)
 "sH" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "SMES room";
-	req_access = list(203)
+	name = "SMES room"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4164,6 +4161,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "sI" = (
@@ -4874,7 +4872,6 @@
 "vB" = (
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	req_access = list(203);
 	name = "Exosuit Bay"
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -4887,6 +4884,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "vC" = (
@@ -4993,7 +4991,6 @@
 "wa" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #1";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5004,6 +5001,7 @@
 	id = "SFLD";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Starboard_docking_port)
 "wb" = (
@@ -5022,10 +5020,10 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Midships hallway";
-	req_access = list(203)
+	name = "Midships hallway"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "we" = (
@@ -5048,7 +5046,6 @@
 "wn" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	name = "Cargo Hold #1";
-	req_access = list(203);
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5056,6 +5053,7 @@
 	id = "SFLD";
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Port_docking_port)
 "wo" = (
@@ -5178,9 +5176,9 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Aft quarter hallway"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "xf" = (
@@ -5262,12 +5260,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "xG" = (
-/obj/structure/machinery/door/airlock/silver{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/silver,
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/head)
 "xI" = (
@@ -5317,10 +5314,10 @@
 "yi" = (
 /obj/structure/machinery/door/airlock/silver{
 	name = "Toilet";
-	dir = 4;
-	req_access = list(203)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/oquarters)
 "yl" = (
@@ -5422,8 +5419,7 @@
 "yW" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	name = "Command Center";
-	req_access = list(203)
+	name = "Command Center"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5435,6 +5431,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "yY" = (
@@ -5642,14 +5639,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "zT" = (
-/obj/structure/machinery/door/airlock/engineering{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/engineering,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
 "zU" = (
@@ -5666,8 +5662,7 @@
 "zV" = (
 /obj/structure/machinery/door/airlock/security{
 	dir = 8;
-	name = "Brig";
-	req_access = list(203)
+	name = "Brig"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5679,6 +5674,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/brig)
 "zW" = (
@@ -5914,7 +5910,6 @@
 "AX" = (
 /obj/structure/machinery/door/airlock/vault{
 	name = "Primary Munitions Bay";
-	req_access = list(203);
 	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
@@ -5924,6 +5919,7 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "AY" = (
@@ -6307,8 +6303,7 @@
 /area/ship/sol_frigate/crew_lounge)
 "Cx" = (
 /obj/structure/machinery/door/airlock/engineering{
-	name = "Engineering";
-	req_access = list(203)
+	name = "Engineering"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -6317,6 +6312,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "CA" = (
@@ -6506,13 +6502,13 @@
 /area/ship/sol_frigate/starboard_thrusters)
 "DG" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 4;
-	req_access = list(203)
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/machinery/light{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "DI" = (
@@ -6643,8 +6639,7 @@
 /area/ship/sol_frigate/starboard_battery)
 "Ef" = (
 /obj/structure/closet/crate/secure{
-	name = "damage control crate";
-	req_access = list(222)
+	name = "damage control crate"
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/grenade/chem_grenade/metalfoam,
@@ -6660,6 +6655,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/access/req_all/coalition_navy,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/solfrig_shuttle)
 "Ei" = (
@@ -6936,10 +6932,10 @@
 "FS" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Crew Berthing Compartment";
-	req_access = list(203)
+	name = "Crew Berthing Compartment"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "FW" = (
@@ -6978,12 +6974,12 @@
 /area/ship/sol_frigate/safe_room)
 "Gc" = (
 /obj/structure/machinery/computer/ship/targeting/terminal{
-	dir = 1;
-	req_access = list(203)
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "Gh" = (
@@ -7532,14 +7528,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_thrusters)
 "Ip" = (
-/obj/structure/machinery/door/airlock/security{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/security,
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/brig)
 "Iq" = (
@@ -7613,8 +7608,7 @@
 /area/ship/sol_frigate/engineering)
 "IP" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Captain's Office";
-	req_access = list(203)
+	name = "Captain's Office"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -7624,6 +7618,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/captain_office)
 "IQ" = (
@@ -7741,8 +7736,7 @@
 "Ji" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Mess Deck";
-	req_access = list(203)
+	name = "Mess Deck"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7751,6 +7745,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "Jj" = (
@@ -7805,10 +7800,10 @@
 "Jq" = (
 /obj/structure/machinery/door/airlock/silver{
 	name = "Shower";
-	dir = 4;
-	req_access = list(203)
+	dir = 4
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/oquarters)
 "Jr" = (
@@ -7851,13 +7846,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "JB" = (
-/obj/structure/machinery/door/airlock/security{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/security,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
 "JE" = (
@@ -7933,14 +7927,14 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "Kg" = (
 /obj/structure/machinery/door/airlock/vault{
-	name = "Hangar";
-	req_access = list(203)
+	name = "Hangar"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "Kj" = (
@@ -8007,8 +8001,7 @@
 /area/ship/sol_frigate/hallway_mid)
 "Kz" = (
 /obj/structure/machinery/door/airlock/command{
-	name = "Officers' Stateroom";
-	req_access = list(203)
+	name = "Officers' Stateroom"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -8018,6 +8011,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/oquarters)
 "KE" = (
@@ -8161,8 +8155,7 @@
 /area/ship/sol_frigate/port_thrusters)
 "KV" = (
 /obj/structure/machinery/door/airlock/silver{
-	name = "Officer's Head";
-	req_access = list(203)
+	name = "Officer's Head"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -8172,13 +8165,13 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/oquarters)
 "KX" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 3;
-	name = "EVA Storage";
-	req_access = list(203)
+	name = "EVA Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -8188,6 +8181,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "KY" = (
@@ -8268,14 +8262,13 @@
 /turf/simulated/floor/foamedmetal,
 /area/ship/sol_frigate/crew_lounge)
 "Ln" = (
-/obj/structure/machinery/door/airlock/glass_medical{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/glass_medical,
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
 "Lo" = (
@@ -8924,8 +8917,7 @@
 "Oe" = (
 /obj/structure/machinery/door/airlock/engineering{
 	dir = 4;
-	name = "Port Propulsion & Atmos";
-	req_access = list(203)
+	name = "Port Propulsion & Atmos"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -8939,6 +8931,7 @@
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_thrusters)
 "Oh" = (
@@ -9099,7 +9092,6 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Aft quarter hallway"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9110,6 +9102,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "OT" = (
@@ -9125,7 +9118,6 @@
 /area/ship/sol_frigate/bunks)
 "OW" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(203);
 	dir = 4;
 	name = "Officer Country"
 	},
@@ -9136,6 +9128,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/ocountry)
 "OX" = (
@@ -9730,9 +9723,9 @@
 	},
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Aft quarter hallway"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "Sm" = (
@@ -9874,8 +9867,7 @@
 "Td" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Hydroponics";
-	req_access = list(203)
+	name = "Hydroponics"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9884,6 +9876,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/crew_lounge)
 "Tg" = (
@@ -9912,13 +9905,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "Tw" = (
-/obj/structure/machinery/door/airlock/engineering{
-	req_access = list(203)
-	},
+/obj/structure/machinery/door/airlock/engineering,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
 "TE" = (
@@ -10028,7 +10020,6 @@
 /area/ship/sol_frigate/hallway_fore)
 "Un" = (
 /obj/structure/machinery/door/airlock/command{
-	req_access = list(203);
 	name = "Captain's Cabin"
 	},
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -10039,6 +10030,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/exoplanet/wood,
 /area/ship/sol_frigate/captain_cabin)
 "Up" = (
@@ -10082,8 +10074,7 @@
 "UH" = (
 /obj/structure/machinery/door/airlock/command{
 	dir = 4;
-	name = "Command Center";
-	req_access = list(203)
+	name = "Command Center"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10095,6 +10086,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "UI" = (
@@ -10105,8 +10097,7 @@
 "UJ" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Fore quarter hallway";
-	req_access = list(203)
+	name = "Fore quarter hallway"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
@@ -10115,6 +10106,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "UL" = (
@@ -10149,13 +10141,13 @@
 /obj/structure/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
-	req_access = list(203);
 	name = "Cargo Bay Storage"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "UU" = (
@@ -10292,8 +10284,7 @@
 /area/ship/sol_frigate/cic)
 "Vq" = (
 /obj/structure/machinery/door/airlock/vault{
-	name = "Port Gunnery";
-	req_access = list(203)
+	name = "Port Gunnery"
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -10303,6 +10294,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "Vt" = (
@@ -10336,10 +10328,10 @@
 "VA" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
-	name = "Sick Bay";
-	req_access = list(203)
+	name = "Sick Bay"
 	},
 /obj/structure/machinery/door/firedoor/noid,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/sickbay)
 "VB" = (
@@ -10937,8 +10929,7 @@
 /area/ship/sol_frigate/freezer)
 "YD" = (
 /obj/structure/machinery/door/airlock/freezer{
-	dir = 3;
-	req_access = list(203)
+	dir = 3
 	},
 /obj/structure/machinery/door/firedoor/noid{
 	dir = 4
@@ -10950,6 +10941,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/freezer)
 "YF" = (
@@ -11189,13 +11181,13 @@
 /area/ship/sol_frigate/engineering)
 "ZB" = (
 /obj/structure/machinery/computer/ship/sensors/terminal{
-	dir = 4;
-	req_access = list(203)
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "ZE" = (
@@ -11227,8 +11219,7 @@
 "ZI" = (
 /obj/structure/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Midships hallway";
-	req_access = list(203)
+	name = "Midships hallway"
 	},
 /obj/structure/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
@@ -11237,6 +11228,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/access/req_all/sol_ships,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "ZL" = (

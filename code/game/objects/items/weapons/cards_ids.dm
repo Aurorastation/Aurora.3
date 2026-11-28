@@ -432,7 +432,7 @@
 	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
-	access = list(/datum/access/syndicate::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/antag/syndicate::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/item/card/id/syndicate/ert
 	name = "illicit commando identification card"
@@ -499,7 +499,7 @@
 	icon_state = "centcom"
 	item_state = "centcom"
 	overlay_state = "centcom"
-	access = list(/datum/access/merchant::id)
+	access = list(/datum/access/centcomm/merchant::id)
 	vertical_card = TRUE
 
 /obj/item/card/id/synthetic
@@ -510,7 +510,7 @@
 	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + /datum/access/equipment::id
+	access = get_all_station_access() + /datum/access/away/equipment::id
 	..()
 
 /obj/item/card/id/synthetic/cyborg
@@ -522,7 +522,7 @@
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(/datum/access/equipment::id, /datum/access/ai_upload::id, /datum/access/external_airlocks::id) // barebones cyborg access. Job special added in different place
+	access = list(/datum/access/away/equipment::id, /datum/access/horizon/ai_upload::id, /datum/access/horizon/external_airlocks::id) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -532,7 +532,7 @@
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(/datum/access/maint_tunnels::id, /datum/access/mailsorting::id, /datum/access/cargo::id, /datum/access/cargo_bot::id, /datum/access/qm::id, /datum/access/mining::id, /datum/access/mining_station::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/horizon/maint_tunnels::id, /datum/access/horizon/mailsorting::id, /datum/access/horizon/cargo::id, /datum/access/horizon/cargo_bot::id, /datum/access/horizon/qm::id, /datum/access/horizon/mining::id, /datum/access/horizon/mining_station::id, /datum/access/horizon/external_airlocks::id)
 	..()
 
 /obj/item/card/id/centcom
@@ -606,7 +606,7 @@
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
-	access = list(/datum/access/distress::id, /datum/access/maint_tunnels::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/centcomm/distress::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/external_airlocks::id)
 	..()
 
 /obj/item/card/id/distress/fsf
@@ -627,7 +627,7 @@
 	vertical_card = TRUE
 
 /obj/item/card/id/distress/tcaf/New()
-	access = list(/datum/access/tcaf::id, /datum/access/maint_tunnels::id, /datum/access/external_airlocks::id, /datum/access/security::id, /datum/access/engine::id, /datum/access/engine_equip::id, /datum/access/medical::id, /datum/access/research::id, /datum/access/atmospherics::id, /datum/access/medical_equip::id)
+	access = list(/datum/access/centcomm/tcaf::id, /datum/access/horizon/maint_tunnels::id, /datum/access/horizon/external_airlocks::id, /datum/access/horizon/security::id, /datum/access/horizon/engine::id, /datum/access/horizon/engine_equip::id, /datum/access/horizon/medical::id, /datum/access/horizon/research::id, /datum/access/horizon/atmospherics::id, /datum/access/horizon/medical_equip::id)
 	..()
 
 /obj/item/card/id/distress/ap_eridani
@@ -803,7 +803,7 @@
 		..()
 
 /obj/item/card/id/away_site
-	access = list(/datum/access/generic_away_site::id, /datum/access/external_airlocks::id)
+	access = list(/datum/access/away/generic_away_site::id, /datum/access/horizon/external_airlocks::id)
 
 /obj/item/card/id/mecha
 	name = "exosuit access card"
