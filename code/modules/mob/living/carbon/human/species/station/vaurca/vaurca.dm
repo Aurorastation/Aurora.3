@@ -172,6 +172,7 @@
 		"C'thur: Unbound Xetl" = "#370078", "C'thur: Bound Xetl" = "#3C0F5F"
 	)
 	mob_strength = 1.35 // Requested by Vaurca lore to make them a bit more different
+	species_components = list(/datum/component/HiveEchoes)
 	mass_modifier = REFERENCE_MASS_VAURCA_KA / REFERENCE_MASS_HUMAN
 
 /datum/species/bug/get_random_name(gender, hive, bound = FALSE)
@@ -192,7 +193,6 @@
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
-	H.AddComponent(/datum/component/HiveEchoes)
 	return ..()
 
 /datum/species/bug/is_naturally_insulated()
