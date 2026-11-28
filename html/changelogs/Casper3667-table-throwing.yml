@@ -1,0 +1,6 @@
+author: Casper3667
+delete-after: True
+changes:
+  - bugfix: "Characters can now be thrown over tables, and characters standing on a reinforced table can walk to other parts of the table."
+  - rscadd: "Sufficiently strong characters can now throw other characters through regular and reinforced glass panes, windoors, and full windows, with stronger glass requiring more lift capacity."
+  - rscadd: "If a window breaks from a character being thrown into them, it won't stop their movement."

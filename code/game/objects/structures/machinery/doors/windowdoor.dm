@@ -13,6 +13,8 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	opacity = 0
 	var/obj/item/airlock_electronics/electronics = null
+	/// The thrown mob currently breaking through the windoor, allowing it to finish moving through before the windoor is deleted.
+	var/datum/weakref/mob_breakthrough_mob
 	explosion_resistance = 5
 	air_properties_vary_with_direction = 1
 
@@ -79,7 +81,7 @@
 	if(movingdir & dir)
 		if(air_group)
 			return FALSE
-		return !density
+		return !density || try_mob_breakthrough(mover)
 	else
 		return TRUE
 
@@ -87,9 +89,36 @@
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir)
-		return !density
+		return !density || try_mob_breakthrough(mover)
 	else
 		return 1
+
+/// Allows a thrower with twice the thrown mob's effective mass in lift capacity to send them through a windoor.
+/obj/structure/machinery/door/window/proc/try_mob_breakthrough(atom/movable/mover)
+	if(!isliving(mover) || !mover.throwing)
+		return FALSE
+
+	var/mob/living/thrown_mob = mover
+	var/mob/living/thrower = mover.throwing.get_thrower()
+	if(!istype(thrower) || thrower == thrown_mob)
+		return FALSE
+	if(thrower.get_lift_capacity() < thrown_mob.get_effective_mass() * MOB_STRENGTH_VERY_STRONG)
+		return FALSE
+
+	if(mob_breakthrough_mob)
+		return mob_breakthrough_mob.resolve() == thrown_mob
+	mob_breakthrough_mob = WEAKREF(thrown_mob)
+	addtimer(CALLBACK(src, PROC_REF(complete_mob_breakthrough), WEAKREF(thrown_mob), mover.throwing.speed), 0)
+	return TRUE
+
+/// Hurts the thrown mob and destroys the windoor after movement through it has been permitted.
+/obj/structure/machinery/door/window/proc/complete_mob_breakthrough(datum/weakref/thrown_mob_ref, throw_speed)
+	mob_breakthrough_mob = null
+	var/mob/living/thrown_mob = thrown_mob_ref.resolve()
+	if(!istype(thrown_mob) || QDELETED(src))
+		return
+	thrown_mob.turf_collision(src, throw_speed, SFX_GLASS_CRACK)
+	on_death(display_message = TRUE)
 
 /obj/structure/machinery/door/window/open(var/forced=FALSE)
 	set waitfor = FALSE

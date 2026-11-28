@@ -152,7 +152,8 @@ SUBSYSTEM_DEF(throwing)
 				continue
 			if(obstacle.pass_flags_self & LETPASSTHROW)
 				continue
-			if (obstacle == actual_target || (obstacle.density)) //Different from TG
+			// Dense border objects do not occupy the turf's interior; let their directional movement checks decide whether the throw is blocked.
+			if (obstacle == actual_target || (obstacle.density && !(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))) //Different from TG
 				finalize(TRUE, obstacle)
 				return
 
