@@ -1,0 +1,4 @@
+author: FabianK3
+delete-after: True
+changes:
+  - bugfix: "Fixed telecrystal and bluecrystal duplication when splitting preset stacks."
