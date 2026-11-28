@@ -54,6 +54,11 @@
 		. += "It contains [reagents.total_volume] units of liquid."
 	if(!is_open_container())
 		. += "The cap is sealed."
+	else if(distance <= 1 && reagents?.total_volume > 0 && label && get_pharmacology_skill(user) >= SKILL_LEVEL_TRAINED)
+		var/singleton/reagent/primary = reagents.get_primary_reagent_decl()
+		if(primary && !primary.spectro_hidden)
+			if(length(reagents.reagent_volumes) > 1 || lowertext(primary.name) != lowertext(label))
+				. += SPAN_WARNING("Something seems off—the contents don't appear to match the '[label]' label.")
 
 /obj/item/reagent_containers/chem_disp_cartridge/Initialize(mapload,temperature_override)
 	. = ..()

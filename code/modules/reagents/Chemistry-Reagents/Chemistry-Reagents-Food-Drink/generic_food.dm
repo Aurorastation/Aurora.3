@@ -4,6 +4,7 @@
 	description = "All the vitamins, minerals, and carbohydrates the body needs in pure form."
 	taste_mult = 4
 	reagent_state = SOLID
+	pharmacology_skill_required = SKILL_LEVEL_UNFAMILIAR
 	metabolism = REM * 2
 	/// Per removed in digest.
 	var/nutriment_factor = 8

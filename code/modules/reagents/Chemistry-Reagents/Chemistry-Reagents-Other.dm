@@ -267,6 +267,7 @@
 	name = "Diethylamine"
 	description = "A secondary amine, mildly corrosive."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = "#604030"
 	taste_description = "iron"
 	value = 0.9
@@ -317,6 +318,7 @@
 	name = "Space Cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_FAMILIAR
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
@@ -497,6 +499,7 @@
 	name = "Glycerol"
 	description = "Glycerol is a simple polyol compound. Glycerol is sweet-tasting and of low toxicity."
 	reagent_state = LIQUID
+	pharmacology_skill_required = SKILL_LEVEL_TRAINED
 	color = COLOR_GRAY
 	taste_description = "sweetness"
 	value = 8

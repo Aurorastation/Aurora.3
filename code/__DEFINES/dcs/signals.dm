@@ -128,6 +128,11 @@
 /// Raised against a food item when someone takes a bite out of it: (mob/eater, mob/feeder)
 #define COMSIG_FOOD_EATEN "food_eaten"
 
+// Pharmacology Skill Signals
+
+/// Raised against a pill when someone swallows it: (mob/living/carbon/target, mob/living/user)
+#define COMSIG_PILL_SWALLOWED "pill_swallowed"
+
 // Hydroponics Signals
 /// Signal raised against the harvester of a plant during the Harvest() proc.
 #define COMSIG_PLANT_HARVESTER "plant_harvester"

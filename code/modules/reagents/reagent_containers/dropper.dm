@@ -43,6 +43,13 @@
 
 		if(ismob(target))
 			var/time = 20 //2/3rds the time of a syringe
+			switch(get_medical_injection_skill(user))
+				if(SKILL_LEVEL_UNFAMILIAR)
+					time = 30
+				if(SKILL_LEVEL_TRAINED)
+					time = 15
+				if(SKILL_LEVEL_PROFESSIONAL)
+					time = 10
 			user.visible_message(SPAN_WARNING("[user] is trying to squirt something into [target]'s eyes!"))
 
 			if(!do_mob(user, target, time))
