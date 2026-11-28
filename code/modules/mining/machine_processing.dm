@@ -5,8 +5,10 @@
 #define SMELTER_MODE_SMELTING BITFLAG(3)
 
 /obj/structure/machinery/mineral/proc/load_mining_point_balance(obj/item/card/id/ID)
-	var/mob/living/carbon/human/card_owner = ID?.mob_id?.resolve()
-	if(!card_owner?.character_id)
+	if(!istype(ID))
+		return FALSE
+	var/mob/living/carbon/human/card_owner = ID.mob_id?.resolve()
+	if(!istype(card_owner) || !card_owner.character_id)
 		return FALSE
 
 	var/datum/persistent_record/saved_balance = SSpersistence.historyGetLastRecord(
@@ -179,6 +181,7 @@
 
 /obj/structure/machinery/mineral/processing_unit_console/ui_data(mob/user)
 	var/list/data = list()
+	data["carryoverMax"] = MINING_POINTS_CARRYOVER_MAX
 	var/obj/item/card/id/ID = user.GetIdCard()
 	if(ID)
 		data["hasId"] = TRUE

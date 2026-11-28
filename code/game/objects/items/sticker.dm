@@ -11,6 +11,9 @@
 	var/datum/weakref/attached
 	var/list/rand_icons
 
+/obj/item/sticker/get_persistence_hint()
+	return persistence_hint("Attaching this sticker has a 10% chance of leaving a sticker at that location between rounds aboard the SCCV Horizon. Removing it cancels persistence.")
+
 /obj/item/sticker/Initialize()
 	. = ..()
 	if(LAZYLEN(rand_icons))

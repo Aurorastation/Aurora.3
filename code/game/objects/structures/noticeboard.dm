@@ -9,6 +9,10 @@
 	var/notice_limit = 20
 	var/base_icon = "nboard"
 
+/obj/structure/noticeboard/get_persistence_hint()
+	var/obj/item/paper/paper_type = /obj/item/paper
+	return persistence_hint("Written paper pinned here remains available between rounds aboard the SCCV Horizon. Blank paper is not saved. Removing a notice cancels its persistence.", initial(paper_type.persistent_objects_expiration_time_days))
+
 /obj/structure/noticeboard/Initialize(mapload)
 	if (mapload)
 		add_papers_from_turf()
@@ -49,6 +53,7 @@
 // Since Topic() never seems to interact with usr on more than a superficial
 // level, it should be fine to let anyone mess with the board other than ghosts.
 /obj/structure/noticeboard/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
 	if(is_adjacent)
 		user.face_atom(src)
 		var/dat = "<B>Noticeboard</B><BR>"
@@ -57,8 +62,6 @@
 		user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 		onclose(user, "noticeboard")
 		return TRUE
-	else
-		. = ..()
 
 /obj/structure/noticeboard/Topic(href, href_list)
 	..()

@@ -85,6 +85,12 @@
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
 
+/obj/structure/filingcabinet/get_persistence_hint()
+	if(persistent_storage_id)
+		var/obj/item/paper/paper_type = /obj/item/paper
+		return persistence_hint("Supported nonblank paperwork placed in this cabinet's Long-Term storage remains available between rounds aboard the SCCV Horizon. Short-Term storage does not carry over. Removing or unarchiving paperwork cancels persistence.", initial(paper_type.persistent_objects_expiration_time_days))
+	return ..()
+
 /obj/structure/filingcabinet/Initialize(mapload)
 	. = ..()
 	if(mapload && SSpersistence.map_supports_persistence && is_station_level(z))

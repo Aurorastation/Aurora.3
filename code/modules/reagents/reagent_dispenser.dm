@@ -15,6 +15,11 @@
 	var/has_fill_levels = FALSE // Features base underlay and overlays for 100%, 80%, 60%, 40%, 20% fill levels
 	var/is_persistent = FALSE
 
+/obj/structure/reagent_dispensers/get_persistence_hint()
+	if(is_persistent)
+		return persistence_hint("This tank and its remaining volume remain available between rounds aboard the SCCV Horizon. Its contents are restored as its original reagent stock; changes to the mixture are not preserved.")
+	return ..()
+
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."

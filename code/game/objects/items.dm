@@ -557,6 +557,11 @@
 	..()
 	try_make_persistent_trash() // Trash that gets thrown into disposal bins and ends up in the disposal areas shouldn't be persistent after all
 
+/obj/item/get_persistence_hint()
+	if(persistency_considered_trash)
+		return persistence_hint("Litter left aboard the SCCV Horizon can remain between rounds. Picking it up or putting it in storage removes it from persistence. Some areas, including disposal areas, do not preserve litter.", 3)
+	return ..()
+
 /obj/item/proc/try_make_persistent_trash()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	PROTECTED_PROC(TRUE)

@@ -27,9 +27,9 @@
 /obj/item/paper_bin/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can return unused regular or carbon paper to the bin by clicking the bin with it."
-	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
-	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-	. += SPAN_TOOLTIP("This is a persistence mechanic. This bin and its remaining blank-paper stock remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
+
+/obj/item/paper_bin/get_persistence_hint()
+	return persistence_hint("This bin and its remaining blank-paper stock remain available between rounds while aboard the SCCV Horizon.")
 
 /obj/item/paper_bin/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -177,11 +177,8 @@
 	. = ..()
 	SSpersistence.objectsRegisterTrack(src)
 
-/obj/item/paper_bin_refill/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
-	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-	. += SPAN_TOOLTIP("This is a persistence mechanic. This ream and its remaining paper stock remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
+/obj/item/paper_bin_refill/get_persistence_hint()
+	return persistence_hint("This ream and its remaining paper stock remain available between rounds while aboard the SCCV Horizon.")
 
 /obj/item/paper_bin_refill/persistent_objects_get_content()
 	var/list/content = ..()

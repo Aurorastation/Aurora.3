@@ -168,6 +168,9 @@ ABSTRACT_TYPE(/obj/item/package)
 	item_state = "supply_package"
 	persistent_objects_expiration_time_days = 360
 
+/obj/item/package/persistent_supply/get_persistence_hint()
+	return persistence_hint("This supply package remains available between rounds when left aboard the SCCV Horizon.")
+
 /obj/item/package/persistent_supply/Initialize()
 	. = ..()
 	SSpersistence.objectsRegisterTrack(src)

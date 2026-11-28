@@ -222,6 +222,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 	var/default_item_amount = null
 
 
+/obj/structure/machinery/vending/get_persistence_hint()
+	if(persistent_stock_id)
+		return persistence_hint("This vending machine's regular stock carries over between rounds aboard the SCCV Horizon. Premium and contraband stock are excluded. Use a refill canister to restock it.", 7, refreshes_each_round = TRUE)
+	return ..()
+
 /obj/structure/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a brand intelligence virus can be fixed by using a debugger on it."

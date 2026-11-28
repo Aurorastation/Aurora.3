@@ -89,14 +89,11 @@
 		if(islist(saved_contents))
 			SSpersistence.genericSave(/singleton/persistent_type/generic/papershredder_contents, saved_contents, contents_persistence_id, expires_in_days = expiration_days)
 
-/obj/structure/machinery/papershredder/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/machinery/papershredder/get_persistence_hint()
 	if(contents_persistence_id)
 		var/obj/item/paper/paper_type = /obj/item/paper
-		var/persistence_days = initial(paper_type.persistent_objects_expiration_time_days)
-		var/persistence_duration = "[persistence_days] day[(persistence_days != 1) ? "s" : ""]"
-		var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-		. += SPAN_TOOLTIP("This is a persistence mechanic. Shredded paper left inside this machine remains available between rounds aboard the SCCV Horizon and expires after [persistence_duration].", persistence_label)
+		return persistence_hint("Shredded paper left inside this machine remains available between rounds aboard the SCCV Horizon.", initial(paper_type.persistent_objects_expiration_time_days), refreshes_each_round = TRUE)
+	return ..()
 
 /obj/structure/machinery/papershredder/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/storage))

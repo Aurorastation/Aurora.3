@@ -173,6 +173,9 @@
 		sticky_note.persistent_placement = FALSE
 	return paper
 
+/obj/item/paper/get_persistence_hint()
+	return persistence_hint("Written paper carries over between rounds aboard the SCCV Horizon when pinned to a notice board or placed in a filing cabinet's Long-Term storage. Blank paper is not saved. Removing the paper from persistent storage cancels persistence.")
+
 /// Updates tracking after this paper's contents change while it is in a persistence-supporting location.
 /obj/item/paper/proc/update_persistence_tracking(mob/user)
 	if(is_blank())
@@ -982,6 +985,9 @@
 	src.y = y
 	src.z = z
 
+/obj/item/paper/stickynotes/get_persistence_hint()
+	return persistence_hint("Written sticky notes placed in the world aboard the SCCV Horizon remain between rounds. Blank notes are not saved. Picking a note up cancels persistence. Written notes can also be archived in a filing cabinet's Long-Term storage.")
+
 /obj/item/paper/stickynotes/pickup()
 	persistent_placement = FALSE
 	SSpersistence.objectsDeregisterTrack(src)
@@ -1069,9 +1075,9 @@
 	. += ..()
 	. += "You can click it on grab intent to pick it up."
 	. += "You can return an unused sticky note to the pad by clicking the pad with it."
-	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
-	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-	. += SPAN_TOOLTIP("This is a persistence mechanic. When left on the SCCV Horizon, this pad and its remaining sticky notes remain available between rounds and expire after [persistence_duration]. Picking it up or storing it removes it from persistence.", persistence_label)
+
+/obj/item/stickynote_pad/get_persistence_hint()
+	return persistence_hint("When left on the SCCV Horizon, this pad and its remaining sticky notes remain available between rounds. Picking it up or storing it removes it from persistence.")
 
 /obj/item/stickynote_pad/pickup(mob/user)
 	SSpersistence.objectsDeregisterTrack(src)

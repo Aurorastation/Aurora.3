@@ -194,14 +194,11 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 		if(islist(saved_paperstock))
 			SSpersistence.genericSave(/singleton/persistent_type/generic/request_console_paperstock, saved_paperstock, paperstock_persistence_id, expires_in_days = expiration_days)
 
-/obj/structure/machinery/requests_console/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/machinery/requests_console/get_persistence_hint()
 	if(paperstock_persistence_id)
 		var/obj/item/paper/paper_type = /obj/item/paper
-		var/persistence_days = initial(paper_type.persistent_objects_expiration_time_days)
-		var/persistence_duration = "[persistence_days] day[(persistence_days != 1) ? "s" : ""]"
-		var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-		. += SPAN_TOOLTIP("This is a persistence mechanic. Paper left inside this console remains available between rounds aboard the SCCV Horizon and expires after [persistence_duration].", persistence_label)
+		return persistence_hint("Paper left inside this console remains available between rounds aboard the SCCV Horizon.", initial(paper_type.persistent_objects_expiration_time_days), refreshes_each_round = TRUE)
+	return ..()
 
 /obj/structure/machinery/requests_console/north
 	PRESET_NORTH

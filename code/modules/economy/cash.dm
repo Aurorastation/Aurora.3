@@ -648,6 +648,9 @@
 	var/initial_worth = 0 // Used for calculating how much cash was spend, needs to be set using VV after spawning it.
 	persistent_objects_expiration_time_days = 360
 
+/obj/item/spacecash/ewallet/persistent_charge_card/get_persistence_hint()
+	return persistence_hint("This specialized charge card retains its balance and owner between rounds aboard the SCCV Horizon. Cards left outside command or secure storage are returned to the executive officer's office.")
+
 /obj/item/spacecash/ewallet/persistent_charge_card/Initialize()
 	. = ..()
 	SSpersistence.objectsRegisterTrack(src)

@@ -13,6 +13,9 @@
 	/// Stable ID of the filing cabinet whose long-term storage contains this folder.
 	var/tmp/persistent_filing_cabinet_id
 
+/obj/item/folder/get_persistence_hint()
+	return persistence_hint("Folders containing supported nonblank paperwork can be saved between rounds in a filing cabinet's Long-Term storage aboard the SCCV Horizon. Only supported paperwork is preserved. Removing the folder from Long-Term storage cancels persistence.")
+
 /obj/item/folder/Initialize(mapload)
 	var/obj/item/paper/paper_type = /obj/item/paper
 	persistent_objects_expiration_time_days = initial(paper_type.persistent_objects_expiration_time_days)

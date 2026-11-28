@@ -226,7 +226,7 @@ GLOBAL_LIST(priv_region_access)
 /mob/proc/GetIdCard()
 	return null
 
-GLOBAL_LIST_INIT_TYPED(ghost_all_access, /obj/item/card/id/all_access, list())
+GLOBAL_DATUM(ghost_all_access, /obj/item/card/id/all_access)
 /mob/abstract/ghost/observer/GetIdCard()
 	if(!is_admin(src))
 		return

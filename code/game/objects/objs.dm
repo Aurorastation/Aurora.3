@@ -127,6 +127,32 @@
 	/// Allow overriding rad resistance.
 	var/rad_resistance_modifier = 1
 
+/obj/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(SSpersistence.map_supports_persistence)
+		var/persistence_hint = get_persistence_hint()
+		if(persistence_hint)
+			. += persistence_hint
+
+/// Override to describe a persistence mechanic, including how to enable or disable it.
+/// Tracked objects without a specific description still receive a marker.
+/obj/proc/get_persistence_hint()
+	if(persistent_objects_track_active)
+		return persistence_hint("This object remains available between rounds when left aboard the SCCV Horizon.")
+
+/// Shared calendar marker and tooltip for both persistent objects and persistent machine stock.
+/obj/proc/persistence_hint(description, expiration_days = null, refreshes_each_round = FALSE)
+	if(isnull(expiration_days))
+		expiration_days = persistent_objects_expiration_time_days
+	var/duration = "[expiration_days] day[(expiration_days != 1) ? "s" : ""]"
+	var/label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [duration]"
+	var/expiration_description
+	if(refreshes_each_round)
+		expiration_description = "The expiry timer resets whenever this stock is saved at round end. It only expires after [duration] without a round-end save, so it can carry over indefinitely during regular rounds."
+	else
+		expiration_description = "The expiry timer starts when first saved and resets when the saved contents or location change. It expires after [duration] without such an update, rather than after a fixed total lifetime."
+	return SPAN_TOOLTIP("This is a persistence mechanic. [description] [expiration_description]", label)
+
 /obj/Initialize(mapload, ...)
 	. = ..()
 
