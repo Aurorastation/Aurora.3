@@ -68,13 +68,26 @@
 		loaded_skills = list()
 
 	pref.skills = list()
+	var/has_invalid_skill = FALSE
 	for(var/key,value in loaded_skills)
 		if (!key)
 			continue
 		var/path = istext(key) ? text2path(key) : key
 		var/singleton/skill/skill = GET_SINGLETON(path)
-		if(istype(skill))
-			pref.skills[skill.type] = value
+		if(!istype(skill))
+			has_invalid_skill = TRUE
+			break
+		pref.skills[skill.type] = value
+
+	if(has_invalid_skill)
+		pref.skills = list()
+		pref.education = null
+		var/datum/category_group/player_setup_category/cat = category
+		if(cat)
+			cat.modified = TRUE
+		var/mob/user = preference_mob()
+		if(user)
+			to_chat(user, SPAN_WARNING("One or more of your character's saved skills no longer exist. Your skill and education selections have been reset; please review them before spawning."))
 
 /datum/category_item/player_setup_item/skills/sanitize_character(var/sql_load = 0)
 	//todomatt

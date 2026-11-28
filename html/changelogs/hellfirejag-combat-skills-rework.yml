@@ -1,0 +1,19 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscdel: "Removed the Armed and Unarmed combat skills."
+  - rscadd: "Added a Melee combat skill that combines the effects of Armed and Unarmed."
+  - rscadd: "Melee Skill: Added Melee Warmups. Temporarily improve your melee skill by practicing on a punching bag."
+  - rscadd: "Melee Capstone: Riposte. Once per 10 seconds and on harm intent while holding a weapon, automatically retaliate against an attacker."
+  - rscadd: "Melee Capstone: Disarming Strike. Once per 10 seconds and on disarm intent while holding a weapon, 25% chance to disarm a target during weapon attack."
+  - rscadd: "Firearms Skill: Firearms now have easier or harder reloading depending on skill level"
+  - rscadd: "Firearms Skill: Unjamming firearms are now easier or harder depending on skill level"
+  - rscadd: "Firearms Capstone: Snap Shot. Once per 45 seconds and on harm intent while holding a gun, after 5 seconds of sprinting gain bonus accuracy on next shot."
+  - rscadd: "Firearms Capstone: Focused Aim. Once per 45 seconds and on harm intent while wielding a gun, after 5 seconds of standing still gain bonus accuracy on next shot."
+  - rscadd: "Firearms Skill: Tactical Reload. Clicking on a loaded firearm with a magazine automatically swaps the magazines. You can change what you do with the swapped magazine via the set_magazine_retention verb."
+  - rscadd: "Firearms Skill: Dual-wielding and one-handing a two handed gun penalties now scale with skill level"
+  - rscadd: "Leadership Skill: Second Wind(Trained). When using Rally in single target mode, recover some stamina and pain for a target. Each target can only benefit from this once per 90 seconds."
+  - rscadd: "Leadership Skill: Second Wind(Professional). When using Rally in single target mode, cleanse the target of its worst instance of psychic damage. Each target can only benefit from this once per 90 seconds."
+  - rscadd: "Leadership Capstone: Stand Fast! After delivering a speech, passively restore stamina to speech recipients so long as they remain in line of sight of the Leader."
+  - rscadd: "Tenacity Skill: Composure(Trained) When examining yourself, highlights your most severe injury."
+  - rscadd: "Tenacity Capstone: Last Stand. Once per 30 minutes, refuse to collapse from pain for 15 seconds."

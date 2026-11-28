@@ -45,3 +45,9 @@
 #define ROLL_RESULT_FAILURE 0
 /// Critical failure on a difficulty class. Obtained by rolling a nat 1 or -10 under the DC. Used for skills at the moment, will be used for more later.
 #define ROLL_RESULT_CRITICAL_FAILURE -1
+
+/// Magazine retention preferences for Professional Firearms tactical reloads and unloads.
+#define MAG_RETENTION_DROP		"Drop"
+#define MAG_RETENTION_TOSS		"Toss"
+#define MAG_RETENTION_HOLD		"Hold"
+#define MAG_RETENTION_RETAIN	"Retain"

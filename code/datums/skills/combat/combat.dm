@@ -12,45 +12,39 @@
 	instead provides a bonus to combat characteristics. All 3 combat skills and their relevant checks are also influenced by the Morale component,
 	which provides up to an equivalent +/- 0.5 ranks in combat skills depending on how much positive or negative morale has been accumulated.
 																																				*/
-/singleton/skill/unarmed_combat
-	name = "Unarmed Combat"
-	description = "Unarmed combat represents your training in hand-to-hand combat, or without a weapon. It also influences your ability to resist actions like disarms or martial arts. " \
-		+ "Higher ranks in Unarmed Combat provide bonuses when attacking with your fists, as well as bonuses to defending against others unarmed attacks and disarms."
-	maximum_level = SKILL_LEVEL_TRAINED
+/singleton/skill/melee_combat
+	name = "Melee Combat"
+	description = "Melee Combat represents your training in close-quarters fighting, both unarmed and with melee weapons. " \
+		+ "Higher ranks improve your unarmed accuracy, defense, and disarm resistance, unlock weapon parries and disarming strikes, and increase melee weapon damage."
+	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life.<br>" \
-			+ " - You are 4% more likely to miss when attempting to punch anywhere not the torso.<br>" \
-			+ " - You are 4% less likely to block unarmed attacks that you are aware of.<br>" \
-			+ " - Enemies are 4% more likely to block your unarmed attacks.",
-		SKILL_LEVEL_FAMILIAR = "You have some experience throwing punches. You are no stranger to a close-quarters fight, though anyone with real training is likely to overwhelm you.<br>" \
-			+ " - You are 2% more likely to miss when attempting to punch anywhere not the torso.<br>" \
-			+ " - You are 2% less likely to block unarmed attacks that you are aware of.<br>" \
-			+ " - Enemies are 2% more likely to block your unarmed attacks.",
-		SKILL_LEVEL_TRAINED = "You have been trained, whether by being in the military, taking close-quarters-combat classes or simply through experience, to both keep calm in a close-quarters fight and also fight well.<br>" \
-			+ " - You suffer no maluses to your close-quarters combat. <br>" \
-			+ " - You have no bonuses to unarmed fighting either."
+		SKILL_LEVEL_UNFAMILIAR = "You have rarely, if ever, fought someone in your life, and have no training with melee weapons.<br>" \
+			+ " - You are 4% more likely to miss when attempting to punch anywhere not the torso, 4% less likely to block unarmed attacks, and enemies are 4% more likely to block yours.<br>" \
+			+ " - Your melee weapon attacks deal <b>20% less damage</b>.<br>" \
+			+ " - You have a <b>20% chance</b> to overextend melee weapon swings on Harm intent, cancelling the swing and leaving you briefly off-balance.<br>" \
+			+ " - Landing 12 strikes or sparring on a punching bag warms you up for <b>10 minutes</b> (+3 morale, halved overextension chance; stacks twice).",
+		SKILL_LEVEL_FAMILIAR = "You have some experience throwing punches and swinging weapons. You are no stranger to a close-quarters fight, though anyone with real training is likely to overwhelm you.<br>" \
+			+ " - You are 2% more likely to miss when attempting to punch anywhere not the torso, 2% less likely to block unarmed attacks, and enemies are 2% more likely to block yours.<br>" \
+			+ " - Your melee weapon attacks deal <b>10% less damage</b>.<br>" \
+			+ " - You have a <b>10% chance</b> to overextend melee weapon swings on Harm intent.<br>" \
+			+ " - Landing 12 strikes or sparring on a punching bag warms you up for <b>15 minutes</b> (+3 morale, halved overextension chance; stacks twice).",
+		SKILL_LEVEL_TRAINED = "You have been trained, whether by being in the military, taking close-quarters-combat classes, or through experience, to fight effectively with fists or melee weapons.<br>" \
+			+ " - You suffer no unarmed maluses, no melee damage penalty, and never overextend swings.<br>" \
+			+ " - Holding a melee weapon on Harm or Grab intent grants a <b>10% chance</b> to parry incoming melee weapon attacks.<br>" \
+			+ " - Attacking with a melee weapon on Disarm intent has a <b>25% chance</b> to knock a held item from your target's hand (6s cooldown).<br>" \
+			+ " - Landing 12 strikes or sparring warms you up for <b>20 minutes</b> (+3 morale, +5% parry chance; stacks twice).",
+		SKILL_LEVEL_PROFESSIONAL = "You are a seasoned close-quarters combatant with years of formal martial training or real-world brawling and bladework.<br>" \
+			+ " - Your unarmed strikes are 2% more accurate, you are 2% more likely to block unarmed attacks, and enemies are 2% less likely to block yours.<br>" \
+			+ " - Your melee weapon attacks deal <b>10% more damage</b>.<br>" \
+			+ " - Holding a melee weapon on Harm or Grab intent grants a <b>20% chance</b> to parry incoming melee weapon attacks.<br>" \
+			+ " - <b>Riposte:</b> Parrying while on Harm intent automatically retaliates with your held weapon (10s cooldown).<br>" \
+			+ " - Attacking with a melee weapon on Disarm intent has a <b>40% chance</b> to knock a held item from your target's hand (6s cooldown).<br>" \
+			+ " - Landing 12 strikes or sparring warms you up for <b>25 minutes</b> (+3 morale, +5% parry chance; stacks twice)."
 	)
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_MELEE
 	required = TRUE
-	component_type = UNARMED_COMBAT_SKILL_COMPONENT
-
-/// Currently just a simple percent modifier to melee weapon damage. -20% at rank 1, -10% at rank 2, 0% at rank 3, +10% at rank 4.
-/singleton/skill/armed_combat
-	name = "Armed Combat"
-	description = "Armed Combat influences your effectiveness when fighting with any melee weapon. Having low ranks in this skill slightly decreases damage dealt with melee weapons, while higher ranks can slightly increase it."
-	maximum_level = SKILL_LEVEL_TRAINED
-	category = /singleton/skill_category/combat
-	subcategory = SKILL_SUBCATEGORY_MELEE
-	component_type = ARMED_COMBAT_SKILL_COMPONENT
-	skill_level_descriptions = alist(
-		SKILL_LEVEL_UNFAMILIAR = "You have no training or experience with armed combat.<br>" \
-			+ " - Your melee attacks deal 20% less damage.",
-		SKILL_LEVEL_FAMILIAR = "You some experience with armed fighting.<br>" \
-			+ " - Your melee attacks deal 10% less damage.",
-		SKILL_LEVEL_TRAINED = "You have both training and actual experience with armed combat, equivalent to several years of armed martial arts instruction.<br>" \
-			+ " - Your melee attacks have no damage modifier from this skill." \
-	)
+	component_type = MELEE_COMBAT_SKILL_COMPONENT
 
 /singleton/skill/firearms
 	name = "Firearms"
@@ -62,26 +56,25 @@
 	component_type = FIREARMS_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have little-to-no knowledge of how firearms work at all, getting unsteadied and inaccurate quickly.<br>" \
-			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
-			+ " - Firearms you shoot count as <b>1 tile further</b> from the target when unsteadied.<br>" \
-			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
-			+ " - You can fire <b>three normal shots</b> before becoming unsteadied for <b>4.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
-			+ " - You have a <b>30% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope (<b>which can also hurt your eye</b>).<br>" \
-			+ " - You're warmed up for <b>10 minutes</b> after firing 18 shots, gaining a 55% chance of firing penalty-free and +3 morale points. This can stack a second time for no fumbling, a 65% chance, double the duration, and <b>+4</b> morale points.<br>",
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied (45 degrees for non-energy), and count as <b>1 tile further</b>.<br>" \
+			+ " - You can fire <b>three normal shots</b> before becoming unsteadied for <b>4.5 seconds</b>; heavy-recoil guns jolt harder while unsteadied.<br>" \
+			+ " - You have a <b>30% chance</b> of fumbling safeties, firing modes, or scopes (<b>which can hurt your eye</b>), a <b>15%–30% chance</b> to drop magazines when unloading, and a <b>20% chance</b> to fumble clearing jams (+5% jam chance).<br>" \
+			+ " - Staying still for 1 second stabilizes for two penalty-free shots. Firing 18 shots warms you up for <b>10 minutes</b> (stacks twice).",
 		SKILL_LEVEL_FAMILIAR = "You have fired a gun once or twice in your life, but are by no means fully trained. At least you know how to not shoot yourself in the foot or get scope-eye.<br>" \
-			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied, making them less accurate. Non-energy firearms have an extra 15-degrees when unsteadied.<br>" \
-			+ " - Firearms you shoot count as <b>0.5 tiles further</b> from the target when unsteadied.<br>" \
-			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two penalty-free shots.<br>" \
-			+ " - You can fire <b>five normal shots</b> before becoming unsteadied for <b>2.5 seconds</b>, where non-stabilized shots all have penalties.<br>" \
-			+ " - You have a <b>15% chance</b> of fumbling to find and switch the safety, toggle firing mode, or use a scope.<br>" \
-			+ " - You're warmed up for <b>15 minutes</b> after firing 18 shots, gaining a <b>55% chance</b> of firing penalty-free and +3 morale points. This can stack a second time for a <b>65% chance</b>, double the duration, and <b>+5</b> morale points.<br>",
-		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms. Equivalent to a few years of experience in roles such as military, police, or armed security.<br>" \
-			+ " - You suffer no skill penalties to firearms use and cannot get unsteadied.<br>" \
-			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points. This can stack a second time for double the duration and <b>+6</b> morale points.",
-		SKILL_LEVEL_PROFESSIONAL = "You have many years of experience with firearms, potentially even in actual combat. Retired special forces, police marksmen, and hardened mercenaries fall under this category.<br>" \
-			+ " - Firearms you shoot count as <b>0.5 tiles closer</b> to the target.<br>" \
-			+ " - You staying still for 1 second after entering a tile with a gun in your active hand stabilizes it for two shots with <i>boosted accuracy</i>, equivalent to being <b>1 tile closer</b> and having a <b>30-degree</b> spread angle <i>decrease</i>.<br>" \
-			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55% chance</b> of firing with <i>boosted accuracy</i> and +3 morale points. This can stack a second time for a <b>65% chance</b>, double the duration, and <b>+7</b> morale points."
+			+ " - Firearms you shoot have a 30-degree spread-angle increase when unsteadied (45 degrees for non-energy), and count as <b>0.5 tiles further</b>.<br>" \
+			+ " - You can fire <b>five normal shots</b> before becoming unsteadied for <b>2.5 seconds</b>.<br>" \
+			+ " - You have a <b>15% chance</b> of fumbling safeties, firing modes, or scopes.<br>" \
+			+ " - Staying still for 1 second stabilizes for two penalty-free shots. Firing 18 shots warms you up for <b>15 minutes</b> (stacks twice).",
+		SKILL_LEVEL_TRAINED = "You have both training and actual experience with firearms, equivalent to military, police, or armed security service.<br>" \
+			+ " - You suffer no skill penalties, never fumble or become unsteadied, clear jams <b>twice as fast</b>, reload faster, and suffer reduced dual-wielding penalties.<br>" \
+			+ " - <b>Tactical Reload:</b> Clicking a loaded gun with a compatible magazine auto-swaps them; use <b>Set Magazine Retention</b> to choose whether swapped/unloaded mags are retained in bags, held, dropped, or tossed.<br>" \
+			+ " - Scoping or staying still while wielding a gun on Harm intent for 5 seconds grants <b>Focused Aim</b> (-15° spread, 0.5 tiles closer on your next shot; 45s cooldown), and you get <b>Last round! / Empty!</b> alerts.<br>" \
+			+ " - You're warmed up for <b>20 minutes</b> after firing 18 shots, gaining +3 morale points (stacks twice for +6).",
+		SKILL_LEVEL_PROFESSIONAL = "You have many years of combat marksmanship experience, such as special forces, SWAT marksmen, or hardened mercenaries.<br>" \
+			+ " - Firearms count as <b>0.5 tiles closer</b>, and stabilizing for 1 second grants two shots at <b>1 tile closer</b> with <b>-30° spread</b>.<br>" \
+			+ " - <b>Snap-Shot:</b> Running on Harm intent for 5 seconds primes your next shot with <b>-15° spread</b> (45s cooldown). <b>Focused Aim</b> (5s stationary on Harm intent, 45s cooldown) grants <b>1.5 tiles closer</b> and <b>-30° spread</b>.<br>" \
+			+ " - <b>Tap-Rack-Bang:</b> You clear any jam in a single action, halve jam chances, quick-load magazines with no delay, and greatly reduce dual-wielding penalties.<br>" \
+			+ " - You're warmed up for <b>25 minutes</b> after firing 18 shots, gaining a <b>55%–65% chance</b> of boosted accuracy and +3 to +7 morale."
 	)
 
 /singleton/skill/leadership
@@ -94,9 +87,13 @@
 	component_type = LEADERSHIP_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no skill with motivational speeches.",
-		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides a bonus of +3.333 morale points to recipients that lasts for 15 minutes.",
-		SKILL_LEVEL_TRAINED = "You gain the \"Deliver Speech\" ability, which provides a bonus of +6.666 morale points to recipients that lasts for 15 minutes.",
-		SKILL_LEVEL_PROFESSIONAL = "You gain the \"Deliver Speech\" ability, which provides a bonus of +10 morale points to recipients that lasts for 15 minutes."
+		SKILL_LEVEL_FAMILIAR = "You gain the \"Deliver Speech\" ability, which provides +3.333 morale points to recipients (1.5x for single-target) for 15 minutes.",
+		SKILL_LEVEL_TRAINED = "Your \"Deliver Speech\" provides +6.666 morale points (1.5x for single-target) for 15 minutes.<br>" \
+			+ " - <b>Second Wind:</b> Single-target speeches also restore 25 stamina and reduce pain shock on the recipient (3 minute cooldown).",
+		SKILL_LEVEL_PROFESSIONAL = "Your \"Deliver Speech\" provides +10 morale points (1.5x for single-target) for 15 minutes, plus Second Wind.<br>" \
+			+ " - Single-target speeches also cleanse the recipient's worst instance of psychic damage.<br>" \
+			+ " - <b>Stand Fast!:</b> Area speeches rally hearers for 90 seconds, suppressing morale panic penalties and reducing stamina drain by 25% (5 minute cooldown).<br>" \
+			+ " - <b>Lead from the Front:</b> Conscious allies in view with your speech moodlet passively recover stamina faster."
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,
@@ -127,18 +124,18 @@
 			+ " - Your heart is 5% more effective at pumping blood.<br>" \
 			+ " - You bleed out 7.5% slower from (non-arterial) wounds.<br>" \
 			+ " - You bleed out 3.75% slower from severed arteries.",
-		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition. <br>" \
+		SKILL_LEVEL_TRAINED = "You take a little bit longer to die while in critical condition, and gain the <b>Self-Triage</b> action.<br>" \
 			+ " - Your 'minimum heart efficiency' when in asystole is increased by 20%.<br>" \
 			+ " - Your blood volume is counted as being +2.5% higher for the purpose of dying thresholds.<br>" \
-			+ " - Your heart is 10% more effective at pumping blood.<br>" \
-			+ " - You bleed out 15% slower from (non-arterial) wounds.<br>" \
-			+ " - You bleed out 7.5% slower from severed arteries.",
-		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition.<br>"\
+			+ " - Your heart is 10% more effective at pumping blood, and resists high-pulse strain.<br>" \
+			+ " - You bleed out 15% slower from (non-arterial) wounds and 7.5% slower from severed arteries.<br>" \
+			+ " - You recover from shock faster and can assess your worst wounds with Self-Triage.",
+		SKILL_LEVEL_PROFESSIONAL = "You take longer to die while in critical condition, and unlock <b>Last Stand</b>.<br>"\
 			+ " - Your 'minimum heart efficiency' when in asystole is increased by 30%.<br>" \
 			+ " - Your blood volume is counted as being +3.75% higher for the purpose of dying thresholds.<br>" \
-			+ " - Your heart is 15% more effective at pumping blood.<br>" \
-			+ " - You bleed out 22.5% slower from (non-arterial) wounds.<br>" \
-			+ " - You bleed out 11.25% slower from severed arteries.",
+			+ " - Your heart is 15% more effective at pumping blood, and resists high-pulse strain.<br>" \
+			+ " - You bleed out 22.5% slower from (non-arterial) wounds and 11.25% slower from severed arteries.<br>" \
+			+ " - <b>Last Stand:</b> Once every 15 minutes, hitting critical shock (or using Self-Triage at high shock) buys a 20-second grace window that clamps shock below blackout, stabilizes your pulse, and restores 15 stamina.",
 	)
 	/// Alternate skill level descriptions displayed when configuring an IPC character.
 	var/alist/ipc_skill_level_descriptions = alist(
@@ -147,14 +144,15 @@
 			+ " - The cooldown between low-integrity organ failure events is increased by 10 seconds.<br>" \
 			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 3 seconds.<br>" \
 			+ " - Your internal organs have +10% maximum wiring and electronics integrity.",
-		SKILL_LEVEL_TRAINED = "Your internal components are a little bit more resistant to cascading failure.<br>" \
+		SKILL_LEVEL_TRAINED = "Your internal components are a little bit more resistant to cascading failure, and you gain the <b>System Diagnostic</b> action.<br>" \
 			+ " - The cooldown between low-integrity organ failure events is increased by 20 seconds.<br>" \
 			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 6 seconds.<br>" \
 			+ " - Your internal organs have +20% maximum wiring and electronics integrity.",
-		SKILL_LEVEL_PROFESSIONAL = "Your internal components are more resistant to cascading failure.<br>" \
+		SKILL_LEVEL_PROFESSIONAL = "Your internal components are more resistant to cascading failure, and unlock <b>Fail-Safe Kernel</b>.<br>" \
 			+ " - The cooldown between low-integrity organ failure events is increased by 30 seconds.<br>" \
 			+ " - Your positronic brain's automatic neural pathway patching cooldown is reduced by 9 seconds.<br>" \
-			+ " - Your internal organs have +30% maximum wiring and electronics integrity.",
+			+ " - Your internal organs have +30% maximum wiring and electronics integrity.<br>" \
+			+ " - <b>Fail-Safe Kernel:</b> Once every 15 minutes, an impending internal failure (or using System Diagnostic while damaged) locks out cascading organ failures for 20 seconds and triggers an immediate neural pathway patch.",
 	)
 	skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,

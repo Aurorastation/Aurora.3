@@ -1301,6 +1301,7 @@
 
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
+		SEND_SIGNAL(src, COMSIG_HUMAN_SHOCK_CHECK, &shock_stage, null)
 	else if (!is_asystole)
 		shock_stage = min(shock_stage, 160)
 		var/recovery = 1
@@ -1308,6 +1309,7 @@
 			recovery++
 		if(traumatic_shock < 0.25 * shock_stage)
 			recovery++
+		SEND_SIGNAL(src, COMSIG_HUMAN_SHOCK_CHECK, &shock_stage, &recovery)
 		shock_stage = max(shock_stage - recovery, 0)
 		return
 

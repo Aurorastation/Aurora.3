@@ -365,6 +365,8 @@
 					// Skill difference will be negative if the opponent is stronger than us.
 					if(skill_difference < 0)
 						disarm_cost = max(0, disarm_cost - (skill_difference * 5))
+						if(attacker_skill_level <= SKILL_LEVEL_UNFAMILIAR)
+							M.balloon_alert(M, "Clumsy shove!")
 					M.stamina = clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				else if(M.max_stamina <= 0)
 					disarm_cost = M.max_nutrition / 6

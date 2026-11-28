@@ -37,8 +37,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/unarmed_combat = SKILL_LEVEL_TRAINED,
-		/singleton/skill/armed_combat = SKILL_LEVEL_TRAINED,
+		/singleton/skill/melee_combat = SKILL_LEVEL_TRAINED,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/conditioning = SKILL_LEVEL_FAMILIAR
 	)
@@ -62,7 +61,7 @@
 	skills = list(
 		/* Significantly worse combat skills than other security educations, though not so bad they'll footgun themselves.
 			Alternatively, this is a plausible though less specialized alternative for paramedic training, as is common in real life. */
-		/singleton/skill/armed_combat = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/melee_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/surgery = SKILL_LEVEL_FAMILIAR, /* Only enough to repair an artery. */
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR,
@@ -85,7 +84,7 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 	skills = list(
-		/singleton/skill/unarmed_combat = SKILL_LEVEL_FAMILIAR,
+		/singleton/skill/melee_combat = SKILL_LEVEL_FAMILIAR,
 		/singleton/skill/firearms = SKILL_LEVEL_TRAINED,
 		/singleton/skill/forensics = SKILL_LEVEL_FAMILIAR, /* Very basic crime investigation skills. */
 		/singleton/skill/medicine = SKILL_LEVEL_FAMILIAR, /* Police are also trained in basic first aid. */

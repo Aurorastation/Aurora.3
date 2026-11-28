@@ -468,6 +468,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG) && SG.w_class <= w_class)
 			var/decreased_accuracy = SG.w_class - SG.offhand_accuracy
+			SEND_SIGNAL(user, COMSIG_GUN_OFFHAND_ACCURACY, SG, &decreased_accuracy)
 			addtimer(CALLBACK(SG, PROC_REF(fire_gun), target, user, clickparams, pointblank, FALSE, decreased_accuracy, TRUE), 1)
 
 	/// The amount of extra degrees of firing arc the gun will have from the effects of a signal raised on the user.
@@ -561,7 +562,7 @@ ABSTRACT_TYPE(/obj/item/gun)
 
 //called after successfully firing
 /obj/item/gun/proc/post_fire(mob/user, atom/target, var/pointblank = FALSE, var/announce_reflex = FALSE)
-	SEND_SIGNAL(user, COMSIG_GUN_FIRED)
+	SEND_SIGNAL(user, COMSIG_GUN_FIRED, src)
 	play_fire_sound()
 	if(!suppressed)
 		if(user && announce_reflex)

@@ -168,6 +168,26 @@
 	morale_points += input
 	UPDATE_MORALE
 
+/// Removes the most negative moodlet (worst instance of psychic damage) and updates morale points.
+/datum/component/morale/proc/cleanse_worst_negative_moodlet()
+	var/datum/moodlet/worst = null
+	var/worst_val = 0
+	for (var/datum/moodlet/moodlet as anything in moodlets)
+		if (QDELING(moodlet))
+			continue
+		var/val = moodlet.get_morale_modifier()
+		if (val < worst_val)
+			worst = moodlet
+			worst_val = val
+
+	if (!worst)
+		return FALSE
+
+	add_morale_points(-worst_val)
+	moodlets.Remove(worst)
+	qdel(worst, TRUE)
+	return TRUE
+
 /// Returns the "B" constant for the morale component's internal equation.
 /datum/component/morale/proc/get_beta_value()
 	return beta_value
@@ -300,14 +320,20 @@
 	SIGNAL_HANDLER
 	*power = *power * (1 + (melee_damage_contribution * morale_ratio))
 
+/datum/component/morale/proc/is_panic_suppressed()
+	return !isnull(locate(/datum/moodlet/leadership_rally) in moodlets)
+
 /// Increases gun accuracy with positive morale. Psi-panic from negative morale makes it much worse.
 /datum/component/morale/proc/handle_accuracy(mob/shooter, accuracy_decrease, dispersion_increase, obj/item/gun/bang)
 	SIGNAL_HANDLER
 	var/effective_morale = morale_ratio
 	if (effective_morale < 0)
-		effective_morale *= psi_panic_effect_modifier
-		if (prob(25)) // Don't spam it for every shot
-			to_chat(shooter, SPAN_WARNING("The pressure on your mind makes it hard to aim properly..."))
+		if (is_panic_suppressed())
+			effective_morale = 0
+		else
+			effective_morale *= psi_panic_effect_modifier
+			if (prob(25)) // Don't spam it for every shot
+				to_chat(shooter, SPAN_WARNING("The pressure on your mind makes it hard to aim properly..."))
 
 	*accuracy_decrease = *accuracy_decrease - firearm_accuracy_contribution * effective_morale
 	*dispersion_increase = *dispersion_increase - firearm_dispersion_contribution * effective_morale
@@ -316,7 +342,7 @@
 /datum/component/morale/proc/gun_fumble(mob/shooter, obj/item/gun/shoota, cancelled)
 	SIGNAL_HANDLER
 	// Up to 50% chance to fumble a safety or firing mode when in a psionically-induced panic.
-	if (morale_points >= 0 || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))
+	if (morale_points >= 0 || is_panic_suppressed() || !prob(floor(5 * panic_chance_ceiling * -morale_ratio)))
 		return
 
 	*cancelled = TRUE
@@ -358,7 +384,7 @@
 	if (parent != user)
 		return
 
-	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
+	if (morale_points < 0 && !is_panic_suppressed() && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
 			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))
@@ -381,7 +407,7 @@
 	if (parent != user)
 		return
 
-	if (morale_points < 0 && prob(floor(panic_chance_ceiling * -morale_ratio)))
+	if (morale_points < 0 && !is_panic_suppressed() && prob(floor(panic_chance_ceiling * -morale_ratio)))
 		user.visible_message(
 			SPAN_DANGER("\The [user] fumbles with their mech's controls in a blind panic!"),
 			SPAN_DANGER("You fumble with your mech's controls in a blind panic!"))

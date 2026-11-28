@@ -1,8 +1,7 @@
 #define COMSIG_BASENAME_RENAME "base_name_rename"
 #define COMSIG_BASENAME_SETNAME "base_name_setname"
-#define ARMED_COMBAT_SKILL_COMPONENT /datum/component/skill/armed_combat
 #define FIREARMS_SKILL_COMPONENT /datum/component/skill/firearms
-#define UNARMED_COMBAT_SKILL_COMPONENT /datum/component/skill/unarmed_combat
+#define MELEE_COMBAT_SKILL_COMPONENT /datum/component/skill/melee_combat
 #define PILOT_MECHS_SKILL_COMPONENT /datum/component/skill/pilot_mechs
 #define PILOT_SPACECRAFT_SKILL_COMPONENT /datum/component/skill/pilot_spacecraft
 #define ROBOTICS_SKILL_COMPONENT /datum/component/skill/robotics

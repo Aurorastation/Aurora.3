@@ -214,7 +214,10 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 	if(!..())
 		return FALSE
 	if(!jam_num && jam_chance && (persistent_chamber ? !QDELETED(chambered?.BB) : get_ammo()))
-		if(prob(jam_chance))
+		var/effective_jam_chance = jam_chance
+		if(user)
+			SEND_SIGNAL(user, COMSIG_GUN_JAM_CHECK, src, &effective_jam_chance)
+		if(effective_jam_chance > 0 && prob(effective_jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			balloon_alert(user, "jammed!")
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
@@ -284,13 +287,29 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		switch(AM.mag_type)
 			if(MAGAZINE)
 				if(ammo_magazine)
-					to_chat(user,SPAN_WARNING("[src] already has a magazine loaded.")) //already a magazine here
-					return
-				user.remove_from_mob(AM)
-				AM.forceMove(src)
-				ammo_magazine = AM
-				user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
-				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+					var/tactical_reload = FALSE
+					var/retention_mode = MAG_RETENTION_HOLD
+					if(user)
+						SEND_SIGNAL(user, COMSIG_GUN_TACTICAL_RELOAD, src, AM, &tactical_reload, &retention_mode)
+					if(!tactical_reload)
+						to_chat(user,SPAN_WARNING("[src] already has a magazine loaded.")) //already a magazine here
+						return
+					var/obj/item/ammo_magazine/old_mag = ammo_magazine
+					user.remove_from_mob(AM)
+					AM.forceMove(src)
+					ammo_magazine = AM
+					dispose_ejected_magazine(old_mag, user, retention_mode)
+					old_mag.update_icon()
+					playsound(src.loc, old_mag.eject_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
+					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+					user.visible_message("[user] tactically swaps [old_mag] for [AM] in [src]!", SPAN_NOTICE("You tactically swap [old_mag] for [AM] in [src]!"))
+					balloon_alert(user, "Tactical reload!")
+				else
+					user.remove_from_mob(AM)
+					AM.forceMove(src)
+					ammo_magazine = AM
+					user.visible_message("[user] inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
+					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= internal_capacity)
 					to_chat(user,SPAN_WARNING("[src] is full!"))
@@ -327,14 +346,34 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()
+	if(user)
+		SEND_SIGNAL(user, COMSIG_GUN_LOAD, src, A)
+
+/obj/item/gun/projectile/proc/dispose_ejected_magazine(obj/item/ammo_magazine/mag, mob/user, retention_mode)
+	switch(retention_mode)
+		if(MAG_RETENTION_DROP)
+			mag.forceMove(get_turf(src))
+		if(MAG_RETENTION_TOSS)
+			var/turf/T = get_turf(src)
+			mag.forceMove(T)
+			if(T)
+				var/turf/target_turf = get_edge_target_turf(T, pick(GLOB.alldirs))
+				mag.throw_at(target_turf, rand(2, 4), 1, user)
+		if(MAG_RETENTION_RETAIN)
+			if(!user?.equip_to_storage(mag))
+				user?.put_in_hands(mag)
+		else
+			user?.put_in_hands(mag)
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
+	var/retention_mode = MAG_RETENTION_HOLD
+	if(user)
+		SEND_SIGNAL(user, COMSIG_GUN_UNLOAD, src, &drop_mag, &retention_mode)
+	if(drop_mag)
+		retention_mode = MAG_RETENTION_DROP
 	if(ammo_magazine)
-		if(drop_mag)
-			ammo_magazine.forceMove(get_turf(src))
-		else
-			user.put_in_hands(ammo_magazine)
+		dispose_ejected_magazine(ammo_magazine, user, retention_mode)
 		balloon_alert_to_viewers("magazine ejected!")
 		playsound(src.loc, ammo_magazine.eject_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 		ammo_magazine.update_icon()
@@ -397,8 +436,15 @@ ABSTRACT_TYPE(/obj/item/gun/projectile)
 
 /obj/item/gun/projectile/toggle_firing_mode(mob/user)
 	if(jam_num)
+		var/clear_amount = 1
+		var/cancelled = FALSE
+		if(user)
+			SEND_SIGNAL(user, COMSIG_GUN_UNJAM_ATTEMPT, src, &clear_amount, &cancelled)
+		if(cancelled)
+			playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
+			return
 		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
-		jam_num--
+		jam_num = max(0, jam_num - clear_amount)
 		if(!jam_num)
 			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"), visible_message_flags = LOCAL_MESSAGE)
 			balloon_alert(user, SPAN_GREEN("CLEAR"))

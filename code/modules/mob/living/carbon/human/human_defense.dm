@@ -232,6 +232,12 @@ emp_act
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]") != BULLET_ACT_HIT)
 		return
 
+	if(I.force > 0 && !istype(I, /obj/item/gun))
+		var/parried = FALSE
+		SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_PARRY_CHECK, I, user, &parried)
+		if(parried)
+			return
+
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
 		to_chat(user, SPAN_DANGER("They are missing that limb!"))
