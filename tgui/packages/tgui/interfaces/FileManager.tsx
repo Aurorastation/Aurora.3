@@ -12,7 +12,7 @@ import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 import TextEditor from './common/TextEditor';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Screen constants (must match DM defines)
 const FMS_FILEBROWSER = 0;
@@ -29,6 +29,8 @@ type FileData = {
   script_data: string;
   file_data: string;
   file_desc: string;
+  file_editable: BooleanLike;
+  file_image?: string;
   file_is_usb: BooleanLike;
   file_name: string;
   files: File[];
@@ -139,7 +141,10 @@ export const FileBrowser = (props) => {
               ) : (
               <Button
                 content= {file.password? "Decrypt" : "Encrypt"}
-                onClick={() => {setEncrypting(true), setFileEncrypt(file.name)}}
+                onClick={() => {
+                  setEncrypting(true);
+                  setFileEncrypt(file.name);
+                }}
               />
               )}
               {data.usb_connected ? (
@@ -216,7 +221,7 @@ export const ShowFile = (props) => {
           <Button
             content="Edit"
             icon="pen-to-square"
-            disabled={data.file_is_usb}
+            disabled={data.file_is_usb || !data.file_editable}
             onClick={() => act('set_screen', { screen: FMS_EDIT })}
           />{' '}
           <Button
@@ -237,7 +242,16 @@ export const ShowFile = (props) => {
       ) : <>
       {data.file_desc ? <> {data.file_desc}
       <Divider /> </>  : ''}
-      <Box dangerouslySetInnerHTML={contentHtml} />
+      {data.file_image ? (
+        <Box textAlign="center">
+          <img
+            src={`data:image/png;base64,${data.file_image}`}
+            style={{ imageRendering: 'pixelated', maxWidth: '100%' }}
+          />
+        </Box>
+      ) : (
+        <Box dangerouslySetInnerHTML={contentHtml} />
+      )}
       </>}
 
     </Section>

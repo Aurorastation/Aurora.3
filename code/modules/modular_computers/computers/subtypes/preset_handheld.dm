@@ -167,6 +167,7 @@
 
 /obj/item/modular_computer/handheld/preset/security/detective
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
+	default_hard_drive_type = /obj/item/computer_hardware/hard_drive
 
 /obj/item/modular_computer/handheld/preset/security/detective/Initialize()
 	. = ..()

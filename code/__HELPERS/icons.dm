@@ -882,7 +882,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 
 	//Lines below actually render all collected data
 	atoms = sort_atoms_by_layer(atoms)
-	var/icon/cap = icon('icons/effects/96x96.dmi', "")
+	var/icon/cap = icon('icons/blanks/32x32.dmi', "nothing", SOUTH, 1)
 	cap.Scale(range*32, range*32)
 	cap.Blend("#000", ICON_OVERLAY)
 	for(var/atom/A in atoms)
@@ -892,12 +892,14 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 			if(istype(T) && length(T.decals))
 				var/image/turf_without_decals = image(T)
 				turf_without_decals.overlays -= T.decals
-				img = getFlatIcon(turf_without_decals)
+				img = getFlatIcon(turf_without_decals, no_anim = TRUE)
 				for(var/image/decal as anything in T.decals)
-					var/icon/decal_icon = getFlatIcon(decal)
+					var/icon/decal_icon = getFlatIcon(decal, no_anim = TRUE)
 					img.Blend(decal_icon, blendMode2iconMode(decal.blend_mode), decal.pixel_x + 1, decal.pixel_y + 1)
 			else
-				img = getFlatIcon(A)
+				// Photographs are still images. Flatten animated atoms to one frame so
+				// blending them cannot turn the capture into a sprite sheet.
+				img = getFlatIcon(A, no_anim = TRUE)
 			if(istype(img, /icon))
 				if(istype(A, /mob/living))
 					var/mob/living/L = A
