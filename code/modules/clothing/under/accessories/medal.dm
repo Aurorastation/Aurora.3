@@ -1,5 +1,6 @@
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	desc = "A bronze medal."
 	icon = 'icons/obj/item/clothing/accessory/medals.dmi'
 	icon_state = "bronze"

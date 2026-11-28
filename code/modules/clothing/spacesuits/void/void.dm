@@ -263,7 +263,7 @@
 
 	if(!istype(user,/mob/living)) return
 
-	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/hand_labeler))
+	if(istype(attacking_item, /obj/item/clothing/accessory) || istype(attacking_item, /obj/item/radio/headset/wrist/clip) || istype(attacking_item, /obj/item/hand_labeler))
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)

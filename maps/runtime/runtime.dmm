@@ -4607,10 +4607,10 @@
 /area/runtime/floor_one/atmospherics)
 "wu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/machinery/telecomms/server/presets/common,
 /obj/structure/machinery/status_display{
 	pixel_y = 32
 	},
+/obj/structure/machinery/telecomms/server/presets/common,
 /turf/simulated/floor/tiled/techfloor,
 /area/runtime/floor_two/comms)
 "wy" = (

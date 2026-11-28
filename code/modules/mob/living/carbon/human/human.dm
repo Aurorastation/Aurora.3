@@ -445,6 +445,9 @@
 		dat += "<BR><A href='byond://?src=[REF(src)];item=tank'>Check air tank</A>"
 	if(suit && LAZYLEN(suit.accessories))
 		dat += "<BR><A href='byond://?src=[REF(src)];item=tie'>Remove accessory</A>"
+	var/obj/item/clothing/suit/outerwear = wear_suit
+	if(suit?.attached_radio || outerwear?.attached_radio)
+		dat += "<BR><A href='byond://?src=[REF(src)];item=radio'>Strip radio</A>"
 	dat += "<BR><A href='byond://?src=[REF(src)];item=splints'>Remove splints</A>"
 	dat += "<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty pockets</A>"
 	dat += species.get_strip_info("[REF(src)]")

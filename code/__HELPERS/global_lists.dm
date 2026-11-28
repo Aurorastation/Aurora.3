@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(pdalist, list("Nothing", "Standard PDA", "Classic PDA", "Rugged
 GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Double Headset", "Wristbound Radio", "Sleek Wristbound Radio", "Clip-on Radio"))
 
 /// Primary Radio Slot loadout choices.
-GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
+GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist", "Uniform", "Outerwear"))
 
 /// Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())

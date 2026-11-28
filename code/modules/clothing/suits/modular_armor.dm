@@ -8,7 +8,7 @@
 	blood_overlay_type = "armor"
 	w_class = WEIGHT_CLASS_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_RADIO)
 	pockets = null
 	movement_sounds = SFX_LIGHT_ARMOUR_FOOTSTEPS
 	movement_sound_volume = 10
@@ -163,6 +163,7 @@
 	)
 
 /obj/item/clothing/accessory/armor_plate
+	examine_group = ACCESSORY_EX_GROUP_ARMOR
 	name = "corporate armor plate"
 	desc = "A particularly light-weight armor plate in stylish corporate black. Unfortunately, not very good if you hold it with your hands."
 	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor.dmi'
@@ -547,6 +548,7 @@
 //Cosmetic Accessories
 
 /obj/item/clothing/accessory/sec_commander_stripes
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "head of security stripes"
 	desc = "A set of high visibility inserts for use in armour. This one declares the wearer as a Head of Security."
 	icon = 'icons/obj/item/clothing/accessory/armor/modular_armor_accessories.dmi'
@@ -557,6 +559,7 @@
 	flippable = FALSE
 
 /obj/item/clothing/accessory/flagpatch
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	name = "flagpatch"
 	desc = "A simple strip of fabric attached to a vest or helmet typically used to denote the wearer's \
 	organization or nationality."

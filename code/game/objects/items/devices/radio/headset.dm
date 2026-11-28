@@ -37,8 +37,13 @@
 	recalculateChannels(TRUE)
 	possibly_deactivate_in_loc()
 
-/obj/item/radio/headset/proc/possibly_deactivate_in_loc()
+/obj/item/radio/headset/proc/get_radio_wearer()
 	if(ismob(loc))
+		return loc
+	return null
+
+/obj/item/radio/headset/proc/possibly_deactivate_in_loc()
+	if(get_radio_wearer())
 		set_listening(should_be_listening)
 	else
 		set_listening(FALSE, actual_setting = FALSE)
@@ -83,8 +88,8 @@
 /obj/item/radio/headset/can_receive(input_frequency, level, aiOverride = FALSE)
 	if (aiOverride)
 		return ..(input_frequency, level)
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
+	var/mob/living/carbon/human/H = get_radio_wearer()
+	if(istype(H))
 		if(H.l_ear == src || H.r_ear == src)
 			return ..(input_frequency, level)
 	if(!EarSound)
@@ -248,26 +253,68 @@
 	icon = 'icons/obj/item/radio/headset_clip.dmi'
 	icon_state = "clip"
 	item_state = "clip"
-	slot_flags = SLOT_WRISTS | SLOT_EARS
+	slot_flags = SLOT_WRISTS | SLOT_EARS | SLOT_TIE
+	/// The uniform or outerwear this radio is currently clipped to.
+	var/obj/item/clothing/attached_clothing
 
-/obj/item/radio/headset/wrist/clip/verb/flip_radio()
-	set category = "Object.Equipped"
-	set name = "Flip Radio"
-	set src in usr
+/obj/item/radio/headset/wrist/clip/get_radio_wearer()
+	if(attached_clothing && ishuman(attached_clothing.loc))
+		var/mob/living/carbon/human/H = attached_clothing.loc
+		if(H.w_uniform == attached_clothing || H.wear_suit == attached_clothing)
+			return H
+	return ..()
 
+/obj/item/radio/headset/wrist/clip/ui_host(mob/user)
+	if(attached_clothing)
+		return attached_clothing
+	return ..()
+
+/obj/item/radio/headset/wrist/clip/Moved(atom/old_loc, forced)
+	if(attached_clothing && loc != attached_clothing)
+		var/obj/item/clothing/old_clothing = attached_clothing
+		attached_clothing = null
+		if(old_clothing.attached_radio == src)
+			old_clothing.attached_radio = null
+			old_clothing.verbs -= /obj/item/clothing/proc/remove_attached_radio_verb
+			old_clothing.verbs -= /obj/item/clothing/proc/configure_attached_radio_verb
+			old_clothing.verbs -= /obj/item/clothing/proc/flip_attached_radio_verb
+			old_clothing.update_clothing_icon()
+	return ..()
+
+/obj/item/radio/headset/wrist/clip/Destroy()
+	if(attached_clothing?.attached_radio == src)
+		attached_clothing.attached_radio = null
+		attached_clothing.verbs -= /obj/item/clothing/proc/remove_attached_radio_verb
+		attached_clothing.verbs -= /obj/item/clothing/proc/configure_attached_radio_verb
+		attached_clothing.verbs -= /obj/item/clothing/proc/flip_attached_radio_verb
+		if(!QDELETED(attached_clothing))
+			attached_clothing.update_clothing_icon()
+	attached_clothing = null
+	return ..()
+
+/obj/item/radio/headset/wrist/clip/proc/flip_attached_side(mob/user)
 	if(item_state == initial(item_state))
 		item_state = "[initial(item_state)]_r"
 	else
 		item_state = initial(item_state)
-	to_chat(usr, SPAN_NOTICE("\The [src] will now be worn on your [(item_state == initial(item_state)) ? "left" : "right"] side."))
-	if (ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
+	to_chat(user, SPAN_NOTICE("\The [src] will now be worn on your [(item_state == initial(item_state)) ? "left" : "right"] side."))
+	if(attached_clothing)
+		attached_clothing.update_clothing_icon()
+	else if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
 		if(H.wrists == src)
 			H.update_inv_wrists()
 		else if(H.l_ear == src)
 			H.update_inv_l_ear()
 		else if(H.r_ear == src)
 			H.update_inv_r_ear()
+
+/obj/item/radio/headset/wrist/clip/verb/flip_radio()
+	set category = "Object.Equipped"
+	set name = "Flip Radio"
+	set src in usr
+
+	flip_attached_side(usr)
 
 /obj/item/radio/headset/wrist/clip/get_wrist_examine_text(mob/living/carbon/human/user)
 	if(!istype(user))

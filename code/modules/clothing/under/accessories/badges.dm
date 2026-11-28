@@ -6,6 +6,7 @@
 
 /obj/item/clothing/accessory/badge
 	name = "badge"
+	examine_group = ACCESSORY_EX_GROUP_INSIGNIA
 	desc = "A corporate security badge, made from gold and set on false leather."
 	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "badge"

@@ -54,6 +54,34 @@
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				toggle_internals(user)
 			return 1
+		if("radio")
+			var/obj/item/clothing/under/uniform = w_uniform
+			var/obj/item/clothing/suit/outerwear = wear_suit
+			var/list/attached_radios = list()
+			if(uniform?.attached_radio)
+				attached_radios += uniform.attached_radio
+			if(outerwear?.attached_radio)
+				attached_radios += outerwear.attached_radio
+			var/obj/item/radio/headset/wrist/clip/radio
+			if(LAZYLEN(attached_radios) > 1)
+				var/list/options = list()
+				for(var/obj/item/radio/headset/wrist/clip/attached_radio as anything in attached_radios)
+					options[attached_radio] = image(icon = attached_radio.icon, icon_state = attached_radio.icon_state)
+				radio = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+			else
+				radio = attached_radios[1]
+			if(!radio)
+				return 0
+			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s [radio.name]!"))
+			if(!do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
+				return 0
+			var/obj/item/clothing/radio_clothing = radio.attached_clothing
+			if(!radio_clothing || radio_clothing.loc != src || radio_clothing.attached_radio != radio)
+				return 0
+			attack_log += "\[[time_stamp()]\] <font color='orange'>Has had \the [radio] removed by [user.name] ([user.ckey])</font>"
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to remove [name]'s ([ckey]) [radio.name]</span>"
+			radio_clothing.remove_attached_radio(user)
+			return 1
 		if("tie")
 			var/obj/item/clothing/under/suit = w_uniform
 			if(!istype(suit) || !LAZYLEN(suit.accessories))
@@ -61,7 +89,7 @@
 			var/obj/item/clothing/accessory/A
 			if(LAZYLEN(suit.accessories) > 1)
 				var/list/options = list()
-				for (var/obj/item/clothing/accessory/i in suit.accessories)
+				for(var/obj/item/clothing/accessory/i in suit.accessories)
 					var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
 					options[i] = radial_button
 				A = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
