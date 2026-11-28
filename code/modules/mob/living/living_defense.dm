@@ -355,11 +355,11 @@
 	src.embedded += O
 	add_verb(src, /mob/proc/yank_out_object)
 
-///This is called when the mob is thrown into a dense turf
+/// Called when a thrown mob hits a dense turf or an anchored solid object.
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message(SPAN_DANGER("[src] slams into \the [T]!"))
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
-	apply_damage(speed*5, DAMAGE_BRUTE)
+	apply_damage(speed * (iswall(T) ? 5 : 2.5), DAMAGE_BRUTE)
 
 /mob/living/proc/near_wall(var/direction,var/distance=1)
 	var/turf/T = get_step(get_turf(src),direction)
