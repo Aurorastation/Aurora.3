@@ -19,7 +19,8 @@
 	if(H.ability_master)
 		var/obj/spellbutton/spell = new(H, spell_path, name, icon_state)
 		H.ability_master.add_psionic_ability(spell, icon_state, src, H)
-		H.psi.psionic_powers |= type
+		if(H.psi)
+			H.psi.psionic_powers |= type
 		return TRUE
 	else
 		log_debug("Psionic power [src.name] given to mob [H] without ability master!")
