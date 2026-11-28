@@ -35,29 +35,30 @@
 	..()
 
 /mob/living/carbon/human/proc/escape_jacket()
+	var/stage_delay = get_conditioning_action_delay(1.5 MINUTES)
 	visible_message(
 		SPAN_DANGER("\The [src] attempts to escape [wear_suit]!"),
-		SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)")
+		SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around [round((stage_delay * 4) / (1 MINUTE), 0.5)] minutes and you need to stand still)")
 		)
-	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
+	if (!do_after(src, stage_delay, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_WARNING("\The [src] is shifting in their [wear_suit]!"),
 			SPAN_WARNING("You start to loosen the [wear_suit].")
 		)
-	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
+	if (!do_after(src, stage_delay, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving in their [wear_suit]!"),
 			SPAN_WARNING("You slip one of your arms out of the [wear_suit].")
 		)
-	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
+	if (!do_after(src, stage_delay, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!"),
 			SPAN_WARNING("You start to pull loose the straps on the straightjacket[wear_suit].")
 		)
-	if (do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
+	if (do_after(src, stage_delay, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		var/obj/ex_suit = wear_suit
 		remove_from_mob(wear_suit)
 		ex_suit.forceMove(get_turf(src))
@@ -85,6 +86,7 @@
 	if(buckled_to)
 		breakouttime += 600 //If you are buckled_to, it takes a minute longer, but you are unbuckled and uncuffed instantly
 
+	breakouttime = get_conditioning_action_delay(breakouttime)
 	displaytime = breakouttime / 600 //Minutes
 
 	var/mob/living/carbon/human/H = src
@@ -96,7 +98,7 @@
 	var/violent_removal = 0
 	if(a_intent == I_HURT)
 		violent_removal = 1
-		breakouttime = rand(450,600)
+		breakouttime = get_conditioning_action_delay(rand(450, 600))
 		visible_message(
 			SPAN_DANGER("\The [src] attempts to break out of \the [HC]!"),
 			SPAN_WARNING("You attempt to break out of \the [HC]. (This will take around 1 minute and you need to stand still)")
@@ -154,7 +156,8 @@
 	//If you are legcuffed with actual legcuffs... Well what do I know, maybe someone will want to legcuff you with toilet paper in the future...
 	if(istype(HC))
 		breakouttime = HC.breakouttime
-		displaytime = breakouttime / 600 //Minutes
+	breakouttime = get_conditioning_action_delay(breakouttime)
+	displaytime = breakouttime / 600 //Minutes
 
 	visible_message(
 		SPAN_DANGER("[usr] attempts to remove \the [HC]!"),

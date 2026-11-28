@@ -36,7 +36,9 @@ ABSTRACT_TYPE(/obj/item/package)
 		return FALSE
 	return TRUE
 
-/obj/item/package/too_heavy_to_throw()
+/obj/item/package/too_heavy_to_throw(mob/user)
+	if(user && user.get_lift_capacity() >= get_effective_mass())
+		return FALSE
 	return TRUE
 
 /// Large packages need both hands unless the carrier can comfortably lift twice their mass.

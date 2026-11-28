@@ -52,7 +52,9 @@
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/suit_cooling_unit, /obj/item/tank)
-	slowdown = 0.4
+	slowdown = 0
+	mass = 85
+	mass_based_slowdown = TRUE
 	armor = list(
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
@@ -67,6 +69,8 @@
 	protects_against_weather = TRUE
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
+	/// Effective mass multiplier derived from the species this suit is fitted for.
+	var/fitted_mass_modifier = 1
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
@@ -74,6 +78,29 @@
 
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
+	update_fitted_mass_modifier()
+
+/obj/item/clothing/suit/space/refit_for_species(var/target_species)
+	. = ..()
+	update_fitted_mass_modifier(target_species)
+
+/obj/item/clothing/suit/space/get_effective_mass()
+	return ..() * fitted_mass_modifier
+
+/obj/item/clothing/suit/space/proc/update_fitted_mass_modifier(var/target_species)
+	if(!target_species)
+		if(!length(species_restricted) || species_restricted[1] == "exclude" || (BODYTYPE_HUMAN in species_restricted))
+			fitted_mass_modifier = 1
+			return
+		target_species = species_restricted[1]
+	var/datum/species/S = GLOB.all_species[target_species]
+	if(!S)
+		for(var/species_name in GLOB.all_species)
+			var/datum/species/candidate = GLOB.all_species[species_name]
+			if(candidate.bodytype == target_species)
+				S = candidate
+				break
+	fitted_mass_modifier = S ? S.mass_modifier : 1
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()
@@ -122,7 +149,7 @@
 	icon_state = "softsuit_emergency"
 	item_state = "softsuit_emergency"
 	contained_sprite = TRUE
-	slowdown = 1
+	slowdown = 0.6
 
 /obj/item/clothing/suit/space/emergency/marooning_equipment
 	name = "marooning softsuit"

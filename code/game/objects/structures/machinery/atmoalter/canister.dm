@@ -9,6 +9,7 @@
 	should_use_health = FALSE
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
+	mass = 150
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -38,6 +39,11 @@
 
 /obj/structure/machinery/portable_atmospherics/canister/drain_power()
 	return -1
+
+/obj/structure/machinery/portable_atmospherics/canister/get_effective_mass()
+	. = ..()
+	if(air_contents)
+		. += air_contents.get_mass()
 
 /obj/structure/machinery/portable_atmospherics/canister/sleeping_agent
 	name = "\improper Nitrous Oxide \[N2O\]"

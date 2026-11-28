@@ -6,18 +6,25 @@
 	 * This is done by making the game situationally treat the character's mass as a larger number.
 	 **/
 	var/bonus_mass_per_rank = 0.25
+	/// Slip chance reduction per rank above Unfamiliar.
+	var/slip_reduction_per_rank = 0.1
 
 /datum/component/skill/conditioning/Initialize(level)
 	. = ..()
 	RegisterSignal(parent, COMSIG_GET_EFFECTIVE_MASS, PROC_REF(get_mass_modifiers), override = TRUE)
+	RegisterSignal(parent, COMSIG_GET_SLIP_MODIFIERS, PROC_REF(get_slip_modifiers), override = TRUE)
 
 /datum/component/skill/conditioning/Destroy(force)
-	UnregisterSignal(parent, COMSIG_GET_EFFECTIVE_MASS)
+	UnregisterSignal(parent, list(COMSIG_GET_EFFECTIVE_MASS, COMSIG_GET_SLIP_MODIFIERS))
 	return ..()
 
 /datum/component/skill/conditioning/proc/get_mass_modifiers(atom/movable/owner, effective_mass)
 	SIGNAL_HANDLER
 	*effective_mass = *effective_mass * (1 + (bonus_mass_per_rank * (skill_level - 1)))
+
+/datum/component/skill/conditioning/proc/get_slip_modifiers(atom/movable/owner, prob_slip)
+	SIGNAL_HANDLER
+	*prob_slip = *prob_slip * (1 - (slip_reduction_per_rank * (skill_level - 1)))
 
 /// Returns Conditioning directly as a rank, without applying species strength or equipment modifiers.
 /mob/proc/get_conditioning_skill_level()

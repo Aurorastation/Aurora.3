@@ -6,6 +6,7 @@ ABSTRACT_TYPE(/obj/item/clothing/accessory/storage)
 	var/slots = 3
 	var/obj/item/storage/internal/hold
 	w_class = WEIGHT_CLASS_NORMAL
+	mass = 5
 
 /obj/item/clothing/accessory/storage/Initialize()
 	. = ..()
