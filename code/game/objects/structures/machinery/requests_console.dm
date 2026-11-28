@@ -308,7 +308,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/structure/machinery/requests_console, l
 	next_paper_alert = world.time + 10 MINUTES
 	playsound(loc, 'sound/machines/twobeep.ogg', 40)
 	var/paper_warning = paperstock <= 0 ? "Out of paper! Please refill the paper tray." : "Paper running low: [paperstock] sheet[paperstock == 1 ? "" : "s"] remaining. Please refill the paper tray."
-	audible_message("<b>\The [src]</b> beeps, \"[paper_warning]\"", audible_message_flags = LOCAL_MESSAGE)
+	say(paper_warning, message_mods = list(SAY_MOD_VERB = "beeps"))
 
 /obj/structure/machinery/requests_console/set_pixel_offsets()
 	pixel_x = DIR2PIXEL_X(dir)
