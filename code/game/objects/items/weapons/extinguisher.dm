@@ -195,7 +195,8 @@
 			to_chat(user, SPAN_WARNING("\The [src] is empty."))
 			return
 
-		if(world.time < last_use + 20)
+		var/cooldown = get_extinguisher_cooldown(user)
+		if(world.time < last_use + cooldown)
 			return
 
 		last_use = world.time
@@ -213,6 +214,17 @@
 		var/turf/T2 = get_step(T,turn(direction, -90))
 
 		var/list/the_targets = list(T,T1,T2)
+		var/consumption_mult = get_extinguisher_consumption_mult(user)
+		var/is_standard_extinguishing_agent = TRUE
+		for(var/_R in reagents.reagent_volumes)
+			if(_R != /singleton/reagent/water && _R != /singleton/reagent/toxin/fertilizer/monoammoniumphosphate)
+				is_standard_extinguishing_agent = FALSE
+				break
+		if(!is_standard_extinguishing_agent)
+			consumption_mult = 1.0
+
+		var/consume_amount = spray_amount * consumption_mult
+		var/transfer_mult = (consumption_mult > 0) ? (1 / consumption_mult) : 1
 
 		for(var/a = 1 to spray_particles)
 			spawn(0)
@@ -227,7 +239,7 @@
 
 				var/obj/effect/effect/water/W = new(get_turf(src))
 				W.create_reagents(spray_amount)
-				reagents.trans_to_obj(W, spray_amount)
+				reagents.trans_to_obj(W, consume_amount, transfer_mult)
 				W.set_color()
 				W.set_up(my_target,spray_distance,3)
 

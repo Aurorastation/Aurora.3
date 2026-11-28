@@ -1,0 +1,12 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Fully implemented the Atmospherics Systems skill."
+  - rscadd: "Pipework and inline atmospherics devices now scale fastening, unfastening, and pressurized pipe bleeding times with Atmospherics Systems rank, and pipe wrenches now work consistently across all inline atmospherics devices and allow direct single-step layer selection at Trained+."
+  - rscadd: "Examining pipes, canisters, portable atmospherics units, and gas tanks within 1 tile now provides tactile and visual pressure/temperature diagnostics scaling with Atmospherics Systems rank."
+  - rscadd: "Gas Analyzer readouts now scale with Atmospherics Systems rank, from basic everyday gas identification at Unfamiliar to partial pressures (kPa) and hazard tags at Trained, and heat capacity (J/K) plus fuel/oxidizer combustion and auto-ignition assessments at Professional."
+  - rscadd: "Unfamiliar Atmospherics Systems users now set pressure regulators with slight imprecision, take longer to configure complex atmospherics machinery and custom Air Alarm thresholds, and forget to close canister release valves when removing holding tanks."
+  - rscadd: "Trained+ Atmospherics Systems unlocks flatpak assembly for Gas Heaters, Gas Coolers, Oxygen Regenerators, Area Air Control Consoles, and Atmospheric Alert Consoles."
+  - rscadd: "Inflatable barrier deployment/deflation, vent welding, portable atmospherics connection, and fire extinguisher spray cooldown and reagent conservation now scale with Atmospherics Systems rank."
+  - rscadd: "Atmospherics Systems now grants a 0% / 25% / 50% / 100% chance to reflexively exhale and negate low-pressure/vacuum lung ruptures."
+

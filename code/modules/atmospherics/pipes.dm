@@ -33,6 +33,8 @@
 			found_color_name = color_name
 			break
 	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
+	if(distance <= 1)
+		. += get_pipe_atmos_feedback(src, user)
 
 /obj/structure/machinery/atmospherics/pipe/drain_power()
 	return -1
@@ -109,18 +111,9 @@
 	if (level==1 && isturf(T) && !T.is_plating())
 		to_chat(user, SPAN_WARNING("You must remove the plating first!"))
 		return TRUE
-	var/datum/gas_mixture/int_air = return_air()
-	if(!loc) return FALSE
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
-		if(!istype(attacking_item, /obj/item/pipewrench))
-			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
-			add_fingerprint(user)
-			return TRUE
-		else
-			to_chat(user, SPAN_WARNING("You struggle to unwrench \the [src] with your pipe wrench."))
-	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(!loc)
+		return FALSE
+	if(attempt_unfasten(attacking_item, user))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
@@ -131,7 +124,7 @@
 				new /obj/item/pipe_meter(T)
 				qdel(meter)
 		qdel(src)
-		return TRUE
+	return TRUE
 
 /obj/structure/machinery/atmospherics/proc/change_color(var/new_color)
 	//only pass valid pipe colors please ~otherwise your pipe will turn invisible

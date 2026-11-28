@@ -64,21 +64,15 @@
 	return TRUE
 
 /obj/structure/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.tool_behaviour != TOOL_WRENCH)
+	if(attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if(level == 1 && isturf(T) && !T.is_plating())
 		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return TRUE
-	var/datum/gas_mixture/int_air = return_air()
-	if(!loc) return FALSE
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if((XGM_PRESSURE(int_air) - XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
-		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
-		add_fingerprint(user)
-		return TRUE
-	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(!loc)
+		return FALSE
+	if(attempt_unfasten(attacking_item, user))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] unfastens \the [src]."),
 			SPAN_NOTICE("You have unfastened \the [src]."),
@@ -86,3 +80,4 @@
 		)
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
+	return TRUE

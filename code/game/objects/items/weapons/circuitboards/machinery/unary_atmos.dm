@@ -2,6 +2,7 @@
 	board_type = BOARD_MACHINE
 	var/machine_dir = SOUTH
 	var/init_dirs = SOUTH
+	flatpak_required_skills = list(ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 
 /obj/item/circuitboard/unary_atmos/construct(var/obj/structure/machinery/atmospherics/unary/U)
 	//TODO: Move this stuff into the relevant constructor when pipe/construction.dm is cleaned up.

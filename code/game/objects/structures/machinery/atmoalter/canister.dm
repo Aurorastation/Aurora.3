@@ -439,7 +439,7 @@ update_flag
 /obj/structure/machinery/portable_atmospherics/canister/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
 		return
-	if(attacking_item.tool_behaviour != TOOL_WRENCH && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && (attacking_item.tool_behaviour != TOOL_WIRECUTTER && signaler))
+	if(attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench) && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && (attacking_item.tool_behaviour != TOOL_WIRECUTTER && signaler))
 		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."), visible_message_flags = LOCAL_MESSAGE)
@@ -526,8 +526,15 @@ update_flag
 		if("remove_tank")
 			if(holding)
 				if (valve_open)
-					valve_open = 0
-					release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
+					if(get_atmospherics_skill(usr) <= SKILL_LEVEL_UNFAMILIAR)
+						release_log += "Holding tank [holding] was removed by [usr] ([usr.ckey]) <b>without closing the valve</b>, venting into the <span class='warning'><b>air</b></span>!<br>"
+						log_open(usr)
+						to_chat(usr, SPAN_DANGER("You yank \the [holding] free without closing the release valve first—gas hisses out into the room!"))
+						playsound(src.loc, 'sound/effects/spray.ogg', 40, 1, -3)
+						START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+					else
+						valve_open = 0
+						release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into [holding]<br>"
 				if(istype(holding, /obj/item/tank))
 					holding.manipulated_by = usr.real_name
 				usr.put_in_hands(holding)
@@ -535,7 +542,7 @@ update_flag
 				. = TRUE
 
 		if("pressure")
-			release_pressure = between(ONE_ATMOSPHERE/10, text2num(params["pressure"]), 10*ONE_ATMOSPHERE)
+			release_pressure = apply_atmos_pressure_precision(usr, text2num(params["pressure"]), ONE_ATMOSPHERE/10, 10*ONE_ATMOSPHERE)
 			. = TRUE
 
 		if("relabel")

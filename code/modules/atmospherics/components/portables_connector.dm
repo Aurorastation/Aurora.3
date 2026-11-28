@@ -155,26 +155,20 @@
 
 
 /obj/structure/machinery/atmospherics/portables_connector/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.tool_behaviour != TOOL_WRENCH)
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if (connected_device)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], dettach \the [connected_device] first."))
 		return TRUE
 	if (locate(/obj/structure/machinery/portable_atmospherics, src.loc))
 		return TRUE
-	var/datum/gas_mixture/int_air = return_air()
-	if(!loc) return FALSE
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((XGM_PRESSURE(int_air)-XGM_PRESSURE(env_air)) > PRESSURE_EXERTED)
-		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it too exerted due to internal pressure."))
-		add_fingerprint(user)
-		return TRUE
-	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(!loc)
+		return FALSE
+	if(attempt_unfasten(attacking_item, user))
 		user.visible_message( \
 			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
-		return TRUE
+	return TRUE

@@ -209,6 +209,7 @@
 	build_path = /obj/structure/machinery/atmospherics/binary/oxyregenerator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	flatpak_required_skills = list(ATMOSPHERICS_SYSTEMS_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
 	req_components = list(
 		"/obj/item/stock_parts/micro_laser" = 1,
 		"/obj/item/stock_parts/manipulator" = 1,

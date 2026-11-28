@@ -918,6 +918,8 @@ pixel_x = 10;
 					var/newval = tgui_input_number(usr, "Enter [threshold_names[threshold]] for [env]. Use -1 to disable.", "Alarm Triggers", selected[threshold], min_value = -1)
 					if(isnull(newval))
 						return TRUE
+					if(!check_atmos_machine_config(usr, src))
+						return TRUE
 					if(newval < 0)
 						selected[threshold] = -1.0
 					else if(env == "temperature" && newval > 5000)

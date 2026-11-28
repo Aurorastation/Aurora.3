@@ -31,6 +31,8 @@
 	. += ..()
 	if(distribute_pressure == 0)
 		. += SPAN_ALERT("This tank's hardware configuration prevents it from being used for Internals, even if filled with compatible gas.")
+	if(distance <= 1)
+		. += get_tank_atmos_feedback(src, user)
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
 		switch(celsius_temperature)
@@ -179,7 +181,7 @@
 			. = TRUE
 			update_icon()
 	if(action=="setReleasePressure")
-		distribute_pressure = min(max(round(text2num(params["release_pressure"])), 0), TANK_MAX_RELEASE_PRESSURE)
+		distribute_pressure = apply_atmos_pressure_precision(usr, round(text2num(params["release_pressure"])), 0, TANK_MAX_RELEASE_PRESSURE)
 		. = TRUE
 
 /obj/item/tank/remove_air(amount)
