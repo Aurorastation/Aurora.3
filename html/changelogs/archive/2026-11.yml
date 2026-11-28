@@ -368,3 +368,13 @@
   - bugfix: Fixed several explosive implant issues involving limb detonation sounds,
       EMP behavior, deadman processing and activation, outfit implantation, and configuration
       prompts.
+2026-11-28:
+  DreamySkrell:
+  - refactor: 'Refactored access defines: moved them out of code/__DEFINES/access.dm
+      and split them into separate horizon/centcomm/away files and subtypes.'
+  - refactor: Added access markers to all maps, replacing hard-coded door access vars.
+  - code_imp: Added a unit test for access.
+  - code_imp: Added dmm helper scripts in tools/dmm_py_scripts for searching and editing
+      maps.
+  FabianK3:
+  - bugfix: Fixed telecrystal and bluecrystal duplication when splitting preset stacks.
