@@ -71,7 +71,6 @@
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur/on_remove(mob/living/carbon/human/H)
 	. = ..()
@@ -88,7 +87,6 @@
 
 /singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/gadpathur_exile/on_remove(mob/living/carbon/human/H)
 	. = ..()

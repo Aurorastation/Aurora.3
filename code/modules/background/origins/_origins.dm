@@ -22,7 +22,19 @@
 	var/list/datum/religion/possible_religions = list()
 
 /singleton/origin_item/proc/on_apply(var/mob/living/carbon/human/H)
+	var/static/list/quirk_migrated_traits = list(
+		TRAIT_ORIGIN_COLD_RESISTANCE,
+		TRAIT_ORIGIN_HOT_RESISTANCE,
+		TRAIT_ORIGIN_ALCOHOL_RESISTANCE,
+		TRAIT_ORIGIN_DRUG_RESISTANCE,
+		TRAIT_ORIGIN_TOX_RESISTANCE,
+		TRAIT_ORIGIN_PAIN_RESISTANCE,
+		TRAIT_ORIGIN_STAMINA_BONUS,
+		TRAIT_ORIGIN_IGNORE_CAPSAICIN
+	)
 	for(var/trait in origin_traits)
+		if(trait in quirk_migrated_traits)
+			continue
 		ADD_TRAIT(H, trait, CULTURE_TRAIT)
 
 /singleton/origin_item/proc/on_remove(var/mob/living/carbon/human/H)

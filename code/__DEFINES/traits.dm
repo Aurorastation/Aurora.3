@@ -183,6 +183,12 @@
 /// Trait is added from a species verb.
 #define TRAIT_SOURCE_SPECIES_VERB "species_verb"
 
+/// Trait is added from a character quirk.
+#define TRAIT_SOURCE_QUIRK "quirk"
+
+/// Prevents involuntary vomiting from unpalatable or incompatible food and drink.
+#define TRAIT_IRON_STOMACH "iron_stomach"
+
 // DISABILITY TRAITS
 
 /// Causes the mob to take twice as long to clot their wounds

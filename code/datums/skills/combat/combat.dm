@@ -100,6 +100,7 @@
 	maximum_level = SKILL_LEVEL_PROFESSIONAL
 	category = /singleton/skill_category/combat
 	subcategory = SKILL_SUBCATEGORY_SUPPORT
+	skill_flags = SKILL_FLAG_PHYSICAL
 	component_type = TENACITY_SKILL_COMPONENT
 	skill_level_descriptions = alist(
 		SKILL_LEVEL_UNFAMILIAR = "You have no modifiers from Tenacity.",

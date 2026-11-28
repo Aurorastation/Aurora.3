@@ -41,6 +41,8 @@
 
 	/// The component datum that this skill will add during character spawning
 	var/component_type = null
+	/// Bitflags indicating whether this skill is mental and/or physical.
+	var/skill_flags = SKILL_FLAG_MENTAL
 	/// Map of skill levels to level costs. How many skill points it takes to purchase this rank in a skill.
 	var/alist/skill_cost_map = alist(
 		SKILL_LEVEL_UNFAMILIAR = 0,

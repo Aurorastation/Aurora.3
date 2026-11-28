@@ -656,6 +656,8 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	for(var/singleton/skill/required_skill as anything in SSskills.required_skills)
 		character.LoadComponent(required_skill.component_type, SKILL_LEVEL_UNFAMILIAR)
 
+	apply_spawn_quirks(character)
+
 	if(icon_updates)
 		character.force_update_limbs()
 		character.update_mutations(0)
@@ -664,16 +666,27 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		character.update_underwear(0)
 		character.update_icon()
 
+/// Applies early-stage quirk hooks (elements, components, traits) during character creation.
+/datum/preferences/proc/apply_spawn_quirks(mob/character)
+	apply_quirk_stage(character, post_spawn = FALSE)
+
 /**
- * Applies selected quirks after skills, equipment, loadout items, custom items,
+ * Applies late-stage quirk hooks after skills, equipment, loadout items, custom items,
  * augments, and other organ replacements have finished spawning.
  */
 /datum/preferences/proc/apply_quirks(mob/character)
+	apply_quirk_stage(character, post_spawn = TRUE)
+
+/datum/preferences/proc/apply_quirk_stage(mob/character, post_spawn = FALSE)
 	if(!ishuman(character))
 		return
 	for(var/quirk_type in quirks)
 		var/singleton/quirk/quirk = GET_SINGLETON(quirk_type)
-		if(istype(quirk) && quirk.can_select(src))
+		if(!istype(quirk) || !quirk.can_select(src))
+			continue
+		if(post_spawn)
+			quirk.on_post_spawn(character, quirks[quirk_type])
+		else
 			quirk.on_spawn(character, quirks[quirk_type])
 
 /datum/preferences/proc/get_character_slot_data(mob/user)
