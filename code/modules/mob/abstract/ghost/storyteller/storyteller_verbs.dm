@@ -212,6 +212,7 @@
 	set category = "Storyteller"
 	set desc = "Switch if Vaurcae can hear faint echoes (fluff) of the greater Hivenet. They will notice."
 
+	var/datum/element/HiveEchoes/echoes = SSdcs.elements_by_type[/datum/element/HiveEchoes]
 	if(is_lemurian_sea_sector())
 		SSatlas.current_sector.hivenet_echoes = FALSE
 		to_chat(src, "The Fog prevents Hivenet Echoes from being restored in the Lemurian Sea.")
@@ -220,15 +221,24 @@
 	if(SSatlas.current_sector.hivenet_echoes)
 		SSatlas.current_sector.hivenet_echoes = FALSE
 		to_chat(src, "Vaurcae have been cut off from echoes (fluff) of the greater Hivenet.")
-		for(var/mob/living/carbon/human/player in GLOB.player_list)
-			if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET] && !within_jamming_range(player) && GLOB.all_languages[LANGUAGE_VAURCA])
-				to_chat(player, SPAN_CULT("The absence of echoes makes you feel dreadful."))
+		for(var/mob/living/carbon/human/player in echoes?.targets)
+			if(!player.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(player))
+				continue
+			to_chat(player, SPAN_CULT("The absence of echoes makes you feel dreadful."))
+
+		if(echoes)
+			STOP_PROCESSING(SSprocessing, echoes)
+
 	else if(!SSatlas.current_sector.hivenet_echoes)
 		SSatlas.current_sector.hivenet_echoes = TRUE
 		to_chat(src, "Vaurcae will receive echoes (fluff) of the greater Hivenet.")
-		for(var/mob/living/carbon/human/player in GLOB.player_list)
-			if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET] && !within_jamming_range(player) && GLOB.all_languages[LANGUAGE_VAURCA])
-				to_chat(player, SPAN_NOTICE("You feel echoes of the greater Hivenet drift back in."))
+		for(var/mob/living/carbon/human/player in echoes?.targets)
+			if(!player.internal_organs_by_name[BP_NEURAL_SOCKET] || within_jamming_range(player))
+				continue
+			to_chat(player, SPAN_NOTICE("You feel echoes of the greater Hivenet drift back in."))
+
+		if(echoes)
+			START_PROCESSING(SSprocessing, echoes)
 
 /mob/abstract/ghost/storyteller/verb/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"

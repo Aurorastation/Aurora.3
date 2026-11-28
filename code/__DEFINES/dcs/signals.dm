@@ -92,6 +92,10 @@
 
 /*******Component Specific Signals*******/
 
+// Hivenet Echoes signal
+/// Signal raised when generating a Hivenet echo.
+#define COMSIG_GLOB_HIVENET_ECHO_TRANSMISSION "!hivenet_echo_transmission"
+
 // /obj/item/gun signals
 
 #define COMSIG_GUN_TOGGLE_FIRING_MODE "gun_toggle_firing_mode"
