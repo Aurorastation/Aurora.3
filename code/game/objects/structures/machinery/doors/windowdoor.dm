@@ -30,6 +30,8 @@
 		base_state = icon_state
 
 /obj/structure/machinery/door/window/update_icon()
+	// Match pane layering so people north of the glass appear behind it.
+	layer = (dir == SOUTH || dir == NORTH) ? ABOVE_HUMAN_LAYER : initial(layer)
 	if(!density != !operating) //XOR, baby
 		icon_state = base_state
 	else
@@ -103,7 +105,7 @@
 	sleep(1 SECOND)
 
 	explosion_resistance = 0
-	density = FALSE
+	set_density(FALSE)
 	update_nearby_tiles()
 	operating = FALSE
 	return TRUE
@@ -118,7 +120,7 @@
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	update_icon()
 
-	density = TRUE
+	set_density(TRUE)
 	explosion_resistance = initial(explosion_resistance)
 	update_nearby_tiles()
 

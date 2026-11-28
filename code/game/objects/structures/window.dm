@@ -55,8 +55,8 @@
 
 /obj/structure/window/update_icon()
 	if(!full)
-		if(dir == SOUTH)
-			layer = ABOVE_HUMAN_LAYER
+		// Both horizontal panes must occlude people on their northern side.
+		layer = (dir == SOUTH || dir == NORTH) ? ABOVE_HUMAN_LAYER : initial(layer)
 	QUEUE_SMOOTH(src)
 
 /obj/structure/window/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon, message)
@@ -322,6 +322,10 @@
 		new glasstype(loc)
 	qdel(src)
 
+/obj/structure/window/mouse_drop_receive(atom/dropping, mob/user, params)
+	// Load on demand so panes and full windows share the same leaning interaction.
+	LoadComponent(/datum/component/leanable, dropping)
+
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
 	if(!full && constructed)
@@ -531,10 +535,6 @@
 	layer = FULL_WINDOW_LAYER
 	rad_resistance_modifier = 4
 
-/obj/structure/window/shuttle/mouse_drop_receive(atom/dropping, mob/user, params)
-	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
-	LoadComponent(/datum/component/leanable, dropping)
-
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
 	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
@@ -701,10 +701,6 @@
 		WF.desc = "An empty steel window frame."
 	qdel(src)
 	update_nearby_icons()
-
-/obj/structure/window/full/mouse_drop_receive(atom/dropping, mob/user, params)
-	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
-	LoadComponent(/datum/component/leanable, dropping)
 
 /********** Full Windows **********/
 // Reinforced Window
