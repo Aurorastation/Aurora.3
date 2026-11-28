@@ -297,6 +297,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
 	equip_custom_items(character, body_only = FALSE) // Equips all other custom items.
+	character.client.prefs.apply_quirks(character)
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
 	if(character.mind.assigned_role == "AI")
@@ -405,13 +406,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_character.dna.b_type = client.prefs.b_type
 	new_character.sync_organ_dna()
 	new_character.fixblood() // now that dna is set
-	if(client.prefs.disabilities & NEARSIGHTED)
-		// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
-		new_character.dna.SetSEState(GLASSESBLOCK,1,0)
-
-	// And uncomment this, too.
-	//new_character.dna.UpdateSE()
-
 	// Do the initial caching of the player's body icons.
 	new_character.force_update_limbs()
 	new_character.update_eyes()
