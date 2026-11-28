@@ -126,6 +126,12 @@
 	/// `> 100`: 1 guaranteed dirt per 100, plus the remainder as a chance for an extra (150 = 1 guaranteed + 50% chance for a 2nd).
 	var/generate_dirt = null
 
+	/// Percentage chance (0-100) for simulated floors in this area to spawn persistent variable-alpha grime on round start.
+	var/persistent_dirt_chance = 0
+
+	/// Base `turf.dirt` value (51-100) applied when persistent grime spawns on a floor tile.
+	var/persistent_dirt_level = 0
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
