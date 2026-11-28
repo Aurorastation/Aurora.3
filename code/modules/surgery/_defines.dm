@@ -36,3 +36,43 @@
 #define SELF_SURGERY_SUCCESS_PENALTY 50
 #define SELF_SURGERY_TIME_MULTIPLIER 1.5
 #define SURGERY_PAIN_TIME_MODIFIER 0.01
+
+// surgery complication thresholds
+#define SURGERY_COMPLICATION_BASE_CHANCE 30
+#define SURGERY_COMPLICATION_MARGIN_BONUS 2
+#define SURGERY_COMPLICATION_CRITICAL_MARGIN 30
+#define SURGERY_COMPLICATION_CATASTROPHIC_MARGIN 60
+
+// surgery complication IDs - organic standard
+#define COMPLICATION_HEAVY_BLEEDING    "heavy_bleeding"
+#define COMPLICATION_CONTAMINATION     "contamination"
+#define COMPLICATION_NERVE_SHOCK       "nerve_shock"
+#define COMPLICATION_TENDON_TEAR       "tendon_tear"
+#define COMPLICATION_DISLOCATION       "dislocation"
+#define COMPLICATION_HAIRLINE_FRACTURE "hairline_fracture"
+#define COMPLICATION_ORGAN_BRUISE      "organ_bruise"
+#define COMPLICATION_FACIAL_SCARRING   "facial_scarring"
+#define COMPLICATION_OCULAR_TRAUMA     "ocular_trauma"
+#define COMPLICATION_SURGEON_FUMBLE    "surgeon_fumble"
+
+// surgery complication IDs - organic critical
+#define COMPLICATION_SEVERED_ARTERY         "severed_artery"
+#define COMPLICATION_SEVERED_TENDON         "severed_tendon"
+#define COMPLICATION_SHATTERED_BONE         "shattered_bone"
+#define COMPLICATION_RUPTURED_ORGAN         "ruptured_organ"
+#define COMPLICATION_SEPTIC_SHOCK           "septic_shock"
+#define COMPLICATION_CEREBRAL_TRAUMA        "cerebral_trauma"
+#define COMPLICATION_CARDIORESPIRATORY_SHOCK "cardiorespiratory_shock"
+#define COMPLICATION_INCISION_RUPTURE       "incision_rupture"
+#define COMPLICATION_ACCIDENTAL_AMPUTATION  "accidental_amputation"
+
+// surgery complication IDs - robotic standard
+#define COMPLICATION_ROBOTIC_POWER_SHORT      "power_short"
+#define COMPLICATION_ROBOTIC_ACTUATOR_JAM     "actuator_jam"
+#define COMPLICATION_ROBOTIC_SURGEON_SHOCK    "surgeon_shock"
+#define COMPLICATION_ROBOTIC_COMPONENT_DAMAGE "component_damage"
+
+// surgery complication IDs - robotic critical
+#define COMPLICATION_ROBOTIC_CATASTROPHIC_SHORT "catastrophic_short"
+#define COMPLICATION_ROBOTIC_CHASSIS_COLLAPSE   "chassis_collapse"
+#define COMPLICATION_ROBOTIC_NEURAL_FEEDBACK    "neural_feedback"

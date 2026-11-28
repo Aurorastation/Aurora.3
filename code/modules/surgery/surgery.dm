@@ -21,6 +21,8 @@
 	var/requires_surgery_compatibility = TRUE
 	/// Whether this step may be performed on oneself while standing and away from an operating surface.
 	var/standing_self_surgery = FALSE
+	/// Whether failing this step can trigger expanded surgical complications.
+	var/can_cause_complications = TRUE
 
 	/**
 	 * The associative list of skills and their paired requirement levels to be able to perform a given surgery.
@@ -255,10 +257,13 @@
 					success_rate += (skill_level - required_level) * S.skill_diff_fail_modifier
 			// End of skill modifier checks
 
-			if(prob(success_rate) && do_mob(user, M, duration))
+			var/roll = rand(1, 100)
+			if(roll <= success_rate && do_mob(user, M, duration))
 				S.end_step(user, M, zone, tool)
 			else if ((tool in user.contents) && user.Adjacent(M))
+				var/fail_margin = max(0, roll - success_rate)
 				S.fail_step(user, M, zone, tool)
+				S.handle_complications(user, M, zone, tool, fail_margin)
 			else
 				to_chat(user, SPAN_WARNING("You must remain close to your patient to conduct surgery."))
 			if(!QDELETED(M))
