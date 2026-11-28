@@ -37,6 +37,12 @@
 	/// Allow these cans/glasses/condiment bottles but forbid ACTUAL food.
 	var/list/drink_accepted = list(/obj/item/reagent_containers/food/drinks, /obj/item/reagent_containers/food/condiment)
 
+/obj/structure/machinery/chemical_dispenser/get_persistence_hint()
+	if(persistent_cartridge_id)
+		var/obj/item/reagent_containers/chem_disp_cartridge/cartridge_type = /obj/item/reagent_containers/chem_disp_cartridge
+		return persistence_hint("Eligible cartridges and their remaining original reagent stock carry over between rounds aboard the SCCV Horizon. Cartridges left installed return to this dispenser. Missing preset cartridges are replaced empty.", initial(cartridge_type.persistent_objects_expiration_time_days))
+	return ..()
+
 /obj/structure/machinery/chemical_dispenser/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."

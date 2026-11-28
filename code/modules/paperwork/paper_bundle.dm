@@ -35,6 +35,9 @@
 	pages = null
 	return ..()
 
+/obj/item/paper_bundle/get_persistence_hint()
+	return persistence_hint("Bundles containing supported nonblank paperwork can be saved between rounds in a filing cabinet's Long-Term storage aboard the SCCV Horizon. Only supported paperwork is preserved. Removing the bundle from Long-Term storage cancels persistence.")
+
 /obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Both papers and photos can be added to a paper bundle."

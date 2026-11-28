@@ -9,6 +9,9 @@
 	var/max_butts = 10
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/material/ashtray/get_persistence_hint()
+	return persistence_hint("This ashtray, its material and the number of cigarette butts inside remain available between rounds when left aboard the SCCV Horizon.")
+
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()
 	persistent_objects_expiration_time_days = rand(7, 180) // Imagine they get stolen, lost or break...

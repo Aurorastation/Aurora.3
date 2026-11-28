@@ -29,6 +29,11 @@
 	/// Original map identity used to persist toner without persisting the photocopier itself.
 	var/tmp/toner_persistence_id
 
+/obj/structure/machinery/photocopier/get_persistence_hint()
+	if(toner_persistence_id)
+		return persistence_hint("This photocopier's remaining toner carries over between rounds aboard the SCCV Horizon. Replace the toner cartridge to replenish it.", PERSISTENT_DEFAULT_EXPIRATION_DAYS, refreshes_each_round = TRUE)
+	return ..()
+
 /datum/persistent_photocopier_toner
 	/// The initially mapped photocopier. Its current location is deliberately irrelevant.
 	var/obj/structure/machinery/photocopier/copier
@@ -365,11 +370,8 @@
 	. = ..()
 	SSpersistence.objectsRegisterTrack(src)
 
-/obj/item/toner/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/persistence_duration = "[persistent_objects_expiration_time_days] day[(persistent_objects_expiration_time_days != 1) ? "s" : ""]"
-	var/persistence_label = "<i class='fa-solid [FA_ICON_CALENDAR_DAYS]'></i> [persistence_duration]"
-	. += SPAN_TOOLTIP("This is a persistence mechanic. This cartridge and its remaining toner remain available between rounds while aboard the SCCV Horizon and expire after [persistence_duration].", persistence_label)
+/obj/item/toner/get_persistence_hint()
+	return persistence_hint("This cartridge and its remaining toner remain available between rounds while aboard the SCCV Horizon.")
 
 /obj/item/toner/persistent_objects_get_content()
 	var/list/content = ..()

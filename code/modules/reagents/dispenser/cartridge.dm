@@ -29,6 +29,11 @@
 
 	var/temperature_override = 0 //A non-zero value with set the temperature of the reagents inside to this value, in kelvin.
 
+/obj/item/reagent_containers/chem_disp_cartridge/get_persistence_hint()
+	if(is_persistent && !persistence_excluded)
+		return persistence_hint("This cartridge, its label and the remaining amount of its original reagent remain available between rounds aboard the SCCV Horizon. Added chemicals are not saved. Cartridges left in a persistent dispenser return to that dispenser.")
+	return ..()
+
 /** Returns only the cartridge's canonical reagent volume, ignoring contaminants and its mutable label. */
 /obj/item/reagent_containers/chem_disp_cartridge/proc/get_persistent_stock()
 	if(!is_persistent || !reagents || !spawn_reagent)

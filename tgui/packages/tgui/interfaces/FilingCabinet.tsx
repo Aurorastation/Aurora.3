@@ -56,7 +56,7 @@ export const FilingCabinet = (props) => {
             >
               Long-Term ({data.long_term.length})
               <Tooltip
-                content={`This is a persistence mechanic. Paperwork stored here remains available between rounds and expires after ${persistenceDuration}. Use it only for documents intended to remain part of the setting.`}
+                content={`This is a persistence mechanic. Paperwork stored here remains available between rounds. The expiry timer resets when its saved contents or location change; it expires after ${persistenceDuration} without such an update. Use it only for documents intended to remain part of the setting.`}
               >
                 <Box inline ml={1} color="label">
                   <Icon name="calendar-days" mr={0.5} />

@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table } from 'tgui-core/components';
+import { Box, Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
@@ -10,6 +10,7 @@ export type OreListData = {
 };
 
 export type MiningProcessorData = {
+  carryoverMax: number;
   hasId: boolean;
   enabled: boolean;
   showAllOres: boolean;
@@ -41,6 +42,14 @@ export const MiningProcessor = (props) => {
                 icon="print"
                 onClick={() => act('choice', { choice: 'print_report' })}
               />
+              <Tooltip
+                content={`This is a persistence mechanic. Up to ${data.carryoverMax.toLocaleString()} unspent claimed mining points carry over between rounds for your character, with no time-based expiry. Points left unclaimed in this console do not carry over.`}
+              >
+                <Box inline mx={1} color="label">
+                  <Icon name="infinity" mr={0.5} />
+                  No expiry
+                </Box>
+              </Tooltip>
             </Box>
           ) : (
             <Box>
