@@ -1,0 +1,4 @@
+author: TheGreyWolf
+delete-after: True
+changes:
+  - bugfix: "Dirty bombs no longer place radioactive goo on turfs blocked by walls or solid obstacles."
