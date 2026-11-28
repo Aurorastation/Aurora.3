@@ -41,7 +41,7 @@
 
 	for(var/obj/item/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
-	change_power_consumption(idle_power_usage / max(1, tot_rating), POWER_USE_IDLE)
+	change_power_consumption(idle_power_usage / max(STOCK_PART_MIN_RATING, tot_rating), POWER_USE_IDLE)
 
 /obj/structure/machinery/r_n_d/server/Initialize()
 	. = ..()

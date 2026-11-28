@@ -1,7 +1,3 @@
-#define STOCK_PART_BASIC 1
-#define STOCK_PART_ADVANCED 2
-#define STOCK_PART_SUPER 3
-
 /*
 	Stock parts (as of 2025/06) are only able to be installed in machinery objects.
 
@@ -86,6 +82,10 @@
 					"/obj/item/stock_parts/subspace/transmitter" = 5
 					)
 
+/proc/is_ranked_stock_part_path(path)
+	var/obj/item/stock_parts/part_path = ispath(path) ? path : text2path(path)
+	return ispath(part_path, /obj/item/stock_parts) && initial(part_path.ranked_part)
+
 /obj/item/stock_parts
 	name = "stock part"
 	var/parent_stock_name = "stock part" // this will show up on the protolathe to show what the base version was called
@@ -95,24 +95,39 @@
 	randpixel = 5
 	w_class = WEIGHT_CLASS_SMALL
 	var/rating = STOCK_PART_BASIC
+	/// Whether this stock part is a ranked upgrade part subject to persistence and rating decay.
+	var/ranked_part = FALSE
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	recyclable = TRUE
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/stock_parts/Initialize()
 	. = ..()
 	randpixel_xy()
 
+/obj/item/stock_parts/proc/set_rating(new_rating)
+	if(!isnum(new_rating))
+		return
+	rating = clamp(round(new_rating, 0.01), STOCK_PART_MIN_RATING, initial(rating))
+	if(rating < initial(rating))
+		name = "degraded [initial(name)] (rating: [rating])"
+	else
+		name = initial(name)
+
+/obj/item/stock_parts/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(!ranked_part)
+		return
+	if(rating < initial(rating))
+		. += SPAN_WARNING("It is degraded, operating at a rating of <b>[rating]</b> (down from <b>[initial(rating)]</b>).")
+	else
+		. += SPAN_NOTICE("It has an operational rating of <b>[rating]</b>.")
+
 /obj/item/stock_parts/proc/energy_rating()
-	switch(rating)
-		if(STOCK_PART_BASIC)
-			return 1
-		if(STOCK_PART_ADVANCED)
-			return 3
-		if(STOCK_PART_SUPER)
-			return 5
-		else
-			return 0
+	if(!ranked_part)
+		return 0
+	return max(0, (rating * 2) - 1)
 
 //Rank 1
 
@@ -132,6 +147,7 @@
 	icon_state = "capacitor"
 	origin_tech = list(TECH_POWER = 1)
 	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 50)
+	ranked_part = TRUE
 
 /obj/item/stock_parts/scanning_module
 	name = "scanning module"
@@ -140,6 +156,7 @@
 	icon_state = "scan_module"
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 20)
+	ranked_part = TRUE
 
 /obj/item/stock_parts/manipulator
 	name = "micro-manipulator"
@@ -148,6 +165,7 @@
 	icon_state = "micro_mani"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
 	matter = list(MATERIAL_STEEL = 30)
+	ranked_part = TRUE
 
 /obj/item/stock_parts/micro_laser
 	name = "micro-laser"
@@ -158,6 +176,7 @@
 	matter = list(MATERIAL_STEEL = 10, MATERIAL_GLASS = 20)
 	drop_sound = 'sound/items/drop/glass_small.ogg'
 	pickup_sound = 'sound/items/pickup/glass_small.ogg'
+	ranked_part = TRUE
 
 /obj/item/stock_parts/matter_bin
 	name = "matter bin"
@@ -168,6 +187,7 @@
 	matter = list(MATERIAL_STEEL = 80)
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	ranked_part = TRUE
 
 //Rank 2
 
@@ -306,7 +326,3 @@
 	desc = "A small laser that can be used to transmit data through an opened bluespace micro-portal."
 	origin_tech = list(TECH_MAGNET = 5, TECH_MATERIAL = 5, TECH_BLUESPACE = 3)
 	matter = list(MATERIAL_STEEL = 25, MATERIAL_GLASS = 25)
-
-#undef STOCK_PART_BASIC
-#undef STOCK_PART_ADVANCED
-#undef STOCK_PART_SUPER

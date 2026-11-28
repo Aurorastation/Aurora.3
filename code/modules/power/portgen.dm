@@ -182,7 +182,7 @@
 		else if(istype(SP, /obj/item/stock_parts/micro_laser) || istype(SP, /obj/item/stock_parts/capacitor))
 			temp_rating += SP.rating
 
-	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
+	power_gen = round(initial(power_gen) * (max(1, temp_rating) / 2))
 
 /obj/structure/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet

@@ -139,6 +139,22 @@ Class Procs:
 	var/parts_power_mgmt = TRUE
 	/// The total power rating of all parts serves as a power usage multiplier.
 	var/parts_power_usage = 0
+	/// Whether a mapped instance of this machine should persist its stock part upgrades between rounds.
+	var/persistent_parts = TRUE
+	/// Original map location used to associate this machine with its persistent parts. Runtime-created machines leave this null.
+	var/tmp/persistent_parts_id
+	/// Saved stock parts data supplied by the persistence type before atom initialization.
+	var/tmp/list/persistent_parts_content
+	/// Whether this machine has had its stock parts upgraded or loaded from persistence.
+	var/tmp/persistent_parts_upgraded = FALSE
+	/// IRL day index (since 2000-01-01) when this machine's persistent parts were last upgraded or decay-checked.
+	var/tmp/persistent_parts_saved_day
+	/// IRL timeofday (deciseconds since 00:00 UTC) when this machine's persistent parts were last upgraded or decay-checked.
+	var/tmp/persistent_parts_saved_timeofday
+	/// IRL day index captured when persistence initialization supplied saved data.
+	var/tmp/persistent_parts_load_day
+	/// IRL timeofday captured when persistence initialization supplied saved data.
+	var/tmp/persistent_parts_load_timeofday
 
 	var/uid
 	var/panel_open = 0
@@ -202,6 +218,10 @@ Class Procs:
 		START_PROCESSING_MACHINE(src, init_flags & INIT_MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery += src // All machines should be in machinery.
 
+	var/turf/T = get_turf(src)
+	if(mapload && T && is_station_level(T.z) && has_ranked_component_types())
+		persistent_parts_id = "[type]-[T.x]-[T.y]-[T.z]"
+
 	if (populate_components && component_types)
 		component_parts = list()
 		for (var/type in component_types)
@@ -216,6 +236,8 @@ Class Procs:
 						component_parts += new type(src)
 				else
 					component_parts += new type(src)
+
+		apply_persistent_parts()
 
 		if(component_parts.len)
 			RefreshParts()
@@ -560,11 +582,220 @@ Class Procs:
 
 	return replacement_type
 
+/obj/structure/machinery/proc/has_ranked_component_types()
+	if(!persistent_parts || !LAZYLEN(component_types))
+		return FALSE
+	for(var/component_type in component_types)
+		if(is_ranked_stock_part_path(component_type))
+			return TRUE
+	return FALSE
+
+/** Applies persistent upgraded parts supplied before initialization and decays their ratings by 1.0 per IRL day down to 0.5. */
+/obj/structure/machinery/proc/apply_persistent_parts()
+	if(!persistent_parts_id || !islist(persistent_parts_content) || !LAZYLEN(component_parts))
+		persistent_parts_content = null
+		return
+
+	var/list/saved_parts = persistent_parts_content["parts"]
+	if(!islist(saved_parts) || !length(saved_parts))
+		persistent_parts_content = null
+		return
+
+	var/current_day = isnum(persistent_parts_load_day) ? persistent_parts_load_day : get_current_irl_day()
+	var/current_timeofday = isnum(persistent_parts_load_timeofday) ? persistent_parts_load_timeofday : world.timeofday
+	var/saved_day = persistent_parts_content["saved_day"]
+	var/saved_timeofday = persistent_parts_content["saved_timeofday"]
+
+	var/elapsed_days = 0
+	if(isnum(saved_day) && isnum(saved_timeofday))
+		elapsed_days = max(0, get_elapsed_irl_days(saved_day, saved_timeofday, current_day, current_timeofday))
+
+	var/decay_amount = round(elapsed_days * STOCK_PART_DAILY_DECAY, 0.01)
+	if(decay_amount > 0 || !isnum(saved_day) || !isnum(saved_timeofday))
+		persistent_parts_saved_day = current_day
+		persistent_parts_saved_timeofday = current_timeofday
+	else
+		persistent_parts_saved_day = saved_day
+		persistent_parts_saved_timeofday = saved_timeofday
+
+	var/list/remaining_saved_parts = saved_parts.Copy()
+	var/applied_any = FALSE
+
+	for(var/i in 1 to length(component_parts))
+		var/obj/item/stock_parts/existing_part = component_parts[i]
+		if(!istype(existing_part) || !existing_part.ranked_part)
+			continue
+
+		var/replacement_base_type = get_part_replacement_type(existing_part)
+		if(!replacement_base_type)
+			continue
+
+		var/match_index = 0
+		for(var/j in 1 to length(remaining_saved_parts))
+			var/list/entry = remaining_saved_parts[j]
+			if(!islist(entry))
+				continue
+			var/obj/item/stock_parts/saved_type = ispath(entry["type"]) ? entry["type"] : text2path(entry["type"])
+			if(!is_ranked_stock_part_path(saved_type) || !ispath(saved_type, replacement_base_type))
+				continue
+			match_index = j
+			break
+
+		if(!match_index)
+			continue
+
+		var/list/matched_entry = remaining_saved_parts[match_index]
+		remaining_saved_parts.Cut(match_index, match_index + 1)
+
+		var/obj/item/stock_parts/saved_type = ispath(matched_entry["type"]) ? matched_entry["type"] : text2path(matched_entry["type"])
+		var/saved_rating = isnum(matched_entry["rating"]) ? matched_entry["rating"] : initial(saved_type.rating)
+		var/decayed_rating = max(STOCK_PART_MIN_RATING, round(saved_rating - decay_amount, 0.01))
+
+		if(existing_part.type != saved_type)
+			var/obj/item/stock_parts/new_part = new saved_type(src)
+			new_part.set_rating(decayed_rating)
+			component_parts[i] = new_part
+			qdel(existing_part)
+		else
+			existing_part.set_rating(decayed_rating)
+
+		applied_any = TRUE
+
+	if(applied_any)
+		persistent_parts_upgraded = TRUE
+	persistent_parts_content = null
+
+/obj/structure/machinery/proc/has_persistent_part_changes()
+	if(!LAZYLEN(component_parts) || !LAZYLEN(component_types))
+		return FALSE
+
+	var/list/expected_counts = list()
+	for(var/component_type in component_types)
+		var/path = ispath(component_type) ? component_type : text2path(component_type)
+		if(!is_ranked_stock_part_path(path))
+			continue
+		var/count = component_types[component_type]
+		if(!isnum(count) || count < 1)
+			count = 1
+		expected_counts[path] = (expected_counts[path] || 0) + count
+
+	var/list/actual_counts = list()
+	for(var/obj/item/stock_parts/part in component_parts)
+		if(!part.ranked_part)
+			continue
+		if(round(part.rating, 0.01) != initial(part.rating))
+			return TRUE
+		actual_counts[part.type] = (actual_counts[part.type] || 0) + 1
+
+	if(length(expected_counts) != length(actual_counts))
+		return TRUE
+
+	for(var/path in expected_counts)
+		if(actual_counts[path] != expected_counts[path])
+			return TRUE
+
+	return FALSE
+
+/obj/structure/machinery/proc/get_persistent_parts_data()
+	if(!persistent_parts || !persistent_parts_id || !persistent_parts_upgraded || !LAZYLEN(component_parts))
+		return null
+	if(!has_persistent_part_changes())
+		return null
+
+	var/list/saved_parts = list()
+	for(var/obj/item/stock_parts/part in component_parts)
+		if(!part.ranked_part)
+			continue
+		saved_parts += list(list(
+			"type" = "[part.type]",
+			"rating" = round(part.rating, 0.01)
+		))
+
+	if(!length(saved_parts))
+		return null
+
+	return list(
+		"saved_day" = isnum(persistent_parts_saved_day) ? persistent_parts_saved_day : get_current_irl_day(),
+		"saved_timeofday" = isnum(persistent_parts_saved_timeofday) ? persistent_parts_saved_timeofday : world.timeofday,
+		"parts" = saved_parts
+	)
+
+/datum/persistent_machinery_parts
+	/// The initially mapped machine. Its current location is deliberately irrelevant.
+	var/obj/structure/machinery/machine
+
+/** Returns current persistent parts data, or null when deleted or unchanged so prior or default state is respected. */
+/datum/persistent_machinery_parts/proc/get_final_parts()
+	if(QDELETED(machine))
+		return
+	return machine.get_persistent_parts_data()
+
+/singleton/persistent_type/generic/horizon_machinery_parts
+	/// Persistent machinery present on the Horizon, keyed by their generic attribute.
+	var/list/machinery_parts_register = list()
+	/// Whether initialization completed successfully. Prevents a failed load from overwriting saved parts.
+	var/parts_initialized = FALSE
+
+/** Loads saved stock parts and supplies them to mapped machinery for application during initialization. */
+/singleton/persistent_type/generic/horizon_machinery_parts/initialization_hook()
+	machinery_parts_register = list()
+	parts_initialized = FALSE
+	if(!SSpersistence.map_supports_persistence)
+		return
+
+	var/current_day = get_current_irl_day()
+	var/current_timeofday = world.timeofday
+
+	for(var/obj/structure/machinery/machine in world)
+		CHECK_TICK
+		var/turf/machine_turf = get_turf(machine)
+		if(!machine_turf || !is_station_level(machine_turf.z) || !machine.has_ranked_component_types())
+			continue
+
+		var/persistent_parts_id = "[machine.type]-[machine_turf.x]-[machine_turf.y]-[machine_turf.z]"
+		if(machinery_parts_register[persistent_parts_id])
+			log_subsystem_persistence_error("Duplicate persistent machinery attribute '[persistent_parts_id]' at [machine_turf].")
+			continue
+		machine.persistent_parts_id = persistent_parts_id
+		var/datum/persistent_machinery_parts/parts_record = new
+		parts_record.machine = machine
+		machinery_parts_register[persistent_parts_id] = parts_record
+
+	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/horizon_machinery_parts)
+	for(var/persistent_parts_id in saved_attributes)
+		CHECK_TICK
+		if(!length(persistent_parts_id))
+			continue
+		var/datum/persistent_machinery_parts/parts_record = machinery_parts_register[persistent_parts_id]
+		if(!parts_record)
+			continue
+		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_machinery_parts, persistent_parts_id, skip_caching = TRUE)
+		var/list/machine_data = saved_generic?.content
+		if(!islist(machine_data))
+			continue
+		parts_record.machine.persistent_parts_content = machine_data
+		parts_record.machine.persistent_parts_load_day = current_day
+		parts_record.machine.persistent_parts_load_timeofday = current_timeofday
+	parts_initialized = TRUE
+
+/** Saves stock parts for mapped machinery that have persistent part upgrades or degraded parts. */
+/singleton/persistent_type/generic/horizon_machinery_parts/finalization_hook()
+	if(!parts_initialized)
+		return
+
+	for(var/persistent_parts_id in machinery_parts_register)
+		CHECK_TICK
+		var/datum/persistent_machinery_parts/parts_record = machinery_parts_register[persistent_parts_id]
+		var/list/machine_data = parts_record.get_final_parts()
+		if(islist(machine_data))
+			SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_machinery_parts, machine_data, persistent_parts_id)
+
 /obj/structure/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
 	if(!LAZYLEN(component_parts))
 		return FALSE
 	else if(istype(R))
 		var/parts_replaced = FALSE
+		var/ranked_parts_replaced = FALSE
 		if(panel_open)
 			for(var/obj/item/reagent_containers/glass/G in component_parts)
 				var/replacement_type = get_part_replacement_type(G)
@@ -586,17 +817,25 @@ Class Procs:
 				var/replacement_type = get_part_replacement_type(A)
 				if(!replacement_type)
 					continue
+				var/obj/item/stock_parts/best_part
 				for(var/obj/item/stock_parts/B in R.contents)
-					if(istype(B, replacement_type))
-						if(B.rating > A.rating)
-							R.remove_from_storage(B, src)
-							R.handle_item_insertion(A, 1)
-							component_parts -= A
-							component_parts += B
-							B.forceMove(src)
-							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
-							parts_replaced = TRUE
-							break
+					if(istype(B, replacement_type) && B.rating > A.rating)
+						if(!best_part || B.rating > best_part.rating)
+							best_part = B
+				if(best_part)
+					R.remove_from_storage(best_part, src)
+					R.handle_item_insertion(A, 1)
+					component_parts -= A
+					component_parts += best_part
+					best_part.forceMove(src)
+					to_chat(user, SPAN_NOTICE("[A.name] replaced with [best_part.name]."))
+					parts_replaced = TRUE
+					if(A.ranked_part || best_part.ranked_part)
+						ranked_parts_replaced = TRUE
+			if(ranked_parts_replaced && persistent_parts_id)
+				persistent_parts_upgraded = TRUE
+				persistent_parts_saved_day = get_current_irl_day()
+				persistent_parts_saved_timeofday = world.timeofday
 			if(parts_replaced)
 				RefreshParts()
 				update_icon()
