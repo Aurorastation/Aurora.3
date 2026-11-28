@@ -3954,6 +3954,7 @@
 #include "code\modules\supermatter\supermatter.dm"
 #include "code\modules\surgery\_defines.dm"
 #include "code\modules\surgery\bones.dm"
+#include "code\modules\surgery\complications.dm"
 #include "code\modules\surgery\encased.dm"
 #include "code\modules\surgery\face.dm"
 #include "code\modules\surgery\facial_surgery.dm"
