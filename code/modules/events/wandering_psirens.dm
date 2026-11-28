@@ -49,19 +49,14 @@
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
 		for(var/j = 1, j <= group_size, j++)
+			var/psiren_type
 			if(prob(75))
-				var/basic_psiren
-				if (prob(50))
-					basic_psiren = new /mob/living/simple_animal/hostile/psiren(spawn_locations[i])
-				else basic_psiren = new /mob/living/simple_animal/hostile/psiren/ranged(spawn_locations[i])
-				spawned_psirens += WEAKREF(basic_psiren)
+				psiren_type = prob(50) ? /mob/living/simple_animal/hostile/psiren : /mob/living/simple_animal/hostile/psiren/ranged
 			else
-				if (prob(75))
-					var/mob/living/simple_animal/hostile/psiren/omen/new_omen = new(spawn_locations[i])
-					spawned_psirens += WEAKREF(new_omen)
-				else
-					var/mob/living/simple_animal/hostile/psiren/omen/beckoner/new_beckoner = new(spawn_locations[i])
-					spawned_psirens += WEAKREF(new_beckoner)
+				psiren_type = prob(75) ? /mob/living/simple_animal/hostile/psiren/omen : /mob/living/simple_animal/hostile/psiren/omen/beckoner
+			var/mob/living/simple_animal/hostile/psiren/new_psiren = new psiren_type(spawn_locations[i])
+			new_psiren.enable_psi_hunt()
+			spawned_psirens += WEAKREF(new_psiren)
 			CHECK_TICK
 		i++
 

@@ -102,6 +102,8 @@
 
 	/// Assoc list of selected biomes to their random seed information, used in terrain generation
 	var/list/biome_seeds
+	/// Assoc list of selected biomes to their resolved spawn_types lists, used when a generator's spawn_types is a weighted list of lists
+	var/list/biome_spawn_types
 
 #define ORE_LEVEL_TO_DBP_RANGE(oval) (((oval) / 4) - 0.5)
 /datum/exoplanet_theme/New()
@@ -212,6 +214,8 @@
 
 		LAZYDISTINCTADD(biome_seeds, selected_biome)
 		LAZYINITLIST(biome_seeds[selected_biome])
+		LAZYDISTINCTADD(biome_spawn_types, selected_biome)
+		LAZYINITLIST(biome_spawn_types[selected_biome])
 
 		// Converting (255 * 255) coordinates to a 65025 character string; each block of 255 is one Y coordinate, and what's left over is our X coordinate
 		var/coord_to_str = (world.maxx * gen_turf.y) + gen_turf.x
@@ -302,6 +306,11 @@
 				continue // we dealt with turfs already
 			if(!LAZYISIN(biome_seeds[selected_biome], to_gen))
 				SEED_TERRAIN(to_gen)
+			if(!LAZYISIN(biome_spawn_types[selected_biome], to_gen))
+				var/list/spawn_pool = selected_biome.spawn_types[to_gen]
+				if(length(spawn_pool) && islist(spawn_pool[1]))
+					spawn_pool = pickweight(spawn_pool)
+				biome_spawn_types[selected_biome][to_gen] = spawn_pool
 			var/check = FALSE
 			switch(selected_biome.generators[to_gen][1])
 				if(ALWAYS_GEN)
@@ -327,7 +336,8 @@
 					check = biome_seeds[selected_biome][to_gen][coord_to_str] == "1"
 			if(!check)
 				continue
-			var/obj_path = pickweight(selected_biome.spawn_types[to_gen])
+			var/list/spawn_pool = biome_spawn_types[selected_biome][to_gen]
+			var/obj_path = length(spawn_pool) ? pickweight(spawn_pool) : null
 			if(obj_path)
 				new obj_path(gen_turf)
 				if(to_gen in selected_biome.exclusive_generators)

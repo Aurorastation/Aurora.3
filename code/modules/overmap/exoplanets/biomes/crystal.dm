@@ -14,7 +14,15 @@
 			/obj/structure/flora/tree/crystal = 1
 		),
 		WILDLIFE = list(
-			/mob/living/simple_animal/cosmozoan = 1
+			list(
+				/mob/living/simple_animal/cosmozoan = 1
+			) = 90,
+			list(
+				/mob/living/simple_animal/hostile/psiren = 6,
+				/mob/living/simple_animal/hostile/psiren/ranged = 6,
+				/mob/living/simple_animal/hostile/psiren/omen = 3,
+				/mob/living/simple_animal/hostile/psiren/omen/beckoner = 1
+			) = 10
 		)
 	)
 
