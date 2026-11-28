@@ -224,12 +224,6 @@
 		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "radio")
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
-	if("looc" in styles)
-		styles.Remove("looc")
-		use_mob_style = FALSE
-		var/image/r_icon = image('icons/ui/chat_icons.dmi', icon_state = "looc")
-		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
-
 	return "<span class='center [styles.Join(" ")] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
 
 /// Animates the given maptext image.
