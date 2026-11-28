@@ -1,5 +1,7 @@
 /datum/citizenship
 	var/name
+	/// Short nation name shown after diplomatic job titles on IDs and manifests.
+	var/assignment_suffix
 	var/description
 	var/obj/outfit/consular_outfit = /obj/outfit/job/representative/consular
 	var/obj/outfit/assistant_outfit = /obj/outfit/job/diplomatic_aide
@@ -27,3 +29,6 @@
 
 /datum/citizenship/proc/get_records_name()
 	return name
+
+/datum/citizenship/proc/get_assignment_suffix()
+	return assignment_suffix || get_records_name()

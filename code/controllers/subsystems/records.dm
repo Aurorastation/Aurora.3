@@ -414,7 +414,15 @@ SUBSYSTEM_DEF(records)
 		return_value = H.mind.assigned_role
 	else if(H.job)
 		return_value = H.job
-	return "[return_value][include_faction_prefix ? " ([H.mind.selected_faction.title_suffix])" : ""]"
+	var/assignment_suffix = include_faction_prefix ? GetAssignmentSuffix(H) : null
+	return "[return_value][assignment_suffix ? " ([assignment_suffix])" : ""]"
+
+/proc/GetAssignmentSuffix(var/mob/living/carbon/human/H)
+	var/datum/job/job = SSjobs.GetJob(H.mind?.assigned_role)
+	if(job?.type in list(CONSULAR_ROLE, DIPLOMATIC_AIDE_ROLE, DIPLOMATIC_BODYGUARD_ROLE))
+		var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+		return citizenship?.get_assignment_suffix()
+	return H.mind?.selected_faction?.title_suffix
 
 /proc/generate_record_id()
 	return num2hex(rand(1, 65535), 4)
