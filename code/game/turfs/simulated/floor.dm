@@ -72,6 +72,11 @@
 		while(dirt_to_spawn > 0)
 			new /obj/effect/decal/cleanable/dirt(src)
 			dirt_to_spawn--
+	else if(area.persistent_dirt_chance > 0 && is_station_level(z) && !density && !is_open())
+		if(!(locate(/obj/structure/grille) in src) && !(locate(/obj/structure/window/full) in src) && !(locate(/obj/structure/window_frame) in src))
+			if(prob(area.persistent_dirt_chance))
+				dirt = clamp(area.persistent_dirt_level + rand(-4, 4), 51, 100)
+				update_dirt()
 
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)

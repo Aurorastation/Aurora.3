@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "The SCCV Horizon's 'cleanliness' is now saved between rounds and influences dirt generation in following rounds."
