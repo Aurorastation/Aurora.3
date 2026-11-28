@@ -80,6 +80,11 @@
 	if(!buckled_to)
 		set_dir(angle2dir(dir2angle(dir) + rotation))
 
+/obj/structure/bed/handrail/shuttleRotate(rotation)
+	. = ..()
+	if(buckled)
+		buckled.set_dir(dir)
+
 // Aurora airlock icons are 64x64 and use a fixed -16,-16 centering offset in
 // every direction. Rotating that offset shifts the rendered door off its turf.
 /obj/structure/machinery/door/airlock/shuttleRotate(rotation)
