@@ -31,7 +31,7 @@
 		if(do_after(L, 0.5 SECONDS))
 			to_chat(L, SPAN_NOTICE("You compress some air bullets between your fingers."))
 			bullets = min(bullets + 2, 6)
-			maptext = SMALL_FONTS(7, bullets)
+			maptext = MAPTEXT_TINY_UNICODE(bullets)
 			playsound(L, 'sound/weapons/unjam.ogg', 25)
 			L.psi.spend_power(3)
 			if(bullets >= 6)
@@ -46,7 +46,7 @@
 	. = ..(hit_atom, user, pb_target)
 	if(.)
 		bullets--
-		maptext = SMALL_FONTS(7, bullets)
+		maptext = MAPTEXT_TINY_UNICODE(bullets)
 
 /obj/projectile/air_bullet
 	name = "air bullet"

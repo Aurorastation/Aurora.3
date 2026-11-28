@@ -28,11 +28,11 @@
 	if(structure_mode)
 		to_chat(user, SPAN_WARNING("You reconfigure your rending to damage structures. It can no longer be used on organics or synthetics, but it is much cheaper \
 									to damage structures with."))
-		maptext = SMALL_FONTS(7, "S")
+		maptext = MAPTEXT_SPESSFONT("S")
 		psi_cost = 15
 	else
 		to_chat(user, SPAN_WARNING("You reconfigure your rending to damage organics again."))
-		maptext = SMALL_FONTS(7, "O")
+		maptext = MAPTEXT_SPESSFONT("O")
 		psi_cost = initial(psi_cost)
 
 /obj/item/spell/rend/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)

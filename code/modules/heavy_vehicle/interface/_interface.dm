@@ -119,7 +119,7 @@
 			hud_power?.maptext_x = 25
 		else
 			hud_power?.maptext_x = 22
-		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
+		hud_power?.maptext = MAPTEXT_TINY_UNICODE("[power_percentage]%")
 	else
 		hud_power?.maptext_x = 13
-		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
+		hud_power?.maptext = MAPTEXT_TINY_UNICODE("NO CELL")

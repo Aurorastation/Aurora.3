@@ -860,7 +860,7 @@
 	update_tool()
 
 /obj/item/powerdrill/set_initial_maptext()
-	held_maptext = SMALL_FONTS(7, "S")
+	held_maptext = MAPTEXT_SPESSFONT("S")
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -877,13 +877,13 @@
 	if(tool == TOOL_SCREWDRIVER)
 		usesound = 'sound/items/drill_use.ogg'
 		icon_state = "impact_wrench-screw"
-		check_maptext(SMALL_FONTS(7, "S"))
+		check_maptext(MAPTEXT_SPESSFONT("S"))
 		tool_behaviour = TOOL_SCREWDRIVER
 		LOAD_TOOL_QUALITIES(src, alist(TOOL_SCREWDRIVER = powerdrill_level), toolComp)
 	else if(tool == TOOL_WRENCH)
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
-		check_maptext(SMALL_FONTS(7, "W"))
+		check_maptext(MAPTEXT_SPESSFONT("W"))
 		tool_behaviour = TOOL_WRENCH
 		LOAD_TOOL_QUALITIES(src, alist(TOOL_WRENCH = powerdrill_level), toolComp)
 

@@ -2,14 +2,14 @@
 /// Can be used in TGUI etc, px sizing is pt / 0.75. 12pt = 16px, 24pt = 32px etc.
 
 /// Base font
-/datum/font/spessfont
+/singleton/font/spessfont
 	name = "Spess Font"
 	font_family = 'interface/fonts/SpessFont.ttf'
 
 /// For icon overlays
 /// Spess Font 6pt metrics generated using Lummox's dmifontsplus (https://www.byond.com/developer/LummoxJR/DmiFontsPlus)
 /// Note: these variable names have been changed, so you can't straight copy/paste from dmifontsplus.exe
-/datum/font/spessfont/size_6pt
+/singleton/font/spessfont/size_6pt
 	name = "Spess Font 6pt"
 	height = 8
 	ascent = 6

@@ -25,7 +25,6 @@ em						{font-style: normal;font-weight: bold;}
 
 /* OOC */
 .ooc					{font-weight: bold;}
-.ooc img.text_tag		{width: 32px; height: 10px; vertical-align: middle;}
 
 .ooc .everyone			{color: #002eb8;}
 .ooc .looc				{color: #6699CC;}
@@ -81,16 +80,13 @@ em						{font-style: normal;font-weight: bold;}
 .alert					{color: #ff0000;}
 h1.alert, h2.alert		{color: #000000;}
 
-.emote					{font-style: italic;}
+.emote					{}
 
 .psychic				{color: #56d277;}
 
 /* Game Messages */
 
-.attack					{color: #ff0000;}
 .moderate				{color: #CC0000;}
-.disarm					{color: #990000;}
-.passive				{color: #660000;}
 
 .danger					{color: #ff0000; font-weight: bold;}
 .warning				{color: #ff0000; font-style: italic;}
@@ -103,8 +99,6 @@ h1.alert, h2.alert		{color: #000000;}
 .subtle					{color: #000099; font-size: 75%; font-style: italic;}
 .alium					{color: #00ff00;}
 .cult					{color: #800080; font-weight: bold; font-style: italic;}
-
-.reflex_shoot			{color: #000099; font-style: italic;}
 
 /* Languages */
 

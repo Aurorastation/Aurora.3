@@ -13,7 +13,7 @@
 /atom/movable/screen/mecha/radio
 	name = "radio"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">RADIO</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>RADIO</span></span>"
 	maptext_x = 2
 	maptext_y = 11
 
@@ -77,7 +77,7 @@
 		maptext = ""
 		return
 
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[holding.get_hardpoint_maptext()]</span>"
+	maptext = MAPTEXT_SPESSFONT("[holding.get_hardpoint_maptext()]")
 
 	var/ui_damage = (!owner.body.diagnostics || !owner.body.diagnostics.is_functional() || ((owner.emp_damage>EMP_GUI_DISRUPT) && prob(owner.emp_damage)))
 
@@ -165,7 +165,7 @@
 /atom/movable/screen/mecha/eject
 	name = "eject"
 	icon_state = "large_base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">EJECT</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>EJECT</span></span>"
 	maptext_x = 3
 	maptext_y = 10
 
@@ -176,7 +176,7 @@
 /atom/movable/screen/mecha/rename
 	name = "rename"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 5px;\">RENAME</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>RENAME</span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
@@ -206,7 +206,7 @@
 /atom/movable/screen/mecha/toggle/air
 	name = "air"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>AIR</span></span></span>"
 	maptext_x = 8
 
 /atom/movable/screen/mecha/toggle/air/toggled()
@@ -214,38 +214,38 @@
 	owner.use_air = toggled
 	if (owner.use_air)
 		playsound(owner.loc, 'sound/effects/internals.ogg', 75, 1)
-	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
+	var/main_style = owner.use_air ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "AIR")))
 	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
 	icon_state = "large_base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>MAINT</span></span></span>"
 	maptext_x = 2
 	maptext_y = 10
 
 /atom/movable/screen/mecha/toggle/maint/toggled()
 	toggled = !toggled
 	owner.maintenance_protocols = toggled
-	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
+	var/main_style = owner.maintenance_protocols ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "MAINT")))
 	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/power_control
 	name = "power control"
 	icon_state = "large_base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>POWER</span></span></span>"
 	maptext_x = 1
 	maptext_y = 11
 
 /atom/movable/screen/mecha/toggle/power_control/toggled(var/remote = FALSE)
 	toggled = !toggled
 	owner.toggle_power(usr, remote)
-	var/main_color = toggled ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
+	var/main_style = toggled ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "POWER")))
 
 /atom/movable/screen/mecha/toggle/power_control/update_icon()
 	toggled = (owner.power == MECH_POWER_ON)
@@ -254,7 +254,7 @@
 /atom/movable/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>GEAR</span></span></span>"
 	maptext_x = 4
 
 /atom/movable/screen/mecha/toggle/hardpoint/toggled()
@@ -263,15 +263,15 @@
 		return
 	toggled = !toggled
 	owner.hardpoints_locked = toggled
-	var/main_color = owner.hardpoints_locked ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
+	var/main_style = owner.hardpoints_locked ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "GEAR")))
 	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 	playsound(owner, 'sound/weapons/laser_safetyon.ogg', 50, 0, falloff_exponent = (SOUND_FALLOFF_EXPONENT+4))
 
 /atom/movable/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>LOCK</span></span>"
 	maptext_x = 5
 
 /atom/movable/screen/mecha/toggle/hatch/toggled()
@@ -284,11 +284,11 @@
 	toggled = !toggled
 	owner.hatch_locked = toggled
 	if(owner.hatch_locked)
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 5px;\">UNLOCK</span>"
+		maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("UNLOCK"))
 		maptext_y = 12
 		maptext_x = 1
 	else
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
+		maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("LOCK"))
 		maptext_y = 11
 		maptext_x = 5
 	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
@@ -297,11 +297,11 @@
 /atom/movable/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">CLOSE</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'>CLOSE</span></span>"
 	maptext_x = 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/update_icon()
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">[owner.hatch_closed ? "OPEN" : "CLOSE"]</span>"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA("[owner.hatch_closed ? "OPEN" : "CLOSE"]"))
 	maptext_x = owner.hatch_closed ? 4 : 3
 
 /atom/movable/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
@@ -337,7 +337,7 @@
 /atom/movable/screen/mecha/toggle/sensor
 	name = "toggle sensor matrix"
 	icon_state = "base"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>SENSOR</span></span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
@@ -350,22 +350,22 @@
 		return
 	toggled = !toggled
 	owner.head.active_sensors = toggled
-	var/main_color = owner.head.active_sensors ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
+	var/main_style = owner.head.active_sensors ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "SENSOR")))
 	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
 /atom/movable/screen/mecha/toggle/megaspeakers
 	name = "toggle integrated megaspeakers"
 	icon_state = "base" // based
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	maptext = "<span style='font-family: \"Spess Font\"; font-size: 6pt; line-height: 1.4; -dm-text-outline: 1px black'><span class='mecha_label'><span class='mecha_inactive'>VOLUME</span></span></span>"
 	maptext_x = 1
 	maptext_y = 12
 
 /atom/movable/screen/mecha/toggle/megaspeakers/toggled()
 	toggled = !toggled
 	owner.loudening = toggled
-	var/main_color = owner.loudening ? "#d1d1d1" : "#525252"
-	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	var/main_style = owner.loudening ? "mecha_active" : "mecha_inactive"
+	maptext = MAPTEXT_SPESSFONT(SPAN_MECHA(span(main_style, "VOLUME")))
 	notify_user(usr, SPAN_NOTICE("You [owner.loudening ? "activate" : "deactivate"] \the [owner]'s integrated megaspeakers."))
 
 #undef BAR_CAP

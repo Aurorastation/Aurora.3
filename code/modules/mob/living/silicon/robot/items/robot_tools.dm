@@ -50,7 +50,7 @@
 		to_chat(user, SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]"))
 
 /obj/item/robot_teleporter/set_initial_maptext()
-	held_maptext = SMALL_FONTS(7, "Ready")
+	held_maptext = MAPTEXT_SPESSFONT("Ready")
 
 /obj/item/robot_teleporter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!ready_to_use)
@@ -84,9 +84,9 @@
 /obj/item/robot_teleporter/use()
 	ready_to_use = FALSE
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
-	check_maptext(SMALL_FONTS(6, "Charge"))
+	check_maptext(MAPTEXT_SPESSFONT("Charge"))
 	when_recharge = world.time + recharge_time
 
 /obj/item/robot_teleporter/proc/recharge()
 	ready_to_use = TRUE
-	check_maptext(SMALL_FONTS(7, "Ready"))
+	check_maptext(MAPTEXT_SPESSFONT("Ready"))

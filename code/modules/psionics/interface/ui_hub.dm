@@ -29,7 +29,7 @@
 		return
 	if(!owner.psi)
 		return
-	maptext = SMALL_FONTS(7, "[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%")
+	maptext = MAPTEXT_TINY_UNICODE("[round((owner.psi.stamina/owner.psi.max_stamina)*100)]%")
 	update_icon()
 
 /atom/movable/screen/psi/hub/Click(var/location, var/control, var/params)

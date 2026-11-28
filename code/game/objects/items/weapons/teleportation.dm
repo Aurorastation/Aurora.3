@@ -186,7 +186,7 @@ Frequency:
 		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
 /obj/item/hand_tele/set_initial_maptext()
-	held_maptext = SMALL_FONTS(7, "Ready")
+	held_maptext = MAPTEXT_SPESSFONT("Ready")
 
 /obj/item/hand_tele/attack_self(mob/user)
 	var/turf/current_location = get_turf(user)//What turf is the user on?
@@ -237,7 +237,7 @@ Frequency:
 	var/obj/effect/portal/P = new /obj/effect/portal(get_turf(src), teleport_turf, src)
 	LAZYADD(active_teleporters, P)
 	if(LAZYLEN(active_teleporters) >= max_portals)
-		check_maptext(SMALL_FONTS(6, "Charge"))
+		check_maptext(MAPTEXT_SPESSFONT("Charge"))
 	add_fingerprint(user)
 
 /obj/item/hand_tele/AltClick(mob/user)
@@ -278,7 +278,7 @@ Frequency:
 /obj/item/hand_tele/proc/remove_portal(var/obj/effect/portal/P)
 	LAZYREMOVE(active_teleporters, P)
 	if(LAZYLEN(active_teleporters) < max_portals)
-		check_maptext(SMALL_FONTS(7, "Ready"))
+		check_maptext(MAPTEXT_SPESSFONT("Ready"))
 		icon_state = "hand_tele"
 	else
 		icon_state = "hand_tele_recharging"

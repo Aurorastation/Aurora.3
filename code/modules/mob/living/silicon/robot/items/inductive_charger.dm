@@ -27,7 +27,7 @@
 		. += SPAN_NOTICE("Cell Charge: [cell.percent()]%")
 
 /obj/item/inductive_charger/set_initial_maptext()
-	held_maptext = SMALL_FONTS(7, "Ready")
+	held_maptext = MAPTEXT_SPESSFONT("Ready")
 
 /obj/item/inductive_charger/AltClick(mob/user)
 	. = ..()
@@ -95,11 +95,11 @@
 	user.visible_message(others_message, self_message, vision_distance = 3)
 	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	ready_to_use = FALSE
-	check_maptext(SMALL_FONTS(6, "Charge"))
+	check_maptext(MAPTEXT_SPESSFONT("Charge"))
 
 /obj/item/inductive_charger/proc/recharge()
 	ready_to_use = TRUE
-	check_maptext(SMALL_FONTS(7, "Ready"))
+	check_maptext(MAPTEXT_SPESSFONT("Ready"))
 
 /obj/item/inductive_charger/handheld
 	desc = "A handheld phoron-enhanced induction charger, capable of wirelessly charging cells at a reduced efficiency. This one is painted in science colors."

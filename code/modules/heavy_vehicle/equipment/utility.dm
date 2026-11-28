@@ -189,7 +189,7 @@
 	return (get_fuel()/max_fuel)
 
 /obj/item/weldingtool/get_hardpoint_maptext()
-	return "[get_fuel()]/[max_fuel]"
+	return MAPTEXT_TINY_UNICODE("[get_fuel()]/[max_fuel]")
 
 /obj/item/mecha_equipment/clamp/Destroy()
 	QDEL_NULL_LIST(carrying)
@@ -466,7 +466,7 @@
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
 	if(drill_head)
-		return "Integrity: [round(drill_head.get_durability_percentage())]%"
+		return "Integrity: " + MAPTEXT_TINY_UNICODE("[round(drill_head.get_durability_percentage())]%")
 	return
 
 /obj/item/mecha_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)

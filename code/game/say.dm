@@ -118,6 +118,15 @@
 		styles = list("langchat_yell")
 	if(msg.message_mods[MODE_AMPLIFIED] || msg.message_mods[MODE_RELAY] || msg.say_mode == SAYMODE_RADIO)
 		styles += "radio"
+	if(msg.message_mods[SAY_MOD_LONG_SPEECH] && msg.single_language && msg.base_clarity == CLARITY_CLEAR)
+		if(msg.message_mods[MODE_AMPLIFIED])
+			styles |= "langchat_announce"
+		var/list/mob/long_listeners = list()
+		for(var/mob/listener in listeners)
+			if(listener.get_clarity(msg, feedback = FALSE) == CLARITY_CLEAR)
+				long_listeners += listener
+		langchat_long_speech(msg.to_string(), long_listeners, msg.single_language, additional_styles = styles)
+		return
 	langchat_say_message(msg, listeners, additional_styles = styles)
 
 /atom/movable/proc/get_speech_listeners(datum/say_message/msg, list/used_radios, ghost_hearing)

@@ -370,13 +370,13 @@
 	if(display_contents_with_number)
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:12,[cy]:16"
-			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
+			ND.sample_object.maptext = MAPTEXT_TINY_UNICODE("[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
 				ND.sample_object.ClearOverlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
 				var/image/name_overlay = image(null)
-				name_overlay.maptext = SMALL_FONTS(7, object_initials)
+				name_overlay.maptext = MAPTEXT_SPESSFONT(object_initials)
 				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
 				ND.sample_object.AddOverlays(name_overlay)
 			cx++

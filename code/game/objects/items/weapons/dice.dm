@@ -21,7 +21,7 @@
 	icon_state = "[base_icon][rand(1,sides)]"
 
 /obj/item/stack/dice/update_icon(var/result)
-	check_maptext(SMALL_FONTS(7, get_amount()))
+	check_maptext(MAPTEXT_TINY_UNICODE(get_amount()))
 	if(result)
 		icon_state = "[base_icon][result]"
 

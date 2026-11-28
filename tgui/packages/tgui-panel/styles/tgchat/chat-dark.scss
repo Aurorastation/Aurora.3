@@ -235,8 +235,7 @@ a.popt {
 
 /* ADD HERE FOR ITALIC */
 .italic,
-.italics,
-.emote {
+.italics {
   font-style: italic;
 }
 
@@ -256,11 +255,6 @@ h5,
 h6 {
   color: #a4bad6;
   font-family: Georgia, Verdana, sans-serif;
-}
-
-em {
-  font-style: normal;
-  font-weight: bold;
 }
 
 /* LOG */
@@ -323,14 +317,6 @@ em {
 }
 
 /* OOC */
-.ooc {
-  font-weight: bold;
-}
-.ooc img.text_tag {
-  width: 32px;
-  height: 10px;
-  vertical-align: middle;
-}
 
 .ooc .everyone {
   color: #3c5dc0;
@@ -505,9 +491,6 @@ em {
 }
 
 /* Miscellaneous */
-.name {
-  font-weight: bold;
-}
 .alert {
   color: #d82020;
 }
@@ -515,22 +498,9 @@ em {
   color: #9933ff;
 }
 
-.emote {
-  font-style: italic;
-}
-
 /* Game Messages */
-.attack {
-  color: #ff0000;
-}
 .moderate {
   color: #cc0000;
-}
-.disarm {
-  color: #990000;
-}
-.passive {
-  color: #660000;
 }
 
 .danger {
@@ -562,15 +532,6 @@ em {
 .boldnotice {
   color: #6685f5;
   font-weight: bold;
-}
-.rose {
-  color: #ff5050;
-}
-.info {
-  color: #6685f5;
-}
-.notice {
-  color: #6685f5;
 }
 .alium {
   color: #00ff00;

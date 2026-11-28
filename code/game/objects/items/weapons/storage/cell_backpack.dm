@@ -44,7 +44,7 @@
 				maptext_color = COLOR_RED_LIGHT
 			if(-INFINITY to 1)
 				maptext_color = COLOR_RED
-		C.maptext = "<font color='[maptext_color]'>[current_charge]%</font>"
+		C.maptext = MAPTEXT_TINY_UNICODE("<font color='[maptext_color]'>[current_charge]%</font>")
 		C.hud_layerise()
 		cx++
 		if (cx > (4+cols))

@@ -78,7 +78,7 @@ ABSTRACT_TYPE(/obj/item/gun/projectile/shotgun)
 	else
 		maptext_x = 16
 	var/ammo_display = "[ammo]+[chambered?.BB ? "1" : "0"]"
-	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo_display]</span>"
+	maptext = MAPTEXT_TINY_UNICODE("[ammo_display]")
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
