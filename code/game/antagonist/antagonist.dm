@@ -79,6 +79,13 @@
 	var/idris_account_min = 100
 	var/idris_account_max = 500
 
+	/// Bonus skill points granted to humanoid antagonists when configuring their skills.
+	var/list/bonus_skill_points = list(
+		SKILL_CATEGORY_EVERYDAY = 8,
+		SKILL_CATEGORY_OCCUPATIONAL = 8,
+		SKILL_CATEGORY_COMBAT = 4
+	)
+
 
 /datum/antagonist/New()
 	..()

@@ -98,7 +98,6 @@
 		SKILL_LEVEL_PROFESSIONAL = 10
 	)
 	required = TRUE
-	antag_level = SKILL_LEVEL_PROFESSIONAL //So antags are always able to do Horizon/ship hijack gimmicks
 	component_type = PILOT_SPACECRAFT_SKILL_COMPONENT
 
 /singleton/skill/pilot_mechs
@@ -152,20 +151,20 @@
 	)
 	component_type = CONDITIONING_SKILL_COMPONENT
 
-/singleton/skill/conditioning/get_name(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/conditioning/get_name(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_name
 	return ..()
 
-/singleton/skill/conditioning/get_description(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/conditioning/get_description(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_description
 	return ..()
 
-/singleton/skill/conditioning/get_skill_level_descriptions(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/conditioning/get_skill_level_descriptions(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_skill_level_descriptions
 	return ..()

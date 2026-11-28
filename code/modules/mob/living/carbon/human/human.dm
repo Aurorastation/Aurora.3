@@ -107,6 +107,7 @@
 
 /mob/living/carbon/human/Destroy(force)
 	ghost_spawner = null
+	QDEL_NULL(pending_skills_menu)
 
 	//Srom (Shared Dreaming)
 	srom_pulled_by = null

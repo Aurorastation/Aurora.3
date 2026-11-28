@@ -109,20 +109,20 @@
 	/// Flat Kelvin/Celsius bonus to an IPC's cooling unit maximum safe sprinting temperature per rank above Unfamiliar.
 	var/ipc_bonus_safe_temp_per_rank = 10
 
-/singleton/skill/carousing/get_name(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/carousing/get_name(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_name
 	return ..()
 
-/singleton/skill/carousing/get_description(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/carousing/get_description(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_description
 	return ..()
 
-/singleton/skill/carousing/get_skill_level_descriptions(datum/preferences/pref)
-	var/datum/species/species = GLOB.all_species[pref?.species]
+/singleton/skill/carousing/get_skill_level_descriptions(datum/preferences/pref, datum/species/species_override)
+	var/datum/species/species = species_override || GLOB.all_species[pref?.species]
 	if(species && (species.flags & IS_MECHANICAL))
 		return ipc_skill_level_descriptions
 	return ..()
@@ -180,14 +180,14 @@
 		SKILL_LEVEL_PROFESSIONAL = "You have a passive permanent bonus of +9 morale points."
 	)
 
-/singleton/skill/resolve/on_spawn(mob/owner, skill_level)
+/singleton/skill/resolve/on_spawn(mob/owner, skill_level, previous_level = SKILL_LEVEL_UNFAMILIAR)
 	var/mob/living/carbon/character = astype(owner)
-	if (!character || skill_level == SKILL_LEVEL_UNFAMILIAR || !character.species || !character.species.has_morale)
+	if (!character || skill_level == previous_level || !character.species || !character.species.has_morale)
 		return
 
 	// Using LoadComponent here lets me defeat any possible race conditions coming out of character creation.
 	// Uniquely among skills, this skill works by modifying a pre-existing component used by player characters, rather than adding its own.
 	// If you're a contributor reading up on skills, consider this your tutorial on how to make a skill modify some statistic directly.
 	var/datum/component/morale/morale_comp = character.LoadComponent(MORALE_COMPONENT)
-	morale_comp.set_phi_value(morale_comp.get_phi_value() + (3 * (skill_level - 1)))
+	morale_comp.set_phi_value(morale_comp.get_phi_value() + (3 * (skill_level - previous_level)))
 

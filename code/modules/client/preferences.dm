@@ -652,7 +652,10 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	// Load all of the player-set skills first.
 	for(var/skill_type in skills)
 		var/singleton/skill/skill = GET_SINGLETON(skill_type)
-		skill.on_spawn(character, skills[skill.type])
+		var/skill_level = skills[skill.type]
+		skill.on_spawn(character, skill_level)
+		if(skill_level > SKILL_LEVEL_UNFAMILIAR)
+			LAZYSET(character.skills, skill.type, skill_level)
 
 	// Attempt to load all the "required" skills.
 	// Player-set skills won't be overwritten here as LoadComponent will never re-initialize a component that already exists.
