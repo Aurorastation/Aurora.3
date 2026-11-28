@@ -5,26 +5,50 @@
 	icon_state = "vitals_monitor"
 	item_state = "vitals_monitor"
 	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_HUGE
 
 	var/obj/structure/bed/roller/bed
 	var/reported_critical = FALSE
+	var/obj/item/vitals_monitor_offhand/offhand_grip
+	var/next_ui_update = 0
+
+/obj/item/vitals_monitor/Initialize()
+	. = ..()
+	LoadComponent(/datum/component/health_analyzer/vitals)
 
 /obj/item/vitals_monitor/Destroy()
 	bed = null
+	clear_offhand_grip()
 	return ..()
+
+/obj/item/vitals_monitor/proc/clear_offhand_grip()
+	var/obj/item/vitals_monitor_offhand/grip = offhand_grip
+	offhand_grip = null
+	if(grip)
+		grip.linked = null
+		if(!QDELETED(grip))
+			qdel(grip)
+
+/obj/item/vitals_monitor/proc/get_patient()
+	if(ishuman(bed?.buckled))
+		return bed.buckled
+	if(istype(bed?.buckled, /obj/structure/closet))
+		return locate(/mob/living/carbon/human) in bed.buckled.contents
 
 /obj/item/vitals_monitor/process()
 	if(!bed)
-		return
+		return PROCESS_KILL
 
-	var/mob/living/carbon/human/H
-	if(bed?.buckled)
-		if(ishuman(bed.buckled))
-			H = bed.buckled
-		else if(istype(bed.buckled, /obj/structure/closet))
-			H = locate() in bed.buckled.contents
+	var/mob/living/carbon/human/H = get_patient()
+	var/datum/component/health_analyzer/vitals/analyzer = GetComponent(/datum/component/health_analyzer/vitals)
+	if(world.time >= next_ui_update && LAZYLEN(analyzer.open_uis))
+		next_ui_update = world.time + 2 SECONDS
+		SStgui.update_uis(analyzer)
 
 	if(!H)
+		if(reported_critical)
+			reported_critical = FALSE
+			update_icon()
 		return
 
 	if(H.is_asystole())
@@ -44,6 +68,10 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 		reported_critical = FALSE
+		next_ui_update = 0
+		var/datum/component/health_analyzer/vitals/analyzer = GetComponent(/datum/component/health_analyzer/vitals)
+		analyzer.clear_scan()
+		SStgui.close_uis(analyzer)
 	update_icon()
 
 /obj/item/vitals_monitor/update_icon()
@@ -69,60 +97,57 @@
 
 /obj/item/vitals_monitor/Click() // attack_hand doesn't work here because it's inside the rollerbed
 	if(bed && bed.Adjacent(usr))
-		ui_interact(usr)
+		var/datum/component/health_analyzer/vitals/analyzer = GetComponent(/datum/component/health_analyzer/vitals)
+		analyzer.ui_interact(usr)
 		return
 	return ..()
 
-/obj/item/vitals_monitor/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "VitalsMonitor", "Vitals Monitor", 480, 300)
-		ui.open()
+/obj/item/vitals_monitor/do_additional_pickup_checks(mob/user)
+	if(!ishuman(user))
+		to_chat(user, SPAN_WARNING("You need two hands to lift \the [src]!"))
+		return FALSE
+	if(user.get_inactive_hand())
+		to_chat(user, SPAN_WARNING("You need your other hand to be empty to lift \the [src]!"))
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	var/obj/item/organ/external/inactive_hand = H.get_organ(user.hand ? BP_L_HAND : BP_R_HAND)
+	if(!inactive_hand || !inactive_hand.is_usable())
+		to_chat(user, SPAN_WARNING("You need two usable hands to lift \the [src]!"))
+		return FALSE
+	return TRUE
 
-/obj/item/vitals_monitor/ui_status(mob/user, datum/ui_state/state)
-	return (bed && bed.Adjacent(user)) ? UI_INTERACTIVE : UI_UPDATE
+/obj/item/vitals_monitor/pickup(mob/user)
+	. = ..()
+	var/obj/item/vitals_monitor_offhand/grip = new(user)
+	grip.name = "[name] - second hand"
+	grip.desc = "Your second grip on \the [name]."
+	grip.linked = src
+	user.put_in_inactive_hand(grip)
+	offhand_grip = grip
 
-/obj/item/vitals_monitor/ui_data(mob/user)
-	var/list/data = list()
+/obj/item/vitals_monitor/dropped(mob/user)
+	clear_offhand_grip()
+	return ..()
 
-	var/mob/living/carbon/human/H
-	if(bed?.buckled)
-		if(ishuman(bed.buckled))
-			H = bed.buckled
-		else if(istype(bed.buckled, /obj/structure/closet))
-			H = locate() in bed.buckled.contents
+/obj/item/vitals_monitor/can_swap_hands(mob/user)
+	return !offhand_grip
 
-	var/has_occupant = !isnull(H)
-	data["has_occupant"] = has_occupant
+/obj/item/vitals_monitor_offhand
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "offhand"
+	name = "second hand"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
+	var/obj/item/vitals_monitor/linked
 
-	if(has_occupant)
-		var/displayed_stat = H.stat
-		var/blood_oxygenation = H.get_blood_oxygenation()
-		if(H.status_flags & FAKEDEATH)
-			displayed_stat = DEAD
-			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
-
-		var/pulse_result
-		if(H.should_have_organ(BP_HEART))
-			var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
-			if(!heart)
-				pulse_result = 0
-			else if(BP_IS_ROBOTIC(heart))
-				pulse_result = -2
-			else if(H.status_flags & FAKEDEATH)
-				pulse_result = 0
-			else
-				pulse_result = H.get_pulse(GETPULSE_TOOL)
-		else
-			pulse_result = -1
-		if(pulse_result == ">250")
-			pulse_result = -3
-
-		data["stat"] = displayed_stat
-		data["brain_activity"] = H.get_brain_result()
-		data["blood_pressure"] = H.get_blood_pressure()
-		data["blood_pressure_level"] = H.get_blood_pressure_alert()
-		data["blood_volume"] = H.get_blood_volume()
-		data["blood_o2"] = blood_oxygenation
-
-	return data
+/obj/item/vitals_monitor_offhand/dropped(mob/user)
+	. = ..()
+	var/obj/item/vitals_monitor/monitor = linked
+	linked = null
+	if(monitor)
+		monitor.offhand_grip = null
+		if(user)
+			user.drop_from_inventory(monitor)
+	if(!QDELETED(src))
+		qdel(src)

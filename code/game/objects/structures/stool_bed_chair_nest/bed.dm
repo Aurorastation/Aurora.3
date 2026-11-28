@@ -536,11 +536,16 @@
 
 /obj/structure/bed/roller/proc/remove_vitals(mob/user)
 	to_chat(user, SPAN_NOTICE("You detach \the [vitals] from \the [src]."))
+	var/obj/item/vitals_monitor/detached_monitor = vitals
 	vitals.bed = null
 	vitals.update_monitor()
-	user.put_in_hands(vitals)
+	vitals.dropInto(get_turf(src))
 	vitals = null
 	update_icon()
+	if(!user.get_active_hand() && !user.get_inactive_hand())
+		detached_monitor.attack_hand(user)
+	else
+		to_chat(user, SPAN_NOTICE("You set \the [detached_monitor] down because both of your hands are not free."))
 
 /obj/structure/bed/roller/proc/remove_paper(mob/user)
 	to_chat(user, SPAN_NOTICE("You detach \the [medscan] from \the [src]."))
