@@ -32,6 +32,24 @@
 			copied.vars[variable] = src.vars[variable]
 	return copied
 
+/proc/record_notes_to_paper_html(notes)
+	if(!notes)
+		return ""
+
+	var/text = trim(html_decode("[notes]"))
+	if(!length(text))
+		return ""
+
+	text = sanitize(text, MAX_PAPER_MESSAGE_LEN, extra = 0)
+	return pencode2html(text)
+
+/proc/get_id_card_character_id(var/obj/item/card/id/id_card)
+	var/mob/living/carbon/human/card_owner = id_card?.mob_id?.resolve()
+	return card_owner?.character_id
+
+/datum/record/proc/notes_as_paper_html()
+	return record_notes_to_paper_html(notes)
+
 #define CONDITIONAL_HTML_DECODE(VAR)\
 	if(decode_html){\
 		if(istext(##VAR)){\
@@ -85,6 +103,9 @@
 					record[variable] = src.vars[variable]
 					CONDITIONAL_HTML_DECODE(record[variable])
 
+	if(!exclusions["notes"])
+		record["notes_html"] = notes_as_paper_html()
+
 #undef CONDITIONAL_HTML_DECODE
 
 
@@ -105,7 +126,12 @@
 				// . += src.vars[variable].Printify()
 			else if(istype(src.vars[variable], /list))
 				. += "<b>[get_field_name(variable)]:</b><br>"
-				. += jointext(src.vars[variable], "<br>")
+				var/list/values = src.vars[variable]
+				if(is_list_containing_type(values, /datum/record/record_comment))
+					for(var/datum/record/record_comment/record_comment in values)
+						. += "[record_comment.as_html()]<br>"
+				else
+					. += jointext(values, "<br>")
 			else if(istext(src.vars[variable]) || isnum(src.vars[variable]))
 				. += "<b>[get_field_name(variable)]:</b> [src.vars[variable]]<br>"
 	for(var/variable in extendedVars)
@@ -118,9 +144,165 @@
 	if(!.)
 		return capitalize(replacetext(field, "_", " "))
 
+/datum/record/record_comment
+	var/db_id = 0
+	var/char_id = 0
+	var/record_type
+	var/comment = ""
+	var/author = "Unknown"
+	var/created_at = ""
+	var/created_by
+	/// Character ID associated with the ID card that created this comment this round. Not persisted.
+	var/creator_character_id
+	var/updated_at = ""
+	var/updated_by
+	excluded_fields = list("name", "notes", "db_id", "char_id", "record_type", "created_by", "creator_character_id", "updated_by")
+
+/datum/record/record_comment/New(var/new_char_id, var/new_record_type, var/new_comment, var/new_author, var/new_created_by)
+	..()
+	char_id = new_char_id
+	record_type = new_record_type
+	comment = new_comment
+	author = new_author
+	if(!author)
+		author = "Unknown"
+	created_by = new_created_by
+	id = md5("[world.realtime][rand(0, 1000000)][REF(src)]")
+	created_at = "[time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]"
+
+/datum/record/record_comment/proc/save_to_db()
+	if(!establish_db_connection(GLOB.dbcon) || !char_id)
+		return FALSE
+
+	var/list/sql_args = list(
+		"char_id" = char_id,
+		"uid" = id,
+		"record_type" = record_type,
+		"comment" = comment,
+		"author" = author,
+		"created_by" = created_by,
+		"updated_by" = updated_by,
+		"game_id" = GLOB.round_id
+	)
+	var/DBQuery/query
+	if(db_id)
+		query = GLOB.dbcon.NewQuery({"UPDATE ss13_character_record_comments
+			SET body = :comment:, updated_by = :updated_by:, updated_at = NOW()
+			WHERE id = :db_id: AND deleted_at IS NULL"})
+		sql_args["db_id"] = db_id
+	else
+		query = GLOB.dbcon.NewQuery({"INSERT INTO ss13_character_record_comments
+			(char_id, UID, record_type, body, author, created_by, updated_by, game_id)
+			VALUES
+			(:char_id:, :uid:, :record_type:, :comment:, :author:, :created_by:, :updated_by:, :game_id:)"})
+
+	if(!query.Execute(sql_args))
+		log_world("ERROR: Failed to save a persistent record comment for character #[char_id]: [query.ErrorMsg()]")
+		return FALSE
+	if(!db_id)
+		var/DBQuery/id_query = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID()")
+		if(!id_query.Execute() || !id_query.NextRow())
+			log_world("ERROR: Failed to retrieve the database ID for persistent record comment [id]: [id_query.ErrorMsg()]")
+			return FALSE
+		db_id = text2num(id_query.item[1])
+	return TRUE
+
+/datum/record/record_comment/proc/delete_from_db(var/deleted_by)
+	if(!establish_db_connection(GLOB.dbcon) || !db_id)
+		return FALSE
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"UPDATE ss13_character_record_comments
+		SET deleted_by = :deleted_by:, deleted_at = NOW()
+		WHERE id = :db_id: AND deleted_at IS NULL"})
+	if(!query.Execute(list("db_id" = db_id, "deleted_by" = deleted_by)))
+		log_world("ERROR: Failed to delete persistent record comment #[db_id]: [query.ErrorMsg()]")
+		return FALSE
+	return TRUE
+
+/datum/record/record_comment/proc/as_html()
+	return "Made by [author] on [created_at]<BR>[replacetext(comment, "\n", "<BR>")]"
+
+/datum/record/record_comment/proc/copy_comment()
+	var/datum/record/record_comment/copy = new(char_id, record_type, comment, author, created_by)
+	copy.db_id = db_id
+	copy.id = id
+	copy.created_at = created_at
+	copy.creator_character_id = creator_character_id
+	copy.updated_at = updated_at
+	copy.updated_by = updated_by
+	return copy
+
+/// Loads one bounded page of persistent comments for a character.
+/proc/load_record_comment_page(var/char_id, var/record_type, var/requested_page = 1)
+	var/list/result = list(
+		"comments" = list(),
+		"error" = FALSE,
+		"page" = 1,
+		"total" = 0
+	)
+	if(!establish_db_connection(GLOB.dbcon) || !char_id)
+		result["error"] = TRUE
+		return result
+
+	var/sql_filter = "record_type IN ('employment', 'medical', 'security')"
+	var/list/sql_args = list("char_id" = char_id)
+	if(record_type)
+		if(!(record_type in list("employment", "medical", "security")))
+			result["error"] = TRUE
+			return result
+		sql_filter = "record_type = :record_type:"
+		sql_args["record_type"] = record_type
+
+	var/DBQuery/count_query = GLOB.dbcon.NewQuery({"SELECT COUNT(*)
+		FROM ss13_character_record_comments
+		WHERE char_id = :char_id: AND [sql_filter] AND deleted_at IS NULL"})
+	if(!count_query.Execute(sql_args))
+		log_world("ERROR: Failed to count persistent record comments for character #[char_id]: [count_query.ErrorMsg()]")
+		qdel(count_query)
+		result["error"] = TRUE
+		return result
+	result["total"] = count_query.NextRow() ? text2num(count_query.item[1]) : 0
+	qdel(count_query)
+
+	var/total_pages = max(1, CEILING(result["total"], RECORD_COMMENT_PAGE_SIZE) / RECORD_COMMENT_PAGE_SIZE)
+	var/page = clamp(round(requested_page), 1, total_pages)
+	var/sql_offset = (page - 1) * RECORD_COMMENT_PAGE_SIZE
+	result["page"] = page
+
+	var/DBQuery/comment_query = GLOB.dbcon.NewQuery({"SELECT
+		id, char_id, UID, record_type, body, author, created_by, updated_by, created_at, updated_at
+		FROM ss13_character_record_comments
+		WHERE char_id = :char_id: AND [sql_filter] AND deleted_at IS NULL
+		ORDER BY created_at DESC, id DESC
+		LIMIT [RECORD_COMMENT_PAGE_SIZE] OFFSET [sql_offset]"})
+	if(!comment_query.Execute(sql_args))
+		log_world("ERROR: Failed to load persistent record comments for character #[char_id]: [comment_query.ErrorMsg()]")
+		qdel(comment_query)
+		result["error"] = TRUE
+		return result
+
+	var/list/comments = list()
+	while(comment_query.NextRow())
+		var/datum/record/record_comment/record_comment = new()
+		record_comment.db_id = text2num(comment_query.item[1])
+		record_comment.char_id = text2num(comment_query.item[2])
+		record_comment.id = comment_query.item[3]
+		record_comment.record_type = comment_query.item[4]
+		record_comment.comment = comment_query.item[5]
+		record_comment.author = comment_query.item[6]
+		record_comment.created_by = comment_query.item[7]
+		record_comment.updated_by = comment_query.item[8]
+		record_comment.created_at = comment_query.item[9]
+		if(record_comment.updated_by)
+			record_comment.updated_at = comment_query.item[10]
+		comments += record_comment
+	qdel(comment_query)
+	result["comments"] = comments
+	return result
+
 // Record for storing general data, data tree top level datum
 /datum/record/general
 	name = "New Record"
+	var/character_id = 0
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
@@ -138,10 +320,12 @@
 	var/icon/photo_side
 	var/datum/record/medical/medical
 	var/datum/record/security/security
+	/// Comments created during this round; persistent history is loaded on demand by consumers.
+	var/list/comments = list()
 	var/list/advanced_fields = list("citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
-	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
-	excluded_print_fields = list("ccia_actions")
+	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank", "character_id")
+	excluded_print_fields = list("ccia_actions", "comments")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
@@ -156,6 +340,7 @@
 		nid = generate_record_id()
 	id = nid
 	if(H)
+		character_id = H.character_id
 		name = H.real_name
 		real_rank = H.mind.assigned_role
 		rank = GetAssignment(H, TRUE)
@@ -173,6 +358,24 @@
 	medical = new(H, id)
 	security = new(H, id)
 
+/datum/record/general/proc/get_comments(var/record_type)
+	switch(record_type)
+		if("employment")
+			return comments
+		if("medical")
+			return medical?.comments
+		if("security")
+			return security?.comments
+
+/datum/record/general/proc/add_comment(var/record_type, var/comment_text, var/author, var/created_by, var/creator_character_id)
+	var/list/comment_list = get_comments(record_type)
+	if(!comment_list)
+		return
+	var/datum/record/record_comment/record_comment = new(character_id, record_type, comment_text, author, created_by)
+	record_comment.creator_character_id = creator_character_id
+	comment_list += record_comment
+	record_comment.save_to_db()
+	return record_comment
 
 // Record for locked data
 /datum/record/general/locked
@@ -195,7 +398,9 @@
 /datum/record/medical
 	var/blood_type = "AB+"
 	var/blood_dna = "63920c3ec24b5d57d459b33a2f4d6446"
+	/// Comments created during this round; persistent history is loaded on demand by consumers.
 	var/list/comments = list()
+	excluded_print_fields = list("comments")
 
 /datum/record/medical/New(var/mob/living/carbon/human/H, var/nid)
 	..()
@@ -214,7 +419,9 @@
 	var/criminal = "None"
 	var/crimes = "No criminal record."
 	var/list/incidents = list()
+	/// Comments created during this round; persistent history is loaded on demand by consumers.
 	var/list/comments = list()
+	excluded_print_fields = list("comments")
 
 /datum/record/security/New(var/mob/living/carbon/human/H, var/nid)
 	..()
@@ -241,14 +448,6 @@ GLOBAL_VAR_INIT(warrant_uid, 0)
 	..()
 	id = GLOB.warrant_uid++
 
-// Virus record
-/datum/record/virus
-	name = "Unknown"
-	var/description = ""
-	var/antigen
-	var/spread_type = "Unknown"
-	cmp_field = "name"
-
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"
@@ -274,4 +473,3 @@ GLOBAL_VAR_INIT(shuttle_uid, 0)
 /datum/record/shuttle_assignment/New(var/for_shuttle)
 	. = ..()
 	shuttle = for_shuttle
-
