@@ -1,0 +1,6 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Forensics audio cues now only play while Noir Vision is active."
+  - rscadd: "Noir vision now highlights bullet holes, discarded weapons, severed limbs, and organs"
+  - rscadd: "Alt-clicking on an item while Noir Vision is active now places a mind palace marker on it visible only to the detective."

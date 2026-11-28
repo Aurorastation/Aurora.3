@@ -317,6 +317,8 @@
 	Unused except for AI
 */
 /mob/proc/AltClickOn(atom/A)
+	if(SEND_SIGNAL(src, COMSIG_MOB_ALTCLICKON, A) & COMSIG_MOB_CANCEL_CLICKON)
+		return
 	A.AltClick(src)
 	return
 
