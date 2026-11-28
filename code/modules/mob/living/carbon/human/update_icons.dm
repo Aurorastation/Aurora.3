@@ -1181,6 +1181,7 @@ There are several things that need to be remembered:
 	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
+	..()
 
 
 	if(l_hand)
@@ -1222,6 +1223,7 @@ There are several things that need to be remembered:
 	hud_used?.update_gun_actions()
 	if (QDELETED(src))
 		return
+	..()
 
 	if(r_hand)
 		var/mob_icon

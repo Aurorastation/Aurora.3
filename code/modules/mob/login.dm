@@ -57,6 +57,9 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
+	// Let the lobby map receive right-button events for the cursor instead of opening a native menu.
+	winset(client, "mapwindow.map", "right-click=[isnewplayer(src) ? "true" : "false"]")
+	SEND_SIGNAL(client, COMSIG_CLIENT_CURSOR_UPDATE)
 
 	GLOB.player_list |= src
 	update_Login_details()
