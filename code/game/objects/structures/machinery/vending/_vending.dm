@@ -990,8 +990,14 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 
 /obj/structure/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
 
-	var/vending_usr_dir = get_dir(src, user)
-	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+	var/turf/output_turf = get_vending_turf()
+	if(!output_turf)
+		status_message = "Output blocked. Clear space beside the machine."
+		status_error = TRUE
+		SStgui.update_uis(src)
+		addtimer(CALLBACK(src, PROC_REF(vend_product), R, user), 1 SECOND)
+		return
+	var/obj/vended = new R.product_path(output_turf)
 	vended_product_post(vended)
 	if(Adjacent(user))
 		user.put_in_hands(vended)
@@ -1008,6 +1014,28 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 					use_power_oneoff(RC.reagents.set_temperature(cooling_temperature))
 				if(1)
 					use_power_oneoff(RC.reagents.set_temperature(heating_temperature))
+
+/// Finds the nearest supported, unobstructed tile surrounding the machine.
+/obj/structure/machinery/vending/proc/get_vending_turf()
+	var/turf/origin = get_turf(src)
+	if(!origin)
+		return null
+	var/turf/nearest
+	var/nearest_distance
+	for(var/turf/candidate in orange(1, origin))
+		if(candidate.density || !isfloor(candidate) || candidate.is_hole || LinkBlocked(origin, candidate))
+			continue
+		var/blocked = FALSE
+		for(var/obj/obstacle in candidate)
+			if(obstacle.density)
+				blocked = TRUE
+				break
+		if(!blocked)
+			var/distance = get_dist_euclidian(origin, candidate)
+			if(!nearest || distance < nearest_distance)
+				nearest = candidate
+				nearest_distance = distance
+	return nearest
 
 /// To be overriden if vended out products need any post-processing, setting its vars.
 /// Called by `vend_product`.
@@ -1141,8 +1169,11 @@ ABSTRACT_TYPE(/obj/structure/machinery/vending)
 		return FALSE
 
 	var/datum/data/vending_product/product = pick(available_products)
+	var/turf/output_turf = get_vending_turf()
+	if(!output_turf)
+		return FALSE
 	product.amount--
-	var/obj/free_sample = new product.product_path(get_step(src, dir))
+	var/obj/free_sample = new product.product_path(output_turf)
 	vended_product_post(free_sample)
 	intent_message(MACHINE_SOUND)
 	visible_message(SPAN_NOTICE("\The [src] dispenses \a [free_sample] as an unsolicited promotional sample!"))
