@@ -1,0 +1,4 @@
+author: geeves
+delete-after: true
+changes:
+  - rscadd: "Build walkable glass floors over open space with reinforced glass sheets. Connected panes share a frame around their perimeter. Glass sprites are from /tg/station."

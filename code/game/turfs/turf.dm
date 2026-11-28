@@ -179,8 +179,7 @@
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
 
-	if (z_flags & ZM_MIMIC_BELOW)
-		cleanup_zmimic()
+	QDEL_NULL(mimic_proxy)
 
 	resource_indicator = null
 

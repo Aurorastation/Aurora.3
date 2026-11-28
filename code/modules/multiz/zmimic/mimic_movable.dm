@@ -3,6 +3,16 @@
 	if (. && bound_overlay)
 		bound_overlay.set_dir(ndir)
 
+/// Follow the destination's actual deck connection, including reserved map levels.
+/atom/movable/proc/move_bound_overlay()
+	var/turf/tile = loc
+	if(!isturf(tile) || !TURF_IS_MIMICING(tile.above))
+		qdel(bound_overlay)
+		return
+	bound_overlay.forceMove(tile.above)
+	if(bound_overlay.dir != dir)
+		bound_overlay.set_dir(dir)
+
 /atom/movable/update_above()
 	if (!bound_overlay)
 		return

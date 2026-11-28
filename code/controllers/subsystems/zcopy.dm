@@ -166,14 +166,12 @@ SUBSYSTEM_DEF(zcopy)
 				break
 			continue
 
-		// Z-Turf on the bottom-most level, just fake-copy space.
-		// If this is ever true, that turf should always pass this condition, so don't bother cleaning up beyond the Destroy() hook.
-		if (!T.below)	// Z-turf on the bottom-most level, just fake-copy space.
+		if (!T.below)
 			flush_z_state(T)
-			if(T.z_flags & ZM_MIMIC_BASETURF)
-				simple_appearance_copy(T, get_base_turf_by_area(T), OPEN_SPACE_PLANE_END)
-			else
-				simple_appearance_copy(T, SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1])
+			simple_appearance_copy(T, T.get_zmimic_backdrop(), OPEN_SPACE_PLANE_END)
+			T.z_eventually_space = (T.mimic_underlay ? T.mimic_underlay.plane : T.plane) == SPACE_PLANE
+			if(T.above)
+				T.above.update_mimic()
 
 			T.z_generation += 1
 			T.z_queued -= 1
@@ -222,28 +220,29 @@ SUBSYSTEM_DEF(zcopy)
 		else if (T.mimic_underlay)
 			QDEL_NULL(T.mimic_underlay)
 
-		// Handle space parallax & starlight.
-		if (T.below.z_eventually_space)
-			T.z_eventually_space = TRUE
-			if ((T.below.z_flags & ZM_MIMIC_OVERWRITE) || T.below.type == /turf/space || T.below.type == /turf/space/dynamic)
-				t_target = SPACE_PLANE
+		// A bottom-deck pane keeps its backdrop on a separate proxy.
+		var/atom/base_appearance = Td.mimic_underlay || Td
+		T.z_eventually_space = T.below.z_eventually_space
+		if (T.z_eventually_space && base_appearance.plane == SPACE_PLANE)
+			t_target = SPACE_PLANE
 
 		if (T.z_flags & ZM_MIMIC_OVERWRITE)
 			// This openturf doesn't care about its icon, so we can just overwrite it.
 			if (T.below.mimic_proxy)
 				QDEL_NULL(T.below.mimic_proxy)
-			T.appearance = T.below
+			T.appearance = (T.below.z_flags & ZM_MIMIC_OVERWRITE) ? T.below : base_appearance
 			T.name = initial(T.name)
 			T.desc = initial(T.desc)
 			T.gender = initial(T.gender)
 			T.opacity = FALSE
 			T.plane = t_target
+			T.mouse_opacity = T.below.mouse_opacity
 		else
 			// Some openturfs have icons, so we can't overwrite their appearance.
 			if (!T.below.mimic_proxy)
 				T.below.mimic_proxy = new(T)
 			var/atom/movable/openspace/turf_proxy/TO = T.below.mimic_proxy
-			TO.appearance = Td
+			TO.appearance = base_appearance
 			TO.name = T.name
 			TO.gender = T.gender	// Need to grab this too so PLURAL works properly in examine.
 			TO.opacity = FALSE
@@ -293,7 +292,7 @@ SUBSYSTEM_DEF(zcopy)
 					original_z = OOO.original_z
 					have_performed_fixup = OOO.have_performed_fixup
 
-				if (/atom/movable/openspace/turf_proxy, /atom/movable/openspace/turf_mimic)
+				if (/atom/movable/openspace/turf_proxy)
 					// If we're a turf overlay (the mimic for a non-OVERWRITE turf), we need to make sure copies of us respect space parallax too
 					if (T.z_eventually_space)
 						// Yes, this is an awful hack; I don't want to add yet another override_* var.

@@ -76,12 +76,20 @@
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring, mapload)
 	if (!mapload)
 		make_plating(defer_icon_update = 1)
-	flooring = newflooring
+	change_flooring(newflooring)
 	if (mapload)
 		queue_icon_update()
 	else
-		queue_icon_update(1)
+		SSicon_update.add_to_queue(src, TRUE)
 	levelupdate()
+
+/// Apply flooring effects when building, stripping, or copying a floor.
+/turf/simulated/floor/proc/change_flooring(singleton/flooring/newflooring)
+	if(flooring == newflooring)
+		return
+	flooring?.on_remove(src)
+	flooring = newflooring
+	flooring?.on_install(src)
 
 //This proc will set floor_type to null and the update_icon() proc will then change the icon_state of the turf
 //This proc auto corrects the grass tiles' siding.
@@ -100,10 +108,9 @@
 	color = base_color
 
 	if(flooring)
-		flooring.on_remove()
 		if(flooring.build_type && place_product)
 			new flooring.build_type(src)
-		flooring = null
+		change_flooring(null)
 
 	broken = null
 	burnt = null
@@ -128,6 +135,14 @@
 
 /turf/simulated/floor/is_floor()
 	return TRUE
+
+/turf/simulated/floor/get_zmimic_backdrop()
+	return flooring?.get_zmimic_backdrop(src) || ..()
+
+/turf/simulated/floor/on_change_area(area/old_area, area/new_area)
+	..()
+	if(!below && (z_flags & ZM_MIMIC_BELOW))
+		update_mimic()
 
 /turf/simulated/floor/reset_color()
 	if(flooring)
