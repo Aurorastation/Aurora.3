@@ -8,38 +8,49 @@
 	var/const/max_dirtiness = 100
 
 /**
- * Loads the Horizon's persisted per-area cleanliness stats and configures eligible areas to generate variable-alpha grime during turf initialization.
+ * Loads the Horizon's persisted per-area cleanliness stats (keyed by area type attribute) and configures eligible areas to generate variable-alpha grime during turf initialization.
  */
 /singleton/persistent_type/generic/horizon_cleanliness/initialization_hook()
 	cleanliness_initialized = FALSE
 	if(!SSpersistence.map_supports_persistence)
 		return
 
-	var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_cleanliness, skip_caching = TRUE)
-	var/list/saved_content = saved_generic?.content
-	var/list/saved_areas = saved_content?["areas"]
+	var/list/eligible_areas_by_type = list()
+	for(var/area/A as anything in GLOB.areas)
+		CHECK_TICK
+		if(!A.station_area || (A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+			continue
+		var/area_key = "[A.type]"
+		LAZYADD(eligible_areas_by_type[area_key], A)
 
-	if(islist(saved_areas) && length(saved_areas))
-		for(var/area/A as anything in GLOB.areas)
-			CHECK_TICK
-			if(!A.station_area || (A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-				continue
+	var/list/saved_attributes = SSpersistence.genericGetAllAttributesForType(/singleton/persistent_type/generic/horizon_cleanliness)
+	for(var/area_key in saved_attributes)
+		CHECK_TICK
+		if(!length(area_key))
+			continue
+		var/list/matching_areas = eligible_areas_by_type[area_key]
+		if(!length(matching_areas))
+			continue
 
-			var/saved_dirtiness = saved_areas["[A.type]"]
-			if(!isnum(saved_dirtiness) || saved_dirtiness <= 0)
-				continue
+		var/datum/persistent_generic/saved_generic = SSpersistence.genericLoad(/singleton/persistent_type/generic/horizon_cleanliness, area_key, skip_caching = TRUE)
+		var/list/saved_content = saved_generic?.content
+		var/saved_dirtiness = saved_content?["dirtiness"]
+		if(!isnum(saved_dirtiness) || saved_dirtiness <= 0)
+			continue
 
-			var/dirtiness = clamp(saved_dirtiness, 0, max_dirtiness)
+		var/dirtiness = clamp(saved_dirtiness, 0, max_dirtiness)
+		// update_dirt() increments dirt by 1 and sets alpha = min((dirt - 50) * 5, 255),
+		// so 53..100 maps to roughly 20..255 alpha as dirtiness scales from 0..100.
+		var/base_dirt_level = clamp(round(52 + (dirtiness * 0.48)), 53, 100)
+
+		for(var/area/A as anything in matching_areas)
 			A.persistent_dirt_chance = dirtiness
-			// update_dirt() increments dirt by 1 and sets alpha = min((dirt - 50) * 5, 255),
-			// so 53..100 maps to roughly 20..255 alpha as dirtiness scales from 0..100.
-			A.persistent_dirt_level = clamp(round(52 + (dirtiness * 0.48)), 53, 100)
+			A.persistent_dirt_level = base_dirt_level
 
 	cleanliness_initialized = TRUE
 
 /**
- * Scans eligible non-maintenance Horizon areas at round end and saves a 1:1 dirtiness percentage per dirty area.
- * Clean areas are omitted so a spotless area starts clean next round, while keeping the saved JSON compact in a single DB row.
+ * Scans eligible non-maintenance Horizon areas at round end and saves a 1:1 dirtiness percentage per area using the area type as the generic attribute.
  */
 /singleton/persistent_type/generic/horizon_cleanliness/finalization_hook()
 	if(!cleanliness_initialized || !SSpersistence.map_supports_persistence)
@@ -68,14 +79,12 @@
 			if(tile_cleanables > 0)
 				area_mess_points[area_key] = (area_mess_points[area_key] || 0) + tile_cleanables
 
-	var/list/areas_to_save = list()
-	for(var/area_key in area_mess_points)
+	for(var/area_key in area_eligible_turfs)
+		CHECK_TICK
 		var/eligible_turfs = area_eligible_turfs[area_key]
 		if(!eligible_turfs || eligible_turfs <= 0)
 			continue
-		var/raw_dirtiness = (area_mess_points[area_key] / eligible_turfs) * 100
+		var/mess_points = area_mess_points[area_key] || 0
+		var/raw_dirtiness = (mess_points / eligible_turfs) * 100
 		var/dirtiness = clamp(round(raw_dirtiness, 0.01), 0, max_dirtiness)
-		if(dirtiness > 0)
-			areas_to_save[area_key] = dirtiness
-
-	SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_cleanliness, list("areas" = areas_to_save))
+		SSpersistence.genericSave(/singleton/persistent_type/generic/horizon_cleanliness, list("dirtiness" = dirtiness), area_key)
