@@ -40,12 +40,12 @@
 
 	var/obj/structure/machinery/optable/table = locate(/obj/structure/machinery/optable) in target.loc
 	if(!table)
-		to_chat(user, SPAN_WARNING("Keyhole surgery can only be performed on an operating table."))
+		to_chat(user, SPAN_WARNING("Keyhole surgery requires real time computer assisted imaging, from a patient monitoring console connected to an operating table."))
 		return FALSE
 
 	var/obj/structure/machinery/computer/operating/console = table.computer
 	if(!console || console.table != table)
-		to_chat(user, SPAN_WARNING("Keyhole surgery requires a patient monitoring console connected to the operating table."))
+		to_chat(user, SPAN_WARNING("Keyhole surgery requires real time computer assisted imaging, from a patient monitoring console connected to the operating table."))
 		return FALSE
 
 	if(console.stat & BROKEN)
@@ -53,6 +53,15 @@
 		return FALSE
 	if(console.stat & NOPOWER)
 		to_chat(user, SPAN_WARNING("The patient monitoring console is unpowered, so keyhole surgery cannot be performed."))
+		return FALSE
+
+	if(!console.primer)
+		to_chat(user, SPAN_WARNING("The patient monitoring console is missing a primer, so keyhole surgery cannot be performed."))
+		return FALSE
+
+	var/atom/primer_scan_target = console.primer.scan_target?.resolve()
+	if(primer_scan_target != target)
+		to_chat(user, SPAN_WARNING("The patient monitoring console's primer does not match this patient, so keyhole surgery cannot be performed."))
 		return FALSE
 
 	return TRUE

@@ -12,7 +12,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && IS_ORGAN_FULLY_OPEN && !(affected.status & ORGAN_BLEEDING)
+	return affected && (IS_ORGAN_FULLY_OPEN || affected.open == ORGAN_OPEN_KEYHOLE) && !(affected.status & ORGAN_BLEEDING)
 
 /singleton/surgery_step/cavity/proc/get_max_wclass(var/obj/item/organ/external/affected)
 	switch(affected.name)
@@ -156,6 +156,7 @@
 	)
 	base_surgery_time = 8 SECONDS
 	skill_requirements = alist(SURGERY_SKILL_COMPONENT = SKILL_LEVEL_TRAINED)
+	possible_with_keyhole = TRUE
 
 /singleton/surgery_step/cavity/implant_removal/get_surgery_skill_requirements(mob/living/user, mob/living/carbon/human/target, target_zone, preferred_skill_component)
 	// Implant, embedded-object, and shrapnel extraction can all use either
@@ -192,12 +193,16 @@
 			if(!istype(I, /obj/item/implant))
 				shrapnel_present = TRUE
 
+		var/implant_removal_delay = 0.5 SECONDS
+		if(affected.open == ORGAN_OPEN_KEYHOLE) //If there is lots of shrapnel, it might be faster to crack the ribcage.
+			implant_removal_delay = 8 SECONDS
+
 		for(var/I in implants)
 			/// Prioritize shrapnel instead of stuff like loyalty implants.
 			if(shrapnel_present && istype(I, /obj/item/implant))
 				continue
 
-			if(do_mob(user, target, 0.5 SECONDS))
+			if(do_after(user, implant_removal_delay, target, DO_UNIQUE))
 
 				user.visible_message("<b>[user]</b> takes [I] out of incision on [target]'s [affected.name] with \the [tool].", \
 					SPAN_NOTICE("You take [I] out of incision on [target]'s [affected.name]s with \the [tool].") )
@@ -214,6 +219,8 @@
 					worm.leave_host()
 
 				playsound(target.loc, BP_IS_ROBOTIC(affected) ? 'sound/items/wrench.ogg' : 'sound/effects/squelch1.ogg', 50, 1)
+			else
+				break
 	else
 		user.visible_message("<b>[user]</b> could not find anything inside [target]'s [affected.name], and pulls \the [tool] out.", \
 			SPAN_NOTICE("You could not find anything inside [target]'s [affected.name].") )

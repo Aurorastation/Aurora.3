@@ -214,8 +214,9 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	return affected \
-		&& surgery_planner_fully_open(affected) \
-		&& !(affected.status & ORGAN_BLEEDING)
+		&& ((possible_with_keyhole && affected.open == ORGAN_OPEN_KEYHOLE) \
+			|| (surgery_planner_fully_open(affected) \
+				&& !(affected.status & ORGAN_BLEEDING)))
 
 /singleton/surgery_step/cavity/make_space/can_show_in_surgery_planner(mob/user, mob/living/carbon/human/target, target_zone)
 	if(!..())
