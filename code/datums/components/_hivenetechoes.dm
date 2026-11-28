@@ -33,7 +33,7 @@
 
 	owner = parent
 	// Setup the first time the echoes will begin playing.
-	next_broadcastEcho = world.time + rand(18, 30) SECONDS
+	next_broadcastEcho = world.time + rand(180, 300) SECONDS
 	next_projectionEcho = world.time + rand(240, 480) SECONDS
 	RegisterSignal(SSdcs, COMSIG_GLOB_HIVENET_ECHO_TRANSMISSION, PROC_REF(setup_echo))
 	// Finally start the clock.
@@ -65,7 +65,7 @@
 		GetBroadcastEcho(topic)
 		var/list/broadcast_data = list(
 			"topic" = topic, "joined" = isjoined, "starter_string" = starter_string, "response_string" = response_string,
-			"next_broadcast" = world.time + rand(18, 30) SECONDS)
+			"next_broadcast" = world.time + rand(180, 300) SECONDS)
 		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_HIVENET_ECHO_TRANSMISSION, broadcast_data)
 
 	if(world.time >= next_projectionEcho)
