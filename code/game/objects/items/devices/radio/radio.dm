@@ -62,8 +62,12 @@ var/global/list/default_interrogation_channels = list(
 	/// Only handheld shortwaves opt into this. Other radio families override it.
 	var/uses_device_cell = TRUE
 	var/datum/device_power_supply/power_supply
-	/// A standard 250 charge device cell lasts forty minutes.
-	var/power_usage_per_second = 250 / (40 * 60)
+	/// A standard 250 charge device cell lasts two hours in standby.
+	var/power_usage_per_second = 250 / (2 * 60 * 60)
+	/// A full standard cell supports 500 transmissions before standby drain.
+	var/transmit_power_cost = 250 / 500
+	/// A full standard cell supports 1000 received messages before standby drain.
+	var/receive_power_cost = 250 / 1000
 	/// Optional wearable radio used as this shortwave's microphone and speaker.
 	var/datum/weakref/connected_audio_accessory
 	var/route_audio_to_accessory = FALSE
@@ -639,6 +643,8 @@ var/global/list/default_interrogation_channels = list(
 	var/datum/radio_frequency/connection = handle_message_mode(M, message, channel)
 	if (!istype(connection))
 		return FALSE
+	if(uses_device_cell && !power_supply.use(transmit_power_cost))
+		return FALSE
 
 	// Determine the identify information attached to the signal
 	var/datum/weakref/speaker_weakref = WEAKREF(M)
@@ -676,6 +682,8 @@ var/global/list/default_interrogation_channels = list(
 /// Received speech is presented at the receiver, while the payload retains the original speaker.
 /obj/item/radio/proc/on_receive_message(list/data, datum/say_message/msg, list/recipients)
 	if(!on || !listening || !get_turf(src))
+		return
+	if(uses_device_cell && !power_supply.use(receive_power_cost))
 		return
 	SEND_SIGNAL(src, COMSIG_RADIO_RECEIVE_MESSAGE, data)
 	if(QDELETED(src) || !runechat_on_receive)

@@ -19,8 +19,12 @@ GLOBAL_LIST_EMPTY(gps_list)
 	var/starts_powered = FALSE
 	var/always_powered = FALSE
 	var/datum/device_power_supply/power_supply
-	/// A standard 250 charge device cell lasts forty minutes.
-	var/power_usage_per_second = 250 / (40 * 60)
+	/// A standard 250 charge device cell lasts two hours while stationary.
+	var/power_usage_per_second = 250 / (2 * 60 * 60)
+	/// Continuous movement reduces a standard cell's two-hour lifetime to seventy minutes.
+	var/movement_power_multiplier = 12 / 7
+	/// Resolved turf used to detect movement even while the GPS is inside nested storage.
+	var/turf/last_power_location
 	var/last_broadcast_position = FALSE
 	var/offline_since
 
@@ -71,6 +75,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	for(var/gps in GLOB.gps_list)
 		tracking += GLOB.gps_list[gps]["tag"]
 
+	last_power_location = get_turf(src)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/gps/Destroy()
@@ -262,8 +267,14 @@ GLOBAL_LIST_EMPTY(gps_list)
 		ui.open()
 
 /obj/item/gps/process(seconds_per_tick)
+	var/turf/current_power_location = get_turf(src)
+	var/is_moving = last_power_location && current_power_location != last_power_location
+	last_power_location = current_power_location
 	if(uses_device_cell && power_supply?.powered)
-		power_supply.use(power_usage_per_second * seconds_per_tick)
+		var/power_usage = power_usage_per_second * seconds_per_tick
+		if(is_moving)
+			power_usage *= movement_power_multiplier
+		power_supply.use(power_usage)
 
 	expire_offline_position()
 	if(!is_operational() || held_by || implanted_into || (world.time < last_process + process_interval))
