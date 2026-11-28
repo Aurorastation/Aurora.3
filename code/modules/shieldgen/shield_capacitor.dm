@@ -64,7 +64,7 @@
 	spark(src, 5, GLOB.alldirs)
 
 /obj/structure/machinery/shield_capacitor/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the capacitor banks of", "\the [src]", tuning_options = list("Capacitor Capacity", "Charge Rate"))
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the capacitor banks of", "\the [src]", tuning_options = list(TUNE_MODE_PRODUCTIVITY, TUNE_MODE_SPEED))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -83,9 +83,9 @@
 		else if(ismicrolaser(P))
 			max_charge_rate += P.rating * 3 MEGA WATTS
 
-	if(tuned_mode == "Capacitor Capacity")
+	if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
 		max_charge = round(max_charge * 1.15)
-	else if(tuned_mode == "Charge Rate")
+	else if(tuned_mode == TUNE_MODE_SPEED)
 		max_charge_rate = round(max_charge_rate * 1.2)
 
 /obj/structure/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)

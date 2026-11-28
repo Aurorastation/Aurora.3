@@ -53,7 +53,7 @@
 	var/fabrication_audio_playing = FALSE
 
 /obj/structure/machinery/r_n_d/fabricator/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list("Material Efficiency", "Production Speed"))
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list(TUNE_MODE_EFFICIENCY, TUNE_MODE_SPEED))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -62,9 +62,9 @@
 	return TRUE
 
 /obj/structure/machinery/r_n_d/fabricator/proc/apply_tuning_modifiers()
-	if(tuned_mode == "Material Efficiency")
+	if(tuned_mode == TUNE_MODE_EFFICIENCY)
 		mat_efficiency *= 0.85
-	else if(tuned_mode == "Production Speed")
+	else if(tuned_mode == TUNE_MODE_SPEED)
 		production_speed *= 1.2
 
 /obj/structure/machinery/r_n_d/fabricator/Initialize(mapload, d, populate_components, is_internal)

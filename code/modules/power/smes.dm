@@ -150,7 +150,7 @@
 	return ..()	// TODO: Properly clean up terminal.
 
 /obj/structure/machinery/power/smes/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list("Storage Capacity", "I/O Throughput"))
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "recalibrating", "\the [src]", tuning_options = list(TUNE_MODE_PRODUCTIVITY, TUNE_MODE_SPEED))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -159,9 +159,9 @@
 	return TRUE
 
 /obj/structure/machinery/power/smes/proc/apply_tuning_modifiers()
-	if(tuned_mode == "Storage Capacity")
+	if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
 		capacity = round(capacity * 1.15)
-	else if(tuned_mode == "I/O Throughput")
+	else if(tuned_mode == TUNE_MODE_SPEED)
 		input_level_max = round(input_level_max * 1.2)
 		output_level_max = round(output_level_max * 1.2)
 

@@ -59,7 +59,7 @@
 /obj/effect/decal/cleanable/greenglow/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	var/skill_level = GET_SKILL_LEVEL(user, REACTOR_SYSTEMS_SKILL_COMPONENT)
-	if((isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR) && !istype(src, /obj/effect/decal/cleanable/greenglow/radioactive))
+	if((isnull(skill_level) || skill_level >= SKILL_LEVEL_FAMILIAR) && radioactivity <= 0)
 		. += SPAN_NOTICE("On closer inspection, this glowing residue appears inert and non-radioactive.")
 
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)

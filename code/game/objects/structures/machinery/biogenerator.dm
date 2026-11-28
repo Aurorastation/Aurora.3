@@ -844,7 +844,7 @@ EMAG/ILLEGAL
 	updateUsrDialog()
 
 /obj/structure/machinery/biogenerator/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "adjusting the mechanical press of", "\the [src]", tuning_options = list("Biomass Yield", "Processing Speed"))
+	var/tune_result = attempt_skill_tuning(user, MECHANICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "adjusting the mechanical press of", "\the [src]", tuning_options = list(TUNE_MODE_PRODUCTIVITY, TUNE_MODE_SPEED))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -870,9 +870,9 @@ EMAG/ILLEGAL
 	build_eff = max(1, man_rating)
 	eat_eff = max(1, bin_rating)
 	processing_time_divisor = max(1, capacitor_rating)
-	if(tuned_mode == "Biomass Yield")
+	if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
 		eat_eff *= 1.15
-	else if(tuned_mode == "Processing Speed")
+	else if(tuned_mode == TUNE_MODE_SPEED)
 		processing_time_divisor *= 1.2
 
 /obj/structure/machinery/biogenerator/small

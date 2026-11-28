@@ -69,7 +69,7 @@
 		qdel(bar)
 
 /obj/structure/machinery/recharger/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the power regulation of", "\the [src]", tuning_options = list("Charging Efficiency", "Power Conservation"))
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the power regulation of", "\the [src]", tuning_options = list(TUNE_MODE_PRODUCTIVITY, TUNE_MODE_EFFICIENCY))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -87,9 +87,9 @@
 
 	charging_efficiency = initial(charging_efficiency) + cap_rating * charging_efficiency_per_capacitor
 	active_power_usage = cap_rating * charging_speed_per_capacitor
-	if(tuned_mode == "Charging Efficiency")
+	if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
 		charging_efficiency *= 1.2
-	else if(tuned_mode == "Power Conservation")
+	else if(tuned_mode == TUNE_MODE_EFFICIENCY)
 		active_power_usage = round(active_power_usage * 0.8)
 
 /obj/structure/machinery/recharger/attackby(obj/item/attacking_item, mob/user)

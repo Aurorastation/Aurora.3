@@ -71,7 +71,7 @@
 	return ..()
 
 /obj/structure/machinery/mech_recharger/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the dock conduits of", "\the [src]", tuning_options = list("Charging Speed", "Repair Speed"))
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the dock conduits of", "\the [src]", tuning_options = list(TUNE_MODE_SPEED, TUNE_MODE_PRODUCTIVITY))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -93,9 +93,9 @@
 		else if(ismanipulator(P))
 			repair += P.rating * repair_per_manipulator_rating
 
-	if(tuned_mode == "Charging Speed")
+	if(tuned_mode == TUNE_MODE_SPEED)
 		charge *= 1.2
-	else if(tuned_mode == "Repair Speed")
+	else if(tuned_mode == TUNE_MODE_PRODUCTIVITY)
 		repair *= 1.25
 
 	change_power_consumption(initial(base_charge_rate) * charge, POWER_USE_ACTIVE)

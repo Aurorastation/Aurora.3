@@ -218,3 +218,8 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,
 #define STATUS_DISPLAY_ALERT 3
 #define STATUS_DISPLAY_TIME 4
 #define STATUS_DISPLAY_CUSTOM 99
+
+// Machine skill tuning modes.
+#define TUNE_MODE_SPEED "Speed"
+#define TUNE_MODE_PRODUCTIVITY "Productivity"
+#define TUNE_MODE_EFFICIENCY "Efficiency"

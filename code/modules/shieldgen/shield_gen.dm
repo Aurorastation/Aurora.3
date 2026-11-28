@@ -118,7 +118,7 @@
 		..()
 
 /obj/structure/machinery/shield_gen/AltClick(mob/user)
-	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the field emitters of", "\the [src]", tuning_options = list("Power Efficiency", "Field Recovery"))
+	var/tune_result = attempt_skill_tuning(user, ELECTRICAL_ENGINEERING_SKILL_COMPONENT, tuned_mode, "calibrating the field emitters of", "\the [src]", tuning_options = list(TUNE_MODE_EFFICIENCY, TUNE_MODE_SPEED))
 	if(isnull(tune_result))
 		return ..()
 	if(istext(tune_result))
@@ -144,9 +144,9 @@
 		energy_field.max_strengthen_rate = initial(energy_field.max_strengthen_rate) + (max_strengthen_rate_increase * manipulator_bonus)
 		energy_field.energy_conversion_rate = initial(energy_field.energy_conversion_rate) + (energy_conversion_rate_increase * capacitor_bonus)
 		energy_field.dissipation_rate = max(0, initial(energy_field.dissipation_rate) - (dissipation_rate_decrease * micro_laser_bonus))
-		if(tuned_mode == "Power Efficiency")
+		if(tuned_mode == TUNE_MODE_EFFICIENCY)
 			energy_field.energy_conversion_rate *= 1.25
-		else if(tuned_mode == "Field Recovery")
+		else if(tuned_mode == TUNE_MODE_SPEED)
 			energy_field.max_strengthen_rate *= 1.25
 		energy_field.strengthen_rate = min(energy_field.strengthen_rate, energy_field.max_strengthen_rate) ///If the strengthen rate got decreased and the current strengthen rate is now above the max, reduce it to the max.
 
