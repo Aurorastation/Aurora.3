@@ -159,6 +159,26 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 /datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
 	return H.organs_by_name[vision_organ]
 
+/datum/species/diona/handle_strip(var/mob/user, var/mob/living/carbon/human/H, var/action)
+	if(action != "tail" || !H.can_strip(user) || H.species != src)
+		return
+	var/obj/item/organ/external/groin/G = H.organs_by_name[BP_GROIN]
+	var/obj/item/storage/internal/tail/storage = G?.tail_storage
+	if(!storage || !H.tail_style || H.tail_style == "No Tail")
+		return
+	H.visible_message(SPAN_WARNING("\The [user] is trying to search \the [H]'s tail!"))
+	if(!do_after(user, HUMAN_STRIP_DELAY, H, do_flags = DO_EQUIP))
+		return
+	if(!H.can_strip(user) || H.species != src || QDELETED(storage) || H.organs_by_name[BP_GROIN] != G || G.tail_storage != storage || storage.loc != G)
+		return
+	H.strip_menu?.open_storage(user, storage)
+
+/datum/species/diona/get_strip_actions(var/mob/living/carbon/human/H)
+	. = list()
+	var/obj/item/organ/external/groin/G = H.organs_by_name[BP_GROIN]
+	if(G?.tail_storage && H.tail_style && H.tail_style != "No Tail")
+		.["tail"] = "Search tail storage"
+
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (ishuman(H))
 		return ..()

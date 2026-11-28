@@ -27,6 +27,11 @@
 		data["owner_real_name"] = posibrain.owner.real_name
 		data["firewall"] = posibrain.firewall
 		data["p2p_communication"] = posibrain.p2p_communication_allowed
+		var/obj/item/organ/internal/machine/internal_storage/internal_storage = owner.internal_organs_by_name[BP_INTERNAL_STORAGE]
+		if(istype(internal_storage))
+			data["internal_storage"] = TRUE
+			data["internal_storage_locked"] = internal_storage.locked
+			data["internal_storage_panel_open"] = internal_storage.is_panel_open()
 
 		var/obj/item/organ/internal/machine/access_port/port = owner.internal_organs_by_name[BP_ACCESS_PORT]
 		if(istype(port) && !port.is_broken())
@@ -55,6 +60,11 @@
 			if(istype(posibrain))
 				posibrain.toggle_p2p()
 				. = TRUE
+
+		if("toggle_internal_storage")
+			var/obj/item/organ/internal/machine/internal_storage/internal_storage = owner.internal_organs_by_name[BP_INTERNAL_STORAGE]
+			if(istype(internal_storage))
+				. = internal_storage.toggle_lock(ui.user)
 
 		if("talk_p2p")
 			var/obj/item/organ/internal/machine/access_port/port = owner.internal_organs_by_name[BP_ACCESS_PORT]

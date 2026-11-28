@@ -102,6 +102,9 @@
 	return 1
 
 /obj/item/storage/internal/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	// Preserve special access such as storage opened through another mob's strip menu.
+	if(..())
+		return TRUE
 	var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
 	return real_master_item.Adjacent(neighbor)
 
